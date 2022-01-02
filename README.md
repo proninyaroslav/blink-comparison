@@ -108,7 +108,7 @@ Please see our [Privacy Policy](PRIVACY.md).
 
 [![Large GPLv3 logo with “Free as in Freedom”](https://www.gnu.org/graphics/gplv3-with-text-136x68.png)](http://www.gnu.org/licenses/gpl-3.0.en.html)
 
-    Copyright (C) 2021 Yaroslav Pronin <proninyaroslav@mail.ru>
+    Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
     This file is part of Blink Comparison.
     Blink Comparison is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
