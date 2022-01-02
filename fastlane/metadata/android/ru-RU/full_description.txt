@@ -12,4 +12,4 @@
 * Ночная тема
 * Адаптивный интерфейс для различных форм-факторов устройств
 
-Для получения дополнительной информации см. здесь: <a href="https://github.com/proninyaroslav/blink-comparison">https://github.com/proninyaroslav/blink-comparison</a>
+Для получения дополнительной информации см. здесь: <a href="https://github.com/proninyaroslav/blink-comparison/blob/HEAD/README.md">https://github.com/proninyaroslav/blink-comparison/blob/HEAD/README.md</a>
