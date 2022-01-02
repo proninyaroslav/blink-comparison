@@ -1,0 +1,15 @@
+The concept of "blink comparison" method is simple - the app allows you to quickly switch pictures without delay so you can see the differences.
+
+"Blink comparison" method uses high efficiency pattern recognition by human eyes, to permit quick verification between a reference picture and an actual one being taken on the spot. For example, in the goal of detecting tampering in high contrast nail polish tamper-evident seals.
+
+📋 Features
+* Free and Open Source software (FOSS)
+* Support for various platforms and devices (currently Android only)
+* Add and store reference pictures in the app or take a photo on the spot; all pictures are encrypted, making it harder to steal or replacement
+* Compare a reference image with the one just taken using "blink comparison" method
+* Helps to take a compared photo in the correct position, at the correct angle, lighting and distance
+* Material Design
+* Night theme
+* Responsive UI for different devices form factors
+
+For more information, please see here: <a href="https://github.com/proninyaroslav/blink-comparison/blob/HEAD/README.md">https://github.com/proninyaroslav/blink-comparison/blob/HEAD/README.md</a>
