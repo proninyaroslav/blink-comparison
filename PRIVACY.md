@@ -68,4 +68,4 @@ Blink Comparison is developed in good faith and for general use. The developer w
 ## Contact
 
 Contributions to this project are welcomed. Contributions, suggestions or bug reports and fixes can be made by opening an issue or creating pull requests. Read our contributor's guidelines [here](CONTRIBUTING.md) to get started.
-If you have any questions about this Privacy Policy, or any other issue relating to the Blink Comparison project, please contact us [here](https://github.com/proninyaroslav/Blink Comparison) by opening an [issue](https://github.com/proninyaroslav/Blink Comparison/issues/new).
+If you have any questions about this Privacy Policy, or any other issue relating to the Blink Comparison project, please contact us [here](https://github.com/proninyaroslav/blink_comparison) by opening an [issue](https://github.com/proninyaroslav/blink_comparison/issues/new).
