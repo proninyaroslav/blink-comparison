@@ -1,0 +1,1 @@
+Removed permissions that requested by third party plugins.
