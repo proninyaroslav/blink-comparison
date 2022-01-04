@@ -13,3 +13,4 @@ The concept of "blink comparison" method is simple - the app allows you to quick
 * Responsive UI for different devices form factors
 
 For more information, please see here: <a href="https://github.com/proninyaroslav/blink-comparison/blob/HEAD/README.md">https://github.com/proninyaroslav/blink-comparison/blob/HEAD/README.md</a>
+Privacy Policy: <a href="https://github.com/proninyaroslav/blink-comparison/blob/HEAD/PRIVACY.md">https://github.com/proninyaroslav/blink-comparison/blob/HEAD/PRIVACY.md</a>

@@ -13,3 +13,4 @@
 * Адаптивный интерфейс для различных форм-факторов устройств
 
 Для получения дополнительной информации см. здесь: <a href="https://github.com/proninyaroslav/blink-comparison/blob/HEAD/README.md">https://github.com/proninyaroslav/blink-comparison/blob/HEAD/README.md</a>
+Политика конфиденциальности: <a href="https://github.com/proninyaroslav/blink-comparison/blob/HEAD/PRIVACY.md">https://github.com/proninyaroslav/blink-comparison/blob/HEAD/PRIVACY.md</a>
