@@ -17,8 +17,7 @@ The permission is;
 
 Blink Comparison has some other capabilities, which are functions the software can remotely effect on its own. They include;
 
-- **view network connections**: This is the capability of the app to view information about network connections such as which networks exist and are connected.
-- **control vibration**: Allows the app to control the vibrator.
+- **Run foreground services**: Allows the app to save reference images in the background.
 
 The information that may be collected with these permissions are stored locally on the device and the developer has no access to that information. These permissions can be revoked when they are not needed, this is privy to only devices running Android 6.0 upward.
 
