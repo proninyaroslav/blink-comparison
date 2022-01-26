@@ -40,6 +40,7 @@ The concept of "blink comparison" method is simple - the app allows you to quick
 Relative documentation on the tamper-evident glitter nail polish seals concept and why it is hard to beat:
  - https://trmm.net/Glitter/
  - https://www.wired.com/2013/12/better-data-security-nail-polish/
+ - https://dys2p.com/en/2021-12-tamper-evident-protection.html
 
 [Use, see, change and share](https://en.wikipedia.org/wiki/Free_software); [with all](https://en.wikipedia.org/wiki/Copyleft).
 
