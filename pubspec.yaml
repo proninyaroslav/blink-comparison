@@ -21,7 +21,6 @@ environment:
   sdk: '>=2.15.0 <3.0.0'
 
 dependencies:
-  animations: ^2.0.1
   auto_route: ^3.2.1
   bloc: ^8.0.2
   camera: ^0.9.4+3
@@ -46,10 +45,10 @@ dependencies:
       ref: linux
   flutter_local_notifications: ^9.0.0
   flutter_staggered_animations: ^1.0.0
-  flutter_staggered_grid_view: ^0.5.0
+  flutter_staggered_grid_view: ^0.6.1
   freezed_annotation: ^1.0.0
   image_picker: ^0.8.4
-  injectable: ^1.5.0
+  injectable: ^1.5.3
   json_annotation: ^4.4.0
   json_serializable: ^6.0.0
   just_audio: ^0.9.16
@@ -72,10 +71,10 @@ dependencies:
       ref: patch-1
   url_launcher: ^6.0.9
   uuid: ^3.0.4
-  wakelock: ^0.5.6
+  wakelock: ^0.6.1+1
 
 dev_dependencies:
-  analyzer: ^3.0.0
+  analyzer: ^3.2.0
   auto_route_generator: ^3.2.1
   bloc_test: ^9.0.2
   build_runner: ^2.1.1
@@ -84,18 +83,12 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^1.0.4
   freezed: ^1.1.1
-  injectable_generator: ^1.5.2
+  injectable_generator: ^1.5.3
   intl_utils: ^2.6.0
   mocktail: ^0.2.0
 
 dependency_overrides:
-  # TODO: wait for fix https://github.com/localizely/intl_utils/issues/73
-  analyzer: ^3.0.0
-  # TODO: wait for fix https://github.com/Milad-Akarie/injectable/issues/263
-  injectable_generator:
-    git:
-      url: https://github.com/proninyaroslav/injectable.git
-      ref: tmp-fix-analyzer
+  analyzer: ^3.2.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

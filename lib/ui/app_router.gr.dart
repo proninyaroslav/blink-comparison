@@ -11,8 +11,8 @@
 // ignore_for_file: type=lint
 
 import 'package:auto_route/auto_route.dart' as _i9;
-import 'package:cross_file/cross_file.dart' as _i12;
 import 'package:flutter/material.dart' as _i10;
+import 'package:image_picker/image_picker.dart' as _i12;
 
 import 'auth/auth_page.dart' as _i2;
 import 'auth_guard.dart' as _i11;
