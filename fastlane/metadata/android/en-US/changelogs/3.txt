@@ -1,0 +1,1 @@
+Fixed camera access crash when sensor privacy is enabled.
