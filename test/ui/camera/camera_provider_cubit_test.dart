@@ -47,12 +47,12 @@ void main() {
       build: () => cubit,
       act: (CameraProviderCubit cubit) async {
         final expectedCameras = [
-          CameraDescription(
+          const CameraDescription(
             name: 'Front',
             lensDirection: CameraLensDirection.front,
             sensorOrientation: 0,
           ),
-          CameraDescription(
+          const CameraDescription(
             name: 'Back',
             lensDirection: CameraLensDirection.back,
             sensorOrientation: 0,
@@ -65,7 +65,7 @@ void main() {
       },
       expect: () => [
         const CameraProviderState.loading(),
-        CameraProviderState.loaded(
+        const CameraProviderState.loaded(
           primaryCamera: CameraDescription(
             name: 'Front',
             lensDirection: CameraLensDirection.front,
@@ -88,12 +88,12 @@ void main() {
       build: () => cubit,
       act: (CameraProviderCubit cubit) async {
         final expectedCameras = [
-          CameraDescription(
+          const CameraDescription(
             name: 'Front',
             lensDirection: CameraLensDirection.front,
             sensorOrientation: 0,
           ),
-          CameraDescription(
+          const CameraDescription(
             name: 'Back',
             lensDirection: CameraLensDirection.back,
             sensorOrientation: 0,
@@ -108,7 +108,7 @@ void main() {
       },
       expect: () => [
         const CameraProviderState.loading(),
-        CameraProviderState.loaded(
+        const CameraProviderState.loaded(
           primaryCamera: CameraDescription(
             name: 'Front',
             lensDirection: CameraLensDirection.front,
@@ -124,7 +124,7 @@ void main() {
           enableFlashByDefault: true,
         ),
         const CameraProviderState.loading(),
-        CameraProviderState.loaded(
+        const CameraProviderState.loaded(
           primaryCamera: CameraDescription(
             name: 'Front',
             lensDirection: CameraLensDirection.front,
@@ -162,12 +162,12 @@ void main() {
       build: () => cubit,
       act: (CameraProviderCubit cubit) async {
         final expectedCameras = [
-          CameraDescription(
+          const CameraDescription(
             name: 'Front',
             lensDirection: CameraLensDirection.front,
             sensorOrientation: 0,
           ),
-          CameraDescription(
+          const CameraDescription(
             name: 'Back',
             lensDirection: CameraLensDirection.back,
             sensorOrientation: 0,
@@ -181,7 +181,7 @@ void main() {
       },
       expect: () => [
         const CameraProviderState.loading(),
-        CameraProviderState.loaded(
+        const CameraProviderState.loaded(
           primaryCamera: CameraDescription(
             name: 'Front',
             lensDirection: CameraLensDirection.front,
@@ -197,7 +197,7 @@ void main() {
           enableFlashByDefault: true,
         ),
         const CameraProviderState.loading(),
-        CameraProviderState.loaded(
+        const CameraProviderState.loaded(
           primaryCamera: CameraDescription(
             name: 'Back',
             lensDirection: CameraLensDirection.back,
