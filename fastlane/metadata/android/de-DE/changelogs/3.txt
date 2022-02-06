@@ -1,0 +1,1 @@
+Fehler beim Kamerazugriff behoben, wenn der Sensorschutz aktiviert ist.
