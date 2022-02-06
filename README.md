@@ -69,6 +69,7 @@ All reference images that added to the app stored as encrypted, making it harder
 
  - **English**
  - **Russian**
+ - **German**
 
 ## 💰 Donation
 
