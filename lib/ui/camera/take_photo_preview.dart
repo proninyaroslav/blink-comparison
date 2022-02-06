@@ -97,6 +97,7 @@ class _TakePhotoPreviewState extends State<TakePhotoPreview>
                 case LoadState.failed:
                   return const _OpenImageError();
               }
+              return null;
             },
           ),
         ),

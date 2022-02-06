@@ -332,6 +332,7 @@ class _ImageViewState extends State<_ImageView>
                     case LoadState.failed:
                       return const _LoadRefImageError();
                   }
+                  return null;
                 },
               );
             },

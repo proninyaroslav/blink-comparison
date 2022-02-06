@@ -19,7 +19,7 @@ import 'package:flutter/foundation.dart';
 import 'package:logger/logger.dart';
 
 final _filter = kDebugMode ? DevelopmentFilter() : ProductionFilter();
-final _level = kDebugMode ? Level.verbose : Level.info;
+const _level = kDebugMode ? Level.verbose : Level.info;
 
 final _logger = Logger(
   printer: PrettyPrinter(),

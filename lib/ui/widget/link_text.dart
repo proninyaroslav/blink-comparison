@@ -42,7 +42,7 @@ class LinkText extends StatelessWidget {
     final linkStyle = TextStyle(
       color: AppTheme.isDark(context)
           ? colorScheme.primary
-          : colorScheme.primaryVariant,
+          : colorScheme.secondaryContainer,
     );
     Future<void> onOpen(LinkableElement link) async {
       try {

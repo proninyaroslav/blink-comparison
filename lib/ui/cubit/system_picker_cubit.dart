@@ -97,6 +97,7 @@ class SystemPickerCubit extends Cubit<SystemPickerState> {
     } else if (response.exception != null) {
       throw response.exception!;
     }
+    return null;
   }
 }
 

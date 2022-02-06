@@ -128,7 +128,7 @@ class AppTheme {
       return _darkThemeData.copyWith(
         colorScheme: _darkThemeData.colorScheme.copyWith(
           secondary: paletteDark.secondary,
-          secondaryVariant: paletteDark.secondaryDark,
+          secondaryContainer: paletteDark.secondaryDark,
           onSecondary: _onSecondaryDark,
         ),
         textTheme: _darkThemeData.textTheme.apply(
@@ -139,7 +139,7 @@ class AppTheme {
       return _lightThemeData.copyWith(
         colorScheme: _lightThemeData.colorScheme.copyWith(
           secondary: paletteLight.secondary,
-          secondaryVariant: paletteLight.secondaryDark,
+          secondaryContainer: paletteLight.secondaryDark,
           onSecondary: _onSecondaryLight,
         ),
         textTheme: _lightThemeData.textTheme.apply(
@@ -221,7 +221,7 @@ class AppTheme {
   }
 
   static Color itemSelectableColor(BuildContext context) =>
-      Theme.of(context).colorScheme.primaryVariant.withOpacity(0.14);
+      Theme.of(context).colorScheme.secondaryContainer.withOpacity(0.14);
 
   static TextStyle pageHeadlineText(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
