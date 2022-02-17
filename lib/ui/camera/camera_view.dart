@@ -421,8 +421,12 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
   }
 
   Future<void> _playCameraShooter() async {
-    await _audioPlayer.setAsset('assets/audio/camera_shutter.mp3');
-    await _audioPlayer.play();
+    try {
+      await _audioPlayer.setAsset('assets/audio/camera_shutter.mp3');
+      await _audioPlayer.play();
+    } on PlayerInterruptedException {
+      log().e('Unable to play shutter sound');
+    }
   }
 
   bool get _initialized =>
