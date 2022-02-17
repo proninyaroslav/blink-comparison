@@ -41,8 +41,8 @@ void main() {
         cubit.switchImage();
       },
       expect: () => [
-        const BlinkComparisonState.showRefImage(),
         const BlinkComparisonState.showTakenPhoto(),
+        const BlinkComparisonState.showRefImage(),
       ],
     );
   });
