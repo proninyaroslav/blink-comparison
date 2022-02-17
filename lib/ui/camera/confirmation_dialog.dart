@@ -24,12 +24,12 @@ import 'package:responsive_builder/responsive_builder.dart';
 
 import '../../locale.dart';
 
-class TakePhotoPreview extends StatefulWidget {
+class ConfirmationDialog extends StatefulWidget {
   final XFile photoFile;
   final VoidCallback? onRetry;
   final VoidCallback? onAccept;
 
-  const TakePhotoPreview({
+  const ConfirmationDialog({
     Key? key,
     required this.photoFile,
     this.onRetry,
@@ -37,10 +37,10 @@ class TakePhotoPreview extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<TakePhotoPreview> createState() => _TakePhotoPreviewState();
+  State<ConfirmationDialog> createState() => _ConfirmationDialogState();
 }
 
-class _TakePhotoPreviewState extends State<TakePhotoPreview>
+class _ConfirmationDialogState extends State<ConfirmationDialog>
     with TickerProviderStateMixin, ExtendedImageDoubleClickMixin {
   static const _minScale = 1.0;
   static const _maxScale = 5.0;

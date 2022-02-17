@@ -38,7 +38,7 @@ class BlinkComparisonCubit extends Cubit<BlinkComparisonState> {
 
   void switchImage() {
     emit(state.when(
-      initial: () => const BlinkComparisonState.showRefImage(),
+      initial: () => const BlinkComparisonState.showTakenPhoto(),
       showRefImage: () => const BlinkComparisonState.showTakenPhoto(),
       showTakenPhoto: () => const BlinkComparisonState.showRefImage(),
     ));

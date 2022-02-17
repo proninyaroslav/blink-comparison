@@ -18,7 +18,7 @@
 import 'dart:async';
 
 import 'package:blink_comparison/core/platform_info.dart';
-import 'package:blink_comparison/ui/camera/take_photo_preview.dart';
+import 'package:blink_comparison/ui/camera/confirmation_dialog.dart';
 import 'package:blink_comparison/ui/cubit/error_report_cubit.dart';
 import 'package:blink_comparison/ui/widget/widget.dart';
 import 'package:camera/camera.dart';
@@ -36,11 +36,13 @@ import 'camera_provider_cubit.dart';
 class CameraView extends StatefulWidget {
   final Widget? overlayChild;
   final ValueChanged<XFile>? onTakePhoto;
+  final bool showConfirmationDialog;
 
   const CameraView({
     Key? key,
     this.overlayChild,
     this.onTakePhoto,
+    this.showConfirmationDialog = true,
   }) : super(key: key);
 
   @override
@@ -75,6 +77,7 @@ class _CameraViewState extends State<CameraView> {
               overlayChild: widget.overlayChild,
               onTakePhoto: widget.onTakePhoto,
               enableFlashByDefault: enableFlashByDefault,
+              showConfirmationDialog: widget.showConfirmationDialog,
             );
           },
           loadFailed: (e, stackTrace) {
@@ -100,6 +103,7 @@ class _Preview extends StatefulWidget {
   final Widget? overlayChild;
   final ValueChanged<XFile>? onTakePhoto;
   final bool enableFlashByDefault;
+  final bool showConfirmationDialog;
 
   const _Preview({
     Key? key,
@@ -108,6 +112,7 @@ class _Preview extends StatefulWidget {
     this.overlayChild,
     this.onTakePhoto,
     required this.enableFlashByDefault,
+    required this.showConfirmationDialog,
   }) : super(key: key);
 
   @override
@@ -237,19 +242,23 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
       return Container();
     } else if (_capturedPhoto != null) {
       _switchFlash(false);
-      return TakePhotoPreview(
-        photoFile: _capturedPhoto!,
-        onRetry: () {
-          setState(() {
-            _capturedPhoto = null;
-          });
-        },
-        onAccept: () {
-          if (_capturedPhoto != null) {
-            widget.onTakePhoto?.call(_capturedPhoto!);
-          }
-        },
-      );
+      if (widget.showConfirmationDialog) {
+        return ConfirmationDialog(
+          photoFile: _capturedPhoto!,
+          onRetry: () {
+            setState(() {
+              _capturedPhoto = null;
+            });
+          },
+          onAccept: () {
+            if (_capturedPhoto != null) {
+              widget.onTakePhoto?.call(_capturedPhoto!);
+            }
+          },
+        );
+      } else {
+        widget.onTakePhoto?.call(_capturedPhoto!);
+      }
     }
     _switchFlash(_keepFlash);
 

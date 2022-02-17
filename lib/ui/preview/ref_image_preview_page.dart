@@ -147,6 +147,7 @@ class _BodyState extends State<_Body> {
                       _refImageSize = getImageSize(info);
                     },
                   ),
+                  showConfirmationDialog: false,
                   onTakePhoto: _onTakePhoto,
                 );
               },

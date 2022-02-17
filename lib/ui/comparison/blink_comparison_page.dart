@@ -145,10 +145,10 @@ class _BodyState extends State<_Body> {
   void _startShowcase() {
     final completed = context.read<ShowcaseCubit>().state.completed;
     final showcases = [
-      if (!completed.contains(const ShowcaseType.refImageBorder()))
-        _refImageBorderShowcaseKey,
       if (!completed.contains(const ShowcaseType.blinkComparison()))
         _blinkComparisonShowcaseKey,
+      if (!completed.contains(const ShowcaseType.refImageBorder()))
+        _refImageBorderShowcaseKey,
     ];
     if (showcases.isNotEmpty) {
       ShowCaseWidget.of(context)?.startShowCase(showcases);
