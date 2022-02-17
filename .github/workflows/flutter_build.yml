@@ -17,4 +17,4 @@ jobs:
     - name: Install dependencies
       run: flutter pub get
     - name: Build debug Android APK
-      run: flutter build apk --flavor main --debug
+      run: flutter build apk --debug

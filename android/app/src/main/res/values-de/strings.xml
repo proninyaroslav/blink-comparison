@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Blink Comparison</string>
+    <string name="error">Fehler</string>
+    <string name="android_crash_report_channel">Android-Fehlerberichte</string>
+    <string name="crash_report_summary">Ein Anwendungsfehler ist aufgetreten. Sie können ihn an die Entwickler melden.</string>
+    <string name="crash_report_extra_info">Zusätzliche Informationen und Kommentare</string>
+    <string name="report">Bericht</string>
+    <string name="report_with_comment">Bericht mit Kommentar</string>
+</resources>

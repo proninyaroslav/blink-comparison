@@ -27,6 +27,7 @@ class AppLocale {
   static const supportedLocales = [
     Locale('en', 'US'),
     Locale('ru', 'RU'),
+    Locale('de', 'DE'),
   ];
 
   static const Iterable<LocalizationsDelegate<dynamic>> localizationsDelegates =
