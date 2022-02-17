@@ -156,6 +156,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsBlinkComparisonPage":
             MessageLookupByLibrary.simpleMessage("Vergleichsseite"),
         "settingsCamera": MessageLookupByLibrary.simpleMessage("Kamera"),
+        "settingsCameraFullscreenMode":
+            MessageLookupByLibrary.simpleMessage("Vollbildmodus"),
         "settingsFlashByDefault": MessageLookupByLibrary.simpleMessage(
             "Blitzlicht standardmäßig einschalten"),
         "settingsLanguage": MessageLookupByLibrary.simpleMessage("Sprache"),

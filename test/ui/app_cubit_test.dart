@@ -36,6 +36,7 @@ void main() {
         const AppThemeType.system(),
       );
       when(() => mockSettings.locale).thenReturn(const AppLocaleType.system());
+      when(() => mockSettings.cameraFullscreenMode).thenReturn(true);
     });
 
     setUp(() {
@@ -60,14 +61,17 @@ void main() {
         const AppState.changed(
           theme: AppThemeType.dark(),
           locale: AppLocaleType.system(),
+          cameraFullscreenMode: true,
         ),
         const AppState.changed(
           theme: AppThemeType.light(),
           locale: AppLocaleType.system(),
+          cameraFullscreenMode: true,
         ),
         const AppState.changed(
           theme: AppThemeType.system(),
           locale: AppLocaleType.system(),
+          cameraFullscreenMode: true,
         ),
       ],
     );
@@ -90,10 +94,33 @@ void main() {
           locale: AppLocaleType.inner(
             locale: Locale('ru', 'RU'),
           ),
+          cameraFullscreenMode: true,
         ),
         const AppState.changed(
           theme: AppThemeType.system(),
           locale: AppLocaleType.system(),
+          cameraFullscreenMode: true,
+        ),
+      ],
+    );
+
+    blocTest(
+      'Change fullscreen mode',
+      build: () => cubit,
+      act: (AppCubit cubit) {
+        cubit.setCameraFullscreenMode(false);
+        cubit.setCameraFullscreenMode(true);
+      },
+      expect: () => [
+        const AppState.changed(
+          theme: AppThemeType.system(),
+          locale: AppLocaleType.system(),
+          cameraFullscreenMode: false,
+        ),
+        const AppState.changed(
+          theme: AppThemeType.system(),
+          locale: AppLocaleType.system(),
+          cameraFullscreenMode: true,
         ),
       ],
     );

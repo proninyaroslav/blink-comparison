@@ -925,6 +925,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Fullscreen mode`
+  String get settingsCameraFullscreenMode {
+    return Intl.message(
+      'Fullscreen mode',
+      name: 'settingsCameraFullscreenMode',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

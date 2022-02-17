@@ -37,6 +37,8 @@ abstract class AppSettings {
   abstract bool enableFlashByDefault;
 
   abstract Set<ShowcaseType> completedShowcases;
+
+  abstract bool cameraFullscreenMode;
 }
 
 abstract class AppSettingsDefault {
@@ -53,6 +55,8 @@ abstract class AppSettingsDefault {
   static const enableFlashByDefault = true;
 
   static const completedShowcases = <ShowcaseType>{};
+
+  static bool cameraFullscreenMode = true;
 }
 
 @Singleton(as: AppSettings)
@@ -135,6 +139,15 @@ class AppSettingsImpl implements AppSettings {
     final strList = values.map((v) => jsonEncode(v.toJson())).toList();
     _pref.setStringList(_AppSettingsKey.completedShowcases, strList);
   }
+
+  @override
+  bool get cameraFullscreenMode =>
+      _pref.getBool(_AppSettingsKey.cameraFullscreenMode) ??
+      AppSettingsDefault.cameraFullscreenMode;
+
+  @override
+  set cameraFullscreenMode(bool value) =>
+      _pref.setBool(_AppSettingsKey.cameraFullscreenMode, value);
 }
 
 abstract class _AppSettingsKey {
@@ -144,6 +157,7 @@ abstract class _AppSettingsKey {
   static const refImageBorderColor = 'pref_key_ref_image_border_color';
   static const enableFlashByDefault = 'pref_key_enable_Flash_by_default';
   static const completedShowcases = 'pref_key_completed_showcases';
+  static const cameraFullscreenMode = 'pref_key_camera_fullscreen_mode';
 }
 
 @module

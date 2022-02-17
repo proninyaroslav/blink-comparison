@@ -27,11 +27,13 @@ class AppState with _$AppState {
   const factory AppState.initial({
     required AppThemeType theme,
     required AppLocaleType locale,
+    required bool cameraFullscreenMode,
   }) = AppStateInitial;
 
   const factory AppState.changed({
     required AppThemeType theme,
     required AppLocaleType locale,
+    required bool cameraFullscreenMode,
   }) = AppStateChanged;
 }
 
@@ -42,6 +44,7 @@ class AppCubit extends Cubit<AppState> {
           AppState.initial(
             theme: pref.theme,
             locale: pref.locale,
+            cameraFullscreenMode: pref.cameraFullscreenMode,
           ),
         );
 
@@ -49,6 +52,7 @@ class AppCubit extends Cubit<AppState> {
     emit(AppState.changed(
       theme: theme,
       locale: state.locale,
+      cameraFullscreenMode: state.cameraFullscreenMode
     ));
   }
 
@@ -56,6 +60,15 @@ class AppCubit extends Cubit<AppState> {
     emit(AppState.changed(
       theme: state.theme,
       locale: locale,
+      cameraFullscreenMode: state.cameraFullscreenMode,
+    ));
+  }
+
+  void setCameraFullscreenMode(bool enable) {
+    emit(AppState.changed(
+      theme: state.theme,
+      locale: state.locale,
+      cameraFullscreenMode: enable,
     ));
   }
 }

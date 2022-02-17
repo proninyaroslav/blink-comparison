@@ -158,6 +158,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsBlinkComparisonPage":
             MessageLookupByLibrary.simpleMessage("Страница сравнения"),
         "settingsCamera": MessageLookupByLibrary.simpleMessage("Камера"),
+        "settingsCameraFullscreenMode":
+            MessageLookupByLibrary.simpleMessage("Полноэкранный режим"),
         "settingsFlashByDefault": MessageLookupByLibrary.simpleMessage(
             "Включить вспышку по умолчанию"),
         "settingsLanguage": MessageLookupByLibrary.simpleMessage("Язык"),

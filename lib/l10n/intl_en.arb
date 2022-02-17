@@ -86,5 +86,6 @@
     "referenceImageBorderCaseTooltip": "The colored border around denotes the reference image. The border color can be changed in the app settings",
     "blinkComparisonCaseTooltip": "Pressing anywhere on the screen toggles between the reference image and the image you just took. Fast switching helps you see differences in images",
     "aboutApp": "About",
-    "changelog": "Changelog"
+    "changelog": "Changelog",
+    "settingsCameraFullscreenMode": "Fullscreen mode"
 }

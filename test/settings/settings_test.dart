@@ -100,5 +100,18 @@ void main() {
       expect(pref.completedShowcases, expectedShowcases);
       expect(sharedPref.containsKey('pref_key_completed_showcases'), isTrue);
     });
+
+    test('Camera fullscreeen mode', () {
+      expect(
+        pref.cameraFullscreenMode,
+        AppSettingsDefault.cameraFullscreenMode,
+      );
+      pref.cameraFullscreenMode = false;
+      expect(pref.cameraFullscreenMode, false);
+      expect(
+        sharedPref.containsKey('pref_key_camera_fullscreen_mode'),
+        isTrue,
+      );
+    });
   });
 }

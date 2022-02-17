@@ -86,5 +86,6 @@
     "referenceImageBorderCaseTooltip": "Die farbige Umrandung kennzeichnet das Referenzbild. Die Farbe des Rahmens kann in den Einstellungen geändert werden.",
     "blinkComparisonCaseTooltip": "Durch die Berührung des Bildschirm an einer beliebigen Stelle können Sie zwischen dem Referenzbild und dem gerade aufgenommenen Bild umschalten. Ein schnelles Umschalten hilft Ihnen dabei, Unterschiede in den Bildern zu erkennen.",
     "aboutApp": "Über",
-    "changelog": "Änderungsprotokoll"
+    "changelog": "Änderungsprotokoll",
+    "settingsCameraFullscreenMode": "Vollbildmodus"
 }

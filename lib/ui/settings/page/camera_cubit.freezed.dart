@@ -29,6 +29,12 @@ class _$CameraStateTearOff {
       info,
     );
   }
+
+  CameraStateFullscreenModeChanged fullscreenModeChanged(CameraInfo info) {
+    return CameraStateFullscreenModeChanged(
+      info,
+    );
+  }
 }
 
 /// @nodoc
@@ -42,18 +48,21 @@ mixin _$CameraState {
   TResult when<TResult extends Object?>({
     required TResult Function(CameraInfo info) initial,
     required TResult Function(CameraInfo info) enableFlashChanged,
+    required TResult Function(CameraInfo info) fullscreenModeChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(CameraInfo info)? initial,
     TResult Function(CameraInfo info)? enableFlashChanged,
+    TResult Function(CameraInfo info)? fullscreenModeChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(CameraInfo info)? initial,
     TResult Function(CameraInfo info)? enableFlashChanged,
+    TResult Function(CameraInfo info)? fullscreenModeChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -62,18 +71,24 @@ mixin _$CameraState {
     required TResult Function(CameraStateInitial value) initial,
     required TResult Function(CameraStateEnableFlashChanged value)
         enableFlashChanged,
+    required TResult Function(CameraStateFullscreenModeChanged value)
+        fullscreenModeChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(CameraStateInitial value)? initial,
     TResult Function(CameraStateEnableFlashChanged value)? enableFlashChanged,
+    TResult Function(CameraStateFullscreenModeChanged value)?
+        fullscreenModeChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CameraStateInitial value)? initial,
     TResult Function(CameraStateEnableFlashChanged value)? enableFlashChanged,
+    TResult Function(CameraStateFullscreenModeChanged value)?
+        fullscreenModeChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -193,6 +208,7 @@ class _$CameraStateInitial implements CameraStateInitial {
   TResult when<TResult extends Object?>({
     required TResult Function(CameraInfo info) initial,
     required TResult Function(CameraInfo info) enableFlashChanged,
+    required TResult Function(CameraInfo info) fullscreenModeChanged,
   }) {
     return initial(info);
   }
@@ -202,6 +218,7 @@ class _$CameraStateInitial implements CameraStateInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(CameraInfo info)? initial,
     TResult Function(CameraInfo info)? enableFlashChanged,
+    TResult Function(CameraInfo info)? fullscreenModeChanged,
   }) {
     return initial?.call(info);
   }
@@ -211,6 +228,7 @@ class _$CameraStateInitial implements CameraStateInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(CameraInfo info)? initial,
     TResult Function(CameraInfo info)? enableFlashChanged,
+    TResult Function(CameraInfo info)? fullscreenModeChanged,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -225,6 +243,8 @@ class _$CameraStateInitial implements CameraStateInitial {
     required TResult Function(CameraStateInitial value) initial,
     required TResult Function(CameraStateEnableFlashChanged value)
         enableFlashChanged,
+    required TResult Function(CameraStateFullscreenModeChanged value)
+        fullscreenModeChanged,
   }) {
     return initial(this);
   }
@@ -234,6 +254,8 @@ class _$CameraStateInitial implements CameraStateInitial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(CameraStateInitial value)? initial,
     TResult Function(CameraStateEnableFlashChanged value)? enableFlashChanged,
+    TResult Function(CameraStateFullscreenModeChanged value)?
+        fullscreenModeChanged,
   }) {
     return initial?.call(this);
   }
@@ -243,6 +265,8 @@ class _$CameraStateInitial implements CameraStateInitial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CameraStateInitial value)? initial,
     TResult Function(CameraStateEnableFlashChanged value)? enableFlashChanged,
+    TResult Function(CameraStateFullscreenModeChanged value)?
+        fullscreenModeChanged,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -339,6 +363,7 @@ class _$CameraStateEnableFlashChanged implements CameraStateEnableFlashChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(CameraInfo info) initial,
     required TResult Function(CameraInfo info) enableFlashChanged,
+    required TResult Function(CameraInfo info) fullscreenModeChanged,
   }) {
     return enableFlashChanged(info);
   }
@@ -348,6 +373,7 @@ class _$CameraStateEnableFlashChanged implements CameraStateEnableFlashChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(CameraInfo info)? initial,
     TResult Function(CameraInfo info)? enableFlashChanged,
+    TResult Function(CameraInfo info)? fullscreenModeChanged,
   }) {
     return enableFlashChanged?.call(info);
   }
@@ -357,6 +383,7 @@ class _$CameraStateEnableFlashChanged implements CameraStateEnableFlashChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(CameraInfo info)? initial,
     TResult Function(CameraInfo info)? enableFlashChanged,
+    TResult Function(CameraInfo info)? fullscreenModeChanged,
     required TResult orElse(),
   }) {
     if (enableFlashChanged != null) {
@@ -371,6 +398,8 @@ class _$CameraStateEnableFlashChanged implements CameraStateEnableFlashChanged {
     required TResult Function(CameraStateInitial value) initial,
     required TResult Function(CameraStateEnableFlashChanged value)
         enableFlashChanged,
+    required TResult Function(CameraStateFullscreenModeChanged value)
+        fullscreenModeChanged,
   }) {
     return enableFlashChanged(this);
   }
@@ -380,6 +409,8 @@ class _$CameraStateEnableFlashChanged implements CameraStateEnableFlashChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(CameraStateInitial value)? initial,
     TResult Function(CameraStateEnableFlashChanged value)? enableFlashChanged,
+    TResult Function(CameraStateFullscreenModeChanged value)?
+        fullscreenModeChanged,
   }) {
     return enableFlashChanged?.call(this);
   }
@@ -389,6 +420,8 @@ class _$CameraStateEnableFlashChanged implements CameraStateEnableFlashChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CameraStateInitial value)? initial,
     TResult Function(CameraStateEnableFlashChanged value)? enableFlashChanged,
+    TResult Function(CameraStateFullscreenModeChanged value)?
+        fullscreenModeChanged,
     required TResult orElse(),
   }) {
     if (enableFlashChanged != null) {
@@ -411,12 +444,171 @@ abstract class CameraStateEnableFlashChanged implements CameraState {
 }
 
 /// @nodoc
+abstract class $CameraStateFullscreenModeChangedCopyWith<$Res>
+    implements $CameraStateCopyWith<$Res> {
+  factory $CameraStateFullscreenModeChangedCopyWith(
+          CameraStateFullscreenModeChanged value,
+          $Res Function(CameraStateFullscreenModeChanged) then) =
+      _$CameraStateFullscreenModeChangedCopyWithImpl<$Res>;
+  @override
+  $Res call({CameraInfo info});
+
+  @override
+  $CameraInfoCopyWith<$Res> get info;
+}
+
+/// @nodoc
+class _$CameraStateFullscreenModeChangedCopyWithImpl<$Res>
+    extends _$CameraStateCopyWithImpl<$Res>
+    implements $CameraStateFullscreenModeChangedCopyWith<$Res> {
+  _$CameraStateFullscreenModeChangedCopyWithImpl(
+      CameraStateFullscreenModeChanged _value,
+      $Res Function(CameraStateFullscreenModeChanged) _then)
+      : super(_value, (v) => _then(v as CameraStateFullscreenModeChanged));
+
+  @override
+  CameraStateFullscreenModeChanged get _value =>
+      super._value as CameraStateFullscreenModeChanged;
+
+  @override
+  $Res call({
+    Object? info = freezed,
+  }) {
+    return _then(CameraStateFullscreenModeChanged(
+      info == freezed
+          ? _value.info
+          : info // ignore: cast_nullable_to_non_nullable
+              as CameraInfo,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CameraStateFullscreenModeChanged
+    implements CameraStateFullscreenModeChanged {
+  const _$CameraStateFullscreenModeChanged(this.info);
+
+  @override
+  final CameraInfo info;
+
+  @override
+  String toString() {
+    return 'CameraState.fullscreenModeChanged(info: $info)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CameraStateFullscreenModeChanged &&
+            const DeepCollectionEquality().equals(other.info, info));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(info));
+
+  @JsonKey(ignore: true)
+  @override
+  $CameraStateFullscreenModeChangedCopyWith<CameraStateFullscreenModeChanged>
+      get copyWith => _$CameraStateFullscreenModeChangedCopyWithImpl<
+          CameraStateFullscreenModeChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CameraInfo info) initial,
+    required TResult Function(CameraInfo info) enableFlashChanged,
+    required TResult Function(CameraInfo info) fullscreenModeChanged,
+  }) {
+    return fullscreenModeChanged(info);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(CameraInfo info)? initial,
+    TResult Function(CameraInfo info)? enableFlashChanged,
+    TResult Function(CameraInfo info)? fullscreenModeChanged,
+  }) {
+    return fullscreenModeChanged?.call(info);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CameraInfo info)? initial,
+    TResult Function(CameraInfo info)? enableFlashChanged,
+    TResult Function(CameraInfo info)? fullscreenModeChanged,
+    required TResult orElse(),
+  }) {
+    if (fullscreenModeChanged != null) {
+      return fullscreenModeChanged(info);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CameraStateInitial value) initial,
+    required TResult Function(CameraStateEnableFlashChanged value)
+        enableFlashChanged,
+    required TResult Function(CameraStateFullscreenModeChanged value)
+        fullscreenModeChanged,
+  }) {
+    return fullscreenModeChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(CameraStateInitial value)? initial,
+    TResult Function(CameraStateEnableFlashChanged value)? enableFlashChanged,
+    TResult Function(CameraStateFullscreenModeChanged value)?
+        fullscreenModeChanged,
+  }) {
+    return fullscreenModeChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CameraStateInitial value)? initial,
+    TResult Function(CameraStateEnableFlashChanged value)? enableFlashChanged,
+    TResult Function(CameraStateFullscreenModeChanged value)?
+        fullscreenModeChanged,
+    required TResult orElse(),
+  }) {
+    if (fullscreenModeChanged != null) {
+      return fullscreenModeChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CameraStateFullscreenModeChanged implements CameraState {
+  const factory CameraStateFullscreenModeChanged(CameraInfo info) =
+      _$CameraStateFullscreenModeChanged;
+
+  @override
+  CameraInfo get info;
+  @override
+  @JsonKey(ignore: true)
+  $CameraStateFullscreenModeChangedCopyWith<CameraStateFullscreenModeChanged>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 class _$CameraInfoTearOff {
   const _$CameraInfoTearOff();
 
-  _CameraInfo call({required bool enableFlashByDefault}) {
+  _CameraInfo call(
+      {required bool enableFlashByDefault, required bool fullscreenMode}) {
     return _CameraInfo(
       enableFlashByDefault: enableFlashByDefault,
+      fullscreenMode: fullscreenMode,
     );
   }
 }
@@ -427,6 +619,7 @@ const $CameraInfo = _$CameraInfoTearOff();
 /// @nodoc
 mixin _$CameraInfo {
   bool get enableFlashByDefault => throw _privateConstructorUsedError;
+  bool get fullscreenMode => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CameraInfoCopyWith<CameraInfo> get copyWith =>
@@ -438,7 +631,7 @@ abstract class $CameraInfoCopyWith<$Res> {
   factory $CameraInfoCopyWith(
           CameraInfo value, $Res Function(CameraInfo) then) =
       _$CameraInfoCopyWithImpl<$Res>;
-  $Res call({bool enableFlashByDefault});
+  $Res call({bool enableFlashByDefault, bool fullscreenMode});
 }
 
 /// @nodoc
@@ -452,11 +645,16 @@ class _$CameraInfoCopyWithImpl<$Res> implements $CameraInfoCopyWith<$Res> {
   @override
   $Res call({
     Object? enableFlashByDefault = freezed,
+    Object? fullscreenMode = freezed,
   }) {
     return _then(_value.copyWith(
       enableFlashByDefault: enableFlashByDefault == freezed
           ? _value.enableFlashByDefault
           : enableFlashByDefault // ignore: cast_nullable_to_non_nullable
+              as bool,
+      fullscreenMode: fullscreenMode == freezed
+          ? _value.fullscreenMode
+          : fullscreenMode // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -468,7 +666,7 @@ abstract class _$CameraInfoCopyWith<$Res> implements $CameraInfoCopyWith<$Res> {
           _CameraInfo value, $Res Function(_CameraInfo) then) =
       __$CameraInfoCopyWithImpl<$Res>;
   @override
-  $Res call({bool enableFlashByDefault});
+  $Res call({bool enableFlashByDefault, bool fullscreenMode});
 }
 
 /// @nodoc
@@ -484,11 +682,16 @@ class __$CameraInfoCopyWithImpl<$Res> extends _$CameraInfoCopyWithImpl<$Res>
   @override
   $Res call({
     Object? enableFlashByDefault = freezed,
+    Object? fullscreenMode = freezed,
   }) {
     return _then(_CameraInfo(
       enableFlashByDefault: enableFlashByDefault == freezed
           ? _value.enableFlashByDefault
           : enableFlashByDefault // ignore: cast_nullable_to_non_nullable
+              as bool,
+      fullscreenMode: fullscreenMode == freezed
+          ? _value.fullscreenMode
+          : fullscreenMode // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -497,14 +700,17 @@ class __$CameraInfoCopyWithImpl<$Res> extends _$CameraInfoCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CameraInfo implements _CameraInfo {
-  const _$_CameraInfo({required this.enableFlashByDefault});
+  const _$_CameraInfo(
+      {required this.enableFlashByDefault, required this.fullscreenMode});
 
   @override
   final bool enableFlashByDefault;
+  @override
+  final bool fullscreenMode;
 
   @override
   String toString() {
-    return 'CameraInfo(enableFlashByDefault: $enableFlashByDefault)';
+    return 'CameraInfo(enableFlashByDefault: $enableFlashByDefault, fullscreenMode: $fullscreenMode)';
   }
 
   @override
@@ -513,12 +719,16 @@ class _$_CameraInfo implements _CameraInfo {
         (other.runtimeType == runtimeType &&
             other is _CameraInfo &&
             const DeepCollectionEquality()
-                .equals(other.enableFlashByDefault, enableFlashByDefault));
+                .equals(other.enableFlashByDefault, enableFlashByDefault) &&
+            const DeepCollectionEquality()
+                .equals(other.fullscreenMode, fullscreenMode));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(enableFlashByDefault));
+      runtimeType,
+      const DeepCollectionEquality().hash(enableFlashByDefault),
+      const DeepCollectionEquality().hash(fullscreenMode));
 
   @JsonKey(ignore: true)
   @override
@@ -527,11 +737,14 @@ class _$_CameraInfo implements _CameraInfo {
 }
 
 abstract class _CameraInfo implements CameraInfo {
-  const factory _CameraInfo({required bool enableFlashByDefault}) =
-      _$_CameraInfo;
+  const factory _CameraInfo(
+      {required bool enableFlashByDefault,
+      required bool fullscreenMode}) = _$_CameraInfo;
 
   @override
   bool get enableFlashByDefault;
+  @override
+  bool get fullscreenMode;
   @override
   @JsonKey(ignore: true)
   _$CameraInfoCopyWith<_CameraInfo> get copyWith =>

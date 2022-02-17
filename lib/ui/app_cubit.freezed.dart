@@ -19,18 +19,24 @@ class _$AppStateTearOff {
   const _$AppStateTearOff();
 
   AppStateInitial initial(
-      {required AppThemeType theme, required AppLocaleType locale}) {
+      {required AppThemeType theme,
+      required AppLocaleType locale,
+      required bool cameraFullscreenMode}) {
     return AppStateInitial(
       theme: theme,
       locale: locale,
+      cameraFullscreenMode: cameraFullscreenMode,
     );
   }
 
   AppStateChanged changed(
-      {required AppThemeType theme, required AppLocaleType locale}) {
+      {required AppThemeType theme,
+      required AppLocaleType locale,
+      required bool cameraFullscreenMode}) {
     return AppStateChanged(
       theme: theme,
       locale: locale,
+      cameraFullscreenMode: cameraFullscreenMode,
     );
   }
 }
@@ -42,23 +48,36 @@ const $AppState = _$AppStateTearOff();
 mixin _$AppState {
   AppThemeType get theme => throw _privateConstructorUsedError;
   AppLocaleType get locale => throw _privateConstructorUsedError;
+  bool get cameraFullscreenMode => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AppThemeType theme, AppLocaleType locale) initial,
-    required TResult Function(AppThemeType theme, AppLocaleType locale) changed,
+    required TResult Function(
+            AppThemeType theme, AppLocaleType locale, bool cameraFullscreenMode)
+        initial,
+    required TResult Function(
+            AppThemeType theme, AppLocaleType locale, bool cameraFullscreenMode)
+        changed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(AppThemeType theme, AppLocaleType locale)? initial,
-    TResult Function(AppThemeType theme, AppLocaleType locale)? changed,
+    TResult Function(AppThemeType theme, AppLocaleType locale,
+            bool cameraFullscreenMode)?
+        initial,
+    TResult Function(AppThemeType theme, AppLocaleType locale,
+            bool cameraFullscreenMode)?
+        changed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AppThemeType theme, AppLocaleType locale)? initial,
-    TResult Function(AppThemeType theme, AppLocaleType locale)? changed,
+    TResult Function(AppThemeType theme, AppLocaleType locale,
+            bool cameraFullscreenMode)?
+        initial,
+    TResult Function(AppThemeType theme, AppLocaleType locale,
+            bool cameraFullscreenMode)?
+        changed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -91,7 +110,8 @@ mixin _$AppState {
 abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res>;
-  $Res call({AppThemeType theme, AppLocaleType locale});
+  $Res call(
+      {AppThemeType theme, AppLocaleType locale, bool cameraFullscreenMode});
 
   $AppThemeTypeCopyWith<$Res> get theme;
   $AppLocaleTypeCopyWith<$Res> get locale;
@@ -109,6 +129,7 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
   $Res call({
     Object? theme = freezed,
     Object? locale = freezed,
+    Object? cameraFullscreenMode = freezed,
   }) {
     return _then(_value.copyWith(
       theme: theme == freezed
@@ -119,6 +140,10 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as AppLocaleType,
+      cameraFullscreenMode: cameraFullscreenMode == freezed
+          ? _value.cameraFullscreenMode
+          : cameraFullscreenMode // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -144,7 +169,8 @@ abstract class $AppStateInitialCopyWith<$Res>
           AppStateInitial value, $Res Function(AppStateInitial) then) =
       _$AppStateInitialCopyWithImpl<$Res>;
   @override
-  $Res call({AppThemeType theme, AppLocaleType locale});
+  $Res call(
+      {AppThemeType theme, AppLocaleType locale, bool cameraFullscreenMode});
 
   @override
   $AppThemeTypeCopyWith<$Res> get theme;
@@ -166,6 +192,7 @@ class _$AppStateInitialCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
   $Res call({
     Object? theme = freezed,
     Object? locale = freezed,
+    Object? cameraFullscreenMode = freezed,
   }) {
     return _then(AppStateInitial(
       theme: theme == freezed
@@ -176,6 +203,10 @@ class _$AppStateInitialCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as AppLocaleType,
+      cameraFullscreenMode: cameraFullscreenMode == freezed
+          ? _value.cameraFullscreenMode
+          : cameraFullscreenMode // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -183,16 +214,21 @@ class _$AppStateInitialCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AppStateInitial implements AppStateInitial {
-  const _$AppStateInitial({required this.theme, required this.locale});
+  const _$AppStateInitial(
+      {required this.theme,
+      required this.locale,
+      required this.cameraFullscreenMode});
 
   @override
   final AppThemeType theme;
   @override
   final AppLocaleType locale;
+  @override
+  final bool cameraFullscreenMode;
 
   @override
   String toString() {
-    return 'AppState.initial(theme: $theme, locale: $locale)';
+    return 'AppState.initial(theme: $theme, locale: $locale, cameraFullscreenMode: $cameraFullscreenMode)';
   }
 
   @override
@@ -201,14 +237,17 @@ class _$AppStateInitial implements AppStateInitial {
         (other.runtimeType == runtimeType &&
             other is AppStateInitial &&
             const DeepCollectionEquality().equals(other.theme, theme) &&
-            const DeepCollectionEquality().equals(other.locale, locale));
+            const DeepCollectionEquality().equals(other.locale, locale) &&
+            const DeepCollectionEquality()
+                .equals(other.cameraFullscreenMode, cameraFullscreenMode));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(theme),
-      const DeepCollectionEquality().hash(locale));
+      const DeepCollectionEquality().hash(locale),
+      const DeepCollectionEquality().hash(cameraFullscreenMode));
 
   @JsonKey(ignore: true)
   @override
@@ -218,30 +257,42 @@ class _$AppStateInitial implements AppStateInitial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AppThemeType theme, AppLocaleType locale) initial,
-    required TResult Function(AppThemeType theme, AppLocaleType locale) changed,
+    required TResult Function(
+            AppThemeType theme, AppLocaleType locale, bool cameraFullscreenMode)
+        initial,
+    required TResult Function(
+            AppThemeType theme, AppLocaleType locale, bool cameraFullscreenMode)
+        changed,
   }) {
-    return initial(theme, locale);
+    return initial(theme, locale, cameraFullscreenMode);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(AppThemeType theme, AppLocaleType locale)? initial,
-    TResult Function(AppThemeType theme, AppLocaleType locale)? changed,
+    TResult Function(AppThemeType theme, AppLocaleType locale,
+            bool cameraFullscreenMode)?
+        initial,
+    TResult Function(AppThemeType theme, AppLocaleType locale,
+            bool cameraFullscreenMode)?
+        changed,
   }) {
-    return initial?.call(theme, locale);
+    return initial?.call(theme, locale, cameraFullscreenMode);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AppThemeType theme, AppLocaleType locale)? initial,
-    TResult Function(AppThemeType theme, AppLocaleType locale)? changed,
+    TResult Function(AppThemeType theme, AppLocaleType locale,
+            bool cameraFullscreenMode)?
+        initial,
+    TResult Function(AppThemeType theme, AppLocaleType locale,
+            bool cameraFullscreenMode)?
+        changed,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(theme, locale);
+      return initial(theme, locale, cameraFullscreenMode);
     }
     return orElse();
   }
@@ -281,12 +332,15 @@ class _$AppStateInitial implements AppStateInitial {
 abstract class AppStateInitial implements AppState {
   const factory AppStateInitial(
       {required AppThemeType theme,
-      required AppLocaleType locale}) = _$AppStateInitial;
+      required AppLocaleType locale,
+      required bool cameraFullscreenMode}) = _$AppStateInitial;
 
   @override
   AppThemeType get theme;
   @override
   AppLocaleType get locale;
+  @override
+  bool get cameraFullscreenMode;
   @override
   @JsonKey(ignore: true)
   $AppStateInitialCopyWith<AppStateInitial> get copyWith =>
@@ -300,7 +354,8 @@ abstract class $AppStateChangedCopyWith<$Res>
           AppStateChanged value, $Res Function(AppStateChanged) then) =
       _$AppStateChangedCopyWithImpl<$Res>;
   @override
-  $Res call({AppThemeType theme, AppLocaleType locale});
+  $Res call(
+      {AppThemeType theme, AppLocaleType locale, bool cameraFullscreenMode});
 
   @override
   $AppThemeTypeCopyWith<$Res> get theme;
@@ -322,6 +377,7 @@ class _$AppStateChangedCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
   $Res call({
     Object? theme = freezed,
     Object? locale = freezed,
+    Object? cameraFullscreenMode = freezed,
   }) {
     return _then(AppStateChanged(
       theme: theme == freezed
@@ -332,6 +388,10 @@ class _$AppStateChangedCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as AppLocaleType,
+      cameraFullscreenMode: cameraFullscreenMode == freezed
+          ? _value.cameraFullscreenMode
+          : cameraFullscreenMode // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -339,16 +399,21 @@ class _$AppStateChangedCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AppStateChanged implements AppStateChanged {
-  const _$AppStateChanged({required this.theme, required this.locale});
+  const _$AppStateChanged(
+      {required this.theme,
+      required this.locale,
+      required this.cameraFullscreenMode});
 
   @override
   final AppThemeType theme;
   @override
   final AppLocaleType locale;
+  @override
+  final bool cameraFullscreenMode;
 
   @override
   String toString() {
-    return 'AppState.changed(theme: $theme, locale: $locale)';
+    return 'AppState.changed(theme: $theme, locale: $locale, cameraFullscreenMode: $cameraFullscreenMode)';
   }
 
   @override
@@ -357,14 +422,17 @@ class _$AppStateChanged implements AppStateChanged {
         (other.runtimeType == runtimeType &&
             other is AppStateChanged &&
             const DeepCollectionEquality().equals(other.theme, theme) &&
-            const DeepCollectionEquality().equals(other.locale, locale));
+            const DeepCollectionEquality().equals(other.locale, locale) &&
+            const DeepCollectionEquality()
+                .equals(other.cameraFullscreenMode, cameraFullscreenMode));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(theme),
-      const DeepCollectionEquality().hash(locale));
+      const DeepCollectionEquality().hash(locale),
+      const DeepCollectionEquality().hash(cameraFullscreenMode));
 
   @JsonKey(ignore: true)
   @override
@@ -374,30 +442,42 @@ class _$AppStateChanged implements AppStateChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AppThemeType theme, AppLocaleType locale) initial,
-    required TResult Function(AppThemeType theme, AppLocaleType locale) changed,
+    required TResult Function(
+            AppThemeType theme, AppLocaleType locale, bool cameraFullscreenMode)
+        initial,
+    required TResult Function(
+            AppThemeType theme, AppLocaleType locale, bool cameraFullscreenMode)
+        changed,
   }) {
-    return changed(theme, locale);
+    return changed(theme, locale, cameraFullscreenMode);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(AppThemeType theme, AppLocaleType locale)? initial,
-    TResult Function(AppThemeType theme, AppLocaleType locale)? changed,
+    TResult Function(AppThemeType theme, AppLocaleType locale,
+            bool cameraFullscreenMode)?
+        initial,
+    TResult Function(AppThemeType theme, AppLocaleType locale,
+            bool cameraFullscreenMode)?
+        changed,
   }) {
-    return changed?.call(theme, locale);
+    return changed?.call(theme, locale, cameraFullscreenMode);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AppThemeType theme, AppLocaleType locale)? initial,
-    TResult Function(AppThemeType theme, AppLocaleType locale)? changed,
+    TResult Function(AppThemeType theme, AppLocaleType locale,
+            bool cameraFullscreenMode)?
+        initial,
+    TResult Function(AppThemeType theme, AppLocaleType locale,
+            bool cameraFullscreenMode)?
+        changed,
     required TResult orElse(),
   }) {
     if (changed != null) {
-      return changed(theme, locale);
+      return changed(theme, locale, cameraFullscreenMode);
     }
     return orElse();
   }
@@ -437,12 +517,15 @@ class _$AppStateChanged implements AppStateChanged {
 abstract class AppStateChanged implements AppState {
   const factory AppStateChanged(
       {required AppThemeType theme,
-      required AppLocaleType locale}) = _$AppStateChanged;
+      required AppLocaleType locale,
+      required bool cameraFullscreenMode}) = _$AppStateChanged;
 
   @override
   AppThemeType get theme;
   @override
   AppLocaleType get locale;
+  @override
+  bool get cameraFullscreenMode;
   @override
   @JsonKey(ignore: true)
   $AppStateChangedCopyWith<AppStateChanged> get copyWith =>

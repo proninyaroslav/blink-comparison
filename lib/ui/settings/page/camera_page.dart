@@ -38,6 +38,7 @@ class CameraSettingsPage extends StatelessWidget {
           SettingsListGroup(
             items: [
               _buildEnableFlashByDefaultOption(context),
+              _buildFullscreenModeOption(context),
             ],
           ),
         ],
@@ -55,6 +56,20 @@ class CameraSettingsPage extends StatelessWidget {
           secondary: const Icon(Icons.flash_on_outlined),
           onChanged:
               context.read<CameraSettingsCubit>().setEnableFlashByDefault,
+        );
+      },
+    );
+  }
+
+  Widget _buildFullscreenModeOption(BuildContext context) {
+    return BlocBuilder<CameraSettingsCubit, CameraState>(
+      buildWhen: (prev, current) => current is CameraStateFullscreenModeChanged,
+      builder: (context, state) {
+        return SwitchListTile(
+          title: Text(S.of(context).settingsCameraFullscreenMode),
+          value: state.info.fullscreenMode,
+          secondary: const Icon(Icons.fullscreen_outlined),
+          onChanged: context.read<CameraSettingsCubit>().setFullscreenMode,
         );
       },
     );

@@ -150,7 +150,11 @@ class _AppState extends State<App> {
             useInheritedMediaQuery: useInheritedMediaQuery,
             routerDelegate: AutoRouterDelegate(
               _appRouter,
-              navigatorObservers: () => [SystemUIModeObserver()],
+              navigatorObservers: () => [
+                SystemUIModeObserver(
+                  fullscreenMode: state.cameraFullscreenMode,
+                ),
+              ],
             ),
             routeInformationParser: _appRouter.defaultRouteParser(),
           );
@@ -179,12 +183,17 @@ class _AppState extends State<App> {
 }
 
 class SystemUIModeObserver extends AutoRouterObserver {
+  final bool fullscreenMode;
+
+  SystemUIModeObserver({required this.fullscreenMode});
+
   @override
   void didPush(Route route, Route? previousRoute) {
     final name = route.settings.name;
-    if (name == RefImagePreviewRoute.name ||
-        name == CameraPickerRoute.name ||
-        name == BlinkComparisonRoute.name) {
+    if (fullscreenMode &&
+        (name == RefImagePreviewRoute.name ||
+            name == CameraPickerRoute.name ||
+            name == BlinkComparisonRoute.name)) {
       SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
     } else if (route.settings.name != null) {
       SystemChrome.setEnabledSystemUIMode(
