@@ -1,0 +1,4 @@
+* Added option to disable fullscreen mode
+* Now the taken photo is displayed first in the comparison dialog without confirmation dialog
+* The unused receivers requested by third party plugins are disabled
+* Added German translation

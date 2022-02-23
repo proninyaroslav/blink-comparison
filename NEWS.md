@@ -1,3 +1,10 @@
+### Version 1.1.0 (2022-02-23)
+
+* Added option to disable fullscreen mode
+* Now the taken photo is displayed first in the comparison dialog without confirmation dialog
+* The unused receivers requested by third party plugins are disabled
+* Added German translation
+
 ### Version 1.0.2 (2022-01-27)
 
 Fixed camera access crash when sensor privacy is enabled.
