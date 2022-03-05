@@ -16,6 +16,7 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'dart:async';
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:blink_comparison/core/crash_catcher/handler/notification_crash_handler.dart';
@@ -30,6 +31,10 @@ import 'package:flutter/material.dart' hide Image;
 import 'package:flutter_sodium/flutter_sodium.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:path_provider_android/path_provider_android.dart';
+import 'package:path_provider_ios/path_provider_ios.dart';
+import 'package:shared_preferences_android/shared_preferences_android.dart';
+import 'package:shared_preferences_ios/shared_preferences_ios.dart';
 
 import '../../env.dart';
 import '../../injector.dart';
@@ -237,6 +242,16 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
 Future<void> callbackDispatcher() async {
   Future<void> _dispatcher() async {
     WidgetsFlutterBinding.ensureInitialized();
+    // Workaround to work in Isolate: https://github.com/flutter/flutter/issues/98473#issuecomment-1041895729
+    // TODO: future fix: https://github.com/flutter/flutter/issues/98473#issuecomment-1058500136
+    if (Platform.isAndroid) {
+      SharedPreferencesAndroid.registerWith();
+      PathProviderAndroid.registerWith();
+    }
+    if (Platform.isIOS) {
+      SharedPreferencesIOS.registerWith();
+      PathProviderIOS.registerWith();
+    }
     await initInjector(kDebugMode ? Env.dev : Env.prod);
     Sodium.init();
 
