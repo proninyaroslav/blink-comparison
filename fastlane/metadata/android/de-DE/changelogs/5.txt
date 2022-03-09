@@ -1,0 +1,1 @@
+Ein Fehler, der beim Hinzufügen von Referenzbildern zum Programmabsturz führte, wurde behoben.
