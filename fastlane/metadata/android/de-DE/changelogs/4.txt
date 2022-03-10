@@ -1,0 +1,4 @@
+* Eine Option zur Deaktivierung des Vollbildmodus wurde hinzugefügt.
+* Das aufgenommene Foto wird nun beim vergleichen ohne Bestätigungsdialog als erstes angezeigt.
+* Die von Drittanbieter-Plugins angeforderten unbenutzten Empfänger sind deaktiviert.
+* Die Deutsche Übersetzung wurde hinzugefügt.
