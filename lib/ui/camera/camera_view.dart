@@ -346,7 +346,7 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
     }
 
     try {
-      _controller?.setFlashMode(
+      await _controller?.setFlashMode(
         enable ? FlashMode.torch : FlashMode.off,
       );
     } on CameraException catch (e, stackTrace) {
