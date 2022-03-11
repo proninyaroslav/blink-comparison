@@ -23,7 +23,7 @@ environment:
 dependencies:
   auto_route: ^3.2.1
   bloc: ^8.0.2
-  camera: ^0.9.4+3
+  camera: ^0.9.4+16
   cross_file: ^0.3.1+5
   cupertino_icons: ^1.0.2
   devicelocale: ^0.5.0
@@ -89,7 +89,7 @@ dev_dependencies:
   freezed: ^1.1.1
   injectable_generator: ^1.5.3
   intl_utils: ^2.6.0
-  mocktail: ^0.2.0
+  mocktail: ^0.3.0
 
 dependency_overrides:
   analyzer: ^3.2.0
