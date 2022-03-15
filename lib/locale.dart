@@ -41,9 +41,10 @@ class AppLocale {
   static Future<S> loadLocale(String localeStr) {
     final locale = intl.Locale.parse(localeStr);
     return S.load(
-      Locale(
-        locale.languageCode,
-        locale.countryCode,
+      Locale.fromSubtags(
+        languageCode: locale.languageCode,
+        scriptCode: locale.scriptCode,
+        countryCode: locale.countryCode,
       ),
     );
   }
