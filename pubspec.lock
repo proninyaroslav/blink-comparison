@@ -312,9 +312,11 @@ packages:
   devicelocale:
     dependency: "direct main"
     description:
-      name: devicelocale
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "."
+      ref: android-ietf-tags
+      resolved-ref: "4c41fa694b99f5d603f3c5dd52a4672c13447c9c"
+      url: "https://github.com/proninyaroslav/flutter-devicelocale.git"
+    source: git
     version: "0.5.0"
   diff_match_patch:
     dependency: transitive

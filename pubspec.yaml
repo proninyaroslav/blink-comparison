@@ -93,6 +93,11 @@ dev_dependencies:
 
 dependency_overrides:
   analyzer: ^3.2.0
+  # TODO: remove after merge a PR https://github.com/magnatronus/flutter-devicelocale/pull/40
+  devicelocale:
+    git:
+      url: https://github.com/proninyaroslav/flutter-devicelocale.git
+      ref: android-ietf-tags
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
