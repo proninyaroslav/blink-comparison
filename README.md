@@ -68,8 +68,8 @@ All reference images that added to the app stored as encrypted, making it harder
  ## 🌍 Translations
 
  - **English**
- - **Russian**
  - **German**
+ - **Russian**
  - **French** *(thanks BNouailhac)*
 
 ## 💰 Donation
