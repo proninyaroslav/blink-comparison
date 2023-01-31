@@ -1,0 +1,1 @@
+Eliminados los permisos solicitados por plugins de terceros.
