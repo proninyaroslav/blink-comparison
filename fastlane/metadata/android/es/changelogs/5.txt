@@ -1,0 +1,1 @@
+Corregido fallo al añadir imagen de referencia

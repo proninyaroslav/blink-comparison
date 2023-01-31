@@ -1,0 +1,4 @@
+* Se ha añadido la opción de desactivar el modo de pantalla completa.
+* Ahora la foto tomada se muestra primero en el diálogo de comparación sin diálogo de confirmación
+* Se desactivan los receptores no utilizados solicitados por plugins de terceros
+* Añadida traducción al alemán

@@ -1,0 +1,16 @@
+El concepto del método de "blink comparison" es sencillo: la aplicación le permite cambiar rápidamente de foto sin demora para que pueda ver las diferencias.
+
+El método de "blink comparison" utiliza un reconocimiento de patrones de alta eficiencia por parte de los ojos humanos, para permitir una verificación rápida entre una imagen de referencia y una real tomada in situ. Por ejemplo, en el objetivo de detectar manipulaciones en sellos de alto contraste de esmalte de uñas a prueba de manipulaciones
+
+📋 Características
+* Software libre y de código abierto (FOSS)
+* Compatible con varias plataformas y dispositivos (actualmente sólo Android)
+* Añadir y almacenar imágenes de referencia en la aplicación o tomar una foto en el acto; todas las imágenes están encriptadas, por lo que es más difícil de robar o reemplazar
+* Compara una imagen de referencia con la que acabas de tomar utilizando el método de "blink comparison".
+* Ayuda a tomar una foto de comparación en la posición correcta, con el ángulo, la iluminación y la distancia correctos.
+* Material Design
+* Tema nocturno
+* Interfaz de usuario adaptable a los distintos factores de forma de los dispositivos.
+
+Para más información, consulte aquí: <a href="https://github.com/proninyaroslav/blink-comparison/blob/HEAD/README.md">https://github.com/proninyaroslav/blink-comparison/blob/HEAD/README.md</a>
+Política de privacidad: <a href="https://github.com/proninyaroslav/blink-comparison/blob/HEAD/PRIVACY.md">https://github.com/proninyaroslav/blink-comparison/blob/HEAD/PRIVACY.md</a>

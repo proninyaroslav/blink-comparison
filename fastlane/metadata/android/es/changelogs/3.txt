@@ -1,0 +1,1 @@
+Corregido el fallo de acceso a la cámara cuando la privacidad del sensor está activada.
