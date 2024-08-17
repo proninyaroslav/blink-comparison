@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -16,23 +16,18 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'dart:async';
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter_sodium/flutter_sodium.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:sodium_libs/sodium_libs_sumo.dart';
 
 part 'encrypt_key_derivation.freezed.dart';
 
 abstract class EncryptKeyDerivation {
   Future<Uint8List> derive({
-    required String password,
-    required Uint8List salt,
-    required int keyLength,
-  });
-
-  Uint8List deriveSync({
     required String password,
     required Uint8List salt,
     required int keyLength,
@@ -44,6 +39,10 @@ const _sodiumMemlimitModerate = 67108864; // 64 MiB
 
 @Injectable(as: EncryptKeyDerivation)
 class EncryptKeyDerivationImpl implements EncryptKeyDerivation {
+  final SodiumSumo _sodium;
+
+  EncryptKeyDerivationImpl(this._sodium);
+
   /// Used Argon2id 1.3 algorithm. Requires 64 MiB of dedicated RAM.
   @override
   Future<Uint8List> derive({
@@ -51,48 +50,37 @@ class EncryptKeyDerivationImpl implements EncryptKeyDerivation {
     required Uint8List salt,
     required int keyLength,
   }) async {
-    return compute(
-      _calculate,
-      _SodiumHashInfo(
-        password: password,
-        salt: salt,
-        keyLength: keyLength,
-      ),
-    );
-  }
-
-  @override
-  Uint8List deriveSync({
-    required String password,
-    required Uint8List salt,
-    required int keyLength,
-  }) =>
-      _calculate(
+    return _sodium.runIsolated(
+      (sodium, secureKeys, keyPairs) => _calculate(
+        sodium,
         _SodiumHashInfo(
           password: password,
           salt: salt,
           keyLength: keyLength,
         ),
-      );
+      ),
+    );
+  }
+}
+
+// Runs in Isolate
+Future<Uint8List> _calculate(SodiumSumo sodium, _SodiumHashInfo info) async {
+  final hash = sodium.crypto.pwhash(
+    password: Int8List.fromList(utf8.encoder.convert(info.password)),
+    salt: info.salt,
+    outLen: info.keyLength,
+    opsLimit: _sodiumOpslimitModerate,
+    memLimit: _sodiumMemlimitModerate,
+    alg: CryptoPwhashAlgorithm.argon2id13,
+  );
+  return hash.extractBytes();
 }
 
 @freezed
-class _SodiumHashInfo with _$_SodiumHashInfo {
+class _SodiumHashInfo with _$SodiumHashInfo {
   const factory _SodiumHashInfo({
     required String password,
     required Uint8List salt,
     required int keyLength,
   }) = _SodiumHashInfoData;
-}
-
-Uint8List _calculate(_SodiumHashInfo info) {
-  final hash = PasswordHash.hashString(
-    info.password,
-    info.salt,
-    outlen: info.keyLength,
-    opslimit: _sodiumOpslimitModerate,
-    memlimit: _sodiumMemlimitModerate,
-    alg: PasswordHashAlgorithm.Argon2id13,
-  );
-  return hash;
 }

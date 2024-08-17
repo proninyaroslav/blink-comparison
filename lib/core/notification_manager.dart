@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -32,6 +32,8 @@ part 'notification_manager.g.dart';
 
 abstract class NotificationManager {
   Future<void> init();
+
+  Future<void> requestPermissions();
 
   Future<NotificationAction?> getAppLaunchDetails();
 
@@ -85,7 +87,7 @@ class NotificationManagerImpl implements NotificationManager {
     const initSettingsAndroid = AndroidInitializationSettings(
       'ic_app_notification',
     );
-    const initSettingsIOS = IOSInitializationSettings();
+    const initSettingsIOS = DarwinInitializationSettings();
     const initSettings = InitializationSettings(
       android: initSettingsAndroid,
       iOS: initSettingsIOS,
@@ -93,8 +95,8 @@ class NotificationManagerImpl implements NotificationManager {
 
     await _notifyPlugin.initialize(
       initSettings,
-      onSelectNotification: (payload) async {
-        final action = _parsePayload(payload);
+      onDidReceiveNotificationResponse: (details) {
+        final action = _parsePayload(details.payload);
         if (action != null) {
           _onNotifySelected.add(action);
         }
@@ -103,12 +105,22 @@ class NotificationManagerImpl implements NotificationManager {
   }
 
   @override
+  Future<void> requestPermissions() async {
+    if (_platformInfo.isAndroid) {
+      _notifyPlugin
+          .resolvePlatformSpecificImplementation<
+              AndroidFlutterLocalNotificationsPlugin>()
+          ?.requestNotificationsPermission();
+    }
+  }
+
+  @override
   Future<NotificationAction?> getAppLaunchDetails() async {
     final details = await _notifyPlugin.getNotificationAppLaunchDetails();
     if (details == null || !details.didNotificationLaunchApp) {
       return null;
     } else {
-      return _parsePayload(details.payload);
+      return _parsePayload(details.notificationResponse?.payload);
     }
   }
 

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'sign_up_cubit.dart';
 
@@ -12,69 +12,7 @@ part of 'sign_up_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$SignUpStateTearOff {
-  const _$SignUpStateTearOff();
-
-  SignUpStateInitial initial(
-      {Password password = const Password(),
-      RepeatPassword repeatPassword = const RepeatPassword()}) {
-    return SignUpStateInitial(
-      password: password,
-      repeatPassword: repeatPassword,
-    );
-  }
-
-  SignUpStatePasswordChanged passwordChanged(
-      {required Password password, required RepeatPassword repeatPassword}) {
-    return SignUpStatePasswordChanged(
-      password: password,
-      repeatPassword: repeatPassword,
-    );
-  }
-
-  SignUpStateInvalidPassword invalidPassword(
-      {required Password password, required RepeatPassword repeatPassword}) {
-    return SignUpStateInvalidPassword(
-      password: password,
-      repeatPassword: repeatPassword,
-    );
-  }
-
-  SignUpStatePasswordMismatch passwordMismatch(
-      {required Password password, required RepeatPassword repeatPassword}) {
-    return SignUpStatePasswordMismatch(
-      password: password,
-      repeatPassword: repeatPassword,
-    );
-  }
-
-  SignUpStateSavingPassword savingPassword() {
-    return const SignUpStateSavingPassword();
-  }
-
-  SignUpStatePasswordSaved passwordSaved() {
-    return const SignUpStatePasswordSaved();
-  }
-
-  SignUpStateSavePasswordFailed savePasswordFailed(
-      {required Password password,
-      required RepeatPassword repeatPassword,
-      Exception? exception,
-      StackTrace? stackTrace}) {
-    return SignUpStateSavePasswordFailed(
-      password: password,
-      repeatPassword: repeatPassword,
-      exception: exception,
-      stackTrace: stackTrace,
-    );
-  }
-}
-
-/// @nodoc
-const $SignUpState = _$SignUpStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$SignUpState {
@@ -97,16 +35,17 @@ mixin _$SignUpState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Password password, RepeatPassword repeatPassword)? initial,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
+        initial,
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
         passwordChanged,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
         invalidPassword,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
         passwordMismatch,
-    TResult Function()? savingPassword,
-    TResult Function()? passwordSaved,
-    TResult Function(Password password, RepeatPassword repeatPassword,
+    TResult? Function()? savingPassword,
+    TResult? Function()? passwordSaved,
+    TResult? Function(Password password, RepeatPassword repeatPassword,
             Exception? exception, StackTrace? stackTrace)?
         savePasswordFailed,
   }) =>
@@ -143,13 +82,13 @@ mixin _$SignUpState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SignUpStateInitial value)? initial,
-    TResult Function(SignUpStatePasswordChanged value)? passwordChanged,
-    TResult Function(SignUpStateInvalidPassword value)? invalidPassword,
-    TResult Function(SignUpStatePasswordMismatch value)? passwordMismatch,
-    TResult Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult Function(SignUpStatePasswordSaved value)? passwordSaved,
-    TResult Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
+    TResult? Function(SignUpStateInitial value)? initial,
+    TResult? Function(SignUpStatePasswordChanged value)? passwordChanged,
+    TResult? Function(SignUpStateInvalidPassword value)? invalidPassword,
+    TResult? Function(SignUpStatePasswordMismatch value)? passwordMismatch,
+    TResult? Function(SignUpStateSavingPassword value)? savingPassword,
+    TResult? Function(SignUpStatePasswordSaved value)? passwordSaved,
+    TResult? Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -170,23 +109,29 @@ mixin _$SignUpState {
 abstract class $SignUpStateCopyWith<$Res> {
   factory $SignUpStateCopyWith(
           SignUpState value, $Res Function(SignUpState) then) =
-      _$SignUpStateCopyWithImpl<$Res>;
+      _$SignUpStateCopyWithImpl<$Res, SignUpState>;
 }
 
 /// @nodoc
-class _$SignUpStateCopyWithImpl<$Res> implements $SignUpStateCopyWith<$Res> {
+class _$SignUpStateCopyWithImpl<$Res, $Val extends SignUpState>
+    implements $SignUpStateCopyWith<$Res> {
   _$SignUpStateCopyWithImpl(this._value, this._then);
 
-  final SignUpState _value;
   // ignore: unused_field
-  final $Res Function(SignUpState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class $SignUpStateInitialCopyWith<$Res> {
-  factory $SignUpStateInitialCopyWith(
-          SignUpStateInitial value, $Res Function(SignUpStateInitial) then) =
-      _$SignUpStateInitialCopyWithImpl<$Res>;
+abstract class _$$SignUpStateInitialImplCopyWith<$Res> {
+  factory _$$SignUpStateInitialImplCopyWith(_$SignUpStateInitialImpl value,
+          $Res Function(_$SignUpStateInitialImpl) then) =
+      __$$SignUpStateInitialImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({Password password, RepeatPassword repeatPassword});
 
   $PasswordCopyWith<$Res> get password;
@@ -194,41 +139,47 @@ abstract class $SignUpStateInitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SignUpStateInitialCopyWithImpl<$Res>
-    extends _$SignUpStateCopyWithImpl<$Res>
-    implements $SignUpStateInitialCopyWith<$Res> {
-  _$SignUpStateInitialCopyWithImpl(
-      SignUpStateInitial _value, $Res Function(SignUpStateInitial) _then)
-      : super(_value, (v) => _then(v as SignUpStateInitial));
+class __$$SignUpStateInitialImplCopyWithImpl<$Res>
+    extends _$SignUpStateCopyWithImpl<$Res, _$SignUpStateInitialImpl>
+    implements _$$SignUpStateInitialImplCopyWith<$Res> {
+  __$$SignUpStateInitialImplCopyWithImpl(_$SignUpStateInitialImpl _value,
+      $Res Function(_$SignUpStateInitialImpl) _then)
+      : super(_value, _then);
 
-  @override
-  SignUpStateInitial get _value => super._value as SignUpStateInitial;
-
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? password = freezed,
-    Object? repeatPassword = freezed,
+    Object? password = null,
+    Object? repeatPassword = null,
   }) {
-    return _then(SignUpStateInitial(
-      password: password == freezed
+    return _then(_$SignUpStateInitialImpl(
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-      repeatPassword: repeatPassword == freezed
+      repeatPassword: null == repeatPassword
           ? _value.repeatPassword
           : repeatPassword // ignore: cast_nullable_to_non_nullable
               as RepeatPassword,
     ));
   }
 
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $PasswordCopyWith<$Res> get password {
     return $PasswordCopyWith<$Res>(_value.password, (value) {
       return _then(_value.copyWith(password: value));
     });
   }
 
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $RepeatPasswordCopyWith<$Res> get repeatPassword {
     return $RepeatPasswordCopyWith<$Res>(_value.repeatPassword, (value) {
       return _then(_value.copyWith(repeatPassword: value));
@@ -238,18 +189,18 @@ class _$SignUpStateInitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SignUpStateInitial
+class _$SignUpStateInitialImpl
     with DiagnosticableTreeMixin
     implements SignUpStateInitial {
-  const _$SignUpStateInitial(
+  const _$SignUpStateInitialImpl(
       {this.password = const Password(),
       this.repeatPassword = const RepeatPassword()});
 
-  @JsonKey()
   @override
+  @JsonKey()
   final Password password;
-  @JsonKey()
   @override
+  @JsonKey()
   final RepeatPassword repeatPassword;
 
   @override
@@ -267,25 +218,27 @@ class _$SignUpStateInitial
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SignUpStateInitial &&
-            const DeepCollectionEquality().equals(other.password, password) &&
-            const DeepCollectionEquality()
-                .equals(other.repeatPassword, repeatPassword));
+            other is _$SignUpStateInitialImpl &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.repeatPassword, repeatPassword) ||
+                other.repeatPassword == repeatPassword));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(repeatPassword));
+  int get hashCode => Object.hash(runtimeType, password, repeatPassword);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $SignUpStateInitialCopyWith<SignUpStateInitial> get copyWith =>
-      _$SignUpStateInitialCopyWithImpl<SignUpStateInitial>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SignUpStateInitialImplCopyWith<_$SignUpStateInitialImpl> get copyWith =>
+      __$$SignUpStateInitialImplCopyWithImpl<_$SignUpStateInitialImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -310,16 +263,17 @@ class _$SignUpStateInitial
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Password password, RepeatPassword repeatPassword)? initial,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
+        initial,
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
         passwordChanged,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
         invalidPassword,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
         passwordMismatch,
-    TResult Function()? savingPassword,
-    TResult Function()? passwordSaved,
-    TResult Function(Password password, RepeatPassword repeatPassword,
+    TResult? Function()? savingPassword,
+    TResult? Function()? passwordSaved,
+    TResult? Function(Password password, RepeatPassword repeatPassword,
             Exception? exception, StackTrace? stackTrace)?
         savePasswordFailed,
   }) {
@@ -368,13 +322,13 @@ class _$SignUpStateInitial
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SignUpStateInitial value)? initial,
-    TResult Function(SignUpStatePasswordChanged value)? passwordChanged,
-    TResult Function(SignUpStateInvalidPassword value)? invalidPassword,
-    TResult Function(SignUpStatePasswordMismatch value)? passwordMismatch,
-    TResult Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult Function(SignUpStatePasswordSaved value)? passwordSaved,
-    TResult Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
+    TResult? Function(SignUpStateInitial value)? initial,
+    TResult? Function(SignUpStatePasswordChanged value)? passwordChanged,
+    TResult? Function(SignUpStateInvalidPassword value)? invalidPassword,
+    TResult? Function(SignUpStatePasswordMismatch value)? passwordMismatch,
+    TResult? Function(SignUpStateSavingPassword value)? savingPassword,
+    TResult? Function(SignUpStatePasswordSaved value)? passwordSaved,
+    TResult? Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
   }) {
     return initial?.call(this);
   }
@@ -400,21 +354,26 @@ class _$SignUpStateInitial
 
 abstract class SignUpStateInitial implements SignUpState {
   const factory SignUpStateInitial(
-      {Password password,
-      RepeatPassword repeatPassword}) = _$SignUpStateInitial;
+      {final Password password,
+      final RepeatPassword repeatPassword}) = _$SignUpStateInitialImpl;
 
   Password get password;
   RepeatPassword get repeatPassword;
-  @JsonKey(ignore: true)
-  $SignUpStateInitialCopyWith<SignUpStateInitial> get copyWith =>
+
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SignUpStateInitialImplCopyWith<_$SignUpStateInitialImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SignUpStatePasswordChangedCopyWith<$Res> {
-  factory $SignUpStatePasswordChangedCopyWith(SignUpStatePasswordChanged value,
-          $Res Function(SignUpStatePasswordChanged) then) =
-      _$SignUpStatePasswordChangedCopyWithImpl<$Res>;
+abstract class _$$SignUpStatePasswordChangedImplCopyWith<$Res> {
+  factory _$$SignUpStatePasswordChangedImplCopyWith(
+          _$SignUpStatePasswordChangedImpl value,
+          $Res Function(_$SignUpStatePasswordChangedImpl) then) =
+      __$$SignUpStatePasswordChangedImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({Password password, RepeatPassword repeatPassword});
 
   $PasswordCopyWith<$Res> get password;
@@ -422,42 +381,48 @@ abstract class $SignUpStatePasswordChangedCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SignUpStatePasswordChangedCopyWithImpl<$Res>
-    extends _$SignUpStateCopyWithImpl<$Res>
-    implements $SignUpStatePasswordChangedCopyWith<$Res> {
-  _$SignUpStatePasswordChangedCopyWithImpl(SignUpStatePasswordChanged _value,
-      $Res Function(SignUpStatePasswordChanged) _then)
-      : super(_value, (v) => _then(v as SignUpStatePasswordChanged));
+class __$$SignUpStatePasswordChangedImplCopyWithImpl<$Res>
+    extends _$SignUpStateCopyWithImpl<$Res, _$SignUpStatePasswordChangedImpl>
+    implements _$$SignUpStatePasswordChangedImplCopyWith<$Res> {
+  __$$SignUpStatePasswordChangedImplCopyWithImpl(
+      _$SignUpStatePasswordChangedImpl _value,
+      $Res Function(_$SignUpStatePasswordChangedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  SignUpStatePasswordChanged get _value =>
-      super._value as SignUpStatePasswordChanged;
-
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? password = freezed,
-    Object? repeatPassword = freezed,
+    Object? password = null,
+    Object? repeatPassword = null,
   }) {
-    return _then(SignUpStatePasswordChanged(
-      password: password == freezed
+    return _then(_$SignUpStatePasswordChangedImpl(
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-      repeatPassword: repeatPassword == freezed
+      repeatPassword: null == repeatPassword
           ? _value.repeatPassword
           : repeatPassword // ignore: cast_nullable_to_non_nullable
               as RepeatPassword,
     ));
   }
 
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $PasswordCopyWith<$Res> get password {
     return $PasswordCopyWith<$Res>(_value.password, (value) {
       return _then(_value.copyWith(password: value));
     });
   }
 
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $RepeatPasswordCopyWith<$Res> get repeatPassword {
     return $RepeatPasswordCopyWith<$Res>(_value.repeatPassword, (value) {
       return _then(_value.copyWith(repeatPassword: value));
@@ -467,10 +432,10 @@ class _$SignUpStatePasswordChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SignUpStatePasswordChanged
+class _$SignUpStatePasswordChangedImpl
     with DiagnosticableTreeMixin
     implements SignUpStatePasswordChanged {
-  const _$SignUpStatePasswordChanged(
+  const _$SignUpStatePasswordChangedImpl(
       {required this.password, required this.repeatPassword});
 
   @override
@@ -493,27 +458,27 @@ class _$SignUpStatePasswordChanged
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SignUpStatePasswordChanged &&
-            const DeepCollectionEquality().equals(other.password, password) &&
-            const DeepCollectionEquality()
-                .equals(other.repeatPassword, repeatPassword));
+            other is _$SignUpStatePasswordChangedImpl &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.repeatPassword, repeatPassword) ||
+                other.repeatPassword == repeatPassword));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(repeatPassword));
+  int get hashCode => Object.hash(runtimeType, password, repeatPassword);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $SignUpStatePasswordChangedCopyWith<SignUpStatePasswordChanged>
-      get copyWith =>
-          _$SignUpStatePasswordChangedCopyWithImpl<SignUpStatePasswordChanged>(
-              this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SignUpStatePasswordChangedImplCopyWith<_$SignUpStatePasswordChangedImpl>
+      get copyWith => __$$SignUpStatePasswordChangedImplCopyWithImpl<
+          _$SignUpStatePasswordChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -538,16 +503,17 @@ class _$SignUpStatePasswordChanged
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Password password, RepeatPassword repeatPassword)? initial,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
+        initial,
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
         passwordChanged,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
         invalidPassword,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
         passwordMismatch,
-    TResult Function()? savingPassword,
-    TResult Function()? passwordSaved,
-    TResult Function(Password password, RepeatPassword repeatPassword,
+    TResult? Function()? savingPassword,
+    TResult? Function()? passwordSaved,
+    TResult? Function(Password password, RepeatPassword repeatPassword,
             Exception? exception, StackTrace? stackTrace)?
         savePasswordFailed,
   }) {
@@ -596,13 +562,13 @@ class _$SignUpStatePasswordChanged
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SignUpStateInitial value)? initial,
-    TResult Function(SignUpStatePasswordChanged value)? passwordChanged,
-    TResult Function(SignUpStateInvalidPassword value)? invalidPassword,
-    TResult Function(SignUpStatePasswordMismatch value)? passwordMismatch,
-    TResult Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult Function(SignUpStatePasswordSaved value)? passwordSaved,
-    TResult Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
+    TResult? Function(SignUpStateInitial value)? initial,
+    TResult? Function(SignUpStatePasswordChanged value)? passwordChanged,
+    TResult? Function(SignUpStateInvalidPassword value)? invalidPassword,
+    TResult? Function(SignUpStatePasswordMismatch value)? passwordMismatch,
+    TResult? Function(SignUpStateSavingPassword value)? savingPassword,
+    TResult? Function(SignUpStatePasswordSaved value)? passwordSaved,
+    TResult? Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
   }) {
     return passwordChanged?.call(this);
   }
@@ -628,21 +594,27 @@ class _$SignUpStatePasswordChanged
 
 abstract class SignUpStatePasswordChanged implements SignUpState {
   const factory SignUpStatePasswordChanged(
-      {required Password password,
-      required RepeatPassword repeatPassword}) = _$SignUpStatePasswordChanged;
+          {required final Password password,
+          required final RepeatPassword repeatPassword}) =
+      _$SignUpStatePasswordChangedImpl;
 
   Password get password;
   RepeatPassword get repeatPassword;
-  @JsonKey(ignore: true)
-  $SignUpStatePasswordChangedCopyWith<SignUpStatePasswordChanged>
+
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SignUpStatePasswordChangedImplCopyWith<_$SignUpStatePasswordChangedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SignUpStateInvalidPasswordCopyWith<$Res> {
-  factory $SignUpStateInvalidPasswordCopyWith(SignUpStateInvalidPassword value,
-          $Res Function(SignUpStateInvalidPassword) then) =
-      _$SignUpStateInvalidPasswordCopyWithImpl<$Res>;
+abstract class _$$SignUpStateInvalidPasswordImplCopyWith<$Res> {
+  factory _$$SignUpStateInvalidPasswordImplCopyWith(
+          _$SignUpStateInvalidPasswordImpl value,
+          $Res Function(_$SignUpStateInvalidPasswordImpl) then) =
+      __$$SignUpStateInvalidPasswordImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({Password password, RepeatPassword repeatPassword});
 
   $PasswordCopyWith<$Res> get password;
@@ -650,42 +622,48 @@ abstract class $SignUpStateInvalidPasswordCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SignUpStateInvalidPasswordCopyWithImpl<$Res>
-    extends _$SignUpStateCopyWithImpl<$Res>
-    implements $SignUpStateInvalidPasswordCopyWith<$Res> {
-  _$SignUpStateInvalidPasswordCopyWithImpl(SignUpStateInvalidPassword _value,
-      $Res Function(SignUpStateInvalidPassword) _then)
-      : super(_value, (v) => _then(v as SignUpStateInvalidPassword));
+class __$$SignUpStateInvalidPasswordImplCopyWithImpl<$Res>
+    extends _$SignUpStateCopyWithImpl<$Res, _$SignUpStateInvalidPasswordImpl>
+    implements _$$SignUpStateInvalidPasswordImplCopyWith<$Res> {
+  __$$SignUpStateInvalidPasswordImplCopyWithImpl(
+      _$SignUpStateInvalidPasswordImpl _value,
+      $Res Function(_$SignUpStateInvalidPasswordImpl) _then)
+      : super(_value, _then);
 
-  @override
-  SignUpStateInvalidPassword get _value =>
-      super._value as SignUpStateInvalidPassword;
-
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? password = freezed,
-    Object? repeatPassword = freezed,
+    Object? password = null,
+    Object? repeatPassword = null,
   }) {
-    return _then(SignUpStateInvalidPassword(
-      password: password == freezed
+    return _then(_$SignUpStateInvalidPasswordImpl(
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-      repeatPassword: repeatPassword == freezed
+      repeatPassword: null == repeatPassword
           ? _value.repeatPassword
           : repeatPassword // ignore: cast_nullable_to_non_nullable
               as RepeatPassword,
     ));
   }
 
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $PasswordCopyWith<$Res> get password {
     return $PasswordCopyWith<$Res>(_value.password, (value) {
       return _then(_value.copyWith(password: value));
     });
   }
 
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $RepeatPasswordCopyWith<$Res> get repeatPassword {
     return $RepeatPasswordCopyWith<$Res>(_value.repeatPassword, (value) {
       return _then(_value.copyWith(repeatPassword: value));
@@ -695,10 +673,10 @@ class _$SignUpStateInvalidPasswordCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SignUpStateInvalidPassword
+class _$SignUpStateInvalidPasswordImpl
     with DiagnosticableTreeMixin
     implements SignUpStateInvalidPassword {
-  const _$SignUpStateInvalidPassword(
+  const _$SignUpStateInvalidPasswordImpl(
       {required this.password, required this.repeatPassword});
 
   @override
@@ -721,27 +699,27 @@ class _$SignUpStateInvalidPassword
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SignUpStateInvalidPassword &&
-            const DeepCollectionEquality().equals(other.password, password) &&
-            const DeepCollectionEquality()
-                .equals(other.repeatPassword, repeatPassword));
+            other is _$SignUpStateInvalidPasswordImpl &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.repeatPassword, repeatPassword) ||
+                other.repeatPassword == repeatPassword));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(repeatPassword));
+  int get hashCode => Object.hash(runtimeType, password, repeatPassword);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $SignUpStateInvalidPasswordCopyWith<SignUpStateInvalidPassword>
-      get copyWith =>
-          _$SignUpStateInvalidPasswordCopyWithImpl<SignUpStateInvalidPassword>(
-              this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SignUpStateInvalidPasswordImplCopyWith<_$SignUpStateInvalidPasswordImpl>
+      get copyWith => __$$SignUpStateInvalidPasswordImplCopyWithImpl<
+          _$SignUpStateInvalidPasswordImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -766,16 +744,17 @@ class _$SignUpStateInvalidPassword
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Password password, RepeatPassword repeatPassword)? initial,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
+        initial,
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
         passwordChanged,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
         invalidPassword,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
         passwordMismatch,
-    TResult Function()? savingPassword,
-    TResult Function()? passwordSaved,
-    TResult Function(Password password, RepeatPassword repeatPassword,
+    TResult? Function()? savingPassword,
+    TResult? Function()? passwordSaved,
+    TResult? Function(Password password, RepeatPassword repeatPassword,
             Exception? exception, StackTrace? stackTrace)?
         savePasswordFailed,
   }) {
@@ -824,13 +803,13 @@ class _$SignUpStateInvalidPassword
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SignUpStateInitial value)? initial,
-    TResult Function(SignUpStatePasswordChanged value)? passwordChanged,
-    TResult Function(SignUpStateInvalidPassword value)? invalidPassword,
-    TResult Function(SignUpStatePasswordMismatch value)? passwordMismatch,
-    TResult Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult Function(SignUpStatePasswordSaved value)? passwordSaved,
-    TResult Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
+    TResult? Function(SignUpStateInitial value)? initial,
+    TResult? Function(SignUpStatePasswordChanged value)? passwordChanged,
+    TResult? Function(SignUpStateInvalidPassword value)? invalidPassword,
+    TResult? Function(SignUpStatePasswordMismatch value)? passwordMismatch,
+    TResult? Function(SignUpStateSavingPassword value)? savingPassword,
+    TResult? Function(SignUpStatePasswordSaved value)? passwordSaved,
+    TResult? Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
   }) {
     return invalidPassword?.call(this);
   }
@@ -856,22 +835,27 @@ class _$SignUpStateInvalidPassword
 
 abstract class SignUpStateInvalidPassword implements SignUpState {
   const factory SignUpStateInvalidPassword(
-      {required Password password,
-      required RepeatPassword repeatPassword}) = _$SignUpStateInvalidPassword;
+          {required final Password password,
+          required final RepeatPassword repeatPassword}) =
+      _$SignUpStateInvalidPasswordImpl;
 
   Password get password;
   RepeatPassword get repeatPassword;
-  @JsonKey(ignore: true)
-  $SignUpStateInvalidPasswordCopyWith<SignUpStateInvalidPassword>
+
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SignUpStateInvalidPasswordImplCopyWith<_$SignUpStateInvalidPasswordImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SignUpStatePasswordMismatchCopyWith<$Res> {
-  factory $SignUpStatePasswordMismatchCopyWith(
-          SignUpStatePasswordMismatch value,
-          $Res Function(SignUpStatePasswordMismatch) then) =
-      _$SignUpStatePasswordMismatchCopyWithImpl<$Res>;
+abstract class _$$SignUpStatePasswordMismatchImplCopyWith<$Res> {
+  factory _$$SignUpStatePasswordMismatchImplCopyWith(
+          _$SignUpStatePasswordMismatchImpl value,
+          $Res Function(_$SignUpStatePasswordMismatchImpl) then) =
+      __$$SignUpStatePasswordMismatchImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({Password password, RepeatPassword repeatPassword});
 
   $PasswordCopyWith<$Res> get password;
@@ -879,42 +863,48 @@ abstract class $SignUpStatePasswordMismatchCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SignUpStatePasswordMismatchCopyWithImpl<$Res>
-    extends _$SignUpStateCopyWithImpl<$Res>
-    implements $SignUpStatePasswordMismatchCopyWith<$Res> {
-  _$SignUpStatePasswordMismatchCopyWithImpl(SignUpStatePasswordMismatch _value,
-      $Res Function(SignUpStatePasswordMismatch) _then)
-      : super(_value, (v) => _then(v as SignUpStatePasswordMismatch));
+class __$$SignUpStatePasswordMismatchImplCopyWithImpl<$Res>
+    extends _$SignUpStateCopyWithImpl<$Res, _$SignUpStatePasswordMismatchImpl>
+    implements _$$SignUpStatePasswordMismatchImplCopyWith<$Res> {
+  __$$SignUpStatePasswordMismatchImplCopyWithImpl(
+      _$SignUpStatePasswordMismatchImpl _value,
+      $Res Function(_$SignUpStatePasswordMismatchImpl) _then)
+      : super(_value, _then);
 
-  @override
-  SignUpStatePasswordMismatch get _value =>
-      super._value as SignUpStatePasswordMismatch;
-
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? password = freezed,
-    Object? repeatPassword = freezed,
+    Object? password = null,
+    Object? repeatPassword = null,
   }) {
-    return _then(SignUpStatePasswordMismatch(
-      password: password == freezed
+    return _then(_$SignUpStatePasswordMismatchImpl(
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-      repeatPassword: repeatPassword == freezed
+      repeatPassword: null == repeatPassword
           ? _value.repeatPassword
           : repeatPassword // ignore: cast_nullable_to_non_nullable
               as RepeatPassword,
     ));
   }
 
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $PasswordCopyWith<$Res> get password {
     return $PasswordCopyWith<$Res>(_value.password, (value) {
       return _then(_value.copyWith(password: value));
     });
   }
 
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $RepeatPasswordCopyWith<$Res> get repeatPassword {
     return $RepeatPasswordCopyWith<$Res>(_value.repeatPassword, (value) {
       return _then(_value.copyWith(repeatPassword: value));
@@ -924,10 +914,10 @@ class _$SignUpStatePasswordMismatchCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SignUpStatePasswordMismatch
+class _$SignUpStatePasswordMismatchImpl
     with DiagnosticableTreeMixin
     implements SignUpStatePasswordMismatch {
-  const _$SignUpStatePasswordMismatch(
+  const _$SignUpStatePasswordMismatchImpl(
       {required this.password, required this.repeatPassword});
 
   @override
@@ -950,26 +940,27 @@ class _$SignUpStatePasswordMismatch
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SignUpStatePasswordMismatch &&
-            const DeepCollectionEquality().equals(other.password, password) &&
-            const DeepCollectionEquality()
-                .equals(other.repeatPassword, repeatPassword));
+            other is _$SignUpStatePasswordMismatchImpl &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.repeatPassword, repeatPassword) ||
+                other.repeatPassword == repeatPassword));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(repeatPassword));
+  int get hashCode => Object.hash(runtimeType, password, repeatPassword);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $SignUpStatePasswordMismatchCopyWith<SignUpStatePasswordMismatch>
-      get copyWith => _$SignUpStatePasswordMismatchCopyWithImpl<
-          SignUpStatePasswordMismatch>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SignUpStatePasswordMismatchImplCopyWith<_$SignUpStatePasswordMismatchImpl>
+      get copyWith => __$$SignUpStatePasswordMismatchImplCopyWithImpl<
+          _$SignUpStatePasswordMismatchImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -994,16 +985,17 @@ class _$SignUpStatePasswordMismatch
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Password password, RepeatPassword repeatPassword)? initial,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
+        initial,
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
         passwordChanged,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
         invalidPassword,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
         passwordMismatch,
-    TResult Function()? savingPassword,
-    TResult Function()? passwordSaved,
-    TResult Function(Password password, RepeatPassword repeatPassword,
+    TResult? Function()? savingPassword,
+    TResult? Function()? passwordSaved,
+    TResult? Function(Password password, RepeatPassword repeatPassword,
             Exception? exception, StackTrace? stackTrace)?
         savePasswordFailed,
   }) {
@@ -1052,13 +1044,13 @@ class _$SignUpStatePasswordMismatch
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SignUpStateInitial value)? initial,
-    TResult Function(SignUpStatePasswordChanged value)? passwordChanged,
-    TResult Function(SignUpStateInvalidPassword value)? invalidPassword,
-    TResult Function(SignUpStatePasswordMismatch value)? passwordMismatch,
-    TResult Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult Function(SignUpStatePasswordSaved value)? passwordSaved,
-    TResult Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
+    TResult? Function(SignUpStateInitial value)? initial,
+    TResult? Function(SignUpStatePasswordChanged value)? passwordChanged,
+    TResult? Function(SignUpStateInvalidPassword value)? invalidPassword,
+    TResult? Function(SignUpStatePasswordMismatch value)? passwordMismatch,
+    TResult? Function(SignUpStateSavingPassword value)? savingPassword,
+    TResult? Function(SignUpStatePasswordSaved value)? passwordSaved,
+    TResult? Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
   }) {
     return passwordMismatch?.call(this);
   }
@@ -1084,42 +1076,47 @@ class _$SignUpStatePasswordMismatch
 
 abstract class SignUpStatePasswordMismatch implements SignUpState {
   const factory SignUpStatePasswordMismatch(
-      {required Password password,
-      required RepeatPassword repeatPassword}) = _$SignUpStatePasswordMismatch;
+          {required final Password password,
+          required final RepeatPassword repeatPassword}) =
+      _$SignUpStatePasswordMismatchImpl;
 
   Password get password;
   RepeatPassword get repeatPassword;
-  @JsonKey(ignore: true)
-  $SignUpStatePasswordMismatchCopyWith<SignUpStatePasswordMismatch>
+
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SignUpStatePasswordMismatchImplCopyWith<_$SignUpStatePasswordMismatchImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SignUpStateSavingPasswordCopyWith<$Res> {
-  factory $SignUpStateSavingPasswordCopyWith(SignUpStateSavingPassword value,
-          $Res Function(SignUpStateSavingPassword) then) =
-      _$SignUpStateSavingPasswordCopyWithImpl<$Res>;
+abstract class _$$SignUpStateSavingPasswordImplCopyWith<$Res> {
+  factory _$$SignUpStateSavingPasswordImplCopyWith(
+          _$SignUpStateSavingPasswordImpl value,
+          $Res Function(_$SignUpStateSavingPasswordImpl) then) =
+      __$$SignUpStateSavingPasswordImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SignUpStateSavingPasswordCopyWithImpl<$Res>
-    extends _$SignUpStateCopyWithImpl<$Res>
-    implements $SignUpStateSavingPasswordCopyWith<$Res> {
-  _$SignUpStateSavingPasswordCopyWithImpl(SignUpStateSavingPassword _value,
-      $Res Function(SignUpStateSavingPassword) _then)
-      : super(_value, (v) => _then(v as SignUpStateSavingPassword));
+class __$$SignUpStateSavingPasswordImplCopyWithImpl<$Res>
+    extends _$SignUpStateCopyWithImpl<$Res, _$SignUpStateSavingPasswordImpl>
+    implements _$$SignUpStateSavingPasswordImplCopyWith<$Res> {
+  __$$SignUpStateSavingPasswordImplCopyWithImpl(
+      _$SignUpStateSavingPasswordImpl _value,
+      $Res Function(_$SignUpStateSavingPasswordImpl) _then)
+      : super(_value, _then);
 
-  @override
-  SignUpStateSavingPassword get _value =>
-      super._value as SignUpStateSavingPassword;
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$SignUpStateSavingPassword
+class _$SignUpStateSavingPasswordImpl
     with DiagnosticableTreeMixin
     implements SignUpStateSavingPassword {
-  const _$SignUpStateSavingPassword();
+  const _$SignUpStateSavingPasswordImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -1129,14 +1126,14 @@ class _$SignUpStateSavingPassword
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'SignUpState.savingPassword'));
+    properties.add(DiagnosticsProperty('type', 'SignUpState.savingPassword'));
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SignUpStateSavingPassword);
+            other is _$SignUpStateSavingPasswordImpl);
   }
 
   @override
@@ -1165,16 +1162,17 @@ class _$SignUpStateSavingPassword
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Password password, RepeatPassword repeatPassword)? initial,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
+        initial,
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
         passwordChanged,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
         invalidPassword,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
         passwordMismatch,
-    TResult Function()? savingPassword,
-    TResult Function()? passwordSaved,
-    TResult Function(Password password, RepeatPassword repeatPassword,
+    TResult? Function()? savingPassword,
+    TResult? Function()? passwordSaved,
+    TResult? Function(Password password, RepeatPassword repeatPassword,
             Exception? exception, StackTrace? stackTrace)?
         savePasswordFailed,
   }) {
@@ -1223,13 +1221,13 @@ class _$SignUpStateSavingPassword
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SignUpStateInitial value)? initial,
-    TResult Function(SignUpStatePasswordChanged value)? passwordChanged,
-    TResult Function(SignUpStateInvalidPassword value)? invalidPassword,
-    TResult Function(SignUpStatePasswordMismatch value)? passwordMismatch,
-    TResult Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult Function(SignUpStatePasswordSaved value)? passwordSaved,
-    TResult Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
+    TResult? Function(SignUpStateInitial value)? initial,
+    TResult? Function(SignUpStatePasswordChanged value)? passwordChanged,
+    TResult? Function(SignUpStateInvalidPassword value)? invalidPassword,
+    TResult? Function(SignUpStatePasswordMismatch value)? passwordMismatch,
+    TResult? Function(SignUpStateSavingPassword value)? savingPassword,
+    TResult? Function(SignUpStatePasswordSaved value)? passwordSaved,
+    TResult? Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
   }) {
     return savingPassword?.call(this);
   }
@@ -1254,35 +1252,36 @@ class _$SignUpStateSavingPassword
 }
 
 abstract class SignUpStateSavingPassword implements SignUpState {
-  const factory SignUpStateSavingPassword() = _$SignUpStateSavingPassword;
+  const factory SignUpStateSavingPassword() = _$SignUpStateSavingPasswordImpl;
 }
 
 /// @nodoc
-abstract class $SignUpStatePasswordSavedCopyWith<$Res> {
-  factory $SignUpStatePasswordSavedCopyWith(SignUpStatePasswordSaved value,
-          $Res Function(SignUpStatePasswordSaved) then) =
-      _$SignUpStatePasswordSavedCopyWithImpl<$Res>;
+abstract class _$$SignUpStatePasswordSavedImplCopyWith<$Res> {
+  factory _$$SignUpStatePasswordSavedImplCopyWith(
+          _$SignUpStatePasswordSavedImpl value,
+          $Res Function(_$SignUpStatePasswordSavedImpl) then) =
+      __$$SignUpStatePasswordSavedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SignUpStatePasswordSavedCopyWithImpl<$Res>
-    extends _$SignUpStateCopyWithImpl<$Res>
-    implements $SignUpStatePasswordSavedCopyWith<$Res> {
-  _$SignUpStatePasswordSavedCopyWithImpl(SignUpStatePasswordSaved _value,
-      $Res Function(SignUpStatePasswordSaved) _then)
-      : super(_value, (v) => _then(v as SignUpStatePasswordSaved));
+class __$$SignUpStatePasswordSavedImplCopyWithImpl<$Res>
+    extends _$SignUpStateCopyWithImpl<$Res, _$SignUpStatePasswordSavedImpl>
+    implements _$$SignUpStatePasswordSavedImplCopyWith<$Res> {
+  __$$SignUpStatePasswordSavedImplCopyWithImpl(
+      _$SignUpStatePasswordSavedImpl _value,
+      $Res Function(_$SignUpStatePasswordSavedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  SignUpStatePasswordSaved get _value =>
-      super._value as SignUpStatePasswordSaved;
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$SignUpStatePasswordSaved
+class _$SignUpStatePasswordSavedImpl
     with DiagnosticableTreeMixin
     implements SignUpStatePasswordSaved {
-  const _$SignUpStatePasswordSaved();
+  const _$SignUpStatePasswordSavedImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -1292,13 +1291,14 @@ class _$SignUpStatePasswordSaved
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'SignUpState.passwordSaved'));
+    properties.add(DiagnosticsProperty('type', 'SignUpState.passwordSaved'));
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is SignUpStatePasswordSaved);
+        (other.runtimeType == runtimeType &&
+            other is _$SignUpStatePasswordSavedImpl);
   }
 
   @override
@@ -1327,16 +1327,17 @@ class _$SignUpStatePasswordSaved
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Password password, RepeatPassword repeatPassword)? initial,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
+        initial,
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
         passwordChanged,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
         invalidPassword,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
         passwordMismatch,
-    TResult Function()? savingPassword,
-    TResult Function()? passwordSaved,
-    TResult Function(Password password, RepeatPassword repeatPassword,
+    TResult? Function()? savingPassword,
+    TResult? Function()? passwordSaved,
+    TResult? Function(Password password, RepeatPassword repeatPassword,
             Exception? exception, StackTrace? stackTrace)?
         savePasswordFailed,
   }) {
@@ -1385,13 +1386,13 @@ class _$SignUpStatePasswordSaved
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SignUpStateInitial value)? initial,
-    TResult Function(SignUpStatePasswordChanged value)? passwordChanged,
-    TResult Function(SignUpStateInvalidPassword value)? invalidPassword,
-    TResult Function(SignUpStatePasswordMismatch value)? passwordMismatch,
-    TResult Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult Function(SignUpStatePasswordSaved value)? passwordSaved,
-    TResult Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
+    TResult? Function(SignUpStateInitial value)? initial,
+    TResult? Function(SignUpStatePasswordChanged value)? passwordChanged,
+    TResult? Function(SignUpStateInvalidPassword value)? invalidPassword,
+    TResult? Function(SignUpStatePasswordMismatch value)? passwordMismatch,
+    TResult? Function(SignUpStateSavingPassword value)? savingPassword,
+    TResult? Function(SignUpStatePasswordSaved value)? passwordSaved,
+    TResult? Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
   }) {
     return passwordSaved?.call(this);
   }
@@ -1416,15 +1417,16 @@ class _$SignUpStatePasswordSaved
 }
 
 abstract class SignUpStatePasswordSaved implements SignUpState {
-  const factory SignUpStatePasswordSaved() = _$SignUpStatePasswordSaved;
+  const factory SignUpStatePasswordSaved() = _$SignUpStatePasswordSavedImpl;
 }
 
 /// @nodoc
-abstract class $SignUpStateSavePasswordFailedCopyWith<$Res> {
-  factory $SignUpStateSavePasswordFailedCopyWith(
-          SignUpStateSavePasswordFailed value,
-          $Res Function(SignUpStateSavePasswordFailed) then) =
-      _$SignUpStateSavePasswordFailedCopyWithImpl<$Res>;
+abstract class _$$SignUpStateSavePasswordFailedImplCopyWith<$Res> {
+  factory _$$SignUpStateSavePasswordFailedImplCopyWith(
+          _$SignUpStateSavePasswordFailedImpl value,
+          $Res Function(_$SignUpStateSavePasswordFailedImpl) then) =
+      __$$SignUpStateSavePasswordFailedImplCopyWithImpl<$Res>;
+  @useResult
   $Res call(
       {Password password,
       RepeatPassword repeatPassword,
@@ -1436,53 +1438,58 @@ abstract class $SignUpStateSavePasswordFailedCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SignUpStateSavePasswordFailedCopyWithImpl<$Res>
-    extends _$SignUpStateCopyWithImpl<$Res>
-    implements $SignUpStateSavePasswordFailedCopyWith<$Res> {
-  _$SignUpStateSavePasswordFailedCopyWithImpl(
-      SignUpStateSavePasswordFailed _value,
-      $Res Function(SignUpStateSavePasswordFailed) _then)
-      : super(_value, (v) => _then(v as SignUpStateSavePasswordFailed));
+class __$$SignUpStateSavePasswordFailedImplCopyWithImpl<$Res>
+    extends _$SignUpStateCopyWithImpl<$Res, _$SignUpStateSavePasswordFailedImpl>
+    implements _$$SignUpStateSavePasswordFailedImplCopyWith<$Res> {
+  __$$SignUpStateSavePasswordFailedImplCopyWithImpl(
+      _$SignUpStateSavePasswordFailedImpl _value,
+      $Res Function(_$SignUpStateSavePasswordFailedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  SignUpStateSavePasswordFailed get _value =>
-      super._value as SignUpStateSavePasswordFailed;
-
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? password = freezed,
-    Object? repeatPassword = freezed,
+    Object? password = null,
+    Object? repeatPassword = null,
     Object? exception = freezed,
     Object? stackTrace = freezed,
   }) {
-    return _then(SignUpStateSavePasswordFailed(
-      password: password == freezed
+    return _then(_$SignUpStateSavePasswordFailedImpl(
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-      repeatPassword: repeatPassword == freezed
+      repeatPassword: null == repeatPassword
           ? _value.repeatPassword
           : repeatPassword // ignore: cast_nullable_to_non_nullable
               as RepeatPassword,
-      exception: exception == freezed
+      exception: freezed == exception
           ? _value.exception
           : exception // ignore: cast_nullable_to_non_nullable
               as Exception?,
-      stackTrace: stackTrace == freezed
+      stackTrace: freezed == stackTrace
           ? _value.stackTrace
           : stackTrace // ignore: cast_nullable_to_non_nullable
               as StackTrace?,
     ));
   }
 
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $PasswordCopyWith<$Res> get password {
     return $PasswordCopyWith<$Res>(_value.password, (value) {
       return _then(_value.copyWith(password: value));
     });
   }
 
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $RepeatPasswordCopyWith<$Res> get repeatPassword {
     return $RepeatPasswordCopyWith<$Res>(_value.repeatPassword, (value) {
       return _then(_value.copyWith(repeatPassword: value));
@@ -1492,10 +1499,10 @@ class _$SignUpStateSavePasswordFailedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SignUpStateSavePasswordFailed
+class _$SignUpStateSavePasswordFailedImpl
     with DiagnosticableTreeMixin
     implements SignUpStateSavePasswordFailed {
-  const _$SignUpStateSavePasswordFailed(
+  const _$SignUpStateSavePasswordFailedImpl(
       {required this.password,
       required this.repeatPassword,
       this.exception,
@@ -1527,31 +1534,33 @@ class _$SignUpStateSavePasswordFailed
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SignUpStateSavePasswordFailed &&
-            const DeepCollectionEquality().equals(other.password, password) &&
-            const DeepCollectionEquality()
-                .equals(other.repeatPassword, repeatPassword) &&
-            const DeepCollectionEquality().equals(other.exception, exception) &&
-            const DeepCollectionEquality()
-                .equals(other.stackTrace, stackTrace));
+            other is _$SignUpStateSavePasswordFailedImpl &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.repeatPassword, repeatPassword) ||
+                other.repeatPassword == repeatPassword) &&
+            (identical(other.exception, exception) ||
+                other.exception == exception) &&
+            (identical(other.stackTrace, stackTrace) ||
+                other.stackTrace == stackTrace));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(repeatPassword),
-      const DeepCollectionEquality().hash(exception),
-      const DeepCollectionEquality().hash(stackTrace));
+  int get hashCode =>
+      Object.hash(runtimeType, password, repeatPassword, exception, stackTrace);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $SignUpStateSavePasswordFailedCopyWith<SignUpStateSavePasswordFailed>
-      get copyWith => _$SignUpStateSavePasswordFailedCopyWithImpl<
-          SignUpStateSavePasswordFailed>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SignUpStateSavePasswordFailedImplCopyWith<
+          _$SignUpStateSavePasswordFailedImpl>
+      get copyWith => __$$SignUpStateSavePasswordFailedImplCopyWithImpl<
+          _$SignUpStateSavePasswordFailedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1576,16 +1585,17 @@ class _$SignUpStateSavePasswordFailed
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Password password, RepeatPassword repeatPassword)? initial,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
+        initial,
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
         passwordChanged,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
         invalidPassword,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
+    TResult? Function(Password password, RepeatPassword repeatPassword)?
         passwordMismatch,
-    TResult Function()? savingPassword,
-    TResult Function()? passwordSaved,
-    TResult Function(Password password, RepeatPassword repeatPassword,
+    TResult? Function()? savingPassword,
+    TResult? Function()? passwordSaved,
+    TResult? Function(Password password, RepeatPassword repeatPassword,
             Exception? exception, StackTrace? stackTrace)?
         savePasswordFailed,
   }) {
@@ -1636,13 +1646,13 @@ class _$SignUpStateSavePasswordFailed
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SignUpStateInitial value)? initial,
-    TResult Function(SignUpStatePasswordChanged value)? passwordChanged,
-    TResult Function(SignUpStateInvalidPassword value)? invalidPassword,
-    TResult Function(SignUpStatePasswordMismatch value)? passwordMismatch,
-    TResult Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult Function(SignUpStatePasswordSaved value)? passwordSaved,
-    TResult Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
+    TResult? Function(SignUpStateInitial value)? initial,
+    TResult? Function(SignUpStatePasswordChanged value)? passwordChanged,
+    TResult? Function(SignUpStateInvalidPassword value)? invalidPassword,
+    TResult? Function(SignUpStatePasswordMismatch value)? passwordMismatch,
+    TResult? Function(SignUpStateSavingPassword value)? savingPassword,
+    TResult? Function(SignUpStatePasswordSaved value)? passwordSaved,
+    TResult? Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
   }) {
     return savePasswordFailed?.call(this);
   }
@@ -1668,41 +1678,32 @@ class _$SignUpStateSavePasswordFailed
 
 abstract class SignUpStateSavePasswordFailed implements SignUpState {
   const factory SignUpStateSavePasswordFailed(
-      {required Password password,
-      required RepeatPassword repeatPassword,
-      Exception? exception,
-      StackTrace? stackTrace}) = _$SignUpStateSavePasswordFailed;
+      {required final Password password,
+      required final RepeatPassword repeatPassword,
+      final Exception? exception,
+      final StackTrace? stackTrace}) = _$SignUpStateSavePasswordFailedImpl;
 
   Password get password;
   RepeatPassword get repeatPassword;
   Exception? get exception;
   StackTrace? get stackTrace;
-  @JsonKey(ignore: true)
-  $SignUpStateSavePasswordFailedCopyWith<SignUpStateSavePasswordFailed>
+
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SignUpStateSavePasswordFailedImplCopyWith<
+          _$SignUpStateSavePasswordFailedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$PasswordTearOff {
-  const _$PasswordTearOff();
-
-  _Password call({String value = '', PasswordError? error}) {
-    return _Password(
-      value: value,
-      error: error,
-    );
-  }
-}
-
-/// @nodoc
-const $Password = _$PasswordTearOff();
 
 /// @nodoc
 mixin _$Password {
   String get value => throw _privateConstructorUsedError;
   PasswordError? get error => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Password
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PasswordCopyWith<Password> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1710,54 +1711,66 @@ mixin _$Password {
 /// @nodoc
 abstract class $PasswordCopyWith<$Res> {
   factory $PasswordCopyWith(Password value, $Res Function(Password) then) =
-      _$PasswordCopyWithImpl<$Res>;
+      _$PasswordCopyWithImpl<$Res, Password>;
+  @useResult
   $Res call({String value, PasswordError? error});
 
   $PasswordErrorCopyWith<$Res>? get error;
 }
 
 /// @nodoc
-class _$PasswordCopyWithImpl<$Res> implements $PasswordCopyWith<$Res> {
+class _$PasswordCopyWithImpl<$Res, $Val extends Password>
+    implements $PasswordCopyWith<$Res> {
   _$PasswordCopyWithImpl(this._value, this._then);
 
-  final Password _value;
   // ignore: unused_field
-  final $Res Function(Password) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of Password
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
     Object? error = freezed,
   }) {
     return _then(_value.copyWith(
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
-      error: error == freezed
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as PasswordError?,
-    ));
+    ) as $Val);
   }
 
+  /// Create a copy of Password
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $PasswordErrorCopyWith<$Res>? get error {
     if (_value.error == null) {
       return null;
     }
 
     return $PasswordErrorCopyWith<$Res>(_value.error!, (value) {
-      return _then(_value.copyWith(error: value));
+      return _then(_value.copyWith(error: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$PasswordCopyWith<$Res> implements $PasswordCopyWith<$Res> {
-  factory _$PasswordCopyWith(_Password value, $Res Function(_Password) then) =
-      __$PasswordCopyWithImpl<$Res>;
+abstract class _$$PasswordImplCopyWith<$Res>
+    implements $PasswordCopyWith<$Res> {
+  factory _$$PasswordImplCopyWith(
+          _$PasswordImpl value, $Res Function(_$PasswordImpl) then) =
+      __$$PasswordImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String value, PasswordError? error});
 
   @override
@@ -1765,25 +1778,27 @@ abstract class _$PasswordCopyWith<$Res> implements $PasswordCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$PasswordCopyWithImpl<$Res> extends _$PasswordCopyWithImpl<$Res>
-    implements _$PasswordCopyWith<$Res> {
-  __$PasswordCopyWithImpl(_Password _value, $Res Function(_Password) _then)
-      : super(_value, (v) => _then(v as _Password));
+class __$$PasswordImplCopyWithImpl<$Res>
+    extends _$PasswordCopyWithImpl<$Res, _$PasswordImpl>
+    implements _$$PasswordImplCopyWith<$Res> {
+  __$$PasswordImplCopyWithImpl(
+      _$PasswordImpl _value, $Res Function(_$PasswordImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _Password get _value => super._value as _Password;
-
+  /// Create a copy of Password
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
     Object? error = freezed,
   }) {
-    return _then(_Password(
-      value: value == freezed
+    return _then(_$PasswordImpl(
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
-      error: error == freezed
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as PasswordError?,
@@ -1793,11 +1808,11 @@ class __$PasswordCopyWithImpl<$Res> extends _$PasswordCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Password with DiagnosticableTreeMixin implements _Password {
-  const _$_Password({this.value = '', this.error});
+class _$PasswordImpl with DiagnosticableTreeMixin implements _Password {
+  const _$PasswordImpl({this.value = '', this.error});
 
-  @JsonKey()
   @override
+  @JsonKey()
   final String value;
   @override
   final PasswordError? error;
@@ -1817,60 +1832,51 @@ class _$_Password with DiagnosticableTreeMixin implements _Password {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Password &&
-            const DeepCollectionEquality().equals(other.value, value) &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$PasswordImpl &&
+            (identical(other.value, value) || other.value == value) &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(value),
-      const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, value, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Password
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$PasswordCopyWith<_Password> get copyWith =>
-      __$PasswordCopyWithImpl<_Password>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$PasswordImplCopyWith<_$PasswordImpl> get copyWith =>
+      __$$PasswordImplCopyWithImpl<_$PasswordImpl>(this, _$identity);
 }
 
 abstract class _Password implements Password {
-  const factory _Password({String value, PasswordError? error}) = _$_Password;
+  const factory _Password({final String value, final PasswordError? error}) =
+      _$PasswordImpl;
 
   @override
   String get value;
   @override
   PasswordError? get error;
+
+  /// Create a copy of Password
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$PasswordCopyWith<_Password> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PasswordImplCopyWith<_$PasswordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$RepeatPasswordTearOff {
-  const _$RepeatPasswordTearOff();
-
-  _RepeatPassword call({String value = '', RepeatPasswordError? error}) {
-    return _RepeatPassword(
-      value: value,
-      error: error,
-    );
-  }
-}
-
-/// @nodoc
-const $RepeatPassword = _$RepeatPasswordTearOff();
 
 /// @nodoc
 mixin _$RepeatPassword {
   String get value => throw _privateConstructorUsedError;
   RepeatPasswordError? get error => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RepeatPassword
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RepeatPasswordCopyWith<RepeatPassword> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1879,57 +1885,66 @@ mixin _$RepeatPassword {
 abstract class $RepeatPasswordCopyWith<$Res> {
   factory $RepeatPasswordCopyWith(
           RepeatPassword value, $Res Function(RepeatPassword) then) =
-      _$RepeatPasswordCopyWithImpl<$Res>;
+      _$RepeatPasswordCopyWithImpl<$Res, RepeatPassword>;
+  @useResult
   $Res call({String value, RepeatPasswordError? error});
 
   $RepeatPasswordErrorCopyWith<$Res>? get error;
 }
 
 /// @nodoc
-class _$RepeatPasswordCopyWithImpl<$Res>
+class _$RepeatPasswordCopyWithImpl<$Res, $Val extends RepeatPassword>
     implements $RepeatPasswordCopyWith<$Res> {
   _$RepeatPasswordCopyWithImpl(this._value, this._then);
 
-  final RepeatPassword _value;
   // ignore: unused_field
-  final $Res Function(RepeatPassword) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of RepeatPassword
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
     Object? error = freezed,
   }) {
     return _then(_value.copyWith(
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
-      error: error == freezed
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as RepeatPasswordError?,
-    ));
+    ) as $Val);
   }
 
+  /// Create a copy of RepeatPassword
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $RepeatPasswordErrorCopyWith<$Res>? get error {
     if (_value.error == null) {
       return null;
     }
 
     return $RepeatPasswordErrorCopyWith<$Res>(_value.error!, (value) {
-      return _then(_value.copyWith(error: value));
+      return _then(_value.copyWith(error: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$RepeatPasswordCopyWith<$Res>
+abstract class _$$RepeatPasswordImplCopyWith<$Res>
     implements $RepeatPasswordCopyWith<$Res> {
-  factory _$RepeatPasswordCopyWith(
-          _RepeatPassword value, $Res Function(_RepeatPassword) then) =
-      __$RepeatPasswordCopyWithImpl<$Res>;
+  factory _$$RepeatPasswordImplCopyWith(_$RepeatPasswordImpl value,
+          $Res Function(_$RepeatPasswordImpl) then) =
+      __$$RepeatPasswordImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String value, RepeatPasswordError? error});
 
   @override
@@ -1937,27 +1952,27 @@ abstract class _$RepeatPasswordCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RepeatPasswordCopyWithImpl<$Res>
-    extends _$RepeatPasswordCopyWithImpl<$Res>
-    implements _$RepeatPasswordCopyWith<$Res> {
-  __$RepeatPasswordCopyWithImpl(
-      _RepeatPassword _value, $Res Function(_RepeatPassword) _then)
-      : super(_value, (v) => _then(v as _RepeatPassword));
+class __$$RepeatPasswordImplCopyWithImpl<$Res>
+    extends _$RepeatPasswordCopyWithImpl<$Res, _$RepeatPasswordImpl>
+    implements _$$RepeatPasswordImplCopyWith<$Res> {
+  __$$RepeatPasswordImplCopyWithImpl(
+      _$RepeatPasswordImpl _value, $Res Function(_$RepeatPasswordImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _RepeatPassword get _value => super._value as _RepeatPassword;
-
+  /// Create a copy of RepeatPassword
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
     Object? error = freezed,
   }) {
-    return _then(_RepeatPassword(
-      value: value == freezed
+    return _then(_$RepeatPasswordImpl(
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
-      error: error == freezed
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as RepeatPasswordError?,
@@ -1967,13 +1982,13 @@ class __$RepeatPasswordCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_RepeatPassword
+class _$RepeatPasswordImpl
     with DiagnosticableTreeMixin
     implements _RepeatPassword {
-  const _$_RepeatPassword({this.value = '', this.error});
+  const _$RepeatPasswordImpl({this.value = '', this.error});
 
-  @JsonKey()
   @override
+  @JsonKey()
   final String value;
   @override
   final RepeatPasswordError? error;
@@ -1993,59 +2008,44 @@ class _$_RepeatPassword
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RepeatPassword &&
-            const DeepCollectionEquality().equals(other.value, value) &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$RepeatPasswordImpl &&
+            (identical(other.value, value) || other.value == value) &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(value),
-      const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, value, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RepeatPassword
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$RepeatPasswordCopyWith<_RepeatPassword> get copyWith =>
-      __$RepeatPasswordCopyWithImpl<_RepeatPassword>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$RepeatPasswordImplCopyWith<_$RepeatPasswordImpl> get copyWith =>
+      __$$RepeatPasswordImplCopyWithImpl<_$RepeatPasswordImpl>(
+          this, _$identity);
 }
 
 abstract class _RepeatPassword implements RepeatPassword {
-  const factory _RepeatPassword({String value, RepeatPasswordError? error}) =
-      _$_RepeatPassword;
+  const factory _RepeatPassword(
+      {final String value,
+      final RepeatPasswordError? error}) = _$RepeatPasswordImpl;
 
   @override
   String get value;
   @override
   RepeatPasswordError? get error;
+
+  /// Create a copy of RepeatPassword
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$RepeatPasswordCopyWith<_RepeatPassword> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RepeatPasswordImplCopyWith<_$RepeatPasswordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$PasswordErrorTearOff {
-  const _$PasswordErrorTearOff();
-
-  PasswordErrorEmpty empty() {
-    return const PasswordErrorEmpty();
-  }
-
-  PasswordErrorTooShort tooShort() {
-    return const PasswordErrorTooShort();
-  }
-
-  PasswordErrorTooLong tooLong() {
-    return const PasswordErrorTooLong();
-  }
-}
-
-/// @nodoc
-const $PasswordError = _$PasswordErrorTearOff();
 
 /// @nodoc
 mixin _$PasswordError {
@@ -2058,9 +2058,9 @@ mixin _$PasswordError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? empty,
-    TResult Function()? tooShort,
-    TResult Function()? tooLong,
+    TResult? Function()? empty,
+    TResult? Function()? tooShort,
+    TResult? Function()? tooLong,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2080,9 +2080,9 @@ mixin _$PasswordError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(PasswordErrorEmpty value)? empty,
-    TResult Function(PasswordErrorTooShort value)? tooShort,
-    TResult Function(PasswordErrorTooLong value)? tooLong,
+    TResult? Function(PasswordErrorEmpty value)? empty,
+    TResult? Function(PasswordErrorTooShort value)? tooShort,
+    TResult? Function(PasswordErrorTooLong value)? tooLong,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2099,44 +2099,48 @@ mixin _$PasswordError {
 abstract class $PasswordErrorCopyWith<$Res> {
   factory $PasswordErrorCopyWith(
           PasswordError value, $Res Function(PasswordError) then) =
-      _$PasswordErrorCopyWithImpl<$Res>;
+      _$PasswordErrorCopyWithImpl<$Res, PasswordError>;
 }
 
 /// @nodoc
-class _$PasswordErrorCopyWithImpl<$Res>
+class _$PasswordErrorCopyWithImpl<$Res, $Val extends PasswordError>
     implements $PasswordErrorCopyWith<$Res> {
   _$PasswordErrorCopyWithImpl(this._value, this._then);
 
-  final PasswordError _value;
   // ignore: unused_field
-  final $Res Function(PasswordError) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of PasswordError
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class $PasswordErrorEmptyCopyWith<$Res> {
-  factory $PasswordErrorEmptyCopyWith(
-          PasswordErrorEmpty value, $Res Function(PasswordErrorEmpty) then) =
-      _$PasswordErrorEmptyCopyWithImpl<$Res>;
+abstract class _$$PasswordErrorEmptyImplCopyWith<$Res> {
+  factory _$$PasswordErrorEmptyImplCopyWith(_$PasswordErrorEmptyImpl value,
+          $Res Function(_$PasswordErrorEmptyImpl) then) =
+      __$$PasswordErrorEmptyImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$PasswordErrorEmptyCopyWithImpl<$Res>
-    extends _$PasswordErrorCopyWithImpl<$Res>
-    implements $PasswordErrorEmptyCopyWith<$Res> {
-  _$PasswordErrorEmptyCopyWithImpl(
-      PasswordErrorEmpty _value, $Res Function(PasswordErrorEmpty) _then)
-      : super(_value, (v) => _then(v as PasswordErrorEmpty));
+class __$$PasswordErrorEmptyImplCopyWithImpl<$Res>
+    extends _$PasswordErrorCopyWithImpl<$Res, _$PasswordErrorEmptyImpl>
+    implements _$$PasswordErrorEmptyImplCopyWith<$Res> {
+  __$$PasswordErrorEmptyImplCopyWithImpl(_$PasswordErrorEmptyImpl _value,
+      $Res Function(_$PasswordErrorEmptyImpl) _then)
+      : super(_value, _then);
 
-  @override
-  PasswordErrorEmpty get _value => super._value as PasswordErrorEmpty;
+  /// Create a copy of PasswordError
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$PasswordErrorEmpty
+class _$PasswordErrorEmptyImpl
     with DiagnosticableTreeMixin
     implements PasswordErrorEmpty {
-  const _$PasswordErrorEmpty();
+  const _$PasswordErrorEmptyImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -2146,13 +2150,13 @@ class _$PasswordErrorEmpty
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'PasswordError.empty'));
+    properties.add(DiagnosticsProperty('type', 'PasswordError.empty'));
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is PasswordErrorEmpty);
+        (other.runtimeType == runtimeType && other is _$PasswordErrorEmptyImpl);
   }
 
   @override
@@ -2171,9 +2175,9 @@ class _$PasswordErrorEmpty
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? empty,
-    TResult Function()? tooShort,
-    TResult Function()? tooLong,
+    TResult? Function()? empty,
+    TResult? Function()? tooShort,
+    TResult? Function()? tooLong,
   }) {
     return empty?.call();
   }
@@ -2205,9 +2209,9 @@ class _$PasswordErrorEmpty
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(PasswordErrorEmpty value)? empty,
-    TResult Function(PasswordErrorTooShort value)? tooShort,
-    TResult Function(PasswordErrorTooLong value)? tooLong,
+    TResult? Function(PasswordErrorEmpty value)? empty,
+    TResult? Function(PasswordErrorTooShort value)? tooShort,
+    TResult? Function(PasswordErrorTooLong value)? tooLong,
   }) {
     return empty?.call(this);
   }
@@ -2228,34 +2232,35 @@ class _$PasswordErrorEmpty
 }
 
 abstract class PasswordErrorEmpty implements PasswordError {
-  const factory PasswordErrorEmpty() = _$PasswordErrorEmpty;
+  const factory PasswordErrorEmpty() = _$PasswordErrorEmptyImpl;
 }
 
 /// @nodoc
-abstract class $PasswordErrorTooShortCopyWith<$Res> {
-  factory $PasswordErrorTooShortCopyWith(PasswordErrorTooShort value,
-          $Res Function(PasswordErrorTooShort) then) =
-      _$PasswordErrorTooShortCopyWithImpl<$Res>;
+abstract class _$$PasswordErrorTooShortImplCopyWith<$Res> {
+  factory _$$PasswordErrorTooShortImplCopyWith(
+          _$PasswordErrorTooShortImpl value,
+          $Res Function(_$PasswordErrorTooShortImpl) then) =
+      __$$PasswordErrorTooShortImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$PasswordErrorTooShortCopyWithImpl<$Res>
-    extends _$PasswordErrorCopyWithImpl<$Res>
-    implements $PasswordErrorTooShortCopyWith<$Res> {
-  _$PasswordErrorTooShortCopyWithImpl(
-      PasswordErrorTooShort _value, $Res Function(PasswordErrorTooShort) _then)
-      : super(_value, (v) => _then(v as PasswordErrorTooShort));
+class __$$PasswordErrorTooShortImplCopyWithImpl<$Res>
+    extends _$PasswordErrorCopyWithImpl<$Res, _$PasswordErrorTooShortImpl>
+    implements _$$PasswordErrorTooShortImplCopyWith<$Res> {
+  __$$PasswordErrorTooShortImplCopyWithImpl(_$PasswordErrorTooShortImpl _value,
+      $Res Function(_$PasswordErrorTooShortImpl) _then)
+      : super(_value, _then);
 
-  @override
-  PasswordErrorTooShort get _value => super._value as PasswordErrorTooShort;
+  /// Create a copy of PasswordError
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$PasswordErrorTooShort
+class _$PasswordErrorTooShortImpl
     with DiagnosticableTreeMixin
     implements PasswordErrorTooShort {
-  const _$PasswordErrorTooShort();
+  const _$PasswordErrorTooShortImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -2265,13 +2270,14 @@ class _$PasswordErrorTooShort
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'PasswordError.tooShort'));
+    properties.add(DiagnosticsProperty('type', 'PasswordError.tooShort'));
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is PasswordErrorTooShort);
+        (other.runtimeType == runtimeType &&
+            other is _$PasswordErrorTooShortImpl);
   }
 
   @override
@@ -2290,9 +2296,9 @@ class _$PasswordErrorTooShort
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? empty,
-    TResult Function()? tooShort,
-    TResult Function()? tooLong,
+    TResult? Function()? empty,
+    TResult? Function()? tooShort,
+    TResult? Function()? tooLong,
   }) {
     return tooShort?.call();
   }
@@ -2324,9 +2330,9 @@ class _$PasswordErrorTooShort
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(PasswordErrorEmpty value)? empty,
-    TResult Function(PasswordErrorTooShort value)? tooShort,
-    TResult Function(PasswordErrorTooLong value)? tooLong,
+    TResult? Function(PasswordErrorEmpty value)? empty,
+    TResult? Function(PasswordErrorTooShort value)? tooShort,
+    TResult? Function(PasswordErrorTooLong value)? tooLong,
   }) {
     return tooShort?.call(this);
   }
@@ -2347,34 +2353,34 @@ class _$PasswordErrorTooShort
 }
 
 abstract class PasswordErrorTooShort implements PasswordError {
-  const factory PasswordErrorTooShort() = _$PasswordErrorTooShort;
+  const factory PasswordErrorTooShort() = _$PasswordErrorTooShortImpl;
 }
 
 /// @nodoc
-abstract class $PasswordErrorTooLongCopyWith<$Res> {
-  factory $PasswordErrorTooLongCopyWith(PasswordErrorTooLong value,
-          $Res Function(PasswordErrorTooLong) then) =
-      _$PasswordErrorTooLongCopyWithImpl<$Res>;
+abstract class _$$PasswordErrorTooLongImplCopyWith<$Res> {
+  factory _$$PasswordErrorTooLongImplCopyWith(_$PasswordErrorTooLongImpl value,
+          $Res Function(_$PasswordErrorTooLongImpl) then) =
+      __$$PasswordErrorTooLongImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$PasswordErrorTooLongCopyWithImpl<$Res>
-    extends _$PasswordErrorCopyWithImpl<$Res>
-    implements $PasswordErrorTooLongCopyWith<$Res> {
-  _$PasswordErrorTooLongCopyWithImpl(
-      PasswordErrorTooLong _value, $Res Function(PasswordErrorTooLong) _then)
-      : super(_value, (v) => _then(v as PasswordErrorTooLong));
+class __$$PasswordErrorTooLongImplCopyWithImpl<$Res>
+    extends _$PasswordErrorCopyWithImpl<$Res, _$PasswordErrorTooLongImpl>
+    implements _$$PasswordErrorTooLongImplCopyWith<$Res> {
+  __$$PasswordErrorTooLongImplCopyWithImpl(_$PasswordErrorTooLongImpl _value,
+      $Res Function(_$PasswordErrorTooLongImpl) _then)
+      : super(_value, _then);
 
-  @override
-  PasswordErrorTooLong get _value => super._value as PasswordErrorTooLong;
+  /// Create a copy of PasswordError
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$PasswordErrorTooLong
+class _$PasswordErrorTooLongImpl
     with DiagnosticableTreeMixin
     implements PasswordErrorTooLong {
-  const _$PasswordErrorTooLong();
+  const _$PasswordErrorTooLongImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -2384,13 +2390,14 @@ class _$PasswordErrorTooLong
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'PasswordError.tooLong'));
+    properties.add(DiagnosticsProperty('type', 'PasswordError.tooLong'));
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is PasswordErrorTooLong);
+        (other.runtimeType == runtimeType &&
+            other is _$PasswordErrorTooLongImpl);
   }
 
   @override
@@ -2409,9 +2416,9 @@ class _$PasswordErrorTooLong
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? empty,
-    TResult Function()? tooShort,
-    TResult Function()? tooLong,
+    TResult? Function()? empty,
+    TResult? Function()? tooShort,
+    TResult? Function()? tooLong,
   }) {
     return tooLong?.call();
   }
@@ -2443,9 +2450,9 @@ class _$PasswordErrorTooLong
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(PasswordErrorEmpty value)? empty,
-    TResult Function(PasswordErrorTooShort value)? tooShort,
-    TResult Function(PasswordErrorTooLong value)? tooLong,
+    TResult? Function(PasswordErrorEmpty value)? empty,
+    TResult? Function(PasswordErrorTooShort value)? tooShort,
+    TResult? Function(PasswordErrorTooLong value)? tooLong,
   }) {
     return tooLong?.call(this);
   }
@@ -2466,24 +2473,8 @@ class _$PasswordErrorTooLong
 }
 
 abstract class PasswordErrorTooLong implements PasswordError {
-  const factory PasswordErrorTooLong() = _$PasswordErrorTooLong;
+  const factory PasswordErrorTooLong() = _$PasswordErrorTooLongImpl;
 }
-
-/// @nodoc
-class _$RepeatPasswordErrorTearOff {
-  const _$RepeatPasswordErrorTearOff();
-
-  RepeatPasswordErrorEmpty empty() {
-    return const RepeatPasswordErrorEmpty();
-  }
-
-  RepeatPasswordErrorMismatch mismatch() {
-    return const RepeatPasswordErrorMismatch();
-  }
-}
-
-/// @nodoc
-const $RepeatPasswordError = _$RepeatPasswordErrorTearOff();
 
 /// @nodoc
 mixin _$RepeatPasswordError {
@@ -2495,8 +2486,8 @@ mixin _$RepeatPasswordError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? empty,
-    TResult Function()? mismatch,
+    TResult? Function()? empty,
+    TResult? Function()? mismatch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2514,8 +2505,8 @@ mixin _$RepeatPasswordError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RepeatPasswordErrorEmpty value)? empty,
-    TResult Function(RepeatPasswordErrorMismatch value)? mismatch,
+    TResult? Function(RepeatPasswordErrorEmpty value)? empty,
+    TResult? Function(RepeatPasswordErrorMismatch value)? mismatch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2531,45 +2522,51 @@ mixin _$RepeatPasswordError {
 abstract class $RepeatPasswordErrorCopyWith<$Res> {
   factory $RepeatPasswordErrorCopyWith(
           RepeatPasswordError value, $Res Function(RepeatPasswordError) then) =
-      _$RepeatPasswordErrorCopyWithImpl<$Res>;
+      _$RepeatPasswordErrorCopyWithImpl<$Res, RepeatPasswordError>;
 }
 
 /// @nodoc
-class _$RepeatPasswordErrorCopyWithImpl<$Res>
+class _$RepeatPasswordErrorCopyWithImpl<$Res, $Val extends RepeatPasswordError>
     implements $RepeatPasswordErrorCopyWith<$Res> {
   _$RepeatPasswordErrorCopyWithImpl(this._value, this._then);
 
-  final RepeatPasswordError _value;
   // ignore: unused_field
-  final $Res Function(RepeatPasswordError) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of RepeatPasswordError
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class $RepeatPasswordErrorEmptyCopyWith<$Res> {
-  factory $RepeatPasswordErrorEmptyCopyWith(RepeatPasswordErrorEmpty value,
-          $Res Function(RepeatPasswordErrorEmpty) then) =
-      _$RepeatPasswordErrorEmptyCopyWithImpl<$Res>;
+abstract class _$$RepeatPasswordErrorEmptyImplCopyWith<$Res> {
+  factory _$$RepeatPasswordErrorEmptyImplCopyWith(
+          _$RepeatPasswordErrorEmptyImpl value,
+          $Res Function(_$RepeatPasswordErrorEmptyImpl) then) =
+      __$$RepeatPasswordErrorEmptyImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$RepeatPasswordErrorEmptyCopyWithImpl<$Res>
-    extends _$RepeatPasswordErrorCopyWithImpl<$Res>
-    implements $RepeatPasswordErrorEmptyCopyWith<$Res> {
-  _$RepeatPasswordErrorEmptyCopyWithImpl(RepeatPasswordErrorEmpty _value,
-      $Res Function(RepeatPasswordErrorEmpty) _then)
-      : super(_value, (v) => _then(v as RepeatPasswordErrorEmpty));
+class __$$RepeatPasswordErrorEmptyImplCopyWithImpl<$Res>
+    extends _$RepeatPasswordErrorCopyWithImpl<$Res,
+        _$RepeatPasswordErrorEmptyImpl>
+    implements _$$RepeatPasswordErrorEmptyImplCopyWith<$Res> {
+  __$$RepeatPasswordErrorEmptyImplCopyWithImpl(
+      _$RepeatPasswordErrorEmptyImpl _value,
+      $Res Function(_$RepeatPasswordErrorEmptyImpl) _then)
+      : super(_value, _then);
 
-  @override
-  RepeatPasswordErrorEmpty get _value =>
-      super._value as RepeatPasswordErrorEmpty;
+  /// Create a copy of RepeatPasswordError
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$RepeatPasswordErrorEmpty
+class _$RepeatPasswordErrorEmptyImpl
     with DiagnosticableTreeMixin
     implements RepeatPasswordErrorEmpty {
-  const _$RepeatPasswordErrorEmpty();
+  const _$RepeatPasswordErrorEmptyImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -2579,13 +2576,14 @@ class _$RepeatPasswordErrorEmpty
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'RepeatPasswordError.empty'));
+    properties.add(DiagnosticsProperty('type', 'RepeatPasswordError.empty'));
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is RepeatPasswordErrorEmpty);
+        (other.runtimeType == runtimeType &&
+            other is _$RepeatPasswordErrorEmptyImpl);
   }
 
   @override
@@ -2603,8 +2601,8 @@ class _$RepeatPasswordErrorEmpty
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? empty,
-    TResult Function()? mismatch,
+    TResult? Function()? empty,
+    TResult? Function()? mismatch,
   }) {
     return empty?.call();
   }
@@ -2634,8 +2632,8 @@ class _$RepeatPasswordErrorEmpty
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RepeatPasswordErrorEmpty value)? empty,
-    TResult Function(RepeatPasswordErrorMismatch value)? mismatch,
+    TResult? Function(RepeatPasswordErrorEmpty value)? empty,
+    TResult? Function(RepeatPasswordErrorMismatch value)? mismatch,
   }) {
     return empty?.call(this);
   }
@@ -2655,36 +2653,37 @@ class _$RepeatPasswordErrorEmpty
 }
 
 abstract class RepeatPasswordErrorEmpty implements RepeatPasswordError {
-  const factory RepeatPasswordErrorEmpty() = _$RepeatPasswordErrorEmpty;
+  const factory RepeatPasswordErrorEmpty() = _$RepeatPasswordErrorEmptyImpl;
 }
 
 /// @nodoc
-abstract class $RepeatPasswordErrorMismatchCopyWith<$Res> {
-  factory $RepeatPasswordErrorMismatchCopyWith(
-          RepeatPasswordErrorMismatch value,
-          $Res Function(RepeatPasswordErrorMismatch) then) =
-      _$RepeatPasswordErrorMismatchCopyWithImpl<$Res>;
+abstract class _$$RepeatPasswordErrorMismatchImplCopyWith<$Res> {
+  factory _$$RepeatPasswordErrorMismatchImplCopyWith(
+          _$RepeatPasswordErrorMismatchImpl value,
+          $Res Function(_$RepeatPasswordErrorMismatchImpl) then) =
+      __$$RepeatPasswordErrorMismatchImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$RepeatPasswordErrorMismatchCopyWithImpl<$Res>
-    extends _$RepeatPasswordErrorCopyWithImpl<$Res>
-    implements $RepeatPasswordErrorMismatchCopyWith<$Res> {
-  _$RepeatPasswordErrorMismatchCopyWithImpl(RepeatPasswordErrorMismatch _value,
-      $Res Function(RepeatPasswordErrorMismatch) _then)
-      : super(_value, (v) => _then(v as RepeatPasswordErrorMismatch));
+class __$$RepeatPasswordErrorMismatchImplCopyWithImpl<$Res>
+    extends _$RepeatPasswordErrorCopyWithImpl<$Res,
+        _$RepeatPasswordErrorMismatchImpl>
+    implements _$$RepeatPasswordErrorMismatchImplCopyWith<$Res> {
+  __$$RepeatPasswordErrorMismatchImplCopyWithImpl(
+      _$RepeatPasswordErrorMismatchImpl _value,
+      $Res Function(_$RepeatPasswordErrorMismatchImpl) _then)
+      : super(_value, _then);
 
-  @override
-  RepeatPasswordErrorMismatch get _value =>
-      super._value as RepeatPasswordErrorMismatch;
+  /// Create a copy of RepeatPasswordError
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$RepeatPasswordErrorMismatch
+class _$RepeatPasswordErrorMismatchImpl
     with DiagnosticableTreeMixin
     implements RepeatPasswordErrorMismatch {
-  const _$RepeatPasswordErrorMismatch();
+  const _$RepeatPasswordErrorMismatchImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -2694,15 +2693,14 @@ class _$RepeatPasswordErrorMismatch
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'RepeatPasswordError.mismatch'));
+    properties.add(DiagnosticsProperty('type', 'RepeatPasswordError.mismatch'));
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is RepeatPasswordErrorMismatch);
+            other is _$RepeatPasswordErrorMismatchImpl);
   }
 
   @override
@@ -2720,8 +2718,8 @@ class _$RepeatPasswordErrorMismatch
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? empty,
-    TResult Function()? mismatch,
+    TResult? Function()? empty,
+    TResult? Function()? mismatch,
   }) {
     return mismatch?.call();
   }
@@ -2751,8 +2749,8 @@ class _$RepeatPasswordErrorMismatch
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RepeatPasswordErrorEmpty value)? empty,
-    TResult Function(RepeatPasswordErrorMismatch value)? mismatch,
+    TResult? Function(RepeatPasswordErrorEmpty value)? empty,
+    TResult? Function(RepeatPasswordErrorMismatch value)? mismatch,
   }) {
     return mismatch?.call(this);
   }
@@ -2772,28 +2770,9 @@ class _$RepeatPasswordErrorMismatch
 }
 
 abstract class RepeatPasswordErrorMismatch implements RepeatPasswordError {
-  const factory RepeatPasswordErrorMismatch() = _$RepeatPasswordErrorMismatch;
+  const factory RepeatPasswordErrorMismatch() =
+      _$RepeatPasswordErrorMismatchImpl;
 }
-
-/// @nodoc
-class _$PasswordValidateResultTearOff {
-  const _$PasswordValidateResultTearOff();
-
-  PasswordValidateResultSuccess success({required String password}) {
-    return PasswordValidateResultSuccess(
-      password: password,
-    );
-  }
-
-  PasswordValidateResultError error({required PasswordError reason}) {
-    return PasswordValidateResultError(
-      reason: reason,
-    );
-  }
-}
-
-/// @nodoc
-const $PasswordValidateResult = _$PasswordValidateResultTearOff();
 
 /// @nodoc
 mixin _$PasswordValidateResult {
@@ -2805,8 +2784,8 @@ mixin _$PasswordValidateResult {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String password)? success,
-    TResult Function(PasswordError reason)? error,
+    TResult? Function(String password)? success,
+    TResult? Function(PasswordError reason)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2824,8 +2803,8 @@ mixin _$PasswordValidateResult {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(PasswordValidateResultSuccess value)? success,
-    TResult Function(PasswordValidateResultError value)? error,
+    TResult? Function(PasswordValidateResultSuccess value)? success,
+    TResult? Function(PasswordValidateResultError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2841,47 +2820,53 @@ mixin _$PasswordValidateResult {
 abstract class $PasswordValidateResultCopyWith<$Res> {
   factory $PasswordValidateResultCopyWith(PasswordValidateResult value,
           $Res Function(PasswordValidateResult) then) =
-      _$PasswordValidateResultCopyWithImpl<$Res>;
+      _$PasswordValidateResultCopyWithImpl<$Res, PasswordValidateResult>;
 }
 
 /// @nodoc
-class _$PasswordValidateResultCopyWithImpl<$Res>
+class _$PasswordValidateResultCopyWithImpl<$Res,
+        $Val extends PasswordValidateResult>
     implements $PasswordValidateResultCopyWith<$Res> {
   _$PasswordValidateResultCopyWithImpl(this._value, this._then);
 
-  final PasswordValidateResult _value;
   // ignore: unused_field
-  final $Res Function(PasswordValidateResult) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of PasswordValidateResult
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class $PasswordValidateResultSuccessCopyWith<$Res> {
-  factory $PasswordValidateResultSuccessCopyWith(
-          PasswordValidateResultSuccess value,
-          $Res Function(PasswordValidateResultSuccess) then) =
-      _$PasswordValidateResultSuccessCopyWithImpl<$Res>;
+abstract class _$$PasswordValidateResultSuccessImplCopyWith<$Res> {
+  factory _$$PasswordValidateResultSuccessImplCopyWith(
+          _$PasswordValidateResultSuccessImpl value,
+          $Res Function(_$PasswordValidateResultSuccessImpl) then) =
+      __$$PasswordValidateResultSuccessImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({String password});
 }
 
 /// @nodoc
-class _$PasswordValidateResultSuccessCopyWithImpl<$Res>
-    extends _$PasswordValidateResultCopyWithImpl<$Res>
-    implements $PasswordValidateResultSuccessCopyWith<$Res> {
-  _$PasswordValidateResultSuccessCopyWithImpl(
-      PasswordValidateResultSuccess _value,
-      $Res Function(PasswordValidateResultSuccess) _then)
-      : super(_value, (v) => _then(v as PasswordValidateResultSuccess));
+class __$$PasswordValidateResultSuccessImplCopyWithImpl<$Res>
+    extends _$PasswordValidateResultCopyWithImpl<$Res,
+        _$PasswordValidateResultSuccessImpl>
+    implements _$$PasswordValidateResultSuccessImplCopyWith<$Res> {
+  __$$PasswordValidateResultSuccessImplCopyWithImpl(
+      _$PasswordValidateResultSuccessImpl _value,
+      $Res Function(_$PasswordValidateResultSuccessImpl) _then)
+      : super(_value, _then);
 
-  @override
-  PasswordValidateResultSuccess get _value =>
-      super._value as PasswordValidateResultSuccess;
-
+  /// Create a copy of PasswordValidateResult
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? password = freezed,
+    Object? password = null,
   }) {
-    return _then(PasswordValidateResultSuccess(
-      password: password == freezed
+    return _then(_$PasswordValidateResultSuccessImpl(
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
@@ -2891,10 +2876,10 @@ class _$PasswordValidateResultSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PasswordValidateResultSuccess
+class _$PasswordValidateResultSuccessImpl
     with DiagnosticableTreeMixin
     implements PasswordValidateResultSuccess {
-  const _$PasswordValidateResultSuccess({required this.password});
+  const _$PasswordValidateResultSuccessImpl({required this.password});
 
   @override
   final String password;
@@ -2913,22 +2898,26 @@ class _$PasswordValidateResultSuccess
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is PasswordValidateResultSuccess &&
-            const DeepCollectionEquality().equals(other.password, password));
+            other is _$PasswordValidateResultSuccessImpl &&
+            (identical(other.password, password) ||
+                other.password == password));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(password));
+  int get hashCode => Object.hash(runtimeType, password);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PasswordValidateResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $PasswordValidateResultSuccessCopyWith<PasswordValidateResultSuccess>
-      get copyWith => _$PasswordValidateResultSuccessCopyWithImpl<
-          PasswordValidateResultSuccess>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$PasswordValidateResultSuccessImplCopyWith<
+          _$PasswordValidateResultSuccessImpl>
+      get copyWith => __$$PasswordValidateResultSuccessImplCopyWithImpl<
+          _$PasswordValidateResultSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2942,8 +2931,8 @@ class _$PasswordValidateResultSuccess
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String password)? success,
-    TResult Function(PasswordError reason)? error,
+    TResult? Function(String password)? success,
+    TResult? Function(PasswordError reason)? error,
   }) {
     return success?.call(password);
   }
@@ -2973,8 +2962,8 @@ class _$PasswordValidateResultSuccess
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(PasswordValidateResultSuccess value)? success,
-    TResult Function(PasswordValidateResultError value)? error,
+    TResult? Function(PasswordValidateResultSuccess value)? success,
+    TResult? Function(PasswordValidateResultError value)? error,
   }) {
     return success?.call(this);
   }
@@ -2994,51 +2983,60 @@ class _$PasswordValidateResultSuccess
 }
 
 abstract class PasswordValidateResultSuccess implements PasswordValidateResult {
-  const factory PasswordValidateResultSuccess({required String password}) =
-      _$PasswordValidateResultSuccess;
+  const factory PasswordValidateResultSuccess(
+      {required final String password}) = _$PasswordValidateResultSuccessImpl;
 
   String get password;
-  @JsonKey(ignore: true)
-  $PasswordValidateResultSuccessCopyWith<PasswordValidateResultSuccess>
+
+  /// Create a copy of PasswordValidateResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PasswordValidateResultSuccessImplCopyWith<
+          _$PasswordValidateResultSuccessImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PasswordValidateResultErrorCopyWith<$Res> {
-  factory $PasswordValidateResultErrorCopyWith(
-          PasswordValidateResultError value,
-          $Res Function(PasswordValidateResultError) then) =
-      _$PasswordValidateResultErrorCopyWithImpl<$Res>;
+abstract class _$$PasswordValidateResultErrorImplCopyWith<$Res> {
+  factory _$$PasswordValidateResultErrorImplCopyWith(
+          _$PasswordValidateResultErrorImpl value,
+          $Res Function(_$PasswordValidateResultErrorImpl) then) =
+      __$$PasswordValidateResultErrorImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({PasswordError reason});
 
   $PasswordErrorCopyWith<$Res> get reason;
 }
 
 /// @nodoc
-class _$PasswordValidateResultErrorCopyWithImpl<$Res>
-    extends _$PasswordValidateResultCopyWithImpl<$Res>
-    implements $PasswordValidateResultErrorCopyWith<$Res> {
-  _$PasswordValidateResultErrorCopyWithImpl(PasswordValidateResultError _value,
-      $Res Function(PasswordValidateResultError) _then)
-      : super(_value, (v) => _then(v as PasswordValidateResultError));
+class __$$PasswordValidateResultErrorImplCopyWithImpl<$Res>
+    extends _$PasswordValidateResultCopyWithImpl<$Res,
+        _$PasswordValidateResultErrorImpl>
+    implements _$$PasswordValidateResultErrorImplCopyWith<$Res> {
+  __$$PasswordValidateResultErrorImplCopyWithImpl(
+      _$PasswordValidateResultErrorImpl _value,
+      $Res Function(_$PasswordValidateResultErrorImpl) _then)
+      : super(_value, _then);
 
-  @override
-  PasswordValidateResultError get _value =>
-      super._value as PasswordValidateResultError;
-
+  /// Create a copy of PasswordValidateResult
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? reason = freezed,
+    Object? reason = null,
   }) {
-    return _then(PasswordValidateResultError(
-      reason: reason == freezed
+    return _then(_$PasswordValidateResultErrorImpl(
+      reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as PasswordError,
     ));
   }
 
+  /// Create a copy of PasswordValidateResult
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $PasswordErrorCopyWith<$Res> get reason {
     return $PasswordErrorCopyWith<$Res>(_value.reason, (value) {
       return _then(_value.copyWith(reason: value));
@@ -3048,10 +3046,10 @@ class _$PasswordValidateResultErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PasswordValidateResultError
+class _$PasswordValidateResultErrorImpl
     with DiagnosticableTreeMixin
     implements PasswordValidateResultError {
-  const _$PasswordValidateResultError({required this.reason});
+  const _$PasswordValidateResultErrorImpl({required this.reason});
 
   @override
   final PasswordError reason;
@@ -3070,22 +3068,24 @@ class _$PasswordValidateResultError
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is PasswordValidateResultError &&
-            const DeepCollectionEquality().equals(other.reason, reason));
+            other is _$PasswordValidateResultErrorImpl &&
+            (identical(other.reason, reason) || other.reason == reason));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(reason));
+  int get hashCode => Object.hash(runtimeType, reason);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PasswordValidateResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $PasswordValidateResultErrorCopyWith<PasswordValidateResultError>
-      get copyWith => _$PasswordValidateResultErrorCopyWithImpl<
-          PasswordValidateResultError>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$PasswordValidateResultErrorImplCopyWith<_$PasswordValidateResultErrorImpl>
+      get copyWith => __$$PasswordValidateResultErrorImplCopyWithImpl<
+          _$PasswordValidateResultErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3099,8 +3099,8 @@ class _$PasswordValidateResultError
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String password)? success,
-    TResult Function(PasswordError reason)? error,
+    TResult? Function(String password)? success,
+    TResult? Function(PasswordError reason)? error,
   }) {
     return error?.call(reason);
   }
@@ -3130,8 +3130,8 @@ class _$PasswordValidateResultError
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(PasswordValidateResultSuccess value)? success,
-    TResult Function(PasswordValidateResultError value)? error,
+    TResult? Function(PasswordValidateResultSuccess value)? success,
+    TResult? Function(PasswordValidateResultError value)? error,
   }) {
     return error?.call(this);
   }
@@ -3151,35 +3151,18 @@ class _$PasswordValidateResultError
 }
 
 abstract class PasswordValidateResultError implements PasswordValidateResult {
-  const factory PasswordValidateResultError({required PasswordError reason}) =
-      _$PasswordValidateResultError;
+  const factory PasswordValidateResultError(
+          {required final PasswordError reason}) =
+      _$PasswordValidateResultErrorImpl;
 
   PasswordError get reason;
-  @JsonKey(ignore: true)
-  $PasswordValidateResultErrorCopyWith<PasswordValidateResultError>
+
+  /// Create a copy of PasswordValidateResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PasswordValidateResultErrorImplCopyWith<_$PasswordValidateResultErrorImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$RepeatPasswordValidateResultTearOff {
-  const _$RepeatPasswordValidateResultTearOff();
-
-  RepeatPasswordValidateResultSuccess success({required String password}) {
-    return RepeatPasswordValidateResultSuccess(
-      password: password,
-    );
-  }
-
-  RepeatPasswordValidateResultError error(
-      {required RepeatPasswordError reason}) {
-    return RepeatPasswordValidateResultError(
-      reason: reason,
-    );
-  }
-}
-
-/// @nodoc
-const $RepeatPasswordValidateResult = _$RepeatPasswordValidateResultTearOff();
 
 /// @nodoc
 mixin _$RepeatPasswordValidateResult {
@@ -3191,8 +3174,8 @@ mixin _$RepeatPasswordValidateResult {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String password)? success,
-    TResult Function(RepeatPasswordError reason)? error,
+    TResult? Function(String password)? success,
+    TResult? Function(RepeatPasswordError reason)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -3211,8 +3194,8 @@ mixin _$RepeatPasswordValidateResult {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RepeatPasswordValidateResultSuccess value)? success,
-    TResult Function(RepeatPasswordValidateResultError value)? error,
+    TResult? Function(RepeatPasswordValidateResultSuccess value)? success,
+    TResult? Function(RepeatPasswordValidateResultError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -3229,47 +3212,54 @@ abstract class $RepeatPasswordValidateResultCopyWith<$Res> {
   factory $RepeatPasswordValidateResultCopyWith(
           RepeatPasswordValidateResult value,
           $Res Function(RepeatPasswordValidateResult) then) =
-      _$RepeatPasswordValidateResultCopyWithImpl<$Res>;
+      _$RepeatPasswordValidateResultCopyWithImpl<$Res,
+          RepeatPasswordValidateResult>;
 }
 
 /// @nodoc
-class _$RepeatPasswordValidateResultCopyWithImpl<$Res>
+class _$RepeatPasswordValidateResultCopyWithImpl<$Res,
+        $Val extends RepeatPasswordValidateResult>
     implements $RepeatPasswordValidateResultCopyWith<$Res> {
   _$RepeatPasswordValidateResultCopyWithImpl(this._value, this._then);
 
-  final RepeatPasswordValidateResult _value;
   // ignore: unused_field
-  final $Res Function(RepeatPasswordValidateResult) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of RepeatPasswordValidateResult
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class $RepeatPasswordValidateResultSuccessCopyWith<$Res> {
-  factory $RepeatPasswordValidateResultSuccessCopyWith(
-          RepeatPasswordValidateResultSuccess value,
-          $Res Function(RepeatPasswordValidateResultSuccess) then) =
-      _$RepeatPasswordValidateResultSuccessCopyWithImpl<$Res>;
+abstract class _$$RepeatPasswordValidateResultSuccessImplCopyWith<$Res> {
+  factory _$$RepeatPasswordValidateResultSuccessImplCopyWith(
+          _$RepeatPasswordValidateResultSuccessImpl value,
+          $Res Function(_$RepeatPasswordValidateResultSuccessImpl) then) =
+      __$$RepeatPasswordValidateResultSuccessImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({String password});
 }
 
 /// @nodoc
-class _$RepeatPasswordValidateResultSuccessCopyWithImpl<$Res>
-    extends _$RepeatPasswordValidateResultCopyWithImpl<$Res>
-    implements $RepeatPasswordValidateResultSuccessCopyWith<$Res> {
-  _$RepeatPasswordValidateResultSuccessCopyWithImpl(
-      RepeatPasswordValidateResultSuccess _value,
-      $Res Function(RepeatPasswordValidateResultSuccess) _then)
-      : super(_value, (v) => _then(v as RepeatPasswordValidateResultSuccess));
+class __$$RepeatPasswordValidateResultSuccessImplCopyWithImpl<$Res>
+    extends _$RepeatPasswordValidateResultCopyWithImpl<$Res,
+        _$RepeatPasswordValidateResultSuccessImpl>
+    implements _$$RepeatPasswordValidateResultSuccessImplCopyWith<$Res> {
+  __$$RepeatPasswordValidateResultSuccessImplCopyWithImpl(
+      _$RepeatPasswordValidateResultSuccessImpl _value,
+      $Res Function(_$RepeatPasswordValidateResultSuccessImpl) _then)
+      : super(_value, _then);
 
-  @override
-  RepeatPasswordValidateResultSuccess get _value =>
-      super._value as RepeatPasswordValidateResultSuccess;
-
+  /// Create a copy of RepeatPasswordValidateResult
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? password = freezed,
+    Object? password = null,
   }) {
-    return _then(RepeatPasswordValidateResultSuccess(
-      password: password == freezed
+    return _then(_$RepeatPasswordValidateResultSuccessImpl(
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
@@ -3279,10 +3269,10 @@ class _$RepeatPasswordValidateResultSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RepeatPasswordValidateResultSuccess
+class _$RepeatPasswordValidateResultSuccessImpl
     with DiagnosticableTreeMixin
     implements RepeatPasswordValidateResultSuccess {
-  const _$RepeatPasswordValidateResultSuccess({required this.password});
+  const _$RepeatPasswordValidateResultSuccessImpl({required this.password});
 
   @override
   final String password;
@@ -3301,23 +3291,26 @@ class _$RepeatPasswordValidateResultSuccess
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is RepeatPasswordValidateResultSuccess &&
-            const DeepCollectionEquality().equals(other.password, password));
+            other is _$RepeatPasswordValidateResultSuccessImpl &&
+            (identical(other.password, password) ||
+                other.password == password));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(password));
+  int get hashCode => Object.hash(runtimeType, password);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RepeatPasswordValidateResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $RepeatPasswordValidateResultSuccessCopyWith<
-          RepeatPasswordValidateResultSuccess>
-      get copyWith => _$RepeatPasswordValidateResultSuccessCopyWithImpl<
-          RepeatPasswordValidateResultSuccess>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$RepeatPasswordValidateResultSuccessImplCopyWith<
+          _$RepeatPasswordValidateResultSuccessImpl>
+      get copyWith => __$$RepeatPasswordValidateResultSuccessImplCopyWithImpl<
+          _$RepeatPasswordValidateResultSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3331,8 +3324,8 @@ class _$RepeatPasswordValidateResultSuccess
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String password)? success,
-    TResult Function(RepeatPasswordError reason)? error,
+    TResult? Function(String password)? success,
+    TResult? Function(RepeatPasswordError reason)? error,
   }) {
     return success?.call(password);
   }
@@ -3363,8 +3356,8 @@ class _$RepeatPasswordValidateResultSuccess
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RepeatPasswordValidateResultSuccess value)? success,
-    TResult Function(RepeatPasswordValidateResultError value)? error,
+    TResult? Function(RepeatPasswordValidateResultSuccess value)? success,
+    TResult? Function(RepeatPasswordValidateResultError value)? error,
   }) {
     return success?.call(this);
   }
@@ -3386,52 +3379,60 @@ class _$RepeatPasswordValidateResultSuccess
 abstract class RepeatPasswordValidateResultSuccess
     implements RepeatPasswordValidateResult {
   const factory RepeatPasswordValidateResultSuccess(
-      {required String password}) = _$RepeatPasswordValidateResultSuccess;
+          {required final String password}) =
+      _$RepeatPasswordValidateResultSuccessImpl;
 
   String get password;
-  @JsonKey(ignore: true)
-  $RepeatPasswordValidateResultSuccessCopyWith<
-          RepeatPasswordValidateResultSuccess>
+
+  /// Create a copy of RepeatPasswordValidateResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RepeatPasswordValidateResultSuccessImplCopyWith<
+          _$RepeatPasswordValidateResultSuccessImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RepeatPasswordValidateResultErrorCopyWith<$Res> {
-  factory $RepeatPasswordValidateResultErrorCopyWith(
-          RepeatPasswordValidateResultError value,
-          $Res Function(RepeatPasswordValidateResultError) then) =
-      _$RepeatPasswordValidateResultErrorCopyWithImpl<$Res>;
+abstract class _$$RepeatPasswordValidateResultErrorImplCopyWith<$Res> {
+  factory _$$RepeatPasswordValidateResultErrorImplCopyWith(
+          _$RepeatPasswordValidateResultErrorImpl value,
+          $Res Function(_$RepeatPasswordValidateResultErrorImpl) then) =
+      __$$RepeatPasswordValidateResultErrorImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({RepeatPasswordError reason});
 
   $RepeatPasswordErrorCopyWith<$Res> get reason;
 }
 
 /// @nodoc
-class _$RepeatPasswordValidateResultErrorCopyWithImpl<$Res>
-    extends _$RepeatPasswordValidateResultCopyWithImpl<$Res>
-    implements $RepeatPasswordValidateResultErrorCopyWith<$Res> {
-  _$RepeatPasswordValidateResultErrorCopyWithImpl(
-      RepeatPasswordValidateResultError _value,
-      $Res Function(RepeatPasswordValidateResultError) _then)
-      : super(_value, (v) => _then(v as RepeatPasswordValidateResultError));
+class __$$RepeatPasswordValidateResultErrorImplCopyWithImpl<$Res>
+    extends _$RepeatPasswordValidateResultCopyWithImpl<$Res,
+        _$RepeatPasswordValidateResultErrorImpl>
+    implements _$$RepeatPasswordValidateResultErrorImplCopyWith<$Res> {
+  __$$RepeatPasswordValidateResultErrorImplCopyWithImpl(
+      _$RepeatPasswordValidateResultErrorImpl _value,
+      $Res Function(_$RepeatPasswordValidateResultErrorImpl) _then)
+      : super(_value, _then);
 
-  @override
-  RepeatPasswordValidateResultError get _value =>
-      super._value as RepeatPasswordValidateResultError;
-
+  /// Create a copy of RepeatPasswordValidateResult
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? reason = freezed,
+    Object? reason = null,
   }) {
-    return _then(RepeatPasswordValidateResultError(
-      reason: reason == freezed
+    return _then(_$RepeatPasswordValidateResultErrorImpl(
+      reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as RepeatPasswordError,
     ));
   }
 
+  /// Create a copy of RepeatPasswordValidateResult
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $RepeatPasswordErrorCopyWith<$Res> get reason {
     return $RepeatPasswordErrorCopyWith<$Res>(_value.reason, (value) {
       return _then(_value.copyWith(reason: value));
@@ -3441,10 +3442,10 @@ class _$RepeatPasswordValidateResultErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RepeatPasswordValidateResultError
+class _$RepeatPasswordValidateResultErrorImpl
     with DiagnosticableTreeMixin
     implements RepeatPasswordValidateResultError {
-  const _$RepeatPasswordValidateResultError({required this.reason});
+  const _$RepeatPasswordValidateResultErrorImpl({required this.reason});
 
   @override
   final RepeatPasswordError reason;
@@ -3463,22 +3464,25 @@ class _$RepeatPasswordValidateResultError
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is RepeatPasswordValidateResultError &&
-            const DeepCollectionEquality().equals(other.reason, reason));
+            other is _$RepeatPasswordValidateResultErrorImpl &&
+            (identical(other.reason, reason) || other.reason == reason));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(reason));
+  int get hashCode => Object.hash(runtimeType, reason);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RepeatPasswordValidateResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $RepeatPasswordValidateResultErrorCopyWith<RepeatPasswordValidateResultError>
-      get copyWith => _$RepeatPasswordValidateResultErrorCopyWithImpl<
-          RepeatPasswordValidateResultError>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$RepeatPasswordValidateResultErrorImplCopyWith<
+          _$RepeatPasswordValidateResultErrorImpl>
+      get copyWith => __$$RepeatPasswordValidateResultErrorImplCopyWithImpl<
+          _$RepeatPasswordValidateResultErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3492,8 +3496,8 @@ class _$RepeatPasswordValidateResultError
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String password)? success,
-    TResult Function(RepeatPasswordError reason)? error,
+    TResult? Function(String password)? success,
+    TResult? Function(RepeatPasswordError reason)? error,
   }) {
     return error?.call(reason);
   }
@@ -3524,8 +3528,8 @@ class _$RepeatPasswordValidateResultError
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RepeatPasswordValidateResultSuccess value)? success,
-    TResult Function(RepeatPasswordValidateResultError value)? error,
+    TResult? Function(RepeatPasswordValidateResultSuccess value)? success,
+    TResult? Function(RepeatPasswordValidateResultError value)? error,
   }) {
     return error?.call(this);
   }
@@ -3547,11 +3551,15 @@ class _$RepeatPasswordValidateResultError
 abstract class RepeatPasswordValidateResultError
     implements RepeatPasswordValidateResult {
   const factory RepeatPasswordValidateResultError(
-          {required RepeatPasswordError reason}) =
-      _$RepeatPasswordValidateResultError;
+          {required final RepeatPasswordError reason}) =
+      _$RepeatPasswordValidateResultErrorImpl;
 
   RepeatPasswordError get reason;
-  @JsonKey(ignore: true)
-  $RepeatPasswordValidateResultErrorCopyWith<RepeatPasswordValidateResultError>
+
+  /// Create a copy of RepeatPasswordValidateResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RepeatPasswordValidateResultErrorImplCopyWith<
+          _$RepeatPasswordValidateResultErrorImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

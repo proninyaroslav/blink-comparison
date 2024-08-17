@@ -3,7 +3,7 @@ description: Simplifies comparing photos of tamper-evident seals and patterns us
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -18,55 +18,54 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.1.1+5
 
 environment:
-  sdk: '>=2.16.0 <3.0.0'
+  sdk: ">=3.5.0 <4.0.0"
+  flutter: ">=3.24.0 <4.0.0"
 
 dependencies:
-  auto_route: ^3.2.1
+  auto_route: ^9.2.1+1
   bloc: ^8.0.2
-  camera: ^0.9.4+16
+  camera: ^0.11.0+1
   cross_file: ^0.3.1+5
   cupertino_icons: ^1.0.2
-  devicelocale: ^0.5.0
-  device_info_plus: ^3.0.1
+  devicelocale: ^0.7.1
+  device_info_plus: ^10.1.1
   equatable: ^2.0.3
-  extended_image: ^6.0.1
-  file: ^6.1.2
+  extended_image: ^8.2.1
+  file: ^7.0.0
   flutter:
     sdk: flutter
   fluttertoast: ^8.0.8
   flutter_bloc: ^8.0.1
   flutter_colorpicker: ^1.0.2
-  flutter_image_compress: ^1.1.0
-  flutter_linkify: ^5.0.2
-  flutter_mailer: ^2.0.0
-  flutter_sodium:
-    git:
-      url: https://github.com/proninyaroslav/flutter_sodium.git
-      ref: linux
-  flutter_local_notifications: ^9.0.0
+  flutter_email_sender: ^6.0.3
+  flutter_image_compress: ^2.3.0
+  flutter_linkify: ^6.0.0
+  flutter_local_notifications: ^17.2.1+2
   flutter_staggered_animations: ^1.0.0
-  flutter_staggered_grid_view: ^0.6.1
-  freezed_annotation: ^1.0.0
-  image_picker: ^0.8.4
-  injectable: ^1.5.3
-  json_annotation: ^4.4.0
+  flutter_staggered_grid_view: ^0.7.0
+  freezed_annotation: ^2.4.4
+  image_picker: ^1.1.2
+  injectable: ^2.4.4
+  json_annotation: ^4.9.0
   json_serializable: ^6.0.0
   just_audio: ^0.9.16
-  logger: ^1.0.0
-  material_design_icons_flutter: ^5.0.5955-rc.1
-  package_info_plus: ^1.0.6
-  path_provider: ^2.0.2
+  logger: ^2.4.0
+  material_design_icons_flutter: ^7.0.7296
+  package_info_plus: ^8.0.1
+  path_provider: ^2.1.3
   path_provider_android: ^2.0.12
   path_provider_ios: ^2.0.8
   path: ^1.8.0
   quiver: ^3.0.1
-  responsive_builder: ^0.4.1
+  responsive_builder: ^0.7.1
   sembast_sqflite: ^2.0.0+1
   sembast: ^3.1.0+2
-  shared_preferences: ^2.0.8
   shared_preferences_android: ^2.0.11
   shared_preferences_ios: ^2.1.0
-  showcaseview: ^1.1.4
+  shared_preferences: ^2.3.2
+  showcaseview: ^3.0.0
+  sodium: ^3.1.0
+  sodium_libs: ^3.0.0
   sqflite_common_ffi: ^2.0.0+3
   sqflite: ^2.0.0+4
   swipe:
@@ -74,37 +73,33 @@ dependencies:
       url: https://github.com/proninyaroslav/swipe.git
       ref: patch-1
   url_launcher: ^6.0.9
-  uuid: ^3.0.4
-  wakelock: ^0.6.1+1
+  uuid: ^4.4.2
+  wakelock_plus: ^1.2.7
+  get_it: ^7.7.0
+  async: ^2.11.0
+  convert: ^3.1.1
+  typed_data: ^1.3.2
+  collection: ^1.18.0
 
 dev_dependencies:
-  analyzer: ^3.2.0
-  auto_route_generator: ^3.2.1
+  analyzer: ^6.7.0
+  auto_route_generator: ^9.0.0
   bloc_test: ^9.0.2
-  build_runner: ^2.1.1
-  device_preview: ^1.0.0
+  build_runner: ^2.4.11
+  device_preview: ^1.2.0
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.4
-  freezed: ^1.1.1
-  injectable_generator: ^1.5.3
+  flutter_lints: ^4.0.0
+  freezed: ^2.5.2
+  injectable_generator: ^2.6.2
   intl_utils: ^2.6.0
-  mocktail: ^0.3.0
-
-dependency_overrides:
-  analyzer: ^3.2.0
-  # TODO: remove after merge a PR https://github.com/magnatronus/flutter-devicelocale/pull/40
-  devicelocale:
-    git:
-      url: https://github.com/proninyaroslav/flutter-devicelocale.git
-      ref: android-ietf-tags
+  mocktail: ^1.0.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

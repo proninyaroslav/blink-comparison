@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'save_ref_image_job.dart';
 
@@ -12,25 +12,7 @@ part of 'save_ref_image_job.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$SaveRefImageResultTearOff {
-  const _$SaveRefImageResultTearOff();
-
-  SaveRefImageResultSuccess success() {
-    return const SaveRefImageResultSuccess();
-  }
-
-  SaveRefImageResultError error(SaveRefImageError error) {
-    return SaveRefImageResultError(
-      error,
-    );
-  }
-}
-
-/// @nodoc
-const $SaveRefImageResult = _$SaveRefImageResultTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$SaveRefImageResult {
@@ -42,8 +24,8 @@ mixin _$SaveRefImageResult {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? success,
-    TResult Function(SaveRefImageError error)? error,
+    TResult? Function()? success,
+    TResult? Function(SaveRefImageError error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,8 +43,8 @@ mixin _$SaveRefImageResult {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SaveRefImageResultSuccess value)? success,
-    TResult Function(SaveRefImageResultError value)? error,
+    TResult? Function(SaveRefImageResultSuccess value)? success,
+    TResult? Function(SaveRefImageResultError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,43 +60,49 @@ mixin _$SaveRefImageResult {
 abstract class $SaveRefImageResultCopyWith<$Res> {
   factory $SaveRefImageResultCopyWith(
           SaveRefImageResult value, $Res Function(SaveRefImageResult) then) =
-      _$SaveRefImageResultCopyWithImpl<$Res>;
+      _$SaveRefImageResultCopyWithImpl<$Res, SaveRefImageResult>;
 }
 
 /// @nodoc
-class _$SaveRefImageResultCopyWithImpl<$Res>
+class _$SaveRefImageResultCopyWithImpl<$Res, $Val extends SaveRefImageResult>
     implements $SaveRefImageResultCopyWith<$Res> {
   _$SaveRefImageResultCopyWithImpl(this._value, this._then);
 
-  final SaveRefImageResult _value;
   // ignore: unused_field
-  final $Res Function(SaveRefImageResult) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of SaveRefImageResult
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class $SaveRefImageResultSuccessCopyWith<$Res> {
-  factory $SaveRefImageResultSuccessCopyWith(SaveRefImageResultSuccess value,
-          $Res Function(SaveRefImageResultSuccess) then) =
-      _$SaveRefImageResultSuccessCopyWithImpl<$Res>;
+abstract class _$$SaveRefImageResultSuccessImplCopyWith<$Res> {
+  factory _$$SaveRefImageResultSuccessImplCopyWith(
+          _$SaveRefImageResultSuccessImpl value,
+          $Res Function(_$SaveRefImageResultSuccessImpl) then) =
+      __$$SaveRefImageResultSuccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SaveRefImageResultSuccessCopyWithImpl<$Res>
-    extends _$SaveRefImageResultCopyWithImpl<$Res>
-    implements $SaveRefImageResultSuccessCopyWith<$Res> {
-  _$SaveRefImageResultSuccessCopyWithImpl(SaveRefImageResultSuccess _value,
-      $Res Function(SaveRefImageResultSuccess) _then)
-      : super(_value, (v) => _then(v as SaveRefImageResultSuccess));
+class __$$SaveRefImageResultSuccessImplCopyWithImpl<$Res>
+    extends _$SaveRefImageResultCopyWithImpl<$Res,
+        _$SaveRefImageResultSuccessImpl>
+    implements _$$SaveRefImageResultSuccessImplCopyWith<$Res> {
+  __$$SaveRefImageResultSuccessImplCopyWithImpl(
+      _$SaveRefImageResultSuccessImpl _value,
+      $Res Function(_$SaveRefImageResultSuccessImpl) _then)
+      : super(_value, _then);
 
-  @override
-  SaveRefImageResultSuccess get _value =>
-      super._value as SaveRefImageResultSuccess;
+  /// Create a copy of SaveRefImageResult
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$SaveRefImageResultSuccess implements SaveRefImageResultSuccess {
-  const _$SaveRefImageResultSuccess();
+class _$SaveRefImageResultSuccessImpl implements SaveRefImageResultSuccess {
+  const _$SaveRefImageResultSuccessImpl();
 
   @override
   String toString() {
@@ -122,10 +110,10 @@ class _$SaveRefImageResultSuccess implements SaveRefImageResultSuccess {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SaveRefImageResultSuccess);
+            other is _$SaveRefImageResultSuccessImpl);
   }
 
   @override
@@ -143,8 +131,8 @@ class _$SaveRefImageResultSuccess implements SaveRefImageResultSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? success,
-    TResult Function(SaveRefImageError error)? error,
+    TResult? Function()? success,
+    TResult? Function(SaveRefImageError error)? error,
   }) {
     return success?.call();
   }
@@ -174,8 +162,8 @@ class _$SaveRefImageResultSuccess implements SaveRefImageResultSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SaveRefImageResultSuccess value)? success,
-    TResult Function(SaveRefImageResultError value)? error,
+    TResult? Function(SaveRefImageResultSuccess value)? success,
+    TResult? Function(SaveRefImageResultError value)? error,
   }) {
     return success?.call(this);
   }
@@ -195,43 +183,50 @@ class _$SaveRefImageResultSuccess implements SaveRefImageResultSuccess {
 }
 
 abstract class SaveRefImageResultSuccess implements SaveRefImageResult {
-  const factory SaveRefImageResultSuccess() = _$SaveRefImageResultSuccess;
+  const factory SaveRefImageResultSuccess() = _$SaveRefImageResultSuccessImpl;
 }
 
 /// @nodoc
-abstract class $SaveRefImageResultErrorCopyWith<$Res> {
-  factory $SaveRefImageResultErrorCopyWith(SaveRefImageResultError value,
-          $Res Function(SaveRefImageResultError) then) =
-      _$SaveRefImageResultErrorCopyWithImpl<$Res>;
+abstract class _$$SaveRefImageResultErrorImplCopyWith<$Res> {
+  factory _$$SaveRefImageResultErrorImplCopyWith(
+          _$SaveRefImageResultErrorImpl value,
+          $Res Function(_$SaveRefImageResultErrorImpl) then) =
+      __$$SaveRefImageResultErrorImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({SaveRefImageError error});
 
   $SaveRefImageErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
-class _$SaveRefImageResultErrorCopyWithImpl<$Res>
-    extends _$SaveRefImageResultCopyWithImpl<$Res>
-    implements $SaveRefImageResultErrorCopyWith<$Res> {
-  _$SaveRefImageResultErrorCopyWithImpl(SaveRefImageResultError _value,
-      $Res Function(SaveRefImageResultError) _then)
-      : super(_value, (v) => _then(v as SaveRefImageResultError));
+class __$$SaveRefImageResultErrorImplCopyWithImpl<$Res>
+    extends _$SaveRefImageResultCopyWithImpl<$Res,
+        _$SaveRefImageResultErrorImpl>
+    implements _$$SaveRefImageResultErrorImplCopyWith<$Res> {
+  __$$SaveRefImageResultErrorImplCopyWithImpl(
+      _$SaveRefImageResultErrorImpl _value,
+      $Res Function(_$SaveRefImageResultErrorImpl) _then)
+      : super(_value, _then);
 
-  @override
-  SaveRefImageResultError get _value => super._value as SaveRefImageResultError;
-
+  /// Create a copy of SaveRefImageResult
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
-    return _then(SaveRefImageResultError(
-      error == freezed
+    return _then(_$SaveRefImageResultErrorImpl(
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as SaveRefImageError,
     ));
   }
 
+  /// Create a copy of SaveRefImageResult
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $SaveRefImageErrorCopyWith<$Res> get error {
     return $SaveRefImageErrorCopyWith<$Res>(_value.error, (value) {
       return _then(_value.copyWith(error: value));
@@ -241,8 +236,8 @@ class _$SaveRefImageResultErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SaveRefImageResultError implements SaveRefImageResultError {
-  const _$SaveRefImageResultError(this.error);
+class _$SaveRefImageResultErrorImpl implements SaveRefImageResultError {
+  const _$SaveRefImageResultErrorImpl(this.error);
 
   @override
   final SaveRefImageError error;
@@ -253,22 +248,24 @@ class _$SaveRefImageResultError implements SaveRefImageResultError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SaveRefImageResultError &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$SaveRefImageResultErrorImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SaveRefImageResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $SaveRefImageResultErrorCopyWith<SaveRefImageResultError> get copyWith =>
-      _$SaveRefImageResultErrorCopyWithImpl<SaveRefImageResultError>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SaveRefImageResultErrorImplCopyWith<_$SaveRefImageResultErrorImpl>
+      get copyWith => __$$SaveRefImageResultErrorImplCopyWithImpl<
+          _$SaveRefImageResultErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -282,8 +279,8 @@ class _$SaveRefImageResultError implements SaveRefImageResultError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? success,
-    TResult Function(SaveRefImageError error)? error,
+    TResult? Function()? success,
+    TResult? Function(SaveRefImageError error)? error,
   }) {
     return error?.call(this.error);
   }
@@ -313,8 +310,8 @@ class _$SaveRefImageResultError implements SaveRefImageResultError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SaveRefImageResultSuccess value)? success,
-    TResult Function(SaveRefImageResultError value)? error,
+    TResult? Function(SaveRefImageResultSuccess value)? success,
+    TResult? Function(SaveRefImageResultError value)? error,
   }) {
     return error?.call(this);
   }
@@ -334,13 +331,16 @@ class _$SaveRefImageResultError implements SaveRefImageResultError {
 }
 
 abstract class SaveRefImageResultError implements SaveRefImageResult {
-  const factory SaveRefImageResultError(SaveRefImageError error) =
-      _$SaveRefImageResultError;
+  const factory SaveRefImageResultError(final SaveRefImageError error) =
+      _$SaveRefImageResultErrorImpl;
 
   SaveRefImageError get error;
-  @JsonKey(ignore: true)
-  $SaveRefImageResultErrorCopyWith<SaveRefImageResultError> get copyWith =>
-      throw _privateConstructorUsedError;
+
+  /// Create a copy of SaveRefImageResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SaveRefImageResultErrorImplCopyWith<_$SaveRefImageResultErrorImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 SaveRefImageError _$SaveRefImageErrorFromJson(Map<String, dynamic> json) {
@@ -357,32 +357,8 @@ SaveRefImageError _$SaveRefImageErrorFromJson(Map<String, dynamic> json) {
 }
 
 /// @nodoc
-class _$SaveRefImageErrorTearOff {
-  const _$SaveRefImageErrorTearOff();
-
-  SaveRefImageErrorFs fs({required String path, required FsError error}) {
-    return SaveRefImageErrorFs(
-      path: path,
-      error: error,
-    );
-  }
-
-  SaveRefImageErrorEncrypt encrypt({required EncryptError error}) {
-    return SaveRefImageErrorEncrypt(
-      error: error,
-    );
-  }
-
-  SaveRefImageError fromJson(Map<String, Object?> json) {
-    return SaveRefImageError.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SaveRefImageError = _$SaveRefImageErrorTearOff();
-
-/// @nodoc
 mixin _$SaveRefImageError {
+  Object get error => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String path, FsError error) fs,
@@ -391,8 +367,8 @@ mixin _$SaveRefImageError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String path, FsError error)? fs,
-    TResult Function(EncryptError error)? encrypt,
+    TResult? Function(String path, FsError error)? fs,
+    TResult? Function(EncryptError error)? encrypt,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -410,8 +386,8 @@ mixin _$SaveRefImageError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SaveRefImageErrorFs value)? fs,
-    TResult Function(SaveRefImageErrorEncrypt value)? encrypt,
+    TResult? Function(SaveRefImageErrorFs value)? fs,
+    TResult? Function(SaveRefImageErrorEncrypt value)? encrypt,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -421,6 +397,8 @@ mixin _$SaveRefImageError {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this SaveRefImageError to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
@@ -428,58 +406,66 @@ mixin _$SaveRefImageError {
 abstract class $SaveRefImageErrorCopyWith<$Res> {
   factory $SaveRefImageErrorCopyWith(
           SaveRefImageError value, $Res Function(SaveRefImageError) then) =
-      _$SaveRefImageErrorCopyWithImpl<$Res>;
+      _$SaveRefImageErrorCopyWithImpl<$Res, SaveRefImageError>;
 }
 
 /// @nodoc
-class _$SaveRefImageErrorCopyWithImpl<$Res>
+class _$SaveRefImageErrorCopyWithImpl<$Res, $Val extends SaveRefImageError>
     implements $SaveRefImageErrorCopyWith<$Res> {
   _$SaveRefImageErrorCopyWithImpl(this._value, this._then);
 
-  final SaveRefImageError _value;
   // ignore: unused_field
-  final $Res Function(SaveRefImageError) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of SaveRefImageError
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class $SaveRefImageErrorFsCopyWith<$Res> {
-  factory $SaveRefImageErrorFsCopyWith(
-          SaveRefImageErrorFs value, $Res Function(SaveRefImageErrorFs) then) =
-      _$SaveRefImageErrorFsCopyWithImpl<$Res>;
+abstract class _$$SaveRefImageErrorFsImplCopyWith<$Res> {
+  factory _$$SaveRefImageErrorFsImplCopyWith(_$SaveRefImageErrorFsImpl value,
+          $Res Function(_$SaveRefImageErrorFsImpl) then) =
+      __$$SaveRefImageErrorFsImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({String path, FsError error});
 
   $FsErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
-class _$SaveRefImageErrorFsCopyWithImpl<$Res>
-    extends _$SaveRefImageErrorCopyWithImpl<$Res>
-    implements $SaveRefImageErrorFsCopyWith<$Res> {
-  _$SaveRefImageErrorFsCopyWithImpl(
-      SaveRefImageErrorFs _value, $Res Function(SaveRefImageErrorFs) _then)
-      : super(_value, (v) => _then(v as SaveRefImageErrorFs));
+class __$$SaveRefImageErrorFsImplCopyWithImpl<$Res>
+    extends _$SaveRefImageErrorCopyWithImpl<$Res, _$SaveRefImageErrorFsImpl>
+    implements _$$SaveRefImageErrorFsImplCopyWith<$Res> {
+  __$$SaveRefImageErrorFsImplCopyWithImpl(_$SaveRefImageErrorFsImpl _value,
+      $Res Function(_$SaveRefImageErrorFsImpl) _then)
+      : super(_value, _then);
 
-  @override
-  SaveRefImageErrorFs get _value => super._value as SaveRefImageErrorFs;
-
+  /// Create a copy of SaveRefImageError
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? path = freezed,
-    Object? error = freezed,
+    Object? path = null,
+    Object? error = null,
   }) {
-    return _then(SaveRefImageErrorFs(
-      path: path == freezed
+    return _then(_$SaveRefImageErrorFsImpl(
+      path: null == path
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
               as String,
-      error: error == freezed
+      error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as FsError,
     ));
   }
 
+  /// Create a copy of SaveRefImageError
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $FsErrorCopyWith<$Res> get error {
     return $FsErrorCopyWith<$Res>(_value.error, (value) {
       return _then(_value.copyWith(error: value));
@@ -489,13 +475,13 @@ class _$SaveRefImageErrorFsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SaveRefImageErrorFs implements SaveRefImageErrorFs {
-  const _$SaveRefImageErrorFs(
-      {required this.path, required this.error, String? $type})
+class _$SaveRefImageErrorFsImpl implements SaveRefImageErrorFs {
+  const _$SaveRefImageErrorFsImpl(
+      {required this.path, required this.error, final String? $type})
       : $type = $type ?? 'fs';
 
-  factory _$SaveRefImageErrorFs.fromJson(Map<String, dynamic> json) =>
-      _$$SaveRefImageErrorFsFromJson(json);
+  factory _$SaveRefImageErrorFsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SaveRefImageErrorFsImplFromJson(json);
 
   @override
   final String path;
@@ -511,24 +497,26 @@ class _$SaveRefImageErrorFs implements SaveRefImageErrorFs {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SaveRefImageErrorFs &&
-            const DeepCollectionEquality().equals(other.path, path) &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$SaveRefImageErrorFsImpl &&
+            (identical(other.path, path) || other.path == path) &&
+            (identical(other.error, error) || other.error == error));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(path),
-      const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, path, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SaveRefImageError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $SaveRefImageErrorFsCopyWith<SaveRefImageErrorFs> get copyWith =>
-      _$SaveRefImageErrorFsCopyWithImpl<SaveRefImageErrorFs>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SaveRefImageErrorFsImplCopyWith<_$SaveRefImageErrorFsImpl> get copyWith =>
+      __$$SaveRefImageErrorFsImplCopyWithImpl<_$SaveRefImageErrorFsImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -542,8 +530,8 @@ class _$SaveRefImageErrorFs implements SaveRefImageErrorFs {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String path, FsError error)? fs,
-    TResult Function(EncryptError error)? encrypt,
+    TResult? Function(String path, FsError error)? fs,
+    TResult? Function(EncryptError error)? encrypt,
   }) {
     return fs?.call(path, error);
   }
@@ -573,8 +561,8 @@ class _$SaveRefImageErrorFs implements SaveRefImageErrorFs {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SaveRefImageErrorFs value)? fs,
-    TResult Function(SaveRefImageErrorEncrypt value)? encrypt,
+    TResult? Function(SaveRefImageErrorFs value)? fs,
+    TResult? Function(SaveRefImageErrorEncrypt value)? encrypt,
   }) {
     return fs?.call(this);
   }
@@ -594,59 +582,72 @@ class _$SaveRefImageErrorFs implements SaveRefImageErrorFs {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SaveRefImageErrorFsToJson(this);
+    return _$$SaveRefImageErrorFsImplToJson(
+      this,
+    );
   }
 }
 
 abstract class SaveRefImageErrorFs implements SaveRefImageError {
   const factory SaveRefImageErrorFs(
-      {required String path, required FsError error}) = _$SaveRefImageErrorFs;
+      {required final String path,
+      required final FsError error}) = _$SaveRefImageErrorFsImpl;
 
   factory SaveRefImageErrorFs.fromJson(Map<String, dynamic> json) =
-      _$SaveRefImageErrorFs.fromJson;
+      _$SaveRefImageErrorFsImpl.fromJson;
 
   String get path;
+  @override
   FsError get error;
-  @JsonKey(ignore: true)
-  $SaveRefImageErrorFsCopyWith<SaveRefImageErrorFs> get copyWith =>
+
+  /// Create a copy of SaveRefImageError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SaveRefImageErrorFsImplCopyWith<_$SaveRefImageErrorFsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SaveRefImageErrorEncryptCopyWith<$Res> {
-  factory $SaveRefImageErrorEncryptCopyWith(SaveRefImageErrorEncrypt value,
-          $Res Function(SaveRefImageErrorEncrypt) then) =
-      _$SaveRefImageErrorEncryptCopyWithImpl<$Res>;
+abstract class _$$SaveRefImageErrorEncryptImplCopyWith<$Res> {
+  factory _$$SaveRefImageErrorEncryptImplCopyWith(
+          _$SaveRefImageErrorEncryptImpl value,
+          $Res Function(_$SaveRefImageErrorEncryptImpl) then) =
+      __$$SaveRefImageErrorEncryptImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({EncryptError error});
 
   $EncryptErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
-class _$SaveRefImageErrorEncryptCopyWithImpl<$Res>
-    extends _$SaveRefImageErrorCopyWithImpl<$Res>
-    implements $SaveRefImageErrorEncryptCopyWith<$Res> {
-  _$SaveRefImageErrorEncryptCopyWithImpl(SaveRefImageErrorEncrypt _value,
-      $Res Function(SaveRefImageErrorEncrypt) _then)
-      : super(_value, (v) => _then(v as SaveRefImageErrorEncrypt));
+class __$$SaveRefImageErrorEncryptImplCopyWithImpl<$Res>
+    extends _$SaveRefImageErrorCopyWithImpl<$Res,
+        _$SaveRefImageErrorEncryptImpl>
+    implements _$$SaveRefImageErrorEncryptImplCopyWith<$Res> {
+  __$$SaveRefImageErrorEncryptImplCopyWithImpl(
+      _$SaveRefImageErrorEncryptImpl _value,
+      $Res Function(_$SaveRefImageErrorEncryptImpl) _then)
+      : super(_value, _then);
 
-  @override
-  SaveRefImageErrorEncrypt get _value =>
-      super._value as SaveRefImageErrorEncrypt;
-
+  /// Create a copy of SaveRefImageError
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
-    return _then(SaveRefImageErrorEncrypt(
-      error: error == freezed
+    return _then(_$SaveRefImageErrorEncryptImpl(
+      error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as EncryptError,
     ));
   }
 
+  /// Create a copy of SaveRefImageError
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $EncryptErrorCopyWith<$Res> get error {
     return $EncryptErrorCopyWith<$Res>(_value.error, (value) {
       return _then(_value.copyWith(error: value));
@@ -656,12 +657,13 @@ class _$SaveRefImageErrorEncryptCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SaveRefImageErrorEncrypt implements SaveRefImageErrorEncrypt {
-  const _$SaveRefImageErrorEncrypt({required this.error, String? $type})
+class _$SaveRefImageErrorEncryptImpl implements SaveRefImageErrorEncrypt {
+  const _$SaveRefImageErrorEncryptImpl(
+      {required this.error, final String? $type})
       : $type = $type ?? 'encrypt';
 
-  factory _$SaveRefImageErrorEncrypt.fromJson(Map<String, dynamic> json) =>
-      _$$SaveRefImageErrorEncryptFromJson(json);
+  factory _$SaveRefImageErrorEncryptImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SaveRefImageErrorEncryptImplFromJson(json);
 
   @override
   final EncryptError error;
@@ -675,22 +677,25 @@ class _$SaveRefImageErrorEncrypt implements SaveRefImageErrorEncrypt {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SaveRefImageErrorEncrypt &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$SaveRefImageErrorEncryptImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SaveRefImageError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $SaveRefImageErrorEncryptCopyWith<SaveRefImageErrorEncrypt> get copyWith =>
-      _$SaveRefImageErrorEncryptCopyWithImpl<SaveRefImageErrorEncrypt>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SaveRefImageErrorEncryptImplCopyWith<_$SaveRefImageErrorEncryptImpl>
+      get copyWith => __$$SaveRefImageErrorEncryptImplCopyWithImpl<
+          _$SaveRefImageErrorEncryptImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -704,8 +709,8 @@ class _$SaveRefImageErrorEncrypt implements SaveRefImageErrorEncrypt {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String path, FsError error)? fs,
-    TResult Function(EncryptError error)? encrypt,
+    TResult? Function(String path, FsError error)? fs,
+    TResult? Function(EncryptError error)? encrypt,
   }) {
     return encrypt?.call(error);
   }
@@ -735,8 +740,8 @@ class _$SaveRefImageErrorEncrypt implements SaveRefImageErrorEncrypt {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SaveRefImageErrorFs value)? fs,
-    TResult Function(SaveRefImageErrorEncrypt value)? encrypt,
+    TResult? Function(SaveRefImageErrorFs value)? fs,
+    TResult? Function(SaveRefImageErrorEncrypt value)? encrypt,
   }) {
     return encrypt?.call(this);
   }
@@ -756,19 +761,25 @@ class _$SaveRefImageErrorEncrypt implements SaveRefImageErrorEncrypt {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SaveRefImageErrorEncryptToJson(this);
+    return _$$SaveRefImageErrorEncryptImplToJson(
+      this,
+    );
   }
 }
 
 abstract class SaveRefImageErrorEncrypt implements SaveRefImageError {
-  const factory SaveRefImageErrorEncrypt({required EncryptError error}) =
-      _$SaveRefImageErrorEncrypt;
+  const factory SaveRefImageErrorEncrypt({required final EncryptError error}) =
+      _$SaveRefImageErrorEncryptImpl;
 
   factory SaveRefImageErrorEncrypt.fromJson(Map<String, dynamic> json) =
-      _$SaveRefImageErrorEncrypt.fromJson;
+      _$SaveRefImageErrorEncryptImpl.fromJson;
 
+  @override
   EncryptError get error;
-  @JsonKey(ignore: true)
-  $SaveRefImageErrorEncryptCopyWith<SaveRefImageErrorEncrypt> get copyWith =>
-      throw _privateConstructorUsedError;
+
+  /// Create a copy of SaveRefImageError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SaveRefImageErrorEncryptImplCopyWith<_$SaveRefImageErrorEncryptImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

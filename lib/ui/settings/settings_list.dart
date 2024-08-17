@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -25,9 +25,9 @@ class SettingsList extends StatelessWidget {
   final List<SettingsListGroup> groups;
 
   const SettingsList({
-    Key? key,
+    super.key,
     required this.groups,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -63,10 +63,10 @@ class SettingsListGroup extends StatelessWidget {
   final List<Widget> items;
 
   const SettingsListGroup({
-    Key? key,
+    super.key,
     this.title,
     required this.items,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +78,7 @@ class SettingsListGroup extends StatelessWidget {
             padding: const EdgeInsets.all(16.0),
             child: Text(
               title!,
-              style: Theme.of(context).textTheme.overline!.copyWith(
+              style: Theme.of(context).textTheme.labelSmall!.copyWith(
                     fontSize: 14.0,
                     fontWeight: FontWeight.w400,
                     color: AppTheme.textPrimaryColorLight(context),

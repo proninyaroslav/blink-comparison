@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -23,19 +23,19 @@ class SettingsScaffold extends StatelessWidget {
   final Widget body;
 
   const SettingsScaffold({
-    Key? key,
+    super.key,
     required this.appBar,
     required this.body,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: appBar.preferredSize,
-        child: ScreenTypeLayout(
-          mobile: appBar,
-          tablet: const SizedBox.shrink(),
+        child: ScreenTypeLayout.builder(
+          mobile: (context) => appBar,
+          tablet: (context) => const SizedBox.shrink(),
         ),
       ),
       body: body,

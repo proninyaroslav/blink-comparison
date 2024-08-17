@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -25,7 +25,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../locale.dart';
-import '../app_router.dart';
+import '../app_router.gr.dart';
 import 'ref_images_actions_cubit.dart';
 import 'selectable_ref_image_cubit.dart';
 
@@ -33,9 +33,9 @@ class HomeAppBar extends StatefulWidget implements PreferredSizeWidget {
   final ScrollController scrollController;
 
   const HomeAppBar({
-    Key? key,
+    super.key,
     required this.scrollController,
-  }) : super(key: key);
+  });
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -130,7 +130,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
 }
 
 class _ContextualAppBar extends StatelessWidget {
-  const _ContextualAppBar({Key? key}) : super(key: key);
+  const _ContextualAppBar();
 
   @override
   Widget build(BuildContext context) {
@@ -146,7 +146,8 @@ class _ContextualAppBar extends StatelessWidget {
               message = S.of(context).deleteImagesFailed(errors.length);
             }
             for (final entry in errors.entries) {
-              log().e('[${entry.key.id}] Unable to delete image', entry.value);
+              log().e('[${entry.key.id}] Unable to delete image',
+                  error: entry.value);
             }
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(message)),

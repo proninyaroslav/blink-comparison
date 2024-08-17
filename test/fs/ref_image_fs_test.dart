@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -35,15 +35,15 @@ void main() {
     late File mockFile;
     late RefImageFS imageFs;
 
-    const _dataDir = '/foo/bar';
-    const _imagesDir = '$_dataDir/ref_images';
+    const dataDir = '/foo/bar';
+    const imagesDir = '$dataDir/ref_images';
 
     setUpAll(() {
       mockPlatform = MockPlatformInfo();
 
       when(
         () => mockPlatform.getApplicationDocumentsDirectory(),
-      ).thenAnswer((_) async => _dataDir);
+      ).thenAnswer((_) async => dataDir);
     });
 
     setUp(() {
@@ -61,7 +61,7 @@ void main() {
       );
 
       when(
-        () => mockFs.file(path.join(_imagesDir, info.id)),
+        () => mockFs.file(path.join(imagesDir, info.id)),
       ).thenReturn(mockFile);
       when(
         () => mockFile.create(recursive: true),
@@ -90,7 +90,7 @@ void main() {
       );
 
       when(
-        () => mockFs.file(path.join(_imagesDir, info.id)),
+        () => mockFs.file(path.join(imagesDir, info.id)),
       ).thenReturn(mockFile);
       when(
         () => mockFile.readAsBytes(),
@@ -111,7 +111,7 @@ void main() {
       );
 
       when(
-        () => mockFs.file(path.join(_imagesDir, info.id)),
+        () => mockFs.file(path.join(imagesDir, info.id)),
       ).thenReturn(mockFile);
       when(
         () => mockFile.readAsBytes(),
@@ -132,7 +132,7 @@ void main() {
       );
 
       when(
-        () => mockFs.file(path.join(_imagesDir, info.id)),
+        () => mockFs.file(path.join(imagesDir, info.id)),
       ).thenReturn(mockFile);
       when(
         () => mockFile.delete(),
@@ -150,7 +150,7 @@ void main() {
       );
 
       when(
-        () => mockFs.file(path.join(_imagesDir, info.id)),
+        () => mockFs.file(path.join(imagesDir, info.id)),
       ).thenReturn(mockFile);
       when(
         () => mockFile.exists(),

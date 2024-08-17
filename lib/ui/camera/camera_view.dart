@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -26,7 +26,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:wakelock/wakelock.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
 
 import '../../injector.dart';
 import '../../locale.dart';
@@ -39,11 +39,11 @@ class CameraView extends StatefulWidget {
   final bool showConfirmationDialog;
 
   const CameraView({
-    Key? key,
+    super.key,
     this.overlayChild,
     this.onTakePhoto,
     this.showConfirmationDialog = true,
-  }) : super(key: key);
+  });
 
   @override
   State<CameraView> createState() => _CameraViewState();
@@ -54,7 +54,7 @@ class _CameraViewState extends State<CameraView> {
   void initState() {
     super.initState();
 
-    Wakelock.enable();
+    WakelockPlus.enable();
     context.read<CameraProviderCubit>().loadAvailableCameras();
   }
 
@@ -62,7 +62,7 @@ class _CameraViewState extends State<CameraView> {
   void dispose() {
     super.dispose();
 
-    Wakelock.disable();
+    WakelockPlus.disable();
   }
 
   @override
@@ -106,14 +106,13 @@ class _Preview extends StatefulWidget {
   final bool showConfirmationDialog;
 
   const _Preview({
-    Key? key,
     required this.camera,
     required this.otherCameras,
     this.overlayChild,
     this.onTakePhoto,
     required this.enableFlashByDefault,
     required this.showConfirmationDialog,
-  }) : super(key: key);
+  });
 
   @override
   _PreviewState createState() => _PreviewState();
@@ -137,7 +136,7 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance?.addObserver(this);
+    WidgetsBinding.instance.addObserver(this);
     _initController();
   }
 
@@ -166,7 +165,7 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
 
   @override
   void dispose() {
-    WidgetsBinding.instance?.removeObserver(this);
+    WidgetsBinding.instance.removeObserver(this);
     _disposed = true;
     _controller?.dispose();
     _audioPlayer.dispose();
@@ -207,7 +206,8 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
     try {
       await cameraController.initialize();
     } on CameraException catch (e, stackTrace) {
-      log().e('Unable to initialize the camera', e, stackTrace);
+      log().e('Unable to initialize the camera',
+          error: e, stackTrace: stackTrace);
       if (mounted) {
         setState(() {
           _initializeError = _CameraInitializationError(
@@ -218,12 +218,14 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
       }
       return;
     }
+
     try {
       await _switchFlash(_keepFlash);
       _maxAvailableZoom = await cameraController.getMaxZoomLevel();
       _minAvailableZoom = await cameraController.getMinZoomLevel();
     } on CameraException catch (e, stackTrace) {
-      log().e('Unable to initialize the camera', e, stackTrace);
+      log().e('Unable to initialize the camera',
+          error: e, stackTrace: stackTrace);
     }
 
     if (mounted) {
@@ -350,14 +352,17 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
         enable ? FlashMode.torch : FlashMode.off,
       );
     } on CameraException catch (e, stackTrace) {
-      _errorSnackbar(
-        context,
-        msg: S.of(context).switchCameraFlashError,
-        report: true,
-        reportMsg: 'Failed to switch flash mode',
-        error: e,
-        stackTrace: stackTrace,
-      );
+      final c = context;
+      if (c.mounted) {
+        _errorSnackbar(
+          c,
+          msg: S.of(c).switchCameraFlashError,
+          report: true,
+          reportMsg: 'Failed to switch flash mode',
+          error: e,
+          stackTrace: stackTrace,
+        );
+      }
     }
   }
 
@@ -376,7 +381,7 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
       cameraController.setExposurePoint(offset);
       cameraController.setFocusPoint(offset);
     } on CameraException catch (e, stackTrace) {
-      log().e('Unable to change focus point', e, stackTrace);
+      log().e('Unable to change focus point', error: e, stackTrace: stackTrace);
     }
   }
 
@@ -449,10 +454,9 @@ class _FlashButton extends StatefulWidget {
   final bool initialFlashEnabled;
 
   const _FlashButton({
-    Key? key,
     this.onSwitch,
     required this.initialFlashEnabled,
-  }) : super(key: key);
+  });
 
   @override
   State<_FlashButton> createState() => _FlashButtonState();
@@ -493,10 +497,9 @@ class _FlipCameraButton extends StatelessWidget {
   final VoidCallback? onTap;
 
   const _FlipCameraButton({
-    Key? key,
     required this.show,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -533,9 +536,8 @@ class _TakePhotoButton extends StatelessWidget {
   final VoidCallback? onTap;
 
   const _TakePhotoButton({
-    Key? key,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -572,9 +574,8 @@ class _OpenCameraError extends StatelessWidget {
   final _CameraInitializationError error;
 
   const _OpenCameraError({
-    Key? key,
     required this.error,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -588,14 +589,14 @@ class _OpenCameraError extends StatelessWidget {
           children: [
             Icon(
               Icons.error_outline_rounded,
-              color: theme.errorColor,
+              color: theme.colorScheme.error,
               size: 64,
             ),
             const SizedBox(height: 8.0),
             Text(
               S.of(context).openCameraError,
-              style: theme.textTheme.headline6!.copyWith(
-                color: theme.errorColor,
+              style: theme.textTheme.titleLarge!.copyWith(
+                color: theme.colorScheme.error,
               ),
               textAlign: TextAlign.center,
             ),
@@ -617,7 +618,7 @@ class _OpenCameraError extends StatelessWidget {
 }
 
 class _TakePictureFlash extends StatefulWidget {
-  const _TakePictureFlash({Key? key}) : super(key: key);
+  const _TakePictureFlash({super.key});
 
   @override
   _TakePictureFlashState createState() => _TakePictureFlashState();
@@ -689,13 +690,12 @@ class _ButtonBar extends StatelessWidget {
   final bool initialFlashEnabled;
 
   const _ButtonBar({
-    Key? key,
     this.onFlipCamera,
     this.onSwitchFlashButton,
     this.onTakePhoto,
     required this.showFlipCamera,
     required this.initialFlashEnabled,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -739,7 +739,7 @@ void _errorDialog(
   Object? exception,
   StackTrace? stackTrace,
 }) {
-  log().e(reportMsg, exception, stackTrace);
+  log().e(reportMsg, error: exception, stackTrace: stackTrace);
 
   final reportCubit = context.read<ErrorReportCubit>();
   showDialog(

@@ -6,94 +6,100 @@ part of 'model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AppThemeTypeLight _$$AppThemeTypeLightFromJson(Map<String, dynamic> json) =>
-    _$AppThemeTypeLight(
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$$AppThemeTypeLightToJson(_$AppThemeTypeLight instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
-
-_$AppThemeTypeDark _$$AppThemeTypeDarkFromJson(Map<String, dynamic> json) =>
-    _$AppThemeTypeDark(
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$$AppThemeTypeDarkToJson(_$AppThemeTypeDark instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
-
-_$AppThemeTypeSystem _$$AppThemeTypeSystemFromJson(Map<String, dynamic> json) =>
-    _$AppThemeTypeSystem(
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$$AppThemeTypeSystemToJson(
-        _$AppThemeTypeSystem instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
-
-_$AppLocaleTypeSystem _$$AppLocaleTypeSystemFromJson(
+_$AppThemeTypeLightImpl _$$AppThemeTypeLightImplFromJson(
         Map<String, dynamic> json) =>
-    _$AppLocaleTypeSystem(
+    _$AppThemeTypeLightImpl(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$AppLocaleTypeSystemToJson(
-        _$AppLocaleTypeSystem instance) =>
+Map<String, dynamic> _$$AppThemeTypeLightImplToJson(
+        _$AppThemeTypeLightImpl instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };
 
-_$AppLocaleTypeInner _$$AppLocaleTypeInnerFromJson(Map<String, dynamic> json) =>
-    _$AppLocaleTypeInner(
+_$AppThemeTypeDarkImpl _$$AppThemeTypeDarkImplFromJson(
+        Map<String, dynamic> json) =>
+    _$AppThemeTypeDarkImpl(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$AppThemeTypeDarkImplToJson(
+        _$AppThemeTypeDarkImpl instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
+    };
+
+_$AppThemeTypeSystemImpl _$$AppThemeTypeSystemImplFromJson(
+        Map<String, dynamic> json) =>
+    _$AppThemeTypeSystemImpl(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$AppThemeTypeSystemImplToJson(
+        _$AppThemeTypeSystemImpl instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
+    };
+
+_$AppLocaleTypeSystemImpl _$$AppLocaleTypeSystemImplFromJson(
+        Map<String, dynamic> json) =>
+    _$AppLocaleTypeSystemImpl(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$AppLocaleTypeSystemImplToJson(
+        _$AppLocaleTypeSystemImpl instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
+    };
+
+_$AppLocaleTypeInnerImpl _$$AppLocaleTypeInnerImplFromJson(
+        Map<String, dynamic> json) =>
+    _$AppLocaleTypeInnerImpl(
       locale: const LocaleConverter().fromJson(json['locale'] as String),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$AppLocaleTypeInnerToJson(
-        _$AppLocaleTypeInner instance) =>
+Map<String, dynamic> _$$AppLocaleTypeInnerImplToJson(
+        _$AppLocaleTypeInnerImpl instance) =>
     <String, dynamic>{
       'locale': const LocaleConverter().toJson(instance.locale),
       'runtimeType': instance.$type,
     };
 
-_$ShowcaseTypeOpacity _$$ShowcaseTypeOpacityFromJson(
+_$ShowcaseTypeOpacityImpl _$$ShowcaseTypeOpacityImplFromJson(
         Map<String, dynamic> json) =>
-    _$ShowcaseTypeOpacity(
+    _$ShowcaseTypeOpacityImpl(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$ShowcaseTypeOpacityToJson(
-        _$ShowcaseTypeOpacity instance) =>
+Map<String, dynamic> _$$ShowcaseTypeOpacityImplToJson(
+        _$ShowcaseTypeOpacityImpl instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };
 
-_$ShowcaseTypeRefImageBorder _$$ShowcaseTypeRefImageBorderFromJson(
+_$ShowcaseTypeRefImageBorderImpl _$$ShowcaseTypeRefImageBorderImplFromJson(
         Map<String, dynamic> json) =>
-    _$ShowcaseTypeRefImageBorder(
+    _$ShowcaseTypeRefImageBorderImpl(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$ShowcaseTypeRefImageBorderToJson(
-        _$ShowcaseTypeRefImageBorder instance) =>
+Map<String, dynamic> _$$ShowcaseTypeRefImageBorderImplToJson(
+        _$ShowcaseTypeRefImageBorderImpl instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };
 
-_$ShowcaseTypeBlinkComparison _$$ShowcaseTypeBlinkComparisonFromJson(
+_$ShowcaseTypeBlinkComparisonImpl _$$ShowcaseTypeBlinkComparisonImplFromJson(
         Map<String, dynamic> json) =>
-    _$ShowcaseTypeBlinkComparison(
+    _$ShowcaseTypeBlinkComparisonImpl(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$ShowcaseTypeBlinkComparisonToJson(
-        _$ShowcaseTypeBlinkComparison instance) =>
+Map<String, dynamic> _$$ShowcaseTypeBlinkComparisonImplToJson(
+        _$ShowcaseTypeBlinkComparisonImpl instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };

@@ -6,44 +6,45 @@ part of 'generate_thumbnail_job.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GenerateThumbnailErrorFs _$$GenerateThumbnailErrorFsFromJson(
+_$GenerateThumbnailErrorFsImpl _$$GenerateThumbnailErrorFsImplFromJson(
         Map<String, dynamic> json) =>
-    _$GenerateThumbnailErrorFs(
+    _$GenerateThumbnailErrorFsImpl(
       FsError.fromJson(json['error'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$GenerateThumbnailErrorFsToJson(
-        _$GenerateThumbnailErrorFs instance) =>
+Map<String, dynamic> _$$GenerateThumbnailErrorFsImplToJson(
+        _$GenerateThumbnailErrorFsImpl instance) =>
     <String, dynamic>{
       'error': instance.error.toJson(),
       'runtimeType': instance.$type,
     };
 
-_$GenerateThumbnailErrorFileNotFound
-    _$$GenerateThumbnailErrorFileNotFoundFromJson(Map<String, dynamic> json) =>
-        _$GenerateThumbnailErrorFileNotFound(
+_$GenerateThumbnailErrorFileNotFoundImpl
+    _$$GenerateThumbnailErrorFileNotFoundImplFromJson(
+            Map<String, dynamic> json) =>
+        _$GenerateThumbnailErrorFileNotFoundImpl(
           path: json['path'] as String,
           $type: json['runtimeType'] as String?,
         );
 
-Map<String, dynamic> _$$GenerateThumbnailErrorFileNotFoundToJson(
-        _$GenerateThumbnailErrorFileNotFound instance) =>
+Map<String, dynamic> _$$GenerateThumbnailErrorFileNotFoundImplToJson(
+        _$GenerateThumbnailErrorFileNotFoundImpl instance) =>
     <String, dynamic>{
       'path': instance.path,
       'runtimeType': instance.$type,
     };
 
-_$GenerateThumbnailErrorUnsupportedFormat
-    _$$GenerateThumbnailErrorUnsupportedFormatFromJson(
+_$GenerateThumbnailErrorUnsupportedFormatImpl
+    _$$GenerateThumbnailErrorUnsupportedFormatImplFromJson(
             Map<String, dynamic> json) =>
-        _$GenerateThumbnailErrorUnsupportedFormat(
+        _$GenerateThumbnailErrorUnsupportedFormatImpl(
           path: json['path'] as String,
           $type: json['runtimeType'] as String?,
         );
 
-Map<String, dynamic> _$$GenerateThumbnailErrorUnsupportedFormatToJson(
-        _$GenerateThumbnailErrorUnsupportedFormat instance) =>
+Map<String, dynamic> _$$GenerateThumbnailErrorUnsupportedFormatImplToJson(
+        _$GenerateThumbnailErrorUnsupportedFormatImpl instance) =>
     <String, dynamic>{
       'path': instance.path,
       'runtimeType': instance.$type,

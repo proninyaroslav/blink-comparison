@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -34,15 +34,15 @@ class DropdownFab extends StatefulWidget {
   final double menuWidth;
 
   const DropdownFab({
-    Key? key,
+    super.key,
     required this.icon,
     required this.label,
     required this.menuChildren,
     this.menuWidth = double.infinity,
-  }) : super(key: key);
+  });
 
   @override
-  _DropdownFabState createState() => _DropdownFabState();
+  State<DropdownFab> createState() => _DropdownFabState();
 }
 
 class _DropdownFabState extends State<DropdownFab>
@@ -109,18 +109,17 @@ class _DropdownFabState extends State<DropdownFab>
       builder: (context) {
         return Stack(
           children: [
-            WillPopScope(
-              onWillPop: () async {
+            PopScope(
+              canPop: false,
+              onPopInvokedWithResult: (didPop, result) async {
                 _animationController.reverse();
                 setState(() => _showMenu = false);
-                return false;
               },
               child: Positioned.directional(
                 textDirection: Directionality.of(context),
                 end: size.width - globalPos.dx - _fabSize.width,
                 bottom: size.height - globalPos.dy - _fabSize.height,
                 child: _AnimatedMenu(
-                  children: widget.menuChildren,
                   controller: _animationController,
                   collapsedSize: _fabSize,
                   revealedWidth: widget.menuWidth,
@@ -128,6 +127,7 @@ class _DropdownFabState extends State<DropdownFab>
                     Navigator.of(context).pop();
                     setState(() => _showMenu = false);
                   },
+                  children: widget.menuChildren,
                 ),
               ),
             ),
@@ -144,11 +144,11 @@ class DropdownFabMenuItem extends StatelessWidget {
   final VoidCallback onTap;
 
   const DropdownFabMenuItem({
-    Key? key,
+    super.key,
     required this.leading,
     required this.title,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -172,13 +172,12 @@ class _AnimatedMenu extends StatefulWidget {
   final VoidCallback onCollapsed;
 
   const _AnimatedMenu({
-    Key? key,
     required this.children,
     required this.controller,
     required this.collapsedSize,
     required this.revealedWidth,
     required this.onCollapsed,
-  }) : super(key: key);
+  });
 
   @override
   _AnimatedMenuState createState() => _AnimatedMenuState();
@@ -289,9 +288,8 @@ class _CloseButton extends StatelessWidget {
   final VoidCallback onPressed;
 
   const _CloseButton({
-    Key? key,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -305,7 +303,7 @@ class _CloseButton extends StatelessWidget {
         tileColor: fabTheme.backgroundColor,
         title: Text(
           S.of(context).close,
-          style: theme.textTheme.button?.copyWith(color: foregroundColor),
+          style: theme.textTheme.labelLarge?.copyWith(color: foregroundColor),
         ),
         onTap: onPressed,
       ),

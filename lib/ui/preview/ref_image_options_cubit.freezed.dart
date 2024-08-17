@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'ref_image_options_cubit.dart';
 
@@ -12,32 +12,11 @@ part of 'ref_image_options_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$RefImageOptionsStateTearOff {
-  const _$RefImageOptionsStateTearOff();
-
-  RefImageOptionsStateInitial initial(RefImageOptions options) {
-    return RefImageOptionsStateInitial(
-      options,
-    );
-  }
-
-  RefImageOptionsStateOpacityChanged opacityChanged(RefImageOptions options) {
-    return RefImageOptionsStateOpacityChanged(
-      options,
-    );
-  }
-}
-
-/// @nodoc
-const $RefImageOptionsState = _$RefImageOptionsStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$RefImageOptionsState {
   RefImageOptions get options => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(RefImageOptions options) initial,
@@ -46,8 +25,8 @@ mixin _$RefImageOptionsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(RefImageOptions options)? initial,
-    TResult Function(RefImageOptions options)? opacityChanged,
+    TResult? Function(RefImageOptions options)? initial,
+    TResult? Function(RefImageOptions options)? opacityChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,8 +45,8 @@ mixin _$RefImageOptionsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RefImageOptionsStateInitial value)? initial,
-    TResult Function(RefImageOptionsStateOpacityChanged value)? opacityChanged,
+    TResult? Function(RefImageOptionsStateInitial value)? initial,
+    TResult? Function(RefImageOptionsStateOpacityChanged value)? opacityChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,7 +57,9 @@ mixin _$RefImageOptionsState {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RefImageOptionsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RefImageOptionsStateCopyWith<RefImageOptionsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -87,49 +68,59 @@ mixin _$RefImageOptionsState {
 abstract class $RefImageOptionsStateCopyWith<$Res> {
   factory $RefImageOptionsStateCopyWith(RefImageOptionsState value,
           $Res Function(RefImageOptionsState) then) =
-      _$RefImageOptionsStateCopyWithImpl<$Res>;
+      _$RefImageOptionsStateCopyWithImpl<$Res, RefImageOptionsState>;
+  @useResult
   $Res call({RefImageOptions options});
 
   $RefImageOptionsCopyWith<$Res> get options;
 }
 
 /// @nodoc
-class _$RefImageOptionsStateCopyWithImpl<$Res>
+class _$RefImageOptionsStateCopyWithImpl<$Res,
+        $Val extends RefImageOptionsState>
     implements $RefImageOptionsStateCopyWith<$Res> {
   _$RefImageOptionsStateCopyWithImpl(this._value, this._then);
 
-  final RefImageOptionsState _value;
   // ignore: unused_field
-  final $Res Function(RefImageOptionsState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of RefImageOptionsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? options = freezed,
+    Object? options = null,
   }) {
     return _then(_value.copyWith(
-      options: options == freezed
+      options: null == options
           ? _value.options
           : options // ignore: cast_nullable_to_non_nullable
               as RefImageOptions,
-    ));
+    ) as $Val);
   }
 
+  /// Create a copy of RefImageOptionsState
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $RefImageOptionsCopyWith<$Res> get options {
     return $RefImageOptionsCopyWith<$Res>(_value.options, (value) {
-      return _then(_value.copyWith(options: value));
+      return _then(_value.copyWith(options: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class $RefImageOptionsStateInitialCopyWith<$Res>
+abstract class _$$RefImageOptionsStateInitialImplCopyWith<$Res>
     implements $RefImageOptionsStateCopyWith<$Res> {
-  factory $RefImageOptionsStateInitialCopyWith(
-          RefImageOptionsStateInitial value,
-          $Res Function(RefImageOptionsStateInitial) then) =
-      _$RefImageOptionsStateInitialCopyWithImpl<$Res>;
+  factory _$$RefImageOptionsStateInitialImplCopyWith(
+          _$RefImageOptionsStateInitialImpl value,
+          $Res Function(_$RefImageOptionsStateInitialImpl) then) =
+      __$$RefImageOptionsStateInitialImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({RefImageOptions options});
 
   @override
@@ -137,23 +128,24 @@ abstract class $RefImageOptionsStateInitialCopyWith<$Res>
 }
 
 /// @nodoc
-class _$RefImageOptionsStateInitialCopyWithImpl<$Res>
-    extends _$RefImageOptionsStateCopyWithImpl<$Res>
-    implements $RefImageOptionsStateInitialCopyWith<$Res> {
-  _$RefImageOptionsStateInitialCopyWithImpl(RefImageOptionsStateInitial _value,
-      $Res Function(RefImageOptionsStateInitial) _then)
-      : super(_value, (v) => _then(v as RefImageOptionsStateInitial));
+class __$$RefImageOptionsStateInitialImplCopyWithImpl<$Res>
+    extends _$RefImageOptionsStateCopyWithImpl<$Res,
+        _$RefImageOptionsStateInitialImpl>
+    implements _$$RefImageOptionsStateInitialImplCopyWith<$Res> {
+  __$$RefImageOptionsStateInitialImplCopyWithImpl(
+      _$RefImageOptionsStateInitialImpl _value,
+      $Res Function(_$RefImageOptionsStateInitialImpl) _then)
+      : super(_value, _then);
 
-  @override
-  RefImageOptionsStateInitial get _value =>
-      super._value as RefImageOptionsStateInitial;
-
+  /// Create a copy of RefImageOptionsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? options = freezed,
+    Object? options = null,
   }) {
-    return _then(RefImageOptionsStateInitial(
-      options == freezed
+    return _then(_$RefImageOptionsStateInitialImpl(
+      null == options
           ? _value.options
           : options // ignore: cast_nullable_to_non_nullable
               as RefImageOptions,
@@ -163,8 +155,8 @@ class _$RefImageOptionsStateInitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RefImageOptionsStateInitial implements RefImageOptionsStateInitial {
-  const _$RefImageOptionsStateInitial(this.options);
+class _$RefImageOptionsStateInitialImpl implements RefImageOptionsStateInitial {
+  const _$RefImageOptionsStateInitialImpl(this.options);
 
   @override
   final RefImageOptions options;
@@ -175,22 +167,24 @@ class _$RefImageOptionsStateInitial implements RefImageOptionsStateInitial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is RefImageOptionsStateInitial &&
-            const DeepCollectionEquality().equals(other.options, options));
+            other is _$RefImageOptionsStateInitialImpl &&
+            (identical(other.options, options) || other.options == options));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(options));
+  int get hashCode => Object.hash(runtimeType, options);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RefImageOptionsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $RefImageOptionsStateInitialCopyWith<RefImageOptionsStateInitial>
-      get copyWith => _$RefImageOptionsStateInitialCopyWithImpl<
-          RefImageOptionsStateInitial>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$RefImageOptionsStateInitialImplCopyWith<_$RefImageOptionsStateInitialImpl>
+      get copyWith => __$$RefImageOptionsStateInitialImplCopyWithImpl<
+          _$RefImageOptionsStateInitialImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -204,8 +198,8 @@ class _$RefImageOptionsStateInitial implements RefImageOptionsStateInitial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(RefImageOptions options)? initial,
-    TResult Function(RefImageOptions options)? opacityChanged,
+    TResult? Function(RefImageOptions options)? initial,
+    TResult? Function(RefImageOptions options)? opacityChanged,
   }) {
     return initial?.call(options);
   }
@@ -236,8 +230,8 @@ class _$RefImageOptionsStateInitial implements RefImageOptionsStateInitial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RefImageOptionsStateInitial value)? initial,
-    TResult Function(RefImageOptionsStateOpacityChanged value)? opacityChanged,
+    TResult? Function(RefImageOptionsStateInitial value)? initial,
+    TResult? Function(RefImageOptionsStateOpacityChanged value)? opacityChanged,
   }) {
     return initial?.call(this);
   }
@@ -257,25 +251,29 @@ class _$RefImageOptionsStateInitial implements RefImageOptionsStateInitial {
 }
 
 abstract class RefImageOptionsStateInitial implements RefImageOptionsState {
-  const factory RefImageOptionsStateInitial(RefImageOptions options) =
-      _$RefImageOptionsStateInitial;
+  const factory RefImageOptionsStateInitial(final RefImageOptions options) =
+      _$RefImageOptionsStateInitialImpl;
 
   @override
   RefImageOptions get options;
+
+  /// Create a copy of RefImageOptionsState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  $RefImageOptionsStateInitialCopyWith<RefImageOptionsStateInitial>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RefImageOptionsStateInitialImplCopyWith<_$RefImageOptionsStateInitialImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RefImageOptionsStateOpacityChangedCopyWith<$Res>
+abstract class _$$RefImageOptionsStateOpacityChangedImplCopyWith<$Res>
     implements $RefImageOptionsStateCopyWith<$Res> {
-  factory $RefImageOptionsStateOpacityChangedCopyWith(
-          RefImageOptionsStateOpacityChanged value,
-          $Res Function(RefImageOptionsStateOpacityChanged) then) =
-      _$RefImageOptionsStateOpacityChangedCopyWithImpl<$Res>;
+  factory _$$RefImageOptionsStateOpacityChangedImplCopyWith(
+          _$RefImageOptionsStateOpacityChangedImpl value,
+          $Res Function(_$RefImageOptionsStateOpacityChangedImpl) then) =
+      __$$RefImageOptionsStateOpacityChangedImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({RefImageOptions options});
 
   @override
@@ -283,24 +281,24 @@ abstract class $RefImageOptionsStateOpacityChangedCopyWith<$Res>
 }
 
 /// @nodoc
-class _$RefImageOptionsStateOpacityChangedCopyWithImpl<$Res>
-    extends _$RefImageOptionsStateCopyWithImpl<$Res>
-    implements $RefImageOptionsStateOpacityChangedCopyWith<$Res> {
-  _$RefImageOptionsStateOpacityChangedCopyWithImpl(
-      RefImageOptionsStateOpacityChanged _value,
-      $Res Function(RefImageOptionsStateOpacityChanged) _then)
-      : super(_value, (v) => _then(v as RefImageOptionsStateOpacityChanged));
+class __$$RefImageOptionsStateOpacityChangedImplCopyWithImpl<$Res>
+    extends _$RefImageOptionsStateCopyWithImpl<$Res,
+        _$RefImageOptionsStateOpacityChangedImpl>
+    implements _$$RefImageOptionsStateOpacityChangedImplCopyWith<$Res> {
+  __$$RefImageOptionsStateOpacityChangedImplCopyWithImpl(
+      _$RefImageOptionsStateOpacityChangedImpl _value,
+      $Res Function(_$RefImageOptionsStateOpacityChangedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  RefImageOptionsStateOpacityChanged get _value =>
-      super._value as RefImageOptionsStateOpacityChanged;
-
+  /// Create a copy of RefImageOptionsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? options = freezed,
+    Object? options = null,
   }) {
-    return _then(RefImageOptionsStateOpacityChanged(
-      options == freezed
+    return _then(_$RefImageOptionsStateOpacityChangedImpl(
+      null == options
           ? _value.options
           : options // ignore: cast_nullable_to_non_nullable
               as RefImageOptions,
@@ -310,9 +308,9 @@ class _$RefImageOptionsStateOpacityChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RefImageOptionsStateOpacityChanged
+class _$RefImageOptionsStateOpacityChangedImpl
     implements RefImageOptionsStateOpacityChanged {
-  const _$RefImageOptionsStateOpacityChanged(this.options);
+  const _$RefImageOptionsStateOpacityChangedImpl(this.options);
 
   @override
   final RefImageOptions options;
@@ -323,23 +321,25 @@ class _$RefImageOptionsStateOpacityChanged
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is RefImageOptionsStateOpacityChanged &&
-            const DeepCollectionEquality().equals(other.options, options));
+            other is _$RefImageOptionsStateOpacityChangedImpl &&
+            (identical(other.options, options) || other.options == options));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(options));
+  int get hashCode => Object.hash(runtimeType, options);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RefImageOptionsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $RefImageOptionsStateOpacityChangedCopyWith<
-          RefImageOptionsStateOpacityChanged>
-      get copyWith => _$RefImageOptionsStateOpacityChangedCopyWithImpl<
-          RefImageOptionsStateOpacityChanged>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$RefImageOptionsStateOpacityChangedImplCopyWith<
+          _$RefImageOptionsStateOpacityChangedImpl>
+      get copyWith => __$$RefImageOptionsStateOpacityChangedImplCopyWithImpl<
+          _$RefImageOptionsStateOpacityChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -353,8 +353,8 @@ class _$RefImageOptionsStateOpacityChanged
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(RefImageOptions options)? initial,
-    TResult Function(RefImageOptions options)? opacityChanged,
+    TResult? Function(RefImageOptions options)? initial,
+    TResult? Function(RefImageOptions options)? opacityChanged,
   }) {
     return opacityChanged?.call(options);
   }
@@ -385,8 +385,8 @@ class _$RefImageOptionsStateOpacityChanged
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RefImageOptionsStateInitial value)? initial,
-    TResult Function(RefImageOptionsStateOpacityChanged value)? opacityChanged,
+    TResult? Function(RefImageOptionsStateInitial value)? initial,
+    TResult? Function(RefImageOptionsStateOpacityChanged value)? opacityChanged,
   }) {
     return opacityChanged?.call(this);
   }
@@ -407,37 +407,28 @@ class _$RefImageOptionsStateOpacityChanged
 
 abstract class RefImageOptionsStateOpacityChanged
     implements RefImageOptionsState {
-  const factory RefImageOptionsStateOpacityChanged(RefImageOptions options) =
-      _$RefImageOptionsStateOpacityChanged;
+  const factory RefImageOptionsStateOpacityChanged(
+      final RefImageOptions options) = _$RefImageOptionsStateOpacityChangedImpl;
 
   @override
   RefImageOptions get options;
+
+  /// Create a copy of RefImageOptionsState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  $RefImageOptionsStateOpacityChangedCopyWith<
-          RefImageOptionsStateOpacityChanged>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RefImageOptionsStateOpacityChangedImplCopyWith<
+          _$RefImageOptionsStateOpacityChangedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$RefImageOptionsTearOff {
-  const _$RefImageOptionsTearOff();
-
-  _RefImageOptions call({required double opacity}) {
-    return _RefImageOptions(
-      opacity: opacity,
-    );
-  }
-}
-
-/// @nodoc
-const $RefImageOptions = _$RefImageOptionsTearOff();
 
 /// @nodoc
 mixin _$RefImageOptions {
   double get opacity => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RefImageOptions
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RefImageOptionsCopyWith<RefImageOptions> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -446,59 +437,65 @@ mixin _$RefImageOptions {
 abstract class $RefImageOptionsCopyWith<$Res> {
   factory $RefImageOptionsCopyWith(
           RefImageOptions value, $Res Function(RefImageOptions) then) =
-      _$RefImageOptionsCopyWithImpl<$Res>;
+      _$RefImageOptionsCopyWithImpl<$Res, RefImageOptions>;
+  @useResult
   $Res call({double opacity});
 }
 
 /// @nodoc
-class _$RefImageOptionsCopyWithImpl<$Res>
+class _$RefImageOptionsCopyWithImpl<$Res, $Val extends RefImageOptions>
     implements $RefImageOptionsCopyWith<$Res> {
   _$RefImageOptionsCopyWithImpl(this._value, this._then);
 
-  final RefImageOptions _value;
   // ignore: unused_field
-  final $Res Function(RefImageOptions) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of RefImageOptions
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? opacity = freezed,
+    Object? opacity = null,
   }) {
     return _then(_value.copyWith(
-      opacity: opacity == freezed
+      opacity: null == opacity
           ? _value.opacity
           : opacity // ignore: cast_nullable_to_non_nullable
               as double,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$RefImageOptionsCopyWith<$Res>
+abstract class _$$RefImageOptionsImplCopyWith<$Res>
     implements $RefImageOptionsCopyWith<$Res> {
-  factory _$RefImageOptionsCopyWith(
-          _RefImageOptions value, $Res Function(_RefImageOptions) then) =
-      __$RefImageOptionsCopyWithImpl<$Res>;
+  factory _$$RefImageOptionsImplCopyWith(_$RefImageOptionsImpl value,
+          $Res Function(_$RefImageOptionsImpl) then) =
+      __$$RefImageOptionsImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({double opacity});
 }
 
 /// @nodoc
-class __$RefImageOptionsCopyWithImpl<$Res>
-    extends _$RefImageOptionsCopyWithImpl<$Res>
-    implements _$RefImageOptionsCopyWith<$Res> {
-  __$RefImageOptionsCopyWithImpl(
-      _RefImageOptions _value, $Res Function(_RefImageOptions) _then)
-      : super(_value, (v) => _then(v as _RefImageOptions));
+class __$$RefImageOptionsImplCopyWithImpl<$Res>
+    extends _$RefImageOptionsCopyWithImpl<$Res, _$RefImageOptionsImpl>
+    implements _$$RefImageOptionsImplCopyWith<$Res> {
+  __$$RefImageOptionsImplCopyWithImpl(
+      _$RefImageOptionsImpl _value, $Res Function(_$RefImageOptionsImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _RefImageOptions get _value => super._value as _RefImageOptions;
-
+  /// Create a copy of RefImageOptions
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? opacity = freezed,
+    Object? opacity = null,
   }) {
-    return _then(_RefImageOptions(
-      opacity: opacity == freezed
+    return _then(_$RefImageOptionsImpl(
+      opacity: null == opacity
           ? _value.opacity
           : opacity // ignore: cast_nullable_to_non_nullable
               as double,
@@ -508,8 +505,8 @@ class __$RefImageOptionsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_RefImageOptions implements _RefImageOptions {
-  const _$_RefImageOptions({required this.opacity});
+class _$RefImageOptionsImpl implements _RefImageOptions {
+  const _$RefImageOptionsImpl({required this.opacity});
 
   @override
   final double opacity;
@@ -520,31 +517,37 @@ class _$_RefImageOptions implements _RefImageOptions {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RefImageOptions &&
-            const DeepCollectionEquality().equals(other.opacity, opacity));
+            other is _$RefImageOptionsImpl &&
+            (identical(other.opacity, opacity) || other.opacity == opacity));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(opacity));
+  int get hashCode => Object.hash(runtimeType, opacity);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RefImageOptions
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$RefImageOptionsCopyWith<_RefImageOptions> get copyWith =>
-      __$RefImageOptionsCopyWithImpl<_RefImageOptions>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$RefImageOptionsImplCopyWith<_$RefImageOptionsImpl> get copyWith =>
+      __$$RefImageOptionsImplCopyWithImpl<_$RefImageOptionsImpl>(
+          this, _$identity);
 }
 
 abstract class _RefImageOptions implements RefImageOptions {
-  const factory _RefImageOptions({required double opacity}) =
-      _$_RefImageOptions;
+  const factory _RefImageOptions({required final double opacity}) =
+      _$RefImageOptionsImpl;
 
   @override
   double get opacity;
+
+  /// Create a copy of RefImageOptions
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$RefImageOptionsCopyWith<_RefImageOptions> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RefImageOptionsImplCopyWith<_$RefImageOptionsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -26,10 +26,10 @@ class SettingsPagesList extends StatelessWidget {
   final SettingsRouteItem? selectedRoute;
 
   const SettingsPagesList({
-    Key? key,
+    super.key,
     this.selectedRoute,
     this.onSelected,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -95,12 +95,11 @@ class _SettingsItem extends StatelessWidget {
   final bool isSelected;
 
   const _SettingsItem({
-    Key? key,
     required this.title,
     required this.icon,
     required this.isSelected,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -115,7 +114,7 @@ class _SettingsItem extends StatelessWidget {
         leading: Icon(icon),
         title: Text(
           title,
-          style: Theme.of(context).textTheme.subtitle1,
+          style: Theme.of(context).textTheme.titleMedium,
           textAlign: TextAlign.start,
         ),
         onTap: onTap,

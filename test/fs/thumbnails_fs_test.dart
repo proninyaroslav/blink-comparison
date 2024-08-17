@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -35,15 +35,15 @@ void main() {
     late File mockFile;
     late ThumbnailFS thumbnailsFs;
 
-    const _dataDir = '/foo/bar';
-    const _imagesDir = '$_dataDir/thumbnails';
+    const dataDir = '/foo/bar';
+    const imagesDir = '$dataDir/thumbnails';
 
     setUpAll(() {
       mockPlatform = MockPlatformInfo();
 
       when(
         () => mockPlatform.getApplicationDocumentsDirectory(),
-      ).thenAnswer((_) async => _dataDir);
+      ).thenAnswer((_) async => dataDir);
     });
 
     setUp(() {
@@ -61,7 +61,7 @@ void main() {
       );
 
       when(
-        () => mockFs.file(path.join(_imagesDir, info.id)),
+        () => mockFs.file(path.join(imagesDir, info.id)),
       ).thenReturn(mockFile);
       when(
         () => mockFile.create(recursive: true),
@@ -87,7 +87,7 @@ void main() {
         dateAdded: DateTime.now(),
         encryptSalt: 'salt',
       );
-      final expectedPath = path.join(_imagesDir, info.id);
+      final expectedPath = path.join(imagesDir, info.id);
 
       final res = await thumbnailsFs.get(info);
       res.when(
@@ -104,7 +104,7 @@ void main() {
       );
 
       when(
-        () => mockFs.file(path.join(_imagesDir, info.id)),
+        () => mockFs.file(path.join(imagesDir, info.id)),
       ).thenReturn(mockFile);
       when(
         () => mockFile.delete(),
@@ -122,7 +122,7 @@ void main() {
       );
 
       when(
-        () => mockFs.file(path.join(_imagesDir, info.id)),
+        () => mockFs.file(path.join(imagesDir, info.id)),
       ).thenReturn(mockFile);
       when(
         () => mockFile.exists(),

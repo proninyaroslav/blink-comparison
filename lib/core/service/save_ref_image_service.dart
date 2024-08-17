@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -16,10 +16,9 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'dart:async';
-import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:blink_comparison/core/crash_catcher/handler/notification_crash_handler.dart';
+import 'package:blink_comparison/core/encrypt/encrypt.dart';
 import 'package:blink_comparison/core/service/generate_thumbnail_job.dart';
 import 'package:blink_comparison/core/service/save_ref_image_job.dart';
 import 'package:blink_comparison/core/storage/ref_image_status_repository.dart';
@@ -28,20 +27,14 @@ import 'package:cross_file/cross_file.dart';
 import 'package:file/file.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide Image;
-import 'package:flutter_sodium/flutter_sodium.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:path_provider_android/path_provider_android.dart';
-import 'package:path_provider_ios/path_provider_ios.dart';
-import 'package:shared_preferences_android/shared_preferences_android.dart';
-import 'package:shared_preferences_ios/shared_preferences_ios.dart';
 
 import '../../env.dart';
 import '../../injector.dart';
 import '../../logger.dart';
 import '../crash_catcher/crash_catcher.dart';
 import '../crash_catcher/hook/flutter_crash_hook.dart';
-import '../encrypt/encrypt.dart';
 import '../entity/entity.dart';
 import '../notification_manager.dart';
 import 'save_thumbnail_job.dart';
@@ -53,7 +46,7 @@ abstract class SaveRefImageService {
   Future<void> save({
     required RefImageInfo info,
     required XFile srcImage,
-    required SecureKey key,
+    required AppSecureKey key,
   });
 
   Future<List<SaveRefImageStatus>> getCurrentStatus();
@@ -86,7 +79,7 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
   Future<void> save({
     required RefImageInfo info,
     required XFile srcImage,
-    required SecureKey key,
+    required AppSecureKey key,
   }) async {
     final saveInfo = ServiceRequest(
       info: info,
@@ -239,21 +232,12 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
   }
 }
 
+@pragma('vm:entry-point')
 Future<void> callbackDispatcher() async {
-  Future<void> _dispatcher() async {
+  Future<void> dispatcher() async {
     WidgetsFlutterBinding.ensureInitialized();
-    // Workaround to work in Isolate: https://github.com/flutter/flutter/issues/98473#issuecomment-1041895729
-    // TODO: future fix: https://github.com/flutter/flutter/issues/98473#issuecomment-1058500136
-    if (Platform.isAndroid) {
-      SharedPreferencesAndroid.registerWith();
-      PathProviderAndroid.registerWith();
-    }
-    if (Platform.isIOS) {
-      SharedPreferencesIOS.registerWith();
-      PathProviderIOS.registerWith();
-    }
+
     await initInjector(kDebugMode ? Env.dev : Env.prod);
-    Sodium.init();
 
     final notifyManager = getIt<NotificationManager>();
     await notifyManager.init();
@@ -268,11 +252,11 @@ Future<void> callbackDispatcher() async {
   }
 
   if (kDebugMode) {
-    return _dispatcher();
+    return dispatcher();
   } else {
     return crashCatcher(
       hooks: [
-        ZonedCrashHook(mainEntry: _dispatcher),
+        ZonedCrashHook(mainEntry: dispatcher),
         IsolateCrashHook(),
         FlutterCrashHook(),
       ],
@@ -311,7 +295,7 @@ class ServiceRequest with _$ServiceRequest {
   const factory ServiceRequest({
     required RefImageInfo info,
     @XFileConverter() required XFile srcFile,
-    required SecureKey key,
+    required AppSecureKey key,
   }) = _ServiceRequest;
 
   factory ServiceRequest.fromJson(Map<String, dynamic> json) =>

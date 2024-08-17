@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -30,20 +30,22 @@ import 'package:showcaseview/showcaseview.dart';
 
 import '../../injector.dart';
 import '../../locale.dart';
-import '../app_router.dart';
+import '../../logger.dart';
+import '../app_router.gr.dart';
 import 'opacity_bar.dart';
 import 'ref_image_cubit.dart';
 import 'ref_image_options_cubit.dart';
 
 final _opacityShowcaseKey = GlobalKey();
 
+@RoutePage()
 class RefImagePreviewPage extends StatelessWidget implements AutoRouteWrapper {
   final String imageId;
 
   const RefImagePreviewPage({
-    Key? key,
+    super.key,
     required this.imageId,
-  }) : super(key: key);
+  });
 
   @override
   Widget wrappedRoute(BuildContext context) {
@@ -75,11 +77,9 @@ class RefImagePreviewPage extends StatelessWidget implements AutoRouteWrapper {
       data: AppTheme.blackTheme(),
       child: Scaffold(
         body: ShowCaseWidget(
-          builder: Builder(
-            builder: (context) {
-              return _Body(imageId: imageId);
-            },
-          ),
+          builder: (context) {
+            return _Body(imageId: imageId);
+          },
           onComplete: (i, key) {
             final cubit = context.read<ShowcaseCubit>();
             if (key == _opacityShowcaseKey) {
@@ -96,7 +96,7 @@ class RefImagePreviewPage extends StatelessWidget implements AutoRouteWrapper {
 class _Body extends StatefulWidget {
   final String imageId;
 
-  const _Body({Key? key, required this.imageId}) : super(key: key);
+  const _Body({required this.imageId});
 
   @override
   _BodyState createState() => _BodyState();
@@ -111,7 +111,7 @@ class _BodyState extends State<_Body> {
     super.initState();
 
     context.read<RefImageCubit>().load(widget.imageId);
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       Future.delayed(const Duration(milliseconds: 400), _startShowcase);
     });
   }
@@ -123,7 +123,7 @@ class _BodyState extends State<_Body> {
         _opacityShowcaseKey,
     ];
     if (showcases.isNotEmpty) {
-      ShowCaseWidget.of(context)?.startShowCase(showcases);
+      ShowCaseWidget.of(context).startShowCase(showcases);
     }
   }
 
@@ -197,9 +197,7 @@ class _BodyState extends State<_Body> {
 }
 
 class _OpenOpacityBarButton extends StatelessWidget {
-  const _OpenOpacityBarButton({
-    Key? key,
-  }) : super(key: key);
+  const _OpenOpacityBarButton();
 
   @override
   Widget build(BuildContext context) {
@@ -225,7 +223,7 @@ class _OpenOpacityBarButton extends StatelessWidget {
 }
 
 class _DecodeImageProgress extends StatelessWidget {
-  const _DecodeImageProgress({Key? key}) : super(key: key);
+  const _DecodeImageProgress();
 
   @override
   Widget build(BuildContext context) {
@@ -239,7 +237,7 @@ class _DecodeImageProgress extends StatelessWidget {
             const SizedBox(height: 16.0),
             Text(
               S.of(context).loadingReferenceImage,
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.titleMedium,
               textAlign: TextAlign.center,
             ),
           ],
@@ -254,10 +252,9 @@ class _ImageView extends StatefulWidget {
   final ValueChanged<ImageInfo?>? onImageLoaded;
 
   const _ImageView({
-    Key? key,
     required this.image,
     this.onImageLoaded,
-  }) : super(key: key);
+  });
 
   @override
   State<_ImageView> createState() => _ImageViewState();
@@ -274,7 +271,7 @@ class _ImageViewState extends State<_ImageView>
     curve: Curves.easeIn,
   );
   late final _backgroundColorAnimation = ColorTween(
-    begin: Theme.of(context).backgroundColor,
+    begin: Theme.of(context).colorScheme.surface,
     end: Colors.transparent,
   ).animate(
     CurvedAnimation(
@@ -368,9 +365,8 @@ class _LoadRefImageError extends StatelessWidget {
   final LoadRefImageError? error;
 
   const _LoadRefImageError({
-    Key? key,
     this.error,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -384,6 +380,11 @@ class _LoadRefImageError extends StatelessWidget {
           errorMsg = S.of(context).referenceImageNotFound;
         },
         database: (e, stackTrace) {
+          log().e(
+            "Unable to load reference image",
+            error: e,
+            stackTrace: stackTrace,
+          );
           errorMsg = S.of(context).loadReferenceImageFailed;
           if (e != null) {
             reportButton = _ErrorReportButton(
@@ -395,6 +396,11 @@ class _LoadRefImageError extends StatelessWidget {
         },
         fs: (e) => e.when(
           io: (e, stackTrace) {
+            log().e(
+              "Unable to load reference image: I/O error",
+              error: e,
+              stackTrace: stackTrace,
+            );
             errorMsg = S.of(context).loadReferenceImageFailedIO;
             if (e != null) {
               reportButton = _ErrorReportButton(
@@ -410,6 +416,11 @@ class _LoadRefImageError extends StatelessWidget {
         },
         decrypt: (e) => e.when(
           (e, stackTrace) {
+            log().e(
+              "Unable to decrypt reference image",
+              error: e,
+              stackTrace: stackTrace,
+            );
             errorMsg = S.of(context).decryptReferenceImageFailed;
             if (e != null) {
               reportButton = _ErrorReportButton(
@@ -435,14 +446,14 @@ class _LoadRefImageError extends StatelessWidget {
           children: [
             Icon(
               Icons.error_outline_rounded,
-              color: theme.errorColor,
+              color: theme.colorScheme.error,
               size: 64,
             ),
             const SizedBox(height: 8.0),
             Text(
               errorMsg,
-              style: theme.textTheme.headline6!.copyWith(
-                color: theme.errorColor,
+              style: theme.textTheme.titleLarge!.copyWith(
+                color: theme.colorScheme.error,
               ),
               textAlign: TextAlign.center,
             ),
@@ -465,11 +476,10 @@ class _ErrorReportButton extends StatelessWidget {
   final String? reportMsg;
 
   const _ErrorReportButton({
-    Key? key,
     required this.error,
     this.stackTrace,
     this.reportMsg,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

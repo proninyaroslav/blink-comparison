@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -15,16 +15,14 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'package:flutter/foundation.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
+import 'package:sodium_libs/sodium_libs_sumo.dart';
 
-part 'secure_key.freezed.dart';
-part 'secure_key.g.dart';
-
-@freezed
-class SecureKey with _$SecureKey {
-  const factory SecureKey.password(String value) = SecureKeyPassword;
-
-  factory SecureKey.fromJson(Map<String, dynamic> json) =>
-      _$SecureKeyFromJson(json);
+@module
+abstract class SodiumModule {
+  @singleton
+  @preResolve
+  Future<SodiumSumo> sodiumSumo() async {
+    return await SodiumSumoInit.init();
+  }
 }

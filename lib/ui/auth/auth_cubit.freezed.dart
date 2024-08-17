@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'auth_cubit.dart';
 
@@ -12,61 +12,7 @@ part of 'auth_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$AuthStateTearOff {
-  const _$AuthStateTearOff();
-
-  AuthStateInitial initial() {
-    return const AuthStateInitial();
-  }
-
-  AuthStateNoPassword noPassword() {
-    return const AuthStateNoPassword();
-  }
-
-  AuthStatePasswordNotLoaded passwordNotLoaded() {
-    return const AuthStatePasswordNotLoaded();
-  }
-
-  AuthStatePasswordLoaded passwordLoaded({required PasswordInfo info}) {
-    return AuthStatePasswordLoaded(
-      info: info,
-    );
-  }
-
-  AuthStateLoadPasswordFailed loadPasswordFailed(
-      {Exception? exception, StackTrace? stackTrace}) {
-    return AuthStateLoadPasswordFailed(
-      exception: exception,
-      stackTrace: stackTrace,
-    );
-  }
-
-  AuthStateAuthInProgress authInProgress({required PasswordInfo info}) {
-    return AuthStateAuthInProgress(
-      info: info,
-    );
-  }
-
-  AuthStateAuthSuccess authSuccess({required PasswordInfo info}) {
-    return AuthStateAuthSuccess(
-      info: info,
-    );
-  }
-
-  AuthStateAuthFailed authFailed(
-      {required PasswordInfo info, required AuthError reason}) {
-    return AuthStateAuthFailed(
-      info: info,
-      reason: reason,
-    );
-  }
-}
-
-/// @nodoc
-const $AuthState = _$AuthStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AuthState {
@@ -85,15 +31,15 @@ mixin _$AuthState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? noPassword,
-    TResult Function()? passwordNotLoaded,
-    TResult Function(PasswordInfo info)? passwordLoaded,
-    TResult Function(Exception? exception, StackTrace? stackTrace)?
+    TResult? Function()? initial,
+    TResult? Function()? noPassword,
+    TResult? Function()? passwordNotLoaded,
+    TResult? Function(PasswordInfo info)? passwordLoaded,
+    TResult? Function(Exception? exception, StackTrace? stackTrace)?
         loadPasswordFailed,
-    TResult Function(PasswordInfo info)? authInProgress,
-    TResult Function(PasswordInfo info)? authSuccess,
-    TResult Function(PasswordInfo info, AuthError reason)? authFailed,
+    TResult? Function(PasswordInfo info)? authInProgress,
+    TResult? Function(PasswordInfo info)? authSuccess,
+    TResult? Function(PasswordInfo info, AuthError reason)? authFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -126,14 +72,14 @@ mixin _$AuthState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AuthStateInitial value)? initial,
-    TResult Function(AuthStateNoPassword value)? noPassword,
-    TResult Function(AuthStatePasswordNotLoaded value)? passwordNotLoaded,
-    TResult Function(AuthStatePasswordLoaded value)? passwordLoaded,
-    TResult Function(AuthStateLoadPasswordFailed value)? loadPasswordFailed,
-    TResult Function(AuthStateAuthInProgress value)? authInProgress,
-    TResult Function(AuthStateAuthSuccess value)? authSuccess,
-    TResult Function(AuthStateAuthFailed value)? authFailed,
+    TResult? Function(AuthStateInitial value)? initial,
+    TResult? Function(AuthStateNoPassword value)? noPassword,
+    TResult? Function(AuthStatePasswordNotLoaded value)? passwordNotLoaded,
+    TResult? Function(AuthStatePasswordLoaded value)? passwordLoaded,
+    TResult? Function(AuthStateLoadPasswordFailed value)? loadPasswordFailed,
+    TResult? Function(AuthStateAuthInProgress value)? authInProgress,
+    TResult? Function(AuthStateAuthSuccess value)? authSuccess,
+    TResult? Function(AuthStateAuthFailed value)? authFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -154,40 +100,46 @@ mixin _$AuthState {
 /// @nodoc
 abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
-      _$AuthStateCopyWithImpl<$Res>;
+      _$AuthStateCopyWithImpl<$Res, AuthState>;
 }
 
 /// @nodoc
-class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
+class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
+    implements $AuthStateCopyWith<$Res> {
   _$AuthStateCopyWithImpl(this._value, this._then);
 
-  final AuthState _value;
   // ignore: unused_field
-  final $Res Function(AuthState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class $AuthStateInitialCopyWith<$Res> {
-  factory $AuthStateInitialCopyWith(
-          AuthStateInitial value, $Res Function(AuthStateInitial) then) =
-      _$AuthStateInitialCopyWithImpl<$Res>;
+abstract class _$$AuthStateInitialImplCopyWith<$Res> {
+  factory _$$AuthStateInitialImplCopyWith(_$AuthStateInitialImpl value,
+          $Res Function(_$AuthStateInitialImpl) then) =
+      __$$AuthStateInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AuthStateInitialCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
-    implements $AuthStateInitialCopyWith<$Res> {
-  _$AuthStateInitialCopyWithImpl(
-      AuthStateInitial _value, $Res Function(AuthStateInitial) _then)
-      : super(_value, (v) => _then(v as AuthStateInitial));
+class __$$AuthStateInitialImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateInitialImpl>
+    implements _$$AuthStateInitialImplCopyWith<$Res> {
+  __$$AuthStateInitialImplCopyWithImpl(_$AuthStateInitialImpl _value,
+      $Res Function(_$AuthStateInitialImpl) _then)
+      : super(_value, _then);
 
-  @override
-  AuthStateInitial get _value => super._value as AuthStateInitial;
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$AuthStateInitial implements AuthStateInitial {
-  const _$AuthStateInitial();
+class _$AuthStateInitialImpl implements AuthStateInitial {
+  const _$AuthStateInitialImpl();
 
   @override
   String toString() {
@@ -195,9 +147,9 @@ class _$AuthStateInitial implements AuthStateInitial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is AuthStateInitial);
+        (other.runtimeType == runtimeType && other is _$AuthStateInitialImpl);
   }
 
   @override
@@ -222,15 +174,15 @@ class _$AuthStateInitial implements AuthStateInitial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? noPassword,
-    TResult Function()? passwordNotLoaded,
-    TResult Function(PasswordInfo info)? passwordLoaded,
-    TResult Function(Exception? exception, StackTrace? stackTrace)?
+    TResult? Function()? initial,
+    TResult? Function()? noPassword,
+    TResult? Function()? passwordNotLoaded,
+    TResult? Function(PasswordInfo info)? passwordLoaded,
+    TResult? Function(Exception? exception, StackTrace? stackTrace)?
         loadPasswordFailed,
-    TResult Function(PasswordInfo info)? authInProgress,
-    TResult Function(PasswordInfo info)? authSuccess,
-    TResult Function(PasswordInfo info, AuthError reason)? authFailed,
+    TResult? Function(PasswordInfo info)? authInProgress,
+    TResult? Function(PasswordInfo info)? authSuccess,
+    TResult? Function(PasswordInfo info, AuthError reason)? authFailed,
   }) {
     return initial?.call();
   }
@@ -275,14 +227,14 @@ class _$AuthStateInitial implements AuthStateInitial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AuthStateInitial value)? initial,
-    TResult Function(AuthStateNoPassword value)? noPassword,
-    TResult Function(AuthStatePasswordNotLoaded value)? passwordNotLoaded,
-    TResult Function(AuthStatePasswordLoaded value)? passwordLoaded,
-    TResult Function(AuthStateLoadPasswordFailed value)? loadPasswordFailed,
-    TResult Function(AuthStateAuthInProgress value)? authInProgress,
-    TResult Function(AuthStateAuthSuccess value)? authSuccess,
-    TResult Function(AuthStateAuthFailed value)? authFailed,
+    TResult? Function(AuthStateInitial value)? initial,
+    TResult? Function(AuthStateNoPassword value)? noPassword,
+    TResult? Function(AuthStatePasswordNotLoaded value)? passwordNotLoaded,
+    TResult? Function(AuthStatePasswordLoaded value)? passwordLoaded,
+    TResult? Function(AuthStateLoadPasswordFailed value)? loadPasswordFailed,
+    TResult? Function(AuthStateAuthInProgress value)? authInProgress,
+    TResult? Function(AuthStateAuthSuccess value)? authSuccess,
+    TResult? Function(AuthStateAuthFailed value)? authFailed,
   }) {
     return initial?.call(this);
   }
@@ -308,32 +260,32 @@ class _$AuthStateInitial implements AuthStateInitial {
 }
 
 abstract class AuthStateInitial implements AuthState {
-  const factory AuthStateInitial() = _$AuthStateInitial;
+  const factory AuthStateInitial() = _$AuthStateInitialImpl;
 }
 
 /// @nodoc
-abstract class $AuthStateNoPasswordCopyWith<$Res> {
-  factory $AuthStateNoPasswordCopyWith(
-          AuthStateNoPassword value, $Res Function(AuthStateNoPassword) then) =
-      _$AuthStateNoPasswordCopyWithImpl<$Res>;
+abstract class _$$AuthStateNoPasswordImplCopyWith<$Res> {
+  factory _$$AuthStateNoPasswordImplCopyWith(_$AuthStateNoPasswordImpl value,
+          $Res Function(_$AuthStateNoPasswordImpl) then) =
+      __$$AuthStateNoPasswordImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AuthStateNoPasswordCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res>
-    implements $AuthStateNoPasswordCopyWith<$Res> {
-  _$AuthStateNoPasswordCopyWithImpl(
-      AuthStateNoPassword _value, $Res Function(AuthStateNoPassword) _then)
-      : super(_value, (v) => _then(v as AuthStateNoPassword));
+class __$$AuthStateNoPasswordImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateNoPasswordImpl>
+    implements _$$AuthStateNoPasswordImplCopyWith<$Res> {
+  __$$AuthStateNoPasswordImplCopyWithImpl(_$AuthStateNoPasswordImpl _value,
+      $Res Function(_$AuthStateNoPasswordImpl) _then)
+      : super(_value, _then);
 
-  @override
-  AuthStateNoPassword get _value => super._value as AuthStateNoPassword;
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$AuthStateNoPassword implements AuthStateNoPassword {
-  const _$AuthStateNoPassword();
+class _$AuthStateNoPasswordImpl implements AuthStateNoPassword {
+  const _$AuthStateNoPasswordImpl();
 
   @override
   String toString() {
@@ -341,9 +293,10 @@ class _$AuthStateNoPassword implements AuthStateNoPassword {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is AuthStateNoPassword);
+        (other.runtimeType == runtimeType &&
+            other is _$AuthStateNoPasswordImpl);
   }
 
   @override
@@ -368,15 +321,15 @@ class _$AuthStateNoPassword implements AuthStateNoPassword {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? noPassword,
-    TResult Function()? passwordNotLoaded,
-    TResult Function(PasswordInfo info)? passwordLoaded,
-    TResult Function(Exception? exception, StackTrace? stackTrace)?
+    TResult? Function()? initial,
+    TResult? Function()? noPassword,
+    TResult? Function()? passwordNotLoaded,
+    TResult? Function(PasswordInfo info)? passwordLoaded,
+    TResult? Function(Exception? exception, StackTrace? stackTrace)?
         loadPasswordFailed,
-    TResult Function(PasswordInfo info)? authInProgress,
-    TResult Function(PasswordInfo info)? authSuccess,
-    TResult Function(PasswordInfo info, AuthError reason)? authFailed,
+    TResult? Function(PasswordInfo info)? authInProgress,
+    TResult? Function(PasswordInfo info)? authSuccess,
+    TResult? Function(PasswordInfo info, AuthError reason)? authFailed,
   }) {
     return noPassword?.call();
   }
@@ -421,14 +374,14 @@ class _$AuthStateNoPassword implements AuthStateNoPassword {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AuthStateInitial value)? initial,
-    TResult Function(AuthStateNoPassword value)? noPassword,
-    TResult Function(AuthStatePasswordNotLoaded value)? passwordNotLoaded,
-    TResult Function(AuthStatePasswordLoaded value)? passwordLoaded,
-    TResult Function(AuthStateLoadPasswordFailed value)? loadPasswordFailed,
-    TResult Function(AuthStateAuthInProgress value)? authInProgress,
-    TResult Function(AuthStateAuthSuccess value)? authSuccess,
-    TResult Function(AuthStateAuthFailed value)? authFailed,
+    TResult? Function(AuthStateInitial value)? initial,
+    TResult? Function(AuthStateNoPassword value)? noPassword,
+    TResult? Function(AuthStatePasswordNotLoaded value)? passwordNotLoaded,
+    TResult? Function(AuthStatePasswordLoaded value)? passwordLoaded,
+    TResult? Function(AuthStateLoadPasswordFailed value)? loadPasswordFailed,
+    TResult? Function(AuthStateAuthInProgress value)? authInProgress,
+    TResult? Function(AuthStateAuthSuccess value)? authSuccess,
+    TResult? Function(AuthStateAuthFailed value)? authFailed,
   }) {
     return noPassword?.call(this);
   }
@@ -454,33 +407,34 @@ class _$AuthStateNoPassword implements AuthStateNoPassword {
 }
 
 abstract class AuthStateNoPassword implements AuthState {
-  const factory AuthStateNoPassword() = _$AuthStateNoPassword;
+  const factory AuthStateNoPassword() = _$AuthStateNoPasswordImpl;
 }
 
 /// @nodoc
-abstract class $AuthStatePasswordNotLoadedCopyWith<$Res> {
-  factory $AuthStatePasswordNotLoadedCopyWith(AuthStatePasswordNotLoaded value,
-          $Res Function(AuthStatePasswordNotLoaded) then) =
-      _$AuthStatePasswordNotLoadedCopyWithImpl<$Res>;
+abstract class _$$AuthStatePasswordNotLoadedImplCopyWith<$Res> {
+  factory _$$AuthStatePasswordNotLoadedImplCopyWith(
+          _$AuthStatePasswordNotLoadedImpl value,
+          $Res Function(_$AuthStatePasswordNotLoadedImpl) then) =
+      __$$AuthStatePasswordNotLoadedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AuthStatePasswordNotLoadedCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res>
-    implements $AuthStatePasswordNotLoadedCopyWith<$Res> {
-  _$AuthStatePasswordNotLoadedCopyWithImpl(AuthStatePasswordNotLoaded _value,
-      $Res Function(AuthStatePasswordNotLoaded) _then)
-      : super(_value, (v) => _then(v as AuthStatePasswordNotLoaded));
+class __$$AuthStatePasswordNotLoadedImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthStatePasswordNotLoadedImpl>
+    implements _$$AuthStatePasswordNotLoadedImplCopyWith<$Res> {
+  __$$AuthStatePasswordNotLoadedImplCopyWithImpl(
+      _$AuthStatePasswordNotLoadedImpl _value,
+      $Res Function(_$AuthStatePasswordNotLoadedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  AuthStatePasswordNotLoaded get _value =>
-      super._value as AuthStatePasswordNotLoaded;
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$AuthStatePasswordNotLoaded implements AuthStatePasswordNotLoaded {
-  const _$AuthStatePasswordNotLoaded();
+class _$AuthStatePasswordNotLoadedImpl implements AuthStatePasswordNotLoaded {
+  const _$AuthStatePasswordNotLoadedImpl();
 
   @override
   String toString() {
@@ -488,10 +442,10 @@ class _$AuthStatePasswordNotLoaded implements AuthStatePasswordNotLoaded {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is AuthStatePasswordNotLoaded);
+            other is _$AuthStatePasswordNotLoadedImpl);
   }
 
   @override
@@ -516,15 +470,15 @@ class _$AuthStatePasswordNotLoaded implements AuthStatePasswordNotLoaded {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? noPassword,
-    TResult Function()? passwordNotLoaded,
-    TResult Function(PasswordInfo info)? passwordLoaded,
-    TResult Function(Exception? exception, StackTrace? stackTrace)?
+    TResult? Function()? initial,
+    TResult? Function()? noPassword,
+    TResult? Function()? passwordNotLoaded,
+    TResult? Function(PasswordInfo info)? passwordLoaded,
+    TResult? Function(Exception? exception, StackTrace? stackTrace)?
         loadPasswordFailed,
-    TResult Function(PasswordInfo info)? authInProgress,
-    TResult Function(PasswordInfo info)? authSuccess,
-    TResult Function(PasswordInfo info, AuthError reason)? authFailed,
+    TResult? Function(PasswordInfo info)? authInProgress,
+    TResult? Function(PasswordInfo info)? authSuccess,
+    TResult? Function(PasswordInfo info, AuthError reason)? authFailed,
   }) {
     return passwordNotLoaded?.call();
   }
@@ -569,14 +523,14 @@ class _$AuthStatePasswordNotLoaded implements AuthStatePasswordNotLoaded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AuthStateInitial value)? initial,
-    TResult Function(AuthStateNoPassword value)? noPassword,
-    TResult Function(AuthStatePasswordNotLoaded value)? passwordNotLoaded,
-    TResult Function(AuthStatePasswordLoaded value)? passwordLoaded,
-    TResult Function(AuthStateLoadPasswordFailed value)? loadPasswordFailed,
-    TResult Function(AuthStateAuthInProgress value)? authInProgress,
-    TResult Function(AuthStateAuthSuccess value)? authSuccess,
-    TResult Function(AuthStateAuthFailed value)? authFailed,
+    TResult? Function(AuthStateInitial value)? initial,
+    TResult? Function(AuthStateNoPassword value)? noPassword,
+    TResult? Function(AuthStatePasswordNotLoaded value)? passwordNotLoaded,
+    TResult? Function(AuthStatePasswordLoaded value)? passwordLoaded,
+    TResult? Function(AuthStateLoadPasswordFailed value)? loadPasswordFailed,
+    TResult? Function(AuthStateAuthInProgress value)? authInProgress,
+    TResult? Function(AuthStateAuthSuccess value)? authSuccess,
+    TResult? Function(AuthStateAuthFailed value)? authFailed,
   }) {
     return passwordNotLoaded?.call(this);
   }
@@ -602,43 +556,49 @@ class _$AuthStatePasswordNotLoaded implements AuthStatePasswordNotLoaded {
 }
 
 abstract class AuthStatePasswordNotLoaded implements AuthState {
-  const factory AuthStatePasswordNotLoaded() = _$AuthStatePasswordNotLoaded;
+  const factory AuthStatePasswordNotLoaded() = _$AuthStatePasswordNotLoadedImpl;
 }
 
 /// @nodoc
-abstract class $AuthStatePasswordLoadedCopyWith<$Res> {
-  factory $AuthStatePasswordLoadedCopyWith(AuthStatePasswordLoaded value,
-          $Res Function(AuthStatePasswordLoaded) then) =
-      _$AuthStatePasswordLoadedCopyWithImpl<$Res>;
+abstract class _$$AuthStatePasswordLoadedImplCopyWith<$Res> {
+  factory _$$AuthStatePasswordLoadedImplCopyWith(
+          _$AuthStatePasswordLoadedImpl value,
+          $Res Function(_$AuthStatePasswordLoadedImpl) then) =
+      __$$AuthStatePasswordLoadedImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({PasswordInfo info});
 
   $PasswordInfoCopyWith<$Res> get info;
 }
 
 /// @nodoc
-class _$AuthStatePasswordLoadedCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res>
-    implements $AuthStatePasswordLoadedCopyWith<$Res> {
-  _$AuthStatePasswordLoadedCopyWithImpl(AuthStatePasswordLoaded _value,
-      $Res Function(AuthStatePasswordLoaded) _then)
-      : super(_value, (v) => _then(v as AuthStatePasswordLoaded));
+class __$$AuthStatePasswordLoadedImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthStatePasswordLoadedImpl>
+    implements _$$AuthStatePasswordLoadedImplCopyWith<$Res> {
+  __$$AuthStatePasswordLoadedImplCopyWithImpl(
+      _$AuthStatePasswordLoadedImpl _value,
+      $Res Function(_$AuthStatePasswordLoadedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  AuthStatePasswordLoaded get _value => super._value as AuthStatePasswordLoaded;
-
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? info = freezed,
+    Object? info = null,
   }) {
-    return _then(AuthStatePasswordLoaded(
-      info: info == freezed
+    return _then(_$AuthStatePasswordLoadedImpl(
+      info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as PasswordInfo,
     ));
   }
 
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $PasswordInfoCopyWith<$Res> get info {
     return $PasswordInfoCopyWith<$Res>(_value.info, (value) {
       return _then(_value.copyWith(info: value));
@@ -648,8 +608,8 @@ class _$AuthStatePasswordLoadedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AuthStatePasswordLoaded implements AuthStatePasswordLoaded {
-  const _$AuthStatePasswordLoaded({required this.info});
+class _$AuthStatePasswordLoadedImpl implements AuthStatePasswordLoaded {
+  const _$AuthStatePasswordLoadedImpl({required this.info});
 
   @override
   final PasswordInfo info;
@@ -660,22 +620,24 @@ class _$AuthStatePasswordLoaded implements AuthStatePasswordLoaded {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is AuthStatePasswordLoaded &&
-            const DeepCollectionEquality().equals(other.info, info));
+            other is _$AuthStatePasswordLoadedImpl &&
+            (identical(other.info, info) || other.info == info));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(info));
+  int get hashCode => Object.hash(runtimeType, info);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $AuthStatePasswordLoadedCopyWith<AuthStatePasswordLoaded> get copyWith =>
-      _$AuthStatePasswordLoadedCopyWithImpl<AuthStatePasswordLoaded>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$AuthStatePasswordLoadedImplCopyWith<_$AuthStatePasswordLoadedImpl>
+      get copyWith => __$$AuthStatePasswordLoadedImplCopyWithImpl<
+          _$AuthStatePasswordLoadedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -696,15 +658,15 @@ class _$AuthStatePasswordLoaded implements AuthStatePasswordLoaded {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? noPassword,
-    TResult Function()? passwordNotLoaded,
-    TResult Function(PasswordInfo info)? passwordLoaded,
-    TResult Function(Exception? exception, StackTrace? stackTrace)?
+    TResult? Function()? initial,
+    TResult? Function()? noPassword,
+    TResult? Function()? passwordNotLoaded,
+    TResult? Function(PasswordInfo info)? passwordLoaded,
+    TResult? Function(Exception? exception, StackTrace? stackTrace)?
         loadPasswordFailed,
-    TResult Function(PasswordInfo info)? authInProgress,
-    TResult Function(PasswordInfo info)? authSuccess,
-    TResult Function(PasswordInfo info, AuthError reason)? authFailed,
+    TResult? Function(PasswordInfo info)? authInProgress,
+    TResult? Function(PasswordInfo info)? authSuccess,
+    TResult? Function(PasswordInfo info, AuthError reason)? authFailed,
   }) {
     return passwordLoaded?.call(info);
   }
@@ -749,14 +711,14 @@ class _$AuthStatePasswordLoaded implements AuthStatePasswordLoaded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AuthStateInitial value)? initial,
-    TResult Function(AuthStateNoPassword value)? noPassword,
-    TResult Function(AuthStatePasswordNotLoaded value)? passwordNotLoaded,
-    TResult Function(AuthStatePasswordLoaded value)? passwordLoaded,
-    TResult Function(AuthStateLoadPasswordFailed value)? loadPasswordFailed,
-    TResult Function(AuthStateAuthInProgress value)? authInProgress,
-    TResult Function(AuthStateAuthSuccess value)? authSuccess,
-    TResult Function(AuthStateAuthFailed value)? authFailed,
+    TResult? Function(AuthStateInitial value)? initial,
+    TResult? Function(AuthStateNoPassword value)? noPassword,
+    TResult? Function(AuthStatePasswordNotLoaded value)? passwordNotLoaded,
+    TResult? Function(AuthStatePasswordLoaded value)? passwordLoaded,
+    TResult? Function(AuthStateLoadPasswordFailed value)? loadPasswordFailed,
+    TResult? Function(AuthStateAuthInProgress value)? authInProgress,
+    TResult? Function(AuthStateAuthSuccess value)? authSuccess,
+    TResult? Function(AuthStateAuthFailed value)? authFailed,
   }) {
     return passwordLoaded?.call(this);
   }
@@ -782,47 +744,51 @@ class _$AuthStatePasswordLoaded implements AuthStatePasswordLoaded {
 }
 
 abstract class AuthStatePasswordLoaded implements AuthState {
-  const factory AuthStatePasswordLoaded({required PasswordInfo info}) =
-      _$AuthStatePasswordLoaded;
+  const factory AuthStatePasswordLoaded({required final PasswordInfo info}) =
+      _$AuthStatePasswordLoadedImpl;
 
   PasswordInfo get info;
-  @JsonKey(ignore: true)
-  $AuthStatePasswordLoadedCopyWith<AuthStatePasswordLoaded> get copyWith =>
-      throw _privateConstructorUsedError;
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AuthStatePasswordLoadedImplCopyWith<_$AuthStatePasswordLoadedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AuthStateLoadPasswordFailedCopyWith<$Res> {
-  factory $AuthStateLoadPasswordFailedCopyWith(
-          AuthStateLoadPasswordFailed value,
-          $Res Function(AuthStateLoadPasswordFailed) then) =
-      _$AuthStateLoadPasswordFailedCopyWithImpl<$Res>;
+abstract class _$$AuthStateLoadPasswordFailedImplCopyWith<$Res> {
+  factory _$$AuthStateLoadPasswordFailedImplCopyWith(
+          _$AuthStateLoadPasswordFailedImpl value,
+          $Res Function(_$AuthStateLoadPasswordFailedImpl) then) =
+      __$$AuthStateLoadPasswordFailedImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({Exception? exception, StackTrace? stackTrace});
 }
 
 /// @nodoc
-class _$AuthStateLoadPasswordFailedCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res>
-    implements $AuthStateLoadPasswordFailedCopyWith<$Res> {
-  _$AuthStateLoadPasswordFailedCopyWithImpl(AuthStateLoadPasswordFailed _value,
-      $Res Function(AuthStateLoadPasswordFailed) _then)
-      : super(_value, (v) => _then(v as AuthStateLoadPasswordFailed));
+class __$$AuthStateLoadPasswordFailedImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateLoadPasswordFailedImpl>
+    implements _$$AuthStateLoadPasswordFailedImplCopyWith<$Res> {
+  __$$AuthStateLoadPasswordFailedImplCopyWithImpl(
+      _$AuthStateLoadPasswordFailedImpl _value,
+      $Res Function(_$AuthStateLoadPasswordFailedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  AuthStateLoadPasswordFailed get _value =>
-      super._value as AuthStateLoadPasswordFailed;
-
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? exception = freezed,
     Object? stackTrace = freezed,
   }) {
-    return _then(AuthStateLoadPasswordFailed(
-      exception: exception == freezed
+    return _then(_$AuthStateLoadPasswordFailedImpl(
+      exception: freezed == exception
           ? _value.exception
           : exception // ignore: cast_nullable_to_non_nullable
               as Exception?,
-      stackTrace: stackTrace == freezed
+      stackTrace: freezed == stackTrace
           ? _value.stackTrace
           : stackTrace // ignore: cast_nullable_to_non_nullable
               as StackTrace?,
@@ -832,8 +798,8 @@ class _$AuthStateLoadPasswordFailedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AuthStateLoadPasswordFailed implements AuthStateLoadPasswordFailed {
-  const _$AuthStateLoadPasswordFailed({this.exception, this.stackTrace});
+class _$AuthStateLoadPasswordFailedImpl implements AuthStateLoadPasswordFailed {
+  const _$AuthStateLoadPasswordFailedImpl({this.exception, this.stackTrace});
 
   @override
   final Exception? exception;
@@ -846,26 +812,27 @@ class _$AuthStateLoadPasswordFailed implements AuthStateLoadPasswordFailed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is AuthStateLoadPasswordFailed &&
-            const DeepCollectionEquality().equals(other.exception, exception) &&
-            const DeepCollectionEquality()
-                .equals(other.stackTrace, stackTrace));
+            other is _$AuthStateLoadPasswordFailedImpl &&
+            (identical(other.exception, exception) ||
+                other.exception == exception) &&
+            (identical(other.stackTrace, stackTrace) ||
+                other.stackTrace == stackTrace));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(exception),
-      const DeepCollectionEquality().hash(stackTrace));
+  int get hashCode => Object.hash(runtimeType, exception, stackTrace);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $AuthStateLoadPasswordFailedCopyWith<AuthStateLoadPasswordFailed>
-      get copyWith => _$AuthStateLoadPasswordFailedCopyWithImpl<
-          AuthStateLoadPasswordFailed>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$AuthStateLoadPasswordFailedImplCopyWith<_$AuthStateLoadPasswordFailedImpl>
+      get copyWith => __$$AuthStateLoadPasswordFailedImplCopyWithImpl<
+          _$AuthStateLoadPasswordFailedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -886,15 +853,15 @@ class _$AuthStateLoadPasswordFailed implements AuthStateLoadPasswordFailed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? noPassword,
-    TResult Function()? passwordNotLoaded,
-    TResult Function(PasswordInfo info)? passwordLoaded,
-    TResult Function(Exception? exception, StackTrace? stackTrace)?
+    TResult? Function()? initial,
+    TResult? Function()? noPassword,
+    TResult? Function()? passwordNotLoaded,
+    TResult? Function(PasswordInfo info)? passwordLoaded,
+    TResult? Function(Exception? exception, StackTrace? stackTrace)?
         loadPasswordFailed,
-    TResult Function(PasswordInfo info)? authInProgress,
-    TResult Function(PasswordInfo info)? authSuccess,
-    TResult Function(PasswordInfo info, AuthError reason)? authFailed,
+    TResult? Function(PasswordInfo info)? authInProgress,
+    TResult? Function(PasswordInfo info)? authSuccess,
+    TResult? Function(PasswordInfo info, AuthError reason)? authFailed,
   }) {
     return loadPasswordFailed?.call(exception, stackTrace);
   }
@@ -939,14 +906,14 @@ class _$AuthStateLoadPasswordFailed implements AuthStateLoadPasswordFailed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AuthStateInitial value)? initial,
-    TResult Function(AuthStateNoPassword value)? noPassword,
-    TResult Function(AuthStatePasswordNotLoaded value)? passwordNotLoaded,
-    TResult Function(AuthStatePasswordLoaded value)? passwordLoaded,
-    TResult Function(AuthStateLoadPasswordFailed value)? loadPasswordFailed,
-    TResult Function(AuthStateAuthInProgress value)? authInProgress,
-    TResult Function(AuthStateAuthSuccess value)? authSuccess,
-    TResult Function(AuthStateAuthFailed value)? authFailed,
+    TResult? Function(AuthStateInitial value)? initial,
+    TResult? Function(AuthStateNoPassword value)? noPassword,
+    TResult? Function(AuthStatePasswordNotLoaded value)? passwordNotLoaded,
+    TResult? Function(AuthStatePasswordLoaded value)? passwordLoaded,
+    TResult? Function(AuthStateLoadPasswordFailed value)? loadPasswordFailed,
+    TResult? Function(AuthStateAuthInProgress value)? authInProgress,
+    TResult? Function(AuthStateAuthSuccess value)? authSuccess,
+    TResult? Function(AuthStateAuthFailed value)? authFailed,
   }) {
     return loadPasswordFailed?.call(this);
   }
@@ -973,50 +940,59 @@ class _$AuthStateLoadPasswordFailed implements AuthStateLoadPasswordFailed {
 
 abstract class AuthStateLoadPasswordFailed implements AuthState {
   const factory AuthStateLoadPasswordFailed(
-      {Exception? exception,
-      StackTrace? stackTrace}) = _$AuthStateLoadPasswordFailed;
+      {final Exception? exception,
+      final StackTrace? stackTrace}) = _$AuthStateLoadPasswordFailedImpl;
 
   Exception? get exception;
   StackTrace? get stackTrace;
-  @JsonKey(ignore: true)
-  $AuthStateLoadPasswordFailedCopyWith<AuthStateLoadPasswordFailed>
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AuthStateLoadPasswordFailedImplCopyWith<_$AuthStateLoadPasswordFailedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AuthStateAuthInProgressCopyWith<$Res> {
-  factory $AuthStateAuthInProgressCopyWith(AuthStateAuthInProgress value,
-          $Res Function(AuthStateAuthInProgress) then) =
-      _$AuthStateAuthInProgressCopyWithImpl<$Res>;
+abstract class _$$AuthStateAuthInProgressImplCopyWith<$Res> {
+  factory _$$AuthStateAuthInProgressImplCopyWith(
+          _$AuthStateAuthInProgressImpl value,
+          $Res Function(_$AuthStateAuthInProgressImpl) then) =
+      __$$AuthStateAuthInProgressImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({PasswordInfo info});
 
   $PasswordInfoCopyWith<$Res> get info;
 }
 
 /// @nodoc
-class _$AuthStateAuthInProgressCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res>
-    implements $AuthStateAuthInProgressCopyWith<$Res> {
-  _$AuthStateAuthInProgressCopyWithImpl(AuthStateAuthInProgress _value,
-      $Res Function(AuthStateAuthInProgress) _then)
-      : super(_value, (v) => _then(v as AuthStateAuthInProgress));
+class __$$AuthStateAuthInProgressImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateAuthInProgressImpl>
+    implements _$$AuthStateAuthInProgressImplCopyWith<$Res> {
+  __$$AuthStateAuthInProgressImplCopyWithImpl(
+      _$AuthStateAuthInProgressImpl _value,
+      $Res Function(_$AuthStateAuthInProgressImpl) _then)
+      : super(_value, _then);
 
-  @override
-  AuthStateAuthInProgress get _value => super._value as AuthStateAuthInProgress;
-
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? info = freezed,
+    Object? info = null,
   }) {
-    return _then(AuthStateAuthInProgress(
-      info: info == freezed
+    return _then(_$AuthStateAuthInProgressImpl(
+      info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as PasswordInfo,
     ));
   }
 
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $PasswordInfoCopyWith<$Res> get info {
     return $PasswordInfoCopyWith<$Res>(_value.info, (value) {
       return _then(_value.copyWith(info: value));
@@ -1026,8 +1002,8 @@ class _$AuthStateAuthInProgressCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AuthStateAuthInProgress implements AuthStateAuthInProgress {
-  const _$AuthStateAuthInProgress({required this.info});
+class _$AuthStateAuthInProgressImpl implements AuthStateAuthInProgress {
+  const _$AuthStateAuthInProgressImpl({required this.info});
 
   @override
   final PasswordInfo info;
@@ -1038,22 +1014,24 @@ class _$AuthStateAuthInProgress implements AuthStateAuthInProgress {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is AuthStateAuthInProgress &&
-            const DeepCollectionEquality().equals(other.info, info));
+            other is _$AuthStateAuthInProgressImpl &&
+            (identical(other.info, info) || other.info == info));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(info));
+  int get hashCode => Object.hash(runtimeType, info);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $AuthStateAuthInProgressCopyWith<AuthStateAuthInProgress> get copyWith =>
-      _$AuthStateAuthInProgressCopyWithImpl<AuthStateAuthInProgress>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$AuthStateAuthInProgressImplCopyWith<_$AuthStateAuthInProgressImpl>
+      get copyWith => __$$AuthStateAuthInProgressImplCopyWithImpl<
+          _$AuthStateAuthInProgressImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1074,15 +1052,15 @@ class _$AuthStateAuthInProgress implements AuthStateAuthInProgress {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? noPassword,
-    TResult Function()? passwordNotLoaded,
-    TResult Function(PasswordInfo info)? passwordLoaded,
-    TResult Function(Exception? exception, StackTrace? stackTrace)?
+    TResult? Function()? initial,
+    TResult? Function()? noPassword,
+    TResult? Function()? passwordNotLoaded,
+    TResult? Function(PasswordInfo info)? passwordLoaded,
+    TResult? Function(Exception? exception, StackTrace? stackTrace)?
         loadPasswordFailed,
-    TResult Function(PasswordInfo info)? authInProgress,
-    TResult Function(PasswordInfo info)? authSuccess,
-    TResult Function(PasswordInfo info, AuthError reason)? authFailed,
+    TResult? Function(PasswordInfo info)? authInProgress,
+    TResult? Function(PasswordInfo info)? authSuccess,
+    TResult? Function(PasswordInfo info, AuthError reason)? authFailed,
   }) {
     return authInProgress?.call(info);
   }
@@ -1127,14 +1105,14 @@ class _$AuthStateAuthInProgress implements AuthStateAuthInProgress {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AuthStateInitial value)? initial,
-    TResult Function(AuthStateNoPassword value)? noPassword,
-    TResult Function(AuthStatePasswordNotLoaded value)? passwordNotLoaded,
-    TResult Function(AuthStatePasswordLoaded value)? passwordLoaded,
-    TResult Function(AuthStateLoadPasswordFailed value)? loadPasswordFailed,
-    TResult Function(AuthStateAuthInProgress value)? authInProgress,
-    TResult Function(AuthStateAuthSuccess value)? authSuccess,
-    TResult Function(AuthStateAuthFailed value)? authFailed,
+    TResult? Function(AuthStateInitial value)? initial,
+    TResult? Function(AuthStateNoPassword value)? noPassword,
+    TResult? Function(AuthStatePasswordNotLoaded value)? passwordNotLoaded,
+    TResult? Function(AuthStatePasswordLoaded value)? passwordLoaded,
+    TResult? Function(AuthStateLoadPasswordFailed value)? loadPasswordFailed,
+    TResult? Function(AuthStateAuthInProgress value)? authInProgress,
+    TResult? Function(AuthStateAuthSuccess value)? authSuccess,
+    TResult? Function(AuthStateAuthFailed value)? authFailed,
   }) {
     return authInProgress?.call(this);
   }
@@ -1160,49 +1138,56 @@ class _$AuthStateAuthInProgress implements AuthStateAuthInProgress {
 }
 
 abstract class AuthStateAuthInProgress implements AuthState {
-  const factory AuthStateAuthInProgress({required PasswordInfo info}) =
-      _$AuthStateAuthInProgress;
+  const factory AuthStateAuthInProgress({required final PasswordInfo info}) =
+      _$AuthStateAuthInProgressImpl;
 
   PasswordInfo get info;
-  @JsonKey(ignore: true)
-  $AuthStateAuthInProgressCopyWith<AuthStateAuthInProgress> get copyWith =>
-      throw _privateConstructorUsedError;
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AuthStateAuthInProgressImplCopyWith<_$AuthStateAuthInProgressImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AuthStateAuthSuccessCopyWith<$Res> {
-  factory $AuthStateAuthSuccessCopyWith(AuthStateAuthSuccess value,
-          $Res Function(AuthStateAuthSuccess) then) =
-      _$AuthStateAuthSuccessCopyWithImpl<$Res>;
+abstract class _$$AuthStateAuthSuccessImplCopyWith<$Res> {
+  factory _$$AuthStateAuthSuccessImplCopyWith(_$AuthStateAuthSuccessImpl value,
+          $Res Function(_$AuthStateAuthSuccessImpl) then) =
+      __$$AuthStateAuthSuccessImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({PasswordInfo info});
 
   $PasswordInfoCopyWith<$Res> get info;
 }
 
 /// @nodoc
-class _$AuthStateAuthSuccessCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res>
-    implements $AuthStateAuthSuccessCopyWith<$Res> {
-  _$AuthStateAuthSuccessCopyWithImpl(
-      AuthStateAuthSuccess _value, $Res Function(AuthStateAuthSuccess) _then)
-      : super(_value, (v) => _then(v as AuthStateAuthSuccess));
+class __$$AuthStateAuthSuccessImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateAuthSuccessImpl>
+    implements _$$AuthStateAuthSuccessImplCopyWith<$Res> {
+  __$$AuthStateAuthSuccessImplCopyWithImpl(_$AuthStateAuthSuccessImpl _value,
+      $Res Function(_$AuthStateAuthSuccessImpl) _then)
+      : super(_value, _then);
 
-  @override
-  AuthStateAuthSuccess get _value => super._value as AuthStateAuthSuccess;
-
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? info = freezed,
+    Object? info = null,
   }) {
-    return _then(AuthStateAuthSuccess(
-      info: info == freezed
+    return _then(_$AuthStateAuthSuccessImpl(
+      info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as PasswordInfo,
     ));
   }
 
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $PasswordInfoCopyWith<$Res> get info {
     return $PasswordInfoCopyWith<$Res>(_value.info, (value) {
       return _then(_value.copyWith(info: value));
@@ -1212,8 +1197,8 @@ class _$AuthStateAuthSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AuthStateAuthSuccess implements AuthStateAuthSuccess {
-  const _$AuthStateAuthSuccess({required this.info});
+class _$AuthStateAuthSuccessImpl implements AuthStateAuthSuccess {
+  const _$AuthStateAuthSuccessImpl({required this.info});
 
   @override
   final PasswordInfo info;
@@ -1224,22 +1209,25 @@ class _$AuthStateAuthSuccess implements AuthStateAuthSuccess {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is AuthStateAuthSuccess &&
-            const DeepCollectionEquality().equals(other.info, info));
+            other is _$AuthStateAuthSuccessImpl &&
+            (identical(other.info, info) || other.info == info));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(info));
+  int get hashCode => Object.hash(runtimeType, info);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $AuthStateAuthSuccessCopyWith<AuthStateAuthSuccess> get copyWith =>
-      _$AuthStateAuthSuccessCopyWithImpl<AuthStateAuthSuccess>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$AuthStateAuthSuccessImplCopyWith<_$AuthStateAuthSuccessImpl>
+      get copyWith =>
+          __$$AuthStateAuthSuccessImplCopyWithImpl<_$AuthStateAuthSuccessImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1260,15 +1248,15 @@ class _$AuthStateAuthSuccess implements AuthStateAuthSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? noPassword,
-    TResult Function()? passwordNotLoaded,
-    TResult Function(PasswordInfo info)? passwordLoaded,
-    TResult Function(Exception? exception, StackTrace? stackTrace)?
+    TResult? Function()? initial,
+    TResult? Function()? noPassword,
+    TResult? Function()? passwordNotLoaded,
+    TResult? Function(PasswordInfo info)? passwordLoaded,
+    TResult? Function(Exception? exception, StackTrace? stackTrace)?
         loadPasswordFailed,
-    TResult Function(PasswordInfo info)? authInProgress,
-    TResult Function(PasswordInfo info)? authSuccess,
-    TResult Function(PasswordInfo info, AuthError reason)? authFailed,
+    TResult? Function(PasswordInfo info)? authInProgress,
+    TResult? Function(PasswordInfo info)? authSuccess,
+    TResult? Function(PasswordInfo info, AuthError reason)? authFailed,
   }) {
     return authSuccess?.call(info);
   }
@@ -1313,14 +1301,14 @@ class _$AuthStateAuthSuccess implements AuthStateAuthSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AuthStateInitial value)? initial,
-    TResult Function(AuthStateNoPassword value)? noPassword,
-    TResult Function(AuthStatePasswordNotLoaded value)? passwordNotLoaded,
-    TResult Function(AuthStatePasswordLoaded value)? passwordLoaded,
-    TResult Function(AuthStateLoadPasswordFailed value)? loadPasswordFailed,
-    TResult Function(AuthStateAuthInProgress value)? authInProgress,
-    TResult Function(AuthStateAuthSuccess value)? authSuccess,
-    TResult Function(AuthStateAuthFailed value)? authFailed,
+    TResult? Function(AuthStateInitial value)? initial,
+    TResult? Function(AuthStateNoPassword value)? noPassword,
+    TResult? Function(AuthStatePasswordNotLoaded value)? passwordNotLoaded,
+    TResult? Function(AuthStatePasswordLoaded value)? passwordLoaded,
+    TResult? Function(AuthStateLoadPasswordFailed value)? loadPasswordFailed,
+    TResult? Function(AuthStateAuthInProgress value)? authInProgress,
+    TResult? Function(AuthStateAuthSuccess value)? authSuccess,
+    TResult? Function(AuthStateAuthFailed value)? authFailed,
   }) {
     return authSuccess?.call(this);
   }
@@ -1346,20 +1334,24 @@ class _$AuthStateAuthSuccess implements AuthStateAuthSuccess {
 }
 
 abstract class AuthStateAuthSuccess implements AuthState {
-  const factory AuthStateAuthSuccess({required PasswordInfo info}) =
-      _$AuthStateAuthSuccess;
+  const factory AuthStateAuthSuccess({required final PasswordInfo info}) =
+      _$AuthStateAuthSuccessImpl;
 
   PasswordInfo get info;
-  @JsonKey(ignore: true)
-  $AuthStateAuthSuccessCopyWith<AuthStateAuthSuccess> get copyWith =>
-      throw _privateConstructorUsedError;
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AuthStateAuthSuccessImplCopyWith<_$AuthStateAuthSuccessImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AuthStateAuthFailedCopyWith<$Res> {
-  factory $AuthStateAuthFailedCopyWith(
-          AuthStateAuthFailed value, $Res Function(AuthStateAuthFailed) then) =
-      _$AuthStateAuthFailedCopyWithImpl<$Res>;
+abstract class _$$AuthStateAuthFailedImplCopyWith<$Res> {
+  factory _$$AuthStateAuthFailedImplCopyWith(_$AuthStateAuthFailedImpl value,
+          $Res Function(_$AuthStateAuthFailedImpl) then) =
+      __$$AuthStateAuthFailedImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({PasswordInfo info, AuthError reason});
 
   $PasswordInfoCopyWith<$Res> get info;
@@ -1367,41 +1359,47 @@ abstract class $AuthStateAuthFailedCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AuthStateAuthFailedCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res>
-    implements $AuthStateAuthFailedCopyWith<$Res> {
-  _$AuthStateAuthFailedCopyWithImpl(
-      AuthStateAuthFailed _value, $Res Function(AuthStateAuthFailed) _then)
-      : super(_value, (v) => _then(v as AuthStateAuthFailed));
+class __$$AuthStateAuthFailedImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateAuthFailedImpl>
+    implements _$$AuthStateAuthFailedImplCopyWith<$Res> {
+  __$$AuthStateAuthFailedImplCopyWithImpl(_$AuthStateAuthFailedImpl _value,
+      $Res Function(_$AuthStateAuthFailedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  AuthStateAuthFailed get _value => super._value as AuthStateAuthFailed;
-
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? info = freezed,
-    Object? reason = freezed,
+    Object? info = null,
+    Object? reason = null,
   }) {
-    return _then(AuthStateAuthFailed(
-      info: info == freezed
+    return _then(_$AuthStateAuthFailedImpl(
+      info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as PasswordInfo,
-      reason: reason == freezed
+      reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as AuthError,
     ));
   }
 
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $PasswordInfoCopyWith<$Res> get info {
     return $PasswordInfoCopyWith<$Res>(_value.info, (value) {
       return _then(_value.copyWith(info: value));
     });
   }
 
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $AuthErrorCopyWith<$Res> get reason {
     return $AuthErrorCopyWith<$Res>(_value.reason, (value) {
       return _then(_value.copyWith(reason: value));
@@ -1411,8 +1409,8 @@ class _$AuthStateAuthFailedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AuthStateAuthFailed implements AuthStateAuthFailed {
-  const _$AuthStateAuthFailed({required this.info, required this.reason});
+class _$AuthStateAuthFailedImpl implements AuthStateAuthFailed {
+  const _$AuthStateAuthFailedImpl({required this.info, required this.reason});
 
   @override
   final PasswordInfo info;
@@ -1425,24 +1423,25 @@ class _$AuthStateAuthFailed implements AuthStateAuthFailed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is AuthStateAuthFailed &&
-            const DeepCollectionEquality().equals(other.info, info) &&
-            const DeepCollectionEquality().equals(other.reason, reason));
+            other is _$AuthStateAuthFailedImpl &&
+            (identical(other.info, info) || other.info == info) &&
+            (identical(other.reason, reason) || other.reason == reason));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(info),
-      const DeepCollectionEquality().hash(reason));
+  int get hashCode => Object.hash(runtimeType, info, reason);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $AuthStateAuthFailedCopyWith<AuthStateAuthFailed> get copyWith =>
-      _$AuthStateAuthFailedCopyWithImpl<AuthStateAuthFailed>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$AuthStateAuthFailedImplCopyWith<_$AuthStateAuthFailedImpl> get copyWith =>
+      __$$AuthStateAuthFailedImplCopyWithImpl<_$AuthStateAuthFailedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1463,15 +1462,15 @@ class _$AuthStateAuthFailed implements AuthStateAuthFailed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? noPassword,
-    TResult Function()? passwordNotLoaded,
-    TResult Function(PasswordInfo info)? passwordLoaded,
-    TResult Function(Exception? exception, StackTrace? stackTrace)?
+    TResult? Function()? initial,
+    TResult? Function()? noPassword,
+    TResult? Function()? passwordNotLoaded,
+    TResult? Function(PasswordInfo info)? passwordLoaded,
+    TResult? Function(Exception? exception, StackTrace? stackTrace)?
         loadPasswordFailed,
-    TResult Function(PasswordInfo info)? authInProgress,
-    TResult Function(PasswordInfo info)? authSuccess,
-    TResult Function(PasswordInfo info, AuthError reason)? authFailed,
+    TResult? Function(PasswordInfo info)? authInProgress,
+    TResult? Function(PasswordInfo info)? authSuccess,
+    TResult? Function(PasswordInfo info, AuthError reason)? authFailed,
   }) {
     return authFailed?.call(info, reason);
   }
@@ -1516,14 +1515,14 @@ class _$AuthStateAuthFailed implements AuthStateAuthFailed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AuthStateInitial value)? initial,
-    TResult Function(AuthStateNoPassword value)? noPassword,
-    TResult Function(AuthStatePasswordNotLoaded value)? passwordNotLoaded,
-    TResult Function(AuthStatePasswordLoaded value)? passwordLoaded,
-    TResult Function(AuthStateLoadPasswordFailed value)? loadPasswordFailed,
-    TResult Function(AuthStateAuthInProgress value)? authInProgress,
-    TResult Function(AuthStateAuthSuccess value)? authSuccess,
-    TResult Function(AuthStateAuthFailed value)? authFailed,
+    TResult? Function(AuthStateInitial value)? initial,
+    TResult? Function(AuthStateNoPassword value)? noPassword,
+    TResult? Function(AuthStatePasswordNotLoaded value)? passwordNotLoaded,
+    TResult? Function(AuthStatePasswordLoaded value)? passwordLoaded,
+    TResult? Function(AuthStateLoadPasswordFailed value)? loadPasswordFailed,
+    TResult? Function(AuthStateAuthInProgress value)? authInProgress,
+    TResult? Function(AuthStateAuthSuccess value)? authSuccess,
+    TResult? Function(AuthStateAuthFailed value)? authFailed,
   }) {
     return authFailed?.call(this);
   }
@@ -1550,31 +1549,18 @@ class _$AuthStateAuthFailed implements AuthStateAuthFailed {
 
 abstract class AuthStateAuthFailed implements AuthState {
   const factory AuthStateAuthFailed(
-      {required PasswordInfo info,
-      required AuthError reason}) = _$AuthStateAuthFailed;
+      {required final PasswordInfo info,
+      required final AuthError reason}) = _$AuthStateAuthFailedImpl;
 
   PasswordInfo get info;
   AuthError get reason;
-  @JsonKey(ignore: true)
-  $AuthStateAuthFailedCopyWith<AuthStateAuthFailed> get copyWith =>
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AuthStateAuthFailedImplCopyWith<_$AuthStateAuthFailedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$AuthErrorTearOff {
-  const _$AuthErrorTearOff();
-
-  _AuthErrorEmptyPassword emptyPassword() {
-    return const _AuthErrorEmptyPassword();
-  }
-
-  _AuthErrorWrongPassword wrongPassword() {
-    return const _AuthErrorWrongPassword();
-  }
-}
-
-/// @nodoc
-const $AuthError = _$AuthErrorTearOff();
 
 /// @nodoc
 mixin _$AuthError {
@@ -1586,8 +1572,8 @@ mixin _$AuthError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? emptyPassword,
-    TResult Function()? wrongPassword,
+    TResult? Function()? emptyPassword,
+    TResult? Function()? wrongPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1605,8 +1591,8 @@ mixin _$AuthError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AuthErrorEmptyPassword value)? emptyPassword,
-    TResult Function(_AuthErrorWrongPassword value)? wrongPassword,
+    TResult? Function(_AuthErrorEmptyPassword value)? emptyPassword,
+    TResult? Function(_AuthErrorWrongPassword value)? wrongPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1621,41 +1607,48 @@ mixin _$AuthError {
 /// @nodoc
 abstract class $AuthErrorCopyWith<$Res> {
   factory $AuthErrorCopyWith(AuthError value, $Res Function(AuthError) then) =
-      _$AuthErrorCopyWithImpl<$Res>;
+      _$AuthErrorCopyWithImpl<$Res, AuthError>;
 }
 
 /// @nodoc
-class _$AuthErrorCopyWithImpl<$Res> implements $AuthErrorCopyWith<$Res> {
+class _$AuthErrorCopyWithImpl<$Res, $Val extends AuthError>
+    implements $AuthErrorCopyWith<$Res> {
   _$AuthErrorCopyWithImpl(this._value, this._then);
 
-  final AuthError _value;
   // ignore: unused_field
-  final $Res Function(AuthError) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of AuthError
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class _$AuthErrorEmptyPasswordCopyWith<$Res> {
-  factory _$AuthErrorEmptyPasswordCopyWith(_AuthErrorEmptyPassword value,
-          $Res Function(_AuthErrorEmptyPassword) then) =
-      __$AuthErrorEmptyPasswordCopyWithImpl<$Res>;
+abstract class _$$AuthErrorEmptyPasswordImplCopyWith<$Res> {
+  factory _$$AuthErrorEmptyPasswordImplCopyWith(
+          _$AuthErrorEmptyPasswordImpl value,
+          $Res Function(_$AuthErrorEmptyPasswordImpl) then) =
+      __$$AuthErrorEmptyPasswordImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$AuthErrorEmptyPasswordCopyWithImpl<$Res>
-    extends _$AuthErrorCopyWithImpl<$Res>
-    implements _$AuthErrorEmptyPasswordCopyWith<$Res> {
-  __$AuthErrorEmptyPasswordCopyWithImpl(_AuthErrorEmptyPassword _value,
-      $Res Function(_AuthErrorEmptyPassword) _then)
-      : super(_value, (v) => _then(v as _AuthErrorEmptyPassword));
+class __$$AuthErrorEmptyPasswordImplCopyWithImpl<$Res>
+    extends _$AuthErrorCopyWithImpl<$Res, _$AuthErrorEmptyPasswordImpl>
+    implements _$$AuthErrorEmptyPasswordImplCopyWith<$Res> {
+  __$$AuthErrorEmptyPasswordImplCopyWithImpl(
+      _$AuthErrorEmptyPasswordImpl _value,
+      $Res Function(_$AuthErrorEmptyPasswordImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _AuthErrorEmptyPassword get _value => super._value as _AuthErrorEmptyPassword;
+  /// Create a copy of AuthError
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$_AuthErrorEmptyPassword implements _AuthErrorEmptyPassword {
-  const _$_AuthErrorEmptyPassword();
+class _$AuthErrorEmptyPasswordImpl implements _AuthErrorEmptyPassword {
+  const _$AuthErrorEmptyPasswordImpl();
 
   @override
   String toString() {
@@ -1663,9 +1656,10 @@ class _$_AuthErrorEmptyPassword implements _AuthErrorEmptyPassword {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _AuthErrorEmptyPassword);
+        (other.runtimeType == runtimeType &&
+            other is _$AuthErrorEmptyPasswordImpl);
   }
 
   @override
@@ -1683,8 +1677,8 @@ class _$_AuthErrorEmptyPassword implements _AuthErrorEmptyPassword {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? emptyPassword,
-    TResult Function()? wrongPassword,
+    TResult? Function()? emptyPassword,
+    TResult? Function()? wrongPassword,
   }) {
     return emptyPassword?.call();
   }
@@ -1714,8 +1708,8 @@ class _$_AuthErrorEmptyPassword implements _AuthErrorEmptyPassword {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AuthErrorEmptyPassword value)? emptyPassword,
-    TResult Function(_AuthErrorWrongPassword value)? wrongPassword,
+    TResult? Function(_AuthErrorEmptyPassword value)? emptyPassword,
+    TResult? Function(_AuthErrorWrongPassword value)? wrongPassword,
   }) {
     return emptyPassword?.call(this);
   }
@@ -1735,32 +1729,34 @@ class _$_AuthErrorEmptyPassword implements _AuthErrorEmptyPassword {
 }
 
 abstract class _AuthErrorEmptyPassword implements AuthError {
-  const factory _AuthErrorEmptyPassword() = _$_AuthErrorEmptyPassword;
+  const factory _AuthErrorEmptyPassword() = _$AuthErrorEmptyPasswordImpl;
 }
 
 /// @nodoc
-abstract class _$AuthErrorWrongPasswordCopyWith<$Res> {
-  factory _$AuthErrorWrongPasswordCopyWith(_AuthErrorWrongPassword value,
-          $Res Function(_AuthErrorWrongPassword) then) =
-      __$AuthErrorWrongPasswordCopyWithImpl<$Res>;
+abstract class _$$AuthErrorWrongPasswordImplCopyWith<$Res> {
+  factory _$$AuthErrorWrongPasswordImplCopyWith(
+          _$AuthErrorWrongPasswordImpl value,
+          $Res Function(_$AuthErrorWrongPasswordImpl) then) =
+      __$$AuthErrorWrongPasswordImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$AuthErrorWrongPasswordCopyWithImpl<$Res>
-    extends _$AuthErrorCopyWithImpl<$Res>
-    implements _$AuthErrorWrongPasswordCopyWith<$Res> {
-  __$AuthErrorWrongPasswordCopyWithImpl(_AuthErrorWrongPassword _value,
-      $Res Function(_AuthErrorWrongPassword) _then)
-      : super(_value, (v) => _then(v as _AuthErrorWrongPassword));
+class __$$AuthErrorWrongPasswordImplCopyWithImpl<$Res>
+    extends _$AuthErrorCopyWithImpl<$Res, _$AuthErrorWrongPasswordImpl>
+    implements _$$AuthErrorWrongPasswordImplCopyWith<$Res> {
+  __$$AuthErrorWrongPasswordImplCopyWithImpl(
+      _$AuthErrorWrongPasswordImpl _value,
+      $Res Function(_$AuthErrorWrongPasswordImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _AuthErrorWrongPassword get _value => super._value as _AuthErrorWrongPassword;
+  /// Create a copy of AuthError
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$_AuthErrorWrongPassword implements _AuthErrorWrongPassword {
-  const _$_AuthErrorWrongPassword();
+class _$AuthErrorWrongPasswordImpl implements _AuthErrorWrongPassword {
+  const _$AuthErrorWrongPasswordImpl();
 
   @override
   String toString() {
@@ -1768,9 +1764,10 @@ class _$_AuthErrorWrongPassword implements _AuthErrorWrongPassword {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _AuthErrorWrongPassword);
+        (other.runtimeType == runtimeType &&
+            other is _$AuthErrorWrongPasswordImpl);
   }
 
   @override
@@ -1788,8 +1785,8 @@ class _$_AuthErrorWrongPassword implements _AuthErrorWrongPassword {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? emptyPassword,
-    TResult Function()? wrongPassword,
+    TResult? Function()? emptyPassword,
+    TResult? Function()? wrongPassword,
   }) {
     return wrongPassword?.call();
   }
@@ -1819,8 +1816,8 @@ class _$_AuthErrorWrongPassword implements _AuthErrorWrongPassword {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AuthErrorEmptyPassword value)? emptyPassword,
-    TResult Function(_AuthErrorWrongPassword value)? wrongPassword,
+    TResult? Function(_AuthErrorEmptyPassword value)? emptyPassword,
+    TResult? Function(_AuthErrorWrongPassword value)? wrongPassword,
   }) {
     return wrongPassword?.call(this);
   }
@@ -1840,5 +1837,5 @@ class _$_AuthErrorWrongPassword implements _AuthErrorWrongPassword {
 }
 
 abstract class _AuthErrorWrongPassword implements AuthError {
-  const factory _AuthErrorWrongPassword() = _$_AuthErrorWrongPassword;
+  const factory _AuthErrorWrongPassword() = _$AuthErrorWrongPasswordImpl;
 }

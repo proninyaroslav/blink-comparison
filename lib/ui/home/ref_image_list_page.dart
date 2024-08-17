@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -17,7 +17,6 @@
 
 import 'package:auto_route/auto_route.dart';
 import 'package:blink_comparison/core/entity/entity.dart';
-import 'package:blink_comparison/ui/app_router.dart';
 import 'package:blink_comparison/ui/cubit/error_report_cubit.dart';
 import 'package:blink_comparison/ui/cubit/selectable_cubit.dart';
 import 'package:blink_comparison/ui/cubit/system_picker_cubit.dart';
@@ -32,6 +31,7 @@ import 'package:responsive_builder/responsive_builder.dart';
 import '../../injector.dart';
 import '../../locale.dart';
 import '../../logger.dart';
+import '../app_router.gr.dart';
 import '../theme.dart';
 import '../utils.dart';
 import '../xfile_provider.dart';
@@ -40,8 +40,9 @@ import 'app_bar.dart';
 import 'ref_images_actions_cubit.dart';
 import 'selectable_ref_image_cubit.dart';
 
+@RoutePage()
 class RefImageListPage extends StatefulWidget implements AutoRouteWrapper {
-  const RefImageListPage({Key? key}) : super(key: key);
+  const RefImageListPage({super.key});
 
   @override
   Widget wrappedRoute(BuildContext context) {
@@ -115,9 +116,8 @@ class _Body extends StatelessWidget {
   final ScrollController scrollController;
 
   const _Body({
-    Key? key,
     required this.scrollController,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -125,14 +125,15 @@ class _Body extends StatelessWidget {
       builder: (context, state) {
         return state.when(
           initial: () => const Center(child: CircularProgressIndicator()),
-          loaded: (entries) {
-            if (entries.isEmpty) {
+          loaded: (entriesUnsorted) {
+            if (entriesUnsorted.isEmpty) {
               return const _EmptyPage();
             }
             // TODO: add custom sorting
-            entries.sort(
-              (a, b) => a.info.dateAdded.compareTo(b.info.dateAdded),
-            );
+            final entries = List<RefImageEntry>.from(entriesUnsorted)
+              ..sort(
+                (a, b) => a.info.dateAdded.compareTo(b.info.dateAdded),
+              );
             return OrientationBuilder(
               builder: (context, orientation) {
                 final size = MediaQuery.of(context).size;
@@ -176,12 +177,11 @@ class _ImagesList extends StatefulWidget {
   final ScrollController scrollController;
 
   const _ImagesList({
-    Key? key,
     required this.entries,
     required this.horizontalPadding,
     required this.columnCount,
     required this.scrollController,
-  }) : super(key: key);
+  });
 
   @override
   State<_ImagesList> createState() => _ImagesListState();
@@ -293,12 +293,11 @@ class _ImageItem extends StatelessWidget {
   final VoidCallback? onTap;
 
   const _ImageItem({
-    Key? key,
     required this.entry,
     this.isSelected = false,
     this.selectableMode = false,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -350,10 +349,9 @@ class _Image extends StatelessWidget {
   final VoidCallback? onTap;
 
   const _Image({
-    Key? key,
     required this.thumbnail,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -366,7 +364,8 @@ class _Image extends StatelessWidget {
               fit: BoxFit.fitWidth,
               width: constraints.biggest.width,
               errorBuilder: (context, e, stackTrace) {
-                log().e('Unable to load thumbnail', e, stackTrace);
+                log().e('Unable to load thumbnail',
+                    error: e, stackTrace: stackTrace);
                 return SizedBox(
                   height: constraints.biggest.width,
                   child: const _NoTnumbnailStub(),
@@ -397,7 +396,7 @@ class _Image extends StatelessWidget {
 }
 
 class _NoTnumbnailStub extends StatelessWidget {
-  const _NoTnumbnailStub({Key? key}) : super(key: key);
+  const _NoTnumbnailStub();
 
   @override
   Widget build(BuildContext context) {
@@ -415,9 +414,8 @@ class _LoadImageProgress extends StatelessWidget {
   final VoidCallback? onTap;
 
   const _LoadImageProgress({
-    Key? key,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -442,10 +440,9 @@ class _SaveImageError extends StatelessWidget {
   final VoidCallback? onTap;
 
   const _SaveImageError({
-    Key? key,
     required this.error,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -460,14 +457,14 @@ class _SaveImageError extends StatelessWidget {
           children: [
             Icon(
               Icons.error_outline_rounded,
-              color: theme.errorColor,
+              color: theme.colorScheme.error,
               size: 48,
             ),
             const SizedBox(height: 8.0),
             Text(
               S.of(context).saveImageError,
-              style: theme.textTheme.bodyText1!.copyWith(
-                color: theme.errorColor,
+              style: theme.textTheme.bodyLarge!.copyWith(
+                color: theme.colorScheme.error,
               ),
               textAlign: TextAlign.center,
             ),
@@ -508,11 +505,10 @@ class _ImageItemSelectionControl extends StatefulWidget {
   final VoidCallback? onSelected;
 
   const _ImageItemSelectionControl({
-    Key? key,
     this.show = false,
     this.isSelected = false,
     this.onSelected,
-  }) : super(key: key);
+  });
 
   @override
   _ImageItemSelectionControlState createState() =>
@@ -576,7 +572,7 @@ class _ImageItemSelectionControlState extends State<_ImageItemSelectionControl>
 }
 
 class _EmptyPage extends StatelessWidget {
-  const _EmptyPage({Key? key}) : super(key: key);
+  const _EmptyPage();
 
   @override
   Widget build(BuildContext context) {
@@ -613,7 +609,7 @@ class _EmptyPage extends StatelessWidget {
 }
 
 class _AddRefImageButton extends StatelessWidget {
-  const _AddRefImageButton({Key? key}) : super(key: key);
+  const _AddRefImageButton();
 
   @override
   Widget build(BuildContext context) {
@@ -697,7 +693,7 @@ void _errorDialog(
   Object? exception,
   StackTrace? stackTrace,
 }) {
-  log().e(reportMsg, exception, stackTrace);
+  log().e(reportMsg, error: exception, stackTrace: stackTrace);
 
   final reportCubit = context.read<ErrorReportCubit>();
   showDialog(

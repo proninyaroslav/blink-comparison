@@ -34,7 +34,7 @@ abstract class SaveRefImageJob {
   Future<SaveRefImageResult> run({
     required RefImageInfo info,
     required XFile file,
-    required SecureKey key,
+    required AppSecureKey key,
   });
 }
 
@@ -76,7 +76,7 @@ class SaveRefImageJobImpl implements SaveRefImageJob {
   Future<SaveRefImageResult> run({
     required RefImageInfo info,
     required XFile file,
-    required SecureKey key,
+    required AppSecureKey key,
   }) async {
     late final Uint8List bytes;
     try {
@@ -91,7 +91,7 @@ class SaveRefImageJobImpl implements SaveRefImageJob {
     }
 
     final module = _encryptProvider.getByKey(key);
-    final res = module.encryptSync(src: bytes, info: info);
+    final res = await module.encrypt(src: bytes, info: info);
     final error = await res.when(
       success: (bytes) async {
         final res = await _imageFs.save(info, bytes);

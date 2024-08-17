@@ -39,7 +39,7 @@ void main() {
     late SaveRefImageService mockService;
     late RefImageSecureStorage secureStorage;
 
-    const key = SecureKey.password('123');
+    const key = AppSecureKey.password('123');
 
     setUp(() {
       mockFs = MockRefImageFs();

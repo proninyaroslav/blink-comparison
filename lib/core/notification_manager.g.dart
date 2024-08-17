@@ -6,28 +6,29 @@ part of 'notification_manager.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$NotificationActionReportCrash _$$NotificationActionReportCrashFromJson(
-        Map<String, dynamic> json) =>
-    _$NotificationActionReportCrash(
-      info: CrashInfo.fromJson(json['info'] as Map<String, dynamic>),
-      $type: json['runtimeType'] as String?,
-    );
+_$NotificationActionReportCrashImpl
+    _$$NotificationActionReportCrashImplFromJson(Map<String, dynamic> json) =>
+        _$NotificationActionReportCrashImpl(
+          info: CrashInfo.fromJson(json['info'] as Map<String, dynamic>),
+          $type: json['runtimeType'] as String?,
+        );
 
-Map<String, dynamic> _$$NotificationActionReportCrashToJson(
-        _$NotificationActionReportCrash instance) =>
+Map<String, dynamic> _$$NotificationActionReportCrashImplToJson(
+        _$NotificationActionReportCrashImpl instance) =>
     <String, dynamic>{
       'info': instance.info.toJson(),
       'runtimeType': instance.$type,
     };
 
-_$NotificationActionOpenRefImageList
-    _$$NotificationActionOpenRefImageListFromJson(Map<String, dynamic> json) =>
-        _$NotificationActionOpenRefImageList(
+_$NotificationActionOpenRefImageListImpl
+    _$$NotificationActionOpenRefImageListImplFromJson(
+            Map<String, dynamic> json) =>
+        _$NotificationActionOpenRefImageListImpl(
           $type: json['runtimeType'] as String?,
         );
 
-Map<String, dynamic> _$$NotificationActionOpenRefImageListToJson(
-        _$NotificationActionOpenRefImageList instance) =>
+Map<String, dynamic> _$$NotificationActionOpenRefImageListImplToJson(
+        _$NotificationActionOpenRefImageListImpl instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };

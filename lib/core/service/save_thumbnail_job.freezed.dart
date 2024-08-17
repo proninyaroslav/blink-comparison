@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'save_thumbnail_job.dart';
 
@@ -12,25 +12,7 @@ part of 'save_thumbnail_job.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$SaveThumbnailResultTearOff {
-  const _$SaveThumbnailResultTearOff();
-
-  SaveThumbnailResultSuccess success() {
-    return const SaveThumbnailResultSuccess();
-  }
-
-  SaveThumbnailResultFail fail(SaveThumbnailError error) {
-    return SaveThumbnailResultFail(
-      error,
-    );
-  }
-}
-
-/// @nodoc
-const $SaveThumbnailResult = _$SaveThumbnailResultTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$SaveThumbnailResult {
@@ -42,8 +24,8 @@ mixin _$SaveThumbnailResult {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? success,
-    TResult Function(SaveThumbnailError error)? fail,
+    TResult? Function()? success,
+    TResult? Function(SaveThumbnailError error)? fail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,8 +43,8 @@ mixin _$SaveThumbnailResult {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SaveThumbnailResultSuccess value)? success,
-    TResult Function(SaveThumbnailResultFail value)? fail,
+    TResult? Function(SaveThumbnailResultSuccess value)? success,
+    TResult? Function(SaveThumbnailResultFail value)? fail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,43 +60,49 @@ mixin _$SaveThumbnailResult {
 abstract class $SaveThumbnailResultCopyWith<$Res> {
   factory $SaveThumbnailResultCopyWith(
           SaveThumbnailResult value, $Res Function(SaveThumbnailResult) then) =
-      _$SaveThumbnailResultCopyWithImpl<$Res>;
+      _$SaveThumbnailResultCopyWithImpl<$Res, SaveThumbnailResult>;
 }
 
 /// @nodoc
-class _$SaveThumbnailResultCopyWithImpl<$Res>
+class _$SaveThumbnailResultCopyWithImpl<$Res, $Val extends SaveThumbnailResult>
     implements $SaveThumbnailResultCopyWith<$Res> {
   _$SaveThumbnailResultCopyWithImpl(this._value, this._then);
 
-  final SaveThumbnailResult _value;
   // ignore: unused_field
-  final $Res Function(SaveThumbnailResult) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of SaveThumbnailResult
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class $SaveThumbnailResultSuccessCopyWith<$Res> {
-  factory $SaveThumbnailResultSuccessCopyWith(SaveThumbnailResultSuccess value,
-          $Res Function(SaveThumbnailResultSuccess) then) =
-      _$SaveThumbnailResultSuccessCopyWithImpl<$Res>;
+abstract class _$$SaveThumbnailResultSuccessImplCopyWith<$Res> {
+  factory _$$SaveThumbnailResultSuccessImplCopyWith(
+          _$SaveThumbnailResultSuccessImpl value,
+          $Res Function(_$SaveThumbnailResultSuccessImpl) then) =
+      __$$SaveThumbnailResultSuccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SaveThumbnailResultSuccessCopyWithImpl<$Res>
-    extends _$SaveThumbnailResultCopyWithImpl<$Res>
-    implements $SaveThumbnailResultSuccessCopyWith<$Res> {
-  _$SaveThumbnailResultSuccessCopyWithImpl(SaveThumbnailResultSuccess _value,
-      $Res Function(SaveThumbnailResultSuccess) _then)
-      : super(_value, (v) => _then(v as SaveThumbnailResultSuccess));
+class __$$SaveThumbnailResultSuccessImplCopyWithImpl<$Res>
+    extends _$SaveThumbnailResultCopyWithImpl<$Res,
+        _$SaveThumbnailResultSuccessImpl>
+    implements _$$SaveThumbnailResultSuccessImplCopyWith<$Res> {
+  __$$SaveThumbnailResultSuccessImplCopyWithImpl(
+      _$SaveThumbnailResultSuccessImpl _value,
+      $Res Function(_$SaveThumbnailResultSuccessImpl) _then)
+      : super(_value, _then);
 
-  @override
-  SaveThumbnailResultSuccess get _value =>
-      super._value as SaveThumbnailResultSuccess;
+  /// Create a copy of SaveThumbnailResult
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$SaveThumbnailResultSuccess implements SaveThumbnailResultSuccess {
-  const _$SaveThumbnailResultSuccess();
+class _$SaveThumbnailResultSuccessImpl implements SaveThumbnailResultSuccess {
+  const _$SaveThumbnailResultSuccessImpl();
 
   @override
   String toString() {
@@ -122,10 +110,10 @@ class _$SaveThumbnailResultSuccess implements SaveThumbnailResultSuccess {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SaveThumbnailResultSuccess);
+            other is _$SaveThumbnailResultSuccessImpl);
   }
 
   @override
@@ -143,8 +131,8 @@ class _$SaveThumbnailResultSuccess implements SaveThumbnailResultSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? success,
-    TResult Function(SaveThumbnailError error)? fail,
+    TResult? Function()? success,
+    TResult? Function(SaveThumbnailError error)? fail,
   }) {
     return success?.call();
   }
@@ -174,8 +162,8 @@ class _$SaveThumbnailResultSuccess implements SaveThumbnailResultSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SaveThumbnailResultSuccess value)? success,
-    TResult Function(SaveThumbnailResultFail value)? fail,
+    TResult? Function(SaveThumbnailResultSuccess value)? success,
+    TResult? Function(SaveThumbnailResultFail value)? fail,
   }) {
     return success?.call(this);
   }
@@ -195,43 +183,50 @@ class _$SaveThumbnailResultSuccess implements SaveThumbnailResultSuccess {
 }
 
 abstract class SaveThumbnailResultSuccess implements SaveThumbnailResult {
-  const factory SaveThumbnailResultSuccess() = _$SaveThumbnailResultSuccess;
+  const factory SaveThumbnailResultSuccess() = _$SaveThumbnailResultSuccessImpl;
 }
 
 /// @nodoc
-abstract class $SaveThumbnailResultFailCopyWith<$Res> {
-  factory $SaveThumbnailResultFailCopyWith(SaveThumbnailResultFail value,
-          $Res Function(SaveThumbnailResultFail) then) =
-      _$SaveThumbnailResultFailCopyWithImpl<$Res>;
+abstract class _$$SaveThumbnailResultFailImplCopyWith<$Res> {
+  factory _$$SaveThumbnailResultFailImplCopyWith(
+          _$SaveThumbnailResultFailImpl value,
+          $Res Function(_$SaveThumbnailResultFailImpl) then) =
+      __$$SaveThumbnailResultFailImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({SaveThumbnailError error});
 
   $SaveThumbnailErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
-class _$SaveThumbnailResultFailCopyWithImpl<$Res>
-    extends _$SaveThumbnailResultCopyWithImpl<$Res>
-    implements $SaveThumbnailResultFailCopyWith<$Res> {
-  _$SaveThumbnailResultFailCopyWithImpl(SaveThumbnailResultFail _value,
-      $Res Function(SaveThumbnailResultFail) _then)
-      : super(_value, (v) => _then(v as SaveThumbnailResultFail));
+class __$$SaveThumbnailResultFailImplCopyWithImpl<$Res>
+    extends _$SaveThumbnailResultCopyWithImpl<$Res,
+        _$SaveThumbnailResultFailImpl>
+    implements _$$SaveThumbnailResultFailImplCopyWith<$Res> {
+  __$$SaveThumbnailResultFailImplCopyWithImpl(
+      _$SaveThumbnailResultFailImpl _value,
+      $Res Function(_$SaveThumbnailResultFailImpl) _then)
+      : super(_value, _then);
 
-  @override
-  SaveThumbnailResultFail get _value => super._value as SaveThumbnailResultFail;
-
+  /// Create a copy of SaveThumbnailResult
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
-    return _then(SaveThumbnailResultFail(
-      error == freezed
+    return _then(_$SaveThumbnailResultFailImpl(
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as SaveThumbnailError,
     ));
   }
 
+  /// Create a copy of SaveThumbnailResult
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $SaveThumbnailErrorCopyWith<$Res> get error {
     return $SaveThumbnailErrorCopyWith<$Res>(_value.error, (value) {
       return _then(_value.copyWith(error: value));
@@ -241,8 +236,8 @@ class _$SaveThumbnailResultFailCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SaveThumbnailResultFail implements SaveThumbnailResultFail {
-  const _$SaveThumbnailResultFail(this.error);
+class _$SaveThumbnailResultFailImpl implements SaveThumbnailResultFail {
+  const _$SaveThumbnailResultFailImpl(this.error);
 
   @override
   final SaveThumbnailError error;
@@ -253,22 +248,24 @@ class _$SaveThumbnailResultFail implements SaveThumbnailResultFail {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SaveThumbnailResultFail &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$SaveThumbnailResultFailImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SaveThumbnailResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $SaveThumbnailResultFailCopyWith<SaveThumbnailResultFail> get copyWith =>
-      _$SaveThumbnailResultFailCopyWithImpl<SaveThumbnailResultFail>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SaveThumbnailResultFailImplCopyWith<_$SaveThumbnailResultFailImpl>
+      get copyWith => __$$SaveThumbnailResultFailImplCopyWithImpl<
+          _$SaveThumbnailResultFailImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -282,8 +279,8 @@ class _$SaveThumbnailResultFail implements SaveThumbnailResultFail {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? success,
-    TResult Function(SaveThumbnailError error)? fail,
+    TResult? Function()? success,
+    TResult? Function(SaveThumbnailError error)? fail,
   }) {
     return fail?.call(error);
   }
@@ -313,8 +310,8 @@ class _$SaveThumbnailResultFail implements SaveThumbnailResultFail {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SaveThumbnailResultSuccess value)? success,
-    TResult Function(SaveThumbnailResultFail value)? fail,
+    TResult? Function(SaveThumbnailResultSuccess value)? success,
+    TResult? Function(SaveThumbnailResultFail value)? fail,
   }) {
     return fail?.call(this);
   }
@@ -334,13 +331,16 @@ class _$SaveThumbnailResultFail implements SaveThumbnailResultFail {
 }
 
 abstract class SaveThumbnailResultFail implements SaveThumbnailResult {
-  const factory SaveThumbnailResultFail(SaveThumbnailError error) =
-      _$SaveThumbnailResultFail;
+  const factory SaveThumbnailResultFail(final SaveThumbnailError error) =
+      _$SaveThumbnailResultFailImpl;
 
   SaveThumbnailError get error;
-  @JsonKey(ignore: true)
-  $SaveThumbnailResultFailCopyWith<SaveThumbnailResultFail> get copyWith =>
-      throw _privateConstructorUsedError;
+
+  /// Create a copy of SaveThumbnailResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SaveThumbnailResultFailImplCopyWith<_$SaveThumbnailResultFailImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 SaveThumbnailError _$SaveThumbnailErrorFromJson(Map<String, dynamic> json) {
@@ -348,27 +348,8 @@ SaveThumbnailError _$SaveThumbnailErrorFromJson(Map<String, dynamic> json) {
 }
 
 /// @nodoc
-class _$SaveThumbnailErrorTearOff {
-  const _$SaveThumbnailErrorTearOff();
-
-  SaveThumbnailErrorFs fs(FsError error) {
-    return SaveThumbnailErrorFs(
-      error,
-    );
-  }
-
-  SaveThumbnailError fromJson(Map<String, Object?> json) {
-    return SaveThumbnailError.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SaveThumbnailError = _$SaveThumbnailErrorTearOff();
-
-/// @nodoc
 mixin _$SaveThumbnailError {
   FsError get error => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(FsError error) fs,
@@ -376,7 +357,7 @@ mixin _$SaveThumbnailError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(FsError error)? fs,
+    TResult? Function(FsError error)? fs,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -392,7 +373,7 @@ mixin _$SaveThumbnailError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SaveThumbnailErrorFs value)? fs,
+    TResult? Function(SaveThumbnailErrorFs value)? fs,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -401,8 +382,13 @@ mixin _$SaveThumbnailError {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this SaveThumbnailError to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SaveThumbnailError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SaveThumbnailErrorCopyWith<SaveThumbnailError> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -411,48 +397,57 @@ mixin _$SaveThumbnailError {
 abstract class $SaveThumbnailErrorCopyWith<$Res> {
   factory $SaveThumbnailErrorCopyWith(
           SaveThumbnailError value, $Res Function(SaveThumbnailError) then) =
-      _$SaveThumbnailErrorCopyWithImpl<$Res>;
+      _$SaveThumbnailErrorCopyWithImpl<$Res, SaveThumbnailError>;
+  @useResult
   $Res call({FsError error});
 
   $FsErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
-class _$SaveThumbnailErrorCopyWithImpl<$Res>
+class _$SaveThumbnailErrorCopyWithImpl<$Res, $Val extends SaveThumbnailError>
     implements $SaveThumbnailErrorCopyWith<$Res> {
   _$SaveThumbnailErrorCopyWithImpl(this._value, this._then);
 
-  final SaveThumbnailError _value;
   // ignore: unused_field
-  final $Res Function(SaveThumbnailError) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of SaveThumbnailError
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
     return _then(_value.copyWith(
-      error: error == freezed
+      error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as FsError,
-    ));
+    ) as $Val);
   }
 
+  /// Create a copy of SaveThumbnailError
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $FsErrorCopyWith<$Res> get error {
     return $FsErrorCopyWith<$Res>(_value.error, (value) {
-      return _then(_value.copyWith(error: value));
+      return _then(_value.copyWith(error: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class $SaveThumbnailErrorFsCopyWith<$Res>
+abstract class _$$SaveThumbnailErrorFsImplCopyWith<$Res>
     implements $SaveThumbnailErrorCopyWith<$Res> {
-  factory $SaveThumbnailErrorFsCopyWith(SaveThumbnailErrorFs value,
-          $Res Function(SaveThumbnailErrorFs) then) =
-      _$SaveThumbnailErrorFsCopyWithImpl<$Res>;
+  factory _$$SaveThumbnailErrorFsImplCopyWith(_$SaveThumbnailErrorFsImpl value,
+          $Res Function(_$SaveThumbnailErrorFsImpl) then) =
+      __$$SaveThumbnailErrorFsImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({FsError error});
 
   @override
@@ -460,22 +455,22 @@ abstract class $SaveThumbnailErrorFsCopyWith<$Res>
 }
 
 /// @nodoc
-class _$SaveThumbnailErrorFsCopyWithImpl<$Res>
-    extends _$SaveThumbnailErrorCopyWithImpl<$Res>
-    implements $SaveThumbnailErrorFsCopyWith<$Res> {
-  _$SaveThumbnailErrorFsCopyWithImpl(
-      SaveThumbnailErrorFs _value, $Res Function(SaveThumbnailErrorFs) _then)
-      : super(_value, (v) => _then(v as SaveThumbnailErrorFs));
+class __$$SaveThumbnailErrorFsImplCopyWithImpl<$Res>
+    extends _$SaveThumbnailErrorCopyWithImpl<$Res, _$SaveThumbnailErrorFsImpl>
+    implements _$$SaveThumbnailErrorFsImplCopyWith<$Res> {
+  __$$SaveThumbnailErrorFsImplCopyWithImpl(_$SaveThumbnailErrorFsImpl _value,
+      $Res Function(_$SaveThumbnailErrorFsImpl) _then)
+      : super(_value, _then);
 
-  @override
-  SaveThumbnailErrorFs get _value => super._value as SaveThumbnailErrorFs;
-
+  /// Create a copy of SaveThumbnailError
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
-    return _then(SaveThumbnailErrorFs(
-      error == freezed
+    return _then(_$SaveThumbnailErrorFsImpl(
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as FsError,
@@ -485,11 +480,11 @@ class _$SaveThumbnailErrorFsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SaveThumbnailErrorFs implements SaveThumbnailErrorFs {
-  const _$SaveThumbnailErrorFs(this.error);
+class _$SaveThumbnailErrorFsImpl implements SaveThumbnailErrorFs {
+  const _$SaveThumbnailErrorFsImpl(this.error);
 
-  factory _$SaveThumbnailErrorFs.fromJson(Map<String, dynamic> json) =>
-      _$$SaveThumbnailErrorFsFromJson(json);
+  factory _$SaveThumbnailErrorFsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SaveThumbnailErrorFsImplFromJson(json);
 
   @override
   final FsError error;
@@ -500,22 +495,26 @@ class _$SaveThumbnailErrorFs implements SaveThumbnailErrorFs {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SaveThumbnailErrorFs &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$SaveThumbnailErrorFsImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SaveThumbnailError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $SaveThumbnailErrorFsCopyWith<SaveThumbnailErrorFs> get copyWith =>
-      _$SaveThumbnailErrorFsCopyWithImpl<SaveThumbnailErrorFs>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SaveThumbnailErrorFsImplCopyWith<_$SaveThumbnailErrorFsImpl>
+      get copyWith =>
+          __$$SaveThumbnailErrorFsImplCopyWithImpl<_$SaveThumbnailErrorFsImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -528,7 +527,7 @@ class _$SaveThumbnailErrorFs implements SaveThumbnailErrorFs {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(FsError error)? fs,
+    TResult? Function(FsError error)? fs,
   }) {
     return fs?.call(error);
   }
@@ -556,7 +555,7 @@ class _$SaveThumbnailErrorFs implements SaveThumbnailErrorFs {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SaveThumbnailErrorFs value)? fs,
+    TResult? Function(SaveThumbnailErrorFs value)? fs,
   }) {
     return fs?.call(this);
   }
@@ -575,20 +574,26 @@ class _$SaveThumbnailErrorFs implements SaveThumbnailErrorFs {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SaveThumbnailErrorFsToJson(this);
+    return _$$SaveThumbnailErrorFsImplToJson(
+      this,
+    );
   }
 }
 
 abstract class SaveThumbnailErrorFs implements SaveThumbnailError {
-  const factory SaveThumbnailErrorFs(FsError error) = _$SaveThumbnailErrorFs;
+  const factory SaveThumbnailErrorFs(final FsError error) =
+      _$SaveThumbnailErrorFsImpl;
 
   factory SaveThumbnailErrorFs.fromJson(Map<String, dynamic> json) =
-      _$SaveThumbnailErrorFs.fromJson;
+      _$SaveThumbnailErrorFsImpl.fromJson;
 
   @override
   FsError get error;
+
+  /// Create a copy of SaveThumbnailError
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  $SaveThumbnailErrorFsCopyWith<SaveThumbnailErrorFs> get copyWith =>
-      throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SaveThumbnailErrorFsImplCopyWith<_$SaveThumbnailErrorFsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'camera_provider_cubit.dart';
 
@@ -12,42 +12,7 @@ part of 'camera_provider_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$CameraProviderStateTearOff {
-  const _$CameraProviderStateTearOff();
-
-  CameraProviderStateInitial initial() {
-    return const CameraProviderStateInitial();
-  }
-
-  CameraProviderStateLoading loading() {
-    return const CameraProviderStateLoading();
-  }
-
-  CameraProviderStateLoaded loaded(
-      {required CameraDescription primaryCamera,
-      required List<CameraDescription> otherCameras,
-      required bool enableFlashByDefault}) {
-    return CameraProviderStateLoaded(
-      primaryCamera: primaryCamera,
-      otherCameras: otherCameras,
-      enableFlashByDefault: enableFlashByDefault,
-    );
-  }
-
-  CameraProviderStateLoadFailed loadFailed(
-      {required CameraException error, StackTrace? stackTrace}) {
-    return CameraProviderStateLoadFailed(
-      error: error,
-      stackTrace: stackTrace,
-    );
-  }
-}
-
-/// @nodoc
-const $CameraProviderState = _$CameraProviderStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$CameraProviderState {
@@ -64,12 +29,13 @@ mixin _$CameraProviderState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(CameraDescription primaryCamera,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(CameraDescription primaryCamera,
             List<CameraDescription> otherCameras, bool enableFlashByDefault)?
         loaded,
-    TResult Function(CameraException error, StackTrace? stackTrace)? loadFailed,
+    TResult? Function(CameraException error, StackTrace? stackTrace)?
+        loadFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -93,10 +59,10 @@ mixin _$CameraProviderState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CameraProviderStateInitial value)? initial,
-    TResult Function(CameraProviderStateLoading value)? loading,
-    TResult Function(CameraProviderStateLoaded value)? loaded,
-    TResult Function(CameraProviderStateLoadFailed value)? loadFailed,
+    TResult? Function(CameraProviderStateInitial value)? initial,
+    TResult? Function(CameraProviderStateLoading value)? loading,
+    TResult? Function(CameraProviderStateLoaded value)? loaded,
+    TResult? Function(CameraProviderStateLoadFailed value)? loadFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -114,43 +80,49 @@ mixin _$CameraProviderState {
 abstract class $CameraProviderStateCopyWith<$Res> {
   factory $CameraProviderStateCopyWith(
           CameraProviderState value, $Res Function(CameraProviderState) then) =
-      _$CameraProviderStateCopyWithImpl<$Res>;
+      _$CameraProviderStateCopyWithImpl<$Res, CameraProviderState>;
 }
 
 /// @nodoc
-class _$CameraProviderStateCopyWithImpl<$Res>
+class _$CameraProviderStateCopyWithImpl<$Res, $Val extends CameraProviderState>
     implements $CameraProviderStateCopyWith<$Res> {
   _$CameraProviderStateCopyWithImpl(this._value, this._then);
 
-  final CameraProviderState _value;
   // ignore: unused_field
-  final $Res Function(CameraProviderState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of CameraProviderState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class $CameraProviderStateInitialCopyWith<$Res> {
-  factory $CameraProviderStateInitialCopyWith(CameraProviderStateInitial value,
-          $Res Function(CameraProviderStateInitial) then) =
-      _$CameraProviderStateInitialCopyWithImpl<$Res>;
+abstract class _$$CameraProviderStateInitialImplCopyWith<$Res> {
+  factory _$$CameraProviderStateInitialImplCopyWith(
+          _$CameraProviderStateInitialImpl value,
+          $Res Function(_$CameraProviderStateInitialImpl) then) =
+      __$$CameraProviderStateInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$CameraProviderStateInitialCopyWithImpl<$Res>
-    extends _$CameraProviderStateCopyWithImpl<$Res>
-    implements $CameraProviderStateInitialCopyWith<$Res> {
-  _$CameraProviderStateInitialCopyWithImpl(CameraProviderStateInitial _value,
-      $Res Function(CameraProviderStateInitial) _then)
-      : super(_value, (v) => _then(v as CameraProviderStateInitial));
+class __$$CameraProviderStateInitialImplCopyWithImpl<$Res>
+    extends _$CameraProviderStateCopyWithImpl<$Res,
+        _$CameraProviderStateInitialImpl>
+    implements _$$CameraProviderStateInitialImplCopyWith<$Res> {
+  __$$CameraProviderStateInitialImplCopyWithImpl(
+      _$CameraProviderStateInitialImpl _value,
+      $Res Function(_$CameraProviderStateInitialImpl) _then)
+      : super(_value, _then);
 
-  @override
-  CameraProviderStateInitial get _value =>
-      super._value as CameraProviderStateInitial;
+  /// Create a copy of CameraProviderState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$CameraProviderStateInitial implements CameraProviderStateInitial {
-  const _$CameraProviderStateInitial();
+class _$CameraProviderStateInitialImpl implements CameraProviderStateInitial {
+  const _$CameraProviderStateInitialImpl();
 
   @override
   String toString() {
@@ -158,10 +130,10 @@ class _$CameraProviderStateInitial implements CameraProviderStateInitial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is CameraProviderStateInitial);
+            other is _$CameraProviderStateInitialImpl);
   }
 
   @override
@@ -184,12 +156,13 @@ class _$CameraProviderStateInitial implements CameraProviderStateInitial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(CameraDescription primaryCamera,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(CameraDescription primaryCamera,
             List<CameraDescription> otherCameras, bool enableFlashByDefault)?
         loaded,
-    TResult Function(CameraException error, StackTrace? stackTrace)? loadFailed,
+    TResult? Function(CameraException error, StackTrace? stackTrace)?
+        loadFailed,
   }) {
     return initial?.call();
   }
@@ -225,10 +198,10 @@ class _$CameraProviderStateInitial implements CameraProviderStateInitial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CameraProviderStateInitial value)? initial,
-    TResult Function(CameraProviderStateLoading value)? loading,
-    TResult Function(CameraProviderStateLoaded value)? loaded,
-    TResult Function(CameraProviderStateLoadFailed value)? loadFailed,
+    TResult? Function(CameraProviderStateInitial value)? initial,
+    TResult? Function(CameraProviderStateLoading value)? loading,
+    TResult? Function(CameraProviderStateLoaded value)? loaded,
+    TResult? Function(CameraProviderStateLoadFailed value)? loadFailed,
   }) {
     return initial?.call(this);
   }
@@ -250,33 +223,35 @@ class _$CameraProviderStateInitial implements CameraProviderStateInitial {
 }
 
 abstract class CameraProviderStateInitial implements CameraProviderState {
-  const factory CameraProviderStateInitial() = _$CameraProviderStateInitial;
+  const factory CameraProviderStateInitial() = _$CameraProviderStateInitialImpl;
 }
 
 /// @nodoc
-abstract class $CameraProviderStateLoadingCopyWith<$Res> {
-  factory $CameraProviderStateLoadingCopyWith(CameraProviderStateLoading value,
-          $Res Function(CameraProviderStateLoading) then) =
-      _$CameraProviderStateLoadingCopyWithImpl<$Res>;
+abstract class _$$CameraProviderStateLoadingImplCopyWith<$Res> {
+  factory _$$CameraProviderStateLoadingImplCopyWith(
+          _$CameraProviderStateLoadingImpl value,
+          $Res Function(_$CameraProviderStateLoadingImpl) then) =
+      __$$CameraProviderStateLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$CameraProviderStateLoadingCopyWithImpl<$Res>
-    extends _$CameraProviderStateCopyWithImpl<$Res>
-    implements $CameraProviderStateLoadingCopyWith<$Res> {
-  _$CameraProviderStateLoadingCopyWithImpl(CameraProviderStateLoading _value,
-      $Res Function(CameraProviderStateLoading) _then)
-      : super(_value, (v) => _then(v as CameraProviderStateLoading));
+class __$$CameraProviderStateLoadingImplCopyWithImpl<$Res>
+    extends _$CameraProviderStateCopyWithImpl<$Res,
+        _$CameraProviderStateLoadingImpl>
+    implements _$$CameraProviderStateLoadingImplCopyWith<$Res> {
+  __$$CameraProviderStateLoadingImplCopyWithImpl(
+      _$CameraProviderStateLoadingImpl _value,
+      $Res Function(_$CameraProviderStateLoadingImpl) _then)
+      : super(_value, _then);
 
-  @override
-  CameraProviderStateLoading get _value =>
-      super._value as CameraProviderStateLoading;
+  /// Create a copy of CameraProviderState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$CameraProviderStateLoading implements CameraProviderStateLoading {
-  const _$CameraProviderStateLoading();
+class _$CameraProviderStateLoadingImpl implements CameraProviderStateLoading {
+  const _$CameraProviderStateLoadingImpl();
 
   @override
   String toString() {
@@ -284,10 +259,10 @@ class _$CameraProviderStateLoading implements CameraProviderStateLoading {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is CameraProviderStateLoading);
+            other is _$CameraProviderStateLoadingImpl);
   }
 
   @override
@@ -310,12 +285,13 @@ class _$CameraProviderStateLoading implements CameraProviderStateLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(CameraDescription primaryCamera,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(CameraDescription primaryCamera,
             List<CameraDescription> otherCameras, bool enableFlashByDefault)?
         loaded,
-    TResult Function(CameraException error, StackTrace? stackTrace)? loadFailed,
+    TResult? Function(CameraException error, StackTrace? stackTrace)?
+        loadFailed,
   }) {
     return loading?.call();
   }
@@ -351,10 +327,10 @@ class _$CameraProviderStateLoading implements CameraProviderStateLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CameraProviderStateInitial value)? initial,
-    TResult Function(CameraProviderStateLoading value)? loading,
-    TResult Function(CameraProviderStateLoaded value)? loaded,
-    TResult Function(CameraProviderStateLoadFailed value)? loadFailed,
+    TResult? Function(CameraProviderStateInitial value)? initial,
+    TResult? Function(CameraProviderStateLoading value)? loading,
+    TResult? Function(CameraProviderStateLoaded value)? loaded,
+    TResult? Function(CameraProviderStateLoadFailed value)? loadFailed,
   }) {
     return loading?.call(this);
   }
@@ -376,14 +352,16 @@ class _$CameraProviderStateLoading implements CameraProviderStateLoading {
 }
 
 abstract class CameraProviderStateLoading implements CameraProviderState {
-  const factory CameraProviderStateLoading() = _$CameraProviderStateLoading;
+  const factory CameraProviderStateLoading() = _$CameraProviderStateLoadingImpl;
 }
 
 /// @nodoc
-abstract class $CameraProviderStateLoadedCopyWith<$Res> {
-  factory $CameraProviderStateLoadedCopyWith(CameraProviderStateLoaded value,
-          $Res Function(CameraProviderStateLoaded) then) =
-      _$CameraProviderStateLoadedCopyWithImpl<$Res>;
+abstract class _$$CameraProviderStateLoadedImplCopyWith<$Res> {
+  factory _$$CameraProviderStateLoadedImplCopyWith(
+          _$CameraProviderStateLoadedImpl value,
+          $Res Function(_$CameraProviderStateLoadedImpl) then) =
+      __$$CameraProviderStateLoadedImplCopyWithImpl<$Res>;
+  @useResult
   $Res call(
       {CameraDescription primaryCamera,
       List<CameraDescription> otherCameras,
@@ -391,33 +369,34 @@ abstract class $CameraProviderStateLoadedCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CameraProviderStateLoadedCopyWithImpl<$Res>
-    extends _$CameraProviderStateCopyWithImpl<$Res>
-    implements $CameraProviderStateLoadedCopyWith<$Res> {
-  _$CameraProviderStateLoadedCopyWithImpl(CameraProviderStateLoaded _value,
-      $Res Function(CameraProviderStateLoaded) _then)
-      : super(_value, (v) => _then(v as CameraProviderStateLoaded));
+class __$$CameraProviderStateLoadedImplCopyWithImpl<$Res>
+    extends _$CameraProviderStateCopyWithImpl<$Res,
+        _$CameraProviderStateLoadedImpl>
+    implements _$$CameraProviderStateLoadedImplCopyWith<$Res> {
+  __$$CameraProviderStateLoadedImplCopyWithImpl(
+      _$CameraProviderStateLoadedImpl _value,
+      $Res Function(_$CameraProviderStateLoadedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  CameraProviderStateLoaded get _value =>
-      super._value as CameraProviderStateLoaded;
-
+  /// Create a copy of CameraProviderState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? primaryCamera = freezed,
-    Object? otherCameras = freezed,
-    Object? enableFlashByDefault = freezed,
+    Object? primaryCamera = null,
+    Object? otherCameras = null,
+    Object? enableFlashByDefault = null,
   }) {
-    return _then(CameraProviderStateLoaded(
-      primaryCamera: primaryCamera == freezed
+    return _then(_$CameraProviderStateLoadedImpl(
+      primaryCamera: null == primaryCamera
           ? _value.primaryCamera
           : primaryCamera // ignore: cast_nullable_to_non_nullable
               as CameraDescription,
-      otherCameras: otherCameras == freezed
-          ? _value.otherCameras
+      otherCameras: null == otherCameras
+          ? _value._otherCameras
           : otherCameras // ignore: cast_nullable_to_non_nullable
               as List<CameraDescription>,
-      enableFlashByDefault: enableFlashByDefault == freezed
+      enableFlashByDefault: null == enableFlashByDefault
           ? _value.enableFlashByDefault
           : enableFlashByDefault // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -427,16 +406,23 @@ class _$CameraProviderStateLoadedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CameraProviderStateLoaded implements CameraProviderStateLoaded {
-  const _$CameraProviderStateLoaded(
+class _$CameraProviderStateLoadedImpl implements CameraProviderStateLoaded {
+  const _$CameraProviderStateLoadedImpl(
       {required this.primaryCamera,
-      required this.otherCameras,
-      required this.enableFlashByDefault});
+      required final List<CameraDescription> otherCameras,
+      required this.enableFlashByDefault})
+      : _otherCameras = otherCameras;
 
   @override
   final CameraDescription primaryCamera;
+  final List<CameraDescription> _otherCameras;
   @override
-  final List<CameraDescription> otherCameras;
+  List<CameraDescription> get otherCameras {
+    if (_otherCameras is EqualUnmodifiableListView) return _otherCameras;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_otherCameras);
+  }
+
   @override
   final bool enableFlashByDefault;
 
@@ -446,30 +432,30 @@ class _$CameraProviderStateLoaded implements CameraProviderStateLoaded {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is CameraProviderStateLoaded &&
+            other is _$CameraProviderStateLoadedImpl &&
+            (identical(other.primaryCamera, primaryCamera) ||
+                other.primaryCamera == primaryCamera) &&
             const DeepCollectionEquality()
-                .equals(other.primaryCamera, primaryCamera) &&
-            const DeepCollectionEquality()
-                .equals(other.otherCameras, otherCameras) &&
-            const DeepCollectionEquality()
-                .equals(other.enableFlashByDefault, enableFlashByDefault));
+                .equals(other._otherCameras, _otherCameras) &&
+            (identical(other.enableFlashByDefault, enableFlashByDefault) ||
+                other.enableFlashByDefault == enableFlashByDefault));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(primaryCamera),
-      const DeepCollectionEquality().hash(otherCameras),
-      const DeepCollectionEquality().hash(enableFlashByDefault));
+  int get hashCode => Object.hash(runtimeType, primaryCamera,
+      const DeepCollectionEquality().hash(_otherCameras), enableFlashByDefault);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CameraProviderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $CameraProviderStateLoadedCopyWith<CameraProviderStateLoaded> get copyWith =>
-      _$CameraProviderStateLoadedCopyWithImpl<CameraProviderStateLoaded>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$CameraProviderStateLoadedImplCopyWith<_$CameraProviderStateLoadedImpl>
+      get copyWith => __$$CameraProviderStateLoadedImplCopyWithImpl<
+          _$CameraProviderStateLoadedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -488,12 +474,13 @@ class _$CameraProviderStateLoaded implements CameraProviderStateLoaded {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(CameraDescription primaryCamera,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(CameraDescription primaryCamera,
             List<CameraDescription> otherCameras, bool enableFlashByDefault)?
         loaded,
-    TResult Function(CameraException error, StackTrace? stackTrace)? loadFailed,
+    TResult? Function(CameraException error, StackTrace? stackTrace)?
+        loadFailed,
   }) {
     return loaded?.call(primaryCamera, otherCameras, enableFlashByDefault);
   }
@@ -529,10 +516,10 @@ class _$CameraProviderStateLoaded implements CameraProviderStateLoaded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CameraProviderStateInitial value)? initial,
-    TResult Function(CameraProviderStateLoading value)? loading,
-    TResult Function(CameraProviderStateLoaded value)? loaded,
-    TResult Function(CameraProviderStateLoadFailed value)? loadFailed,
+    TResult? Function(CameraProviderStateInitial value)? initial,
+    TResult? Function(CameraProviderStateLoading value)? loading,
+    TResult? Function(CameraProviderStateLoaded value)? loaded,
+    TResult? Function(CameraProviderStateLoadFailed value)? loadFailed,
   }) {
     return loaded?.call(this);
   }
@@ -555,51 +542,56 @@ class _$CameraProviderStateLoaded implements CameraProviderStateLoaded {
 
 abstract class CameraProviderStateLoaded implements CameraProviderState {
   const factory CameraProviderStateLoaded(
-      {required CameraDescription primaryCamera,
-      required List<CameraDescription> otherCameras,
-      required bool enableFlashByDefault}) = _$CameraProviderStateLoaded;
+          {required final CameraDescription primaryCamera,
+          required final List<CameraDescription> otherCameras,
+          required final bool enableFlashByDefault}) =
+      _$CameraProviderStateLoadedImpl;
 
   CameraDescription get primaryCamera;
   List<CameraDescription> get otherCameras;
   bool get enableFlashByDefault;
-  @JsonKey(ignore: true)
-  $CameraProviderStateLoadedCopyWith<CameraProviderStateLoaded> get copyWith =>
-      throw _privateConstructorUsedError;
+
+  /// Create a copy of CameraProviderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CameraProviderStateLoadedImplCopyWith<_$CameraProviderStateLoadedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CameraProviderStateLoadFailedCopyWith<$Res> {
-  factory $CameraProviderStateLoadFailedCopyWith(
-          CameraProviderStateLoadFailed value,
-          $Res Function(CameraProviderStateLoadFailed) then) =
-      _$CameraProviderStateLoadFailedCopyWithImpl<$Res>;
+abstract class _$$CameraProviderStateLoadFailedImplCopyWith<$Res> {
+  factory _$$CameraProviderStateLoadFailedImplCopyWith(
+          _$CameraProviderStateLoadFailedImpl value,
+          $Res Function(_$CameraProviderStateLoadFailedImpl) then) =
+      __$$CameraProviderStateLoadFailedImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({CameraException error, StackTrace? stackTrace});
 }
 
 /// @nodoc
-class _$CameraProviderStateLoadFailedCopyWithImpl<$Res>
-    extends _$CameraProviderStateCopyWithImpl<$Res>
-    implements $CameraProviderStateLoadFailedCopyWith<$Res> {
-  _$CameraProviderStateLoadFailedCopyWithImpl(
-      CameraProviderStateLoadFailed _value,
-      $Res Function(CameraProviderStateLoadFailed) _then)
-      : super(_value, (v) => _then(v as CameraProviderStateLoadFailed));
+class __$$CameraProviderStateLoadFailedImplCopyWithImpl<$Res>
+    extends _$CameraProviderStateCopyWithImpl<$Res,
+        _$CameraProviderStateLoadFailedImpl>
+    implements _$$CameraProviderStateLoadFailedImplCopyWith<$Res> {
+  __$$CameraProviderStateLoadFailedImplCopyWithImpl(
+      _$CameraProviderStateLoadFailedImpl _value,
+      $Res Function(_$CameraProviderStateLoadFailedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  CameraProviderStateLoadFailed get _value =>
-      super._value as CameraProviderStateLoadFailed;
-
+  /// Create a copy of CameraProviderState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
     Object? stackTrace = freezed,
   }) {
-    return _then(CameraProviderStateLoadFailed(
-      error: error == freezed
+    return _then(_$CameraProviderStateLoadFailedImpl(
+      error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as CameraException,
-      stackTrace: stackTrace == freezed
+      stackTrace: freezed == stackTrace
           ? _value.stackTrace
           : stackTrace // ignore: cast_nullable_to_non_nullable
               as StackTrace?,
@@ -609,8 +601,10 @@ class _$CameraProviderStateLoadFailedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CameraProviderStateLoadFailed implements CameraProviderStateLoadFailed {
-  const _$CameraProviderStateLoadFailed({required this.error, this.stackTrace});
+class _$CameraProviderStateLoadFailedImpl
+    implements CameraProviderStateLoadFailed {
+  const _$CameraProviderStateLoadFailedImpl(
+      {required this.error, this.stackTrace});
 
   @override
   final CameraException error;
@@ -623,26 +617,27 @@ class _$CameraProviderStateLoadFailed implements CameraProviderStateLoadFailed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is CameraProviderStateLoadFailed &&
-            const DeepCollectionEquality().equals(other.error, error) &&
-            const DeepCollectionEquality()
-                .equals(other.stackTrace, stackTrace));
+            other is _$CameraProviderStateLoadFailedImpl &&
+            (identical(other.error, error) || other.error == error) &&
+            (identical(other.stackTrace, stackTrace) ||
+                other.stackTrace == stackTrace));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(error),
-      const DeepCollectionEquality().hash(stackTrace));
+  int get hashCode => Object.hash(runtimeType, error, stackTrace);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CameraProviderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $CameraProviderStateLoadFailedCopyWith<CameraProviderStateLoadFailed>
-      get copyWith => _$CameraProviderStateLoadFailedCopyWithImpl<
-          CameraProviderStateLoadFailed>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$CameraProviderStateLoadFailedImplCopyWith<
+          _$CameraProviderStateLoadFailedImpl>
+      get copyWith => __$$CameraProviderStateLoadFailedImplCopyWithImpl<
+          _$CameraProviderStateLoadFailedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -661,12 +656,13 @@ class _$CameraProviderStateLoadFailed implements CameraProviderStateLoadFailed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(CameraDescription primaryCamera,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(CameraDescription primaryCamera,
             List<CameraDescription> otherCameras, bool enableFlashByDefault)?
         loaded,
-    TResult Function(CameraException error, StackTrace? stackTrace)? loadFailed,
+    TResult? Function(CameraException error, StackTrace? stackTrace)?
+        loadFailed,
   }) {
     return loadFailed?.call(error, stackTrace);
   }
@@ -702,10 +698,10 @@ class _$CameraProviderStateLoadFailed implements CameraProviderStateLoadFailed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CameraProviderStateInitial value)? initial,
-    TResult Function(CameraProviderStateLoading value)? loading,
-    TResult Function(CameraProviderStateLoaded value)? loaded,
-    TResult Function(CameraProviderStateLoadFailed value)? loadFailed,
+    TResult? Function(CameraProviderStateInitial value)? initial,
+    TResult? Function(CameraProviderStateLoading value)? loading,
+    TResult? Function(CameraProviderStateLoaded value)? loaded,
+    TResult? Function(CameraProviderStateLoadFailed value)? loadFailed,
   }) {
     return loadFailed?.call(this);
   }
@@ -728,12 +724,16 @@ class _$CameraProviderStateLoadFailed implements CameraProviderStateLoadFailed {
 
 abstract class CameraProviderStateLoadFailed implements CameraProviderState {
   const factory CameraProviderStateLoadFailed(
-      {required CameraException error,
-      StackTrace? stackTrace}) = _$CameraProviderStateLoadFailed;
+      {required final CameraException error,
+      final StackTrace? stackTrace}) = _$CameraProviderStateLoadFailedImpl;
 
   CameraException get error;
   StackTrace? get stackTrace;
-  @JsonKey(ignore: true)
-  $CameraProviderStateLoadFailedCopyWith<CameraProviderStateLoadFailed>
+
+  /// Create a copy of CameraProviderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CameraProviderStateLoadFailedImplCopyWith<
+          _$CameraProviderStateLoadFailedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

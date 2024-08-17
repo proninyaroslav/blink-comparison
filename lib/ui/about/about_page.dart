@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -29,7 +29,7 @@ import '../toast.dart';
 import 'about_cubit.dart';
 
 class AboutPage extends StatefulWidget implements AutoRouteWrapper {
-  const AboutPage({Key? key}) : super(key: key);
+  const AboutPage({super.key});
 
   @override
   Widget wrappedRoute(BuildContext context) {
@@ -40,7 +40,7 @@ class AboutPage extends StatefulWidget implements AutoRouteWrapper {
   }
 
   @override
-  _AboutPageState createState() => _AboutPageState();
+  State<AboutPage> createState() => _AboutPageState();
 }
 
 class _AboutPageState extends State<AboutPage> {
@@ -81,11 +81,10 @@ class _AboutDialog extends StatelessWidget {
   final Widget appIcon;
 
   const _AboutDialog({
-    Key? key,
     required this.appName,
     required this.appVersion,
     required this.appIcon,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -132,11 +131,10 @@ class _Header extends StatelessWidget {
   final Widget appIcon;
 
   const _Header({
-    Key? key,
     required this.appName,
     required this.appVersion,
     required this.appIcon,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -154,11 +152,11 @@ class _Header extends StatelessWidget {
               children: [
                 Text(
                   appName,
-                  style: Theme.of(context).textTheme.headline5,
+                  style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 Text(
                   appVersion,
-                  style: Theme.of(context).textTheme.bodyText2,
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 const SizedBox(height: _textVerticalSeparation),
               ],
@@ -171,9 +169,7 @@ class _Header extends StatelessWidget {
 }
 
 class _ChangelogButton extends StatelessWidget {
-  const _ChangelogButton({
-    Key? key,
-  }) : super(key: key);
+  const _ChangelogButton();
 
   @override
   Widget build(BuildContext context) {
@@ -185,12 +181,15 @@ class _ChangelogButton extends StatelessWidget {
       onPressed: () async {
         final url = S.of(context).appChangelogUrl;
         try {
-          await launch(url);
+          await launchUrl(Uri.parse(url));
         } on PlatformException catch (e, stackTrace) {
-          log().w('Unable to open cnagelog URL', e, stackTrace);
-          Toast.of(context).show(
-            text: S.of(context).openLinkFailed,
-          );
+          log().w('Unable to open cnagelog URL',
+              error: e, stackTrace: stackTrace);
+          if (context.mounted) {
+            Toast.of(context).show(
+              text: S.of(context).openLinkFailed,
+            );
+          }
         }
       },
     );

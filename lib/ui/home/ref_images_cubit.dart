@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -87,7 +87,7 @@ class RefImagesCubit extends Cubit<RefImagesState> {
     List<SaveRefImageStatus>? statusList,
   }) async {
     try {
-      final List<RefImageInfo> _infoList = infoList ??
+      final List<RefImageInfo> infoList0 = infoList ??
           await _imageRepo.getAllInfo().then(
                 (res) => res.when(
                   (value) => value,
@@ -95,17 +95,17 @@ class RefImagesCubit extends Cubit<RefImagesState> {
                 ),
               );
 
-      final List<SaveRefImageStatus> _statusList =
+      final List<SaveRefImageStatus> statusList0 =
           statusList ?? await _imageStatusRepo.getAllSaveStatus();
 
       final statusMap = Map.fromEntries(
-        _statusList.map(
+        statusList0.map(
           (status) => MapEntry(status.imageId, status),
         ),
       );
 
       final entries = <RefImageEntry>[];
-      for (final info in _infoList) {
+      for (final info in infoList0) {
         final res = await _imageRepo.getThumbnail(info);
         entries.add(
           RefImageEntry(
@@ -126,7 +126,7 @@ class RefImagesCubit extends Cubit<RefImagesState> {
 }
 
 @freezed
-class _BuildResult with _$_BuildResult {
+class _BuildResult with _$BuildResult {
   const factory _BuildResult({
     required List<RefImageEntry> entries,
   }) = _BuildResultData;

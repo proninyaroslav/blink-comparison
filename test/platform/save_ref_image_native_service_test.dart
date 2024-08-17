@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -46,7 +46,7 @@ void main() {
         encryptSalt: 'salt',
       ),
       srcFile: XFile(path.join('foo', 'bar')),
-      key: const SecureKey.password('123'),
+      key: const AppSecureKey.password('123'),
     );
     final expectedResult = ServiceResult.success(
       request: expectedRequest,
@@ -58,23 +58,30 @@ void main() {
     });
 
     setUp(() {
+      final binaryMessenger =
+          TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger;
       service = SaveRefImageNativeService(mockPlatform);
-      service.channel.setMockMethodCallHandler((methodCall) async {
-        log.add(methodCall);
-        switch (methodCall.method) {
-          case 'isRunning':
-            return true;
-          case 'getAllInProgress':
-            return [jsonEncode(expectedRequest.toJson())];
-        }
-      });
+
+      binaryMessenger.setMockMethodCallHandler(
+        service.channel,
+        (methodCall) async {
+          log.add(methodCall);
+          switch (methodCall.method) {
+            case 'isRunning':
+              return true;
+            case 'getAllInProgress':
+              return [jsonEncode(expectedRequest.toJson())];
+          }
+          return null;
+        },
+      );
       log.clear();
-      MethodChannel(service.queueChannel.name).setMockMethodCallHandler(
+      binaryMessenger.setMockMethodCallHandler(
+        MethodChannel(service.queueChannel.name),
         (methodCall) async {
           switch (methodCall.method) {
             case 'listen':
-              await ServicesBinding.instance!.defaultBinaryMessenger
-                  .handlePlatformMessage(
+              await binaryMessenger.handlePlatformMessage(
                 service.queueChannel.name,
                 service.queueChannel.codec.encodeSuccessEnvelope(
                   jsonEncode(expectedRequest.toJson()),
@@ -86,14 +93,15 @@ void main() {
             default:
               return null;
           }
+          return null;
         },
       );
-      MethodChannel(service.resultChannel.name).setMockMethodCallHandler(
+      binaryMessenger.setMockMethodCallHandler(
+        MethodChannel(service.resultChannel.name),
         (methodCall) async {
           switch (methodCall.method) {
             case 'listen':
-              await ServicesBinding.instance!.defaultBinaryMessenger
-                  .handlePlatformMessage(
+              await binaryMessenger.handlePlatformMessage(
                 service.resultChannel.name,
                 service.resultChannel.codec.encodeSuccessEnvelope(
                   jsonEncode(expectedResult.toJson()),
@@ -105,6 +113,7 @@ void main() {
             default:
               return null;
           }
+          return null;
         },
       );
     });

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'password.dart';
 
@@ -12,32 +12,11 @@ part of 'password.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 PasswordInfo _$PasswordInfoFromJson(Map<String, dynamic> json) {
   return _PasswordInfo.fromJson(json);
 }
-
-/// @nodoc
-class _$PasswordInfoTearOff {
-  const _$PasswordInfoTearOff();
-
-  _PasswordInfo call(
-      {required String id, required String hash, required String salt}) {
-    return _PasswordInfo(
-      id: id,
-      hash: hash,
-      salt: salt,
-    );
-  }
-
-  PasswordInfo fromJson(Map<String, Object?> json) {
-    return PasswordInfo.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $PasswordInfo = _$PasswordInfoTearOff();
 
 /// @nodoc
 mixin _$PasswordInfo {
@@ -49,8 +28,12 @@ mixin _$PasswordInfo {
   /// HEX-encoded salt.
   String get salt => throw _privateConstructorUsedError;
 
+  /// Serializes this PasswordInfo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PasswordInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PasswordInfoCopyWith<PasswordInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -59,77 +42,85 @@ mixin _$PasswordInfo {
 abstract class $PasswordInfoCopyWith<$Res> {
   factory $PasswordInfoCopyWith(
           PasswordInfo value, $Res Function(PasswordInfo) then) =
-      _$PasswordInfoCopyWithImpl<$Res>;
+      _$PasswordInfoCopyWithImpl<$Res, PasswordInfo>;
+  @useResult
   $Res call({String id, String hash, String salt});
 }
 
 /// @nodoc
-class _$PasswordInfoCopyWithImpl<$Res> implements $PasswordInfoCopyWith<$Res> {
+class _$PasswordInfoCopyWithImpl<$Res, $Val extends PasswordInfo>
+    implements $PasswordInfoCopyWith<$Res> {
   _$PasswordInfoCopyWithImpl(this._value, this._then);
 
-  final PasswordInfo _value;
   // ignore: unused_field
-  final $Res Function(PasswordInfo) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of PasswordInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? hash = freezed,
-    Object? salt = freezed,
+    Object? id = null,
+    Object? hash = null,
+    Object? salt = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      hash: hash == freezed
+      hash: null == hash
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
               as String,
-      salt: salt == freezed
+      salt: null == salt
           ? _value.salt
           : salt // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$PasswordInfoCopyWith<$Res>
+abstract class _$$PasswordInfoImplCopyWith<$Res>
     implements $PasswordInfoCopyWith<$Res> {
-  factory _$PasswordInfoCopyWith(
-          _PasswordInfo value, $Res Function(_PasswordInfo) then) =
-      __$PasswordInfoCopyWithImpl<$Res>;
+  factory _$$PasswordInfoImplCopyWith(
+          _$PasswordInfoImpl value, $Res Function(_$PasswordInfoImpl) then) =
+      __$$PasswordInfoImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String id, String hash, String salt});
 }
 
 /// @nodoc
-class __$PasswordInfoCopyWithImpl<$Res> extends _$PasswordInfoCopyWithImpl<$Res>
-    implements _$PasswordInfoCopyWith<$Res> {
-  __$PasswordInfoCopyWithImpl(
-      _PasswordInfo _value, $Res Function(_PasswordInfo) _then)
-      : super(_value, (v) => _then(v as _PasswordInfo));
+class __$$PasswordInfoImplCopyWithImpl<$Res>
+    extends _$PasswordInfoCopyWithImpl<$Res, _$PasswordInfoImpl>
+    implements _$$PasswordInfoImplCopyWith<$Res> {
+  __$$PasswordInfoImplCopyWithImpl(
+      _$PasswordInfoImpl _value, $Res Function(_$PasswordInfoImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _PasswordInfo get _value => super._value as _PasswordInfo;
-
+  /// Create a copy of PasswordInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? hash = freezed,
-    Object? salt = freezed,
+    Object? id = null,
+    Object? hash = null,
+    Object? salt = null,
   }) {
-    return _then(_PasswordInfo(
-      id: id == freezed
+    return _then(_$PasswordInfoImpl(
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      hash: hash == freezed
+      hash: null == hash
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
               as String,
-      salt: salt == freezed
+      salt: null == salt
           ? _value.salt
           : salt // ignore: cast_nullable_to_non_nullable
               as String,
@@ -139,22 +130,22 @@ class __$PasswordInfoCopyWithImpl<$Res> extends _$PasswordInfoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PasswordInfo with DiagnosticableTreeMixin implements _PasswordInfo {
-  const _$_PasswordInfo(
+class _$PasswordInfoImpl with DiagnosticableTreeMixin implements _PasswordInfo {
+  const _$PasswordInfoImpl(
       {required this.id, required this.hash, required this.salt});
 
-  factory _$_PasswordInfo.fromJson(Map<String, dynamic> json) =>
-      _$$_PasswordInfoFromJson(json);
+  factory _$PasswordInfoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PasswordInfoImplFromJson(json);
 
   @override
   final String id;
-  @override
 
   /// Currently used Argon2id hash
-  final String hash;
   @override
+  final String hash;
 
   /// HEX-encoded salt.
+  @override
   final String salt;
 
   @override
@@ -173,69 +164,62 @@ class _$_PasswordInfo with DiagnosticableTreeMixin implements _PasswordInfo {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PasswordInfo &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.hash, hash) &&
-            const DeepCollectionEquality().equals(other.salt, salt));
+            other is _$PasswordInfoImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.hash, hash) || other.hash == hash) &&
+            (identical(other.salt, salt) || other.salt == salt));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(hash),
-      const DeepCollectionEquality().hash(salt));
+  int get hashCode => Object.hash(runtimeType, id, hash, salt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PasswordInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$PasswordInfoCopyWith<_PasswordInfo> get copyWith =>
-      __$PasswordInfoCopyWithImpl<_PasswordInfo>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$PasswordInfoImplCopyWith<_$PasswordInfoImpl> get copyWith =>
+      __$$PasswordInfoImplCopyWithImpl<_$PasswordInfoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PasswordInfoToJson(this);
+    return _$$PasswordInfoImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _PasswordInfo implements PasswordInfo {
   const factory _PasswordInfo(
-      {required String id,
-      required String hash,
-      required String salt}) = _$_PasswordInfo;
+      {required final String id,
+      required final String hash,
+      required final String salt}) = _$PasswordInfoImpl;
 
   factory _PasswordInfo.fromJson(Map<String, dynamic> json) =
-      _$_PasswordInfo.fromJson;
+      _$PasswordInfoImpl.fromJson;
 
   @override
   String get id;
-  @override
 
   /// Currently used Argon2id hash
-  String get hash;
   @override
+  String get hash;
 
   /// HEX-encoded salt.
-  String get salt;
   @override
-  @JsonKey(ignore: true)
-  _$PasswordInfoCopyWith<_PasswordInfo> get copyWith =>
+  String get salt;
+
+  /// Create a copy of PasswordInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PasswordInfoImplCopyWith<_$PasswordInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$PasswordTypeTearOff {
-  const _$PasswordTypeTearOff();
-
-  PasswordTypeEncryptKey encryptKey() {
-    return const PasswordTypeEncryptKey();
-  }
-}
-
-/// @nodoc
-const $PasswordType = _$PasswordTypeTearOff();
 
 /// @nodoc
 mixin _$PasswordType {
@@ -246,7 +230,7 @@ mixin _$PasswordType {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? encryptKey,
+    TResult? Function()? encryptKey,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -262,7 +246,7 @@ mixin _$PasswordType {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(PasswordTypeEncryptKey value)? encryptKey,
+    TResult? Function(PasswordTypeEncryptKey value)? encryptKey,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -277,43 +261,50 @@ mixin _$PasswordType {
 abstract class $PasswordTypeCopyWith<$Res> {
   factory $PasswordTypeCopyWith(
           PasswordType value, $Res Function(PasswordType) then) =
-      _$PasswordTypeCopyWithImpl<$Res>;
+      _$PasswordTypeCopyWithImpl<$Res, PasswordType>;
 }
 
 /// @nodoc
-class _$PasswordTypeCopyWithImpl<$Res> implements $PasswordTypeCopyWith<$Res> {
+class _$PasswordTypeCopyWithImpl<$Res, $Val extends PasswordType>
+    implements $PasswordTypeCopyWith<$Res> {
   _$PasswordTypeCopyWithImpl(this._value, this._then);
 
-  final PasswordType _value;
   // ignore: unused_field
-  final $Res Function(PasswordType) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of PasswordType
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class $PasswordTypeEncryptKeyCopyWith<$Res> {
-  factory $PasswordTypeEncryptKeyCopyWith(PasswordTypeEncryptKey value,
-          $Res Function(PasswordTypeEncryptKey) then) =
-      _$PasswordTypeEncryptKeyCopyWithImpl<$Res>;
+abstract class _$$PasswordTypeEncryptKeyImplCopyWith<$Res> {
+  factory _$$PasswordTypeEncryptKeyImplCopyWith(
+          _$PasswordTypeEncryptKeyImpl value,
+          $Res Function(_$PasswordTypeEncryptKeyImpl) then) =
+      __$$PasswordTypeEncryptKeyImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$PasswordTypeEncryptKeyCopyWithImpl<$Res>
-    extends _$PasswordTypeCopyWithImpl<$Res>
-    implements $PasswordTypeEncryptKeyCopyWith<$Res> {
-  _$PasswordTypeEncryptKeyCopyWithImpl(PasswordTypeEncryptKey _value,
-      $Res Function(PasswordTypeEncryptKey) _then)
-      : super(_value, (v) => _then(v as PasswordTypeEncryptKey));
+class __$$PasswordTypeEncryptKeyImplCopyWithImpl<$Res>
+    extends _$PasswordTypeCopyWithImpl<$Res, _$PasswordTypeEncryptKeyImpl>
+    implements _$$PasswordTypeEncryptKeyImplCopyWith<$Res> {
+  __$$PasswordTypeEncryptKeyImplCopyWithImpl(
+      _$PasswordTypeEncryptKeyImpl _value,
+      $Res Function(_$PasswordTypeEncryptKeyImpl) _then)
+      : super(_value, _then);
 
-  @override
-  PasswordTypeEncryptKey get _value => super._value as PasswordTypeEncryptKey;
+  /// Create a copy of PasswordType
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$PasswordTypeEncryptKey
+class _$PasswordTypeEncryptKeyImpl
     with DiagnosticableTreeMixin
     implements PasswordTypeEncryptKey {
-  const _$PasswordTypeEncryptKey();
+  const _$PasswordTypeEncryptKeyImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -323,13 +314,14 @@ class _$PasswordTypeEncryptKey
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'PasswordType.encryptKey'));
+    properties.add(DiagnosticsProperty('type', 'PasswordType.encryptKey'));
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is PasswordTypeEncryptKey);
+        (other.runtimeType == runtimeType &&
+            other is _$PasswordTypeEncryptKeyImpl);
   }
 
   @override
@@ -346,7 +338,7 @@ class _$PasswordTypeEncryptKey
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? encryptKey,
+    TResult? Function()? encryptKey,
   }) {
     return encryptKey?.call();
   }
@@ -374,7 +366,7 @@ class _$PasswordTypeEncryptKey
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(PasswordTypeEncryptKey value)? encryptKey,
+    TResult? Function(PasswordTypeEncryptKey value)? encryptKey,
   }) {
     return encryptKey?.call(this);
   }
@@ -393,5 +385,5 @@ class _$PasswordTypeEncryptKey
 }
 
 abstract class PasswordTypeEncryptKey implements PasswordType {
-  const factory PasswordTypeEncryptKey() = _$PasswordTypeEncryptKey;
+  const factory PasswordTypeEncryptKey() = _$PasswordTypeEncryptKeyImpl;
 }

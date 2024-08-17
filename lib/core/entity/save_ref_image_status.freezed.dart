@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'save_ref_image_status.dart';
 
@@ -12,7 +12,7 @@ part of 'save_ref_image_status.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 SaveRefImageStatus _$SaveRefImageStatusFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
@@ -28,35 +28,8 @@ SaveRefImageStatus _$SaveRefImageStatusFromJson(Map<String, dynamic> json) {
 }
 
 /// @nodoc
-class _$SaveRefImageStatusTearOff {
-  const _$SaveRefImageStatusTearOff();
-
-  SaveRefImageStatusProgress inProgress({required String imageId}) {
-    return SaveRefImageStatusProgress(
-      imageId: imageId,
-    );
-  }
-
-  SaveRefImageStatusCompleted completed(
-      {required String imageId, SaveRefImageStatusError? error}) {
-    return SaveRefImageStatusCompleted(
-      imageId: imageId,
-      error: error,
-    );
-  }
-
-  SaveRefImageStatus fromJson(Map<String, Object?> json) {
-    return SaveRefImageStatus.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SaveRefImageStatus = _$SaveRefImageStatusTearOff();
-
-/// @nodoc
 mixin _$SaveRefImageStatus {
   String get imageId => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String imageId) inProgress,
@@ -66,8 +39,9 @@ mixin _$SaveRefImageStatus {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String imageId)? inProgress,
-    TResult Function(String imageId, SaveRefImageStatusError? error)? completed,
+    TResult? Function(String imageId)? inProgress,
+    TResult? Function(String imageId, SaveRefImageStatusError? error)?
+        completed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -85,8 +59,8 @@ mixin _$SaveRefImageStatus {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SaveRefImageStatusProgress value)? inProgress,
-    TResult Function(SaveRefImageStatusCompleted value)? completed,
+    TResult? Function(SaveRefImageStatusProgress value)? inProgress,
+    TResult? Function(SaveRefImageStatusCompleted value)? completed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -96,8 +70,13 @@ mixin _$SaveRefImageStatus {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this SaveRefImageStatus to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SaveRefImageStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SaveRefImageStatusCopyWith<SaveRefImageStatus> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -106,60 +85,68 @@ mixin _$SaveRefImageStatus {
 abstract class $SaveRefImageStatusCopyWith<$Res> {
   factory $SaveRefImageStatusCopyWith(
           SaveRefImageStatus value, $Res Function(SaveRefImageStatus) then) =
-      _$SaveRefImageStatusCopyWithImpl<$Res>;
+      _$SaveRefImageStatusCopyWithImpl<$Res, SaveRefImageStatus>;
+  @useResult
   $Res call({String imageId});
 }
 
 /// @nodoc
-class _$SaveRefImageStatusCopyWithImpl<$Res>
+class _$SaveRefImageStatusCopyWithImpl<$Res, $Val extends SaveRefImageStatus>
     implements $SaveRefImageStatusCopyWith<$Res> {
   _$SaveRefImageStatusCopyWithImpl(this._value, this._then);
 
-  final SaveRefImageStatus _value;
   // ignore: unused_field
-  final $Res Function(SaveRefImageStatus) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of SaveRefImageStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? imageId = freezed,
+    Object? imageId = null,
   }) {
     return _then(_value.copyWith(
-      imageId: imageId == freezed
+      imageId: null == imageId
           ? _value.imageId
           : imageId // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class $SaveRefImageStatusProgressCopyWith<$Res>
+abstract class _$$SaveRefImageStatusProgressImplCopyWith<$Res>
     implements $SaveRefImageStatusCopyWith<$Res> {
-  factory $SaveRefImageStatusProgressCopyWith(SaveRefImageStatusProgress value,
-          $Res Function(SaveRefImageStatusProgress) then) =
-      _$SaveRefImageStatusProgressCopyWithImpl<$Res>;
+  factory _$$SaveRefImageStatusProgressImplCopyWith(
+          _$SaveRefImageStatusProgressImpl value,
+          $Res Function(_$SaveRefImageStatusProgressImpl) then) =
+      __$$SaveRefImageStatusProgressImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String imageId});
 }
 
 /// @nodoc
-class _$SaveRefImageStatusProgressCopyWithImpl<$Res>
-    extends _$SaveRefImageStatusCopyWithImpl<$Res>
-    implements $SaveRefImageStatusProgressCopyWith<$Res> {
-  _$SaveRefImageStatusProgressCopyWithImpl(SaveRefImageStatusProgress _value,
-      $Res Function(SaveRefImageStatusProgress) _then)
-      : super(_value, (v) => _then(v as SaveRefImageStatusProgress));
+class __$$SaveRefImageStatusProgressImplCopyWithImpl<$Res>
+    extends _$SaveRefImageStatusCopyWithImpl<$Res,
+        _$SaveRefImageStatusProgressImpl>
+    implements _$$SaveRefImageStatusProgressImplCopyWith<$Res> {
+  __$$SaveRefImageStatusProgressImplCopyWithImpl(
+      _$SaveRefImageStatusProgressImpl _value,
+      $Res Function(_$SaveRefImageStatusProgressImpl) _then)
+      : super(_value, _then);
 
-  @override
-  SaveRefImageStatusProgress get _value =>
-      super._value as SaveRefImageStatusProgress;
-
+  /// Create a copy of SaveRefImageStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? imageId = freezed,
+    Object? imageId = null,
   }) {
-    return _then(SaveRefImageStatusProgress(
-      imageId: imageId == freezed
+    return _then(_$SaveRefImageStatusProgressImpl(
+      imageId: null == imageId
           ? _value.imageId
           : imageId // ignore: cast_nullable_to_non_nullable
               as String,
@@ -169,14 +156,16 @@ class _$SaveRefImageStatusProgressCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SaveRefImageStatusProgress
+class _$SaveRefImageStatusProgressImpl
     with DiagnosticableTreeMixin
     implements SaveRefImageStatusProgress {
-  const _$SaveRefImageStatusProgress({required this.imageId, String? $type})
+  const _$SaveRefImageStatusProgressImpl(
+      {required this.imageId, final String? $type})
       : $type = $type ?? 'inProgress';
 
-  factory _$SaveRefImageStatusProgress.fromJson(Map<String, dynamic> json) =>
-      _$$SaveRefImageStatusProgressFromJson(json);
+  factory _$SaveRefImageStatusProgressImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$SaveRefImageStatusProgressImplFromJson(json);
 
   @override
   final String imageId;
@@ -198,23 +187,25 @@ class _$SaveRefImageStatusProgress
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SaveRefImageStatusProgress &&
-            const DeepCollectionEquality().equals(other.imageId, imageId));
+            other is _$SaveRefImageStatusProgressImpl &&
+            (identical(other.imageId, imageId) || other.imageId == imageId));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(imageId));
+  int get hashCode => Object.hash(runtimeType, imageId);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SaveRefImageStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $SaveRefImageStatusProgressCopyWith<SaveRefImageStatusProgress>
-      get copyWith =>
-          _$SaveRefImageStatusProgressCopyWithImpl<SaveRefImageStatusProgress>(
-              this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SaveRefImageStatusProgressImplCopyWith<_$SaveRefImageStatusProgressImpl>
+      get copyWith => __$$SaveRefImageStatusProgressImplCopyWithImpl<
+          _$SaveRefImageStatusProgressImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -229,8 +220,9 @@ class _$SaveRefImageStatusProgress
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String imageId)? inProgress,
-    TResult Function(String imageId, SaveRefImageStatusError? error)? completed,
+    TResult? Function(String imageId)? inProgress,
+    TResult? Function(String imageId, SaveRefImageStatusError? error)?
+        completed,
   }) {
     return inProgress?.call(imageId);
   }
@@ -260,8 +252,8 @@ class _$SaveRefImageStatusProgress
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SaveRefImageStatusProgress value)? inProgress,
-    TResult Function(SaveRefImageStatusCompleted value)? completed,
+    TResult? Function(SaveRefImageStatusProgress value)? inProgress,
+    TResult? Function(SaveRefImageStatusCompleted value)? completed,
   }) {
     return inProgress?.call(this);
   }
@@ -281,68 +273,78 @@ class _$SaveRefImageStatusProgress
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SaveRefImageStatusProgressToJson(this);
+    return _$$SaveRefImageStatusProgressImplToJson(
+      this,
+    );
   }
 }
 
 abstract class SaveRefImageStatusProgress implements SaveRefImageStatus {
-  const factory SaveRefImageStatusProgress({required String imageId}) =
-      _$SaveRefImageStatusProgress;
+  const factory SaveRefImageStatusProgress({required final String imageId}) =
+      _$SaveRefImageStatusProgressImpl;
 
   factory SaveRefImageStatusProgress.fromJson(Map<String, dynamic> json) =
-      _$SaveRefImageStatusProgress.fromJson;
+      _$SaveRefImageStatusProgressImpl.fromJson;
 
   @override
   String get imageId;
+
+  /// Create a copy of SaveRefImageStatus
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  $SaveRefImageStatusProgressCopyWith<SaveRefImageStatusProgress>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SaveRefImageStatusProgressImplCopyWith<_$SaveRefImageStatusProgressImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SaveRefImageStatusCompletedCopyWith<$Res>
+abstract class _$$SaveRefImageStatusCompletedImplCopyWith<$Res>
     implements $SaveRefImageStatusCopyWith<$Res> {
-  factory $SaveRefImageStatusCompletedCopyWith(
-          SaveRefImageStatusCompleted value,
-          $Res Function(SaveRefImageStatusCompleted) then) =
-      _$SaveRefImageStatusCompletedCopyWithImpl<$Res>;
+  factory _$$SaveRefImageStatusCompletedImplCopyWith(
+          _$SaveRefImageStatusCompletedImpl value,
+          $Res Function(_$SaveRefImageStatusCompletedImpl) then) =
+      __$$SaveRefImageStatusCompletedImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String imageId, SaveRefImageStatusError? error});
 
   $SaveRefImageStatusErrorCopyWith<$Res>? get error;
 }
 
 /// @nodoc
-class _$SaveRefImageStatusCompletedCopyWithImpl<$Res>
-    extends _$SaveRefImageStatusCopyWithImpl<$Res>
-    implements $SaveRefImageStatusCompletedCopyWith<$Res> {
-  _$SaveRefImageStatusCompletedCopyWithImpl(SaveRefImageStatusCompleted _value,
-      $Res Function(SaveRefImageStatusCompleted) _then)
-      : super(_value, (v) => _then(v as SaveRefImageStatusCompleted));
+class __$$SaveRefImageStatusCompletedImplCopyWithImpl<$Res>
+    extends _$SaveRefImageStatusCopyWithImpl<$Res,
+        _$SaveRefImageStatusCompletedImpl>
+    implements _$$SaveRefImageStatusCompletedImplCopyWith<$Res> {
+  __$$SaveRefImageStatusCompletedImplCopyWithImpl(
+      _$SaveRefImageStatusCompletedImpl _value,
+      $Res Function(_$SaveRefImageStatusCompletedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  SaveRefImageStatusCompleted get _value =>
-      super._value as SaveRefImageStatusCompleted;
-
+  /// Create a copy of SaveRefImageStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? imageId = freezed,
+    Object? imageId = null,
     Object? error = freezed,
   }) {
-    return _then(SaveRefImageStatusCompleted(
-      imageId: imageId == freezed
+    return _then(_$SaveRefImageStatusCompletedImpl(
+      imageId: null == imageId
           ? _value.imageId
           : imageId // ignore: cast_nullable_to_non_nullable
               as String,
-      error: error == freezed
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as SaveRefImageStatusError?,
     ));
   }
 
+  /// Create a copy of SaveRefImageStatus
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $SaveRefImageStatusErrorCopyWith<$Res>? get error {
     if (_value.error == null) {
       return null;
@@ -356,15 +358,16 @@ class _$SaveRefImageStatusCompletedCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SaveRefImageStatusCompleted
+class _$SaveRefImageStatusCompletedImpl
     with DiagnosticableTreeMixin
     implements SaveRefImageStatusCompleted {
-  const _$SaveRefImageStatusCompleted(
-      {required this.imageId, this.error, String? $type})
+  const _$SaveRefImageStatusCompletedImpl(
+      {required this.imageId, this.error, final String? $type})
       : $type = $type ?? 'completed';
 
-  factory _$SaveRefImageStatusCompleted.fromJson(Map<String, dynamic> json) =>
-      _$$SaveRefImageStatusCompletedFromJson(json);
+  factory _$SaveRefImageStatusCompletedImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$SaveRefImageStatusCompletedImplFromJson(json);
 
   @override
   final String imageId;
@@ -389,25 +392,26 @@ class _$SaveRefImageStatusCompleted
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SaveRefImageStatusCompleted &&
-            const DeepCollectionEquality().equals(other.imageId, imageId) &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$SaveRefImageStatusCompletedImpl &&
+            (identical(other.imageId, imageId) || other.imageId == imageId) &&
+            (identical(other.error, error) || other.error == error));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(imageId),
-      const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, imageId, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SaveRefImageStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $SaveRefImageStatusCompletedCopyWith<SaveRefImageStatusCompleted>
-      get copyWith => _$SaveRefImageStatusCompletedCopyWithImpl<
-          SaveRefImageStatusCompleted>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SaveRefImageStatusCompletedImplCopyWith<_$SaveRefImageStatusCompletedImpl>
+      get copyWith => __$$SaveRefImageStatusCompletedImplCopyWithImpl<
+          _$SaveRefImageStatusCompletedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -422,8 +426,9 @@ class _$SaveRefImageStatusCompleted
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String imageId)? inProgress,
-    TResult Function(String imageId, SaveRefImageStatusError? error)? completed,
+    TResult? Function(String imageId)? inProgress,
+    TResult? Function(String imageId, SaveRefImageStatusError? error)?
+        completed,
   }) {
     return completed?.call(imageId, error);
   }
@@ -453,8 +458,8 @@ class _$SaveRefImageStatusCompleted
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SaveRefImageStatusProgress value)? inProgress,
-    TResult Function(SaveRefImageStatusCompleted value)? completed,
+    TResult? Function(SaveRefImageStatusProgress value)? inProgress,
+    TResult? Function(SaveRefImageStatusCompleted value)? completed,
   }) {
     return completed?.call(this);
   }
@@ -474,24 +479,30 @@ class _$SaveRefImageStatusCompleted
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SaveRefImageStatusCompletedToJson(this);
+    return _$$SaveRefImageStatusCompletedImplToJson(
+      this,
+    );
   }
 }
 
 abstract class SaveRefImageStatusCompleted implements SaveRefImageStatus {
   const factory SaveRefImageStatusCompleted(
-      {required String imageId,
-      SaveRefImageStatusError? error}) = _$SaveRefImageStatusCompleted;
+          {required final String imageId,
+          final SaveRefImageStatusError? error}) =
+      _$SaveRefImageStatusCompletedImpl;
 
   factory SaveRefImageStatusCompleted.fromJson(Map<String, dynamic> json) =
-      _$SaveRefImageStatusCompleted.fromJson;
+      _$SaveRefImageStatusCompletedImpl.fromJson;
 
   @override
   String get imageId;
   SaveRefImageStatusError? get error;
+
+  /// Create a copy of SaveRefImageStatus
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  $SaveRefImageStatusCompletedCopyWith<SaveRefImageStatusCompleted>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SaveRefImageStatusCompletedImplCopyWith<_$SaveRefImageStatusCompletedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -515,38 +526,8 @@ SaveRefImageStatusError _$SaveRefImageStatusErrorFromJson(
 }
 
 /// @nodoc
-class _$SaveRefImageStatusErrorTearOff {
-  const _$SaveRefImageStatusErrorTearOff();
-
-  SaveRefImageStatusErrorSaveImage saveImage(SaveRefImageError error) {
-    return SaveRefImageStatusErrorSaveImage(
-      error,
-    );
-  }
-
-  SaveRefImageStatusErrorGenerateThumbnail generateThumbnail(
-      GenerateThumbnailError error) {
-    return SaveRefImageStatusErrorGenerateThumbnail(
-      error,
-    );
-  }
-
-  SaveRefImageStatusErrorSaveThumbnail saveThumbnail(SaveThumbnailError error) {
-    return SaveRefImageStatusErrorSaveThumbnail(
-      error,
-    );
-  }
-
-  SaveRefImageStatusError fromJson(Map<String, Object?> json) {
-    return SaveRefImageStatusError.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SaveRefImageStatusError = _$SaveRefImageStatusErrorTearOff();
-
-/// @nodoc
 mixin _$SaveRefImageStatusError {
+  Object get error => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SaveRefImageError error) saveImage,
@@ -556,9 +537,9 @@ mixin _$SaveRefImageStatusError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(SaveRefImageError error)? saveImage,
-    TResult Function(GenerateThumbnailError error)? generateThumbnail,
-    TResult Function(SaveThumbnailError error)? saveThumbnail,
+    TResult? Function(SaveRefImageError error)? saveImage,
+    TResult? Function(GenerateThumbnailError error)? generateThumbnail,
+    TResult? Function(SaveThumbnailError error)? saveThumbnail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -580,10 +561,11 @@ mixin _$SaveRefImageStatusError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SaveRefImageStatusErrorSaveImage value)? saveImage,
-    TResult Function(SaveRefImageStatusErrorGenerateThumbnail value)?
+    TResult? Function(SaveRefImageStatusErrorSaveImage value)? saveImage,
+    TResult? Function(SaveRefImageStatusErrorGenerateThumbnail value)?
         generateThumbnail,
-    TResult Function(SaveRefImageStatusErrorSaveThumbnail value)? saveThumbnail,
+    TResult? Function(SaveRefImageStatusErrorSaveThumbnail value)?
+        saveThumbnail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -595,6 +577,8 @@ mixin _$SaveRefImageStatusError {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this SaveRefImageStatusError to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
@@ -602,56 +586,65 @@ mixin _$SaveRefImageStatusError {
 abstract class $SaveRefImageStatusErrorCopyWith<$Res> {
   factory $SaveRefImageStatusErrorCopyWith(SaveRefImageStatusError value,
           $Res Function(SaveRefImageStatusError) then) =
-      _$SaveRefImageStatusErrorCopyWithImpl<$Res>;
+      _$SaveRefImageStatusErrorCopyWithImpl<$Res, SaveRefImageStatusError>;
 }
 
 /// @nodoc
-class _$SaveRefImageStatusErrorCopyWithImpl<$Res>
+class _$SaveRefImageStatusErrorCopyWithImpl<$Res,
+        $Val extends SaveRefImageStatusError>
     implements $SaveRefImageStatusErrorCopyWith<$Res> {
   _$SaveRefImageStatusErrorCopyWithImpl(this._value, this._then);
 
-  final SaveRefImageStatusError _value;
   // ignore: unused_field
-  final $Res Function(SaveRefImageStatusError) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of SaveRefImageStatusError
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class $SaveRefImageStatusErrorSaveImageCopyWith<$Res> {
-  factory $SaveRefImageStatusErrorSaveImageCopyWith(
-          SaveRefImageStatusErrorSaveImage value,
-          $Res Function(SaveRefImageStatusErrorSaveImage) then) =
-      _$SaveRefImageStatusErrorSaveImageCopyWithImpl<$Res>;
+abstract class _$$SaveRefImageStatusErrorSaveImageImplCopyWith<$Res> {
+  factory _$$SaveRefImageStatusErrorSaveImageImplCopyWith(
+          _$SaveRefImageStatusErrorSaveImageImpl value,
+          $Res Function(_$SaveRefImageStatusErrorSaveImageImpl) then) =
+      __$$SaveRefImageStatusErrorSaveImageImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({SaveRefImageError error});
 
   $SaveRefImageErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
-class _$SaveRefImageStatusErrorSaveImageCopyWithImpl<$Res>
-    extends _$SaveRefImageStatusErrorCopyWithImpl<$Res>
-    implements $SaveRefImageStatusErrorSaveImageCopyWith<$Res> {
-  _$SaveRefImageStatusErrorSaveImageCopyWithImpl(
-      SaveRefImageStatusErrorSaveImage _value,
-      $Res Function(SaveRefImageStatusErrorSaveImage) _then)
-      : super(_value, (v) => _then(v as SaveRefImageStatusErrorSaveImage));
+class __$$SaveRefImageStatusErrorSaveImageImplCopyWithImpl<$Res>
+    extends _$SaveRefImageStatusErrorCopyWithImpl<$Res,
+        _$SaveRefImageStatusErrorSaveImageImpl>
+    implements _$$SaveRefImageStatusErrorSaveImageImplCopyWith<$Res> {
+  __$$SaveRefImageStatusErrorSaveImageImplCopyWithImpl(
+      _$SaveRefImageStatusErrorSaveImageImpl _value,
+      $Res Function(_$SaveRefImageStatusErrorSaveImageImpl) _then)
+      : super(_value, _then);
 
-  @override
-  SaveRefImageStatusErrorSaveImage get _value =>
-      super._value as SaveRefImageStatusErrorSaveImage;
-
+  /// Create a copy of SaveRefImageStatusError
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
-    return _then(SaveRefImageStatusErrorSaveImage(
-      error == freezed
+    return _then(_$SaveRefImageStatusErrorSaveImageImpl(
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as SaveRefImageError,
     ));
   }
 
+  /// Create a copy of SaveRefImageStatusError
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $SaveRefImageErrorCopyWith<$Res> get error {
     return $SaveRefImageErrorCopyWith<$Res>(_value.error, (value) {
       return _then(_value.copyWith(error: value));
@@ -661,15 +654,16 @@ class _$SaveRefImageStatusErrorSaveImageCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SaveRefImageStatusErrorSaveImage
+class _$SaveRefImageStatusErrorSaveImageImpl
     with DiagnosticableTreeMixin
     implements SaveRefImageStatusErrorSaveImage {
-  const _$SaveRefImageStatusErrorSaveImage(this.error, {String? $type})
+  const _$SaveRefImageStatusErrorSaveImageImpl(this.error,
+      {final String? $type})
       : $type = $type ?? 'saveImage';
 
-  factory _$SaveRefImageStatusErrorSaveImage.fromJson(
+  factory _$SaveRefImageStatusErrorSaveImageImpl.fromJson(
           Map<String, dynamic> json) =>
-      _$$SaveRefImageStatusErrorSaveImageFromJson(json);
+      _$$SaveRefImageStatusErrorSaveImageImplFromJson(json);
 
   @override
   final SaveRefImageError error;
@@ -691,22 +685,26 @@ class _$SaveRefImageStatusErrorSaveImage
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SaveRefImageStatusErrorSaveImage &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$SaveRefImageStatusErrorSaveImageImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SaveRefImageStatusError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $SaveRefImageStatusErrorSaveImageCopyWith<SaveRefImageStatusErrorSaveImage>
-      get copyWith => _$SaveRefImageStatusErrorSaveImageCopyWithImpl<
-          SaveRefImageStatusErrorSaveImage>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SaveRefImageStatusErrorSaveImageImplCopyWith<
+          _$SaveRefImageStatusErrorSaveImageImpl>
+      get copyWith => __$$SaveRefImageStatusErrorSaveImageImplCopyWithImpl<
+          _$SaveRefImageStatusErrorSaveImageImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -721,9 +719,9 @@ class _$SaveRefImageStatusErrorSaveImage
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(SaveRefImageError error)? saveImage,
-    TResult Function(GenerateThumbnailError error)? generateThumbnail,
-    TResult Function(SaveThumbnailError error)? saveThumbnail,
+    TResult? Function(SaveRefImageError error)? saveImage,
+    TResult? Function(GenerateThumbnailError error)? generateThumbnail,
+    TResult? Function(SaveThumbnailError error)? saveThumbnail,
   }) {
     return saveImage?.call(error);
   }
@@ -757,10 +755,11 @@ class _$SaveRefImageStatusErrorSaveImage
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SaveRefImageStatusErrorSaveImage value)? saveImage,
-    TResult Function(SaveRefImageStatusErrorGenerateThumbnail value)?
+    TResult? Function(SaveRefImageStatusErrorSaveImage value)? saveImage,
+    TResult? Function(SaveRefImageStatusErrorGenerateThumbnail value)?
         generateThumbnail,
-    TResult Function(SaveRefImageStatusErrorSaveThumbnail value)? saveThumbnail,
+    TResult? Function(SaveRefImageStatusErrorSaveThumbnail value)?
+        saveThumbnail,
   }) {
     return saveImage?.call(this);
   }
@@ -782,62 +781,72 @@ class _$SaveRefImageStatusErrorSaveImage
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SaveRefImageStatusErrorSaveImageToJson(this);
+    return _$$SaveRefImageStatusErrorSaveImageImplToJson(
+      this,
+    );
   }
 }
 
 abstract class SaveRefImageStatusErrorSaveImage
     implements SaveRefImageStatusError {
-  const factory SaveRefImageStatusErrorSaveImage(SaveRefImageError error) =
-      _$SaveRefImageStatusErrorSaveImage;
+  const factory SaveRefImageStatusErrorSaveImage(
+      final SaveRefImageError error) = _$SaveRefImageStatusErrorSaveImageImpl;
 
   factory SaveRefImageStatusErrorSaveImage.fromJson(Map<String, dynamic> json) =
-      _$SaveRefImageStatusErrorSaveImage.fromJson;
+      _$SaveRefImageStatusErrorSaveImageImpl.fromJson;
 
+  @override
   SaveRefImageError get error;
-  @JsonKey(ignore: true)
-  $SaveRefImageStatusErrorSaveImageCopyWith<SaveRefImageStatusErrorSaveImage>
+
+  /// Create a copy of SaveRefImageStatusError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SaveRefImageStatusErrorSaveImageImplCopyWith<
+          _$SaveRefImageStatusErrorSaveImageImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SaveRefImageStatusErrorGenerateThumbnailCopyWith<$Res> {
-  factory $SaveRefImageStatusErrorGenerateThumbnailCopyWith(
-          SaveRefImageStatusErrorGenerateThumbnail value,
-          $Res Function(SaveRefImageStatusErrorGenerateThumbnail) then) =
-      _$SaveRefImageStatusErrorGenerateThumbnailCopyWithImpl<$Res>;
+abstract class _$$SaveRefImageStatusErrorGenerateThumbnailImplCopyWith<$Res> {
+  factory _$$SaveRefImageStatusErrorGenerateThumbnailImplCopyWith(
+          _$SaveRefImageStatusErrorGenerateThumbnailImpl value,
+          $Res Function(_$SaveRefImageStatusErrorGenerateThumbnailImpl) then) =
+      __$$SaveRefImageStatusErrorGenerateThumbnailImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({GenerateThumbnailError error});
 
   $GenerateThumbnailErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
-class _$SaveRefImageStatusErrorGenerateThumbnailCopyWithImpl<$Res>
-    extends _$SaveRefImageStatusErrorCopyWithImpl<$Res>
-    implements $SaveRefImageStatusErrorGenerateThumbnailCopyWith<$Res> {
-  _$SaveRefImageStatusErrorGenerateThumbnailCopyWithImpl(
-      SaveRefImageStatusErrorGenerateThumbnail _value,
-      $Res Function(SaveRefImageStatusErrorGenerateThumbnail) _then)
-      : super(_value,
-            (v) => _then(v as SaveRefImageStatusErrorGenerateThumbnail));
+class __$$SaveRefImageStatusErrorGenerateThumbnailImplCopyWithImpl<$Res>
+    extends _$SaveRefImageStatusErrorCopyWithImpl<$Res,
+        _$SaveRefImageStatusErrorGenerateThumbnailImpl>
+    implements _$$SaveRefImageStatusErrorGenerateThumbnailImplCopyWith<$Res> {
+  __$$SaveRefImageStatusErrorGenerateThumbnailImplCopyWithImpl(
+      _$SaveRefImageStatusErrorGenerateThumbnailImpl _value,
+      $Res Function(_$SaveRefImageStatusErrorGenerateThumbnailImpl) _then)
+      : super(_value, _then);
 
-  @override
-  SaveRefImageStatusErrorGenerateThumbnail get _value =>
-      super._value as SaveRefImageStatusErrorGenerateThumbnail;
-
+  /// Create a copy of SaveRefImageStatusError
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
-    return _then(SaveRefImageStatusErrorGenerateThumbnail(
-      error == freezed
+    return _then(_$SaveRefImageStatusErrorGenerateThumbnailImpl(
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as GenerateThumbnailError,
     ));
   }
 
+  /// Create a copy of SaveRefImageStatusError
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $GenerateThumbnailErrorCopyWith<$Res> get error {
     return $GenerateThumbnailErrorCopyWith<$Res>(_value.error, (value) {
       return _then(_value.copyWith(error: value));
@@ -847,15 +856,16 @@ class _$SaveRefImageStatusErrorGenerateThumbnailCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SaveRefImageStatusErrorGenerateThumbnail
+class _$SaveRefImageStatusErrorGenerateThumbnailImpl
     with DiagnosticableTreeMixin
     implements SaveRefImageStatusErrorGenerateThumbnail {
-  const _$SaveRefImageStatusErrorGenerateThumbnail(this.error, {String? $type})
+  const _$SaveRefImageStatusErrorGenerateThumbnailImpl(this.error,
+      {final String? $type})
       : $type = $type ?? 'generateThumbnail';
 
-  factory _$SaveRefImageStatusErrorGenerateThumbnail.fromJson(
+  factory _$SaveRefImageStatusErrorGenerateThumbnailImpl.fromJson(
           Map<String, dynamic> json) =>
-      _$$SaveRefImageStatusErrorGenerateThumbnailFromJson(json);
+      _$$SaveRefImageStatusErrorGenerateThumbnailImplFromJson(json);
 
   @override
   final GenerateThumbnailError error;
@@ -878,23 +888,27 @@ class _$SaveRefImageStatusErrorGenerateThumbnail
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SaveRefImageStatusErrorGenerateThumbnail &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$SaveRefImageStatusErrorGenerateThumbnailImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SaveRefImageStatusError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $SaveRefImageStatusErrorGenerateThumbnailCopyWith<
-          SaveRefImageStatusErrorGenerateThumbnail>
-      get copyWith => _$SaveRefImageStatusErrorGenerateThumbnailCopyWithImpl<
-          SaveRefImageStatusErrorGenerateThumbnail>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SaveRefImageStatusErrorGenerateThumbnailImplCopyWith<
+          _$SaveRefImageStatusErrorGenerateThumbnailImpl>
+      get copyWith =>
+          __$$SaveRefImageStatusErrorGenerateThumbnailImplCopyWithImpl<
+              _$SaveRefImageStatusErrorGenerateThumbnailImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -909,9 +923,9 @@ class _$SaveRefImageStatusErrorGenerateThumbnail
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(SaveRefImageError error)? saveImage,
-    TResult Function(GenerateThumbnailError error)? generateThumbnail,
-    TResult Function(SaveThumbnailError error)? saveThumbnail,
+    TResult? Function(SaveRefImageError error)? saveImage,
+    TResult? Function(GenerateThumbnailError error)? generateThumbnail,
+    TResult? Function(SaveThumbnailError error)? saveThumbnail,
   }) {
     return generateThumbnail?.call(error);
   }
@@ -945,10 +959,11 @@ class _$SaveRefImageStatusErrorGenerateThumbnail
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SaveRefImageStatusErrorSaveImage value)? saveImage,
-    TResult Function(SaveRefImageStatusErrorGenerateThumbnail value)?
+    TResult? Function(SaveRefImageStatusErrorSaveImage value)? saveImage,
+    TResult? Function(SaveRefImageStatusErrorGenerateThumbnail value)?
         generateThumbnail,
-    TResult Function(SaveRefImageStatusErrorSaveThumbnail value)? saveThumbnail,
+    TResult? Function(SaveRefImageStatusErrorSaveThumbnail value)?
+        saveThumbnail,
   }) {
     return generateThumbnail?.call(this);
   }
@@ -970,64 +985,74 @@ class _$SaveRefImageStatusErrorGenerateThumbnail
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SaveRefImageStatusErrorGenerateThumbnailToJson(this);
+    return _$$SaveRefImageStatusErrorGenerateThumbnailImplToJson(
+      this,
+    );
   }
 }
 
 abstract class SaveRefImageStatusErrorGenerateThumbnail
     implements SaveRefImageStatusError {
   const factory SaveRefImageStatusErrorGenerateThumbnail(
-          GenerateThumbnailError error) =
-      _$SaveRefImageStatusErrorGenerateThumbnail;
+          final GenerateThumbnailError error) =
+      _$SaveRefImageStatusErrorGenerateThumbnailImpl;
 
   factory SaveRefImageStatusErrorGenerateThumbnail.fromJson(
           Map<String, dynamic> json) =
-      _$SaveRefImageStatusErrorGenerateThumbnail.fromJson;
+      _$SaveRefImageStatusErrorGenerateThumbnailImpl.fromJson;
 
+  @override
   GenerateThumbnailError get error;
-  @JsonKey(ignore: true)
-  $SaveRefImageStatusErrorGenerateThumbnailCopyWith<
-          SaveRefImageStatusErrorGenerateThumbnail>
+
+  /// Create a copy of SaveRefImageStatusError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SaveRefImageStatusErrorGenerateThumbnailImplCopyWith<
+          _$SaveRefImageStatusErrorGenerateThumbnailImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SaveRefImageStatusErrorSaveThumbnailCopyWith<$Res> {
-  factory $SaveRefImageStatusErrorSaveThumbnailCopyWith(
-          SaveRefImageStatusErrorSaveThumbnail value,
-          $Res Function(SaveRefImageStatusErrorSaveThumbnail) then) =
-      _$SaveRefImageStatusErrorSaveThumbnailCopyWithImpl<$Res>;
+abstract class _$$SaveRefImageStatusErrorSaveThumbnailImplCopyWith<$Res> {
+  factory _$$SaveRefImageStatusErrorSaveThumbnailImplCopyWith(
+          _$SaveRefImageStatusErrorSaveThumbnailImpl value,
+          $Res Function(_$SaveRefImageStatusErrorSaveThumbnailImpl) then) =
+      __$$SaveRefImageStatusErrorSaveThumbnailImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({SaveThumbnailError error});
 
   $SaveThumbnailErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
-class _$SaveRefImageStatusErrorSaveThumbnailCopyWithImpl<$Res>
-    extends _$SaveRefImageStatusErrorCopyWithImpl<$Res>
-    implements $SaveRefImageStatusErrorSaveThumbnailCopyWith<$Res> {
-  _$SaveRefImageStatusErrorSaveThumbnailCopyWithImpl(
-      SaveRefImageStatusErrorSaveThumbnail _value,
-      $Res Function(SaveRefImageStatusErrorSaveThumbnail) _then)
-      : super(_value, (v) => _then(v as SaveRefImageStatusErrorSaveThumbnail));
+class __$$SaveRefImageStatusErrorSaveThumbnailImplCopyWithImpl<$Res>
+    extends _$SaveRefImageStatusErrorCopyWithImpl<$Res,
+        _$SaveRefImageStatusErrorSaveThumbnailImpl>
+    implements _$$SaveRefImageStatusErrorSaveThumbnailImplCopyWith<$Res> {
+  __$$SaveRefImageStatusErrorSaveThumbnailImplCopyWithImpl(
+      _$SaveRefImageStatusErrorSaveThumbnailImpl _value,
+      $Res Function(_$SaveRefImageStatusErrorSaveThumbnailImpl) _then)
+      : super(_value, _then);
 
-  @override
-  SaveRefImageStatusErrorSaveThumbnail get _value =>
-      super._value as SaveRefImageStatusErrorSaveThumbnail;
-
+  /// Create a copy of SaveRefImageStatusError
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
-    return _then(SaveRefImageStatusErrorSaveThumbnail(
-      error == freezed
+    return _then(_$SaveRefImageStatusErrorSaveThumbnailImpl(
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as SaveThumbnailError,
     ));
   }
 
+  /// Create a copy of SaveRefImageStatusError
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $SaveThumbnailErrorCopyWith<$Res> get error {
     return $SaveThumbnailErrorCopyWith<$Res>(_value.error, (value) {
       return _then(_value.copyWith(error: value));
@@ -1037,15 +1062,16 @@ class _$SaveRefImageStatusErrorSaveThumbnailCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SaveRefImageStatusErrorSaveThumbnail
+class _$SaveRefImageStatusErrorSaveThumbnailImpl
     with DiagnosticableTreeMixin
     implements SaveRefImageStatusErrorSaveThumbnail {
-  const _$SaveRefImageStatusErrorSaveThumbnail(this.error, {String? $type})
+  const _$SaveRefImageStatusErrorSaveThumbnailImpl(this.error,
+      {final String? $type})
       : $type = $type ?? 'saveThumbnail';
 
-  factory _$SaveRefImageStatusErrorSaveThumbnail.fromJson(
+  factory _$SaveRefImageStatusErrorSaveThumbnailImpl.fromJson(
           Map<String, dynamic> json) =>
-      _$$SaveRefImageStatusErrorSaveThumbnailFromJson(json);
+      _$$SaveRefImageStatusErrorSaveThumbnailImplFromJson(json);
 
   @override
   final SaveThumbnailError error;
@@ -1068,23 +1094,26 @@ class _$SaveRefImageStatusErrorSaveThumbnail
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SaveRefImageStatusErrorSaveThumbnail &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$SaveRefImageStatusErrorSaveThumbnailImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SaveRefImageStatusError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $SaveRefImageStatusErrorSaveThumbnailCopyWith<
-          SaveRefImageStatusErrorSaveThumbnail>
-      get copyWith => _$SaveRefImageStatusErrorSaveThumbnailCopyWithImpl<
-          SaveRefImageStatusErrorSaveThumbnail>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SaveRefImageStatusErrorSaveThumbnailImplCopyWith<
+          _$SaveRefImageStatusErrorSaveThumbnailImpl>
+      get copyWith => __$$SaveRefImageStatusErrorSaveThumbnailImplCopyWithImpl<
+          _$SaveRefImageStatusErrorSaveThumbnailImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1099,9 +1128,9 @@ class _$SaveRefImageStatusErrorSaveThumbnail
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(SaveRefImageError error)? saveImage,
-    TResult Function(GenerateThumbnailError error)? generateThumbnail,
-    TResult Function(SaveThumbnailError error)? saveThumbnail,
+    TResult? Function(SaveRefImageError error)? saveImage,
+    TResult? Function(GenerateThumbnailError error)? generateThumbnail,
+    TResult? Function(SaveThumbnailError error)? saveThumbnail,
   }) {
     return saveThumbnail?.call(error);
   }
@@ -1135,10 +1164,11 @@ class _$SaveRefImageStatusErrorSaveThumbnail
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SaveRefImageStatusErrorSaveImage value)? saveImage,
-    TResult Function(SaveRefImageStatusErrorGenerateThumbnail value)?
+    TResult? Function(SaveRefImageStatusErrorSaveImage value)? saveImage,
+    TResult? Function(SaveRefImageStatusErrorGenerateThumbnail value)?
         generateThumbnail,
-    TResult Function(SaveRefImageStatusErrorSaveThumbnail value)? saveThumbnail,
+    TResult? Function(SaveRefImageStatusErrorSaveThumbnail value)?
+        saveThumbnail,
   }) {
     return saveThumbnail?.call(this);
   }
@@ -1160,22 +1190,29 @@ class _$SaveRefImageStatusErrorSaveThumbnail
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SaveRefImageStatusErrorSaveThumbnailToJson(this);
+    return _$$SaveRefImageStatusErrorSaveThumbnailImplToJson(
+      this,
+    );
   }
 }
 
 abstract class SaveRefImageStatusErrorSaveThumbnail
     implements SaveRefImageStatusError {
-  const factory SaveRefImageStatusErrorSaveThumbnail(SaveThumbnailError error) =
-      _$SaveRefImageStatusErrorSaveThumbnail;
+  const factory SaveRefImageStatusErrorSaveThumbnail(
+          final SaveThumbnailError error) =
+      _$SaveRefImageStatusErrorSaveThumbnailImpl;
 
   factory SaveRefImageStatusErrorSaveThumbnail.fromJson(
           Map<String, dynamic> json) =
-      _$SaveRefImageStatusErrorSaveThumbnail.fromJson;
+      _$SaveRefImageStatusErrorSaveThumbnailImpl.fromJson;
 
+  @override
   SaveThumbnailError get error;
-  @JsonKey(ignore: true)
-  $SaveRefImageStatusErrorSaveThumbnailCopyWith<
-          SaveRefImageStatusErrorSaveThumbnail>
+
+  /// Create a copy of SaveRefImageStatusError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SaveRefImageStatusErrorSaveThumbnailImplCopyWith<
+          _$SaveRefImageStatusErrorSaveThumbnailImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

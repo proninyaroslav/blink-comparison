@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'app_cubit.dart';
 
@@ -12,44 +12,13 @@ part of 'app_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$AppStateTearOff {
-  const _$AppStateTearOff();
-
-  AppStateInitial initial(
-      {required AppThemeType theme,
-      required AppLocaleType locale,
-      required bool cameraFullscreenMode}) {
-    return AppStateInitial(
-      theme: theme,
-      locale: locale,
-      cameraFullscreenMode: cameraFullscreenMode,
-    );
-  }
-
-  AppStateChanged changed(
-      {required AppThemeType theme,
-      required AppLocaleType locale,
-      required bool cameraFullscreenMode}) {
-    return AppStateChanged(
-      theme: theme,
-      locale: locale,
-      cameraFullscreenMode: cameraFullscreenMode,
-    );
-  }
-}
-
-/// @nodoc
-const $AppState = _$AppStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AppState {
   AppThemeType get theme => throw _privateConstructorUsedError;
   AppLocaleType get locale => throw _privateConstructorUsedError;
   bool get cameraFullscreenMode => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
@@ -62,10 +31,10 @@ mixin _$AppState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(AppThemeType theme, AppLocaleType locale,
+    TResult? Function(AppThemeType theme, AppLocaleType locale,
             bool cameraFullscreenMode)?
         initial,
-    TResult Function(AppThemeType theme, AppLocaleType locale,
+    TResult? Function(AppThemeType theme, AppLocaleType locale,
             bool cameraFullscreenMode)?
         changed,
   }) =>
@@ -89,8 +58,8 @@ mixin _$AppState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AppStateInitial value)? initial,
-    TResult Function(AppStateChanged value)? changed,
+    TResult? Function(AppStateInitial value)? initial,
+    TResult? Function(AppStateChanged value)? changed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -101,7 +70,9 @@ mixin _$AppState {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AppStateCopyWith<AppState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -109,7 +80,8 @@ mixin _$AppState {
 /// @nodoc
 abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
-      _$AppStateCopyWithImpl<$Res>;
+      _$AppStateCopyWithImpl<$Res, AppState>;
+  @useResult
   $Res call(
       {AppThemeType theme, AppLocaleType locale, bool cameraFullscreenMode});
 
@@ -118,57 +90,69 @@ abstract class $AppStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
+class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
+    implements $AppStateCopyWith<$Res> {
   _$AppStateCopyWithImpl(this._value, this._then);
 
-  final AppState _value;
   // ignore: unused_field
-  final $Res Function(AppState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? theme = freezed,
-    Object? locale = freezed,
-    Object? cameraFullscreenMode = freezed,
+    Object? theme = null,
+    Object? locale = null,
+    Object? cameraFullscreenMode = null,
   }) {
     return _then(_value.copyWith(
-      theme: theme == freezed
+      theme: null == theme
           ? _value.theme
           : theme // ignore: cast_nullable_to_non_nullable
               as AppThemeType,
-      locale: locale == freezed
+      locale: null == locale
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as AppLocaleType,
-      cameraFullscreenMode: cameraFullscreenMode == freezed
+      cameraFullscreenMode: null == cameraFullscreenMode
           ? _value.cameraFullscreenMode
           : cameraFullscreenMode // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $AppThemeTypeCopyWith<$Res> get theme {
     return $AppThemeTypeCopyWith<$Res>(_value.theme, (value) {
-      return _then(_value.copyWith(theme: value));
+      return _then(_value.copyWith(theme: value) as $Val);
     });
   }
 
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $AppLocaleTypeCopyWith<$Res> get locale {
     return $AppLocaleTypeCopyWith<$Res>(_value.locale, (value) {
-      return _then(_value.copyWith(locale: value));
+      return _then(_value.copyWith(locale: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class $AppStateInitialCopyWith<$Res>
+abstract class _$$AppStateInitialImplCopyWith<$Res>
     implements $AppStateCopyWith<$Res> {
-  factory $AppStateInitialCopyWith(
-          AppStateInitial value, $Res Function(AppStateInitial) then) =
-      _$AppStateInitialCopyWithImpl<$Res>;
+  factory _$$AppStateInitialImplCopyWith(_$AppStateInitialImpl value,
+          $Res Function(_$AppStateInitialImpl) then) =
+      __$$AppStateInitialImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {AppThemeType theme, AppLocaleType locale, bool cameraFullscreenMode});
 
@@ -179,31 +163,32 @@ abstract class $AppStateInitialCopyWith<$Res>
 }
 
 /// @nodoc
-class _$AppStateInitialCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
-    implements $AppStateInitialCopyWith<$Res> {
-  _$AppStateInitialCopyWithImpl(
-      AppStateInitial _value, $Res Function(AppStateInitial) _then)
-      : super(_value, (v) => _then(v as AppStateInitial));
+class __$$AppStateInitialImplCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$AppStateInitialImpl>
+    implements _$$AppStateInitialImplCopyWith<$Res> {
+  __$$AppStateInitialImplCopyWithImpl(
+      _$AppStateInitialImpl _value, $Res Function(_$AppStateInitialImpl) _then)
+      : super(_value, _then);
 
-  @override
-  AppStateInitial get _value => super._value as AppStateInitial;
-
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? theme = freezed,
-    Object? locale = freezed,
-    Object? cameraFullscreenMode = freezed,
+    Object? theme = null,
+    Object? locale = null,
+    Object? cameraFullscreenMode = null,
   }) {
-    return _then(AppStateInitial(
-      theme: theme == freezed
+    return _then(_$AppStateInitialImpl(
+      theme: null == theme
           ? _value.theme
           : theme // ignore: cast_nullable_to_non_nullable
               as AppThemeType,
-      locale: locale == freezed
+      locale: null == locale
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as AppLocaleType,
-      cameraFullscreenMode: cameraFullscreenMode == freezed
+      cameraFullscreenMode: null == cameraFullscreenMode
           ? _value.cameraFullscreenMode
           : cameraFullscreenMode // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -213,8 +198,8 @@ class _$AppStateInitialCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AppStateInitial implements AppStateInitial {
-  const _$AppStateInitial(
+class _$AppStateInitialImpl implements AppStateInitial {
+  const _$AppStateInitialImpl(
       {required this.theme,
       required this.locale,
       required this.cameraFullscreenMode});
@@ -232,27 +217,28 @@ class _$AppStateInitial implements AppStateInitial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is AppStateInitial &&
-            const DeepCollectionEquality().equals(other.theme, theme) &&
-            const DeepCollectionEquality().equals(other.locale, locale) &&
-            const DeepCollectionEquality()
-                .equals(other.cameraFullscreenMode, cameraFullscreenMode));
+            other is _$AppStateInitialImpl &&
+            (identical(other.theme, theme) || other.theme == theme) &&
+            (identical(other.locale, locale) || other.locale == locale) &&
+            (identical(other.cameraFullscreenMode, cameraFullscreenMode) ||
+                other.cameraFullscreenMode == cameraFullscreenMode));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(theme),
-      const DeepCollectionEquality().hash(locale),
-      const DeepCollectionEquality().hash(cameraFullscreenMode));
+  int get hashCode =>
+      Object.hash(runtimeType, theme, locale, cameraFullscreenMode);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $AppStateInitialCopyWith<AppStateInitial> get copyWith =>
-      _$AppStateInitialCopyWithImpl<AppStateInitial>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$AppStateInitialImplCopyWith<_$AppStateInitialImpl> get copyWith =>
+      __$$AppStateInitialImplCopyWithImpl<_$AppStateInitialImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -270,10 +256,10 @@ class _$AppStateInitial implements AppStateInitial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(AppThemeType theme, AppLocaleType locale,
+    TResult? Function(AppThemeType theme, AppLocaleType locale,
             bool cameraFullscreenMode)?
         initial,
-    TResult Function(AppThemeType theme, AppLocaleType locale,
+    TResult? Function(AppThemeType theme, AppLocaleType locale,
             bool cameraFullscreenMode)?
         changed,
   }) {
@@ -309,8 +295,8 @@ class _$AppStateInitial implements AppStateInitial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AppStateInitial value)? initial,
-    TResult Function(AppStateChanged value)? changed,
+    TResult? Function(AppStateInitial value)? initial,
+    TResult? Function(AppStateChanged value)? changed,
   }) {
     return initial?.call(this);
   }
@@ -331,9 +317,9 @@ class _$AppStateInitial implements AppStateInitial {
 
 abstract class AppStateInitial implements AppState {
   const factory AppStateInitial(
-      {required AppThemeType theme,
-      required AppLocaleType locale,
-      required bool cameraFullscreenMode}) = _$AppStateInitial;
+      {required final AppThemeType theme,
+      required final AppLocaleType locale,
+      required final bool cameraFullscreenMode}) = _$AppStateInitialImpl;
 
   @override
   AppThemeType get theme;
@@ -341,19 +327,23 @@ abstract class AppStateInitial implements AppState {
   AppLocaleType get locale;
   @override
   bool get cameraFullscreenMode;
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  $AppStateInitialCopyWith<AppStateInitial> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AppStateInitialImplCopyWith<_$AppStateInitialImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AppStateChangedCopyWith<$Res>
+abstract class _$$AppStateChangedImplCopyWith<$Res>
     implements $AppStateCopyWith<$Res> {
-  factory $AppStateChangedCopyWith(
-          AppStateChanged value, $Res Function(AppStateChanged) then) =
-      _$AppStateChangedCopyWithImpl<$Res>;
+  factory _$$AppStateChangedImplCopyWith(_$AppStateChangedImpl value,
+          $Res Function(_$AppStateChangedImpl) then) =
+      __$$AppStateChangedImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {AppThemeType theme, AppLocaleType locale, bool cameraFullscreenMode});
 
@@ -364,31 +354,32 @@ abstract class $AppStateChangedCopyWith<$Res>
 }
 
 /// @nodoc
-class _$AppStateChangedCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
-    implements $AppStateChangedCopyWith<$Res> {
-  _$AppStateChangedCopyWithImpl(
-      AppStateChanged _value, $Res Function(AppStateChanged) _then)
-      : super(_value, (v) => _then(v as AppStateChanged));
+class __$$AppStateChangedImplCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$AppStateChangedImpl>
+    implements _$$AppStateChangedImplCopyWith<$Res> {
+  __$$AppStateChangedImplCopyWithImpl(
+      _$AppStateChangedImpl _value, $Res Function(_$AppStateChangedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  AppStateChanged get _value => super._value as AppStateChanged;
-
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? theme = freezed,
-    Object? locale = freezed,
-    Object? cameraFullscreenMode = freezed,
+    Object? theme = null,
+    Object? locale = null,
+    Object? cameraFullscreenMode = null,
   }) {
-    return _then(AppStateChanged(
-      theme: theme == freezed
+    return _then(_$AppStateChangedImpl(
+      theme: null == theme
           ? _value.theme
           : theme // ignore: cast_nullable_to_non_nullable
               as AppThemeType,
-      locale: locale == freezed
+      locale: null == locale
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as AppLocaleType,
-      cameraFullscreenMode: cameraFullscreenMode == freezed
+      cameraFullscreenMode: null == cameraFullscreenMode
           ? _value.cameraFullscreenMode
           : cameraFullscreenMode // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -398,8 +389,8 @@ class _$AppStateChangedCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AppStateChanged implements AppStateChanged {
-  const _$AppStateChanged(
+class _$AppStateChangedImpl implements AppStateChanged {
+  const _$AppStateChangedImpl(
       {required this.theme,
       required this.locale,
       required this.cameraFullscreenMode});
@@ -417,27 +408,28 @@ class _$AppStateChanged implements AppStateChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is AppStateChanged &&
-            const DeepCollectionEquality().equals(other.theme, theme) &&
-            const DeepCollectionEquality().equals(other.locale, locale) &&
-            const DeepCollectionEquality()
-                .equals(other.cameraFullscreenMode, cameraFullscreenMode));
+            other is _$AppStateChangedImpl &&
+            (identical(other.theme, theme) || other.theme == theme) &&
+            (identical(other.locale, locale) || other.locale == locale) &&
+            (identical(other.cameraFullscreenMode, cameraFullscreenMode) ||
+                other.cameraFullscreenMode == cameraFullscreenMode));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(theme),
-      const DeepCollectionEquality().hash(locale),
-      const DeepCollectionEquality().hash(cameraFullscreenMode));
+  int get hashCode =>
+      Object.hash(runtimeType, theme, locale, cameraFullscreenMode);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $AppStateChangedCopyWith<AppStateChanged> get copyWith =>
-      _$AppStateChangedCopyWithImpl<AppStateChanged>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$AppStateChangedImplCopyWith<_$AppStateChangedImpl> get copyWith =>
+      __$$AppStateChangedImplCopyWithImpl<_$AppStateChangedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -455,10 +447,10 @@ class _$AppStateChanged implements AppStateChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(AppThemeType theme, AppLocaleType locale,
+    TResult? Function(AppThemeType theme, AppLocaleType locale,
             bool cameraFullscreenMode)?
         initial,
-    TResult Function(AppThemeType theme, AppLocaleType locale,
+    TResult? Function(AppThemeType theme, AppLocaleType locale,
             bool cameraFullscreenMode)?
         changed,
   }) {
@@ -494,8 +486,8 @@ class _$AppStateChanged implements AppStateChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AppStateInitial value)? initial,
-    TResult Function(AppStateChanged value)? changed,
+    TResult? Function(AppStateInitial value)? initial,
+    TResult? Function(AppStateChanged value)? changed,
   }) {
     return changed?.call(this);
   }
@@ -516,9 +508,9 @@ class _$AppStateChanged implements AppStateChanged {
 
 abstract class AppStateChanged implements AppState {
   const factory AppStateChanged(
-      {required AppThemeType theme,
-      required AppLocaleType locale,
-      required bool cameraFullscreenMode}) = _$AppStateChanged;
+      {required final AppThemeType theme,
+      required final AppLocaleType locale,
+      required final bool cameraFullscreenMode}) = _$AppStateChangedImpl;
 
   @override
   AppThemeType get theme;
@@ -526,8 +518,11 @@ abstract class AppStateChanged implements AppState {
   AppLocaleType get locale;
   @override
   bool get cameraFullscreenMode;
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  $AppStateChangedCopyWith<AppStateChanged> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AppStateChangedImplCopyWith<_$AppStateChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

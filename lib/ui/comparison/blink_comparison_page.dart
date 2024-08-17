@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -31,17 +31,18 @@ import 'comparison_settings_cubit.dart';
 final _refImageBorderShowcaseKey = GlobalKey();
 final _blinkComparisonShowcaseKey = GlobalKey();
 
-class BlinkComparisonPage extends StatefulWidget with AutoRouteWrapper {
+@RoutePage()
+class BlinkComparisonPage extends StatefulWidget implements AutoRouteWrapper {
   final ImageProvider refImage;
   final ImageProvider takenPhoto;
   final double aspectRatio;
 
   const BlinkComparisonPage({
-    Key? key,
+    super.key,
     required this.refImage,
     required this.takenPhoto,
     required this.aspectRatio,
-  }) : super(key: key);
+  });
 
   @override
   Widget wrappedRoute(BuildContext context) {
@@ -73,11 +74,14 @@ class _BlinkComparisonPageState extends State<BlinkComparisonPage> {
       precacheImage(widget.refImage, context),
     ]).then(
       (_) {
-        final cubit = context.read<BlinkComparisonCubit>();
-        cubit.state.maybeWhen(
-          initial: () => cubit.switchImage(),
-          orElse: () {},
-        );
+        final c = context;
+        if (c.mounted) {
+          final cubit = c.read<BlinkComparisonCubit>();
+          cubit.state.maybeWhen(
+            initial: () => cubit.switchImage(),
+            orElse: () {},
+          );
+        }
       },
     );
 
@@ -98,12 +102,12 @@ class _BlinkComparisonPageState extends State<BlinkComparisonPage> {
           aspectRatio: widget.aspectRatio,
         );
         return ShowCaseWidget(
-          builder: Builder(builder: (context) {
+          builder: (context) {
             return _Body(
               refImageWidget: refImageWidget,
               takenPhotoWidget: takenPhotoWidget,
             );
-          }),
+          },
           onComplete: (i, key) {
             final cubit = context.read<ShowcaseCubit>();
             if (key == _refImageBorderShowcaseKey) {
@@ -123,10 +127,9 @@ class _Body extends StatefulWidget {
   final Widget takenPhotoWidget;
 
   const _Body({
-    Key? key,
     required this.refImageWidget,
     required this.takenPhotoWidget,
-  }) : super(key: key);
+  });
 
   @override
   State<_Body> createState() => _BodyState();
@@ -137,7 +140,7 @@ class _BodyState extends State<_Body> {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       Future.delayed(const Duration(milliseconds: 400), _startShowcase);
     });
   }
@@ -151,7 +154,7 @@ class _BodyState extends State<_Body> {
         _refImageBorderShowcaseKey,
     ];
     if (showcases.isNotEmpty) {
-      ShowCaseWidget.of(context)?.startShowCase(showcases);
+      ShowCaseWidget.of(context).startShowCase(showcases);
     }
   }
 
@@ -189,7 +192,7 @@ class _BodyState extends State<_Body> {
               child: CustomShowcase(
                 showcaseKey: _blinkComparisonShowcaseKey,
                 description: S.of(context).blinkComparisonCaseTooltip,
-                shapeBorder: const CircleBorder(),
+                targetShapeBorder: const CircleBorder(),
                 child: const SizedBox(width: 64.0, height: 64.0),
               ),
             ),
@@ -214,11 +217,10 @@ class _Image extends StatelessWidget {
   final Color? frameColor;
 
   const _Image({
-    Key? key,
     required this.image,
     required this.aspectRatio,
     this.frameColor,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

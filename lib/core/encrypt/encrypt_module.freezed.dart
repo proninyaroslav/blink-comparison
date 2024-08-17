@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'encrypt_module.dart';
 
@@ -12,27 +12,7 @@ part of 'encrypt_module.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$EncryptResultTearOff {
-  const _$EncryptResultTearOff();
-
-  _EncryptResultSuccess success({required Uint8List bytes}) {
-    return _EncryptResultSuccess(
-      bytes: bytes,
-    );
-  }
-
-  _EncryptResultFail fail(EncryptError error) {
-    return _EncryptResultFail(
-      error,
-    );
-  }
-}
-
-/// @nodoc
-const $EncryptResult = _$EncryptResultTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$EncryptResult {
@@ -44,8 +24,8 @@ mixin _$EncryptResult {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Uint8List bytes)? success,
-    TResult Function(EncryptError error)? fail,
+    TResult? Function(Uint8List bytes)? success,
+    TResult? Function(EncryptError error)? fail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,8 +43,8 @@ mixin _$EncryptResult {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_EncryptResultSuccess value)? success,
-    TResult Function(_EncryptResultFail value)? fail,
+    TResult? Function(_EncryptResultSuccess value)? success,
+    TResult? Function(_EncryptResultFail value)? fail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,44 +60,49 @@ mixin _$EncryptResult {
 abstract class $EncryptResultCopyWith<$Res> {
   factory $EncryptResultCopyWith(
           EncryptResult value, $Res Function(EncryptResult) then) =
-      _$EncryptResultCopyWithImpl<$Res>;
+      _$EncryptResultCopyWithImpl<$Res, EncryptResult>;
 }
 
 /// @nodoc
-class _$EncryptResultCopyWithImpl<$Res>
+class _$EncryptResultCopyWithImpl<$Res, $Val extends EncryptResult>
     implements $EncryptResultCopyWith<$Res> {
   _$EncryptResultCopyWithImpl(this._value, this._then);
 
-  final EncryptResult _value;
   // ignore: unused_field
-  final $Res Function(EncryptResult) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of EncryptResult
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class _$EncryptResultSuccessCopyWith<$Res> {
-  factory _$EncryptResultSuccessCopyWith(_EncryptResultSuccess value,
-          $Res Function(_EncryptResultSuccess) then) =
-      __$EncryptResultSuccessCopyWithImpl<$Res>;
+abstract class _$$EncryptResultSuccessImplCopyWith<$Res> {
+  factory _$$EncryptResultSuccessImplCopyWith(_$EncryptResultSuccessImpl value,
+          $Res Function(_$EncryptResultSuccessImpl) then) =
+      __$$EncryptResultSuccessImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({Uint8List bytes});
 }
 
 /// @nodoc
-class __$EncryptResultSuccessCopyWithImpl<$Res>
-    extends _$EncryptResultCopyWithImpl<$Res>
-    implements _$EncryptResultSuccessCopyWith<$Res> {
-  __$EncryptResultSuccessCopyWithImpl(
-      _EncryptResultSuccess _value, $Res Function(_EncryptResultSuccess) _then)
-      : super(_value, (v) => _then(v as _EncryptResultSuccess));
+class __$$EncryptResultSuccessImplCopyWithImpl<$Res>
+    extends _$EncryptResultCopyWithImpl<$Res, _$EncryptResultSuccessImpl>
+    implements _$$EncryptResultSuccessImplCopyWith<$Res> {
+  __$$EncryptResultSuccessImplCopyWithImpl(_$EncryptResultSuccessImpl _value,
+      $Res Function(_$EncryptResultSuccessImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _EncryptResultSuccess get _value => super._value as _EncryptResultSuccess;
-
+  /// Create a copy of EncryptResult
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bytes = freezed,
+    Object? bytes = null,
   }) {
-    return _then(_EncryptResultSuccess(
-      bytes: bytes == freezed
+    return _then(_$EncryptResultSuccessImpl(
+      bytes: null == bytes
           ? _value.bytes
           : bytes // ignore: cast_nullable_to_non_nullable
               as Uint8List,
@@ -127,10 +112,10 @@ class __$EncryptResultSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_EncryptResultSuccess
+class _$EncryptResultSuccessImpl
     with DiagnosticableTreeMixin
     implements _EncryptResultSuccess {
-  const _$_EncryptResultSuccess({required this.bytes});
+  const _$EncryptResultSuccessImpl({required this.bytes});
 
   @override
   final Uint8List bytes;
@@ -149,10 +134,10 @@ class _$_EncryptResultSuccess
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _EncryptResultSuccess &&
+            other is _$EncryptResultSuccessImpl &&
             const DeepCollectionEquality().equals(other.bytes, bytes));
   }
 
@@ -160,11 +145,15 @@ class _$_EncryptResultSuccess
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(bytes));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EncryptResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$EncryptResultSuccessCopyWith<_EncryptResultSuccess> get copyWith =>
-      __$EncryptResultSuccessCopyWithImpl<_EncryptResultSuccess>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$EncryptResultSuccessImplCopyWith<_$EncryptResultSuccessImpl>
+      get copyWith =>
+          __$$EncryptResultSuccessImplCopyWithImpl<_$EncryptResultSuccessImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -178,8 +167,8 @@ class _$_EncryptResultSuccess
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Uint8List bytes)? success,
-    TResult Function(EncryptError error)? fail,
+    TResult? Function(Uint8List bytes)? success,
+    TResult? Function(EncryptError error)? fail,
   }) {
     return success?.call(bytes);
   }
@@ -209,8 +198,8 @@ class _$_EncryptResultSuccess
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_EncryptResultSuccess value)? success,
-    TResult Function(_EncryptResultFail value)? fail,
+    TResult? Function(_EncryptResultSuccess value)? success,
+    TResult? Function(_EncryptResultFail value)? fail,
   }) {
     return success?.call(this);
   }
@@ -230,49 +219,56 @@ class _$_EncryptResultSuccess
 }
 
 abstract class _EncryptResultSuccess implements EncryptResult {
-  const factory _EncryptResultSuccess({required Uint8List bytes}) =
-      _$_EncryptResultSuccess;
+  const factory _EncryptResultSuccess({required final Uint8List bytes}) =
+      _$EncryptResultSuccessImpl;
 
   Uint8List get bytes;
-  @JsonKey(ignore: true)
-  _$EncryptResultSuccessCopyWith<_EncryptResultSuccess> get copyWith =>
-      throw _privateConstructorUsedError;
+
+  /// Create a copy of EncryptResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$EncryptResultSuccessImplCopyWith<_$EncryptResultSuccessImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$EncryptResultFailCopyWith<$Res> {
-  factory _$EncryptResultFailCopyWith(
-          _EncryptResultFail value, $Res Function(_EncryptResultFail) then) =
-      __$EncryptResultFailCopyWithImpl<$Res>;
+abstract class _$$EncryptResultFailImplCopyWith<$Res> {
+  factory _$$EncryptResultFailImplCopyWith(_$EncryptResultFailImpl value,
+          $Res Function(_$EncryptResultFailImpl) then) =
+      __$$EncryptResultFailImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({EncryptError error});
 
   $EncryptErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
-class __$EncryptResultFailCopyWithImpl<$Res>
-    extends _$EncryptResultCopyWithImpl<$Res>
-    implements _$EncryptResultFailCopyWith<$Res> {
-  __$EncryptResultFailCopyWithImpl(
-      _EncryptResultFail _value, $Res Function(_EncryptResultFail) _then)
-      : super(_value, (v) => _then(v as _EncryptResultFail));
+class __$$EncryptResultFailImplCopyWithImpl<$Res>
+    extends _$EncryptResultCopyWithImpl<$Res, _$EncryptResultFailImpl>
+    implements _$$EncryptResultFailImplCopyWith<$Res> {
+  __$$EncryptResultFailImplCopyWithImpl(_$EncryptResultFailImpl _value,
+      $Res Function(_$EncryptResultFailImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _EncryptResultFail get _value => super._value as _EncryptResultFail;
-
+  /// Create a copy of EncryptResult
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
-    return _then(_EncryptResultFail(
-      error == freezed
+    return _then(_$EncryptResultFailImpl(
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as EncryptError,
     ));
   }
 
+  /// Create a copy of EncryptResult
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $EncryptErrorCopyWith<$Res> get error {
     return $EncryptErrorCopyWith<$Res>(_value.error, (value) {
       return _then(_value.copyWith(error: value));
@@ -282,10 +278,10 @@ class __$EncryptResultFailCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_EncryptResultFail
+class _$EncryptResultFailImpl
     with DiagnosticableTreeMixin
     implements _EncryptResultFail {
-  const _$_EncryptResultFail(this.error);
+  const _$EncryptResultFailImpl(this.error);
 
   @override
   final EncryptError error;
@@ -304,21 +300,24 @@ class _$_EncryptResultFail
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _EncryptResultFail &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$EncryptResultFailImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EncryptResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$EncryptResultFailCopyWith<_EncryptResultFail> get copyWith =>
-      __$EncryptResultFailCopyWithImpl<_EncryptResultFail>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$EncryptResultFailImplCopyWith<_$EncryptResultFailImpl> get copyWith =>
+      __$$EncryptResultFailImplCopyWithImpl<_$EncryptResultFailImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -332,8 +331,8 @@ class _$_EncryptResultFail
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Uint8List bytes)? success,
-    TResult Function(EncryptError error)? fail,
+    TResult? Function(Uint8List bytes)? success,
+    TResult? Function(EncryptError error)? fail,
   }) {
     return fail?.call(error);
   }
@@ -363,8 +362,8 @@ class _$_EncryptResultFail
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_EncryptResultSuccess value)? success,
-    TResult Function(_EncryptResultFail value)? fail,
+    TResult? Function(_EncryptResultSuccess value)? success,
+    TResult? Function(_EncryptResultFail value)? fail,
   }) {
     return fail?.call(this);
   }
@@ -384,11 +383,15 @@ class _$_EncryptResultFail
 }
 
 abstract class _EncryptResultFail implements EncryptResult {
-  const factory _EncryptResultFail(EncryptError error) = _$_EncryptResultFail;
+  const factory _EncryptResultFail(final EncryptError error) =
+      _$EncryptResultFailImpl;
 
   EncryptError get error;
-  @JsonKey(ignore: true)
-  _$EncryptResultFailCopyWith<_EncryptResultFail> get copyWith =>
+
+  /// Create a copy of EncryptResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$EncryptResultFailImplCopyWith<_$EncryptResultFailImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -397,35 +400,18 @@ EncryptError _$EncryptErrorFromJson(Map<String, dynamic> json) {
 }
 
 /// @nodoc
-class _$EncryptErrorTearOff {
-  const _$EncryptErrorTearOff();
-
-  _EncryptError call(
-      {@ExceptionConverter() Exception? error,
-      @StackTraceConverter() StackTrace? stackTrace}) {
-    return _EncryptError(
-      error: error,
-      stackTrace: stackTrace,
-    );
-  }
-
-  EncryptError fromJson(Map<String, Object?> json) {
-    return EncryptError.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $EncryptError = _$EncryptErrorTearOff();
-
-/// @nodoc
 mixin _$EncryptError {
   @ExceptionConverter()
   Exception? get error => throw _privateConstructorUsedError;
   @StackTraceConverter()
   StackTrace? get stackTrace => throw _privateConstructorUsedError;
 
+  /// Serializes this EncryptError to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EncryptError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EncryptErrorCopyWith<EncryptError> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -434,71 +420,79 @@ mixin _$EncryptError {
 abstract class $EncryptErrorCopyWith<$Res> {
   factory $EncryptErrorCopyWith(
           EncryptError value, $Res Function(EncryptError) then) =
-      _$EncryptErrorCopyWithImpl<$Res>;
+      _$EncryptErrorCopyWithImpl<$Res, EncryptError>;
+  @useResult
   $Res call(
       {@ExceptionConverter() Exception? error,
       @StackTraceConverter() StackTrace? stackTrace});
 }
 
 /// @nodoc
-class _$EncryptErrorCopyWithImpl<$Res> implements $EncryptErrorCopyWith<$Res> {
+class _$EncryptErrorCopyWithImpl<$Res, $Val extends EncryptError>
+    implements $EncryptErrorCopyWith<$Res> {
   _$EncryptErrorCopyWithImpl(this._value, this._then);
 
-  final EncryptError _value;
   // ignore: unused_field
-  final $Res Function(EncryptError) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of EncryptError
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? error = freezed,
     Object? stackTrace = freezed,
   }) {
     return _then(_value.copyWith(
-      error: error == freezed
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as Exception?,
-      stackTrace: stackTrace == freezed
+      stackTrace: freezed == stackTrace
           ? _value.stackTrace
           : stackTrace // ignore: cast_nullable_to_non_nullable
               as StackTrace?,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$EncryptErrorCopyWith<$Res>
+abstract class _$$EncryptErrorImplCopyWith<$Res>
     implements $EncryptErrorCopyWith<$Res> {
-  factory _$EncryptErrorCopyWith(
-          _EncryptError value, $Res Function(_EncryptError) then) =
-      __$EncryptErrorCopyWithImpl<$Res>;
+  factory _$$EncryptErrorImplCopyWith(
+          _$EncryptErrorImpl value, $Res Function(_$EncryptErrorImpl) then) =
+      __$$EncryptErrorImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@ExceptionConverter() Exception? error,
       @StackTraceConverter() StackTrace? stackTrace});
 }
 
 /// @nodoc
-class __$EncryptErrorCopyWithImpl<$Res> extends _$EncryptErrorCopyWithImpl<$Res>
-    implements _$EncryptErrorCopyWith<$Res> {
-  __$EncryptErrorCopyWithImpl(
-      _EncryptError _value, $Res Function(_EncryptError) _then)
-      : super(_value, (v) => _then(v as _EncryptError));
+class __$$EncryptErrorImplCopyWithImpl<$Res>
+    extends _$EncryptErrorCopyWithImpl<$Res, _$EncryptErrorImpl>
+    implements _$$EncryptErrorImplCopyWith<$Res> {
+  __$$EncryptErrorImplCopyWithImpl(
+      _$EncryptErrorImpl _value, $Res Function(_$EncryptErrorImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _EncryptError get _value => super._value as _EncryptError;
-
+  /// Create a copy of EncryptError
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? error = freezed,
     Object? stackTrace = freezed,
   }) {
-    return _then(_EncryptError(
-      error: error == freezed
+    return _then(_$EncryptErrorImpl(
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as Exception?,
-      stackTrace: stackTrace == freezed
+      stackTrace: freezed == stackTrace
           ? _value.stackTrace
           : stackTrace // ignore: cast_nullable_to_non_nullable
               as StackTrace?,
@@ -508,13 +502,13 @@ class __$EncryptErrorCopyWithImpl<$Res> extends _$EncryptErrorCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EncryptError with DiagnosticableTreeMixin implements _EncryptError {
-  const _$_EncryptError(
+class _$EncryptErrorImpl with DiagnosticableTreeMixin implements _EncryptError {
+  const _$EncryptErrorImpl(
       {@ExceptionConverter() this.error,
       @StackTraceConverter() this.stackTrace});
 
-  factory _$_EncryptError.fromJson(Map<String, dynamic> json) =>
-      _$$_EncryptErrorFromJson(json);
+  factory _$EncryptErrorImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EncryptErrorImplFromJson(json);
 
   @override
   @ExceptionConverter()
@@ -538,39 +532,43 @@ class _$_EncryptError with DiagnosticableTreeMixin implements _EncryptError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _EncryptError &&
-            const DeepCollectionEquality().equals(other.error, error) &&
-            const DeepCollectionEquality()
-                .equals(other.stackTrace, stackTrace));
+            other is _$EncryptErrorImpl &&
+            (identical(other.error, error) || other.error == error) &&
+            (identical(other.stackTrace, stackTrace) ||
+                other.stackTrace == stackTrace));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(error),
-      const DeepCollectionEquality().hash(stackTrace));
+  int get hashCode => Object.hash(runtimeType, error, stackTrace);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EncryptError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$EncryptErrorCopyWith<_EncryptError> get copyWith =>
-      __$EncryptErrorCopyWithImpl<_EncryptError>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$EncryptErrorImplCopyWith<_$EncryptErrorImpl> get copyWith =>
+      __$$EncryptErrorImplCopyWithImpl<_$EncryptErrorImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EncryptErrorToJson(this);
+    return _$$EncryptErrorImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _EncryptError implements EncryptError {
   const factory _EncryptError(
-      {@ExceptionConverter() Exception? error,
-      @StackTraceConverter() StackTrace? stackTrace}) = _$_EncryptError;
+          {@ExceptionConverter() final Exception? error,
+          @StackTraceConverter() final StackTrace? stackTrace}) =
+      _$EncryptErrorImpl;
 
   factory _EncryptError.fromJson(Map<String, dynamic> json) =
-      _$_EncryptError.fromJson;
+      _$EncryptErrorImpl.fromJson;
 
   @override
   @ExceptionConverter()
@@ -578,31 +576,14 @@ abstract class _EncryptError implements EncryptError {
   @override
   @StackTraceConverter()
   StackTrace? get stackTrace;
+
+  /// Create a copy of EncryptError
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$EncryptErrorCopyWith<_EncryptError> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$EncryptErrorImplCopyWith<_$EncryptErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$DecryptResultTearOff {
-  const _$DecryptResultTearOff();
-
-  _DecryptResulttSuccess success({required Uint8List bytes}) {
-    return _DecryptResulttSuccess(
-      bytes: bytes,
-    );
-  }
-
-  _DecryptResultFail fail(DecryptError error) {
-    return _DecryptResultFail(
-      error,
-    );
-  }
-}
-
-/// @nodoc
-const $DecryptResult = _$DecryptResultTearOff();
 
 /// @nodoc
 mixin _$DecryptResult {
@@ -614,8 +595,8 @@ mixin _$DecryptResult {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Uint8List bytes)? success,
-    TResult Function(DecryptError error)? fail,
+    TResult? Function(Uint8List bytes)? success,
+    TResult? Function(DecryptError error)? fail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -633,8 +614,8 @@ mixin _$DecryptResult {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_DecryptResulttSuccess value)? success,
-    TResult Function(_DecryptResultFail value)? fail,
+    TResult? Function(_DecryptResulttSuccess value)? success,
+    TResult? Function(_DecryptResultFail value)? fail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -650,44 +631,50 @@ mixin _$DecryptResult {
 abstract class $DecryptResultCopyWith<$Res> {
   factory $DecryptResultCopyWith(
           DecryptResult value, $Res Function(DecryptResult) then) =
-      _$DecryptResultCopyWithImpl<$Res>;
+      _$DecryptResultCopyWithImpl<$Res, DecryptResult>;
 }
 
 /// @nodoc
-class _$DecryptResultCopyWithImpl<$Res>
+class _$DecryptResultCopyWithImpl<$Res, $Val extends DecryptResult>
     implements $DecryptResultCopyWith<$Res> {
   _$DecryptResultCopyWithImpl(this._value, this._then);
 
-  final DecryptResult _value;
   // ignore: unused_field
-  final $Res Function(DecryptResult) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of DecryptResult
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class _$DecryptResulttSuccessCopyWith<$Res> {
-  factory _$DecryptResulttSuccessCopyWith(_DecryptResulttSuccess value,
-          $Res Function(_DecryptResulttSuccess) then) =
-      __$DecryptResulttSuccessCopyWithImpl<$Res>;
+abstract class _$$DecryptResulttSuccessImplCopyWith<$Res> {
+  factory _$$DecryptResulttSuccessImplCopyWith(
+          _$DecryptResulttSuccessImpl value,
+          $Res Function(_$DecryptResulttSuccessImpl) then) =
+      __$$DecryptResulttSuccessImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({Uint8List bytes});
 }
 
 /// @nodoc
-class __$DecryptResulttSuccessCopyWithImpl<$Res>
-    extends _$DecryptResultCopyWithImpl<$Res>
-    implements _$DecryptResulttSuccessCopyWith<$Res> {
-  __$DecryptResulttSuccessCopyWithImpl(_DecryptResulttSuccess _value,
-      $Res Function(_DecryptResulttSuccess) _then)
-      : super(_value, (v) => _then(v as _DecryptResulttSuccess));
+class __$$DecryptResulttSuccessImplCopyWithImpl<$Res>
+    extends _$DecryptResultCopyWithImpl<$Res, _$DecryptResulttSuccessImpl>
+    implements _$$DecryptResulttSuccessImplCopyWith<$Res> {
+  __$$DecryptResulttSuccessImplCopyWithImpl(_$DecryptResulttSuccessImpl _value,
+      $Res Function(_$DecryptResulttSuccessImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _DecryptResulttSuccess get _value => super._value as _DecryptResulttSuccess;
-
+  /// Create a copy of DecryptResult
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bytes = freezed,
+    Object? bytes = null,
   }) {
-    return _then(_DecryptResulttSuccess(
-      bytes: bytes == freezed
+    return _then(_$DecryptResulttSuccessImpl(
+      bytes: null == bytes
           ? _value.bytes
           : bytes // ignore: cast_nullable_to_non_nullable
               as Uint8List,
@@ -697,10 +684,10 @@ class __$DecryptResulttSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DecryptResulttSuccess
+class _$DecryptResulttSuccessImpl
     with DiagnosticableTreeMixin
     implements _DecryptResulttSuccess {
-  const _$_DecryptResulttSuccess({required this.bytes});
+  const _$DecryptResulttSuccessImpl({required this.bytes});
 
   @override
   final Uint8List bytes;
@@ -719,10 +706,10 @@ class _$_DecryptResulttSuccess
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _DecryptResulttSuccess &&
+            other is _$DecryptResulttSuccessImpl &&
             const DeepCollectionEquality().equals(other.bytes, bytes));
   }
 
@@ -730,11 +717,14 @@ class _$_DecryptResulttSuccess
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(bytes));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DecryptResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$DecryptResulttSuccessCopyWith<_DecryptResulttSuccess> get copyWith =>
-      __$DecryptResulttSuccessCopyWithImpl<_DecryptResulttSuccess>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$DecryptResulttSuccessImplCopyWith<_$DecryptResulttSuccessImpl>
+      get copyWith => __$$DecryptResulttSuccessImplCopyWithImpl<
+          _$DecryptResulttSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -748,8 +738,8 @@ class _$_DecryptResulttSuccess
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Uint8List bytes)? success,
-    TResult Function(DecryptError error)? fail,
+    TResult? Function(Uint8List bytes)? success,
+    TResult? Function(DecryptError error)? fail,
   }) {
     return success?.call(bytes);
   }
@@ -779,8 +769,8 @@ class _$_DecryptResulttSuccess
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_DecryptResulttSuccess value)? success,
-    TResult Function(_DecryptResultFail value)? fail,
+    TResult? Function(_DecryptResulttSuccess value)? success,
+    TResult? Function(_DecryptResultFail value)? fail,
   }) {
     return success?.call(this);
   }
@@ -800,49 +790,56 @@ class _$_DecryptResulttSuccess
 }
 
 abstract class _DecryptResulttSuccess implements DecryptResult {
-  const factory _DecryptResulttSuccess({required Uint8List bytes}) =
-      _$_DecryptResulttSuccess;
+  const factory _DecryptResulttSuccess({required final Uint8List bytes}) =
+      _$DecryptResulttSuccessImpl;
 
   Uint8List get bytes;
-  @JsonKey(ignore: true)
-  _$DecryptResulttSuccessCopyWith<_DecryptResulttSuccess> get copyWith =>
-      throw _privateConstructorUsedError;
+
+  /// Create a copy of DecryptResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DecryptResulttSuccessImplCopyWith<_$DecryptResulttSuccessImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$DecryptResultFailCopyWith<$Res> {
-  factory _$DecryptResultFailCopyWith(
-          _DecryptResultFail value, $Res Function(_DecryptResultFail) then) =
-      __$DecryptResultFailCopyWithImpl<$Res>;
+abstract class _$$DecryptResultFailImplCopyWith<$Res> {
+  factory _$$DecryptResultFailImplCopyWith(_$DecryptResultFailImpl value,
+          $Res Function(_$DecryptResultFailImpl) then) =
+      __$$DecryptResultFailImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({DecryptError error});
 
   $DecryptErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
-class __$DecryptResultFailCopyWithImpl<$Res>
-    extends _$DecryptResultCopyWithImpl<$Res>
-    implements _$DecryptResultFailCopyWith<$Res> {
-  __$DecryptResultFailCopyWithImpl(
-      _DecryptResultFail _value, $Res Function(_DecryptResultFail) _then)
-      : super(_value, (v) => _then(v as _DecryptResultFail));
+class __$$DecryptResultFailImplCopyWithImpl<$Res>
+    extends _$DecryptResultCopyWithImpl<$Res, _$DecryptResultFailImpl>
+    implements _$$DecryptResultFailImplCopyWith<$Res> {
+  __$$DecryptResultFailImplCopyWithImpl(_$DecryptResultFailImpl _value,
+      $Res Function(_$DecryptResultFailImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _DecryptResultFail get _value => super._value as _DecryptResultFail;
-
+  /// Create a copy of DecryptResult
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
-    return _then(_DecryptResultFail(
-      error == freezed
+    return _then(_$DecryptResultFailImpl(
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as DecryptError,
     ));
   }
 
+  /// Create a copy of DecryptResult
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $DecryptErrorCopyWith<$Res> get error {
     return $DecryptErrorCopyWith<$Res>(_value.error, (value) {
       return _then(_value.copyWith(error: value));
@@ -852,10 +849,10 @@ class __$DecryptResultFailCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DecryptResultFail
+class _$DecryptResultFailImpl
     with DiagnosticableTreeMixin
     implements _DecryptResultFail {
-  const _$_DecryptResultFail(this.error);
+  const _$DecryptResultFailImpl(this.error);
 
   @override
   final DecryptError error;
@@ -874,21 +871,24 @@ class _$_DecryptResultFail
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _DecryptResultFail &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$DecryptResultFailImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DecryptResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$DecryptResultFailCopyWith<_DecryptResultFail> get copyWith =>
-      __$DecryptResultFailCopyWithImpl<_DecryptResultFail>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$DecryptResultFailImplCopyWith<_$DecryptResultFailImpl> get copyWith =>
+      __$$DecryptResultFailImplCopyWithImpl<_$DecryptResultFailImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -902,8 +902,8 @@ class _$_DecryptResultFail
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Uint8List bytes)? success,
-    TResult Function(DecryptError error)? fail,
+    TResult? Function(Uint8List bytes)? success,
+    TResult? Function(DecryptError error)? fail,
   }) {
     return fail?.call(error);
   }
@@ -933,8 +933,8 @@ class _$_DecryptResultFail
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_DecryptResulttSuccess value)? success,
-    TResult Function(_DecryptResultFail value)? fail,
+    TResult? Function(_DecryptResulttSuccess value)? success,
+    TResult? Function(_DecryptResultFail value)? fail,
   }) {
     return fail?.call(this);
   }
@@ -954,32 +954,17 @@ class _$_DecryptResultFail
 }
 
 abstract class _DecryptResultFail implements DecryptResult {
-  const factory _DecryptResultFail(DecryptError error) = _$_DecryptResultFail;
+  const factory _DecryptResultFail(final DecryptError error) =
+      _$DecryptResultFailImpl;
 
   DecryptError get error;
-  @JsonKey(ignore: true)
-  _$DecryptResultFailCopyWith<_DecryptResultFail> get copyWith =>
+
+  /// Create a copy of DecryptResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DecryptResultFailImplCopyWith<_$DecryptResultFailImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$DecryptErrorTearOff {
-  const _$DecryptErrorTearOff();
-
-  DecryptErrorValue call({Exception? error, StackTrace? stackTrace}) {
-    return DecryptErrorValue(
-      error: error,
-      stackTrace: stackTrace,
-    );
-  }
-
-  DecryptErrorInvalidKey invalidKey() {
-    return const DecryptErrorInvalidKey();
-  }
-}
-
-/// @nodoc
-const $DecryptError = _$DecryptErrorTearOff();
 
 /// @nodoc
 mixin _$DecryptError {
@@ -991,8 +976,8 @@ mixin _$DecryptError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(Exception? error, StackTrace? stackTrace)? $default, {
-    TResult Function()? invalidKey,
+    TResult? Function(Exception? error, StackTrace? stackTrace)? $default, {
+    TResult? Function()? invalidKey,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1010,8 +995,8 @@ mixin _$DecryptError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(DecryptErrorValue value)? $default, {
-    TResult Function(DecryptErrorInvalidKey value)? invalidKey,
+    TResult? Function(DecryptErrorValue value)? $default, {
+    TResult? Function(DecryptErrorInvalidKey value)? invalidKey,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1027,48 +1012,54 @@ mixin _$DecryptError {
 abstract class $DecryptErrorCopyWith<$Res> {
   factory $DecryptErrorCopyWith(
           DecryptError value, $Res Function(DecryptError) then) =
-      _$DecryptErrorCopyWithImpl<$Res>;
+      _$DecryptErrorCopyWithImpl<$Res, DecryptError>;
 }
 
 /// @nodoc
-class _$DecryptErrorCopyWithImpl<$Res> implements $DecryptErrorCopyWith<$Res> {
+class _$DecryptErrorCopyWithImpl<$Res, $Val extends DecryptError>
+    implements $DecryptErrorCopyWith<$Res> {
   _$DecryptErrorCopyWithImpl(this._value, this._then);
 
-  final DecryptError _value;
   // ignore: unused_field
-  final $Res Function(DecryptError) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of DecryptError
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class $DecryptErrorValueCopyWith<$Res> {
-  factory $DecryptErrorValueCopyWith(
-          DecryptErrorValue value, $Res Function(DecryptErrorValue) then) =
-      _$DecryptErrorValueCopyWithImpl<$Res>;
+abstract class _$$DecryptErrorValueImplCopyWith<$Res> {
+  factory _$$DecryptErrorValueImplCopyWith(_$DecryptErrorValueImpl value,
+          $Res Function(_$DecryptErrorValueImpl) then) =
+      __$$DecryptErrorValueImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({Exception? error, StackTrace? stackTrace});
 }
 
 /// @nodoc
-class _$DecryptErrorValueCopyWithImpl<$Res>
-    extends _$DecryptErrorCopyWithImpl<$Res>
-    implements $DecryptErrorValueCopyWith<$Res> {
-  _$DecryptErrorValueCopyWithImpl(
-      DecryptErrorValue _value, $Res Function(DecryptErrorValue) _then)
-      : super(_value, (v) => _then(v as DecryptErrorValue));
+class __$$DecryptErrorValueImplCopyWithImpl<$Res>
+    extends _$DecryptErrorCopyWithImpl<$Res, _$DecryptErrorValueImpl>
+    implements _$$DecryptErrorValueImplCopyWith<$Res> {
+  __$$DecryptErrorValueImplCopyWithImpl(_$DecryptErrorValueImpl _value,
+      $Res Function(_$DecryptErrorValueImpl) _then)
+      : super(_value, _then);
 
-  @override
-  DecryptErrorValue get _value => super._value as DecryptErrorValue;
-
+  /// Create a copy of DecryptError
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? error = freezed,
     Object? stackTrace = freezed,
   }) {
-    return _then(DecryptErrorValue(
-      error: error == freezed
+    return _then(_$DecryptErrorValueImpl(
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as Exception?,
-      stackTrace: stackTrace == freezed
+      stackTrace: freezed == stackTrace
           ? _value.stackTrace
           : stackTrace // ignore: cast_nullable_to_non_nullable
               as StackTrace?,
@@ -1078,10 +1069,10 @@ class _$DecryptErrorValueCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DecryptErrorValue
+class _$DecryptErrorValueImpl
     with DiagnosticableTreeMixin
     implements DecryptErrorValue {
-  const _$DecryptErrorValue({this.error, this.stackTrace});
+  const _$DecryptErrorValueImpl({this.error, this.stackTrace});
 
   @override
   final Exception? error;
@@ -1103,25 +1094,26 @@ class _$DecryptErrorValue
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is DecryptErrorValue &&
-            const DeepCollectionEquality().equals(other.error, error) &&
-            const DeepCollectionEquality()
-                .equals(other.stackTrace, stackTrace));
+            other is _$DecryptErrorValueImpl &&
+            (identical(other.error, error) || other.error == error) &&
+            (identical(other.stackTrace, stackTrace) ||
+                other.stackTrace == stackTrace));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(error),
-      const DeepCollectionEquality().hash(stackTrace));
+  int get hashCode => Object.hash(runtimeType, error, stackTrace);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DecryptError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $DecryptErrorValueCopyWith<DecryptErrorValue> get copyWith =>
-      _$DecryptErrorValueCopyWithImpl<DecryptErrorValue>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$DecryptErrorValueImplCopyWith<_$DecryptErrorValueImpl> get copyWith =>
+      __$$DecryptErrorValueImplCopyWithImpl<_$DecryptErrorValueImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1135,8 +1127,8 @@ class _$DecryptErrorValue
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(Exception? error, StackTrace? stackTrace)? $default, {
-    TResult Function()? invalidKey,
+    TResult? Function(Exception? error, StackTrace? stackTrace)? $default, {
+    TResult? Function()? invalidKey,
   }) {
     return $default?.call(error, stackTrace);
   }
@@ -1166,8 +1158,8 @@ class _$DecryptErrorValue
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(DecryptErrorValue value)? $default, {
-    TResult Function(DecryptErrorInvalidKey value)? invalidKey,
+    TResult? Function(DecryptErrorValue value)? $default, {
+    TResult? Function(DecryptErrorInvalidKey value)? invalidKey,
   }) {
     return $default?.call(this);
   }
@@ -1187,41 +1179,47 @@ class _$DecryptErrorValue
 }
 
 abstract class DecryptErrorValue implements DecryptError {
-  const factory DecryptErrorValue({Exception? error, StackTrace? stackTrace}) =
-      _$DecryptErrorValue;
+  const factory DecryptErrorValue(
+      {final Exception? error,
+      final StackTrace? stackTrace}) = _$DecryptErrorValueImpl;
 
   Exception? get error;
   StackTrace? get stackTrace;
-  @JsonKey(ignore: true)
-  $DecryptErrorValueCopyWith<DecryptErrorValue> get copyWith =>
+
+  /// Create a copy of DecryptError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DecryptErrorValueImplCopyWith<_$DecryptErrorValueImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DecryptErrorInvalidKeyCopyWith<$Res> {
-  factory $DecryptErrorInvalidKeyCopyWith(DecryptErrorInvalidKey value,
-          $Res Function(DecryptErrorInvalidKey) then) =
-      _$DecryptErrorInvalidKeyCopyWithImpl<$Res>;
+abstract class _$$DecryptErrorInvalidKeyImplCopyWith<$Res> {
+  factory _$$DecryptErrorInvalidKeyImplCopyWith(
+          _$DecryptErrorInvalidKeyImpl value,
+          $Res Function(_$DecryptErrorInvalidKeyImpl) then) =
+      __$$DecryptErrorInvalidKeyImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$DecryptErrorInvalidKeyCopyWithImpl<$Res>
-    extends _$DecryptErrorCopyWithImpl<$Res>
-    implements $DecryptErrorInvalidKeyCopyWith<$Res> {
-  _$DecryptErrorInvalidKeyCopyWithImpl(DecryptErrorInvalidKey _value,
-      $Res Function(DecryptErrorInvalidKey) _then)
-      : super(_value, (v) => _then(v as DecryptErrorInvalidKey));
+class __$$DecryptErrorInvalidKeyImplCopyWithImpl<$Res>
+    extends _$DecryptErrorCopyWithImpl<$Res, _$DecryptErrorInvalidKeyImpl>
+    implements _$$DecryptErrorInvalidKeyImplCopyWith<$Res> {
+  __$$DecryptErrorInvalidKeyImplCopyWithImpl(
+      _$DecryptErrorInvalidKeyImpl _value,
+      $Res Function(_$DecryptErrorInvalidKeyImpl) _then)
+      : super(_value, _then);
 
-  @override
-  DecryptErrorInvalidKey get _value => super._value as DecryptErrorInvalidKey;
+  /// Create a copy of DecryptError
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$DecryptErrorInvalidKey
+class _$DecryptErrorInvalidKeyImpl
     with DiagnosticableTreeMixin
     implements DecryptErrorInvalidKey {
-  const _$DecryptErrorInvalidKey();
+  const _$DecryptErrorInvalidKeyImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -1231,13 +1229,14 @@ class _$DecryptErrorInvalidKey
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'DecryptError.invalidKey'));
+    properties.add(DiagnosticsProperty('type', 'DecryptError.invalidKey'));
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is DecryptErrorInvalidKey);
+        (other.runtimeType == runtimeType &&
+            other is _$DecryptErrorInvalidKeyImpl);
   }
 
   @override
@@ -1255,8 +1254,8 @@ class _$DecryptErrorInvalidKey
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(Exception? error, StackTrace? stackTrace)? $default, {
-    TResult Function()? invalidKey,
+    TResult? Function(Exception? error, StackTrace? stackTrace)? $default, {
+    TResult? Function()? invalidKey,
   }) {
     return invalidKey?.call();
   }
@@ -1286,8 +1285,8 @@ class _$DecryptErrorInvalidKey
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(DecryptErrorValue value)? $default, {
-    TResult Function(DecryptErrorInvalidKey value)? invalidKey,
+    TResult? Function(DecryptErrorValue value)? $default, {
+    TResult? Function(DecryptErrorInvalidKey value)? invalidKey,
   }) {
     return invalidKey?.call(this);
   }
@@ -1307,30 +1306,17 @@ class _$DecryptErrorInvalidKey
 }
 
 abstract class DecryptErrorInvalidKey implements DecryptError {
-  const factory DecryptErrorInvalidKey() = _$DecryptErrorInvalidKey;
+  const factory DecryptErrorInvalidKey() = _$DecryptErrorInvalidKeyImpl;
 }
 
 /// @nodoc
-class _$_PBEInfoTearOff {
-  const _$_PBEInfoTearOff();
-
-  _PBEInfoData call({required Uint8List src, required Uint8List key}) {
-    return _PBEInfoData(
-      src: src,
-      key: key,
-    );
-  }
-}
-
-/// @nodoc
-const _$PBEInfo = _$_PBEInfoTearOff();
-
-/// @nodoc
-mixin _$_PBEInfo {
+mixin _$PBEInfo {
   Uint8List get src => throw _privateConstructorUsedError;
   Uint8List get key => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of _PBEInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$PBEInfoCopyWith<_PBEInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1338,66 +1324,75 @@ mixin _$_PBEInfo {
 /// @nodoc
 abstract class _$PBEInfoCopyWith<$Res> {
   factory _$PBEInfoCopyWith(_PBEInfo value, $Res Function(_PBEInfo) then) =
-      __$PBEInfoCopyWithImpl<$Res>;
+      __$PBEInfoCopyWithImpl<$Res, _PBEInfo>;
+  @useResult
   $Res call({Uint8List src, Uint8List key});
 }
 
 /// @nodoc
-class __$PBEInfoCopyWithImpl<$Res> implements _$PBEInfoCopyWith<$Res> {
+class __$PBEInfoCopyWithImpl<$Res, $Val extends _PBEInfo>
+    implements _$PBEInfoCopyWith<$Res> {
   __$PBEInfoCopyWithImpl(this._value, this._then);
 
-  final _PBEInfo _value;
   // ignore: unused_field
-  final $Res Function(_PBEInfo) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of _PBEInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? src = freezed,
-    Object? key = freezed,
+    Object? src = null,
+    Object? key = null,
   }) {
     return _then(_value.copyWith(
-      src: src == freezed
+      src: null == src
           ? _value.src
           : src // ignore: cast_nullable_to_non_nullable
               as Uint8List,
-      key: key == freezed
+      key: null == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as Uint8List,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$PBEInfoDataCopyWith<$Res> implements _$PBEInfoCopyWith<$Res> {
-  factory _$PBEInfoDataCopyWith(
-          _PBEInfoData value, $Res Function(_PBEInfoData) then) =
-      __$PBEInfoDataCopyWithImpl<$Res>;
+abstract class _$$PBEInfoDataImplCopyWith<$Res>
+    implements _$PBEInfoCopyWith<$Res> {
+  factory _$$PBEInfoDataImplCopyWith(
+          _$PBEInfoDataImpl value, $Res Function(_$PBEInfoDataImpl) then) =
+      __$$PBEInfoDataImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({Uint8List src, Uint8List key});
 }
 
 /// @nodoc
-class __$PBEInfoDataCopyWithImpl<$Res> extends __$PBEInfoCopyWithImpl<$Res>
-    implements _$PBEInfoDataCopyWith<$Res> {
-  __$PBEInfoDataCopyWithImpl(
-      _PBEInfoData _value, $Res Function(_PBEInfoData) _then)
-      : super(_value, (v) => _then(v as _PBEInfoData));
+class __$$PBEInfoDataImplCopyWithImpl<$Res>
+    extends __$PBEInfoCopyWithImpl<$Res, _$PBEInfoDataImpl>
+    implements _$$PBEInfoDataImplCopyWith<$Res> {
+  __$$PBEInfoDataImplCopyWithImpl(
+      _$PBEInfoDataImpl _value, $Res Function(_$PBEInfoDataImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _PBEInfoData get _value => super._value as _PBEInfoData;
-
+  /// Create a copy of _PBEInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? src = freezed,
-    Object? key = freezed,
+    Object? src = null,
+    Object? key = null,
   }) {
-    return _then(_PBEInfoData(
-      src: src == freezed
+    return _then(_$PBEInfoDataImpl(
+      src: null == src
           ? _value.src
           : src // ignore: cast_nullable_to_non_nullable
               as Uint8List,
-      key: key == freezed
+      key: null == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as Uint8List,
@@ -1407,8 +1402,8 @@ class __$PBEInfoDataCopyWithImpl<$Res> extends __$PBEInfoCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PBEInfoData with DiagnosticableTreeMixin implements _PBEInfoData {
-  const _$_PBEInfoData({required this.src, required this.key});
+class _$PBEInfoDataImpl with DiagnosticableTreeMixin implements _PBEInfoData {
+  const _$PBEInfoDataImpl({required this.src, required this.key});
 
   @override
   final Uint8List src;
@@ -1430,10 +1425,10 @@ class _$_PBEInfoData with DiagnosticableTreeMixin implements _PBEInfoData {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PBEInfoData &&
+            other is _$PBEInfoDataImpl &&
             const DeepCollectionEquality().equals(other.src, src) &&
             const DeepCollectionEquality().equals(other.key, key));
   }
@@ -1444,22 +1439,29 @@ class _$_PBEInfoData with DiagnosticableTreeMixin implements _PBEInfoData {
       const DeepCollectionEquality().hash(src),
       const DeepCollectionEquality().hash(key));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of _PBEInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$PBEInfoDataCopyWith<_PBEInfoData> get copyWith =>
-      __$PBEInfoDataCopyWithImpl<_PBEInfoData>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$PBEInfoDataImplCopyWith<_$PBEInfoDataImpl> get copyWith =>
+      __$$PBEInfoDataImplCopyWithImpl<_$PBEInfoDataImpl>(this, _$identity);
 }
 
 abstract class _PBEInfoData implements _PBEInfo {
-  const factory _PBEInfoData({required Uint8List src, required Uint8List key}) =
-      _$_PBEInfoData;
+  const factory _PBEInfoData(
+      {required final Uint8List src,
+      required final Uint8List key}) = _$PBEInfoDataImpl;
 
   @override
   Uint8List get src;
   @override
   Uint8List get key;
+
+  /// Create a copy of _PBEInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$PBEInfoDataCopyWith<_PBEInfoData> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PBEInfoDataImplCopyWith<_$PBEInfoDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -21,12 +21,14 @@ import 'dart:typed_data';
 import 'package:blink_comparison/core/encrypt/password_hasher.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'load_sodium.dart';
+
 void main() {
   group('Password hasher |', () {
     late final PasswordHasher hasher;
 
     setUpAll(() async {
-      hasher = PasswordHasherImpl();
+      hasher = PasswordHasherImpl(await loadSodiumSumo());
     });
 
     test('Calculate', () async {

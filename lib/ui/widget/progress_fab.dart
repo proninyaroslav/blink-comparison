@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -18,7 +18,7 @@
 import 'package:flutter/material.dart';
 
 class ProgressFab extends StatelessWidget {
-  const ProgressFab({Key? key}) : super(key: key);
+  const ProgressFab({super.key});
 
   @override
   Widget build(BuildContext context) {

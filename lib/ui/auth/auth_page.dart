@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -33,13 +33,14 @@ const _pagePadding =
 
 const _pageAnimationDuration = Duration(milliseconds: 500);
 
+@RoutePage()
 class AuthPage extends StatefulWidget implements AutoRouteWrapper {
   final VoidCallback? onAuthSuccess;
 
   const AuthPage({
-    Key? key,
+    super.key,
     this.onAuthSuccess,
-  }) : super(key: key);
+  });
 
   @override
   Widget wrappedRoute(BuildContext context) {
@@ -57,7 +58,7 @@ class AuthPage extends StatefulWidget implements AutoRouteWrapper {
   }
 
   @override
-  _AuthPageState createState() => _AuthPageState();
+  State<AuthPage> createState() => _AuthPageState();
 }
 
 enum _PageType {
@@ -172,10 +173,9 @@ class _Body extends StatelessWidget {
   final List<Widget> pages;
 
   const _Body({
-    Key? key,
     required this.controller,
     required this.pages,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -188,8 +188,8 @@ class _Body extends StatelessWidget {
             final mediaQuery = MediaQuery.of(context);
             final padding = mediaQuery.padding;
             return _Page(
-              child: pages[position % pages.length],
               height: mediaQuery.size.height - padding.top - padding.bottom,
+              child: pages[position % pages.length],
             );
           },
         ),
@@ -202,9 +202,8 @@ class _PageButton extends StatelessWidget {
   final Map<_PageType, Widget> buttons;
 
   const _PageButton({
-    Key? key,
     required this.buttons,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -247,9 +246,8 @@ class _AdaptiveFab extends StatelessWidget {
   final Widget child;
 
   const _AdaptiveFab({
-    Key? key,
     required this.child,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -276,10 +274,9 @@ class _Page extends StatelessWidget {
   final double height;
 
   const _Page({
-    Key? key,
     required this.child,
     required this.height,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

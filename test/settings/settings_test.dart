@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -22,11 +22,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
-  group('Appliaction settings |', () {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  group('Application settings |', () {
     late SharedPreferences sharedPref;
     late AppSettings pref;
 
     setUpAll(() async {
+      SharedPreferences.setMockInitialValues(<String, Object>{});
       sharedPref = await SharedPreferences.getInstance();
       pref = AppSettingsImpl(sharedPref);
     });

@@ -15,12 +15,14 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../../locale.dart';
 
+@RoutePage()
 class PageNotFound extends StatelessWidget {
-  const PageNotFound({Key? key}) : super(key: key);
+  const PageNotFound({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class PageNotFound extends StatelessWidget {
           S.of(context).pageNotFound,
           style: Theme.of(context)
               .textTheme
-              .headline6!
+              .titleLarge!
               .copyWith(color: Colors.blueGrey),
         ),
       ),

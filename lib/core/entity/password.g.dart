@@ -6,14 +6,14 @@ part of 'password.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PasswordInfo _$$_PasswordInfoFromJson(Map<String, dynamic> json) =>
-    _$_PasswordInfo(
+_$PasswordInfoImpl _$$PasswordInfoImplFromJson(Map<String, dynamic> json) =>
+    _$PasswordInfoImpl(
       id: json['id'] as String,
       hash: json['hash'] as String,
       salt: json['salt'] as String,
     );
 
-Map<String, dynamic> _$$_PasswordInfoToJson(_$_PasswordInfo instance) =>
+Map<String, dynamic> _$$PasswordInfoImplToJson(_$PasswordInfoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'hash': instance.hash,

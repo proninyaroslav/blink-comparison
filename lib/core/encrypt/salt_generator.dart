@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -17,8 +17,8 @@
 
 import 'dart:typed_data';
 
-import 'package:flutter_sodium/flutter_sodium.dart';
 import 'package:injectable/injectable.dart';
+import 'package:sodium_libs/sodium_libs_sumo.dart';
 
 abstract class SaltGenerator {
   Uint8List randomBytes();
@@ -26,7 +26,12 @@ abstract class SaltGenerator {
 
 @Injectable(as: SaltGenerator)
 class SaltGeneratorImpl implements SaltGenerator {
+  final SodiumSumo _sodium;
+
+  const SaltGeneratorImpl(this._sodium);
+
   /// Generates 16-bytes length salt.
   @override
-  Uint8List randomBytes() => PasswordHash.randomSalt();
+  Uint8List randomBytes() =>
+      _sodium.randombytes.buf(_sodium.crypto.pwhash.saltBytes);
 }

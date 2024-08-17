@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -25,13 +25,13 @@ class MeasureSize extends StatefulWidget {
   final ValueChanged<Size> onChange;
 
   const MeasureSize({
-    Key? key,
+    super.key,
     required this.onChange,
     required this.child,
-  }) : super(key: key);
+  });
 
   @override
-  _MeasureSizeState createState() => _MeasureSizeState();
+  State<MeasureSize> createState() => _MeasureSizeState();
 }
 
 class _MeasureSizeState extends State<MeasureSize> {
@@ -51,10 +51,10 @@ class _MeasureSizeState extends State<MeasureSize> {
 
   @override
   Widget build(BuildContext context) {
-    SchedulerBinding.instance!.addPostFrameCallback((_) => _notify());
+    SchedulerBinding.instance.addPostFrameCallback((_) => _notify());
     return NotificationListener<SizeChangedLayoutNotification>(
       onNotification: (_) {
-        SchedulerBinding.instance!.addPostFrameCallback((_) => _notify());
+        SchedulerBinding.instance.addPostFrameCallback((_) => _notify());
         return true;
       },
       child: SizeChangedLayoutNotifier(

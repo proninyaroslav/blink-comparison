@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -158,11 +158,4 @@ abstract class _AppSettingsKey {
   static const enableFlashByDefault = 'pref_key_enable_Flash_by_default';
   static const completedShowcases = 'pref_key_completed_showcases';
   static const cameraFullscreenMode = 'pref_key_camera_fullscreen_mode';
-}
-
-@module
-abstract class SharedPreferencesModule {
-  @singleton
-  @preResolve
-  Future<SharedPreferences> get pref async => SharedPreferences.getInstance();
 }

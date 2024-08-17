@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+ * Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
  *
  * This file is part of Blink Comparison.
  *
@@ -21,20 +21,21 @@ package org.proninyaroslav.blink_comparison.service
 
 import android.app.Service
 import android.content.Intent
+import android.os.Build
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
 import android.util.Log
-import org.proninyaroslav.blink_comparison.AppNotificationManager
-import org.proninyaroslav.blink_comparison.channel.SaveRefImageServiceChannel
-import org.proninyaroslav.blink_comparison.channel.SaveRefImageServiceQueueChannel
-import org.proninyaroslav.blink_comparison.channel.SaveRefImageServiceResultChannel
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.dart.DartExecutor.DartCallback
 import io.flutter.embedding.engine.loader.FlutterLoader
 import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.view.FlutterCallbackInformation
+import org.proninyaroslav.blink_comparison.AppNotificationManager
+import org.proninyaroslav.blink_comparison.channel.SaveRefImageServiceChannel
+import org.proninyaroslav.blink_comparison.channel.SaveRefImageServiceQueueChannel
+import org.proninyaroslav.blink_comparison.channel.SaveRefImageServiceResultChannel
 import java.util.concurrent.atomic.AtomicBoolean
 
 class SaveRefImageService : Service() {
@@ -95,7 +96,11 @@ class SaveRefImageService : Service() {
         engine?.destroy()
         engine = null
         dartCallback = null
-        stopForeground(true)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            stopForeground(STOP_FOREGROUND_REMOVE)
+        } else {
+            stopForeground(true)
+        }
         stopSelf()
     }
 

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'ref_images_cubit.dart';
 
@@ -12,31 +12,7 @@ part of 'ref_images_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$RefImagesStateTearOff {
-  const _$RefImagesStateTearOff();
-
-  RefImagesStateInitial initial() {
-    return const RefImagesStateInitial();
-  }
-
-  RefImagesStateLoaded loaded({required List<RefImageEntry> entries}) {
-    return RefImagesStateLoaded(
-      entries: entries,
-    );
-  }
-
-  RefImagesStateLoadingFailed loadingFailed({StorageError? error}) {
-    return RefImagesStateLoadingFailed(
-      error: error,
-    );
-  }
-}
-
-/// @nodoc
-const $RefImagesState = _$RefImagesStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$RefImagesState {
@@ -49,9 +25,9 @@ mixin _$RefImagesState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(List<RefImageEntry> entries)? loaded,
-    TResult Function(StorageError? error)? loadingFailed,
+    TResult? Function()? initial,
+    TResult? Function(List<RefImageEntry> entries)? loaded,
+    TResult? Function(StorageError? error)? loadingFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,9 +47,9 @@ mixin _$RefImagesState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RefImagesStateInitial value)? initial,
-    TResult Function(RefImagesStateLoaded value)? loaded,
-    TResult Function(RefImagesStateLoadingFailed value)? loadingFailed,
+    TResult? Function(RefImagesStateInitial value)? initial,
+    TResult? Function(RefImagesStateLoaded value)? loaded,
+    TResult? Function(RefImagesStateLoadingFailed value)? loadingFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,42 +66,47 @@ mixin _$RefImagesState {
 abstract class $RefImagesStateCopyWith<$Res> {
   factory $RefImagesStateCopyWith(
           RefImagesState value, $Res Function(RefImagesState) then) =
-      _$RefImagesStateCopyWithImpl<$Res>;
+      _$RefImagesStateCopyWithImpl<$Res, RefImagesState>;
 }
 
 /// @nodoc
-class _$RefImagesStateCopyWithImpl<$Res>
+class _$RefImagesStateCopyWithImpl<$Res, $Val extends RefImagesState>
     implements $RefImagesStateCopyWith<$Res> {
   _$RefImagesStateCopyWithImpl(this._value, this._then);
 
-  final RefImagesState _value;
   // ignore: unused_field
-  final $Res Function(RefImagesState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of RefImagesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class $RefImagesStateInitialCopyWith<$Res> {
-  factory $RefImagesStateInitialCopyWith(RefImagesStateInitial value,
-          $Res Function(RefImagesStateInitial) then) =
-      _$RefImagesStateInitialCopyWithImpl<$Res>;
+abstract class _$$RefImagesStateInitialImplCopyWith<$Res> {
+  factory _$$RefImagesStateInitialImplCopyWith(
+          _$RefImagesStateInitialImpl value,
+          $Res Function(_$RefImagesStateInitialImpl) then) =
+      __$$RefImagesStateInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$RefImagesStateInitialCopyWithImpl<$Res>
-    extends _$RefImagesStateCopyWithImpl<$Res>
-    implements $RefImagesStateInitialCopyWith<$Res> {
-  _$RefImagesStateInitialCopyWithImpl(
-      RefImagesStateInitial _value, $Res Function(RefImagesStateInitial) _then)
-      : super(_value, (v) => _then(v as RefImagesStateInitial));
+class __$$RefImagesStateInitialImplCopyWithImpl<$Res>
+    extends _$RefImagesStateCopyWithImpl<$Res, _$RefImagesStateInitialImpl>
+    implements _$$RefImagesStateInitialImplCopyWith<$Res> {
+  __$$RefImagesStateInitialImplCopyWithImpl(_$RefImagesStateInitialImpl _value,
+      $Res Function(_$RefImagesStateInitialImpl) _then)
+      : super(_value, _then);
 
-  @override
-  RefImagesStateInitial get _value => super._value as RefImagesStateInitial;
+  /// Create a copy of RefImagesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$RefImagesStateInitial implements RefImagesStateInitial {
-  const _$RefImagesStateInitial();
+class _$RefImagesStateInitialImpl implements RefImagesStateInitial {
+  const _$RefImagesStateInitialImpl();
 
   @override
   String toString() {
@@ -133,9 +114,10 @@ class _$RefImagesStateInitial implements RefImagesStateInitial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is RefImagesStateInitial);
+        (other.runtimeType == runtimeType &&
+            other is _$RefImagesStateInitialImpl);
   }
 
   @override
@@ -154,9 +136,9 @@ class _$RefImagesStateInitial implements RefImagesStateInitial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(List<RefImageEntry> entries)? loaded,
-    TResult Function(StorageError? error)? loadingFailed,
+    TResult? Function()? initial,
+    TResult? Function(List<RefImageEntry> entries)? loaded,
+    TResult? Function(StorageError? error)? loadingFailed,
   }) {
     return initial?.call();
   }
@@ -188,9 +170,9 @@ class _$RefImagesStateInitial implements RefImagesStateInitial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RefImagesStateInitial value)? initial,
-    TResult Function(RefImagesStateLoaded value)? loaded,
-    TResult Function(RefImagesStateLoadingFailed value)? loadingFailed,
+    TResult? Function(RefImagesStateInitial value)? initial,
+    TResult? Function(RefImagesStateLoaded value)? loaded,
+    TResult? Function(RefImagesStateLoadingFailed value)? loadingFailed,
   }) {
     return initial?.call(this);
   }
@@ -211,35 +193,36 @@ class _$RefImagesStateInitial implements RefImagesStateInitial {
 }
 
 abstract class RefImagesStateInitial implements RefImagesState {
-  const factory RefImagesStateInitial() = _$RefImagesStateInitial;
+  const factory RefImagesStateInitial() = _$RefImagesStateInitialImpl;
 }
 
 /// @nodoc
-abstract class $RefImagesStateLoadedCopyWith<$Res> {
-  factory $RefImagesStateLoadedCopyWith(RefImagesStateLoaded value,
-          $Res Function(RefImagesStateLoaded) then) =
-      _$RefImagesStateLoadedCopyWithImpl<$Res>;
+abstract class _$$RefImagesStateLoadedImplCopyWith<$Res> {
+  factory _$$RefImagesStateLoadedImplCopyWith(_$RefImagesStateLoadedImpl value,
+          $Res Function(_$RefImagesStateLoadedImpl) then) =
+      __$$RefImagesStateLoadedImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<RefImageEntry> entries});
 }
 
 /// @nodoc
-class _$RefImagesStateLoadedCopyWithImpl<$Res>
-    extends _$RefImagesStateCopyWithImpl<$Res>
-    implements $RefImagesStateLoadedCopyWith<$Res> {
-  _$RefImagesStateLoadedCopyWithImpl(
-      RefImagesStateLoaded _value, $Res Function(RefImagesStateLoaded) _then)
-      : super(_value, (v) => _then(v as RefImagesStateLoaded));
+class __$$RefImagesStateLoadedImplCopyWithImpl<$Res>
+    extends _$RefImagesStateCopyWithImpl<$Res, _$RefImagesStateLoadedImpl>
+    implements _$$RefImagesStateLoadedImplCopyWith<$Res> {
+  __$$RefImagesStateLoadedImplCopyWithImpl(_$RefImagesStateLoadedImpl _value,
+      $Res Function(_$RefImagesStateLoadedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  RefImagesStateLoaded get _value => super._value as RefImagesStateLoaded;
-
+  /// Create a copy of RefImagesState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? entries = freezed,
+    Object? entries = null,
   }) {
-    return _then(RefImagesStateLoaded(
-      entries: entries == freezed
-          ? _value.entries
+    return _then(_$RefImagesStateLoadedImpl(
+      entries: null == entries
+          ? _value._entries
           : entries // ignore: cast_nullable_to_non_nullable
               as List<RefImageEntry>,
     ));
@@ -248,11 +231,17 @@ class _$RefImagesStateLoadedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RefImagesStateLoaded implements RefImagesStateLoaded {
-  const _$RefImagesStateLoaded({required this.entries});
+class _$RefImagesStateLoadedImpl implements RefImagesStateLoaded {
+  const _$RefImagesStateLoadedImpl({required final List<RefImageEntry> entries})
+      : _entries = entries;
 
+  final List<RefImageEntry> _entries;
   @override
-  final List<RefImageEntry> entries;
+  List<RefImageEntry> get entries {
+    if (_entries is EqualUnmodifiableListView) return _entries;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_entries);
+  }
 
   @override
   String toString() {
@@ -260,22 +249,26 @@ class _$RefImagesStateLoaded implements RefImagesStateLoaded {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is RefImagesStateLoaded &&
-            const DeepCollectionEquality().equals(other.entries, entries));
+            other is _$RefImagesStateLoadedImpl &&
+            const DeepCollectionEquality().equals(other._entries, _entries));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(entries));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_entries));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RefImagesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $RefImagesStateLoadedCopyWith<RefImagesStateLoaded> get copyWith =>
-      _$RefImagesStateLoadedCopyWithImpl<RefImagesStateLoaded>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$RefImagesStateLoadedImplCopyWith<_$RefImagesStateLoadedImpl>
+      get copyWith =>
+          __$$RefImagesStateLoadedImplCopyWithImpl<_$RefImagesStateLoadedImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -290,9 +283,9 @@ class _$RefImagesStateLoaded implements RefImagesStateLoaded {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(List<RefImageEntry> entries)? loaded,
-    TResult Function(StorageError? error)? loadingFailed,
+    TResult? Function()? initial,
+    TResult? Function(List<RefImageEntry> entries)? loaded,
+    TResult? Function(StorageError? error)? loadingFailed,
   }) {
     return loaded?.call(entries);
   }
@@ -324,9 +317,9 @@ class _$RefImagesStateLoaded implements RefImagesStateLoaded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RefImagesStateInitial value)? initial,
-    TResult Function(RefImagesStateLoaded value)? loaded,
-    TResult Function(RefImagesStateLoadingFailed value)? loadingFailed,
+    TResult? Function(RefImagesStateInitial value)? initial,
+    TResult? Function(RefImagesStateLoaded value)? loaded,
+    TResult? Function(RefImagesStateLoadingFailed value)? loadingFailed,
   }) {
     return loaded?.call(this);
   }
@@ -347,51 +340,60 @@ class _$RefImagesStateLoaded implements RefImagesStateLoaded {
 }
 
 abstract class RefImagesStateLoaded implements RefImagesState {
-  const factory RefImagesStateLoaded({required List<RefImageEntry> entries}) =
-      _$RefImagesStateLoaded;
+  const factory RefImagesStateLoaded(
+          {required final List<RefImageEntry> entries}) =
+      _$RefImagesStateLoadedImpl;
 
   List<RefImageEntry> get entries;
-  @JsonKey(ignore: true)
-  $RefImagesStateLoadedCopyWith<RefImagesStateLoaded> get copyWith =>
-      throw _privateConstructorUsedError;
+
+  /// Create a copy of RefImagesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RefImagesStateLoadedImplCopyWith<_$RefImagesStateLoadedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RefImagesStateLoadingFailedCopyWith<$Res> {
-  factory $RefImagesStateLoadingFailedCopyWith(
-          RefImagesStateLoadingFailed value,
-          $Res Function(RefImagesStateLoadingFailed) then) =
-      _$RefImagesStateLoadingFailedCopyWithImpl<$Res>;
+abstract class _$$RefImagesStateLoadingFailedImplCopyWith<$Res> {
+  factory _$$RefImagesStateLoadingFailedImplCopyWith(
+          _$RefImagesStateLoadingFailedImpl value,
+          $Res Function(_$RefImagesStateLoadingFailedImpl) then) =
+      __$$RefImagesStateLoadingFailedImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({StorageError? error});
 
   $StorageErrorCopyWith<$Res>? get error;
 }
 
 /// @nodoc
-class _$RefImagesStateLoadingFailedCopyWithImpl<$Res>
-    extends _$RefImagesStateCopyWithImpl<$Res>
-    implements $RefImagesStateLoadingFailedCopyWith<$Res> {
-  _$RefImagesStateLoadingFailedCopyWithImpl(RefImagesStateLoadingFailed _value,
-      $Res Function(RefImagesStateLoadingFailed) _then)
-      : super(_value, (v) => _then(v as RefImagesStateLoadingFailed));
+class __$$RefImagesStateLoadingFailedImplCopyWithImpl<$Res>
+    extends _$RefImagesStateCopyWithImpl<$Res,
+        _$RefImagesStateLoadingFailedImpl>
+    implements _$$RefImagesStateLoadingFailedImplCopyWith<$Res> {
+  __$$RefImagesStateLoadingFailedImplCopyWithImpl(
+      _$RefImagesStateLoadingFailedImpl _value,
+      $Res Function(_$RefImagesStateLoadingFailedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  RefImagesStateLoadingFailed get _value =>
-      super._value as RefImagesStateLoadingFailed;
-
+  /// Create a copy of RefImagesState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? error = freezed,
   }) {
-    return _then(RefImagesStateLoadingFailed(
-      error: error == freezed
+    return _then(_$RefImagesStateLoadingFailedImpl(
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as StorageError?,
     ));
   }
 
+  /// Create a copy of RefImagesState
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $StorageErrorCopyWith<$Res>? get error {
     if (_value.error == null) {
       return null;
@@ -405,8 +407,8 @@ class _$RefImagesStateLoadingFailedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RefImagesStateLoadingFailed implements RefImagesStateLoadingFailed {
-  const _$RefImagesStateLoadingFailed({this.error});
+class _$RefImagesStateLoadingFailedImpl implements RefImagesStateLoadingFailed {
+  const _$RefImagesStateLoadingFailedImpl({this.error});
 
   @override
   final StorageError? error;
@@ -417,22 +419,24 @@ class _$RefImagesStateLoadingFailed implements RefImagesStateLoadingFailed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is RefImagesStateLoadingFailed &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$RefImagesStateLoadingFailedImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RefImagesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $RefImagesStateLoadingFailedCopyWith<RefImagesStateLoadingFailed>
-      get copyWith => _$RefImagesStateLoadingFailedCopyWithImpl<
-          RefImagesStateLoadingFailed>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$RefImagesStateLoadingFailedImplCopyWith<_$RefImagesStateLoadingFailedImpl>
+      get copyWith => __$$RefImagesStateLoadingFailedImplCopyWithImpl<
+          _$RefImagesStateLoadingFailedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -447,9 +451,9 @@ class _$RefImagesStateLoadingFailed implements RefImagesStateLoadingFailed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(List<RefImageEntry> entries)? loaded,
-    TResult Function(StorageError? error)? loadingFailed,
+    TResult? Function()? initial,
+    TResult? Function(List<RefImageEntry> entries)? loaded,
+    TResult? Function(StorageError? error)? loadingFailed,
   }) {
     return loadingFailed?.call(error);
   }
@@ -481,9 +485,9 @@ class _$RefImagesStateLoadingFailed implements RefImagesStateLoadingFailed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RefImagesStateInitial value)? initial,
-    TResult Function(RefImagesStateLoaded value)? loaded,
-    TResult Function(RefImagesStateLoadingFailed value)? loadingFailed,
+    TResult? Function(RefImagesStateInitial value)? initial,
+    TResult? Function(RefImagesStateLoaded value)? loaded,
+    TResult? Function(RefImagesStateLoadingFailed value)? loadingFailed,
   }) {
     return loadingFailed?.call(this);
   }
@@ -504,33 +508,17 @@ class _$RefImagesStateLoadingFailed implements RefImagesStateLoadingFailed {
 }
 
 abstract class RefImagesStateLoadingFailed implements RefImagesState {
-  const factory RefImagesStateLoadingFailed({StorageError? error}) =
-      _$RefImagesStateLoadingFailed;
+  const factory RefImagesStateLoadingFailed({final StorageError? error}) =
+      _$RefImagesStateLoadingFailedImpl;
 
   StorageError? get error;
-  @JsonKey(ignore: true)
-  $RefImagesStateLoadingFailedCopyWith<RefImagesStateLoadingFailed>
+
+  /// Create a copy of RefImagesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RefImagesStateLoadingFailedImplCopyWith<_$RefImagesStateLoadingFailedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$RefImageEntryTearOff {
-  const _$RefImageEntryTearOff();
-
-  _RefImageEntry call(
-      {required RefImageInfo info,
-      required Thumbnail thumbnail,
-      SaveRefImageStatus? status}) {
-    return _RefImageEntry(
-      info: info,
-      thumbnail: thumbnail,
-      status: status,
-    );
-  }
-}
-
-/// @nodoc
-const $RefImageEntry = _$RefImageEntryTearOff();
 
 /// @nodoc
 mixin _$RefImageEntry {
@@ -538,7 +526,9 @@ mixin _$RefImageEntry {
   Thumbnail get thumbnail => throw _privateConstructorUsedError;
   SaveRefImageStatus? get status => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RefImageEntry
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RefImageEntryCopyWith<RefImageEntry> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -547,7 +537,8 @@ mixin _$RefImageEntry {
 abstract class $RefImageEntryCopyWith<$Res> {
   factory $RefImageEntryCopyWith(
           RefImageEntry value, $Res Function(RefImageEntry) then) =
-      _$RefImageEntryCopyWithImpl<$Res>;
+      _$RefImageEntryCopyWithImpl<$Res, RefImageEntry>;
+  @useResult
   $Res call(
       {RefImageInfo info, Thumbnail thumbnail, SaveRefImageStatus? status});
 
@@ -556,62 +547,73 @@ abstract class $RefImageEntryCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RefImageEntryCopyWithImpl<$Res>
+class _$RefImageEntryCopyWithImpl<$Res, $Val extends RefImageEntry>
     implements $RefImageEntryCopyWith<$Res> {
   _$RefImageEntryCopyWithImpl(this._value, this._then);
 
-  final RefImageEntry _value;
   // ignore: unused_field
-  final $Res Function(RefImageEntry) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of RefImageEntry
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? info = freezed,
-    Object? thumbnail = freezed,
+    Object? info = null,
+    Object? thumbnail = null,
     Object? status = freezed,
   }) {
     return _then(_value.copyWith(
-      info: info == freezed
+      info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as RefImageInfo,
-      thumbnail: thumbnail == freezed
+      thumbnail: null == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
               as Thumbnail,
-      status: status == freezed
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as SaveRefImageStatus?,
-    ));
+    ) as $Val);
   }
 
+  /// Create a copy of RefImageEntry
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $RefImageInfoCopyWith<$Res> get info {
     return $RefImageInfoCopyWith<$Res>(_value.info, (value) {
-      return _then(_value.copyWith(info: value));
+      return _then(_value.copyWith(info: value) as $Val);
     });
   }
 
+  /// Create a copy of RefImageEntry
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $SaveRefImageStatusCopyWith<$Res>? get status {
     if (_value.status == null) {
       return null;
     }
 
     return $SaveRefImageStatusCopyWith<$Res>(_value.status!, (value) {
-      return _then(_value.copyWith(status: value));
+      return _then(_value.copyWith(status: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$RefImageEntryCopyWith<$Res>
+abstract class _$$RefImageEntryImplCopyWith<$Res>
     implements $RefImageEntryCopyWith<$Res> {
-  factory _$RefImageEntryCopyWith(
-          _RefImageEntry value, $Res Function(_RefImageEntry) then) =
-      __$RefImageEntryCopyWithImpl<$Res>;
+  factory _$$RefImageEntryImplCopyWith(
+          _$RefImageEntryImpl value, $Res Function(_$RefImageEntryImpl) then) =
+      __$$RefImageEntryImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {RefImageInfo info, Thumbnail thumbnail, SaveRefImageStatus? status});
 
@@ -622,32 +624,32 @@ abstract class _$RefImageEntryCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RefImageEntryCopyWithImpl<$Res>
-    extends _$RefImageEntryCopyWithImpl<$Res>
-    implements _$RefImageEntryCopyWith<$Res> {
-  __$RefImageEntryCopyWithImpl(
-      _RefImageEntry _value, $Res Function(_RefImageEntry) _then)
-      : super(_value, (v) => _then(v as _RefImageEntry));
+class __$$RefImageEntryImplCopyWithImpl<$Res>
+    extends _$RefImageEntryCopyWithImpl<$Res, _$RefImageEntryImpl>
+    implements _$$RefImageEntryImplCopyWith<$Res> {
+  __$$RefImageEntryImplCopyWithImpl(
+      _$RefImageEntryImpl _value, $Res Function(_$RefImageEntryImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _RefImageEntry get _value => super._value as _RefImageEntry;
-
+  /// Create a copy of RefImageEntry
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? info = freezed,
-    Object? thumbnail = freezed,
+    Object? info = null,
+    Object? thumbnail = null,
     Object? status = freezed,
   }) {
-    return _then(_RefImageEntry(
-      info: info == freezed
+    return _then(_$RefImageEntryImpl(
+      info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as RefImageInfo,
-      thumbnail: thumbnail == freezed
+      thumbnail: null == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
               as Thumbnail,
-      status: status == freezed
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as SaveRefImageStatus?,
@@ -657,8 +659,8 @@ class __$RefImageEntryCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_RefImageEntry implements _RefImageEntry {
-  const _$_RefImageEntry(
+class _$RefImageEntryImpl implements _RefImageEntry {
+  const _$RefImageEntryImpl(
       {required this.info, required this.thumbnail, this.status});
 
   @override
@@ -674,33 +676,33 @@ class _$_RefImageEntry implements _RefImageEntry {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RefImageEntry &&
-            const DeepCollectionEquality().equals(other.info, info) &&
-            const DeepCollectionEquality().equals(other.thumbnail, thumbnail) &&
-            const DeepCollectionEquality().equals(other.status, status));
+            other is _$RefImageEntryImpl &&
+            (identical(other.info, info) || other.info == info) &&
+            (identical(other.thumbnail, thumbnail) ||
+                other.thumbnail == thumbnail) &&
+            (identical(other.status, status) || other.status == status));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(info),
-      const DeepCollectionEquality().hash(thumbnail),
-      const DeepCollectionEquality().hash(status));
+  int get hashCode => Object.hash(runtimeType, info, thumbnail, status);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RefImageEntry
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$RefImageEntryCopyWith<_RefImageEntry> get copyWith =>
-      __$RefImageEntryCopyWithImpl<_RefImageEntry>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$RefImageEntryImplCopyWith<_$RefImageEntryImpl> get copyWith =>
+      __$$RefImageEntryImplCopyWithImpl<_$RefImageEntryImpl>(this, _$identity);
 }
 
 abstract class _RefImageEntry implements RefImageEntry {
   const factory _RefImageEntry(
-      {required RefImageInfo info,
-      required Thumbnail thumbnail,
-      SaveRefImageStatus? status}) = _$_RefImageEntry;
+      {required final RefImageInfo info,
+      required final Thumbnail thumbnail,
+      final SaveRefImageStatus? status}) = _$RefImageEntryImpl;
 
   @override
   RefImageInfo get info;
@@ -708,34 +710,17 @@ abstract class _RefImageEntry implements RefImageEntry {
   Thumbnail get thumbnail;
   @override
   SaveRefImageStatus? get status;
+
+  /// Create a copy of RefImageEntry
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$RefImageEntryCopyWith<_RefImageEntry> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RefImageEntryImplCopyWith<_$RefImageEntryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-class _$_BuildResultTearOff {
-  const _$_BuildResultTearOff();
-
-  _BuildResultData call({required List<RefImageEntry> entries}) {
-    return _BuildResultData(
-      entries: entries,
-    );
-  }
-
-  _BuildResultFailed failed({required StorageError error}) {
-    return _BuildResultFailed(
-      error: error,
-    );
-  }
-}
-
-/// @nodoc
-const _$BuildResult = _$_BuildResultTearOff();
-
-/// @nodoc
-mixin _$_BuildResult {
+mixin _$BuildResult {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(List<RefImageEntry> entries) $default, {
@@ -744,8 +729,8 @@ mixin _$_BuildResult {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<RefImageEntry> entries)? $default, {
-    TResult Function(StorageError error)? failed,
+    TResult? Function(List<RefImageEntry> entries)? $default, {
+    TResult? Function(StorageError error)? failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -763,8 +748,8 @@ mixin _$_BuildResult {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_BuildResultData value)? $default, {
-    TResult Function(_BuildResultFailed value)? failed,
+    TResult? Function(_BuildResultData value)? $default, {
+    TResult? Function(_BuildResultFailed value)? failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -780,44 +765,50 @@ mixin _$_BuildResult {
 abstract class _$BuildResultCopyWith<$Res> {
   factory _$BuildResultCopyWith(
           _BuildResult value, $Res Function(_BuildResult) then) =
-      __$BuildResultCopyWithImpl<$Res>;
+      __$BuildResultCopyWithImpl<$Res, _BuildResult>;
 }
 
 /// @nodoc
-class __$BuildResultCopyWithImpl<$Res> implements _$BuildResultCopyWith<$Res> {
+class __$BuildResultCopyWithImpl<$Res, $Val extends _BuildResult>
+    implements _$BuildResultCopyWith<$Res> {
   __$BuildResultCopyWithImpl(this._value, this._then);
 
-  final _BuildResult _value;
   // ignore: unused_field
-  final $Res Function(_BuildResult) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of _BuildResult
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class _$BuildResultDataCopyWith<$Res> {
-  factory _$BuildResultDataCopyWith(
-          _BuildResultData value, $Res Function(_BuildResultData) then) =
-      __$BuildResultDataCopyWithImpl<$Res>;
+abstract class _$$BuildResultDataImplCopyWith<$Res> {
+  factory _$$BuildResultDataImplCopyWith(_$BuildResultDataImpl value,
+          $Res Function(_$BuildResultDataImpl) then) =
+      __$$BuildResultDataImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<RefImageEntry> entries});
 }
 
 /// @nodoc
-class __$BuildResultDataCopyWithImpl<$Res>
-    extends __$BuildResultCopyWithImpl<$Res>
-    implements _$BuildResultDataCopyWith<$Res> {
-  __$BuildResultDataCopyWithImpl(
-      _BuildResultData _value, $Res Function(_BuildResultData) _then)
-      : super(_value, (v) => _then(v as _BuildResultData));
+class __$$BuildResultDataImplCopyWithImpl<$Res>
+    extends __$BuildResultCopyWithImpl<$Res, _$BuildResultDataImpl>
+    implements _$$BuildResultDataImplCopyWith<$Res> {
+  __$$BuildResultDataImplCopyWithImpl(
+      _$BuildResultDataImpl _value, $Res Function(_$BuildResultDataImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _BuildResultData get _value => super._value as _BuildResultData;
-
+  /// Create a copy of _BuildResult
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? entries = freezed,
+    Object? entries = null,
   }) {
-    return _then(_BuildResultData(
-      entries: entries == freezed
-          ? _value.entries
+    return _then(_$BuildResultDataImpl(
+      entries: null == entries
+          ? _value._entries
           : entries // ignore: cast_nullable_to_non_nullable
               as List<RefImageEntry>,
     ));
@@ -826,11 +817,17 @@ class __$BuildResultDataCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_BuildResultData implements _BuildResultData {
-  const _$_BuildResultData({required this.entries});
+class _$BuildResultDataImpl implements _BuildResultData {
+  const _$BuildResultDataImpl({required final List<RefImageEntry> entries})
+      : _entries = entries;
 
+  final List<RefImageEntry> _entries;
   @override
-  final List<RefImageEntry> entries;
+  List<RefImageEntry> get entries {
+    if (_entries is EqualUnmodifiableListView) return _entries;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_entries);
+  }
 
   @override
   String toString() {
@@ -838,21 +835,25 @@ class _$_BuildResultData implements _BuildResultData {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _BuildResultData &&
-            const DeepCollectionEquality().equals(other.entries, entries));
+            other is _$BuildResultDataImpl &&
+            const DeepCollectionEquality().equals(other._entries, _entries));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(entries));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_entries));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of _BuildResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$BuildResultDataCopyWith<_BuildResultData> get copyWith =>
-      __$BuildResultDataCopyWithImpl<_BuildResultData>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$BuildResultDataImplCopyWith<_$BuildResultDataImpl> get copyWith =>
+      __$$BuildResultDataImplCopyWithImpl<_$BuildResultDataImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -866,8 +867,8 @@ class _$_BuildResultData implements _BuildResultData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<RefImageEntry> entries)? $default, {
-    TResult Function(StorageError error)? failed,
+    TResult? Function(List<RefImageEntry> entries)? $default, {
+    TResult? Function(StorageError error)? failed,
   }) {
     return $default?.call(entries);
   }
@@ -897,8 +898,8 @@ class _$_BuildResultData implements _BuildResultData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_BuildResultData value)? $default, {
-    TResult Function(_BuildResultFailed value)? failed,
+    TResult? Function(_BuildResultData value)? $default, {
+    TResult? Function(_BuildResultFailed value)? failed,
   }) {
     return $default?.call(this);
   }
@@ -918,49 +919,56 @@ class _$_BuildResultData implements _BuildResultData {
 }
 
 abstract class _BuildResultData implements _BuildResult {
-  const factory _BuildResultData({required List<RefImageEntry> entries}) =
-      _$_BuildResultData;
+  const factory _BuildResultData({required final List<RefImageEntry> entries}) =
+      _$BuildResultDataImpl;
 
   List<RefImageEntry> get entries;
-  @JsonKey(ignore: true)
-  _$BuildResultDataCopyWith<_BuildResultData> get copyWith =>
+
+  /// Create a copy of _BuildResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$BuildResultDataImplCopyWith<_$BuildResultDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$BuildResultFailedCopyWith<$Res> {
-  factory _$BuildResultFailedCopyWith(
-          _BuildResultFailed value, $Res Function(_BuildResultFailed) then) =
-      __$BuildResultFailedCopyWithImpl<$Res>;
+abstract class _$$BuildResultFailedImplCopyWith<$Res> {
+  factory _$$BuildResultFailedImplCopyWith(_$BuildResultFailedImpl value,
+          $Res Function(_$BuildResultFailedImpl) then) =
+      __$$BuildResultFailedImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({StorageError error});
 
   $StorageErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
-class __$BuildResultFailedCopyWithImpl<$Res>
-    extends __$BuildResultCopyWithImpl<$Res>
-    implements _$BuildResultFailedCopyWith<$Res> {
-  __$BuildResultFailedCopyWithImpl(
-      _BuildResultFailed _value, $Res Function(_BuildResultFailed) _then)
-      : super(_value, (v) => _then(v as _BuildResultFailed));
+class __$$BuildResultFailedImplCopyWithImpl<$Res>
+    extends __$BuildResultCopyWithImpl<$Res, _$BuildResultFailedImpl>
+    implements _$$BuildResultFailedImplCopyWith<$Res> {
+  __$$BuildResultFailedImplCopyWithImpl(_$BuildResultFailedImpl _value,
+      $Res Function(_$BuildResultFailedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _BuildResultFailed get _value => super._value as _BuildResultFailed;
-
+  /// Create a copy of _BuildResult
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
-    return _then(_BuildResultFailed(
-      error: error == freezed
+    return _then(_$BuildResultFailedImpl(
+      error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as StorageError,
     ));
   }
 
+  /// Create a copy of _BuildResult
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $StorageErrorCopyWith<$Res> get error {
     return $StorageErrorCopyWith<$Res>(_value.error, (value) {
       return _then(_value.copyWith(error: value));
@@ -970,8 +978,8 @@ class __$BuildResultFailedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_BuildResultFailed implements _BuildResultFailed {
-  const _$_BuildResultFailed({required this.error});
+class _$BuildResultFailedImpl implements _BuildResultFailed {
+  const _$BuildResultFailedImpl({required this.error});
 
   @override
   final StorageError error;
@@ -982,21 +990,24 @@ class _$_BuildResultFailed implements _BuildResultFailed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _BuildResultFailed &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$BuildResultFailedImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of _BuildResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$BuildResultFailedCopyWith<_BuildResultFailed> get copyWith =>
-      __$BuildResultFailedCopyWithImpl<_BuildResultFailed>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$BuildResultFailedImplCopyWith<_$BuildResultFailedImpl> get copyWith =>
+      __$$BuildResultFailedImplCopyWithImpl<_$BuildResultFailedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1010,8 +1021,8 @@ class _$_BuildResultFailed implements _BuildResultFailed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(List<RefImageEntry> entries)? $default, {
-    TResult Function(StorageError error)? failed,
+    TResult? Function(List<RefImageEntry> entries)? $default, {
+    TResult? Function(StorageError error)? failed,
   }) {
     return failed?.call(error);
   }
@@ -1041,8 +1052,8 @@ class _$_BuildResultFailed implements _BuildResultFailed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_BuildResultData value)? $default, {
-    TResult Function(_BuildResultFailed value)? failed,
+    TResult? Function(_BuildResultData value)? $default, {
+    TResult? Function(_BuildResultFailed value)? failed,
   }) {
     return failed?.call(this);
   }
@@ -1062,11 +1073,14 @@ class _$_BuildResultFailed implements _BuildResultFailed {
 }
 
 abstract class _BuildResultFailed implements _BuildResult {
-  const factory _BuildResultFailed({required StorageError error}) =
-      _$_BuildResultFailed;
+  const factory _BuildResultFailed({required final StorageError error}) =
+      _$BuildResultFailedImpl;
 
   StorageError get error;
-  @JsonKey(ignore: true)
-  _$BuildResultFailedCopyWith<_BuildResultFailed> get copyWith =>
+
+  /// Create a copy of _BuildResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$BuildResultFailedImplCopyWith<_$BuildResultFailedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

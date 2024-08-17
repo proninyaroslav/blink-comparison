@@ -1,5 +1,5 @@
 // Copyright (c) 2019 Simon Lightfoot
-// Copyright (c) 2021 Yaroslav Pronin
+// Copyright (c) 2021-2024 Yaroslav Pronin
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -73,7 +73,7 @@ class DragSelectStaggeredGrid extends StatefulWidget {
   /// For information about the clause of the other parameters, refer to
   /// [GridView.builder].
   DragSelectStaggeredGrid.countBuilder({
-    Key? key,
+    super.key,
     double? autoScrollHotspotHeight,
     ScrollController? scrollController,
     this.gridController,
@@ -85,8 +85,7 @@ class DragSelectStaggeredGrid extends StatefulWidget {
     this.itemCount,
   })  : autoScrollHotspotHeight =
             autoScrollHotspotHeight ?? defaultAutoScrollHotspotHeight,
-        scrollController = scrollController ?? ScrollController(),
-        super(key: key);
+        scrollController = scrollController ?? ScrollController();
 
   /// The height of the hotspot that enables auto-scroll.
   ///

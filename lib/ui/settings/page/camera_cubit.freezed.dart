@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'camera_cubit.dart';
 
@@ -12,38 +12,11 @@ part of 'camera_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$CameraStateTearOff {
-  const _$CameraStateTearOff();
-
-  CameraStateInitial initial(CameraInfo info) {
-    return CameraStateInitial(
-      info,
-    );
-  }
-
-  CameraStateEnableFlashChanged enableFlashChanged(CameraInfo info) {
-    return CameraStateEnableFlashChanged(
-      info,
-    );
-  }
-
-  CameraStateFullscreenModeChanged fullscreenModeChanged(CameraInfo info) {
-    return CameraStateFullscreenModeChanged(
-      info,
-    );
-  }
-}
-
-/// @nodoc
-const $CameraState = _$CameraStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$CameraState {
   CameraInfo get info => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(CameraInfo info) initial,
@@ -53,9 +26,9 @@ mixin _$CameraState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(CameraInfo info)? initial,
-    TResult Function(CameraInfo info)? enableFlashChanged,
-    TResult Function(CameraInfo info)? fullscreenModeChanged,
+    TResult? Function(CameraInfo info)? initial,
+    TResult? Function(CameraInfo info)? enableFlashChanged,
+    TResult? Function(CameraInfo info)? fullscreenModeChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -77,9 +50,9 @@ mixin _$CameraState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CameraStateInitial value)? initial,
-    TResult Function(CameraStateEnableFlashChanged value)? enableFlashChanged,
-    TResult Function(CameraStateFullscreenModeChanged value)?
+    TResult? Function(CameraStateInitial value)? initial,
+    TResult? Function(CameraStateEnableFlashChanged value)? enableFlashChanged,
+    TResult? Function(CameraStateFullscreenModeChanged value)?
         fullscreenModeChanged,
   }) =>
       throw _privateConstructorUsedError;
@@ -93,7 +66,9 @@ mixin _$CameraState {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CameraState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CameraStateCopyWith<CameraState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -102,47 +77,57 @@ mixin _$CameraState {
 abstract class $CameraStateCopyWith<$Res> {
   factory $CameraStateCopyWith(
           CameraState value, $Res Function(CameraState) then) =
-      _$CameraStateCopyWithImpl<$Res>;
+      _$CameraStateCopyWithImpl<$Res, CameraState>;
+  @useResult
   $Res call({CameraInfo info});
 
   $CameraInfoCopyWith<$Res> get info;
 }
 
 /// @nodoc
-class _$CameraStateCopyWithImpl<$Res> implements $CameraStateCopyWith<$Res> {
+class _$CameraStateCopyWithImpl<$Res, $Val extends CameraState>
+    implements $CameraStateCopyWith<$Res> {
   _$CameraStateCopyWithImpl(this._value, this._then);
 
-  final CameraState _value;
   // ignore: unused_field
-  final $Res Function(CameraState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of CameraState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? info = freezed,
+    Object? info = null,
   }) {
     return _then(_value.copyWith(
-      info: info == freezed
+      info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as CameraInfo,
-    ));
+    ) as $Val);
   }
 
+  /// Create a copy of CameraState
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $CameraInfoCopyWith<$Res> get info {
     return $CameraInfoCopyWith<$Res>(_value.info, (value) {
-      return _then(_value.copyWith(info: value));
+      return _then(_value.copyWith(info: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class $CameraStateInitialCopyWith<$Res>
+abstract class _$$CameraStateInitialImplCopyWith<$Res>
     implements $CameraStateCopyWith<$Res> {
-  factory $CameraStateInitialCopyWith(
-          CameraStateInitial value, $Res Function(CameraStateInitial) then) =
-      _$CameraStateInitialCopyWithImpl<$Res>;
+  factory _$$CameraStateInitialImplCopyWith(_$CameraStateInitialImpl value,
+          $Res Function(_$CameraStateInitialImpl) then) =
+      __$$CameraStateInitialImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({CameraInfo info});
 
   @override
@@ -150,22 +135,22 @@ abstract class $CameraStateInitialCopyWith<$Res>
 }
 
 /// @nodoc
-class _$CameraStateInitialCopyWithImpl<$Res>
-    extends _$CameraStateCopyWithImpl<$Res>
-    implements $CameraStateInitialCopyWith<$Res> {
-  _$CameraStateInitialCopyWithImpl(
-      CameraStateInitial _value, $Res Function(CameraStateInitial) _then)
-      : super(_value, (v) => _then(v as CameraStateInitial));
+class __$$CameraStateInitialImplCopyWithImpl<$Res>
+    extends _$CameraStateCopyWithImpl<$Res, _$CameraStateInitialImpl>
+    implements _$$CameraStateInitialImplCopyWith<$Res> {
+  __$$CameraStateInitialImplCopyWithImpl(_$CameraStateInitialImpl _value,
+      $Res Function(_$CameraStateInitialImpl) _then)
+      : super(_value, _then);
 
-  @override
-  CameraStateInitial get _value => super._value as CameraStateInitial;
-
+  /// Create a copy of CameraState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? info = freezed,
+    Object? info = null,
   }) {
-    return _then(CameraStateInitial(
-      info == freezed
+    return _then(_$CameraStateInitialImpl(
+      null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as CameraInfo,
@@ -175,8 +160,8 @@ class _$CameraStateInitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CameraStateInitial implements CameraStateInitial {
-  const _$CameraStateInitial(this.info);
+class _$CameraStateInitialImpl implements CameraStateInitial {
+  const _$CameraStateInitialImpl(this.info);
 
   @override
   final CameraInfo info;
@@ -187,21 +172,24 @@ class _$CameraStateInitial implements CameraStateInitial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is CameraStateInitial &&
-            const DeepCollectionEquality().equals(other.info, info));
+            other is _$CameraStateInitialImpl &&
+            (identical(other.info, info) || other.info == info));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(info));
+  int get hashCode => Object.hash(runtimeType, info);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CameraState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $CameraStateInitialCopyWith<CameraStateInitial> get copyWith =>
-      _$CameraStateInitialCopyWithImpl<CameraStateInitial>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$CameraStateInitialImplCopyWith<_$CameraStateInitialImpl> get copyWith =>
+      __$$CameraStateInitialImplCopyWithImpl<_$CameraStateInitialImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -216,9 +204,9 @@ class _$CameraStateInitial implements CameraStateInitial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(CameraInfo info)? initial,
-    TResult Function(CameraInfo info)? enableFlashChanged,
-    TResult Function(CameraInfo info)? fullscreenModeChanged,
+    TResult? Function(CameraInfo info)? initial,
+    TResult? Function(CameraInfo info)? enableFlashChanged,
+    TResult? Function(CameraInfo info)? fullscreenModeChanged,
   }) {
     return initial?.call(info);
   }
@@ -252,9 +240,9 @@ class _$CameraStateInitial implements CameraStateInitial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CameraStateInitial value)? initial,
-    TResult Function(CameraStateEnableFlashChanged value)? enableFlashChanged,
-    TResult Function(CameraStateFullscreenModeChanged value)?
+    TResult? Function(CameraStateInitial value)? initial,
+    TResult? Function(CameraStateEnableFlashChanged value)? enableFlashChanged,
+    TResult? Function(CameraStateFullscreenModeChanged value)?
         fullscreenModeChanged,
   }) {
     return initial?.call(this);
@@ -277,24 +265,29 @@ class _$CameraStateInitial implements CameraStateInitial {
 }
 
 abstract class CameraStateInitial implements CameraState {
-  const factory CameraStateInitial(CameraInfo info) = _$CameraStateInitial;
+  const factory CameraStateInitial(final CameraInfo info) =
+      _$CameraStateInitialImpl;
 
   @override
   CameraInfo get info;
+
+  /// Create a copy of CameraState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  $CameraStateInitialCopyWith<CameraStateInitial> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CameraStateInitialImplCopyWith<_$CameraStateInitialImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CameraStateEnableFlashChangedCopyWith<$Res>
+abstract class _$$CameraStateEnableFlashChangedImplCopyWith<$Res>
     implements $CameraStateCopyWith<$Res> {
-  factory $CameraStateEnableFlashChangedCopyWith(
-          CameraStateEnableFlashChanged value,
-          $Res Function(CameraStateEnableFlashChanged) then) =
-      _$CameraStateEnableFlashChangedCopyWithImpl<$Res>;
+  factory _$$CameraStateEnableFlashChangedImplCopyWith(
+          _$CameraStateEnableFlashChangedImpl value,
+          $Res Function(_$CameraStateEnableFlashChangedImpl) then) =
+      __$$CameraStateEnableFlashChangedImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({CameraInfo info});
 
   @override
@@ -302,24 +295,23 @@ abstract class $CameraStateEnableFlashChangedCopyWith<$Res>
 }
 
 /// @nodoc
-class _$CameraStateEnableFlashChangedCopyWithImpl<$Res>
-    extends _$CameraStateCopyWithImpl<$Res>
-    implements $CameraStateEnableFlashChangedCopyWith<$Res> {
-  _$CameraStateEnableFlashChangedCopyWithImpl(
-      CameraStateEnableFlashChanged _value,
-      $Res Function(CameraStateEnableFlashChanged) _then)
-      : super(_value, (v) => _then(v as CameraStateEnableFlashChanged));
+class __$$CameraStateEnableFlashChangedImplCopyWithImpl<$Res>
+    extends _$CameraStateCopyWithImpl<$Res, _$CameraStateEnableFlashChangedImpl>
+    implements _$$CameraStateEnableFlashChangedImplCopyWith<$Res> {
+  __$$CameraStateEnableFlashChangedImplCopyWithImpl(
+      _$CameraStateEnableFlashChangedImpl _value,
+      $Res Function(_$CameraStateEnableFlashChangedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  CameraStateEnableFlashChanged get _value =>
-      super._value as CameraStateEnableFlashChanged;
-
+  /// Create a copy of CameraState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? info = freezed,
+    Object? info = null,
   }) {
-    return _then(CameraStateEnableFlashChanged(
-      info == freezed
+    return _then(_$CameraStateEnableFlashChangedImpl(
+      null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as CameraInfo,
@@ -329,8 +321,9 @@ class _$CameraStateEnableFlashChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CameraStateEnableFlashChanged implements CameraStateEnableFlashChanged {
-  const _$CameraStateEnableFlashChanged(this.info);
+class _$CameraStateEnableFlashChangedImpl
+    implements CameraStateEnableFlashChanged {
+  const _$CameraStateEnableFlashChangedImpl(this.info);
 
   @override
   final CameraInfo info;
@@ -341,22 +334,25 @@ class _$CameraStateEnableFlashChanged implements CameraStateEnableFlashChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is CameraStateEnableFlashChanged &&
-            const DeepCollectionEquality().equals(other.info, info));
+            other is _$CameraStateEnableFlashChangedImpl &&
+            (identical(other.info, info) || other.info == info));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(info));
+  int get hashCode => Object.hash(runtimeType, info);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CameraState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $CameraStateEnableFlashChangedCopyWith<CameraStateEnableFlashChanged>
-      get copyWith => _$CameraStateEnableFlashChangedCopyWithImpl<
-          CameraStateEnableFlashChanged>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$CameraStateEnableFlashChangedImplCopyWith<
+          _$CameraStateEnableFlashChangedImpl>
+      get copyWith => __$$CameraStateEnableFlashChangedImplCopyWithImpl<
+          _$CameraStateEnableFlashChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -371,9 +367,9 @@ class _$CameraStateEnableFlashChanged implements CameraStateEnableFlashChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(CameraInfo info)? initial,
-    TResult Function(CameraInfo info)? enableFlashChanged,
-    TResult Function(CameraInfo info)? fullscreenModeChanged,
+    TResult? Function(CameraInfo info)? initial,
+    TResult? Function(CameraInfo info)? enableFlashChanged,
+    TResult? Function(CameraInfo info)? fullscreenModeChanged,
   }) {
     return enableFlashChanged?.call(info);
   }
@@ -407,9 +403,9 @@ class _$CameraStateEnableFlashChanged implements CameraStateEnableFlashChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CameraStateInitial value)? initial,
-    TResult Function(CameraStateEnableFlashChanged value)? enableFlashChanged,
-    TResult Function(CameraStateFullscreenModeChanged value)?
+    TResult? Function(CameraStateInitial value)? initial,
+    TResult? Function(CameraStateEnableFlashChanged value)? enableFlashChanged,
+    TResult? Function(CameraStateFullscreenModeChanged value)?
         fullscreenModeChanged,
   }) {
     return enableFlashChanged?.call(this);
@@ -432,25 +428,30 @@ class _$CameraStateEnableFlashChanged implements CameraStateEnableFlashChanged {
 }
 
 abstract class CameraStateEnableFlashChanged implements CameraState {
-  const factory CameraStateEnableFlashChanged(CameraInfo info) =
-      _$CameraStateEnableFlashChanged;
+  const factory CameraStateEnableFlashChanged(final CameraInfo info) =
+      _$CameraStateEnableFlashChangedImpl;
 
   @override
   CameraInfo get info;
+
+  /// Create a copy of CameraState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  $CameraStateEnableFlashChangedCopyWith<CameraStateEnableFlashChanged>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CameraStateEnableFlashChangedImplCopyWith<
+          _$CameraStateEnableFlashChangedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CameraStateFullscreenModeChangedCopyWith<$Res>
+abstract class _$$CameraStateFullscreenModeChangedImplCopyWith<$Res>
     implements $CameraStateCopyWith<$Res> {
-  factory $CameraStateFullscreenModeChangedCopyWith(
-          CameraStateFullscreenModeChanged value,
-          $Res Function(CameraStateFullscreenModeChanged) then) =
-      _$CameraStateFullscreenModeChangedCopyWithImpl<$Res>;
+  factory _$$CameraStateFullscreenModeChangedImplCopyWith(
+          _$CameraStateFullscreenModeChangedImpl value,
+          $Res Function(_$CameraStateFullscreenModeChangedImpl) then) =
+      __$$CameraStateFullscreenModeChangedImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({CameraInfo info});
 
   @override
@@ -458,24 +459,24 @@ abstract class $CameraStateFullscreenModeChangedCopyWith<$Res>
 }
 
 /// @nodoc
-class _$CameraStateFullscreenModeChangedCopyWithImpl<$Res>
-    extends _$CameraStateCopyWithImpl<$Res>
-    implements $CameraStateFullscreenModeChangedCopyWith<$Res> {
-  _$CameraStateFullscreenModeChangedCopyWithImpl(
-      CameraStateFullscreenModeChanged _value,
-      $Res Function(CameraStateFullscreenModeChanged) _then)
-      : super(_value, (v) => _then(v as CameraStateFullscreenModeChanged));
+class __$$CameraStateFullscreenModeChangedImplCopyWithImpl<$Res>
+    extends _$CameraStateCopyWithImpl<$Res,
+        _$CameraStateFullscreenModeChangedImpl>
+    implements _$$CameraStateFullscreenModeChangedImplCopyWith<$Res> {
+  __$$CameraStateFullscreenModeChangedImplCopyWithImpl(
+      _$CameraStateFullscreenModeChangedImpl _value,
+      $Res Function(_$CameraStateFullscreenModeChangedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  CameraStateFullscreenModeChanged get _value =>
-      super._value as CameraStateFullscreenModeChanged;
-
+  /// Create a copy of CameraState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? info = freezed,
+    Object? info = null,
   }) {
-    return _then(CameraStateFullscreenModeChanged(
-      info == freezed
+    return _then(_$CameraStateFullscreenModeChangedImpl(
+      null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as CameraInfo,
@@ -485,9 +486,9 @@ class _$CameraStateFullscreenModeChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CameraStateFullscreenModeChanged
+class _$CameraStateFullscreenModeChangedImpl
     implements CameraStateFullscreenModeChanged {
-  const _$CameraStateFullscreenModeChanged(this.info);
+  const _$CameraStateFullscreenModeChangedImpl(this.info);
 
   @override
   final CameraInfo info;
@@ -498,22 +499,25 @@ class _$CameraStateFullscreenModeChanged
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is CameraStateFullscreenModeChanged &&
-            const DeepCollectionEquality().equals(other.info, info));
+            other is _$CameraStateFullscreenModeChangedImpl &&
+            (identical(other.info, info) || other.info == info));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(info));
+  int get hashCode => Object.hash(runtimeType, info);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CameraState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $CameraStateFullscreenModeChangedCopyWith<CameraStateFullscreenModeChanged>
-      get copyWith => _$CameraStateFullscreenModeChangedCopyWithImpl<
-          CameraStateFullscreenModeChanged>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$CameraStateFullscreenModeChangedImplCopyWith<
+          _$CameraStateFullscreenModeChangedImpl>
+      get copyWith => __$$CameraStateFullscreenModeChangedImplCopyWithImpl<
+          _$CameraStateFullscreenModeChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -528,9 +532,9 @@ class _$CameraStateFullscreenModeChanged
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(CameraInfo info)? initial,
-    TResult Function(CameraInfo info)? enableFlashChanged,
-    TResult Function(CameraInfo info)? fullscreenModeChanged,
+    TResult? Function(CameraInfo info)? initial,
+    TResult? Function(CameraInfo info)? enableFlashChanged,
+    TResult? Function(CameraInfo info)? fullscreenModeChanged,
   }) {
     return fullscreenModeChanged?.call(info);
   }
@@ -564,9 +568,9 @@ class _$CameraStateFullscreenModeChanged
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CameraStateInitial value)? initial,
-    TResult Function(CameraStateEnableFlashChanged value)? enableFlashChanged,
-    TResult Function(CameraStateFullscreenModeChanged value)?
+    TResult? Function(CameraStateInitial value)? initial,
+    TResult? Function(CameraStateEnableFlashChanged value)? enableFlashChanged,
+    TResult? Function(CameraStateFullscreenModeChanged value)?
         fullscreenModeChanged,
   }) {
     return fullscreenModeChanged?.call(this);
@@ -589,39 +593,29 @@ class _$CameraStateFullscreenModeChanged
 }
 
 abstract class CameraStateFullscreenModeChanged implements CameraState {
-  const factory CameraStateFullscreenModeChanged(CameraInfo info) =
-      _$CameraStateFullscreenModeChanged;
+  const factory CameraStateFullscreenModeChanged(final CameraInfo info) =
+      _$CameraStateFullscreenModeChangedImpl;
 
   @override
   CameraInfo get info;
+
+  /// Create a copy of CameraState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  $CameraStateFullscreenModeChangedCopyWith<CameraStateFullscreenModeChanged>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CameraStateFullscreenModeChangedImplCopyWith<
+          _$CameraStateFullscreenModeChangedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$CameraInfoTearOff {
-  const _$CameraInfoTearOff();
-
-  _CameraInfo call(
-      {required bool enableFlashByDefault, required bool fullscreenMode}) {
-    return _CameraInfo(
-      enableFlashByDefault: enableFlashByDefault,
-      fullscreenMode: fullscreenMode,
-    );
-  }
-}
-
-/// @nodoc
-const $CameraInfo = _$CameraInfoTearOff();
 
 /// @nodoc
 mixin _$CameraInfo {
   bool get enableFlashByDefault => throw _privateConstructorUsedError;
   bool get fullscreenMode => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CameraInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CameraInfoCopyWith<CameraInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -630,66 +624,75 @@ mixin _$CameraInfo {
 abstract class $CameraInfoCopyWith<$Res> {
   factory $CameraInfoCopyWith(
           CameraInfo value, $Res Function(CameraInfo) then) =
-      _$CameraInfoCopyWithImpl<$Res>;
+      _$CameraInfoCopyWithImpl<$Res, CameraInfo>;
+  @useResult
   $Res call({bool enableFlashByDefault, bool fullscreenMode});
 }
 
 /// @nodoc
-class _$CameraInfoCopyWithImpl<$Res> implements $CameraInfoCopyWith<$Res> {
+class _$CameraInfoCopyWithImpl<$Res, $Val extends CameraInfo>
+    implements $CameraInfoCopyWith<$Res> {
   _$CameraInfoCopyWithImpl(this._value, this._then);
 
-  final CameraInfo _value;
   // ignore: unused_field
-  final $Res Function(CameraInfo) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of CameraInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? enableFlashByDefault = freezed,
-    Object? fullscreenMode = freezed,
+    Object? enableFlashByDefault = null,
+    Object? fullscreenMode = null,
   }) {
     return _then(_value.copyWith(
-      enableFlashByDefault: enableFlashByDefault == freezed
+      enableFlashByDefault: null == enableFlashByDefault
           ? _value.enableFlashByDefault
           : enableFlashByDefault // ignore: cast_nullable_to_non_nullable
               as bool,
-      fullscreenMode: fullscreenMode == freezed
+      fullscreenMode: null == fullscreenMode
           ? _value.fullscreenMode
           : fullscreenMode // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$CameraInfoCopyWith<$Res> implements $CameraInfoCopyWith<$Res> {
-  factory _$CameraInfoCopyWith(
-          _CameraInfo value, $Res Function(_CameraInfo) then) =
-      __$CameraInfoCopyWithImpl<$Res>;
+abstract class _$$CameraInfoImplCopyWith<$Res>
+    implements $CameraInfoCopyWith<$Res> {
+  factory _$$CameraInfoImplCopyWith(
+          _$CameraInfoImpl value, $Res Function(_$CameraInfoImpl) then) =
+      __$$CameraInfoImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({bool enableFlashByDefault, bool fullscreenMode});
 }
 
 /// @nodoc
-class __$CameraInfoCopyWithImpl<$Res> extends _$CameraInfoCopyWithImpl<$Res>
-    implements _$CameraInfoCopyWith<$Res> {
-  __$CameraInfoCopyWithImpl(
-      _CameraInfo _value, $Res Function(_CameraInfo) _then)
-      : super(_value, (v) => _then(v as _CameraInfo));
+class __$$CameraInfoImplCopyWithImpl<$Res>
+    extends _$CameraInfoCopyWithImpl<$Res, _$CameraInfoImpl>
+    implements _$$CameraInfoImplCopyWith<$Res> {
+  __$$CameraInfoImplCopyWithImpl(
+      _$CameraInfoImpl _value, $Res Function(_$CameraInfoImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _CameraInfo get _value => super._value as _CameraInfo;
-
+  /// Create a copy of CameraInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? enableFlashByDefault = freezed,
-    Object? fullscreenMode = freezed,
+    Object? enableFlashByDefault = null,
+    Object? fullscreenMode = null,
   }) {
-    return _then(_CameraInfo(
-      enableFlashByDefault: enableFlashByDefault == freezed
+    return _then(_$CameraInfoImpl(
+      enableFlashByDefault: null == enableFlashByDefault
           ? _value.enableFlashByDefault
           : enableFlashByDefault // ignore: cast_nullable_to_non_nullable
               as bool,
-      fullscreenMode: fullscreenMode == freezed
+      fullscreenMode: null == fullscreenMode
           ? _value.fullscreenMode
           : fullscreenMode // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -699,8 +702,8 @@ class __$CameraInfoCopyWithImpl<$Res> extends _$CameraInfoCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CameraInfo implements _CameraInfo {
-  const _$_CameraInfo(
+class _$CameraInfoImpl implements _CameraInfo {
+  const _$CameraInfoImpl(
       {required this.enableFlashByDefault, required this.fullscreenMode});
 
   @override
@@ -714,39 +717,43 @@ class _$_CameraInfo implements _CameraInfo {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _CameraInfo &&
-            const DeepCollectionEquality()
-                .equals(other.enableFlashByDefault, enableFlashByDefault) &&
-            const DeepCollectionEquality()
-                .equals(other.fullscreenMode, fullscreenMode));
+            other is _$CameraInfoImpl &&
+            (identical(other.enableFlashByDefault, enableFlashByDefault) ||
+                other.enableFlashByDefault == enableFlashByDefault) &&
+            (identical(other.fullscreenMode, fullscreenMode) ||
+                other.fullscreenMode == fullscreenMode));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(enableFlashByDefault),
-      const DeepCollectionEquality().hash(fullscreenMode));
+  int get hashCode =>
+      Object.hash(runtimeType, enableFlashByDefault, fullscreenMode);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CameraInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$CameraInfoCopyWith<_CameraInfo> get copyWith =>
-      __$CameraInfoCopyWithImpl<_CameraInfo>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$CameraInfoImplCopyWith<_$CameraInfoImpl> get copyWith =>
+      __$$CameraInfoImplCopyWithImpl<_$CameraInfoImpl>(this, _$identity);
 }
 
 abstract class _CameraInfo implements CameraInfo {
   const factory _CameraInfo(
-      {required bool enableFlashByDefault,
-      required bool fullscreenMode}) = _$_CameraInfo;
+      {required final bool enableFlashByDefault,
+      required final bool fullscreenMode}) = _$CameraInfoImpl;
 
   @override
   bool get enableFlashByDefault;
   @override
   bool get fullscreenMode;
+
+  /// Create a copy of CameraInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$CameraInfoCopyWith<_CameraInfo> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CameraInfoImplCopyWith<_$CameraInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

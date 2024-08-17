@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -20,20 +20,24 @@ import 'package:blink_comparison/core/encrypt/encrypt_key_derivation.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../mock/mock.dart';
+import 'load_sodium.dart';
 
 void main() {
   group('Encryption module provider |', () {
     late EncryptKeyDerivation mockDerivation;
     late EncryptModuleProvider encryptProvider;
 
-    setUpAll(() {
+    setUpAll(() async {
       mockDerivation = MockEncryptKeyDerivation();
-      encryptProvider = EncryptModuleProviderImpl(mockDerivation);
+      encryptProvider = EncryptModuleProviderImpl(
+        await loadSodiumSumo(),
+        mockDerivation,
+      );
     });
 
     test('PBE', () {
       expect(
-        encryptProvider.getByKey(const SecureKey.password('')),
+        encryptProvider.getByKey(const AppSecureKey.password('')),
         isA<PBEModule>(),
       );
     });

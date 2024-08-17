@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -22,12 +22,14 @@ import 'package:blink_comparison/core/encrypt/encrypt_key_derivation.dart';
 import 'package:convert/convert.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'load_sodium.dart';
+
 void main() {
   group('Encrypt key derivation |', () {
     late final EncryptKeyDerivation hasher;
 
     setUpAll(() async {
-      hasher = EncryptKeyDerivationImpl();
+      hasher = EncryptKeyDerivationImpl(await loadSodiumSumo());
     });
 
     test('Derive', () async {

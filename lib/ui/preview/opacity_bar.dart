@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -23,7 +23,7 @@ import '../../locale.dart';
 import 'ref_image_options_cubit.dart';
 
 class OpacityBar extends StatefulWidget {
-  const OpacityBar({Key? key}) : super(key: key);
+  const OpacityBar({super.key});
 
   @override
   State<OpacityBar> createState() => _OpacityBarState();
@@ -75,7 +75,7 @@ class _OpacityBarState extends State<OpacityBar> {
                             const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
                         child: Text(
                           S.of(context).imageOverlayOpacity,
-                          style: Theme.of(context).textTheme.headline6,
+                          style: Theme.of(context).textTheme.titleLarge,
                         ),
                       ),
                     ),

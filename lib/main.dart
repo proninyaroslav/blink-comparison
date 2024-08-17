@@ -19,7 +19,6 @@ import 'package:blink_comparison/core/crash_catcher/handler/notification_crash_h
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sodium/flutter_sodium.dart';
 
 import 'core/crash_catcher/crash_catcher.dart';
 import 'core/crash_catcher/hook/flutter_crash_hook.dart';
@@ -34,10 +33,11 @@ final _navigatorKey = GlobalKey<NavigatorState>();
 Future<void> _main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initInjector(kDebugMode ? Env.dev : Env.prod);
-  GestureBinding.instance!.resamplingEnabled = true;
-  Sodium.init();
+  GestureBinding.instance.resamplingEnabled = true;
 
-  await getIt<NotificationManager>().init();
+  final notificationManager = getIt<NotificationManager>();
+  await notificationManager.init();
+  notificationManager.requestPermissions();
 
   runApp(
     App(

@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -19,15 +19,14 @@ import 'package:blink_comparison/ui/theme.dart';
 import 'package:flutter/material.dart';
 
 import '../../locale.dart';
-import '../theme.dart';
 
 class LoadingPageError extends StatelessWidget {
   final VoidCallback? onRefresh;
 
   const LoadingPageError({
-    Key? key,
+    super.key,
     this.onRefresh,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

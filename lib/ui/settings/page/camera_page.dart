@@ -15,6 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'package:auto_route/auto_route.dart';
 import 'package:blink_comparison/locale.dart';
 import 'package:blink_comparison/ui/settings/page/camera_cubit.dart';
 import 'package:flutter/material.dart' hide Locale;
@@ -23,8 +24,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../settings_list.dart';
 import '../settings_scaffold.dart';
 
+@RoutePage()
 class CameraSettingsPage extends StatelessWidget {
-  const CameraSettingsPage({Key? key}) : super(key: key);
+  const CameraSettingsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

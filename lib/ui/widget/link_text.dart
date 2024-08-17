@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -30,11 +30,11 @@ class LinkText extends StatelessWidget {
   final TextStyle? style;
 
   const LinkText({
-    Key? key,
+    super.key,
     required this.text,
     this.selectable = false,
     this.style,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -46,14 +46,16 @@ class LinkText extends StatelessWidget {
     );
     Future<void> onOpen(LinkableElement link) async {
       try {
-        await launch(link.url);
+        await launchUrl(Uri.parse(link.url));
       } on PlatformException catch (e, stackTrace) {
-        log().w('Unable to open $link', e, stackTrace);
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(S.of(context).openLinkFailed),
-          ),
-        );
+        log().w('Unable to open $link', error: e, stackTrace: stackTrace);
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(S.of(context).openLinkFailed),
+            ),
+          );
+        }
       }
     }
 

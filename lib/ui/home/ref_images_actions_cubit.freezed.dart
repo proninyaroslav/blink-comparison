@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'ref_images_actions_cubit.dart';
 
@@ -12,32 +12,7 @@ part of 'ref_images_actions_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$RefImagesActionsStateTearOff {
-  const _$RefImagesActionsStateTearOff();
-
-  RefImagesActionsStateInitial initial() {
-    return const RefImagesActionsStateInitial();
-  }
-
-  RefImagesActionsStateDeleting deleting() {
-    return const RefImagesActionsStateDeleting();
-  }
-
-  RefImagesActionsStateDeleted deleted(
-      {required int count,
-      required Map<RefImageInfo, SecStorageError> errors}) {
-    return RefImagesActionsStateDeleted(
-      count: count,
-      errors: errors,
-    );
-  }
-}
-
-/// @nodoc
-const $RefImagesActionsState = _$RefImagesActionsStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$RefImagesActionsState {
@@ -52,9 +27,9 @@ mixin _$RefImagesActionsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? deleting,
-    TResult Function(int count, Map<RefImageInfo, SecStorageError> errors)?
+    TResult? Function()? initial,
+    TResult? Function()? deleting,
+    TResult? Function(int count, Map<RefImageInfo, SecStorageError> errors)?
         deleted,
   }) =>
       throw _privateConstructorUsedError;
@@ -76,9 +51,9 @@ mixin _$RefImagesActionsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RefImagesActionsStateInitial value)? initial,
-    TResult Function(RefImagesActionsStateDeleting value)? deleting,
-    TResult Function(RefImagesActionsStateDeleted value)? deleted,
+    TResult? Function(RefImagesActionsStateInitial value)? initial,
+    TResult? Function(RefImagesActionsStateDeleting value)? deleting,
+    TResult? Function(RefImagesActionsStateDeleted value)? deleted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -95,45 +70,51 @@ mixin _$RefImagesActionsState {
 abstract class $RefImagesActionsStateCopyWith<$Res> {
   factory $RefImagesActionsStateCopyWith(RefImagesActionsState value,
           $Res Function(RefImagesActionsState) then) =
-      _$RefImagesActionsStateCopyWithImpl<$Res>;
+      _$RefImagesActionsStateCopyWithImpl<$Res, RefImagesActionsState>;
 }
 
 /// @nodoc
-class _$RefImagesActionsStateCopyWithImpl<$Res>
+class _$RefImagesActionsStateCopyWithImpl<$Res,
+        $Val extends RefImagesActionsState>
     implements $RefImagesActionsStateCopyWith<$Res> {
   _$RefImagesActionsStateCopyWithImpl(this._value, this._then);
 
-  final RefImagesActionsState _value;
   // ignore: unused_field
-  final $Res Function(RefImagesActionsState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of RefImagesActionsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class $RefImagesActionsStateInitialCopyWith<$Res> {
-  factory $RefImagesActionsStateInitialCopyWith(
-          RefImagesActionsStateInitial value,
-          $Res Function(RefImagesActionsStateInitial) then) =
-      _$RefImagesActionsStateInitialCopyWithImpl<$Res>;
+abstract class _$$RefImagesActionsStateInitialImplCopyWith<$Res> {
+  factory _$$RefImagesActionsStateInitialImplCopyWith(
+          _$RefImagesActionsStateInitialImpl value,
+          $Res Function(_$RefImagesActionsStateInitialImpl) then) =
+      __$$RefImagesActionsStateInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$RefImagesActionsStateInitialCopyWithImpl<$Res>
-    extends _$RefImagesActionsStateCopyWithImpl<$Res>
-    implements $RefImagesActionsStateInitialCopyWith<$Res> {
-  _$RefImagesActionsStateInitialCopyWithImpl(
-      RefImagesActionsStateInitial _value,
-      $Res Function(RefImagesActionsStateInitial) _then)
-      : super(_value, (v) => _then(v as RefImagesActionsStateInitial));
+class __$$RefImagesActionsStateInitialImplCopyWithImpl<$Res>
+    extends _$RefImagesActionsStateCopyWithImpl<$Res,
+        _$RefImagesActionsStateInitialImpl>
+    implements _$$RefImagesActionsStateInitialImplCopyWith<$Res> {
+  __$$RefImagesActionsStateInitialImplCopyWithImpl(
+      _$RefImagesActionsStateInitialImpl _value,
+      $Res Function(_$RefImagesActionsStateInitialImpl) _then)
+      : super(_value, _then);
 
-  @override
-  RefImagesActionsStateInitial get _value =>
-      super._value as RefImagesActionsStateInitial;
+  /// Create a copy of RefImagesActionsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$RefImagesActionsStateInitial implements RefImagesActionsStateInitial {
-  const _$RefImagesActionsStateInitial();
+class _$RefImagesActionsStateInitialImpl
+    implements RefImagesActionsStateInitial {
+  const _$RefImagesActionsStateInitialImpl();
 
   @override
   String toString() {
@@ -141,10 +122,10 @@ class _$RefImagesActionsStateInitial implements RefImagesActionsStateInitial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is RefImagesActionsStateInitial);
+            other is _$RefImagesActionsStateInitialImpl);
   }
 
   @override
@@ -165,9 +146,9 @@ class _$RefImagesActionsStateInitial implements RefImagesActionsStateInitial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? deleting,
-    TResult Function(int count, Map<RefImageInfo, SecStorageError> errors)?
+    TResult? Function()? initial,
+    TResult? Function()? deleting,
+    TResult? Function(int count, Map<RefImageInfo, SecStorageError> errors)?
         deleted,
   }) {
     return initial?.call();
@@ -201,9 +182,9 @@ class _$RefImagesActionsStateInitial implements RefImagesActionsStateInitial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RefImagesActionsStateInitial value)? initial,
-    TResult Function(RefImagesActionsStateDeleting value)? deleting,
-    TResult Function(RefImagesActionsStateDeleted value)? deleted,
+    TResult? Function(RefImagesActionsStateInitial value)? initial,
+    TResult? Function(RefImagesActionsStateDeleting value)? deleting,
+    TResult? Function(RefImagesActionsStateDeleted value)? deleted,
   }) {
     return initial?.call(this);
   }
@@ -224,35 +205,37 @@ class _$RefImagesActionsStateInitial implements RefImagesActionsStateInitial {
 }
 
 abstract class RefImagesActionsStateInitial implements RefImagesActionsState {
-  const factory RefImagesActionsStateInitial() = _$RefImagesActionsStateInitial;
+  const factory RefImagesActionsStateInitial() =
+      _$RefImagesActionsStateInitialImpl;
 }
 
 /// @nodoc
-abstract class $RefImagesActionsStateDeletingCopyWith<$Res> {
-  factory $RefImagesActionsStateDeletingCopyWith(
-          RefImagesActionsStateDeleting value,
-          $Res Function(RefImagesActionsStateDeleting) then) =
-      _$RefImagesActionsStateDeletingCopyWithImpl<$Res>;
+abstract class _$$RefImagesActionsStateDeletingImplCopyWith<$Res> {
+  factory _$$RefImagesActionsStateDeletingImplCopyWith(
+          _$RefImagesActionsStateDeletingImpl value,
+          $Res Function(_$RefImagesActionsStateDeletingImpl) then) =
+      __$$RefImagesActionsStateDeletingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$RefImagesActionsStateDeletingCopyWithImpl<$Res>
-    extends _$RefImagesActionsStateCopyWithImpl<$Res>
-    implements $RefImagesActionsStateDeletingCopyWith<$Res> {
-  _$RefImagesActionsStateDeletingCopyWithImpl(
-      RefImagesActionsStateDeleting _value,
-      $Res Function(RefImagesActionsStateDeleting) _then)
-      : super(_value, (v) => _then(v as RefImagesActionsStateDeleting));
+class __$$RefImagesActionsStateDeletingImplCopyWithImpl<$Res>
+    extends _$RefImagesActionsStateCopyWithImpl<$Res,
+        _$RefImagesActionsStateDeletingImpl>
+    implements _$$RefImagesActionsStateDeletingImplCopyWith<$Res> {
+  __$$RefImagesActionsStateDeletingImplCopyWithImpl(
+      _$RefImagesActionsStateDeletingImpl _value,
+      $Res Function(_$RefImagesActionsStateDeletingImpl) _then)
+      : super(_value, _then);
 
-  @override
-  RefImagesActionsStateDeleting get _value =>
-      super._value as RefImagesActionsStateDeleting;
+  /// Create a copy of RefImagesActionsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$RefImagesActionsStateDeleting implements RefImagesActionsStateDeleting {
-  const _$RefImagesActionsStateDeleting();
+class _$RefImagesActionsStateDeletingImpl
+    implements RefImagesActionsStateDeleting {
+  const _$RefImagesActionsStateDeletingImpl();
 
   @override
   String toString() {
@@ -260,10 +243,10 @@ class _$RefImagesActionsStateDeleting implements RefImagesActionsStateDeleting {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is RefImagesActionsStateDeleting);
+            other is _$RefImagesActionsStateDeletingImpl);
   }
 
   @override
@@ -284,9 +267,9 @@ class _$RefImagesActionsStateDeleting implements RefImagesActionsStateDeleting {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? deleting,
-    TResult Function(int count, Map<RefImageInfo, SecStorageError> errors)?
+    TResult? Function()? initial,
+    TResult? Function()? deleting,
+    TResult? Function(int count, Map<RefImageInfo, SecStorageError> errors)?
         deleted,
   }) {
     return deleting?.call();
@@ -320,9 +303,9 @@ class _$RefImagesActionsStateDeleting implements RefImagesActionsStateDeleting {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RefImagesActionsStateInitial value)? initial,
-    TResult Function(RefImagesActionsStateDeleting value)? deleting,
-    TResult Function(RefImagesActionsStateDeleted value)? deleted,
+    TResult? Function(RefImagesActionsStateInitial value)? initial,
+    TResult? Function(RefImagesActionsStateDeleting value)? deleting,
+    TResult? Function(RefImagesActionsStateDeleted value)? deleted,
   }) {
     return deleting?.call(this);
   }
@@ -344,43 +327,44 @@ class _$RefImagesActionsStateDeleting implements RefImagesActionsStateDeleting {
 
 abstract class RefImagesActionsStateDeleting implements RefImagesActionsState {
   const factory RefImagesActionsStateDeleting() =
-      _$RefImagesActionsStateDeleting;
+      _$RefImagesActionsStateDeletingImpl;
 }
 
 /// @nodoc
-abstract class $RefImagesActionsStateDeletedCopyWith<$Res> {
-  factory $RefImagesActionsStateDeletedCopyWith(
-          RefImagesActionsStateDeleted value,
-          $Res Function(RefImagesActionsStateDeleted) then) =
-      _$RefImagesActionsStateDeletedCopyWithImpl<$Res>;
+abstract class _$$RefImagesActionsStateDeletedImplCopyWith<$Res> {
+  factory _$$RefImagesActionsStateDeletedImplCopyWith(
+          _$RefImagesActionsStateDeletedImpl value,
+          $Res Function(_$RefImagesActionsStateDeletedImpl) then) =
+      __$$RefImagesActionsStateDeletedImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({int count, Map<RefImageInfo, SecStorageError> errors});
 }
 
 /// @nodoc
-class _$RefImagesActionsStateDeletedCopyWithImpl<$Res>
-    extends _$RefImagesActionsStateCopyWithImpl<$Res>
-    implements $RefImagesActionsStateDeletedCopyWith<$Res> {
-  _$RefImagesActionsStateDeletedCopyWithImpl(
-      RefImagesActionsStateDeleted _value,
-      $Res Function(RefImagesActionsStateDeleted) _then)
-      : super(_value, (v) => _then(v as RefImagesActionsStateDeleted));
+class __$$RefImagesActionsStateDeletedImplCopyWithImpl<$Res>
+    extends _$RefImagesActionsStateCopyWithImpl<$Res,
+        _$RefImagesActionsStateDeletedImpl>
+    implements _$$RefImagesActionsStateDeletedImplCopyWith<$Res> {
+  __$$RefImagesActionsStateDeletedImplCopyWithImpl(
+      _$RefImagesActionsStateDeletedImpl _value,
+      $Res Function(_$RefImagesActionsStateDeletedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  RefImagesActionsStateDeleted get _value =>
-      super._value as RefImagesActionsStateDeleted;
-
+  /// Create a copy of RefImagesActionsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? count = freezed,
-    Object? errors = freezed,
+    Object? count = null,
+    Object? errors = null,
   }) {
-    return _then(RefImagesActionsStateDeleted(
-      count: count == freezed
+    return _then(_$RefImagesActionsStateDeletedImpl(
+      count: null == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int,
-      errors: errors == freezed
-          ? _value.errors
+      errors: null == errors
+          ? _value._errors
           : errors // ignore: cast_nullable_to_non_nullable
               as Map<RefImageInfo, SecStorageError>,
     ));
@@ -389,14 +373,22 @@ class _$RefImagesActionsStateDeletedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RefImagesActionsStateDeleted implements RefImagesActionsStateDeleted {
-  const _$RefImagesActionsStateDeleted(
-      {required this.count, required this.errors});
+class _$RefImagesActionsStateDeletedImpl
+    implements RefImagesActionsStateDeleted {
+  const _$RefImagesActionsStateDeletedImpl(
+      {required this.count,
+      required final Map<RefImageInfo, SecStorageError> errors})
+      : _errors = errors;
 
   @override
   final int count;
+  final Map<RefImageInfo, SecStorageError> _errors;
   @override
-  final Map<RefImageInfo, SecStorageError> errors;
+  Map<RefImageInfo, SecStorageError> get errors {
+    if (_errors is EqualUnmodifiableMapView) return _errors;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_errors);
+  }
 
   @override
   String toString() {
@@ -404,25 +396,27 @@ class _$RefImagesActionsStateDeleted implements RefImagesActionsStateDeleted {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is RefImagesActionsStateDeleted &&
-            const DeepCollectionEquality().equals(other.count, count) &&
-            const DeepCollectionEquality().equals(other.errors, errors));
+            other is _$RefImagesActionsStateDeletedImpl &&
+            (identical(other.count, count) || other.count == count) &&
+            const DeepCollectionEquality().equals(other._errors, _errors));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(count),
-      const DeepCollectionEquality().hash(errors));
+      runtimeType, count, const DeepCollectionEquality().hash(_errors));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RefImagesActionsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $RefImagesActionsStateDeletedCopyWith<RefImagesActionsStateDeleted>
-      get copyWith => _$RefImagesActionsStateDeletedCopyWithImpl<
-          RefImagesActionsStateDeleted>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$RefImagesActionsStateDeletedImplCopyWith<
+          _$RefImagesActionsStateDeletedImpl>
+      get copyWith => __$$RefImagesActionsStateDeletedImplCopyWithImpl<
+          _$RefImagesActionsStateDeletedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -439,9 +433,9 @@ class _$RefImagesActionsStateDeleted implements RefImagesActionsStateDeleted {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? deleting,
-    TResult Function(int count, Map<RefImageInfo, SecStorageError> errors)?
+    TResult? Function()? initial,
+    TResult? Function()? deleting,
+    TResult? Function(int count, Map<RefImageInfo, SecStorageError> errors)?
         deleted,
   }) {
     return deleted?.call(count, errors);
@@ -475,9 +469,9 @@ class _$RefImagesActionsStateDeleted implements RefImagesActionsStateDeleted {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RefImagesActionsStateInitial value)? initial,
-    TResult Function(RefImagesActionsStateDeleting value)? deleting,
-    TResult Function(RefImagesActionsStateDeleted value)? deleted,
+    TResult? Function(RefImagesActionsStateInitial value)? initial,
+    TResult? Function(RefImagesActionsStateDeleting value)? deleting,
+    TResult? Function(RefImagesActionsStateDeleted value)? deleted,
   }) {
     return deleted?.call(this);
   }
@@ -499,13 +493,17 @@ class _$RefImagesActionsStateDeleted implements RefImagesActionsStateDeleted {
 
 abstract class RefImagesActionsStateDeleted implements RefImagesActionsState {
   const factory RefImagesActionsStateDeleted(
-          {required int count,
-          required Map<RefImageInfo, SecStorageError> errors}) =
-      _$RefImagesActionsStateDeleted;
+          {required final int count,
+          required final Map<RefImageInfo, SecStorageError> errors}) =
+      _$RefImagesActionsStateDeletedImpl;
 
   int get count;
   Map<RefImageInfo, SecStorageError> get errors;
-  @JsonKey(ignore: true)
-  $RefImagesActionsStateDeletedCopyWith<RefImagesActionsStateDeleted>
+
+  /// Create a copy of RefImagesActionsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RefImagesActionsStateDeletedImplCopyWith<
+          _$RefImagesActionsStateDeletedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

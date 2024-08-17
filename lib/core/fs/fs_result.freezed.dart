@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'fs_result.dart';
 
@@ -12,30 +12,11 @@ part of 'fs_result.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$FsResultTearOff {
-  const _$FsResultTearOff();
-
-  FsResultValue<T> call<T>(T value) {
-    return FsResultValue<T>(
-      value,
-    );
-  }
-
-  FsResultError<T> error<T>(FsError value) {
-    return FsResultError<T>(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $FsResult = _$FsResultTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$FsResult<T> {
+  Object? get value => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(T value) $default, {
@@ -44,8 +25,8 @@ mixin _$FsResult<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(T value)? $default, {
-    TResult Function(FsError value)? error,
+    TResult? Function(T value)? $default, {
+    TResult? Function(FsError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,8 +44,8 @@ mixin _$FsResult<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(FsResultValue<T> value)? $default, {
-    TResult Function(FsResultError<T> value)? error,
+    TResult? Function(FsResultValue<T> value)? $default, {
+    TResult? Function(FsResultError<T> value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,43 +61,49 @@ mixin _$FsResult<T> {
 abstract class $FsResultCopyWith<T, $Res> {
   factory $FsResultCopyWith(
           FsResult<T> value, $Res Function(FsResult<T>) then) =
-      _$FsResultCopyWithImpl<T, $Res>;
+      _$FsResultCopyWithImpl<T, $Res, FsResult<T>>;
 }
 
 /// @nodoc
-class _$FsResultCopyWithImpl<T, $Res> implements $FsResultCopyWith<T, $Res> {
+class _$FsResultCopyWithImpl<T, $Res, $Val extends FsResult<T>>
+    implements $FsResultCopyWith<T, $Res> {
   _$FsResultCopyWithImpl(this._value, this._then);
 
-  final FsResult<T> _value;
   // ignore: unused_field
-  final $Res Function(FsResult<T>) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of FsResult
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class $FsResultValueCopyWith<T, $Res> {
-  factory $FsResultValueCopyWith(
-          FsResultValue<T> value, $Res Function(FsResultValue<T>) then) =
-      _$FsResultValueCopyWithImpl<T, $Res>;
+abstract class _$$FsResultValueImplCopyWith<T, $Res> {
+  factory _$$FsResultValueImplCopyWith(_$FsResultValueImpl<T> value,
+          $Res Function(_$FsResultValueImpl<T>) then) =
+      __$$FsResultValueImplCopyWithImpl<T, $Res>;
+  @useResult
   $Res call({T value});
 }
 
 /// @nodoc
-class _$FsResultValueCopyWithImpl<T, $Res>
-    extends _$FsResultCopyWithImpl<T, $Res>
-    implements $FsResultValueCopyWith<T, $Res> {
-  _$FsResultValueCopyWithImpl(
-      FsResultValue<T> _value, $Res Function(FsResultValue<T>) _then)
-      : super(_value, (v) => _then(v as FsResultValue<T>));
+class __$$FsResultValueImplCopyWithImpl<T, $Res>
+    extends _$FsResultCopyWithImpl<T, $Res, _$FsResultValueImpl<T>>
+    implements _$$FsResultValueImplCopyWith<T, $Res> {
+  __$$FsResultValueImplCopyWithImpl(_$FsResultValueImpl<T> _value,
+      $Res Function(_$FsResultValueImpl<T>) _then)
+      : super(_value, _then);
 
-  @override
-  FsResultValue<T> get _value => super._value as FsResultValue<T>;
-
+  /// Create a copy of FsResult
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(FsResultValue<T>(
-      value == freezed
+    return _then(_$FsResultValueImpl<T>(
+      freezed == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as T,
@@ -126,10 +113,10 @@ class _$FsResultValueCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$FsResultValue<T>
+class _$FsResultValueImpl<T>
     with DiagnosticableTreeMixin
     implements FsResultValue<T> {
-  const _$FsResultValue(this.value);
+  const _$FsResultValueImpl(this.value);
 
   @override
   final T value;
@@ -148,10 +135,10 @@ class _$FsResultValue<T>
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is FsResultValue<T> &&
+            other is _$FsResultValueImpl<T> &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -159,10 +146,14 @@ class _$FsResultValue<T>
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FsResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $FsResultValueCopyWith<T, FsResultValue<T>> get copyWith =>
-      _$FsResultValueCopyWithImpl<T, FsResultValue<T>>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$FsResultValueImplCopyWith<T, _$FsResultValueImpl<T>> get copyWith =>
+      __$$FsResultValueImplCopyWithImpl<T, _$FsResultValueImpl<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -176,8 +167,8 @@ class _$FsResultValue<T>
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(T value)? $default, {
-    TResult Function(FsError value)? error,
+    TResult? Function(T value)? $default, {
+    TResult? Function(FsError value)? error,
   }) {
     return $default?.call(value);
   }
@@ -207,8 +198,8 @@ class _$FsResultValue<T>
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(FsResultValue<T> value)? $default, {
-    TResult Function(FsResultError<T> value)? error,
+    TResult? Function(FsResultValue<T> value)? $default, {
+    TResult? Function(FsResultError<T> value)? error,
   }) {
     return $default?.call(this);
   }
@@ -228,48 +219,56 @@ class _$FsResultValue<T>
 }
 
 abstract class FsResultValue<T> implements FsResult<T> {
-  const factory FsResultValue(T value) = _$FsResultValue<T>;
+  const factory FsResultValue(final T value) = _$FsResultValueImpl<T>;
 
+  @override
   T get value;
-  @JsonKey(ignore: true)
-  $FsResultValueCopyWith<T, FsResultValue<T>> get copyWith =>
+
+  /// Create a copy of FsResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FsResultValueImplCopyWith<T, _$FsResultValueImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FsResultErrorCopyWith<T, $Res> {
-  factory $FsResultErrorCopyWith(
-          FsResultError<T> value, $Res Function(FsResultError<T>) then) =
-      _$FsResultErrorCopyWithImpl<T, $Res>;
+abstract class _$$FsResultErrorImplCopyWith<T, $Res> {
+  factory _$$FsResultErrorImplCopyWith(_$FsResultErrorImpl<T> value,
+          $Res Function(_$FsResultErrorImpl<T>) then) =
+      __$$FsResultErrorImplCopyWithImpl<T, $Res>;
+  @useResult
   $Res call({FsError value});
 
   $FsErrorCopyWith<$Res> get value;
 }
 
 /// @nodoc
-class _$FsResultErrorCopyWithImpl<T, $Res>
-    extends _$FsResultCopyWithImpl<T, $Res>
-    implements $FsResultErrorCopyWith<T, $Res> {
-  _$FsResultErrorCopyWithImpl(
-      FsResultError<T> _value, $Res Function(FsResultError<T>) _then)
-      : super(_value, (v) => _then(v as FsResultError<T>));
+class __$$FsResultErrorImplCopyWithImpl<T, $Res>
+    extends _$FsResultCopyWithImpl<T, $Res, _$FsResultErrorImpl<T>>
+    implements _$$FsResultErrorImplCopyWith<T, $Res> {
+  __$$FsResultErrorImplCopyWithImpl(_$FsResultErrorImpl<T> _value,
+      $Res Function(_$FsResultErrorImpl<T>) _then)
+      : super(_value, _then);
 
-  @override
-  FsResultError<T> get _value => super._value as FsResultError<T>;
-
+  /// Create a copy of FsResult
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
   }) {
-    return _then(FsResultError<T>(
-      value == freezed
+    return _then(_$FsResultErrorImpl<T>(
+      null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as FsError,
     ));
   }
 
+  /// Create a copy of FsResult
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $FsErrorCopyWith<$Res> get value {
     return $FsErrorCopyWith<$Res>(_value.value, (value) {
       return _then(_value.copyWith(value: value));
@@ -279,10 +278,10 @@ class _$FsResultErrorCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$FsResultError<T>
+class _$FsResultErrorImpl<T>
     with DiagnosticableTreeMixin
     implements FsResultError<T> {
-  const _$FsResultError(this.value);
+  const _$FsResultErrorImpl(this.value);
 
   @override
   final FsError value;
@@ -301,21 +300,24 @@ class _$FsResultError<T>
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is FsResultError<T> &&
-            const DeepCollectionEquality().equals(other.value, value));
+            other is _$FsResultErrorImpl<T> &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, value);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FsResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $FsResultErrorCopyWith<T, FsResultError<T>> get copyWith =>
-      _$FsResultErrorCopyWithImpl<T, FsResultError<T>>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$FsResultErrorImplCopyWith<T, _$FsResultErrorImpl<T>> get copyWith =>
+      __$$FsResultErrorImplCopyWithImpl<T, _$FsResultErrorImpl<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -329,8 +331,8 @@ class _$FsResultError<T>
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(T value)? $default, {
-    TResult Function(FsError value)? error,
+    TResult? Function(T value)? $default, {
+    TResult? Function(FsError value)? error,
   }) {
     return error?.call(value);
   }
@@ -360,8 +362,8 @@ class _$FsResultError<T>
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(FsResultValue<T> value)? $default, {
-    TResult Function(FsResultError<T> value)? error,
+    TResult? Function(FsResultValue<T> value)? $default, {
+    TResult? Function(FsResultError<T> value)? error,
   }) {
     return error?.call(this);
   }
@@ -381,11 +383,15 @@ class _$FsResultError<T>
 }
 
 abstract class FsResultError<T> implements FsResult<T> {
-  const factory FsResultError(FsError value) = _$FsResultError<T>;
+  const factory FsResultError(final FsError value) = _$FsResultErrorImpl<T>;
 
+  @override
   FsError get value;
-  @JsonKey(ignore: true)
-  $FsResultErrorCopyWith<T, FsResultError<T>> get copyWith =>
+
+  /// Create a copy of FsResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FsResultErrorImplCopyWith<T, _$FsResultErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -394,33 +400,11 @@ FsError _$FsErrorFromJson(Map<String, dynamic> json) {
 }
 
 /// @nodoc
-class _$FsErrorTearOff {
-  const _$FsErrorTearOff();
-
-  FsErrorIO io(
-      {@ExceptionConverter() Exception? exception,
-      @StackTraceConverter() StackTrace? stackTrace}) {
-    return FsErrorIO(
-      exception: exception,
-      stackTrace: stackTrace,
-    );
-  }
-
-  FsError fromJson(Map<String, Object?> json) {
-    return FsError.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $FsError = _$FsErrorTearOff();
-
-/// @nodoc
 mixin _$FsError {
   @ExceptionConverter()
   Exception? get exception => throw _privateConstructorUsedError;
   @StackTraceConverter()
   StackTrace? get stackTrace => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(@ExceptionConverter() Exception? exception,
@@ -430,7 +414,7 @@ mixin _$FsError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(@ExceptionConverter() Exception? exception,
+    TResult? Function(@ExceptionConverter() Exception? exception,
             @StackTraceConverter() StackTrace? stackTrace)?
         io,
   }) =>
@@ -450,7 +434,7 @@ mixin _$FsError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(FsErrorIO value)? io,
+    TResult? Function(FsErrorIO value)? io,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -459,76 +443,92 @@ mixin _$FsError {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this FsError to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FsError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FsErrorCopyWith<FsError> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $FsErrorCopyWith<$Res> {
   factory $FsErrorCopyWith(FsError value, $Res Function(FsError) then) =
-      _$FsErrorCopyWithImpl<$Res>;
+      _$FsErrorCopyWithImpl<$Res, FsError>;
+  @useResult
   $Res call(
       {@ExceptionConverter() Exception? exception,
       @StackTraceConverter() StackTrace? stackTrace});
 }
 
 /// @nodoc
-class _$FsErrorCopyWithImpl<$Res> implements $FsErrorCopyWith<$Res> {
+class _$FsErrorCopyWithImpl<$Res, $Val extends FsError>
+    implements $FsErrorCopyWith<$Res> {
   _$FsErrorCopyWithImpl(this._value, this._then);
 
-  final FsError _value;
   // ignore: unused_field
-  final $Res Function(FsError) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of FsError
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? exception = freezed,
     Object? stackTrace = freezed,
   }) {
     return _then(_value.copyWith(
-      exception: exception == freezed
+      exception: freezed == exception
           ? _value.exception
           : exception // ignore: cast_nullable_to_non_nullable
               as Exception?,
-      stackTrace: stackTrace == freezed
+      stackTrace: freezed == stackTrace
           ? _value.stackTrace
           : stackTrace // ignore: cast_nullable_to_non_nullable
               as StackTrace?,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class $FsErrorIOCopyWith<$Res> implements $FsErrorCopyWith<$Res> {
-  factory $FsErrorIOCopyWith(FsErrorIO value, $Res Function(FsErrorIO) then) =
-      _$FsErrorIOCopyWithImpl<$Res>;
+abstract class _$$FsErrorIOImplCopyWith<$Res>
+    implements $FsErrorCopyWith<$Res> {
+  factory _$$FsErrorIOImplCopyWith(
+          _$FsErrorIOImpl value, $Res Function(_$FsErrorIOImpl) then) =
+      __$$FsErrorIOImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@ExceptionConverter() Exception? exception,
       @StackTraceConverter() StackTrace? stackTrace});
 }
 
 /// @nodoc
-class _$FsErrorIOCopyWithImpl<$Res> extends _$FsErrorCopyWithImpl<$Res>
-    implements $FsErrorIOCopyWith<$Res> {
-  _$FsErrorIOCopyWithImpl(FsErrorIO _value, $Res Function(FsErrorIO) _then)
-      : super(_value, (v) => _then(v as FsErrorIO));
+class __$$FsErrorIOImplCopyWithImpl<$Res>
+    extends _$FsErrorCopyWithImpl<$Res, _$FsErrorIOImpl>
+    implements _$$FsErrorIOImplCopyWith<$Res> {
+  __$$FsErrorIOImplCopyWithImpl(
+      _$FsErrorIOImpl _value, $Res Function(_$FsErrorIOImpl) _then)
+      : super(_value, _then);
 
-  @override
-  FsErrorIO get _value => super._value as FsErrorIO;
-
+  /// Create a copy of FsError
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? exception = freezed,
     Object? stackTrace = freezed,
   }) {
-    return _then(FsErrorIO(
-      exception: exception == freezed
+    return _then(_$FsErrorIOImpl(
+      exception: freezed == exception
           ? _value.exception
           : exception // ignore: cast_nullable_to_non_nullable
               as Exception?,
-      stackTrace: stackTrace == freezed
+      stackTrace: freezed == stackTrace
           ? _value.stackTrace
           : stackTrace // ignore: cast_nullable_to_non_nullable
               as StackTrace?,
@@ -538,13 +538,13 @@ class _$FsErrorIOCopyWithImpl<$Res> extends _$FsErrorCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FsErrorIO with DiagnosticableTreeMixin implements FsErrorIO {
-  const _$FsErrorIO(
+class _$FsErrorIOImpl with DiagnosticableTreeMixin implements FsErrorIO {
+  const _$FsErrorIOImpl(
       {@ExceptionConverter() this.exception,
       @StackTraceConverter() this.stackTrace});
 
-  factory _$FsErrorIO.fromJson(Map<String, dynamic> json) =>
-      _$$FsErrorIOFromJson(json);
+  factory _$FsErrorIOImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FsErrorIOImplFromJson(json);
 
   @override
   @ExceptionConverter()
@@ -568,25 +568,27 @@ class _$FsErrorIO with DiagnosticableTreeMixin implements FsErrorIO {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is FsErrorIO &&
-            const DeepCollectionEquality().equals(other.exception, exception) &&
-            const DeepCollectionEquality()
-                .equals(other.stackTrace, stackTrace));
+            other is _$FsErrorIOImpl &&
+            (identical(other.exception, exception) ||
+                other.exception == exception) &&
+            (identical(other.stackTrace, stackTrace) ||
+                other.stackTrace == stackTrace));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(exception),
-      const DeepCollectionEquality().hash(stackTrace));
+  int get hashCode => Object.hash(runtimeType, exception, stackTrace);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FsError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $FsErrorIOCopyWith<FsErrorIO> get copyWith =>
-      _$FsErrorIOCopyWithImpl<FsErrorIO>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$FsErrorIOImplCopyWith<_$FsErrorIOImpl> get copyWith =>
+      __$$FsErrorIOImplCopyWithImpl<_$FsErrorIOImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -601,7 +603,7 @@ class _$FsErrorIO with DiagnosticableTreeMixin implements FsErrorIO {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(@ExceptionConverter() Exception? exception,
+    TResult? Function(@ExceptionConverter() Exception? exception,
             @StackTraceConverter() StackTrace? stackTrace)?
         io,
   }) {
@@ -633,7 +635,7 @@ class _$FsErrorIO with DiagnosticableTreeMixin implements FsErrorIO {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(FsErrorIO value)? io,
+    TResult? Function(FsErrorIO value)? io,
   }) {
     return io?.call(this);
   }
@@ -652,16 +654,19 @@ class _$FsErrorIO with DiagnosticableTreeMixin implements FsErrorIO {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FsErrorIOToJson(this);
+    return _$$FsErrorIOImplToJson(
+      this,
+    );
   }
 }
 
 abstract class FsErrorIO implements FsError {
   const factory FsErrorIO(
-      {@ExceptionConverter() Exception? exception,
-      @StackTraceConverter() StackTrace? stackTrace}) = _$FsErrorIO;
+      {@ExceptionConverter() final Exception? exception,
+      @StackTraceConverter() final StackTrace? stackTrace}) = _$FsErrorIOImpl;
 
-  factory FsErrorIO.fromJson(Map<String, dynamic> json) = _$FsErrorIO.fromJson;
+  factory FsErrorIO.fromJson(Map<String, dynamic> json) =
+      _$FsErrorIOImpl.fromJson;
 
   @override
   @ExceptionConverter()
@@ -669,8 +674,11 @@ abstract class FsErrorIO implements FsError {
   @override
   @StackTraceConverter()
   StackTrace? get stackTrace;
+
+  /// Create a copy of FsError
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  $FsErrorIOCopyWith<FsErrorIO> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FsErrorIOImplCopyWith<_$FsErrorIOImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

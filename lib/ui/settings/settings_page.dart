@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -28,8 +28,9 @@ import '../../locale.dart';
 import 'model.dart';
 import 'page/camera_cubit.dart';
 
-class SettingsPage extends StatefulWidget with AutoRouteWrapper {
-  const SettingsPage({Key? key}) : super(key: key);
+@RoutePage()
+class SettingsPage extends StatefulWidget implements AutoRouteWrapper {
+  const SettingsPage({super.key});
 
   @override
   State<SettingsPage> createState() => _SettingsPageState();
@@ -56,11 +57,11 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenTypeLayout(
-      mobile: AutoRouter(
+    return ScreenTypeLayout.builder(
+      mobile: (context) => AutoRouter(
         key: _routerKey,
       ),
-      tablet: _TwoPaneBody(
+      tablet: (context) => _TwoPaneBody(
         initRoute: SettingsRouteItem.all.first,
         tabsKey: _tabsKey,
       ),
@@ -73,10 +74,9 @@ class _TwoPaneBody extends StatefulWidget {
   final GlobalKey<AutoTabsRouterState> tabsKey;
 
   const _TwoPaneBody({
-    Key? key,
     required this.initRoute,
     required this.tabsKey,
-  }) : super(key: key);
+  });
 
   @override
   _TwoPaneBodyState createState() => _TwoPaneBodyState();

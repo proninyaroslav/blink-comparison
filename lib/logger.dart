@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -19,7 +19,7 @@ import 'package:flutter/foundation.dart';
 import 'package:logger/logger.dart';
 
 final _filter = kDebugMode ? DevelopmentFilter() : ProductionFilter();
-const _level = kDebugMode ? Level.verbose : Level.info;
+const _level = kDebugMode ? Level.trace : Level.info;
 
 final _logger = Logger(
   printer: PrettyPrinter(),

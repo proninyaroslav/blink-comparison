@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -17,20 +17,21 @@
 
 import 'package:auto_route/auto_route.dart';
 import 'package:blink_comparison/locale.dart';
-import 'package:blink_comparison/ui/app_router.dart';
 import 'package:blink_comparison/ui/settings/settings_pages_list.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import '../../app_router.gr.dart';
 import '../settings_scaffold.dart';
 
+@RoutePage()
 class SettingsPagesListPage extends StatelessWidget {
-  const SettingsPagesListPage({Key? key}) : super(key: key);
+  const SettingsPagesListPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ScreenTypeLayout(
-      mobile: SettingsScaffold(
+    return ScreenTypeLayout.builder(
+      mobile: (context) => SettingsScaffold(
         appBar: AppBar(
           title: Text(S.of(context).settings),
           leading: BackButton(
@@ -50,7 +51,7 @@ class SettingsPagesListPage extends StatelessWidget {
           },
         ),
       ),
-      tablet: const SizedBox.shrink(),
+      tablet: (context) => const SizedBox.shrink(),
     );
   }
 }

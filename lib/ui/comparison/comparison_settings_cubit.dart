@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -35,10 +35,10 @@ class ComparisonSettingsState with _$ComparisonSettingsState {
 
 @injectable
 class ComparisonSettingsCubit extends Cubit<ComparisonSettingsState> {
-  ComparisonSettingsCubit(AppSettings _pref)
+  ComparisonSettingsCubit(AppSettings pref)
       : super(
           ComparisonSettingsState.initial(
-            refImageBorderColor: _pref.refImageBorderColor,
+            refImageBorderColor: pref.refImageBorderColor,
           ),
         );
 

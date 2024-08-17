@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -22,6 +22,6 @@ import '../crash_catcher.dart';
 class DefaultCrashHandler implements CrashHandler {
   @override
   Future<void> handle(Object error, StackTrace? stackTrace) async {
-    log().wtf('Unexpected error occurred', error, stackTrace);
+    log().f('Unexpected error occurred', error: error, stackTrace: stackTrace);
   }
 }

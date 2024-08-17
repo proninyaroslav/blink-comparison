@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -26,15 +26,15 @@ class RoundCheckBox extends StatefulWidget {
   final BorderSide? side;
 
   const RoundCheckBox({
-    Key? key,
+    super.key,
     this.isSelected = false,
     this.onSelected,
     this.animate = true,
     this.side,
-  }) : super(key: key);
+  });
 
   @override
-  _RoundCheckBoxState createState() => _RoundCheckBoxState();
+  State<RoundCheckBox> createState() => _RoundCheckBoxState();
 }
 
 class _RoundCheckBoxState extends State<RoundCheckBox>
@@ -101,7 +101,7 @@ class _RoundCheckBoxState extends State<RoundCheckBox>
           scale: _pressAnimation.value,
           child: Checkbox(
             value: widget.isSelected,
-            fillColor: MaterialStateProperty.all(
+            fillColor: WidgetStateProperty.all(
               Theme.of(context).colorScheme.secondary,
             ),
             checkColor: Theme.of(context).colorScheme.onSecondary,

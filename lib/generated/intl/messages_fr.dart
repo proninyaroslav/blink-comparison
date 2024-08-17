@@ -20,32 +20,32 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'fr';
 
-  static String m0(reason) => "Erreur: ${reason}";
+  static String m0(reason) => "Error: ${reason}";
 
   static String m1(email, pageUrl) =>
-      "Aucune application de messagerie trouvée. Vous pouvez copier manuellement l'erreur et l'envoyer à ${email}\nou envoyer sur la page du projet ${pageUrl}";
+      "Aucune application de messagerie n\'a été trouvée. Vous pouvez copier manuellement l\'erreur et l\'envoyer à ${email}\nou l\'envoyer sur la page du projet ${pageUrl}.";
 
   static String m2(howMany) =>
-      "${Intl.plural(howMany, one: 'Voulez-vous supprimer image sélectionnée?', other: 'Voulez-vous supprimer image sélectionnée?')}";
+      "${Intl.plural(howMany, one: 'Do you want to delete the selected image?', other: 'Do you want to delete the selected images?')}";
 
   static String m3(howMany) =>
-      "${Intl.plural(howMany, one: 'Échec de la suppression de image', other: 'Échec de la suppression de certaines images')}";
+      "${Intl.plural(howMany, one: 'Failed to delete image', other: 'Failed to delete some images')}";
 
   static String m4(howMany) =>
-      "${Intl.plural(howMany, one: 'Image supprimée', other: 'Images supprimées')}";
+      "${Intl.plural(howMany, one: 'Image deleted', other: 'Images deleted')}";
 
   static String m5(number) =>
-      "La longueur du mot de passe ne doit pas être supérieure à ${number} caractères";
+      "La longueur du mot de passe ne doit pas dépasser ${number} caractères.";
 
   static String m6(number) =>
-      "La longueur du mot de passe doit être d'au moins ${number} caractères";
+      "La longueur du mot de passe doit être d\'au moins ${number} caractères.";
 
-  static String m7(count) => "Sélectionné: ${count}";
+  static String m7(count) => "Selected: ${count}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "IOError": MessageLookupByLibrary.simpleMessage("I/O erreur"),
-        "aboutApp": MessageLookupByLibrary.simpleMessage("À propos"),
+        "IOError": MessageLookupByLibrary.simpleMessage("I/O error"),
+        "aboutApp": MessageLookupByLibrary.simpleMessage("About"),
         "accept": MessageLookupByLibrary.simpleMessage("Accepter"),
         "add": MessageLookupByLibrary.simpleMessage("Ajouter"),
         "addReferenceImageDescription": MessageLookupByLibrary.simpleMessage(
@@ -53,134 +53,136 @@ class MessageLookup extends MessageLookupByLibrary {
         "appChangelogUrl": MessageLookupByLibrary.simpleMessage(
             "https://github.com/proninyaroslav/blink-comparison/blob/HEAD/NEWS.md"),
         "appDescription": MessageLookupByLibrary.simpleMessage(
-            "Simplifie la comparaison visuel de photos de scellés inviolables et de motifs.\nPlus d'informations à propos et aussi pour aider le projet: https://github.com/proninyaroslav/blink-comparison"),
+            "Simplifie la comparaison de photos de scellés inviolables et de motifs à l\'aide de vos yeux.\nPlus d\'informations et aussi pour aider le projet : https://github.com/proninyaroslav/blink-comparison"),
         "appLicense": MessageLookupByLibrary.simpleMessage(
-            "Blink Comparison est un logiciel libre et open source (FOSS), publié sous la licence GNU General Public License v3 (GPLv3) https://www.gnu.org/licenses/gpl-3.0.html"),
+            "Blink Comparison est un logiciel libre et gratuit (FOSS), publié selon les termes de la GNU General Public License v3 (GPLv3) https://www.gnu.org/licenses/gpl-3.0.html"),
         "blinkComparisonCaseTooltip": MessageLookupByLibrary.simpleMessage(
-            "En appuyant n'importe où sur l'écran, vous basculez entre l'image de référence et l'image que vous venez de prendre. La commutation rapide vous aide à voir les différences entre les images"),
+            "Pressing anywhere on the screen toggles between the reference image and the image you just took. Fast switching helps you see differences in images"),
         "cameraErrorReason": m0,
         "cancel": MessageLookupByLibrary.simpleMessage("Annuler"),
-        "changelog": MessageLookupByLibrary.simpleMessage("Historique des modifications"),
+        "changelog": MessageLookupByLibrary.simpleMessage("Changelog"),
         "close": MessageLookupByLibrary.simpleMessage("Fermer"),
         "crashDialogExtraInfo": MessageLookupByLibrary.simpleMessage(
             "Ajoutez des informations supplémentaires et des commentaires ici:"),
         "crashDialogMoreDetails":
             MessageLookupByLibrary.simpleMessage("Plus de détails"),
         "crashDialogNoEmailApp": m1,
-        "crashDialogReport": MessageLookupByLibrary.simpleMessage("Rapport"),
+        "crashDialogReport": MessageLookupByLibrary.simpleMessage("Reporter"),
         "crashDialogSummary": MessageLookupByLibrary.simpleMessage(
-            "Une erreur d'application s'est produite. Vous pouvez le signaler aux développeurs"),
+            "Une erreur d\'application s\'est produite. Vous pouvez le signaler aux développeurs"),
         "decryptReferenceImageFailed": MessageLookupByLibrary.simpleMessage(
-            "Échec du décryptage de l'image de référence"),
+            "Failed to decrypt reference image"),
         "decryptReferenceImageInvalidKey": MessageLookupByLibrary.simpleMessage(
-            "Échec du décryptage de l'image de référence : clé de cryptage non valide"),
+            "Failed to decrypt reference image: invalid encrypt key"),
         "decryptReferenceImageNoEncryptKey":
             MessageLookupByLibrary.simpleMessage(
-                "Échec du décryptage de l'image de référence : clé de cryptage manquante."),
+                "Failed to decrypt reference image: missing encrypt key"),
         "defaultNotifyChannelDescription": MessageLookupByLibrary.simpleMessage(
-            "Toutes les notifications qui ne conviennent pas aux autres catégories."),
+            "All notifications that don\'t suitable for the other categories"),
         "defaultNotifyChannelTitle":
-            MessageLookupByLibrary.simpleMessage("Défaut"),
+            MessageLookupByLibrary.simpleMessage("Default"),
         "delete": MessageLookupByLibrary.simpleMessage("Supprimer"),
         "deleteImagesDialog": m2,
         "deleteImagesFailed": m3,
-        "emptyPasswordError":
-            MessageLookupByLibrary.simpleMessage("Le mot de passe ne peut pas être vide"),
+        "emptyPasswordError": MessageLookupByLibrary.simpleMessage(
+            "Le mot de passe ne peut pas être vide"),
         "encryptionError":
-            MessageLookupByLibrary.simpleMessage("Erreur de chiffrement"),
+            MessageLookupByLibrary.simpleMessage("Encryption error"),
         "enterPassword": MessageLookupByLibrary.simpleMessage("Mot de passe"),
-        "enterPasswordAgain":
-            MessageLookupByLibrary.simpleMessage("Nouveau mot de passe"),
+        "enterPasswordAgain": MessageLookupByLibrary.simpleMessage(
+            "Entrez de nouveau votre mot de passe"),
         "error": MessageLookupByLibrary.simpleMessage("Erreur"),
         "foregroundNotificationChannel":
-            MessageLookupByLibrary.simpleMessage("Notification de premier plan"),
+            MessageLookupByLibrary.simpleMessage("Foreground notification"),
         "imageOverlayOpacity":
-            MessageLookupByLibrary.simpleMessage("Opacité de la superposition"),
+            MessageLookupByLibrary.simpleMessage("Overlay opacity"),
         "imageOverlayOpacityCaseTooltip": MessageLookupByLibrary.simpleMessage(
-            "Vous pouvez modifier l'opacité de l'image de référence superposée comme vous le souhaitez dans le menu des paramètres ci-dessus."),
+            "You can change the reference image overlay opacity as you like in the settings menu above"),
         "imagesDeleted": m4,
         "loadPageFailed":
-            MessageLookupByLibrary.simpleMessage("Impossible de charger la page"),
+            MessageLookupByLibrary.simpleMessage("Failed to load page"),
         "loadPasswordFailed": MessageLookupByLibrary.simpleMessage(
             "Impossible de charger le mot de passe depuis le stockage"),
         "loadReferenceImageFailed": MessageLookupByLibrary.simpleMessage(
-            "Échec du chargement de l'image de référence"),
+            "Failed to load reference image"),
         "loadReferenceImageFailedIO": MessageLookupByLibrary.simpleMessage(
-            "I/O erreur s'est produite lors du chargement de l'image de référence"),
+            "I/O error occurred while loading the reference image"),
         "loadingReferenceImage": MessageLookupByLibrary.simpleMessage(
-            "Chargement et décryptage, veuillez patienter..."),
-        "no": MessageLookupByLibrary.simpleMessage("No"),
+            "Loading and decrypting, please wait..."),
+        "no": MessageLookupByLibrary.simpleMessage("Non"),
         "noSelectedCameraError": MessageLookupByLibrary.simpleMessage(
-            "Erreur: aucune caméra sélectionnée ou non disponible"),
+            "Error: no camera selected or unavailable"),
         "openCameraError":
-            MessageLookupByLibrary.simpleMessage("Impossible d'ouvrir la caméra"),
-        "openLinkFailed":
-            MessageLookupByLibrary.simpleMessage("Impossible d'ouvrir le lien"),
-        "pageNotFound": MessageLookupByLibrary.simpleMessage("Page non trouvée"),
-        "passwordEmptyError":
-            MessageLookupByLibrary.simpleMessage("Le mot de passe ne peut pas être vide"),
-        "passwordMismatch":
-            MessageLookupByLibrary.simpleMessage("Mauvaise concordance du mot de passe"),
-        "passwordRepeatError":
-            MessageLookupByLibrary.simpleMessage("Veuillez répéter le mot de passe"),
+            MessageLookupByLibrary.simpleMessage("Unable to open the camera"),
+        "openLinkFailed": MessageLookupByLibrary.simpleMessage(
+            "Impossible d\'ouvrir le lien"),
+        "pageNotFound":
+            MessageLookupByLibrary.simpleMessage("Page non trouvée"),
+        "passwordEmptyError": MessageLookupByLibrary.simpleMessage(
+            "Le mot de passe ne peut pas être vide"),
+        "passwordMismatch": MessageLookupByLibrary.simpleMessage(
+            "Mauvaise concordance du mot de passe"),
+        "passwordRepeatError": MessageLookupByLibrary.simpleMessage(
+            "Veuillez répéter le mot de passe"),
         "passwordTooLong": m5,
         "passwordTooShort": m6,
         "projectIssuesPage": MessageLookupByLibrary.simpleMessage(
             "https://github.com/proninyaroslav/blink-comparison/issues"),
         "referenceImageBorderCaseTooltip": MessageLookupByLibrary.simpleMessage(
-            "La bordure colorée autour indique l'image de référence. La couleur de la bordure peut être modifiée dans les paramètres de l'application."),
+            "The colored border around denotes the reference image. The border color can be changed in the app settings"),
         "referenceImageNotFound":
-            MessageLookupByLibrary.simpleMessage("Image de référence non trouvée"),
-        "refresh": MessageLookupByLibrary.simpleMessage("Rafraîchir"),
+            MessageLookupByLibrary.simpleMessage("Reference image not found"),
+        "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
         "retry": MessageLookupByLibrary.simpleMessage("Réessayer"),
         "save": MessageLookupByLibrary.simpleMessage("Sauvegarder"),
         "saveImageError": MessageLookupByLibrary.simpleMessage(
-            "Une erreur s'est produite lors de l'enregistrement"),
+            "An error occurred while saving"),
         "saveImageInvalidKey": MessageLookupByLibrary.simpleMessage(
-            "FaImpossible d'enregistrer l'image de référence : clé de cryptage non valide"),
-        "savePasswordFailed":
-            MessageLookupByLibrary.simpleMessage("Impossible d'enregistrer le mot de passe"),
+            "Failed to save the reference image: invalid encrypt key"),
+        "savePasswordFailed": MessageLookupByLibrary.simpleMessage(
+            "Impossible d\'enregistrer le mot de passe"),
         "saveRefImageNotificationTitle": MessageLookupByLibrary.simpleMessage(
-            "Enregistrement d'une image de référence en arrière-plan..."),
-        "savingImageMessage": MessageLookupByLibrary.simpleMessage("Sauvegarde en cours..."),
-        "selectAll": MessageLookupByLibrary.simpleMessage("Sélectionner tout"),
-        "selectImage": MessageLookupByLibrary.simpleMessage("Sélection d'une image"),
+            "Saving a reference images in the background..."),
+        "savingImageMessage": MessageLookupByLibrary.simpleMessage("Saving..."),
+        "selectAll": MessageLookupByLibrary.simpleMessage("Select all"),
+        "selectImage": MessageLookupByLibrary.simpleMessage("Select image"),
         "selectImagesFailed":
-            MessageLookupByLibrary.simpleMessage("Impossible de sélectionner les images"),
+            MessageLookupByLibrary.simpleMessage("Unable to select images"),
         "selectedCounter": m7,
         "setPasswordDescription": MessageLookupByLibrary.simpleMessage(
             "Définissez un mot de passe. Celui-ci est nécessaire pour crypter et stocker les images de référence."),
-        "settings": MessageLookupByLibrary.simpleMessage("Paramètres"),
+        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "settingsAppearance":
-            MessageLookupByLibrary.simpleMessage("Apparence"),
+            MessageLookupByLibrary.simpleMessage("Appearance"),
         "settingsBlinkComparisonPage":
-            MessageLookupByLibrary.simpleMessage("Page de comparaison"),
-        "settingsCamera": MessageLookupByLibrary.simpleMessage("Caméra"),
+            MessageLookupByLibrary.simpleMessage("Comparison page"),
+        "settingsCamera": MessageLookupByLibrary.simpleMessage("Camera"),
         "settingsCameraFullscreenMode":
-            MessageLookupByLibrary.simpleMessage("Mode plein écran"),
+            MessageLookupByLibrary.simpleMessage("Fullscreen mode"),
         "settingsFlashByDefault":
-            MessageLookupByLibrary.simpleMessage("Activez le flash par défaut"),
-        "settingsLanguage": MessageLookupByLibrary.simpleMessage("Langage"),
+            MessageLookupByLibrary.simpleMessage("Enable flash by default"),
+        "settingsLanguage": MessageLookupByLibrary.simpleMessage("Language"),
         "settingsReferenceImageBorderColor":
             MessageLookupByLibrary.simpleMessage(
-                "Couleur de la bordure de l'image de référence"),
+                "Reference image border color"),
         "settingsSystemLanguageOption":
-            MessageLookupByLibrary.simpleMessage("Système"),
-        "settingsTheme": MessageLookupByLibrary.simpleMessage("Thème"),
-        "settingsThemeDark": MessageLookupByLibrary.simpleMessage("Sombre"),
-        "settingsThemeLight": MessageLookupByLibrary.simpleMessage("Lumineux"),
-        "settingsThemeSystem": MessageLookupByLibrary.simpleMessage("Système"),
+            MessageLookupByLibrary.simpleMessage("System"),
+        "settingsTheme": MessageLookupByLibrary.simpleMessage("Theme"),
+        "settingsThemeDark": MessageLookupByLibrary.simpleMessage("Dark"),
+        "settingsThemeLight": MessageLookupByLibrary.simpleMessage("Light"),
+        "settingsThemeSystem": MessageLookupByLibrary.simpleMessage("System"),
         "show": MessageLookupByLibrary.simpleMessage("Afficher"),
-        "showError": MessageLookupByLibrary.simpleMessage("Afficher l'erreur"),
+        "showError": MessageLookupByLibrary.simpleMessage("Show error"),
         "signIn": MessageLookupByLibrary.simpleMessage("Se connecter"),
         "signInDescription": MessageLookupByLibrary.simpleMessage(
             "Connectez-vous pour modifier et visualiser les images de référence"),
         "switchCameraFlashError":
-            MessageLookupByLibrary.simpleMessage("Échec de la commutation du mode flash"),
-        "takePhoto": MessageLookupByLibrary.simpleMessage("Prenez une photo"),
+            MessageLookupByLibrary.simpleMessage("Failed to switch flash mode"),
+        "takePhoto": MessageLookupByLibrary.simpleMessage("Take a photo"),
         "takePhotoError":
-            MessageLookupByLibrary.simpleMessage("Impossible de prendre une photo"),
-        "wrongPassword": MessageLookupByLibrary.simpleMessage("Mot de passe erroné"),
+            MessageLookupByLibrary.simpleMessage("Unable to take a photo"),
+        "wrongPassword":
+            MessageLookupByLibrary.simpleMessage("Mot de passe erroné"),
         "yes": MessageLookupByLibrary.simpleMessage("Oui")
       };
 }

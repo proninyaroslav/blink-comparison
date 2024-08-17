@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -35,7 +35,7 @@ void main() {
     late RefImageFS mockImageFs;
     late SaveRefImageJob job;
 
-    const key = SecureKey.password('123');
+    const key = AppSecureKey.password('123');
 
     setUp(() {
       mockEncryptProvider = MockEncryptModuleProvider();
@@ -56,8 +56,8 @@ void main() {
 
       when(() => mockEncryptProvider.getByKey(key)).thenReturn(mockModule);
       when(
-        () => mockModule.encryptSync(src: srcBytes, info: info),
-      ).thenReturn(EncryptResult.success(bytes: encBytes));
+        () => mockModule.encrypt(src: srcBytes, info: info),
+      ).thenAnswer((_) async => EncryptResult.success(bytes: encBytes));
       when(
         () => mockImageFs.save(info, encBytes),
       ).thenAnswer((_) async => FsResult.empty);
@@ -80,8 +80,8 @@ void main() {
 
       when(() => mockEncryptProvider.getByKey(key)).thenReturn(mockModule);
       when(
-        () => mockModule.encryptSync(src: srcBytes, info: info),
-      ).thenReturn(const EncryptResult.fail(EncryptError()));
+        () => mockModule.encrypt(src: srcBytes, info: info),
+      ).thenAnswer((_) async => const EncryptResult.fail(EncryptError()));
 
       expect(
         await job.run(info: info, file: srcFile, key: key),
@@ -105,8 +105,8 @@ void main() {
 
       when(() => mockEncryptProvider.getByKey(key)).thenReturn(mockModule);
       when(
-        () => mockModule.encryptSync(src: srcBytes, info: info),
-      ).thenReturn(EncryptResult.success(bytes: encBytes));
+        () => mockModule.encrypt(src: srcBytes, info: info),
+      ).thenAnswer((_) async => EncryptResult.success(bytes: encBytes));
       when(
         () => mockImageFs.save(info, encBytes),
       ).thenAnswer(

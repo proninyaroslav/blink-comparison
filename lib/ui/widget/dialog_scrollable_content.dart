@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -22,10 +22,10 @@ class DialogScrollableContent extends StatelessWidget {
   final double? borderPadding;
 
   const DialogScrollableContent({
-    Key? key,
+    super.key,
     required this.child,
     this.borderPadding,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

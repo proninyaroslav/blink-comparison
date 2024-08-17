@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -65,7 +65,7 @@ class SystemPickerCubit extends Cubit<SystemPickerState> {
         files = await _imagePicker.pickMultiImage();
       }
       final filesRes = await _getLostData() ?? files;
-      if (filesRes == null) {
+      if (filesRes == null || filesRes.isEmpty) {
         emit(const SystemPickerState.imagesNotSelected());
       } else {
         emit(SystemPickerState.imagesSelected(filesRes));
@@ -99,9 +99,4 @@ class SystemPickerCubit extends Cubit<SystemPickerState> {
     }
     return null;
   }
-}
-
-@module
-abstract class ImagePickerModule {
-  ImagePicker get imagePicker => ImagePicker();
 }

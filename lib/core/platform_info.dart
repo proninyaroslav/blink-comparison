@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -171,8 +171,7 @@ class PlatformInfoImpl implements PlatformInfo {
     if (isAndroid) {
       final androidInfo = await plugin.androidInfo;
       return DeviceInfo.android(
-        systemVersion:
-            androidInfo.version.release ?? androidInfo.version.codename,
+        systemVersion: androidInfo.version.release,
         supportedAbis: androidInfo.supportedAbis,
         brand: androidInfo.brand,
         device: androidInfo.device,
@@ -184,9 +183,9 @@ class PlatformInfoImpl implements PlatformInfo {
       final iOSInfo = await plugin.iosInfo;
       return DeviceInfo.iOS(
         deviceName: iOSInfo.name,
-        deviceModel: iOSInfo.model ?? iOSInfo.utsname.machine,
-        systemName: iOSInfo.systemName ?? iOSInfo.utsname.sysname,
-        systemVersion: iOSInfo.systemVersion ?? iOSInfo.utsname.version,
+        deviceModel: iOSInfo.model,
+        systemName: iOSInfo.systemName,
+        systemVersion: iOSInfo.systemVersion,
       );
     } else if (isLinux) {
       final linuxInfo = await plugin.linuxInfo;

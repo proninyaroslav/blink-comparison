@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -30,9 +30,9 @@ class SignInButton extends StatelessWidget {
   final TextEditingController passwordFieldController;
 
   const SignInButton({
-    Key? key,
+    super.key,
     required this.passwordFieldController,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -83,9 +83,9 @@ class SignInPage extends StatelessWidget {
   final TextEditingController passwordFieldController;
 
   const SignInPage({
-    Key? key,
+    super.key,
     required this.passwordFieldController,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -111,9 +111,8 @@ class _PasswordField extends StatelessWidget {
   final TextEditingController passwordFieldController;
 
   const _PasswordField({
-    Key? key,
     required this.passwordFieldController,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -163,7 +162,7 @@ void _loadPasswordFailedMsg(
   StackTrace? stackTrace,
 ) {
   const msg = 'Failed to load storage password';
-  log().e(msg, exception, stackTrace);
+  log().e(msg, error: exception, stackTrace: stackTrace);
 
   final reportCubit = context.read<ErrorReportCubit>();
   showDialog(

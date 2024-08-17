@@ -3,6 +3,7 @@
     package="org.proninyaroslav.blink_comparison">
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
 
     <!-- Removed permissions requested by third party plugins -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" tools:node="remove" />
@@ -21,7 +22,7 @@
         <!-- To send emails -->
         <intent>
             <action android:name="android.intent.action.SEND" />
-            <data android:mimeType="*/*" />
+            <data android:scheme="mailto" />
         </intent>
     </queries>
 
@@ -64,6 +65,7 @@
 
         <service
             android:name=".service.SaveRefImageService"
+            android:foregroundServiceType="dataSync"
             android:exported="false" />
     </application>
 </manifest>

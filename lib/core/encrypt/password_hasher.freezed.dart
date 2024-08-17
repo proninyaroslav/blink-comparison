@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'password_hasher.dart';
 
@@ -12,30 +12,16 @@ part of 'password_hasher.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-class _$_SodiumHashInfoTearOff {
-  const _$_SodiumHashInfoTearOff();
-
-  _SodiumHashInfoData call(
-      {required String password, required Uint8List salt}) {
-    return _SodiumHashInfoData(
-      password: password,
-      salt: salt,
-    );
-  }
-}
-
-/// @nodoc
-const _$SodiumHashInfo = _$_SodiumHashInfoTearOff();
-
-/// @nodoc
-mixin _$_SodiumHashInfo {
+mixin _$SodiumHashInfo {
   String get password => throw _privateConstructorUsedError;
   Uint8List get salt => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of _SodiumHashInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$SodiumHashInfoCopyWith<_SodiumHashInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -44,69 +30,75 @@ mixin _$_SodiumHashInfo {
 abstract class _$SodiumHashInfoCopyWith<$Res> {
   factory _$SodiumHashInfoCopyWith(
           _SodiumHashInfo value, $Res Function(_SodiumHashInfo) then) =
-      __$SodiumHashInfoCopyWithImpl<$Res>;
+      __$SodiumHashInfoCopyWithImpl<$Res, _SodiumHashInfo>;
+  @useResult
   $Res call({String password, Uint8List salt});
 }
 
 /// @nodoc
-class __$SodiumHashInfoCopyWithImpl<$Res>
+class __$SodiumHashInfoCopyWithImpl<$Res, $Val extends _SodiumHashInfo>
     implements _$SodiumHashInfoCopyWith<$Res> {
   __$SodiumHashInfoCopyWithImpl(this._value, this._then);
 
-  final _SodiumHashInfo _value;
   // ignore: unused_field
-  final $Res Function(_SodiumHashInfo) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of _SodiumHashInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? password = freezed,
-    Object? salt = freezed,
+    Object? password = null,
+    Object? salt = null,
   }) {
     return _then(_value.copyWith(
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      salt: salt == freezed
+      salt: null == salt
           ? _value.salt
           : salt // ignore: cast_nullable_to_non_nullable
               as Uint8List,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$SodiumHashInfoDataCopyWith<$Res>
+abstract class _$$SodiumHashInfoDataImplCopyWith<$Res>
     implements _$SodiumHashInfoCopyWith<$Res> {
-  factory _$SodiumHashInfoDataCopyWith(
-          _SodiumHashInfoData value, $Res Function(_SodiumHashInfoData) then) =
-      __$SodiumHashInfoDataCopyWithImpl<$Res>;
+  factory _$$SodiumHashInfoDataImplCopyWith(_$SodiumHashInfoDataImpl value,
+          $Res Function(_$SodiumHashInfoDataImpl) then) =
+      __$$SodiumHashInfoDataImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String password, Uint8List salt});
 }
 
 /// @nodoc
-class __$SodiumHashInfoDataCopyWithImpl<$Res>
-    extends __$SodiumHashInfoCopyWithImpl<$Res>
-    implements _$SodiumHashInfoDataCopyWith<$Res> {
-  __$SodiumHashInfoDataCopyWithImpl(
-      _SodiumHashInfoData _value, $Res Function(_SodiumHashInfoData) _then)
-      : super(_value, (v) => _then(v as _SodiumHashInfoData));
+class __$$SodiumHashInfoDataImplCopyWithImpl<$Res>
+    extends __$SodiumHashInfoCopyWithImpl<$Res, _$SodiumHashInfoDataImpl>
+    implements _$$SodiumHashInfoDataImplCopyWith<$Res> {
+  __$$SodiumHashInfoDataImplCopyWithImpl(_$SodiumHashInfoDataImpl _value,
+      $Res Function(_$SodiumHashInfoDataImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _SodiumHashInfoData get _value => super._value as _SodiumHashInfoData;
-
+  /// Create a copy of _SodiumHashInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? password = freezed,
-    Object? salt = freezed,
+    Object? password = null,
+    Object? salt = null,
   }) {
-    return _then(_SodiumHashInfoData(
-      password: password == freezed
+    return _then(_$SodiumHashInfoDataImpl(
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      salt: salt == freezed
+      salt: null == salt
           ? _value.salt
           : salt // ignore: cast_nullable_to_non_nullable
               as Uint8List,
@@ -116,10 +108,10 @@ class __$SodiumHashInfoDataCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SodiumHashInfoData
+class _$SodiumHashInfoDataImpl
     with DiagnosticableTreeMixin
     implements _SodiumHashInfoData {
-  const _$_SodiumHashInfoData({required this.password, required this.salt});
+  const _$SodiumHashInfoDataImpl({required this.password, required this.salt});
 
   @override
   final String password;
@@ -141,37 +133,43 @@ class _$_SodiumHashInfoData
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SodiumHashInfoData &&
-            const DeepCollectionEquality().equals(other.password, password) &&
+            other is _$SodiumHashInfoDataImpl &&
+            (identical(other.password, password) ||
+                other.password == password) &&
             const DeepCollectionEquality().equals(other.salt, salt));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(salt));
+      runtimeType, password, const DeepCollectionEquality().hash(salt));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of _SodiumHashInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$SodiumHashInfoDataCopyWith<_SodiumHashInfoData> get copyWith =>
-      __$SodiumHashInfoDataCopyWithImpl<_SodiumHashInfoData>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SodiumHashInfoDataImplCopyWith<_$SodiumHashInfoDataImpl> get copyWith =>
+      __$$SodiumHashInfoDataImplCopyWithImpl<_$SodiumHashInfoDataImpl>(
+          this, _$identity);
 }
 
 abstract class _SodiumHashInfoData implements _SodiumHashInfo {
   const factory _SodiumHashInfoData(
-      {required String password,
-      required Uint8List salt}) = _$_SodiumHashInfoData;
+      {required final String password,
+      required final Uint8List salt}) = _$SodiumHashInfoDataImpl;
 
   @override
   String get password;
   @override
   Uint8List get salt;
+
+  /// Create a copy of _SodiumHashInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$SodiumHashInfoDataCopyWith<_SodiumHashInfoData> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SodiumHashInfoDataImplCopyWith<_$SodiumHashInfoDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

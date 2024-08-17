@@ -6,23 +6,23 @@ part of 'save_ref_image_status.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SaveRefImageStatusProgress _$$SaveRefImageStatusProgressFromJson(
+_$SaveRefImageStatusProgressImpl _$$SaveRefImageStatusProgressImplFromJson(
         Map<String, dynamic> json) =>
-    _$SaveRefImageStatusProgress(
+    _$SaveRefImageStatusProgressImpl(
       imageId: json['imageId'] as String,
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$SaveRefImageStatusProgressToJson(
-        _$SaveRefImageStatusProgress instance) =>
+Map<String, dynamic> _$$SaveRefImageStatusProgressImplToJson(
+        _$SaveRefImageStatusProgressImpl instance) =>
     <String, dynamic>{
       'imageId': instance.imageId,
       'runtimeType': instance.$type,
     };
 
-_$SaveRefImageStatusCompleted _$$SaveRefImageStatusCompletedFromJson(
+_$SaveRefImageStatusCompletedImpl _$$SaveRefImageStatusCompletedImplFromJson(
         Map<String, dynamic> json) =>
-    _$SaveRefImageStatusCompleted(
+    _$SaveRefImageStatusCompletedImpl(
       imageId: json['imageId'] as String,
       error: json['error'] == null
           ? null
@@ -31,54 +31,55 @@ _$SaveRefImageStatusCompleted _$$SaveRefImageStatusCompletedFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$SaveRefImageStatusCompletedToJson(
-        _$SaveRefImageStatusCompleted instance) =>
+Map<String, dynamic> _$$SaveRefImageStatusCompletedImplToJson(
+        _$SaveRefImageStatusCompletedImpl instance) =>
     <String, dynamic>{
       'imageId': instance.imageId,
       'error': instance.error?.toJson(),
       'runtimeType': instance.$type,
     };
 
-_$SaveRefImageStatusErrorSaveImage _$$SaveRefImageStatusErrorSaveImageFromJson(
-        Map<String, dynamic> json) =>
-    _$SaveRefImageStatusErrorSaveImage(
-      SaveRefImageError.fromJson(json['error'] as Map<String, dynamic>),
-      $type: json['runtimeType'] as String?,
-    );
+_$SaveRefImageStatusErrorSaveImageImpl
+    _$$SaveRefImageStatusErrorSaveImageImplFromJson(
+            Map<String, dynamic> json) =>
+        _$SaveRefImageStatusErrorSaveImageImpl(
+          SaveRefImageError.fromJson(json['error'] as Map<String, dynamic>),
+          $type: json['runtimeType'] as String?,
+        );
 
-Map<String, dynamic> _$$SaveRefImageStatusErrorSaveImageToJson(
-        _$SaveRefImageStatusErrorSaveImage instance) =>
+Map<String, dynamic> _$$SaveRefImageStatusErrorSaveImageImplToJson(
+        _$SaveRefImageStatusErrorSaveImageImpl instance) =>
     <String, dynamic>{
       'error': instance.error.toJson(),
       'runtimeType': instance.$type,
     };
 
-_$SaveRefImageStatusErrorGenerateThumbnail
-    _$$SaveRefImageStatusErrorGenerateThumbnailFromJson(
+_$SaveRefImageStatusErrorGenerateThumbnailImpl
+    _$$SaveRefImageStatusErrorGenerateThumbnailImplFromJson(
             Map<String, dynamic> json) =>
-        _$SaveRefImageStatusErrorGenerateThumbnail(
+        _$SaveRefImageStatusErrorGenerateThumbnailImpl(
           GenerateThumbnailError.fromJson(
               json['error'] as Map<String, dynamic>),
           $type: json['runtimeType'] as String?,
         );
 
-Map<String, dynamic> _$$SaveRefImageStatusErrorGenerateThumbnailToJson(
-        _$SaveRefImageStatusErrorGenerateThumbnail instance) =>
+Map<String, dynamic> _$$SaveRefImageStatusErrorGenerateThumbnailImplToJson(
+        _$SaveRefImageStatusErrorGenerateThumbnailImpl instance) =>
     <String, dynamic>{
       'error': instance.error.toJson(),
       'runtimeType': instance.$type,
     };
 
-_$SaveRefImageStatusErrorSaveThumbnail
-    _$$SaveRefImageStatusErrorSaveThumbnailFromJson(
+_$SaveRefImageStatusErrorSaveThumbnailImpl
+    _$$SaveRefImageStatusErrorSaveThumbnailImplFromJson(
             Map<String, dynamic> json) =>
-        _$SaveRefImageStatusErrorSaveThumbnail(
+        _$SaveRefImageStatusErrorSaveThumbnailImpl(
           SaveThumbnailError.fromJson(json['error'] as Map<String, dynamic>),
           $type: json['runtimeType'] as String?,
         );
 
-Map<String, dynamic> _$$SaveRefImageStatusErrorSaveThumbnailToJson(
-        _$SaveRefImageStatusErrorSaveThumbnail instance) =>
+Map<String, dynamic> _$$SaveRefImageStatusErrorSaveThumbnailImplToJson(
+        _$SaveRefImageStatusErrorSaveThumbnailImpl instance) =>
     <String, dynamic>{
       'error': instance.error.toJson(),
       'runtimeType': instance.$type,

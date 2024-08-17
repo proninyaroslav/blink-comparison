@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -30,14 +30,14 @@ class CrashReportDialog extends StatefulWidget {
   final OnReportCallback? onReport;
 
   const CrashReportDialog({
-    Key? key,
+    super.key,
     required this.error,
     this.stackTrace,
     this.onReport,
-  }) : super(key: key);
+  });
 
   @override
-  _CrashReportDialogState createState() => _CrashReportDialogState();
+  State<CrashReportDialog> createState() => _CrashReportDialogState();
 }
 
 class _CrashReportDialogState extends State<CrashReportDialog> {
@@ -83,7 +83,9 @@ class _CrashReportDialogState extends State<CrashReportDialog> {
         TextButton(
           onPressed: () async {
             if (await widget.onReport?.call(_getComment()) ?? true) {
-              Navigator.of(context).pop();
+              if (context.mounted) {
+                Navigator.of(context).pop();
+              }
             }
           },
           child: Text(
@@ -107,11 +109,10 @@ class _Body extends StatelessWidget {
   final StackTrace? stackTrace;
 
   const _Body({
-    Key? key,
     required this.controller,
     required this.error,
     this.stackTrace,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -137,7 +138,7 @@ class _Body extends StatelessWidget {
               ].join('\n'),
               style: Theme.of(context)
                   .textTheme
-                  .bodyText2!
+                  .bodyMedium!
                   .copyWith(fontFamily: 'RobotoMono'),
             ),
           ],

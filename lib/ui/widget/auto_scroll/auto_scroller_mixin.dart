@@ -64,7 +64,7 @@ mixin AutoScrollerMixin<T extends StatefulWidget> on State<T> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback(
+    WidgetsBinding.instance.addPostFrameCallback(
       (callback) {
         final widgetSize = context.size!;
         _widgetHeight = widgetSize.height;

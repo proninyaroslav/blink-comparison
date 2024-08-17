@@ -19,8 +19,8 @@ import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:blink_comparison/core/date_time_provider.dart';
+import 'package:blink_comparison/core/encrypt/app_secure_key.dart';
 import 'package:blink_comparison/core/encrypt/password_hasher.dart';
-import 'package:blink_comparison/core/encrypt/secure_key.dart';
 import 'package:blink_comparison/core/entity/entity.dart';
 import 'package:blink_comparison/core/storage/password_repository.dart';
 import 'package:blink_comparison/core/storage/ref_image_secure_storage.dart';
@@ -141,7 +141,7 @@ class AuthCubit extends Cubit<AuthState> {
       salt: Uint8List.fromList(hex.decode(info.salt)),
     );
     if (hash == info.hash) {
-      _secureStorage.setSecureKey(SecureKey.password(password));
+      _secureStorage.setSecureKey(AppSecureKey.password(password));
       emit(AuthState.authSuccess(info: info));
     } else {
       await _delayAfterFailed(startTime);

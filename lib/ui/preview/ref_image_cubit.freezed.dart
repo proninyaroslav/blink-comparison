@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'ref_image_cubit.dart';
 
@@ -12,35 +12,7 @@ part of 'ref_image_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$RefImageStateTearOff {
-  const _$RefImageStateTearOff();
-
-  RefImageStateInitial initial() {
-    return const RefImageStateInitial();
-  }
-
-  RefImageStateLoading loading() {
-    return const RefImageStateLoading();
-  }
-
-  RefImageStateLoaded loaded(RefImage image) {
-    return RefImageStateLoaded(
-      image,
-    );
-  }
-
-  RefImageStateLoadFailed loadFailed(LoadRefImageError error) {
-    return RefImageStateLoadFailed(
-      error,
-    );
-  }
-}
-
-/// @nodoc
-const $RefImageState = _$RefImageStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$RefImageState {
@@ -54,10 +26,10 @@ mixin _$RefImageState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(RefImage image)? loaded,
-    TResult Function(LoadRefImageError error)? loadFailed,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(RefImage image)? loaded,
+    TResult? Function(LoadRefImageError error)? loadFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -79,10 +51,10 @@ mixin _$RefImageState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RefImageStateInitial value)? initial,
-    TResult Function(RefImageStateLoading value)? loading,
-    TResult Function(RefImageStateLoaded value)? loaded,
-    TResult Function(RefImageStateLoadFailed value)? loadFailed,
+    TResult? Function(RefImageStateInitial value)? initial,
+    TResult? Function(RefImageStateLoading value)? loading,
+    TResult? Function(RefImageStateLoaded value)? loaded,
+    TResult? Function(RefImageStateLoadFailed value)? loadFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -100,42 +72,46 @@ mixin _$RefImageState {
 abstract class $RefImageStateCopyWith<$Res> {
   factory $RefImageStateCopyWith(
           RefImageState value, $Res Function(RefImageState) then) =
-      _$RefImageStateCopyWithImpl<$Res>;
+      _$RefImageStateCopyWithImpl<$Res, RefImageState>;
 }
 
 /// @nodoc
-class _$RefImageStateCopyWithImpl<$Res>
+class _$RefImageStateCopyWithImpl<$Res, $Val extends RefImageState>
     implements $RefImageStateCopyWith<$Res> {
   _$RefImageStateCopyWithImpl(this._value, this._then);
 
-  final RefImageState _value;
   // ignore: unused_field
-  final $Res Function(RefImageState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of RefImageState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class $RefImageStateInitialCopyWith<$Res> {
-  factory $RefImageStateInitialCopyWith(RefImageStateInitial value,
-          $Res Function(RefImageStateInitial) then) =
-      _$RefImageStateInitialCopyWithImpl<$Res>;
+abstract class _$$RefImageStateInitialImplCopyWith<$Res> {
+  factory _$$RefImageStateInitialImplCopyWith(_$RefImageStateInitialImpl value,
+          $Res Function(_$RefImageStateInitialImpl) then) =
+      __$$RefImageStateInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$RefImageStateInitialCopyWithImpl<$Res>
-    extends _$RefImageStateCopyWithImpl<$Res>
-    implements $RefImageStateInitialCopyWith<$Res> {
-  _$RefImageStateInitialCopyWithImpl(
-      RefImageStateInitial _value, $Res Function(RefImageStateInitial) _then)
-      : super(_value, (v) => _then(v as RefImageStateInitial));
+class __$$RefImageStateInitialImplCopyWithImpl<$Res>
+    extends _$RefImageStateCopyWithImpl<$Res, _$RefImageStateInitialImpl>
+    implements _$$RefImageStateInitialImplCopyWith<$Res> {
+  __$$RefImageStateInitialImplCopyWithImpl(_$RefImageStateInitialImpl _value,
+      $Res Function(_$RefImageStateInitialImpl) _then)
+      : super(_value, _then);
 
-  @override
-  RefImageStateInitial get _value => super._value as RefImageStateInitial;
+  /// Create a copy of RefImageState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$RefImageStateInitial implements RefImageStateInitial {
-  const _$RefImageStateInitial();
+class _$RefImageStateInitialImpl implements RefImageStateInitial {
+  const _$RefImageStateInitialImpl();
 
   @override
   String toString() {
@@ -143,9 +119,10 @@ class _$RefImageStateInitial implements RefImageStateInitial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is RefImageStateInitial);
+        (other.runtimeType == runtimeType &&
+            other is _$RefImageStateInitialImpl);
   }
 
   @override
@@ -165,10 +142,10 @@ class _$RefImageStateInitial implements RefImageStateInitial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(RefImage image)? loaded,
-    TResult Function(LoadRefImageError error)? loadFailed,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(RefImage image)? loaded,
+    TResult? Function(LoadRefImageError error)? loadFailed,
   }) {
     return initial?.call();
   }
@@ -202,10 +179,10 @@ class _$RefImageStateInitial implements RefImageStateInitial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RefImageStateInitial value)? initial,
-    TResult Function(RefImageStateLoading value)? loading,
-    TResult Function(RefImageStateLoaded value)? loaded,
-    TResult Function(RefImageStateLoadFailed value)? loadFailed,
+    TResult? Function(RefImageStateInitial value)? initial,
+    TResult? Function(RefImageStateLoading value)? loading,
+    TResult? Function(RefImageStateLoaded value)? loaded,
+    TResult? Function(RefImageStateLoadFailed value)? loadFailed,
   }) {
     return initial?.call(this);
   }
@@ -227,32 +204,32 @@ class _$RefImageStateInitial implements RefImageStateInitial {
 }
 
 abstract class RefImageStateInitial implements RefImageState {
-  const factory RefImageStateInitial() = _$RefImageStateInitial;
+  const factory RefImageStateInitial() = _$RefImageStateInitialImpl;
 }
 
 /// @nodoc
-abstract class $RefImageStateLoadingCopyWith<$Res> {
-  factory $RefImageStateLoadingCopyWith(RefImageStateLoading value,
-          $Res Function(RefImageStateLoading) then) =
-      _$RefImageStateLoadingCopyWithImpl<$Res>;
+abstract class _$$RefImageStateLoadingImplCopyWith<$Res> {
+  factory _$$RefImageStateLoadingImplCopyWith(_$RefImageStateLoadingImpl value,
+          $Res Function(_$RefImageStateLoadingImpl) then) =
+      __$$RefImageStateLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$RefImageStateLoadingCopyWithImpl<$Res>
-    extends _$RefImageStateCopyWithImpl<$Res>
-    implements $RefImageStateLoadingCopyWith<$Res> {
-  _$RefImageStateLoadingCopyWithImpl(
-      RefImageStateLoading _value, $Res Function(RefImageStateLoading) _then)
-      : super(_value, (v) => _then(v as RefImageStateLoading));
+class __$$RefImageStateLoadingImplCopyWithImpl<$Res>
+    extends _$RefImageStateCopyWithImpl<$Res, _$RefImageStateLoadingImpl>
+    implements _$$RefImageStateLoadingImplCopyWith<$Res> {
+  __$$RefImageStateLoadingImplCopyWithImpl(_$RefImageStateLoadingImpl _value,
+      $Res Function(_$RefImageStateLoadingImpl) _then)
+      : super(_value, _then);
 
-  @override
-  RefImageStateLoading get _value => super._value as RefImageStateLoading;
+  /// Create a copy of RefImageState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$RefImageStateLoading implements RefImageStateLoading {
-  const _$RefImageStateLoading();
+class _$RefImageStateLoadingImpl implements RefImageStateLoading {
+  const _$RefImageStateLoadingImpl();
 
   @override
   String toString() {
@@ -260,9 +237,10 @@ class _$RefImageStateLoading implements RefImageStateLoading {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is RefImageStateLoading);
+        (other.runtimeType == runtimeType &&
+            other is _$RefImageStateLoadingImpl);
   }
 
   @override
@@ -282,10 +260,10 @@ class _$RefImageStateLoading implements RefImageStateLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(RefImage image)? loaded,
-    TResult Function(LoadRefImageError error)? loadFailed,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(RefImage image)? loaded,
+    TResult? Function(LoadRefImageError error)? loadFailed,
   }) {
     return loading?.call();
   }
@@ -319,10 +297,10 @@ class _$RefImageStateLoading implements RefImageStateLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RefImageStateInitial value)? initial,
-    TResult Function(RefImageStateLoading value)? loading,
-    TResult Function(RefImageStateLoaded value)? loaded,
-    TResult Function(RefImageStateLoadFailed value)? loadFailed,
+    TResult? Function(RefImageStateInitial value)? initial,
+    TResult? Function(RefImageStateLoading value)? loading,
+    TResult? Function(RefImageStateLoaded value)? loaded,
+    TResult? Function(RefImageStateLoadFailed value)? loadFailed,
   }) {
     return loading?.call(this);
   }
@@ -344,43 +322,47 @@ class _$RefImageStateLoading implements RefImageStateLoading {
 }
 
 abstract class RefImageStateLoading implements RefImageState {
-  const factory RefImageStateLoading() = _$RefImageStateLoading;
+  const factory RefImageStateLoading() = _$RefImageStateLoadingImpl;
 }
 
 /// @nodoc
-abstract class $RefImageStateLoadedCopyWith<$Res> {
-  factory $RefImageStateLoadedCopyWith(
-          RefImageStateLoaded value, $Res Function(RefImageStateLoaded) then) =
-      _$RefImageStateLoadedCopyWithImpl<$Res>;
+abstract class _$$RefImageStateLoadedImplCopyWith<$Res> {
+  factory _$$RefImageStateLoadedImplCopyWith(_$RefImageStateLoadedImpl value,
+          $Res Function(_$RefImageStateLoadedImpl) then) =
+      __$$RefImageStateLoadedImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({RefImage image});
 
   $RefImageCopyWith<$Res> get image;
 }
 
 /// @nodoc
-class _$RefImageStateLoadedCopyWithImpl<$Res>
-    extends _$RefImageStateCopyWithImpl<$Res>
-    implements $RefImageStateLoadedCopyWith<$Res> {
-  _$RefImageStateLoadedCopyWithImpl(
-      RefImageStateLoaded _value, $Res Function(RefImageStateLoaded) _then)
-      : super(_value, (v) => _then(v as RefImageStateLoaded));
+class __$$RefImageStateLoadedImplCopyWithImpl<$Res>
+    extends _$RefImageStateCopyWithImpl<$Res, _$RefImageStateLoadedImpl>
+    implements _$$RefImageStateLoadedImplCopyWith<$Res> {
+  __$$RefImageStateLoadedImplCopyWithImpl(_$RefImageStateLoadedImpl _value,
+      $Res Function(_$RefImageStateLoadedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  RefImageStateLoaded get _value => super._value as RefImageStateLoaded;
-
+  /// Create a copy of RefImageState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? image = freezed,
+    Object? image = null,
   }) {
-    return _then(RefImageStateLoaded(
-      image == freezed
+    return _then(_$RefImageStateLoadedImpl(
+      null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as RefImage,
     ));
   }
 
+  /// Create a copy of RefImageState
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $RefImageCopyWith<$Res> get image {
     return $RefImageCopyWith<$Res>(_value.image, (value) {
       return _then(_value.copyWith(image: value));
@@ -390,8 +372,8 @@ class _$RefImageStateLoadedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RefImageStateLoaded implements RefImageStateLoaded {
-  const _$RefImageStateLoaded(this.image);
+class _$RefImageStateLoadedImpl implements RefImageStateLoaded {
+  const _$RefImageStateLoadedImpl(this.image);
 
   @override
   final RefImage image;
@@ -402,21 +384,24 @@ class _$RefImageStateLoaded implements RefImageStateLoaded {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is RefImageStateLoaded &&
-            const DeepCollectionEquality().equals(other.image, image));
+            other is _$RefImageStateLoadedImpl &&
+            (identical(other.image, image) || other.image == image));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(image));
+  int get hashCode => Object.hash(runtimeType, image);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RefImageState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $RefImageStateLoadedCopyWith<RefImageStateLoaded> get copyWith =>
-      _$RefImageStateLoadedCopyWithImpl<RefImageStateLoaded>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$RefImageStateLoadedImplCopyWith<_$RefImageStateLoadedImpl> get copyWith =>
+      __$$RefImageStateLoadedImplCopyWithImpl<_$RefImageStateLoadedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -432,10 +417,10 @@ class _$RefImageStateLoaded implements RefImageStateLoaded {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(RefImage image)? loaded,
-    TResult Function(LoadRefImageError error)? loadFailed,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(RefImage image)? loaded,
+    TResult? Function(LoadRefImageError error)? loadFailed,
   }) {
     return loaded?.call(image);
   }
@@ -469,10 +454,10 @@ class _$RefImageStateLoaded implements RefImageStateLoaded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RefImageStateInitial value)? initial,
-    TResult Function(RefImageStateLoading value)? loading,
-    TResult Function(RefImageStateLoaded value)? loaded,
-    TResult Function(RefImageStateLoadFailed value)? loadFailed,
+    TResult? Function(RefImageStateInitial value)? initial,
+    TResult? Function(RefImageStateLoading value)? loading,
+    TResult? Function(RefImageStateLoaded value)? loaded,
+    TResult? Function(RefImageStateLoadFailed value)? loadFailed,
   }) {
     return loaded?.call(this);
   }
@@ -494,48 +479,58 @@ class _$RefImageStateLoaded implements RefImageStateLoaded {
 }
 
 abstract class RefImageStateLoaded implements RefImageState {
-  const factory RefImageStateLoaded(RefImage image) = _$RefImageStateLoaded;
+  const factory RefImageStateLoaded(final RefImage image) =
+      _$RefImageStateLoadedImpl;
 
   RefImage get image;
-  @JsonKey(ignore: true)
-  $RefImageStateLoadedCopyWith<RefImageStateLoaded> get copyWith =>
+
+  /// Create a copy of RefImageState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RefImageStateLoadedImplCopyWith<_$RefImageStateLoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RefImageStateLoadFailedCopyWith<$Res> {
-  factory $RefImageStateLoadFailedCopyWith(RefImageStateLoadFailed value,
-          $Res Function(RefImageStateLoadFailed) then) =
-      _$RefImageStateLoadFailedCopyWithImpl<$Res>;
+abstract class _$$RefImageStateLoadFailedImplCopyWith<$Res> {
+  factory _$$RefImageStateLoadFailedImplCopyWith(
+          _$RefImageStateLoadFailedImpl value,
+          $Res Function(_$RefImageStateLoadFailedImpl) then) =
+      __$$RefImageStateLoadFailedImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({LoadRefImageError error});
 
   $LoadRefImageErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
-class _$RefImageStateLoadFailedCopyWithImpl<$Res>
-    extends _$RefImageStateCopyWithImpl<$Res>
-    implements $RefImageStateLoadFailedCopyWith<$Res> {
-  _$RefImageStateLoadFailedCopyWithImpl(RefImageStateLoadFailed _value,
-      $Res Function(RefImageStateLoadFailed) _then)
-      : super(_value, (v) => _then(v as RefImageStateLoadFailed));
+class __$$RefImageStateLoadFailedImplCopyWithImpl<$Res>
+    extends _$RefImageStateCopyWithImpl<$Res, _$RefImageStateLoadFailedImpl>
+    implements _$$RefImageStateLoadFailedImplCopyWith<$Res> {
+  __$$RefImageStateLoadFailedImplCopyWithImpl(
+      _$RefImageStateLoadFailedImpl _value,
+      $Res Function(_$RefImageStateLoadFailedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  RefImageStateLoadFailed get _value => super._value as RefImageStateLoadFailed;
-
+  /// Create a copy of RefImageState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
-    return _then(RefImageStateLoadFailed(
-      error == freezed
+    return _then(_$RefImageStateLoadFailedImpl(
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as LoadRefImageError,
     ));
   }
 
+  /// Create a copy of RefImageState
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $LoadRefImageErrorCopyWith<$Res> get error {
     return $LoadRefImageErrorCopyWith<$Res>(_value.error, (value) {
       return _then(_value.copyWith(error: value));
@@ -545,8 +540,8 @@ class _$RefImageStateLoadFailedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RefImageStateLoadFailed implements RefImageStateLoadFailed {
-  const _$RefImageStateLoadFailed(this.error);
+class _$RefImageStateLoadFailedImpl implements RefImageStateLoadFailed {
+  const _$RefImageStateLoadFailedImpl(this.error);
 
   @override
   final LoadRefImageError error;
@@ -557,22 +552,24 @@ class _$RefImageStateLoadFailed implements RefImageStateLoadFailed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is RefImageStateLoadFailed &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$RefImageStateLoadFailedImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RefImageState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $RefImageStateLoadFailedCopyWith<RefImageStateLoadFailed> get copyWith =>
-      _$RefImageStateLoadFailedCopyWithImpl<RefImageStateLoadFailed>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$RefImageStateLoadFailedImplCopyWith<_$RefImageStateLoadFailedImpl>
+      get copyWith => __$$RefImageStateLoadFailedImplCopyWithImpl<
+          _$RefImageStateLoadFailedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -588,10 +585,10 @@ class _$RefImageStateLoadFailed implements RefImageStateLoadFailed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(RefImage image)? loaded,
-    TResult Function(LoadRefImageError error)? loadFailed,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(RefImage image)? loaded,
+    TResult? Function(LoadRefImageError error)? loadFailed,
   }) {
     return loadFailed?.call(error);
   }
@@ -625,10 +622,10 @@ class _$RefImageStateLoadFailed implements RefImageStateLoadFailed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RefImageStateInitial value)? initial,
-    TResult Function(RefImageStateLoading value)? loading,
-    TResult Function(RefImageStateLoaded value)? loaded,
-    TResult Function(RefImageStateLoadFailed value)? loadFailed,
+    TResult? Function(RefImageStateInitial value)? initial,
+    TResult? Function(RefImageStateLoading value)? loading,
+    TResult? Function(RefImageStateLoaded value)? loaded,
+    TResult? Function(RefImageStateLoadFailed value)? loadFailed,
   }) {
     return loadFailed?.call(this);
   }
@@ -650,50 +647,17 @@ class _$RefImageStateLoadFailed implements RefImageStateLoadFailed {
 }
 
 abstract class RefImageStateLoadFailed implements RefImageState {
-  const factory RefImageStateLoadFailed(LoadRefImageError error) =
-      _$RefImageStateLoadFailed;
+  const factory RefImageStateLoadFailed(final LoadRefImageError error) =
+      _$RefImageStateLoadFailedImpl;
 
   LoadRefImageError get error;
-  @JsonKey(ignore: true)
-  $RefImageStateLoadFailedCopyWith<RefImageStateLoadFailed> get copyWith =>
-      throw _privateConstructorUsedError;
+
+  /// Create a copy of RefImageState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RefImageStateLoadFailedImplCopyWith<_$RefImageStateLoadFailedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$LoadRefImageErrorTearOff {
-  const _$LoadRefImageErrorTearOff();
-
-  LoadRefImageErrorNotFound notFound() {
-    return const LoadRefImageErrorNotFound();
-  }
-
-  LoadRefImageErrorStorage database(
-      {Exception? exception, StackTrace? stackTrace}) {
-    return LoadRefImageErrorStorage(
-      exception: exception,
-      stackTrace: stackTrace,
-    );
-  }
-
-  LoadRefImageErrorFs fs(FsError error) {
-    return LoadRefImageErrorFs(
-      error,
-    );
-  }
-
-  LoadRefImageErrorNoSecureKey noSecureKey() {
-    return const LoadRefImageErrorNoSecureKey();
-  }
-
-  LoadRefImageErrorDecrypt decrypt(DecryptError error) {
-    return LoadRefImageErrorDecrypt(
-      error,
-    );
-  }
-}
-
-/// @nodoc
-const $LoadRefImageError = _$LoadRefImageErrorTearOff();
 
 /// @nodoc
 mixin _$LoadRefImageError {
@@ -709,11 +673,11 @@ mixin _$LoadRefImageError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? notFound,
-    TResult Function(Exception? exception, StackTrace? stackTrace)? database,
-    TResult Function(FsError error)? fs,
-    TResult Function()? noSecureKey,
-    TResult Function(DecryptError error)? decrypt,
+    TResult? Function()? notFound,
+    TResult? Function(Exception? exception, StackTrace? stackTrace)? database,
+    TResult? Function(FsError error)? fs,
+    TResult? Function()? noSecureKey,
+    TResult? Function(DecryptError error)? decrypt,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -737,11 +701,11 @@ mixin _$LoadRefImageError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LoadRefImageErrorNotFound value)? notFound,
-    TResult Function(LoadRefImageErrorStorage value)? database,
-    TResult Function(LoadRefImageErrorFs value)? fs,
-    TResult Function(LoadRefImageErrorNoSecureKey value)? noSecureKey,
-    TResult Function(LoadRefImageErrorDecrypt value)? decrypt,
+    TResult? Function(LoadRefImageErrorNotFound value)? notFound,
+    TResult? Function(LoadRefImageErrorStorage value)? database,
+    TResult? Function(LoadRefImageErrorFs value)? fs,
+    TResult? Function(LoadRefImageErrorNoSecureKey value)? noSecureKey,
+    TResult? Function(LoadRefImageErrorDecrypt value)? decrypt,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -760,43 +724,49 @@ mixin _$LoadRefImageError {
 abstract class $LoadRefImageErrorCopyWith<$Res> {
   factory $LoadRefImageErrorCopyWith(
           LoadRefImageError value, $Res Function(LoadRefImageError) then) =
-      _$LoadRefImageErrorCopyWithImpl<$Res>;
+      _$LoadRefImageErrorCopyWithImpl<$Res, LoadRefImageError>;
 }
 
 /// @nodoc
-class _$LoadRefImageErrorCopyWithImpl<$Res>
+class _$LoadRefImageErrorCopyWithImpl<$Res, $Val extends LoadRefImageError>
     implements $LoadRefImageErrorCopyWith<$Res> {
   _$LoadRefImageErrorCopyWithImpl(this._value, this._then);
 
-  final LoadRefImageError _value;
   // ignore: unused_field
-  final $Res Function(LoadRefImageError) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of LoadRefImageError
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class $LoadRefImageErrorNotFoundCopyWith<$Res> {
-  factory $LoadRefImageErrorNotFoundCopyWith(LoadRefImageErrorNotFound value,
-          $Res Function(LoadRefImageErrorNotFound) then) =
-      _$LoadRefImageErrorNotFoundCopyWithImpl<$Res>;
+abstract class _$$LoadRefImageErrorNotFoundImplCopyWith<$Res> {
+  factory _$$LoadRefImageErrorNotFoundImplCopyWith(
+          _$LoadRefImageErrorNotFoundImpl value,
+          $Res Function(_$LoadRefImageErrorNotFoundImpl) then) =
+      __$$LoadRefImageErrorNotFoundImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$LoadRefImageErrorNotFoundCopyWithImpl<$Res>
-    extends _$LoadRefImageErrorCopyWithImpl<$Res>
-    implements $LoadRefImageErrorNotFoundCopyWith<$Res> {
-  _$LoadRefImageErrorNotFoundCopyWithImpl(LoadRefImageErrorNotFound _value,
-      $Res Function(LoadRefImageErrorNotFound) _then)
-      : super(_value, (v) => _then(v as LoadRefImageErrorNotFound));
+class __$$LoadRefImageErrorNotFoundImplCopyWithImpl<$Res>
+    extends _$LoadRefImageErrorCopyWithImpl<$Res,
+        _$LoadRefImageErrorNotFoundImpl>
+    implements _$$LoadRefImageErrorNotFoundImplCopyWith<$Res> {
+  __$$LoadRefImageErrorNotFoundImplCopyWithImpl(
+      _$LoadRefImageErrorNotFoundImpl _value,
+      $Res Function(_$LoadRefImageErrorNotFoundImpl) _then)
+      : super(_value, _then);
 
-  @override
-  LoadRefImageErrorNotFound get _value =>
-      super._value as LoadRefImageErrorNotFound;
+  /// Create a copy of LoadRefImageError
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$LoadRefImageErrorNotFound implements LoadRefImageErrorNotFound {
-  const _$LoadRefImageErrorNotFound();
+class _$LoadRefImageErrorNotFoundImpl implements LoadRefImageErrorNotFound {
+  const _$LoadRefImageErrorNotFoundImpl();
 
   @override
   String toString() {
@@ -804,10 +774,10 @@ class _$LoadRefImageErrorNotFound implements LoadRefImageErrorNotFound {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is LoadRefImageErrorNotFound);
+            other is _$LoadRefImageErrorNotFoundImpl);
   }
 
   @override
@@ -829,11 +799,11 @@ class _$LoadRefImageErrorNotFound implements LoadRefImageErrorNotFound {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? notFound,
-    TResult Function(Exception? exception, StackTrace? stackTrace)? database,
-    TResult Function(FsError error)? fs,
-    TResult Function()? noSecureKey,
-    TResult Function(DecryptError error)? decrypt,
+    TResult? Function()? notFound,
+    TResult? Function(Exception? exception, StackTrace? stackTrace)? database,
+    TResult? Function(FsError error)? fs,
+    TResult? Function()? noSecureKey,
+    TResult? Function(DecryptError error)? decrypt,
   }) {
     return notFound?.call();
   }
@@ -869,11 +839,11 @@ class _$LoadRefImageErrorNotFound implements LoadRefImageErrorNotFound {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LoadRefImageErrorNotFound value)? notFound,
-    TResult Function(LoadRefImageErrorStorage value)? database,
-    TResult Function(LoadRefImageErrorFs value)? fs,
-    TResult Function(LoadRefImageErrorNoSecureKey value)? noSecureKey,
-    TResult Function(LoadRefImageErrorDecrypt value)? decrypt,
+    TResult? Function(LoadRefImageErrorNotFound value)? notFound,
+    TResult? Function(LoadRefImageErrorStorage value)? database,
+    TResult? Function(LoadRefImageErrorFs value)? fs,
+    TResult? Function(LoadRefImageErrorNoSecureKey value)? noSecureKey,
+    TResult? Function(LoadRefImageErrorDecrypt value)? decrypt,
   }) {
     return notFound?.call(this);
   }
@@ -896,40 +866,43 @@ class _$LoadRefImageErrorNotFound implements LoadRefImageErrorNotFound {
 }
 
 abstract class LoadRefImageErrorNotFound implements LoadRefImageError {
-  const factory LoadRefImageErrorNotFound() = _$LoadRefImageErrorNotFound;
+  const factory LoadRefImageErrorNotFound() = _$LoadRefImageErrorNotFoundImpl;
 }
 
 /// @nodoc
-abstract class $LoadRefImageErrorStorageCopyWith<$Res> {
-  factory $LoadRefImageErrorStorageCopyWith(LoadRefImageErrorStorage value,
-          $Res Function(LoadRefImageErrorStorage) then) =
-      _$LoadRefImageErrorStorageCopyWithImpl<$Res>;
+abstract class _$$LoadRefImageErrorStorageImplCopyWith<$Res> {
+  factory _$$LoadRefImageErrorStorageImplCopyWith(
+          _$LoadRefImageErrorStorageImpl value,
+          $Res Function(_$LoadRefImageErrorStorageImpl) then) =
+      __$$LoadRefImageErrorStorageImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({Exception? exception, StackTrace? stackTrace});
 }
 
 /// @nodoc
-class _$LoadRefImageErrorStorageCopyWithImpl<$Res>
-    extends _$LoadRefImageErrorCopyWithImpl<$Res>
-    implements $LoadRefImageErrorStorageCopyWith<$Res> {
-  _$LoadRefImageErrorStorageCopyWithImpl(LoadRefImageErrorStorage _value,
-      $Res Function(LoadRefImageErrorStorage) _then)
-      : super(_value, (v) => _then(v as LoadRefImageErrorStorage));
+class __$$LoadRefImageErrorStorageImplCopyWithImpl<$Res>
+    extends _$LoadRefImageErrorCopyWithImpl<$Res,
+        _$LoadRefImageErrorStorageImpl>
+    implements _$$LoadRefImageErrorStorageImplCopyWith<$Res> {
+  __$$LoadRefImageErrorStorageImplCopyWithImpl(
+      _$LoadRefImageErrorStorageImpl _value,
+      $Res Function(_$LoadRefImageErrorStorageImpl) _then)
+      : super(_value, _then);
 
-  @override
-  LoadRefImageErrorStorage get _value =>
-      super._value as LoadRefImageErrorStorage;
-
+  /// Create a copy of LoadRefImageError
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? exception = freezed,
     Object? stackTrace = freezed,
   }) {
-    return _then(LoadRefImageErrorStorage(
-      exception: exception == freezed
+    return _then(_$LoadRefImageErrorStorageImpl(
+      exception: freezed == exception
           ? _value.exception
           : exception // ignore: cast_nullable_to_non_nullable
               as Exception?,
-      stackTrace: stackTrace == freezed
+      stackTrace: freezed == stackTrace
           ? _value.stackTrace
           : stackTrace // ignore: cast_nullable_to_non_nullable
               as StackTrace?,
@@ -939,8 +912,8 @@ class _$LoadRefImageErrorStorageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadRefImageErrorStorage implements LoadRefImageErrorStorage {
-  const _$LoadRefImageErrorStorage({this.exception, this.stackTrace});
+class _$LoadRefImageErrorStorageImpl implements LoadRefImageErrorStorage {
+  const _$LoadRefImageErrorStorageImpl({this.exception, this.stackTrace});
 
   @override
   final Exception? exception;
@@ -953,26 +926,27 @@ class _$LoadRefImageErrorStorage implements LoadRefImageErrorStorage {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is LoadRefImageErrorStorage &&
-            const DeepCollectionEquality().equals(other.exception, exception) &&
-            const DeepCollectionEquality()
-                .equals(other.stackTrace, stackTrace));
+            other is _$LoadRefImageErrorStorageImpl &&
+            (identical(other.exception, exception) ||
+                other.exception == exception) &&
+            (identical(other.stackTrace, stackTrace) ||
+                other.stackTrace == stackTrace));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(exception),
-      const DeepCollectionEquality().hash(stackTrace));
+  int get hashCode => Object.hash(runtimeType, exception, stackTrace);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LoadRefImageError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $LoadRefImageErrorStorageCopyWith<LoadRefImageErrorStorage> get copyWith =>
-      _$LoadRefImageErrorStorageCopyWithImpl<LoadRefImageErrorStorage>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$LoadRefImageErrorStorageImplCopyWith<_$LoadRefImageErrorStorageImpl>
+      get copyWith => __$$LoadRefImageErrorStorageImplCopyWithImpl<
+          _$LoadRefImageErrorStorageImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -990,11 +964,11 @@ class _$LoadRefImageErrorStorage implements LoadRefImageErrorStorage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? notFound,
-    TResult Function(Exception? exception, StackTrace? stackTrace)? database,
-    TResult Function(FsError error)? fs,
-    TResult Function()? noSecureKey,
-    TResult Function(DecryptError error)? decrypt,
+    TResult? Function()? notFound,
+    TResult? Function(Exception? exception, StackTrace? stackTrace)? database,
+    TResult? Function(FsError error)? fs,
+    TResult? Function()? noSecureKey,
+    TResult? Function(DecryptError error)? decrypt,
   }) {
     return database?.call(exception, stackTrace);
   }
@@ -1030,11 +1004,11 @@ class _$LoadRefImageErrorStorage implements LoadRefImageErrorStorage {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LoadRefImageErrorNotFound value)? notFound,
-    TResult Function(LoadRefImageErrorStorage value)? database,
-    TResult Function(LoadRefImageErrorFs value)? fs,
-    TResult Function(LoadRefImageErrorNoSecureKey value)? noSecureKey,
-    TResult Function(LoadRefImageErrorDecrypt value)? decrypt,
+    TResult? Function(LoadRefImageErrorNotFound value)? notFound,
+    TResult? Function(LoadRefImageErrorStorage value)? database,
+    TResult? Function(LoadRefImageErrorFs value)? fs,
+    TResult? Function(LoadRefImageErrorNoSecureKey value)? noSecureKey,
+    TResult? Function(LoadRefImageErrorDecrypt value)? decrypt,
   }) {
     return database?.call(this);
   }
@@ -1058,50 +1032,57 @@ class _$LoadRefImageErrorStorage implements LoadRefImageErrorStorage {
 
 abstract class LoadRefImageErrorStorage implements LoadRefImageError {
   const factory LoadRefImageErrorStorage(
-      {Exception? exception,
-      StackTrace? stackTrace}) = _$LoadRefImageErrorStorage;
+      {final Exception? exception,
+      final StackTrace? stackTrace}) = _$LoadRefImageErrorStorageImpl;
 
   Exception? get exception;
   StackTrace? get stackTrace;
-  @JsonKey(ignore: true)
-  $LoadRefImageErrorStorageCopyWith<LoadRefImageErrorStorage> get copyWith =>
-      throw _privateConstructorUsedError;
+
+  /// Create a copy of LoadRefImageError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LoadRefImageErrorStorageImplCopyWith<_$LoadRefImageErrorStorageImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LoadRefImageErrorFsCopyWith<$Res> {
-  factory $LoadRefImageErrorFsCopyWith(
-          LoadRefImageErrorFs value, $Res Function(LoadRefImageErrorFs) then) =
-      _$LoadRefImageErrorFsCopyWithImpl<$Res>;
+abstract class _$$LoadRefImageErrorFsImplCopyWith<$Res> {
+  factory _$$LoadRefImageErrorFsImplCopyWith(_$LoadRefImageErrorFsImpl value,
+          $Res Function(_$LoadRefImageErrorFsImpl) then) =
+      __$$LoadRefImageErrorFsImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({FsError error});
 
   $FsErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
-class _$LoadRefImageErrorFsCopyWithImpl<$Res>
-    extends _$LoadRefImageErrorCopyWithImpl<$Res>
-    implements $LoadRefImageErrorFsCopyWith<$Res> {
-  _$LoadRefImageErrorFsCopyWithImpl(
-      LoadRefImageErrorFs _value, $Res Function(LoadRefImageErrorFs) _then)
-      : super(_value, (v) => _then(v as LoadRefImageErrorFs));
+class __$$LoadRefImageErrorFsImplCopyWithImpl<$Res>
+    extends _$LoadRefImageErrorCopyWithImpl<$Res, _$LoadRefImageErrorFsImpl>
+    implements _$$LoadRefImageErrorFsImplCopyWith<$Res> {
+  __$$LoadRefImageErrorFsImplCopyWithImpl(_$LoadRefImageErrorFsImpl _value,
+      $Res Function(_$LoadRefImageErrorFsImpl) _then)
+      : super(_value, _then);
 
-  @override
-  LoadRefImageErrorFs get _value => super._value as LoadRefImageErrorFs;
-
+  /// Create a copy of LoadRefImageError
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
-    return _then(LoadRefImageErrorFs(
-      error == freezed
+    return _then(_$LoadRefImageErrorFsImpl(
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as FsError,
     ));
   }
 
+  /// Create a copy of LoadRefImageError
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $FsErrorCopyWith<$Res> get error {
     return $FsErrorCopyWith<$Res>(_value.error, (value) {
       return _then(_value.copyWith(error: value));
@@ -1111,8 +1092,8 @@ class _$LoadRefImageErrorFsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadRefImageErrorFs implements LoadRefImageErrorFs {
-  const _$LoadRefImageErrorFs(this.error);
+class _$LoadRefImageErrorFsImpl implements LoadRefImageErrorFs {
+  const _$LoadRefImageErrorFsImpl(this.error);
 
   @override
   final FsError error;
@@ -1123,21 +1104,24 @@ class _$LoadRefImageErrorFs implements LoadRefImageErrorFs {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is LoadRefImageErrorFs &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$LoadRefImageErrorFsImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LoadRefImageError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $LoadRefImageErrorFsCopyWith<LoadRefImageErrorFs> get copyWith =>
-      _$LoadRefImageErrorFsCopyWithImpl<LoadRefImageErrorFs>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$LoadRefImageErrorFsImplCopyWith<_$LoadRefImageErrorFsImpl> get copyWith =>
+      __$$LoadRefImageErrorFsImplCopyWithImpl<_$LoadRefImageErrorFsImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1155,11 +1139,11 @@ class _$LoadRefImageErrorFs implements LoadRefImageErrorFs {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? notFound,
-    TResult Function(Exception? exception, StackTrace? stackTrace)? database,
-    TResult Function(FsError error)? fs,
-    TResult Function()? noSecureKey,
-    TResult Function(DecryptError error)? decrypt,
+    TResult? Function()? notFound,
+    TResult? Function(Exception? exception, StackTrace? stackTrace)? database,
+    TResult? Function(FsError error)? fs,
+    TResult? Function()? noSecureKey,
+    TResult? Function(DecryptError error)? decrypt,
   }) {
     return fs?.call(error);
   }
@@ -1195,11 +1179,11 @@ class _$LoadRefImageErrorFs implements LoadRefImageErrorFs {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LoadRefImageErrorNotFound value)? notFound,
-    TResult Function(LoadRefImageErrorStorage value)? database,
-    TResult Function(LoadRefImageErrorFs value)? fs,
-    TResult Function(LoadRefImageErrorNoSecureKey value)? noSecureKey,
-    TResult Function(LoadRefImageErrorDecrypt value)? decrypt,
+    TResult? Function(LoadRefImageErrorNotFound value)? notFound,
+    TResult? Function(LoadRefImageErrorStorage value)? database,
+    TResult? Function(LoadRefImageErrorFs value)? fs,
+    TResult? Function(LoadRefImageErrorNoSecureKey value)? noSecureKey,
+    TResult? Function(LoadRefImageErrorDecrypt value)? decrypt,
   }) {
     return fs?.call(this);
   }
@@ -1222,40 +1206,45 @@ class _$LoadRefImageErrorFs implements LoadRefImageErrorFs {
 }
 
 abstract class LoadRefImageErrorFs implements LoadRefImageError {
-  const factory LoadRefImageErrorFs(FsError error) = _$LoadRefImageErrorFs;
+  const factory LoadRefImageErrorFs(final FsError error) =
+      _$LoadRefImageErrorFsImpl;
 
   FsError get error;
-  @JsonKey(ignore: true)
-  $LoadRefImageErrorFsCopyWith<LoadRefImageErrorFs> get copyWith =>
+
+  /// Create a copy of LoadRefImageError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LoadRefImageErrorFsImplCopyWith<_$LoadRefImageErrorFsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LoadRefImageErrorNoSecureKeyCopyWith<$Res> {
-  factory $LoadRefImageErrorNoSecureKeyCopyWith(
-          LoadRefImageErrorNoSecureKey value,
-          $Res Function(LoadRefImageErrorNoSecureKey) then) =
-      _$LoadRefImageErrorNoSecureKeyCopyWithImpl<$Res>;
+abstract class _$$LoadRefImageErrorNoSecureKeyImplCopyWith<$Res> {
+  factory _$$LoadRefImageErrorNoSecureKeyImplCopyWith(
+          _$LoadRefImageErrorNoSecureKeyImpl value,
+          $Res Function(_$LoadRefImageErrorNoSecureKeyImpl) then) =
+      __$$LoadRefImageErrorNoSecureKeyImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$LoadRefImageErrorNoSecureKeyCopyWithImpl<$Res>
-    extends _$LoadRefImageErrorCopyWithImpl<$Res>
-    implements $LoadRefImageErrorNoSecureKeyCopyWith<$Res> {
-  _$LoadRefImageErrorNoSecureKeyCopyWithImpl(
-      LoadRefImageErrorNoSecureKey _value,
-      $Res Function(LoadRefImageErrorNoSecureKey) _then)
-      : super(_value, (v) => _then(v as LoadRefImageErrorNoSecureKey));
+class __$$LoadRefImageErrorNoSecureKeyImplCopyWithImpl<$Res>
+    extends _$LoadRefImageErrorCopyWithImpl<$Res,
+        _$LoadRefImageErrorNoSecureKeyImpl>
+    implements _$$LoadRefImageErrorNoSecureKeyImplCopyWith<$Res> {
+  __$$LoadRefImageErrorNoSecureKeyImplCopyWithImpl(
+      _$LoadRefImageErrorNoSecureKeyImpl _value,
+      $Res Function(_$LoadRefImageErrorNoSecureKeyImpl) _then)
+      : super(_value, _then);
 
-  @override
-  LoadRefImageErrorNoSecureKey get _value =>
-      super._value as LoadRefImageErrorNoSecureKey;
+  /// Create a copy of LoadRefImageError
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$LoadRefImageErrorNoSecureKey implements LoadRefImageErrorNoSecureKey {
-  const _$LoadRefImageErrorNoSecureKey();
+class _$LoadRefImageErrorNoSecureKeyImpl
+    implements LoadRefImageErrorNoSecureKey {
+  const _$LoadRefImageErrorNoSecureKeyImpl();
 
   @override
   String toString() {
@@ -1263,10 +1252,10 @@ class _$LoadRefImageErrorNoSecureKey implements LoadRefImageErrorNoSecureKey {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is LoadRefImageErrorNoSecureKey);
+            other is _$LoadRefImageErrorNoSecureKeyImpl);
   }
 
   @override
@@ -1288,11 +1277,11 @@ class _$LoadRefImageErrorNoSecureKey implements LoadRefImageErrorNoSecureKey {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? notFound,
-    TResult Function(Exception? exception, StackTrace? stackTrace)? database,
-    TResult Function(FsError error)? fs,
-    TResult Function()? noSecureKey,
-    TResult Function(DecryptError error)? decrypt,
+    TResult? Function()? notFound,
+    TResult? Function(Exception? exception, StackTrace? stackTrace)? database,
+    TResult? Function(FsError error)? fs,
+    TResult? Function()? noSecureKey,
+    TResult? Function(DecryptError error)? decrypt,
   }) {
     return noSecureKey?.call();
   }
@@ -1328,11 +1317,11 @@ class _$LoadRefImageErrorNoSecureKey implements LoadRefImageErrorNoSecureKey {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LoadRefImageErrorNotFound value)? notFound,
-    TResult Function(LoadRefImageErrorStorage value)? database,
-    TResult Function(LoadRefImageErrorFs value)? fs,
-    TResult Function(LoadRefImageErrorNoSecureKey value)? noSecureKey,
-    TResult Function(LoadRefImageErrorDecrypt value)? decrypt,
+    TResult? Function(LoadRefImageErrorNotFound value)? notFound,
+    TResult? Function(LoadRefImageErrorStorage value)? database,
+    TResult? Function(LoadRefImageErrorFs value)? fs,
+    TResult? Function(LoadRefImageErrorNoSecureKey value)? noSecureKey,
+    TResult? Function(LoadRefImageErrorDecrypt value)? decrypt,
   }) {
     return noSecureKey?.call(this);
   }
@@ -1355,44 +1344,51 @@ class _$LoadRefImageErrorNoSecureKey implements LoadRefImageErrorNoSecureKey {
 }
 
 abstract class LoadRefImageErrorNoSecureKey implements LoadRefImageError {
-  const factory LoadRefImageErrorNoSecureKey() = _$LoadRefImageErrorNoSecureKey;
+  const factory LoadRefImageErrorNoSecureKey() =
+      _$LoadRefImageErrorNoSecureKeyImpl;
 }
 
 /// @nodoc
-abstract class $LoadRefImageErrorDecryptCopyWith<$Res> {
-  factory $LoadRefImageErrorDecryptCopyWith(LoadRefImageErrorDecrypt value,
-          $Res Function(LoadRefImageErrorDecrypt) then) =
-      _$LoadRefImageErrorDecryptCopyWithImpl<$Res>;
+abstract class _$$LoadRefImageErrorDecryptImplCopyWith<$Res> {
+  factory _$$LoadRefImageErrorDecryptImplCopyWith(
+          _$LoadRefImageErrorDecryptImpl value,
+          $Res Function(_$LoadRefImageErrorDecryptImpl) then) =
+      __$$LoadRefImageErrorDecryptImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({DecryptError error});
 
   $DecryptErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
-class _$LoadRefImageErrorDecryptCopyWithImpl<$Res>
-    extends _$LoadRefImageErrorCopyWithImpl<$Res>
-    implements $LoadRefImageErrorDecryptCopyWith<$Res> {
-  _$LoadRefImageErrorDecryptCopyWithImpl(LoadRefImageErrorDecrypt _value,
-      $Res Function(LoadRefImageErrorDecrypt) _then)
-      : super(_value, (v) => _then(v as LoadRefImageErrorDecrypt));
+class __$$LoadRefImageErrorDecryptImplCopyWithImpl<$Res>
+    extends _$LoadRefImageErrorCopyWithImpl<$Res,
+        _$LoadRefImageErrorDecryptImpl>
+    implements _$$LoadRefImageErrorDecryptImplCopyWith<$Res> {
+  __$$LoadRefImageErrorDecryptImplCopyWithImpl(
+      _$LoadRefImageErrorDecryptImpl _value,
+      $Res Function(_$LoadRefImageErrorDecryptImpl) _then)
+      : super(_value, _then);
 
-  @override
-  LoadRefImageErrorDecrypt get _value =>
-      super._value as LoadRefImageErrorDecrypt;
-
+  /// Create a copy of LoadRefImageError
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
-    return _then(LoadRefImageErrorDecrypt(
-      error == freezed
+    return _then(_$LoadRefImageErrorDecryptImpl(
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as DecryptError,
     ));
   }
 
+  /// Create a copy of LoadRefImageError
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $DecryptErrorCopyWith<$Res> get error {
     return $DecryptErrorCopyWith<$Res>(_value.error, (value) {
       return _then(_value.copyWith(error: value));
@@ -1402,8 +1398,8 @@ class _$LoadRefImageErrorDecryptCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadRefImageErrorDecrypt implements LoadRefImageErrorDecrypt {
-  const _$LoadRefImageErrorDecrypt(this.error);
+class _$LoadRefImageErrorDecryptImpl implements LoadRefImageErrorDecrypt {
+  const _$LoadRefImageErrorDecryptImpl(this.error);
 
   @override
   final DecryptError error;
@@ -1414,22 +1410,24 @@ class _$LoadRefImageErrorDecrypt implements LoadRefImageErrorDecrypt {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is LoadRefImageErrorDecrypt &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$LoadRefImageErrorDecryptImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LoadRefImageError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $LoadRefImageErrorDecryptCopyWith<LoadRefImageErrorDecrypt> get copyWith =>
-      _$LoadRefImageErrorDecryptCopyWithImpl<LoadRefImageErrorDecrypt>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$LoadRefImageErrorDecryptImplCopyWith<_$LoadRefImageErrorDecryptImpl>
+      get copyWith => __$$LoadRefImageErrorDecryptImplCopyWithImpl<
+          _$LoadRefImageErrorDecryptImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1447,11 +1445,11 @@ class _$LoadRefImageErrorDecrypt implements LoadRefImageErrorDecrypt {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? notFound,
-    TResult Function(Exception? exception, StackTrace? stackTrace)? database,
-    TResult Function(FsError error)? fs,
-    TResult Function()? noSecureKey,
-    TResult Function(DecryptError error)? decrypt,
+    TResult? Function()? notFound,
+    TResult? Function(Exception? exception, StackTrace? stackTrace)? database,
+    TResult? Function(FsError error)? fs,
+    TResult? Function()? noSecureKey,
+    TResult? Function(DecryptError error)? decrypt,
   }) {
     return decrypt?.call(error);
   }
@@ -1487,11 +1485,11 @@ class _$LoadRefImageErrorDecrypt implements LoadRefImageErrorDecrypt {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LoadRefImageErrorNotFound value)? notFound,
-    TResult Function(LoadRefImageErrorStorage value)? database,
-    TResult Function(LoadRefImageErrorFs value)? fs,
-    TResult Function(LoadRefImageErrorNoSecureKey value)? noSecureKey,
-    TResult Function(LoadRefImageErrorDecrypt value)? decrypt,
+    TResult? Function(LoadRefImageErrorNotFound value)? notFound,
+    TResult? Function(LoadRefImageErrorStorage value)? database,
+    TResult? Function(LoadRefImageErrorFs value)? fs,
+    TResult? Function(LoadRefImageErrorNoSecureKey value)? noSecureKey,
+    TResult? Function(LoadRefImageErrorDecrypt value)? decrypt,
   }) {
     return decrypt?.call(this);
   }
@@ -1514,11 +1512,14 @@ class _$LoadRefImageErrorDecrypt implements LoadRefImageErrorDecrypt {
 }
 
 abstract class LoadRefImageErrorDecrypt implements LoadRefImageError {
-  const factory LoadRefImageErrorDecrypt(DecryptError error) =
-      _$LoadRefImageErrorDecrypt;
+  const factory LoadRefImageErrorDecrypt(final DecryptError error) =
+      _$LoadRefImageErrorDecryptImpl;
 
   DecryptError get error;
-  @JsonKey(ignore: true)
-  $LoadRefImageErrorDecryptCopyWith<LoadRefImageErrorDecrypt> get copyWith =>
-      throw _privateConstructorUsedError;
+
+  /// Create a copy of LoadRefImageError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LoadRefImageErrorDecryptImplCopyWith<_$LoadRefImageErrorDecryptImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -18,12 +18,14 @@
 import 'package:blink_comparison/core/encrypt/encrypt.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'load_sodium.dart';
+
 void main() {
   group('Salt generator |', () {
     late final SaltGenerator generator;
 
     setUpAll(() async {
-      generator = SaltGeneratorImpl();
+      generator = SaltGeneratorImpl(await loadSodiumSumo());
     });
 
     test('Random bytes', () {

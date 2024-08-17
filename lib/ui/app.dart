@@ -21,6 +21,8 @@ import 'package:blink_comparison/core/notification_manager.dart';
 import 'package:blink_comparison/core/platform_info.dart';
 import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/ui/app_cubit.dart';
+import 'package:blink_comparison/ui/app_router.gr.dart';
+// ignore: depend_on_referenced_packages
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +33,6 @@ import '../injector.dart';
 import '../locale.dart';
 import '../logger.dart';
 import 'app_router.dart';
-import 'auth_guard.dart';
 import 'theme.dart';
 
 class App extends StatefulWidget {
@@ -39,19 +40,18 @@ class App extends StatefulWidget {
   final GlobalKey<NavigatorState> navigatorKey;
 
   const App({
-    Key? key,
+    super.key,
     required this.enableDevicePreview,
     required this.navigatorKey,
-  }) : super(key: key);
+  });
 
   @override
-  _AppState createState() => _AppState();
+  State<App> createState() => _AppState();
 }
 
 class _AppState extends State<App> {
   late final _appRouter = AppRouter(
     navigatorKey: widget.navigatorKey,
-    authGuard: AuthGuard(),
   );
 
   @override
@@ -70,7 +70,8 @@ class _AppState extends State<App> {
         );
       },
       onError: (e, StackTrace stackTrace) {
-        log().e('Unable to handle notification action', e, stackTrace);
+        log().e('Unable to handle notification action',
+            error: e, stackTrace: stackTrace);
       },
     );
 
@@ -91,8 +92,8 @@ class _AppState extends State<App> {
         onError: (e, StackTrace stackTrace) {
           log().e(
             'Unable to launch the app from the notification',
-            e,
-            stackTrace,
+            error: e,
+            stackTrace: stackTrace,
           );
         },
       );
@@ -147,7 +148,6 @@ class _AppState extends State<App> {
             localizationsDelegates: AppLocale.localizationsDelegates,
             supportedLocales: AppLocale.supportedLocales,
             locale: locale ?? _mapLocale(state.locale),
-            useInheritedMediaQuery: useInheritedMediaQuery,
             routerDelegate: AutoRouterDelegate(
               _appRouter,
               navigatorObservers: () => [

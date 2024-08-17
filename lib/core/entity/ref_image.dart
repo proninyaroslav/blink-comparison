@@ -29,7 +29,7 @@ class RefImageInfo with _$RefImageInfo {
     required String id,
     @DateTimeEpochConverter() required DateTime dateAdded,
 
-    // /// HEX-encoded salt.
+    /// HEX-encoded salt.
     required String encryptSalt,
   }) = _RefImageInfo;
 

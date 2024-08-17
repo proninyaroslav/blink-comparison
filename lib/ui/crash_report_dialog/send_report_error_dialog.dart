@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -22,7 +22,7 @@ import 'package:flutter/material.dart';
 import '../../locale.dart';
 
 class SendReportErrorDialog extends StatelessWidget {
-  const SendReportErrorDialog({Key? key}) : super(key: key);
+  const SendReportErrorDialog({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class SendReportErrorDialog extends StatelessWidget {
                 S.of(context).projectIssuesPage,
               ),
           selectable: true,
-          style: Theme.of(context).textTheme.subtitle1,
+          style: Theme.of(context).textTheme.titleMedium,
         ),
       ),
       actions: [

@@ -15,11 +15,14 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
+// ignore_for_file: unused_import
+
 import 'package:auto_route/auto_route.dart';
+import 'package:blink_comparison/ui/app_router.gr.dart';
 
 import 'app_router.dart';
 
-class AuthGuard extends AutoRedirectGuard {
+class AuthGuard extends AutoRouteGuard {
   bool _authenticated = false;
 
   @override

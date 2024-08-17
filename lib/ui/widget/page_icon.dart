@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -24,10 +24,10 @@ class PageIcon extends StatelessWidget {
   final double ratio;
 
   const PageIcon({
-    Key? key,
+    super.key,
     required this.icon,
     this.ratio = 2.0,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

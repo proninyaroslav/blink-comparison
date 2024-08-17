@@ -26,7 +26,7 @@ import '../service/save_ref_image_service.dart';
 import 'storage_result.dart';
 
 abstract class RefImageSecureStorage {
-  void setSecureKey(SecureKey key);
+  void setSecureKey(AppSecureKey key);
 
   Future<SecStorageResult<void>> add(RefImageInfo info, XFile srcImage);
 
@@ -40,7 +40,7 @@ class RefImageSecureStorageImpl implements RefImageSecureStorage {
   final RefImageFS _fs;
   final EncryptModuleProvider _encryptProvider;
   final SaveRefImageService _saveService;
-  SecureKey? _key;
+  AppSecureKey? _key;
 
   RefImageSecureStorageImpl(
     this._fs,
@@ -49,7 +49,7 @@ class RefImageSecureStorageImpl implements RefImageSecureStorage {
   );
 
   @override
-  void setSecureKey(SecureKey key) => _key = key;
+  void setSecureKey(AppSecureKey key) => _key = key;
 
   @override
   Future<SecStorageResult<void>> add(

@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -15,6 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'package:auto_route/auto_route.dart';
 import 'package:blink_comparison/core/settings/model.dart';
 import 'package:blink_comparison/locale.dart';
 import 'package:blink_comparison/ui/utils.dart';
@@ -27,8 +28,9 @@ import '../settings_list.dart';
 import '../settings_scaffold.dart';
 import 'appearance_cubit.dart';
 
+@RoutePage()
 class AppearanceSettingsPage extends StatelessWidget {
-  const AppearanceSettingsPage({Key? key}) : super(key: key);
+  const AppearanceSettingsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -236,9 +238,8 @@ class _ColorView extends StatelessWidget {
   final Color color;
 
   const _ColorView({
-    Key? key,
     required this.color,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -262,10 +263,9 @@ class _ThemeList extends StatefulWidget {
   final ValueChanged<AppThemeType>? onSelected;
 
   const _ThemeList({
-    Key? key,
     required this.initialValue,
     this.onSelected,
-  }) : super(key: key);
+  });
 
   @override
   _ThemeListState createState() => _ThemeListState();
@@ -313,10 +313,9 @@ class _LanguageList extends StatefulWidget {
   final ValueChanged<AppLocaleType>? onSelected;
 
   const _LanguageList({
-    Key? key,
     required this.initialValue,
     this.onSelected,
-  }) : super(key: key);
+  });
 
   @override
   _LanguageListState createState() => _LanguageListState();

@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -30,11 +30,11 @@ class ConfirmationDialog extends StatefulWidget {
   final VoidCallback? onAccept;
 
   const ConfirmationDialog({
-    Key? key,
+    super.key,
     required this.photoFile,
     this.onRetry,
     this.onAccept,
-  }) : super(key: key);
+  });
 
   @override
   State<ConfirmationDialog> createState() => _ConfirmationDialogState();
@@ -121,10 +121,9 @@ class _ButtonBar extends StatelessWidget {
   final VoidCallback? onAccept;
 
   const _ButtonBar({
-    Key? key,
     this.onRetry,
     this.onAccept,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -158,8 +157,8 @@ class _ButtonBar extends StatelessWidget {
 
   ButtonStyle _buildButtonTheme(BuildContext context) {
     return OutlinedButton.styleFrom(
+      foregroundColor: Colors.white,
       backgroundColor: Colors.black38,
-      primary: Colors.white,
     );
   }
 
@@ -180,7 +179,7 @@ class _ButtonBar extends StatelessWidget {
 }
 
 class _OpenImageError extends StatelessWidget {
-  const _OpenImageError({Key? key}) : super(key: key);
+  const _OpenImageError();
 
   @override
   Widget build(BuildContext context) {
@@ -194,14 +193,14 @@ class _OpenImageError extends StatelessWidget {
           children: [
             Icon(
               Icons.error_outline_rounded,
-              color: theme.errorColor,
+              color: theme.colorScheme.error,
               size: 64,
             ),
             const SizedBox(height: 8.0),
             Text(
               S.of(context).openCameraError,
-              style: theme.textTheme.headline6!.copyWith(
-                color: theme.errorColor,
+              style: theme.textTheme.titleLarge!.copyWith(
+                color: theme.colorScheme.error,
               ),
               textAlign: TextAlign.center,
             ),

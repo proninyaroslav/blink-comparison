@@ -1,17 +1,19 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'secure_key.dart';
+part of 'app_secure_key.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SecureKeyPassword _$$SecureKeyPasswordFromJson(Map<String, dynamic> json) =>
-    _$SecureKeyPassword(
+_$AppSecureKeyPasswordImpl _$$AppSecureKeyPasswordImplFromJson(
+        Map<String, dynamic> json) =>
+    _$AppSecureKeyPasswordImpl(
       json['value'] as String,
     );
 
-Map<String, dynamic> _$$SecureKeyPasswordToJson(_$SecureKeyPassword instance) =>
+Map<String, dynamic> _$$AppSecureKeyPasswordImplToJson(
+        _$AppSecureKeyPasswordImpl instance) =>
     <String, dynamic>{
       'value': instance.value,
     };

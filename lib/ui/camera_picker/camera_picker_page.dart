@@ -26,13 +26,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../injector.dart';
 import '../theme.dart';
 
+@RoutePage()
 class CameraPickerPage extends StatefulWidget implements AutoRouteWrapper {
   final ValueChanged<XFile>? onTakePhoto;
 
   const CameraPickerPage({
-    Key? key,
+    super.key,
     this.onTakePhoto,
-  }) : super(key: key);
+  });
 
   @override
   Widget wrappedRoute(BuildContext context) {
@@ -50,7 +51,7 @@ class CameraPickerPage extends StatefulWidget implements AutoRouteWrapper {
   }
 
   @override
-  _CameraPickerPageState createState() => _CameraPickerPageState();
+  State<CameraPickerPage> createState() => _CameraPickerPageState();
 }
 
 class _CameraPickerPageState extends State<CameraPickerPage> {

@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -17,61 +17,57 @@
 
 import 'package:auto_route/auto_route.dart';
 import 'package:blink_comparison/ui/auth_guard.dart';
-import 'package:blink_comparison/ui/camera_picker/camera_picker_page.dart';
-import 'package:blink_comparison/ui/preview/ref_image_preview_page.dart';
 
-import 'auth/auth_page.dart';
-import 'comparison/blink_comparison_page.dart';
-import 'home/ref_image_list_page.dart';
-import 'settings/page/settings_pages_list_page.dart';
-import 'settings/settings.dart';
-import 'widget/page_not_found.dart';
+import 'app_router.gr.dart';
 
-export 'app_router.gr.dart';
+@AutoRouterConfig(replaceInRouteName: 'Screen|Page,Route')
+class AppRouter extends RootStackRouter {
+  AppRouter({super.navigatorKey});
 
-@MaterialAutoRouter(
-  replaceInRouteName: 'Page,Route',
-  routes: <AutoRoute>[
+  @override
+  RouteType get defaultRouteType => const RouteType.material();
+
+  @override
+  final List<AutoRoute> routes = [
     AutoRoute(
-      page: RefImageListPage,
+      page: RefImageListRoute.page,
       path: '/',
-      guards: [AuthGuard],
+      guards: [AuthGuard()],
       initial: true,
     ),
-    AutoRoute(page: AuthPage, path: '/auth'),
+    AutoRoute(page: AuthRoute.page, path: '/auth'),
     AutoRoute(
-      page: RefImagePreviewPage,
+      page: RefImagePreviewRoute.page,
       path: '/photo-preview',
-      guards: [AuthGuard],
+      guards: [AuthGuard()],
     ),
     AutoRoute(
-      page: CameraPickerPage,
+      page: CameraPickerRoute.page,
       path: '/camera-picker',
     ),
     AutoRoute(
-      page: BlinkComparisonPage,
+      page: BlinkComparisonRoute.page,
       path: '/blink-comparison',
-      guards: [AuthGuard],
+      guards: [AuthGuard()],
     ),
     AutoRoute(
-      page: SettingsPage,
+      page: SettingsRoute.page,
       path: '/settings',
       children: [
         AutoRoute(
-          page: SettingsPagesListPage,
+          page: SettingsRoutesListRoute.page,
           initial: true,
         ),
         AutoRoute(
           path: 'appearance',
-          page: AppearanceSettingsPage,
+          page: AppearanceSettingsRoute.page,
         ),
         AutoRoute(
           path: 'camera',
-          page: CameraSettingsPage,
+          page: CameraSettingsRoute.page,
         ),
       ],
     ),
-    AutoRoute(page: PageNotFound, path: '*'),
-  ],
-)
-class $AppRouter {}
+    AutoRoute(page: RouteNotFound.page, path: '*'),
+  ];
+}

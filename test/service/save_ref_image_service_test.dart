@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -77,7 +77,7 @@ void main() {
           encryptSalt: 'salt',
         ),
         srcFile: XFile(srcFile.path),
-        key: const SecureKey.password('123'),
+        key: const AppSecureKey.password('123'),
       );
       when(
         () => mockJobController.pushQueue(request),
@@ -118,9 +118,9 @@ void main() {
             (info) => SaveRefImageStatus.inProgress(imageId: info.id),
           )
           .toList();
-      const key = SecureKey.password('123');
-      final _controller = StreamController<ServiceResult>();
-      _controller.add(
+      const key = AppSecureKey.password('123');
+      final controller = StreamController<ServiceResult>();
+      controller.add(
         ServiceResult.fail(
           request: ServiceRequest(
             info: infoList[0],
@@ -137,7 +137,7 @@ void main() {
       );
 
       for (final info in infoList.sublist(1)) {
-        _controller.add(
+        controller.add(
           ServiceResult.success(
             request: ServiceRequest(
               info: info,
@@ -149,7 +149,7 @@ void main() {
       }
       when(
         () => mockJobController.observeResult(),
-      ).thenAnswer((_) => _controller.stream);
+      ).thenAnswer((_) => controller.stream);
       when(
         () => mockServiceController.getAllInProgress(),
       ).thenAnswer((_) async => infoList);
@@ -180,12 +180,12 @@ void main() {
           ],
         ],
       );
-      _controller.close();
+      controller.close();
     });
 
     group('Job |', () {
       test('Run job', () async {
-        const key = SecureKey.password('123');
+        const key = AppSecureKey.password('123');
         final requests = [
           ServiceRequest(
             info: RefImageInfo(
@@ -261,7 +261,7 @@ void main() {
       });
 
       test('Save image error', () async {
-        const key = SecureKey.password('123');
+        const key = AppSecureKey.password('123');
         final request = ServiceRequest(
           info: RefImageInfo(
             id: '1',
@@ -311,7 +311,7 @@ void main() {
       });
 
       test('Generate thumbnail error', () async {
-        const key = SecureKey.password('123');
+        const key = AppSecureKey.password('123');
         final request = ServiceRequest(
           info: RefImageInfo(
             id: '1',
@@ -360,7 +360,7 @@ void main() {
       });
 
       test('Save thumbnail error', () async {
-        const key = SecureKey.password('123');
+        const key = AppSecureKey.password('123');
         final request = ServiceRequest(
           info: RefImageInfo(
             id: '1',
@@ -452,7 +452,7 @@ void main() {
               encryptSalt: 'salt',
             ),
             srcFile: XFile(srcFile.path),
-            key: const SecureKey.password('123'),
+            key: const AppSecureKey.password('123'),
           ),
         );
         when(
@@ -482,7 +482,7 @@ void main() {
             encryptSalt: 'salt',
           ),
           srcFile: XFile(srcFile.path),
-          key: const SecureKey.password('123'),
+          key: const AppSecureKey.password('123'),
         );
         when(
           () => mockNativeService.getAllInProgress(),
@@ -520,7 +520,7 @@ void main() {
             encryptSalt: 'salt',
           ),
           srcFile: XFile(srcFile.path),
-          key: const SecureKey.password('123'),
+          key: const AppSecureKey.password('123'),
         );
         when(
           () => mockNativeService.pushQueue(request),
@@ -543,7 +543,7 @@ void main() {
             encryptSalt: 'salt',
           ),
           srcFile: XFile(srcFile.path),
-          key: const SecureKey.password('123'),
+          key: const AppSecureKey.password('123'),
         );
         when(
           () => mockNativeService.pushQueue(request),

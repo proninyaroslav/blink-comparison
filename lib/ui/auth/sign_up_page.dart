@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -27,7 +27,7 @@ import '../theme.dart';
 import 'sign_up_cubit.dart';
 
 class SignUpButton extends StatelessWidget {
-  const SignUpButton({Key? key}) : super(key: key);
+  const SignUpButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +67,7 @@ VoidCallback _submit(BuildContext context) {
 }
 
 class SignUpPage extends StatelessWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+  const SignUpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +75,7 @@ class SignUpPage extends StatelessWidget {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       children: [
-        const PageIcon(icon: MdiIcons.lockPlusOutline),
+        PageIcon(icon: MdiIcons.lockPlusOutline),
         const SizedBox(height: 32.0),
         Text(
           S.of(context).setPasswordDescription,
@@ -90,7 +90,7 @@ class SignUpPage extends StatelessWidget {
 }
 
 class _Fields extends StatelessWidget {
-  const _Fields({Key? key}) : super(key: key);
+  const _Fields();
 
   @override
   Widget build(BuildContext context) {
@@ -189,7 +189,7 @@ class _Fields extends StatelessWidget {
     StackTrace? stackTrace,
   ) {
     const msg = 'Failed to save password';
-    log().e(msg, exception, stackTrace);
+    log().e(msg, error: exception, stackTrace: stackTrace);
 
     final reportCubit = context.read<ErrorReportCubit>();
     showDialog(

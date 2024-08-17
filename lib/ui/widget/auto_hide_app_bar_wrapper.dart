@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -25,11 +25,11 @@ class AutoHideAppBarWrapper extends StatefulWidget
   final bool showFirstTime;
 
   const AutoHideAppBarWrapper({
-    Key? key,
+    super.key,
     required this.child,
     this.transformHitTests = true,
     this.showFirstTime = true,
-  }) : super(key: key);
+  });
 
   @override
   Size get preferredSize => child.preferredSize;

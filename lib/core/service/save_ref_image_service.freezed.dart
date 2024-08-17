@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'save_ref_image_service.dart';
 
@@ -12,44 +12,25 @@ part of 'save_ref_image_service.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ServiceRequest _$ServiceRequestFromJson(Map<String, dynamic> json) {
   return _ServiceRequest.fromJson(json);
 }
 
 /// @nodoc
-class _$ServiceRequestTearOff {
-  const _$ServiceRequestTearOff();
-
-  _ServiceRequest call(
-      {required RefImageInfo info,
-      @XFileConverter() required XFile srcFile,
-      required SecureKey key}) {
-    return _ServiceRequest(
-      info: info,
-      srcFile: srcFile,
-      key: key,
-    );
-  }
-
-  ServiceRequest fromJson(Map<String, Object?> json) {
-    return ServiceRequest.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ServiceRequest = _$ServiceRequestTearOff();
-
-/// @nodoc
 mixin _$ServiceRequest {
   RefImageInfo get info => throw _privateConstructorUsedError;
   @XFileConverter()
   XFile get srcFile => throw _privateConstructorUsedError;
-  SecureKey get key => throw _privateConstructorUsedError;
+  AppSecureKey get key => throw _privateConstructorUsedError;
 
+  /// Serializes this ServiceRequest to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ServiceRequest
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ServiceRequestCopyWith<ServiceRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,122 +39,134 @@ mixin _$ServiceRequest {
 abstract class $ServiceRequestCopyWith<$Res> {
   factory $ServiceRequestCopyWith(
           ServiceRequest value, $Res Function(ServiceRequest) then) =
-      _$ServiceRequestCopyWithImpl<$Res>;
+      _$ServiceRequestCopyWithImpl<$Res, ServiceRequest>;
+  @useResult
   $Res call(
-      {RefImageInfo info, @XFileConverter() XFile srcFile, SecureKey key});
+      {RefImageInfo info, @XFileConverter() XFile srcFile, AppSecureKey key});
 
   $RefImageInfoCopyWith<$Res> get info;
-  $SecureKeyCopyWith<$Res> get key;
+  $AppSecureKeyCopyWith<$Res> get key;
 }
 
 /// @nodoc
-class _$ServiceRequestCopyWithImpl<$Res>
+class _$ServiceRequestCopyWithImpl<$Res, $Val extends ServiceRequest>
     implements $ServiceRequestCopyWith<$Res> {
   _$ServiceRequestCopyWithImpl(this._value, this._then);
 
-  final ServiceRequest _value;
   // ignore: unused_field
-  final $Res Function(ServiceRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of ServiceRequest
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? info = freezed,
-    Object? srcFile = freezed,
-    Object? key = freezed,
+    Object? info = null,
+    Object? srcFile = null,
+    Object? key = null,
   }) {
     return _then(_value.copyWith(
-      info: info == freezed
+      info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as RefImageInfo,
-      srcFile: srcFile == freezed
+      srcFile: null == srcFile
           ? _value.srcFile
           : srcFile // ignore: cast_nullable_to_non_nullable
               as XFile,
-      key: key == freezed
+      key: null == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
-              as SecureKey,
-    ));
+              as AppSecureKey,
+    ) as $Val);
   }
 
+  /// Create a copy of ServiceRequest
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $RefImageInfoCopyWith<$Res> get info {
     return $RefImageInfoCopyWith<$Res>(_value.info, (value) {
-      return _then(_value.copyWith(info: value));
+      return _then(_value.copyWith(info: value) as $Val);
     });
   }
 
+  /// Create a copy of ServiceRequest
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  $SecureKeyCopyWith<$Res> get key {
-    return $SecureKeyCopyWith<$Res>(_value.key, (value) {
-      return _then(_value.copyWith(key: value));
+  @pragma('vm:prefer-inline')
+  $AppSecureKeyCopyWith<$Res> get key {
+    return $AppSecureKeyCopyWith<$Res>(_value.key, (value) {
+      return _then(_value.copyWith(key: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$ServiceRequestCopyWith<$Res>
+abstract class _$$ServiceRequestImplCopyWith<$Res>
     implements $ServiceRequestCopyWith<$Res> {
-  factory _$ServiceRequestCopyWith(
-          _ServiceRequest value, $Res Function(_ServiceRequest) then) =
-      __$ServiceRequestCopyWithImpl<$Res>;
+  factory _$$ServiceRequestImplCopyWith(_$ServiceRequestImpl value,
+          $Res Function(_$ServiceRequestImpl) then) =
+      __$$ServiceRequestImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
-      {RefImageInfo info, @XFileConverter() XFile srcFile, SecureKey key});
+      {RefImageInfo info, @XFileConverter() XFile srcFile, AppSecureKey key});
 
   @override
   $RefImageInfoCopyWith<$Res> get info;
   @override
-  $SecureKeyCopyWith<$Res> get key;
+  $AppSecureKeyCopyWith<$Res> get key;
 }
 
 /// @nodoc
-class __$ServiceRequestCopyWithImpl<$Res>
-    extends _$ServiceRequestCopyWithImpl<$Res>
-    implements _$ServiceRequestCopyWith<$Res> {
-  __$ServiceRequestCopyWithImpl(
-      _ServiceRequest _value, $Res Function(_ServiceRequest) _then)
-      : super(_value, (v) => _then(v as _ServiceRequest));
+class __$$ServiceRequestImplCopyWithImpl<$Res>
+    extends _$ServiceRequestCopyWithImpl<$Res, _$ServiceRequestImpl>
+    implements _$$ServiceRequestImplCopyWith<$Res> {
+  __$$ServiceRequestImplCopyWithImpl(
+      _$ServiceRequestImpl _value, $Res Function(_$ServiceRequestImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _ServiceRequest get _value => super._value as _ServiceRequest;
-
+  /// Create a copy of ServiceRequest
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? info = freezed,
-    Object? srcFile = freezed,
-    Object? key = freezed,
+    Object? info = null,
+    Object? srcFile = null,
+    Object? key = null,
   }) {
-    return _then(_ServiceRequest(
-      info: info == freezed
+    return _then(_$ServiceRequestImpl(
+      info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as RefImageInfo,
-      srcFile: srcFile == freezed
+      srcFile: null == srcFile
           ? _value.srcFile
           : srcFile // ignore: cast_nullable_to_non_nullable
               as XFile,
-      key: key == freezed
+      key: null == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
-              as SecureKey,
+              as AppSecureKey,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_ServiceRequest
+class _$ServiceRequestImpl
     with DiagnosticableTreeMixin
     implements _ServiceRequest {
-  const _$_ServiceRequest(
+  const _$ServiceRequestImpl(
       {required this.info,
       @XFileConverter() required this.srcFile,
       required this.key});
 
-  factory _$_ServiceRequest.fromJson(Map<String, dynamic> json) =>
-      _$$_ServiceRequestFromJson(json);
+  factory _$ServiceRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ServiceRequestImplFromJson(json);
 
   @override
   final RefImageInfo info;
@@ -181,7 +174,7 @@ class _$_ServiceRequest
   @XFileConverter()
   final XFile srcFile;
   @override
-  final SecureKey key;
+  final AppSecureKey key;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -199,41 +192,44 @@ class _$_ServiceRequest
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ServiceRequest &&
-            const DeepCollectionEquality().equals(other.info, info) &&
-            const DeepCollectionEquality().equals(other.srcFile, srcFile) &&
-            const DeepCollectionEquality().equals(other.key, key));
+            other is _$ServiceRequestImpl &&
+            (identical(other.info, info) || other.info == info) &&
+            (identical(other.srcFile, srcFile) || other.srcFile == srcFile) &&
+            (identical(other.key, key) || other.key == key));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(info),
-      const DeepCollectionEquality().hash(srcFile),
-      const DeepCollectionEquality().hash(key));
+  int get hashCode => Object.hash(runtimeType, info, srcFile, key);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ServiceRequest
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$ServiceRequestCopyWith<_ServiceRequest> get copyWith =>
-      __$ServiceRequestCopyWithImpl<_ServiceRequest>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$ServiceRequestImplCopyWith<_$ServiceRequestImpl> get copyWith =>
+      __$$ServiceRequestImplCopyWithImpl<_$ServiceRequestImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ServiceRequestToJson(this);
+    return _$$ServiceRequestImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _ServiceRequest implements ServiceRequest {
   const factory _ServiceRequest(
-      {required RefImageInfo info,
-      @XFileConverter() required XFile srcFile,
-      required SecureKey key}) = _$_ServiceRequest;
+      {required final RefImageInfo info,
+      @XFileConverter() required final XFile srcFile,
+      required final AppSecureKey key}) = _$ServiceRequestImpl;
 
   factory _ServiceRequest.fromJson(Map<String, dynamic> json) =
-      _$_ServiceRequest.fromJson;
+      _$ServiceRequestImpl.fromJson;
 
   @override
   RefImageInfo get info;
@@ -241,10 +237,13 @@ abstract class _ServiceRequest implements ServiceRequest {
   @XFileConverter()
   XFile get srcFile;
   @override
-  SecureKey get key;
+  AppSecureKey get key;
+
+  /// Create a copy of ServiceRequest
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$ServiceRequestCopyWith<_ServiceRequest> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ServiceRequestImplCopyWith<_$ServiceRequestImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -262,35 +261,8 @@ ServiceResult _$ServiceResultFromJson(Map<String, dynamic> json) {
 }
 
 /// @nodoc
-class _$ServiceResultTearOff {
-  const _$ServiceResultTearOff();
-
-  ServiceResultSuccess success({required ServiceRequest request}) {
-    return ServiceResultSuccess(
-      request: request,
-    );
-  }
-
-  ServiceResultFail fail(
-      {required ServiceRequest request, required ServiceError error}) {
-    return ServiceResultFail(
-      request: request,
-      error: error,
-    );
-  }
-
-  ServiceResult fromJson(Map<String, Object?> json) {
-    return ServiceResult.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ServiceResult = _$ServiceResultTearOff();
-
-/// @nodoc
 mixin _$ServiceResult {
   ServiceRequest get request => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ServiceRequest request) success,
@@ -299,8 +271,8 @@ mixin _$ServiceResult {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(ServiceRequest request)? success,
-    TResult Function(ServiceRequest request, ServiceError error)? fail,
+    TResult? Function(ServiceRequest request)? success,
+    TResult? Function(ServiceRequest request, ServiceError error)? fail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -318,8 +290,8 @@ mixin _$ServiceResult {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServiceResultSuccess value)? success,
-    TResult Function(ServiceResultFail value)? fail,
+    TResult? Function(ServiceResultSuccess value)? success,
+    TResult? Function(ServiceResultFail value)? fail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -329,8 +301,13 @@ mixin _$ServiceResult {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this ServiceResult to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ServiceResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ServiceResultCopyWith<ServiceResult> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -339,48 +316,57 @@ mixin _$ServiceResult {
 abstract class $ServiceResultCopyWith<$Res> {
   factory $ServiceResultCopyWith(
           ServiceResult value, $Res Function(ServiceResult) then) =
-      _$ServiceResultCopyWithImpl<$Res>;
+      _$ServiceResultCopyWithImpl<$Res, ServiceResult>;
+  @useResult
   $Res call({ServiceRequest request});
 
   $ServiceRequestCopyWith<$Res> get request;
 }
 
 /// @nodoc
-class _$ServiceResultCopyWithImpl<$Res>
+class _$ServiceResultCopyWithImpl<$Res, $Val extends ServiceResult>
     implements $ServiceResultCopyWith<$Res> {
   _$ServiceResultCopyWithImpl(this._value, this._then);
 
-  final ServiceResult _value;
   // ignore: unused_field
-  final $Res Function(ServiceResult) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of ServiceResult
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? request = freezed,
+    Object? request = null,
   }) {
     return _then(_value.copyWith(
-      request: request == freezed
+      request: null == request
           ? _value.request
           : request // ignore: cast_nullable_to_non_nullable
               as ServiceRequest,
-    ));
+    ) as $Val);
   }
 
+  /// Create a copy of ServiceResult
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $ServiceRequestCopyWith<$Res> get request {
     return $ServiceRequestCopyWith<$Res>(_value.request, (value) {
-      return _then(_value.copyWith(request: value));
+      return _then(_value.copyWith(request: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class $ServiceResultSuccessCopyWith<$Res>
+abstract class _$$ServiceResultSuccessImplCopyWith<$Res>
     implements $ServiceResultCopyWith<$Res> {
-  factory $ServiceResultSuccessCopyWith(ServiceResultSuccess value,
-          $Res Function(ServiceResultSuccess) then) =
-      _$ServiceResultSuccessCopyWithImpl<$Res>;
+  factory _$$ServiceResultSuccessImplCopyWith(_$ServiceResultSuccessImpl value,
+          $Res Function(_$ServiceResultSuccessImpl) then) =
+      __$$ServiceResultSuccessImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({ServiceRequest request});
 
   @override
@@ -388,22 +374,22 @@ abstract class $ServiceResultSuccessCopyWith<$Res>
 }
 
 /// @nodoc
-class _$ServiceResultSuccessCopyWithImpl<$Res>
-    extends _$ServiceResultCopyWithImpl<$Res>
-    implements $ServiceResultSuccessCopyWith<$Res> {
-  _$ServiceResultSuccessCopyWithImpl(
-      ServiceResultSuccess _value, $Res Function(ServiceResultSuccess) _then)
-      : super(_value, (v) => _then(v as ServiceResultSuccess));
+class __$$ServiceResultSuccessImplCopyWithImpl<$Res>
+    extends _$ServiceResultCopyWithImpl<$Res, _$ServiceResultSuccessImpl>
+    implements _$$ServiceResultSuccessImplCopyWith<$Res> {
+  __$$ServiceResultSuccessImplCopyWithImpl(_$ServiceResultSuccessImpl _value,
+      $Res Function(_$ServiceResultSuccessImpl) _then)
+      : super(_value, _then);
 
-  @override
-  ServiceResultSuccess get _value => super._value as ServiceResultSuccess;
-
+  /// Create a copy of ServiceResult
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? request = freezed,
+    Object? request = null,
   }) {
-    return _then(ServiceResultSuccess(
-      request: request == freezed
+    return _then(_$ServiceResultSuccessImpl(
+      request: null == request
           ? _value.request
           : request // ignore: cast_nullable_to_non_nullable
               as ServiceRequest,
@@ -413,14 +399,14 @@ class _$ServiceResultSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ServiceResultSuccess
+class _$ServiceResultSuccessImpl
     with DiagnosticableTreeMixin
     implements ServiceResultSuccess {
-  const _$ServiceResultSuccess({required this.request, String? $type})
+  const _$ServiceResultSuccessImpl({required this.request, final String? $type})
       : $type = $type ?? 'success';
 
-  factory _$ServiceResultSuccess.fromJson(Map<String, dynamic> json) =>
-      _$$ServiceResultSuccessFromJson(json);
+  factory _$ServiceResultSuccessImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ServiceResultSuccessImplFromJson(json);
 
   @override
   final ServiceRequest request;
@@ -442,22 +428,26 @@ class _$ServiceResultSuccess
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ServiceResultSuccess &&
-            const DeepCollectionEquality().equals(other.request, request));
+            other is _$ServiceResultSuccessImpl &&
+            (identical(other.request, request) || other.request == request));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(request));
+  int get hashCode => Object.hash(runtimeType, request);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ServiceResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $ServiceResultSuccessCopyWith<ServiceResultSuccess> get copyWith =>
-      _$ServiceResultSuccessCopyWithImpl<ServiceResultSuccess>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$ServiceResultSuccessImplCopyWith<_$ServiceResultSuccessImpl>
+      get copyWith =>
+          __$$ServiceResultSuccessImplCopyWithImpl<_$ServiceResultSuccessImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -471,8 +461,8 @@ class _$ServiceResultSuccess
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(ServiceRequest request)? success,
-    TResult Function(ServiceRequest request, ServiceError error)? fail,
+    TResult? Function(ServiceRequest request)? success,
+    TResult? Function(ServiceRequest request, ServiceError error)? fail,
   }) {
     return success?.call(request);
   }
@@ -502,8 +492,8 @@ class _$ServiceResultSuccess
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServiceResultSuccess value)? success,
-    TResult Function(ServiceResultFail value)? fail,
+    TResult? Function(ServiceResultSuccess value)? success,
+    TResult? Function(ServiceResultFail value)? fail,
   }) {
     return success?.call(this);
   }
@@ -523,32 +513,38 @@ class _$ServiceResultSuccess
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ServiceResultSuccessToJson(this);
+    return _$$ServiceResultSuccessImplToJson(
+      this,
+    );
   }
 }
 
 abstract class ServiceResultSuccess implements ServiceResult {
-  const factory ServiceResultSuccess({required ServiceRequest request}) =
-      _$ServiceResultSuccess;
+  const factory ServiceResultSuccess({required final ServiceRequest request}) =
+      _$ServiceResultSuccessImpl;
 
   factory ServiceResultSuccess.fromJson(Map<String, dynamic> json) =
-      _$ServiceResultSuccess.fromJson;
+      _$ServiceResultSuccessImpl.fromJson;
 
   @override
   ServiceRequest get request;
+
+  /// Create a copy of ServiceResult
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  $ServiceResultSuccessCopyWith<ServiceResultSuccess> get copyWith =>
-      throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ServiceResultSuccessImplCopyWith<_$ServiceResultSuccessImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ServiceResultFailCopyWith<$Res>
+abstract class _$$ServiceResultFailImplCopyWith<$Res>
     implements $ServiceResultCopyWith<$Res> {
-  factory $ServiceResultFailCopyWith(
-          ServiceResultFail value, $Res Function(ServiceResultFail) then) =
-      _$ServiceResultFailCopyWithImpl<$Res>;
+  factory _$$ServiceResultFailImplCopyWith(_$ServiceResultFailImpl value,
+          $Res Function(_$ServiceResultFailImpl) then) =
+      __$$ServiceResultFailImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({ServiceRequest request, ServiceError error});
 
   @override
@@ -557,34 +553,37 @@ abstract class $ServiceResultFailCopyWith<$Res>
 }
 
 /// @nodoc
-class _$ServiceResultFailCopyWithImpl<$Res>
-    extends _$ServiceResultCopyWithImpl<$Res>
-    implements $ServiceResultFailCopyWith<$Res> {
-  _$ServiceResultFailCopyWithImpl(
-      ServiceResultFail _value, $Res Function(ServiceResultFail) _then)
-      : super(_value, (v) => _then(v as ServiceResultFail));
+class __$$ServiceResultFailImplCopyWithImpl<$Res>
+    extends _$ServiceResultCopyWithImpl<$Res, _$ServiceResultFailImpl>
+    implements _$$ServiceResultFailImplCopyWith<$Res> {
+  __$$ServiceResultFailImplCopyWithImpl(_$ServiceResultFailImpl _value,
+      $Res Function(_$ServiceResultFailImpl) _then)
+      : super(_value, _then);
 
-  @override
-  ServiceResultFail get _value => super._value as ServiceResultFail;
-
+  /// Create a copy of ServiceResult
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? request = freezed,
-    Object? error = freezed,
+    Object? request = null,
+    Object? error = null,
   }) {
-    return _then(ServiceResultFail(
-      request: request == freezed
+    return _then(_$ServiceResultFailImpl(
+      request: null == request
           ? _value.request
           : request // ignore: cast_nullable_to_non_nullable
               as ServiceRequest,
-      error: error == freezed
+      error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as ServiceError,
     ));
   }
 
+  /// Create a copy of ServiceResult
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $ServiceErrorCopyWith<$Res> get error {
     return $ServiceErrorCopyWith<$Res>(_value.error, (value) {
       return _then(_value.copyWith(error: value));
@@ -594,15 +593,15 @@ class _$ServiceResultFailCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ServiceResultFail
+class _$ServiceResultFailImpl
     with DiagnosticableTreeMixin
     implements ServiceResultFail {
-  const _$ServiceResultFail(
-      {required this.request, required this.error, String? $type})
+  const _$ServiceResultFailImpl(
+      {required this.request, required this.error, final String? $type})
       : $type = $type ?? 'fail';
 
-  factory _$ServiceResultFail.fromJson(Map<String, dynamic> json) =>
-      _$$ServiceResultFailFromJson(json);
+  factory _$ServiceResultFailImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ServiceResultFailImplFromJson(json);
 
   @override
   final ServiceRequest request;
@@ -627,24 +626,26 @@ class _$ServiceResultFail
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ServiceResultFail &&
-            const DeepCollectionEquality().equals(other.request, request) &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$ServiceResultFailImpl &&
+            (identical(other.request, request) || other.request == request) &&
+            (identical(other.error, error) || other.error == error));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(request),
-      const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, request, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ServiceResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $ServiceResultFailCopyWith<ServiceResultFail> get copyWith =>
-      _$ServiceResultFailCopyWithImpl<ServiceResultFail>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$ServiceResultFailImplCopyWith<_$ServiceResultFailImpl> get copyWith =>
+      __$$ServiceResultFailImplCopyWithImpl<_$ServiceResultFailImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -658,8 +659,8 @@ class _$ServiceResultFail
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(ServiceRequest request)? success,
-    TResult Function(ServiceRequest request, ServiceError error)? fail,
+    TResult? Function(ServiceRequest request)? success,
+    TResult? Function(ServiceRequest request, ServiceError error)? fail,
   }) {
     return fail?.call(request, error);
   }
@@ -689,8 +690,8 @@ class _$ServiceResultFail
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServiceResultSuccess value)? success,
-    TResult Function(ServiceResultFail value)? fail,
+    TResult? Function(ServiceResultSuccess value)? success,
+    TResult? Function(ServiceResultFail value)? fail,
   }) {
     return fail?.call(this);
   }
@@ -710,24 +711,29 @@ class _$ServiceResultFail
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ServiceResultFailToJson(this);
+    return _$$ServiceResultFailImplToJson(
+      this,
+    );
   }
 }
 
 abstract class ServiceResultFail implements ServiceResult {
   const factory ServiceResultFail(
-      {required ServiceRequest request,
-      required ServiceError error}) = _$ServiceResultFail;
+      {required final ServiceRequest request,
+      required final ServiceError error}) = _$ServiceResultFailImpl;
 
   factory ServiceResultFail.fromJson(Map<String, dynamic> json) =
-      _$ServiceResultFail.fromJson;
+      _$ServiceResultFailImpl.fromJson;
 
   @override
   ServiceRequest get request;
   ServiceError get error;
+
+  /// Create a copy of ServiceResult
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  $ServiceResultFailCopyWith<ServiceResultFail> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ServiceResultFailImplCopyWith<_$ServiceResultFailImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -747,38 +753,8 @@ ServiceError _$ServiceErrorFromJson(Map<String, dynamic> json) {
 }
 
 /// @nodoc
-class _$ServiceErrorTearOff {
-  const _$ServiceErrorTearOff();
-
-  ServiceErrorSaveImage saveImage(SaveRefImageError error) {
-    return ServiceErrorSaveImage(
-      error,
-    );
-  }
-
-  ServiceErrorGenerateThumbnail generateThumbnail(
-      GenerateThumbnailError error) {
-    return ServiceErrorGenerateThumbnail(
-      error,
-    );
-  }
-
-  ServiceErrorSaveThumbnail saveThumbnail(SaveThumbnailError error) {
-    return ServiceErrorSaveThumbnail(
-      error,
-    );
-  }
-
-  ServiceError fromJson(Map<String, Object?> json) {
-    return ServiceError.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ServiceError = _$ServiceErrorTearOff();
-
-/// @nodoc
 mixin _$ServiceError {
+  Object get error => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SaveRefImageError error) saveImage,
@@ -788,9 +764,9 @@ mixin _$ServiceError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(SaveRefImageError error)? saveImage,
-    TResult Function(GenerateThumbnailError error)? generateThumbnail,
-    TResult Function(SaveThumbnailError error)? saveThumbnail,
+    TResult? Function(SaveRefImageError error)? saveImage,
+    TResult? Function(GenerateThumbnailError error)? generateThumbnail,
+    TResult? Function(SaveThumbnailError error)? saveThumbnail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -811,9 +787,9 @@ mixin _$ServiceError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServiceErrorSaveImage value)? saveImage,
-    TResult Function(ServiceErrorGenerateThumbnail value)? generateThumbnail,
-    TResult Function(ServiceErrorSaveThumbnail value)? saveThumbnail,
+    TResult? Function(ServiceErrorSaveImage value)? saveImage,
+    TResult? Function(ServiceErrorGenerateThumbnail value)? generateThumbnail,
+    TResult? Function(ServiceErrorSaveThumbnail value)? saveThumbnail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -824,6 +800,8 @@ mixin _$ServiceError {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this ServiceError to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
@@ -831,52 +809,62 @@ mixin _$ServiceError {
 abstract class $ServiceErrorCopyWith<$Res> {
   factory $ServiceErrorCopyWith(
           ServiceError value, $Res Function(ServiceError) then) =
-      _$ServiceErrorCopyWithImpl<$Res>;
+      _$ServiceErrorCopyWithImpl<$Res, ServiceError>;
 }
 
 /// @nodoc
-class _$ServiceErrorCopyWithImpl<$Res> implements $ServiceErrorCopyWith<$Res> {
+class _$ServiceErrorCopyWithImpl<$Res, $Val extends ServiceError>
+    implements $ServiceErrorCopyWith<$Res> {
   _$ServiceErrorCopyWithImpl(this._value, this._then);
 
-  final ServiceError _value;
   // ignore: unused_field
-  final $Res Function(ServiceError) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of ServiceError
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class $ServiceErrorSaveImageCopyWith<$Res> {
-  factory $ServiceErrorSaveImageCopyWith(ServiceErrorSaveImage value,
-          $Res Function(ServiceErrorSaveImage) then) =
-      _$ServiceErrorSaveImageCopyWithImpl<$Res>;
+abstract class _$$ServiceErrorSaveImageImplCopyWith<$Res> {
+  factory _$$ServiceErrorSaveImageImplCopyWith(
+          _$ServiceErrorSaveImageImpl value,
+          $Res Function(_$ServiceErrorSaveImageImpl) then) =
+      __$$ServiceErrorSaveImageImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({SaveRefImageError error});
 
   $SaveRefImageErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
-class _$ServiceErrorSaveImageCopyWithImpl<$Res>
-    extends _$ServiceErrorCopyWithImpl<$Res>
-    implements $ServiceErrorSaveImageCopyWith<$Res> {
-  _$ServiceErrorSaveImageCopyWithImpl(
-      ServiceErrorSaveImage _value, $Res Function(ServiceErrorSaveImage) _then)
-      : super(_value, (v) => _then(v as ServiceErrorSaveImage));
+class __$$ServiceErrorSaveImageImplCopyWithImpl<$Res>
+    extends _$ServiceErrorCopyWithImpl<$Res, _$ServiceErrorSaveImageImpl>
+    implements _$$ServiceErrorSaveImageImplCopyWith<$Res> {
+  __$$ServiceErrorSaveImageImplCopyWithImpl(_$ServiceErrorSaveImageImpl _value,
+      $Res Function(_$ServiceErrorSaveImageImpl) _then)
+      : super(_value, _then);
 
-  @override
-  ServiceErrorSaveImage get _value => super._value as ServiceErrorSaveImage;
-
+  /// Create a copy of ServiceError
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
-    return _then(ServiceErrorSaveImage(
-      error == freezed
+    return _then(_$ServiceErrorSaveImageImpl(
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as SaveRefImageError,
     ));
   }
 
+  /// Create a copy of ServiceError
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $SaveRefImageErrorCopyWith<$Res> get error {
     return $SaveRefImageErrorCopyWith<$Res>(_value.error, (value) {
       return _then(_value.copyWith(error: value));
@@ -886,14 +874,14 @@ class _$ServiceErrorSaveImageCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ServiceErrorSaveImage
+class _$ServiceErrorSaveImageImpl
     with DiagnosticableTreeMixin
     implements ServiceErrorSaveImage {
-  const _$ServiceErrorSaveImage(this.error, {String? $type})
+  const _$ServiceErrorSaveImageImpl(this.error, {final String? $type})
       : $type = $type ?? 'saveImage';
 
-  factory _$ServiceErrorSaveImage.fromJson(Map<String, dynamic> json) =>
-      _$$ServiceErrorSaveImageFromJson(json);
+  factory _$ServiceErrorSaveImageImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ServiceErrorSaveImageImplFromJson(json);
 
   @override
   final SaveRefImageError error;
@@ -915,22 +903,25 @@ class _$ServiceErrorSaveImage
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ServiceErrorSaveImage &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$ServiceErrorSaveImageImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ServiceError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $ServiceErrorSaveImageCopyWith<ServiceErrorSaveImage> get copyWith =>
-      _$ServiceErrorSaveImageCopyWithImpl<ServiceErrorSaveImage>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$ServiceErrorSaveImageImplCopyWith<_$ServiceErrorSaveImageImpl>
+      get copyWith => __$$ServiceErrorSaveImageImplCopyWithImpl<
+          _$ServiceErrorSaveImageImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -945,9 +936,9 @@ class _$ServiceErrorSaveImage
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(SaveRefImageError error)? saveImage,
-    TResult Function(GenerateThumbnailError error)? generateThumbnail,
-    TResult Function(SaveThumbnailError error)? saveThumbnail,
+    TResult? Function(SaveRefImageError error)? saveImage,
+    TResult? Function(GenerateThumbnailError error)? generateThumbnail,
+    TResult? Function(SaveThumbnailError error)? saveThumbnail,
   }) {
     return saveImage?.call(error);
   }
@@ -980,9 +971,9 @@ class _$ServiceErrorSaveImage
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServiceErrorSaveImage value)? saveImage,
-    TResult Function(ServiceErrorGenerateThumbnail value)? generateThumbnail,
-    TResult Function(ServiceErrorSaveThumbnail value)? saveThumbnail,
+    TResult? Function(ServiceErrorSaveImage value)? saveImage,
+    TResult? Function(ServiceErrorGenerateThumbnail value)? generateThumbnail,
+    TResult? Function(ServiceErrorSaveThumbnail value)? saveThumbnail,
   }) {
     return saveImage?.call(this);
   }
@@ -1003,60 +994,70 @@ class _$ServiceErrorSaveImage
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ServiceErrorSaveImageToJson(this);
+    return _$$ServiceErrorSaveImageImplToJson(
+      this,
+    );
   }
 }
 
 abstract class ServiceErrorSaveImage implements ServiceError {
-  const factory ServiceErrorSaveImage(SaveRefImageError error) =
-      _$ServiceErrorSaveImage;
+  const factory ServiceErrorSaveImage(final SaveRefImageError error) =
+      _$ServiceErrorSaveImageImpl;
 
   factory ServiceErrorSaveImage.fromJson(Map<String, dynamic> json) =
-      _$ServiceErrorSaveImage.fromJson;
+      _$ServiceErrorSaveImageImpl.fromJson;
 
+  @override
   SaveRefImageError get error;
-  @JsonKey(ignore: true)
-  $ServiceErrorSaveImageCopyWith<ServiceErrorSaveImage> get copyWith =>
-      throw _privateConstructorUsedError;
+
+  /// Create a copy of ServiceError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ServiceErrorSaveImageImplCopyWith<_$ServiceErrorSaveImageImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ServiceErrorGenerateThumbnailCopyWith<$Res> {
-  factory $ServiceErrorGenerateThumbnailCopyWith(
-          ServiceErrorGenerateThumbnail value,
-          $Res Function(ServiceErrorGenerateThumbnail) then) =
-      _$ServiceErrorGenerateThumbnailCopyWithImpl<$Res>;
+abstract class _$$ServiceErrorGenerateThumbnailImplCopyWith<$Res> {
+  factory _$$ServiceErrorGenerateThumbnailImplCopyWith(
+          _$ServiceErrorGenerateThumbnailImpl value,
+          $Res Function(_$ServiceErrorGenerateThumbnailImpl) then) =
+      __$$ServiceErrorGenerateThumbnailImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({GenerateThumbnailError error});
 
   $GenerateThumbnailErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
-class _$ServiceErrorGenerateThumbnailCopyWithImpl<$Res>
-    extends _$ServiceErrorCopyWithImpl<$Res>
-    implements $ServiceErrorGenerateThumbnailCopyWith<$Res> {
-  _$ServiceErrorGenerateThumbnailCopyWithImpl(
-      ServiceErrorGenerateThumbnail _value,
-      $Res Function(ServiceErrorGenerateThumbnail) _then)
-      : super(_value, (v) => _then(v as ServiceErrorGenerateThumbnail));
+class __$$ServiceErrorGenerateThumbnailImplCopyWithImpl<$Res>
+    extends _$ServiceErrorCopyWithImpl<$Res,
+        _$ServiceErrorGenerateThumbnailImpl>
+    implements _$$ServiceErrorGenerateThumbnailImplCopyWith<$Res> {
+  __$$ServiceErrorGenerateThumbnailImplCopyWithImpl(
+      _$ServiceErrorGenerateThumbnailImpl _value,
+      $Res Function(_$ServiceErrorGenerateThumbnailImpl) _then)
+      : super(_value, _then);
 
-  @override
-  ServiceErrorGenerateThumbnail get _value =>
-      super._value as ServiceErrorGenerateThumbnail;
-
+  /// Create a copy of ServiceError
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
-    return _then(ServiceErrorGenerateThumbnail(
-      error == freezed
+    return _then(_$ServiceErrorGenerateThumbnailImpl(
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as GenerateThumbnailError,
     ));
   }
 
+  /// Create a copy of ServiceError
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $GenerateThumbnailErrorCopyWith<$Res> get error {
     return $GenerateThumbnailErrorCopyWith<$Res>(_value.error, (value) {
       return _then(_value.copyWith(error: value));
@@ -1066,14 +1067,15 @@ class _$ServiceErrorGenerateThumbnailCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ServiceErrorGenerateThumbnail
+class _$ServiceErrorGenerateThumbnailImpl
     with DiagnosticableTreeMixin
     implements ServiceErrorGenerateThumbnail {
-  const _$ServiceErrorGenerateThumbnail(this.error, {String? $type})
+  const _$ServiceErrorGenerateThumbnailImpl(this.error, {final String? $type})
       : $type = $type ?? 'generateThumbnail';
 
-  factory _$ServiceErrorGenerateThumbnail.fromJson(Map<String, dynamic> json) =>
-      _$$ServiceErrorGenerateThumbnailFromJson(json);
+  factory _$ServiceErrorGenerateThumbnailImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ServiceErrorGenerateThumbnailImplFromJson(json);
 
   @override
   final GenerateThumbnailError error;
@@ -1095,22 +1097,26 @@ class _$ServiceErrorGenerateThumbnail
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ServiceErrorGenerateThumbnail &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$ServiceErrorGenerateThumbnailImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ServiceError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $ServiceErrorGenerateThumbnailCopyWith<ServiceErrorGenerateThumbnail>
-      get copyWith => _$ServiceErrorGenerateThumbnailCopyWithImpl<
-          ServiceErrorGenerateThumbnail>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$ServiceErrorGenerateThumbnailImplCopyWith<
+          _$ServiceErrorGenerateThumbnailImpl>
+      get copyWith => __$$ServiceErrorGenerateThumbnailImplCopyWithImpl<
+          _$ServiceErrorGenerateThumbnailImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1125,9 +1131,9 @@ class _$ServiceErrorGenerateThumbnail
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(SaveRefImageError error)? saveImage,
-    TResult Function(GenerateThumbnailError error)? generateThumbnail,
-    TResult Function(SaveThumbnailError error)? saveThumbnail,
+    TResult? Function(SaveRefImageError error)? saveImage,
+    TResult? Function(GenerateThumbnailError error)? generateThumbnail,
+    TResult? Function(SaveThumbnailError error)? saveThumbnail,
   }) {
     return generateThumbnail?.call(error);
   }
@@ -1160,9 +1166,9 @@ class _$ServiceErrorGenerateThumbnail
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServiceErrorSaveImage value)? saveImage,
-    TResult Function(ServiceErrorGenerateThumbnail value)? generateThumbnail,
-    TResult Function(ServiceErrorSaveThumbnail value)? saveThumbnail,
+    TResult? Function(ServiceErrorSaveImage value)? saveImage,
+    TResult? Function(ServiceErrorGenerateThumbnail value)? generateThumbnail,
+    TResult? Function(ServiceErrorSaveThumbnail value)? saveThumbnail,
   }) {
     return generateThumbnail?.call(this);
   }
@@ -1183,58 +1189,70 @@ class _$ServiceErrorGenerateThumbnail
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ServiceErrorGenerateThumbnailToJson(this);
+    return _$$ServiceErrorGenerateThumbnailImplToJson(
+      this,
+    );
   }
 }
 
 abstract class ServiceErrorGenerateThumbnail implements ServiceError {
-  const factory ServiceErrorGenerateThumbnail(GenerateThumbnailError error) =
-      _$ServiceErrorGenerateThumbnail;
+  const factory ServiceErrorGenerateThumbnail(
+      final GenerateThumbnailError error) = _$ServiceErrorGenerateThumbnailImpl;
 
   factory ServiceErrorGenerateThumbnail.fromJson(Map<String, dynamic> json) =
-      _$ServiceErrorGenerateThumbnail.fromJson;
+      _$ServiceErrorGenerateThumbnailImpl.fromJson;
 
+  @override
   GenerateThumbnailError get error;
-  @JsonKey(ignore: true)
-  $ServiceErrorGenerateThumbnailCopyWith<ServiceErrorGenerateThumbnail>
+
+  /// Create a copy of ServiceError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ServiceErrorGenerateThumbnailImplCopyWith<
+          _$ServiceErrorGenerateThumbnailImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ServiceErrorSaveThumbnailCopyWith<$Res> {
-  factory $ServiceErrorSaveThumbnailCopyWith(ServiceErrorSaveThumbnail value,
-          $Res Function(ServiceErrorSaveThumbnail) then) =
-      _$ServiceErrorSaveThumbnailCopyWithImpl<$Res>;
+abstract class _$$ServiceErrorSaveThumbnailImplCopyWith<$Res> {
+  factory _$$ServiceErrorSaveThumbnailImplCopyWith(
+          _$ServiceErrorSaveThumbnailImpl value,
+          $Res Function(_$ServiceErrorSaveThumbnailImpl) then) =
+      __$$ServiceErrorSaveThumbnailImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({SaveThumbnailError error});
 
   $SaveThumbnailErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
-class _$ServiceErrorSaveThumbnailCopyWithImpl<$Res>
-    extends _$ServiceErrorCopyWithImpl<$Res>
-    implements $ServiceErrorSaveThumbnailCopyWith<$Res> {
-  _$ServiceErrorSaveThumbnailCopyWithImpl(ServiceErrorSaveThumbnail _value,
-      $Res Function(ServiceErrorSaveThumbnail) _then)
-      : super(_value, (v) => _then(v as ServiceErrorSaveThumbnail));
+class __$$ServiceErrorSaveThumbnailImplCopyWithImpl<$Res>
+    extends _$ServiceErrorCopyWithImpl<$Res, _$ServiceErrorSaveThumbnailImpl>
+    implements _$$ServiceErrorSaveThumbnailImplCopyWith<$Res> {
+  __$$ServiceErrorSaveThumbnailImplCopyWithImpl(
+      _$ServiceErrorSaveThumbnailImpl _value,
+      $Res Function(_$ServiceErrorSaveThumbnailImpl) _then)
+      : super(_value, _then);
 
-  @override
-  ServiceErrorSaveThumbnail get _value =>
-      super._value as ServiceErrorSaveThumbnail;
-
+  /// Create a copy of ServiceError
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
-    return _then(ServiceErrorSaveThumbnail(
-      error == freezed
+    return _then(_$ServiceErrorSaveThumbnailImpl(
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as SaveThumbnailError,
     ));
   }
 
+  /// Create a copy of ServiceError
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $SaveThumbnailErrorCopyWith<$Res> get error {
     return $SaveThumbnailErrorCopyWith<$Res>(_value.error, (value) {
       return _then(_value.copyWith(error: value));
@@ -1244,14 +1262,14 @@ class _$ServiceErrorSaveThumbnailCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ServiceErrorSaveThumbnail
+class _$ServiceErrorSaveThumbnailImpl
     with DiagnosticableTreeMixin
     implements ServiceErrorSaveThumbnail {
-  const _$ServiceErrorSaveThumbnail(this.error, {String? $type})
+  const _$ServiceErrorSaveThumbnailImpl(this.error, {final String? $type})
       : $type = $type ?? 'saveThumbnail';
 
-  factory _$ServiceErrorSaveThumbnail.fromJson(Map<String, dynamic> json) =>
-      _$$ServiceErrorSaveThumbnailFromJson(json);
+  factory _$ServiceErrorSaveThumbnailImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ServiceErrorSaveThumbnailImplFromJson(json);
 
   @override
   final SaveThumbnailError error;
@@ -1273,22 +1291,25 @@ class _$ServiceErrorSaveThumbnail
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ServiceErrorSaveThumbnail &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$ServiceErrorSaveThumbnailImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ServiceError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $ServiceErrorSaveThumbnailCopyWith<ServiceErrorSaveThumbnail> get copyWith =>
-      _$ServiceErrorSaveThumbnailCopyWithImpl<ServiceErrorSaveThumbnail>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$ServiceErrorSaveThumbnailImplCopyWith<_$ServiceErrorSaveThumbnailImpl>
+      get copyWith => __$$ServiceErrorSaveThumbnailImplCopyWithImpl<
+          _$ServiceErrorSaveThumbnailImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1303,9 +1324,9 @@ class _$ServiceErrorSaveThumbnail
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(SaveRefImageError error)? saveImage,
-    TResult Function(GenerateThumbnailError error)? generateThumbnail,
-    TResult Function(SaveThumbnailError error)? saveThumbnail,
+    TResult? Function(SaveRefImageError error)? saveImage,
+    TResult? Function(GenerateThumbnailError error)? generateThumbnail,
+    TResult? Function(SaveThumbnailError error)? saveThumbnail,
   }) {
     return saveThumbnail?.call(error);
   }
@@ -1338,9 +1359,9 @@ class _$ServiceErrorSaveThumbnail
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServiceErrorSaveImage value)? saveImage,
-    TResult Function(ServiceErrorGenerateThumbnail value)? generateThumbnail,
-    TResult Function(ServiceErrorSaveThumbnail value)? saveThumbnail,
+    TResult? Function(ServiceErrorSaveImage value)? saveImage,
+    TResult? Function(ServiceErrorGenerateThumbnail value)? generateThumbnail,
+    TResult? Function(ServiceErrorSaveThumbnail value)? saveThumbnail,
   }) {
     return saveThumbnail?.call(this);
   }
@@ -1361,19 +1382,25 @@ class _$ServiceErrorSaveThumbnail
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ServiceErrorSaveThumbnailToJson(this);
+    return _$$ServiceErrorSaveThumbnailImplToJson(
+      this,
+    );
   }
 }
 
 abstract class ServiceErrorSaveThumbnail implements ServiceError {
-  const factory ServiceErrorSaveThumbnail(SaveThumbnailError error) =
-      _$ServiceErrorSaveThumbnail;
+  const factory ServiceErrorSaveThumbnail(final SaveThumbnailError error) =
+      _$ServiceErrorSaveThumbnailImpl;
 
   factory ServiceErrorSaveThumbnail.fromJson(Map<String, dynamic> json) =
-      _$ServiceErrorSaveThumbnail.fromJson;
+      _$ServiceErrorSaveThumbnailImpl.fromJson;
 
+  @override
   SaveThumbnailError get error;
-  @JsonKey(ignore: true)
-  $ServiceErrorSaveThumbnailCopyWith<ServiceErrorSaveThumbnail> get copyWith =>
-      throw _privateConstructorUsedError;
+
+  /// Create a copy of ServiceError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ServiceErrorSaveThumbnailImplCopyWith<_$ServiceErrorSaveThumbnailImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

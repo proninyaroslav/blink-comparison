@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -18,9 +18,9 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:injectable/injectable.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter_mailer/flutter_mailer.dart';
 
 import '../../logger.dart';
 import '../platform_info.dart';
@@ -39,33 +39,31 @@ class CrashReportSenderImpl implements CrashReportSender {
   @override
   Future<CrashReportSendResult> send(CrashReport report) async {
     if (_platform.isAndroid || _platform.isIOS) {
-      if (_platform.isIOS && !await FlutterMailer.canSendMail()) {
-        return _sendMailto(report);
-      } else {
-        return _sendMailIntent(report).then((res) {
-          if (res == const CrashReportSendResult.emailUnsupported()) {
-            return _sendMailto(report);
-          } else {
-            return res;
-          }
-        });
-      }
+      return _sendMail(report).then((res) {
+        if (res == const CrashReportSendResult.emailUnsupported()) {
+          return _sendMailto(report);
+        } else {
+          return res;
+        }
+      });
     } else {
       return _sendMailto(report);
     }
   }
 
-  Future<CrashReportSendResult> _sendMailIntent(CrashReport report) async {
-    final mailOptions = MailOptions(
+  Future<CrashReportSendResult> _sendMail(CrashReport report) async {
+    final email = Email(
       body: jsonEncode(report.data),
       subject: report.subject,
       recipients: [report.email],
     );
-    final response = await FlutterMailer.send(mailOptions);
-
-    return response == MailerResponse.unknown
-        ? const CrashReportSendResult.emailUnsupported()
-        : const CrashReportSendResult.success();
+    try {
+      await FlutterEmailSender.send(email);
+      return const CrashReportSendResult.success();
+    } catch (e, stackTrace) {
+      log().e('Unable to send crash report', error: e, stackTrace: stackTrace);
+      return const CrashReportSendResult.emailUnsupported();
+    }
   }
 
   Future<CrashReportSendResult> _sendMailto(CrashReport report) async {
@@ -74,14 +72,15 @@ class CrashReportSenderImpl implements CrashReportSender {
       scheme: 'mailto',
       path: report.email,
       query: 'subject=${report.subject}&body=$body',
-    ).toString();
+    );
 
     try {
-      return await launch(uri)
+      return await launchUrl(uri)
           ? const CrashReportSendResult.success()
           : const CrashReportSendResult.emailUnsupported();
     } on PlatformException catch (e, stackTrace) {
-      log().w('Unable to launch email client', e, stackTrace);
+      log()
+          .w('Unable to launch email client', error: e, stackTrace: stackTrace);
       return const CrashReportSendResult.emailUnsupported();
     }
   }

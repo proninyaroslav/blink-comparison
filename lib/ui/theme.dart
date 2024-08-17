@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -23,49 +23,92 @@ class AppTheme {
   static final _lightThemeData = ThemeData(
     visualDensity: VisualDensity.adaptivePlatformDensity,
     brightness: Brightness.light,
-    primarySwatch: paletteLight.primarySwatch,
     primaryColor: paletteLight.primary,
     primaryColorDark: paletteLight.primaryDark,
     primaryColorLight: paletteLight.primaryLight,
-    errorColor: paletteLight.error,
     inputDecorationTheme: inputTheme,
     cardTheme: cardThemeLight,
     snackBarTheme: snackBarTheme,
-    toggleableActiveColor: paletteLight.secondary,
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
+        foregroundColor: paletteLight.primaryDark,
         shape: outlinedButtonShape,
-        primary: paletteLight.primaryDark,
       ),
     ),
     elevatedButtonTheme: elevatedButtonThemeData,
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-        primary: paletteLight.primaryDark,
+        foregroundColor: paletteLight.primaryDark,
       ),
     ),
     appBarTheme: appBarThemeLight,
     scaffoldBackgroundColor: paletteLight.background,
-    backgroundColor: paletteLight.background,
     dialogBackgroundColor: paletteLight.foregound,
     dialogTheme: dialogTheme,
     floatingActionButtonTheme: floatingActionButtonThemeLight,
     bottomSheetTheme: bottomSheetThemeLight,
+    checkboxTheme: CheckboxThemeData(
+      fillColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.disabled)) {
+          return null;
+        }
+        if (states.contains(WidgetState.selected)) {
+          return paletteLight.secondary;
+        }
+        return null;
+      }),
+    ),
+    radioTheme: RadioThemeData(
+      fillColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.disabled)) {
+          return null;
+        }
+        if (states.contains(WidgetState.selected)) {
+          return paletteLight.secondary;
+        }
+        return null;
+      }),
+    ),
+    switchTheme: SwitchThemeData(
+      thumbColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.disabled)) {
+          return null;
+        }
+        if (states.contains(WidgetState.selected)) {
+          return paletteLight.secondary;
+        }
+        return null;
+      }),
+      trackColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.disabled)) {
+          return null;
+        }
+        if (states.contains(WidgetState.selected)) {
+          return paletteLight.secondary;
+        }
+        return null;
+      }),
+    ),
+    colorScheme:
+        ColorScheme.fromSwatch(primarySwatch: paletteLight.primarySwatch)
+            .copyWith(surface: paletteLight.background)
+            .copyWith(error: paletteLight.error),
   );
 
   static final _darkThemeData = ThemeData(
     visualDensity: VisualDensity.adaptivePlatformDensity,
     brightness: Brightness.dark,
     applyElevationOverlayColor: true,
-    primarySwatch: paletteDark.primarySwatch,
     primaryColor: paletteDark.primary,
     primaryColorDark: paletteDark.primaryDark,
     primaryColorLight: paletteDark.primaryLight,
-    errorColor: paletteDark.error,
     inputDecorationTheme: inputTheme,
     cardTheme: cardThemeDark,
     snackBarTheme: snackBarTheme,
-    toggleableActiveColor: paletteDark.secondary,
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
         shape: outlinedButtonShape,
@@ -74,11 +117,61 @@ class AppTheme {
     elevatedButtonTheme: elevatedButtonThemeData,
     appBarTheme: appBarThemeDark,
     scaffoldBackgroundColor: paletteDark.background,
-    backgroundColor: paletteDark.background,
     dialogBackgroundColor: paletteDark.foregound,
     dialogTheme: dialogTheme,
     floatingActionButtonTheme: floatingActionButtonThemeDark,
     bottomSheetTheme: bottomSheetThemeDark,
+    checkboxTheme: CheckboxThemeData(
+      fillColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.disabled)) {
+          return null;
+        }
+        if (states.contains(WidgetState.selected)) {
+          return paletteDark.secondary;
+        }
+        return null;
+      }),
+    ),
+    radioTheme: RadioThemeData(
+      fillColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.disabled)) {
+          return null;
+        }
+        if (states.contains(WidgetState.selected)) {
+          return paletteDark.secondary;
+        }
+        return null;
+      }),
+    ),
+    switchTheme: SwitchThemeData(
+      thumbColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.disabled)) {
+          return null;
+        }
+        if (states.contains(WidgetState.selected)) {
+          return paletteDark.secondary;
+        }
+        return null;
+      }),
+      trackColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.disabled)) {
+          return null;
+        }
+        if (states.contains(WidgetState.selected)) {
+          return paletteDark.secondary;
+        }
+        return null;
+      }),
+    ),
+    colorScheme: ColorScheme.fromSwatch(
+            primarySwatch: paletteDark.primarySwatch,
+            brightness: Brightness.dark)
+        .copyWith(surface: paletteDark.background)
+        .copyWith(error: paletteDark.error),
   );
 
   static const inputTheme = InputDecorationTheme(
@@ -152,10 +245,14 @@ class AppTheme {
   static ThemeData blackTheme() {
     final darkTheme = AppTheme.getThemeData(dark: true);
     return darkTheme.copyWith(
-      backgroundColor: Colors.black,
       scaffoldBackgroundColor: Colors.black,
       appBarTheme: darkTheme.appBarTheme.copyWith(
         backgroundColor: Colors.black,
+      ),
+      colorScheme: const ColorScheme.dark(
+        surface: Colors.black,
+        primary: Colors.black,
+        secondary: Colors.black,
       ),
     );
   }
@@ -166,7 +263,7 @@ class AppTheme {
 
   static final elevatedButtonThemeData = ElevatedButtonThemeData(
     style: ButtonStyle(
-      shape: MaterialStateProperty.all(
+      shape: WidgetStateProperty.all(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.0),
         ),
@@ -225,8 +322,8 @@ class AppTheme {
 
   static TextStyle pageHeadlineText(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    return textTheme.headline6!.copyWith(
-      color: textTheme.headline1!.color,
+    return textTheme.titleLarge!.copyWith(
+      color: textTheme.displayLarge!.color,
     );
   }
 

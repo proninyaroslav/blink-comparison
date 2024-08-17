@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'selectable_ref_image_cubit.dart';
 
@@ -12,27 +12,15 @@ part of 'selectable_ref_image_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$SelectableRefImageItemTearOff {
-  const _$SelectableRefImageItemTearOff();
-
-  _SelectableRefImageItem call({required RefImageInfo info}) {
-    return _SelectableRefImageItem(
-      info: info,
-    );
-  }
-}
-
-/// @nodoc
-const $SelectableRefImageItem = _$SelectableRefImageItemTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$SelectableRefImageItem {
   RefImageInfo get info => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SelectableRefImageItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SelectableRefImageItemCopyWith<SelectableRefImageItem> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -41,48 +29,59 @@ mixin _$SelectableRefImageItem {
 abstract class $SelectableRefImageItemCopyWith<$Res> {
   factory $SelectableRefImageItemCopyWith(SelectableRefImageItem value,
           $Res Function(SelectableRefImageItem) then) =
-      _$SelectableRefImageItemCopyWithImpl<$Res>;
+      _$SelectableRefImageItemCopyWithImpl<$Res, SelectableRefImageItem>;
+  @useResult
   $Res call({RefImageInfo info});
 
   $RefImageInfoCopyWith<$Res> get info;
 }
 
 /// @nodoc
-class _$SelectableRefImageItemCopyWithImpl<$Res>
+class _$SelectableRefImageItemCopyWithImpl<$Res,
+        $Val extends SelectableRefImageItem>
     implements $SelectableRefImageItemCopyWith<$Res> {
   _$SelectableRefImageItemCopyWithImpl(this._value, this._then);
 
-  final SelectableRefImageItem _value;
   // ignore: unused_field
-  final $Res Function(SelectableRefImageItem) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of SelectableRefImageItem
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? info = freezed,
+    Object? info = null,
   }) {
     return _then(_value.copyWith(
-      info: info == freezed
+      info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as RefImageInfo,
-    ));
+    ) as $Val);
   }
 
+  /// Create a copy of SelectableRefImageItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $RefImageInfoCopyWith<$Res> get info {
     return $RefImageInfoCopyWith<$Res>(_value.info, (value) {
-      return _then(_value.copyWith(info: value));
+      return _then(_value.copyWith(info: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$SelectableRefImageItemCopyWith<$Res>
+abstract class _$$SelectableRefImageItemImplCopyWith<$Res>
     implements $SelectableRefImageItemCopyWith<$Res> {
-  factory _$SelectableRefImageItemCopyWith(_SelectableRefImageItem value,
-          $Res Function(_SelectableRefImageItem) then) =
-      __$SelectableRefImageItemCopyWithImpl<$Res>;
+  factory _$$SelectableRefImageItemImplCopyWith(
+          _$SelectableRefImageItemImpl value,
+          $Res Function(_$SelectableRefImageItemImpl) then) =
+      __$$SelectableRefImageItemImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({RefImageInfo info});
 
   @override
@@ -90,22 +89,24 @@ abstract class _$SelectableRefImageItemCopyWith<$Res>
 }
 
 /// @nodoc
-class __$SelectableRefImageItemCopyWithImpl<$Res>
-    extends _$SelectableRefImageItemCopyWithImpl<$Res>
-    implements _$SelectableRefImageItemCopyWith<$Res> {
-  __$SelectableRefImageItemCopyWithImpl(_SelectableRefImageItem _value,
-      $Res Function(_SelectableRefImageItem) _then)
-      : super(_value, (v) => _then(v as _SelectableRefImageItem));
+class __$$SelectableRefImageItemImplCopyWithImpl<$Res>
+    extends _$SelectableRefImageItemCopyWithImpl<$Res,
+        _$SelectableRefImageItemImpl>
+    implements _$$SelectableRefImageItemImplCopyWith<$Res> {
+  __$$SelectableRefImageItemImplCopyWithImpl(
+      _$SelectableRefImageItemImpl _value,
+      $Res Function(_$SelectableRefImageItemImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _SelectableRefImageItem get _value => super._value as _SelectableRefImageItem;
-
+  /// Create a copy of SelectableRefImageItem
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? info = freezed,
+    Object? info = null,
   }) {
-    return _then(_SelectableRefImageItem(
-      info: info == freezed
+    return _then(_$SelectableRefImageItemImpl(
+      info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as RefImageInfo,
@@ -115,8 +116,8 @@ class __$SelectableRefImageItemCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SelectableRefImageItem implements _SelectableRefImageItem {
-  const _$_SelectableRefImageItem({required this.info});
+class _$SelectableRefImageItemImpl implements _SelectableRefImageItem {
+  const _$SelectableRefImageItemImpl({required this.info});
 
   @override
   final RefImageInfo info;
@@ -127,32 +128,37 @@ class _$_SelectableRefImageItem implements _SelectableRefImageItem {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SelectableRefImageItem &&
-            const DeepCollectionEquality().equals(other.info, info));
+            other is _$SelectableRefImageItemImpl &&
+            (identical(other.info, info) || other.info == info));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(info));
+  int get hashCode => Object.hash(runtimeType, info);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SelectableRefImageItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$SelectableRefImageItemCopyWith<_SelectableRefImageItem> get copyWith =>
-      __$SelectableRefImageItemCopyWithImpl<_SelectableRefImageItem>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SelectableRefImageItemImplCopyWith<_$SelectableRefImageItemImpl>
+      get copyWith => __$$SelectableRefImageItemImplCopyWithImpl<
+          _$SelectableRefImageItemImpl>(this, _$identity);
 }
 
 abstract class _SelectableRefImageItem implements SelectableRefImageItem {
-  const factory _SelectableRefImageItem({required RefImageInfo info}) =
-      _$_SelectableRefImageItem;
+  const factory _SelectableRefImageItem({required final RefImageInfo info}) =
+      _$SelectableRefImageItemImpl;
 
   @override
   RefImageInfo get info;
+
+  /// Create a copy of SelectableRefImageItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$SelectableRefImageItemCopyWith<_SelectableRefImageItem> get copyWith =>
-      throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SelectableRefImageItemImplCopyWith<_$SelectableRefImageItemImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

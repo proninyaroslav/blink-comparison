@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'model.dart';
 
@@ -12,7 +12,7 @@ part of 'model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 AppThemeType _$AppThemeTypeFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
@@ -30,30 +30,6 @@ AppThemeType _$AppThemeTypeFromJson(Map<String, dynamic> json) {
 }
 
 /// @nodoc
-class _$AppThemeTypeTearOff {
-  const _$AppThemeTypeTearOff();
-
-  AppThemeTypeLight light() {
-    return const AppThemeTypeLight();
-  }
-
-  AppThemeTypeDark dark() {
-    return const AppThemeTypeDark();
-  }
-
-  AppThemeTypeSystem system() {
-    return const AppThemeTypeSystem();
-  }
-
-  AppThemeType fromJson(Map<String, Object?> json) {
-    return AppThemeType.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $AppThemeType = _$AppThemeTypeTearOff();
-
-/// @nodoc
 mixin _$AppThemeType {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -64,9 +40,9 @@ mixin _$AppThemeType {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? light,
-    TResult Function()? dark,
-    TResult Function()? system,
+    TResult? Function()? light,
+    TResult? Function()? dark,
+    TResult? Function()? system,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -86,9 +62,9 @@ mixin _$AppThemeType {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AppThemeTypeLight value)? light,
-    TResult Function(AppThemeTypeDark value)? dark,
-    TResult Function(AppThemeTypeSystem value)? system,
+    TResult? Function(AppThemeTypeLight value)? light,
+    TResult? Function(AppThemeTypeDark value)? dark,
+    TResult? Function(AppThemeTypeSystem value)? system,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -99,6 +75,8 @@ mixin _$AppThemeType {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this AppThemeType to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
@@ -106,44 +84,50 @@ mixin _$AppThemeType {
 abstract class $AppThemeTypeCopyWith<$Res> {
   factory $AppThemeTypeCopyWith(
           AppThemeType value, $Res Function(AppThemeType) then) =
-      _$AppThemeTypeCopyWithImpl<$Res>;
+      _$AppThemeTypeCopyWithImpl<$Res, AppThemeType>;
 }
 
 /// @nodoc
-class _$AppThemeTypeCopyWithImpl<$Res> implements $AppThemeTypeCopyWith<$Res> {
+class _$AppThemeTypeCopyWithImpl<$Res, $Val extends AppThemeType>
+    implements $AppThemeTypeCopyWith<$Res> {
   _$AppThemeTypeCopyWithImpl(this._value, this._then);
 
-  final AppThemeType _value;
   // ignore: unused_field
-  final $Res Function(AppThemeType) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of AppThemeType
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class $AppThemeTypeLightCopyWith<$Res> {
-  factory $AppThemeTypeLightCopyWith(
-          AppThemeTypeLight value, $Res Function(AppThemeTypeLight) then) =
-      _$AppThemeTypeLightCopyWithImpl<$Res>;
+abstract class _$$AppThemeTypeLightImplCopyWith<$Res> {
+  factory _$$AppThemeTypeLightImplCopyWith(_$AppThemeTypeLightImpl value,
+          $Res Function(_$AppThemeTypeLightImpl) then) =
+      __$$AppThemeTypeLightImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AppThemeTypeLightCopyWithImpl<$Res>
-    extends _$AppThemeTypeCopyWithImpl<$Res>
-    implements $AppThemeTypeLightCopyWith<$Res> {
-  _$AppThemeTypeLightCopyWithImpl(
-      AppThemeTypeLight _value, $Res Function(AppThemeTypeLight) _then)
-      : super(_value, (v) => _then(v as AppThemeTypeLight));
+class __$$AppThemeTypeLightImplCopyWithImpl<$Res>
+    extends _$AppThemeTypeCopyWithImpl<$Res, _$AppThemeTypeLightImpl>
+    implements _$$AppThemeTypeLightImplCopyWith<$Res> {
+  __$$AppThemeTypeLightImplCopyWithImpl(_$AppThemeTypeLightImpl _value,
+      $Res Function(_$AppThemeTypeLightImpl) _then)
+      : super(_value, _then);
 
-  @override
-  AppThemeTypeLight get _value => super._value as AppThemeTypeLight;
+  /// Create a copy of AppThemeType
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$AppThemeTypeLight implements AppThemeTypeLight {
-  const _$AppThemeTypeLight({String? $type}) : $type = $type ?? 'light';
+class _$AppThemeTypeLightImpl implements AppThemeTypeLight {
+  const _$AppThemeTypeLightImpl({final String? $type})
+      : $type = $type ?? 'light';
 
-  factory _$AppThemeTypeLight.fromJson(Map<String, dynamic> json) =>
-      _$$AppThemeTypeLightFromJson(json);
+  factory _$AppThemeTypeLightImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AppThemeTypeLightImplFromJson(json);
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -154,11 +138,12 @@ class _$AppThemeTypeLight implements AppThemeTypeLight {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is AppThemeTypeLight);
+        (other.runtimeType == runtimeType && other is _$AppThemeTypeLightImpl);
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -175,9 +160,9 @@ class _$AppThemeTypeLight implements AppThemeTypeLight {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? light,
-    TResult Function()? dark,
-    TResult Function()? system,
+    TResult? Function()? light,
+    TResult? Function()? dark,
+    TResult? Function()? system,
   }) {
     return light?.call();
   }
@@ -209,9 +194,9 @@ class _$AppThemeTypeLight implements AppThemeTypeLight {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AppThemeTypeLight value)? light,
-    TResult Function(AppThemeTypeDark value)? dark,
-    TResult Function(AppThemeTypeSystem value)? system,
+    TResult? Function(AppThemeTypeLight value)? light,
+    TResult? Function(AppThemeTypeDark value)? dark,
+    TResult? Function(AppThemeTypeSystem value)? system,
   }) {
     return light?.call(this);
   }
@@ -232,43 +217,45 @@ class _$AppThemeTypeLight implements AppThemeTypeLight {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AppThemeTypeLightToJson(this);
+    return _$$AppThemeTypeLightImplToJson(
+      this,
+    );
   }
 }
 
 abstract class AppThemeTypeLight implements AppThemeType {
-  const factory AppThemeTypeLight() = _$AppThemeTypeLight;
+  const factory AppThemeTypeLight() = _$AppThemeTypeLightImpl;
 
   factory AppThemeTypeLight.fromJson(Map<String, dynamic> json) =
-      _$AppThemeTypeLight.fromJson;
+      _$AppThemeTypeLightImpl.fromJson;
 }
 
 /// @nodoc
-abstract class $AppThemeTypeDarkCopyWith<$Res> {
-  factory $AppThemeTypeDarkCopyWith(
-          AppThemeTypeDark value, $Res Function(AppThemeTypeDark) then) =
-      _$AppThemeTypeDarkCopyWithImpl<$Res>;
+abstract class _$$AppThemeTypeDarkImplCopyWith<$Res> {
+  factory _$$AppThemeTypeDarkImplCopyWith(_$AppThemeTypeDarkImpl value,
+          $Res Function(_$AppThemeTypeDarkImpl) then) =
+      __$$AppThemeTypeDarkImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AppThemeTypeDarkCopyWithImpl<$Res>
-    extends _$AppThemeTypeCopyWithImpl<$Res>
-    implements $AppThemeTypeDarkCopyWith<$Res> {
-  _$AppThemeTypeDarkCopyWithImpl(
-      AppThemeTypeDark _value, $Res Function(AppThemeTypeDark) _then)
-      : super(_value, (v) => _then(v as AppThemeTypeDark));
+class __$$AppThemeTypeDarkImplCopyWithImpl<$Res>
+    extends _$AppThemeTypeCopyWithImpl<$Res, _$AppThemeTypeDarkImpl>
+    implements _$$AppThemeTypeDarkImplCopyWith<$Res> {
+  __$$AppThemeTypeDarkImplCopyWithImpl(_$AppThemeTypeDarkImpl _value,
+      $Res Function(_$AppThemeTypeDarkImpl) _then)
+      : super(_value, _then);
 
-  @override
-  AppThemeTypeDark get _value => super._value as AppThemeTypeDark;
+  /// Create a copy of AppThemeType
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$AppThemeTypeDark implements AppThemeTypeDark {
-  const _$AppThemeTypeDark({String? $type}) : $type = $type ?? 'dark';
+class _$AppThemeTypeDarkImpl implements AppThemeTypeDark {
+  const _$AppThemeTypeDarkImpl({final String? $type}) : $type = $type ?? 'dark';
 
-  factory _$AppThemeTypeDark.fromJson(Map<String, dynamic> json) =>
-      _$$AppThemeTypeDarkFromJson(json);
+  factory _$AppThemeTypeDarkImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AppThemeTypeDarkImplFromJson(json);
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -279,11 +266,12 @@ class _$AppThemeTypeDark implements AppThemeTypeDark {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is AppThemeTypeDark);
+        (other.runtimeType == runtimeType && other is _$AppThemeTypeDarkImpl);
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -300,9 +288,9 @@ class _$AppThemeTypeDark implements AppThemeTypeDark {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? light,
-    TResult Function()? dark,
-    TResult Function()? system,
+    TResult? Function()? light,
+    TResult? Function()? dark,
+    TResult? Function()? system,
   }) {
     return dark?.call();
   }
@@ -334,9 +322,9 @@ class _$AppThemeTypeDark implements AppThemeTypeDark {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AppThemeTypeLight value)? light,
-    TResult Function(AppThemeTypeDark value)? dark,
-    TResult Function(AppThemeTypeSystem value)? system,
+    TResult? Function(AppThemeTypeLight value)? light,
+    TResult? Function(AppThemeTypeDark value)? dark,
+    TResult? Function(AppThemeTypeSystem value)? system,
   }) {
     return dark?.call(this);
   }
@@ -357,43 +345,46 @@ class _$AppThemeTypeDark implements AppThemeTypeDark {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AppThemeTypeDarkToJson(this);
+    return _$$AppThemeTypeDarkImplToJson(
+      this,
+    );
   }
 }
 
 abstract class AppThemeTypeDark implements AppThemeType {
-  const factory AppThemeTypeDark() = _$AppThemeTypeDark;
+  const factory AppThemeTypeDark() = _$AppThemeTypeDarkImpl;
 
   factory AppThemeTypeDark.fromJson(Map<String, dynamic> json) =
-      _$AppThemeTypeDark.fromJson;
+      _$AppThemeTypeDarkImpl.fromJson;
 }
 
 /// @nodoc
-abstract class $AppThemeTypeSystemCopyWith<$Res> {
-  factory $AppThemeTypeSystemCopyWith(
-          AppThemeTypeSystem value, $Res Function(AppThemeTypeSystem) then) =
-      _$AppThemeTypeSystemCopyWithImpl<$Res>;
+abstract class _$$AppThemeTypeSystemImplCopyWith<$Res> {
+  factory _$$AppThemeTypeSystemImplCopyWith(_$AppThemeTypeSystemImpl value,
+          $Res Function(_$AppThemeTypeSystemImpl) then) =
+      __$$AppThemeTypeSystemImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AppThemeTypeSystemCopyWithImpl<$Res>
-    extends _$AppThemeTypeCopyWithImpl<$Res>
-    implements $AppThemeTypeSystemCopyWith<$Res> {
-  _$AppThemeTypeSystemCopyWithImpl(
-      AppThemeTypeSystem _value, $Res Function(AppThemeTypeSystem) _then)
-      : super(_value, (v) => _then(v as AppThemeTypeSystem));
+class __$$AppThemeTypeSystemImplCopyWithImpl<$Res>
+    extends _$AppThemeTypeCopyWithImpl<$Res, _$AppThemeTypeSystemImpl>
+    implements _$$AppThemeTypeSystemImplCopyWith<$Res> {
+  __$$AppThemeTypeSystemImplCopyWithImpl(_$AppThemeTypeSystemImpl _value,
+      $Res Function(_$AppThemeTypeSystemImpl) _then)
+      : super(_value, _then);
 
-  @override
-  AppThemeTypeSystem get _value => super._value as AppThemeTypeSystem;
+  /// Create a copy of AppThemeType
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$AppThemeTypeSystem implements AppThemeTypeSystem {
-  const _$AppThemeTypeSystem({String? $type}) : $type = $type ?? 'system';
+class _$AppThemeTypeSystemImpl implements AppThemeTypeSystem {
+  const _$AppThemeTypeSystemImpl({final String? $type})
+      : $type = $type ?? 'system';
 
-  factory _$AppThemeTypeSystem.fromJson(Map<String, dynamic> json) =>
-      _$$AppThemeTypeSystemFromJson(json);
+  factory _$AppThemeTypeSystemImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AppThemeTypeSystemImplFromJson(json);
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -404,11 +395,12 @@ class _$AppThemeTypeSystem implements AppThemeTypeSystem {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is AppThemeTypeSystem);
+        (other.runtimeType == runtimeType && other is _$AppThemeTypeSystemImpl);
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -425,9 +417,9 @@ class _$AppThemeTypeSystem implements AppThemeTypeSystem {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? light,
-    TResult Function()? dark,
-    TResult Function()? system,
+    TResult? Function()? light,
+    TResult? Function()? dark,
+    TResult? Function()? system,
   }) {
     return system?.call();
   }
@@ -459,9 +451,9 @@ class _$AppThemeTypeSystem implements AppThemeTypeSystem {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AppThemeTypeLight value)? light,
-    TResult Function(AppThemeTypeDark value)? dark,
-    TResult Function(AppThemeTypeSystem value)? system,
+    TResult? Function(AppThemeTypeLight value)? light,
+    TResult? Function(AppThemeTypeDark value)? dark,
+    TResult? Function(AppThemeTypeSystem value)? system,
   }) {
     return system?.call(this);
   }
@@ -482,15 +474,17 @@ class _$AppThemeTypeSystem implements AppThemeTypeSystem {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AppThemeTypeSystemToJson(this);
+    return _$$AppThemeTypeSystemImplToJson(
+      this,
+    );
   }
 }
 
 abstract class AppThemeTypeSystem implements AppThemeType {
-  const factory AppThemeTypeSystem() = _$AppThemeTypeSystem;
+  const factory AppThemeTypeSystem() = _$AppThemeTypeSystemImpl;
 
   factory AppThemeTypeSystem.fromJson(Map<String, dynamic> json) =
-      _$AppThemeTypeSystem.fromJson;
+      _$AppThemeTypeSystemImpl.fromJson;
 }
 
 AppLocaleType _$AppLocaleTypeFromJson(Map<String, dynamic> json) {
@@ -507,28 +501,6 @@ AppLocaleType _$AppLocaleTypeFromJson(Map<String, dynamic> json) {
 }
 
 /// @nodoc
-class _$AppLocaleTypeTearOff {
-  const _$AppLocaleTypeTearOff();
-
-  AppLocaleTypeSystem system() {
-    return const AppLocaleTypeSystem();
-  }
-
-  AppLocaleTypeInner inner({@LocaleConverter() required Locale locale}) {
-    return AppLocaleTypeInner(
-      locale: locale,
-    );
-  }
-
-  AppLocaleType fromJson(Map<String, Object?> json) {
-    return AppLocaleType.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $AppLocaleType = _$AppLocaleTypeTearOff();
-
-/// @nodoc
 mixin _$AppLocaleType {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -538,8 +510,8 @@ mixin _$AppLocaleType {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? system,
-    TResult Function(@LocaleConverter() Locale locale)? inner,
+    TResult? Function()? system,
+    TResult? Function(@LocaleConverter() Locale locale)? inner,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -557,8 +529,8 @@ mixin _$AppLocaleType {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AppLocaleTypeSystem value)? system,
-    TResult Function(AppLocaleTypeInner value)? inner,
+    TResult? Function(AppLocaleTypeSystem value)? system,
+    TResult? Function(AppLocaleTypeInner value)? inner,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -568,6 +540,8 @@ mixin _$AppLocaleType {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this AppLocaleType to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
@@ -575,45 +549,50 @@ mixin _$AppLocaleType {
 abstract class $AppLocaleTypeCopyWith<$Res> {
   factory $AppLocaleTypeCopyWith(
           AppLocaleType value, $Res Function(AppLocaleType) then) =
-      _$AppLocaleTypeCopyWithImpl<$Res>;
+      _$AppLocaleTypeCopyWithImpl<$Res, AppLocaleType>;
 }
 
 /// @nodoc
-class _$AppLocaleTypeCopyWithImpl<$Res>
+class _$AppLocaleTypeCopyWithImpl<$Res, $Val extends AppLocaleType>
     implements $AppLocaleTypeCopyWith<$Res> {
   _$AppLocaleTypeCopyWithImpl(this._value, this._then);
 
-  final AppLocaleType _value;
   // ignore: unused_field
-  final $Res Function(AppLocaleType) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of AppLocaleType
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class $AppLocaleTypeSystemCopyWith<$Res> {
-  factory $AppLocaleTypeSystemCopyWith(
-          AppLocaleTypeSystem value, $Res Function(AppLocaleTypeSystem) then) =
-      _$AppLocaleTypeSystemCopyWithImpl<$Res>;
+abstract class _$$AppLocaleTypeSystemImplCopyWith<$Res> {
+  factory _$$AppLocaleTypeSystemImplCopyWith(_$AppLocaleTypeSystemImpl value,
+          $Res Function(_$AppLocaleTypeSystemImpl) then) =
+      __$$AppLocaleTypeSystemImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AppLocaleTypeSystemCopyWithImpl<$Res>
-    extends _$AppLocaleTypeCopyWithImpl<$Res>
-    implements $AppLocaleTypeSystemCopyWith<$Res> {
-  _$AppLocaleTypeSystemCopyWithImpl(
-      AppLocaleTypeSystem _value, $Res Function(AppLocaleTypeSystem) _then)
-      : super(_value, (v) => _then(v as AppLocaleTypeSystem));
+class __$$AppLocaleTypeSystemImplCopyWithImpl<$Res>
+    extends _$AppLocaleTypeCopyWithImpl<$Res, _$AppLocaleTypeSystemImpl>
+    implements _$$AppLocaleTypeSystemImplCopyWith<$Res> {
+  __$$AppLocaleTypeSystemImplCopyWithImpl(_$AppLocaleTypeSystemImpl _value,
+      $Res Function(_$AppLocaleTypeSystemImpl) _then)
+      : super(_value, _then);
 
-  @override
-  AppLocaleTypeSystem get _value => super._value as AppLocaleTypeSystem;
+  /// Create a copy of AppLocaleType
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$AppLocaleTypeSystem implements AppLocaleTypeSystem {
-  const _$AppLocaleTypeSystem({String? $type}) : $type = $type ?? 'system';
+class _$AppLocaleTypeSystemImpl implements AppLocaleTypeSystem {
+  const _$AppLocaleTypeSystemImpl({final String? $type})
+      : $type = $type ?? 'system';
 
-  factory _$AppLocaleTypeSystem.fromJson(Map<String, dynamic> json) =>
-      _$$AppLocaleTypeSystemFromJson(json);
+  factory _$AppLocaleTypeSystemImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AppLocaleTypeSystemImplFromJson(json);
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -624,11 +603,13 @@ class _$AppLocaleTypeSystem implements AppLocaleTypeSystem {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is AppLocaleTypeSystem);
+        (other.runtimeType == runtimeType &&
+            other is _$AppLocaleTypeSystemImpl);
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -644,8 +625,8 @@ class _$AppLocaleTypeSystem implements AppLocaleTypeSystem {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? system,
-    TResult Function(@LocaleConverter() Locale locale)? inner,
+    TResult? Function()? system,
+    TResult? Function(@LocaleConverter() Locale locale)? inner,
   }) {
     return system?.call();
   }
@@ -675,8 +656,8 @@ class _$AppLocaleTypeSystem implements AppLocaleTypeSystem {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AppLocaleTypeSystem value)? system,
-    TResult Function(AppLocaleTypeInner value)? inner,
+    TResult? Function(AppLocaleTypeSystem value)? system,
+    TResult? Function(AppLocaleTypeInner value)? inner,
   }) {
     return system?.call(this);
   }
@@ -696,42 +677,45 @@ class _$AppLocaleTypeSystem implements AppLocaleTypeSystem {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AppLocaleTypeSystemToJson(this);
+    return _$$AppLocaleTypeSystemImplToJson(
+      this,
+    );
   }
 }
 
 abstract class AppLocaleTypeSystem implements AppLocaleType {
-  const factory AppLocaleTypeSystem() = _$AppLocaleTypeSystem;
+  const factory AppLocaleTypeSystem() = _$AppLocaleTypeSystemImpl;
 
   factory AppLocaleTypeSystem.fromJson(Map<String, dynamic> json) =
-      _$AppLocaleTypeSystem.fromJson;
+      _$AppLocaleTypeSystemImpl.fromJson;
 }
 
 /// @nodoc
-abstract class $AppLocaleTypeInnerCopyWith<$Res> {
-  factory $AppLocaleTypeInnerCopyWith(
-          AppLocaleTypeInner value, $Res Function(AppLocaleTypeInner) then) =
-      _$AppLocaleTypeInnerCopyWithImpl<$Res>;
+abstract class _$$AppLocaleTypeInnerImplCopyWith<$Res> {
+  factory _$$AppLocaleTypeInnerImplCopyWith(_$AppLocaleTypeInnerImpl value,
+          $Res Function(_$AppLocaleTypeInnerImpl) then) =
+      __$$AppLocaleTypeInnerImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({@LocaleConverter() Locale locale});
 }
 
 /// @nodoc
-class _$AppLocaleTypeInnerCopyWithImpl<$Res>
-    extends _$AppLocaleTypeCopyWithImpl<$Res>
-    implements $AppLocaleTypeInnerCopyWith<$Res> {
-  _$AppLocaleTypeInnerCopyWithImpl(
-      AppLocaleTypeInner _value, $Res Function(AppLocaleTypeInner) _then)
-      : super(_value, (v) => _then(v as AppLocaleTypeInner));
+class __$$AppLocaleTypeInnerImplCopyWithImpl<$Res>
+    extends _$AppLocaleTypeCopyWithImpl<$Res, _$AppLocaleTypeInnerImpl>
+    implements _$$AppLocaleTypeInnerImplCopyWith<$Res> {
+  __$$AppLocaleTypeInnerImplCopyWithImpl(_$AppLocaleTypeInnerImpl _value,
+      $Res Function(_$AppLocaleTypeInnerImpl) _then)
+      : super(_value, _then);
 
-  @override
-  AppLocaleTypeInner get _value => super._value as AppLocaleTypeInner;
-
+  /// Create a copy of AppLocaleType
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? locale = freezed,
+    Object? locale = null,
   }) {
-    return _then(AppLocaleTypeInner(
-      locale: locale == freezed
+    return _then(_$AppLocaleTypeInnerImpl(
+      locale: null == locale
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as Locale,
@@ -741,13 +725,13 @@ class _$AppLocaleTypeInnerCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$AppLocaleTypeInner implements AppLocaleTypeInner {
-  const _$AppLocaleTypeInner(
-      {@LocaleConverter() required this.locale, String? $type})
+class _$AppLocaleTypeInnerImpl implements AppLocaleTypeInner {
+  const _$AppLocaleTypeInnerImpl(
+      {@LocaleConverter() required this.locale, final String? $type})
       : $type = $type ?? 'inner';
 
-  factory _$AppLocaleTypeInner.fromJson(Map<String, dynamic> json) =>
-      _$$AppLocaleTypeInnerFromJson(json);
+  factory _$AppLocaleTypeInnerImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AppLocaleTypeInnerImplFromJson(json);
 
   @override
   @LocaleConverter()
@@ -762,21 +746,25 @@ class _$AppLocaleTypeInner implements AppLocaleTypeInner {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is AppLocaleTypeInner &&
-            const DeepCollectionEquality().equals(other.locale, locale));
+            other is _$AppLocaleTypeInnerImpl &&
+            (identical(other.locale, locale) || other.locale == locale));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(locale));
+  int get hashCode => Object.hash(runtimeType, locale);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppLocaleType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $AppLocaleTypeInnerCopyWith<AppLocaleTypeInner> get copyWith =>
-      _$AppLocaleTypeInnerCopyWithImpl<AppLocaleTypeInner>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$AppLocaleTypeInnerImplCopyWith<_$AppLocaleTypeInnerImpl> get copyWith =>
+      __$$AppLocaleTypeInnerImplCopyWithImpl<_$AppLocaleTypeInnerImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -790,8 +778,8 @@ class _$AppLocaleTypeInner implements AppLocaleTypeInner {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? system,
-    TResult Function(@LocaleConverter() Locale locale)? inner,
+    TResult? Function()? system,
+    TResult? Function(@LocaleConverter() Locale locale)? inner,
   }) {
     return inner?.call(locale);
   }
@@ -821,8 +809,8 @@ class _$AppLocaleTypeInner implements AppLocaleTypeInner {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AppLocaleTypeSystem value)? system,
-    TResult Function(AppLocaleTypeInner value)? inner,
+    TResult? Function(AppLocaleTypeSystem value)? system,
+    TResult? Function(AppLocaleTypeInner value)? inner,
   }) {
     return inner?.call(this);
   }
@@ -842,21 +830,27 @@ class _$AppLocaleTypeInner implements AppLocaleTypeInner {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AppLocaleTypeInnerToJson(this);
+    return _$$AppLocaleTypeInnerImplToJson(
+      this,
+    );
   }
 }
 
 abstract class AppLocaleTypeInner implements AppLocaleType {
   const factory AppLocaleTypeInner(
-      {@LocaleConverter() required Locale locale}) = _$AppLocaleTypeInner;
+          {@LocaleConverter() required final Locale locale}) =
+      _$AppLocaleTypeInnerImpl;
 
   factory AppLocaleTypeInner.fromJson(Map<String, dynamic> json) =
-      _$AppLocaleTypeInner.fromJson;
+      _$AppLocaleTypeInnerImpl.fromJson;
 
   @LocaleConverter()
   Locale get locale;
-  @JsonKey(ignore: true)
-  $AppLocaleTypeInnerCopyWith<AppLocaleTypeInner> get copyWith =>
+
+  /// Create a copy of AppLocaleType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AppLocaleTypeInnerImplCopyWith<_$AppLocaleTypeInnerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -876,30 +870,6 @@ ShowcaseType _$ShowcaseTypeFromJson(Map<String, dynamic> json) {
 }
 
 /// @nodoc
-class _$ShowcaseTypeTearOff {
-  const _$ShowcaseTypeTearOff();
-
-  ShowcaseTypeOpacity opacity() {
-    return const ShowcaseTypeOpacity();
-  }
-
-  ShowcaseTypeRefImageBorder refImageBorder() {
-    return const ShowcaseTypeRefImageBorder();
-  }
-
-  ShowcaseTypeBlinkComparison blinkComparison() {
-    return const ShowcaseTypeBlinkComparison();
-  }
-
-  ShowcaseType fromJson(Map<String, Object?> json) {
-    return ShowcaseType.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ShowcaseType = _$ShowcaseTypeTearOff();
-
-/// @nodoc
 mixin _$ShowcaseType {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -910,9 +880,9 @@ mixin _$ShowcaseType {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? opacity,
-    TResult Function()? refImageBorder,
-    TResult Function()? blinkComparison,
+    TResult? Function()? opacity,
+    TResult? Function()? refImageBorder,
+    TResult? Function()? blinkComparison,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -933,9 +903,9 @@ mixin _$ShowcaseType {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ShowcaseTypeOpacity value)? opacity,
-    TResult Function(ShowcaseTypeRefImageBorder value)? refImageBorder,
-    TResult Function(ShowcaseTypeBlinkComparison value)? blinkComparison,
+    TResult? Function(ShowcaseTypeOpacity value)? opacity,
+    TResult? Function(ShowcaseTypeRefImageBorder value)? refImageBorder,
+    TResult? Function(ShowcaseTypeBlinkComparison value)? blinkComparison,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -946,6 +916,8 @@ mixin _$ShowcaseType {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this ShowcaseType to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
@@ -953,44 +925,50 @@ mixin _$ShowcaseType {
 abstract class $ShowcaseTypeCopyWith<$Res> {
   factory $ShowcaseTypeCopyWith(
           ShowcaseType value, $Res Function(ShowcaseType) then) =
-      _$ShowcaseTypeCopyWithImpl<$Res>;
+      _$ShowcaseTypeCopyWithImpl<$Res, ShowcaseType>;
 }
 
 /// @nodoc
-class _$ShowcaseTypeCopyWithImpl<$Res> implements $ShowcaseTypeCopyWith<$Res> {
+class _$ShowcaseTypeCopyWithImpl<$Res, $Val extends ShowcaseType>
+    implements $ShowcaseTypeCopyWith<$Res> {
   _$ShowcaseTypeCopyWithImpl(this._value, this._then);
 
-  final ShowcaseType _value;
   // ignore: unused_field
-  final $Res Function(ShowcaseType) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of ShowcaseType
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class $ShowcaseTypeOpacityCopyWith<$Res> {
-  factory $ShowcaseTypeOpacityCopyWith(
-          ShowcaseTypeOpacity value, $Res Function(ShowcaseTypeOpacity) then) =
-      _$ShowcaseTypeOpacityCopyWithImpl<$Res>;
+abstract class _$$ShowcaseTypeOpacityImplCopyWith<$Res> {
+  factory _$$ShowcaseTypeOpacityImplCopyWith(_$ShowcaseTypeOpacityImpl value,
+          $Res Function(_$ShowcaseTypeOpacityImpl) then) =
+      __$$ShowcaseTypeOpacityImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ShowcaseTypeOpacityCopyWithImpl<$Res>
-    extends _$ShowcaseTypeCopyWithImpl<$Res>
-    implements $ShowcaseTypeOpacityCopyWith<$Res> {
-  _$ShowcaseTypeOpacityCopyWithImpl(
-      ShowcaseTypeOpacity _value, $Res Function(ShowcaseTypeOpacity) _then)
-      : super(_value, (v) => _then(v as ShowcaseTypeOpacity));
+class __$$ShowcaseTypeOpacityImplCopyWithImpl<$Res>
+    extends _$ShowcaseTypeCopyWithImpl<$Res, _$ShowcaseTypeOpacityImpl>
+    implements _$$ShowcaseTypeOpacityImplCopyWith<$Res> {
+  __$$ShowcaseTypeOpacityImplCopyWithImpl(_$ShowcaseTypeOpacityImpl _value,
+      $Res Function(_$ShowcaseTypeOpacityImpl) _then)
+      : super(_value, _then);
 
-  @override
-  ShowcaseTypeOpacity get _value => super._value as ShowcaseTypeOpacity;
+  /// Create a copy of ShowcaseType
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ShowcaseTypeOpacity implements ShowcaseTypeOpacity {
-  const _$ShowcaseTypeOpacity({String? $type}) : $type = $type ?? 'opacity';
+class _$ShowcaseTypeOpacityImpl implements ShowcaseTypeOpacity {
+  const _$ShowcaseTypeOpacityImpl({final String? $type})
+      : $type = $type ?? 'opacity';
 
-  factory _$ShowcaseTypeOpacity.fromJson(Map<String, dynamic> json) =>
-      _$$ShowcaseTypeOpacityFromJson(json);
+  factory _$ShowcaseTypeOpacityImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ShowcaseTypeOpacityImplFromJson(json);
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -1001,11 +979,13 @@ class _$ShowcaseTypeOpacity implements ShowcaseTypeOpacity {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is ShowcaseTypeOpacity);
+        (other.runtimeType == runtimeType &&
+            other is _$ShowcaseTypeOpacityImpl);
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -1022,9 +1002,9 @@ class _$ShowcaseTypeOpacity implements ShowcaseTypeOpacity {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? opacity,
-    TResult Function()? refImageBorder,
-    TResult Function()? blinkComparison,
+    TResult? Function()? opacity,
+    TResult? Function()? refImageBorder,
+    TResult? Function()? blinkComparison,
   }) {
     return opacity?.call();
   }
@@ -1057,9 +1037,9 @@ class _$ShowcaseTypeOpacity implements ShowcaseTypeOpacity {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ShowcaseTypeOpacity value)? opacity,
-    TResult Function(ShowcaseTypeRefImageBorder value)? refImageBorder,
-    TResult Function(ShowcaseTypeBlinkComparison value)? blinkComparison,
+    TResult? Function(ShowcaseTypeOpacity value)? opacity,
+    TResult? Function(ShowcaseTypeRefImageBorder value)? refImageBorder,
+    TResult? Function(ShowcaseTypeBlinkComparison value)? blinkComparison,
   }) {
     return opacity?.call(this);
   }
@@ -1080,45 +1060,49 @@ class _$ShowcaseTypeOpacity implements ShowcaseTypeOpacity {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ShowcaseTypeOpacityToJson(this);
+    return _$$ShowcaseTypeOpacityImplToJson(
+      this,
+    );
   }
 }
 
 abstract class ShowcaseTypeOpacity implements ShowcaseType {
-  const factory ShowcaseTypeOpacity() = _$ShowcaseTypeOpacity;
+  const factory ShowcaseTypeOpacity() = _$ShowcaseTypeOpacityImpl;
 
   factory ShowcaseTypeOpacity.fromJson(Map<String, dynamic> json) =
-      _$ShowcaseTypeOpacity.fromJson;
+      _$ShowcaseTypeOpacityImpl.fromJson;
 }
 
 /// @nodoc
-abstract class $ShowcaseTypeRefImageBorderCopyWith<$Res> {
-  factory $ShowcaseTypeRefImageBorderCopyWith(ShowcaseTypeRefImageBorder value,
-          $Res Function(ShowcaseTypeRefImageBorder) then) =
-      _$ShowcaseTypeRefImageBorderCopyWithImpl<$Res>;
+abstract class _$$ShowcaseTypeRefImageBorderImplCopyWith<$Res> {
+  factory _$$ShowcaseTypeRefImageBorderImplCopyWith(
+          _$ShowcaseTypeRefImageBorderImpl value,
+          $Res Function(_$ShowcaseTypeRefImageBorderImpl) then) =
+      __$$ShowcaseTypeRefImageBorderImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ShowcaseTypeRefImageBorderCopyWithImpl<$Res>
-    extends _$ShowcaseTypeCopyWithImpl<$Res>
-    implements $ShowcaseTypeRefImageBorderCopyWith<$Res> {
-  _$ShowcaseTypeRefImageBorderCopyWithImpl(ShowcaseTypeRefImageBorder _value,
-      $Res Function(ShowcaseTypeRefImageBorder) _then)
-      : super(_value, (v) => _then(v as ShowcaseTypeRefImageBorder));
+class __$$ShowcaseTypeRefImageBorderImplCopyWithImpl<$Res>
+    extends _$ShowcaseTypeCopyWithImpl<$Res, _$ShowcaseTypeRefImageBorderImpl>
+    implements _$$ShowcaseTypeRefImageBorderImplCopyWith<$Res> {
+  __$$ShowcaseTypeRefImageBorderImplCopyWithImpl(
+      _$ShowcaseTypeRefImageBorderImpl _value,
+      $Res Function(_$ShowcaseTypeRefImageBorderImpl) _then)
+      : super(_value, _then);
 
-  @override
-  ShowcaseTypeRefImageBorder get _value =>
-      super._value as ShowcaseTypeRefImageBorder;
+  /// Create a copy of ShowcaseType
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ShowcaseTypeRefImageBorder implements ShowcaseTypeRefImageBorder {
-  const _$ShowcaseTypeRefImageBorder({String? $type})
+class _$ShowcaseTypeRefImageBorderImpl implements ShowcaseTypeRefImageBorder {
+  const _$ShowcaseTypeRefImageBorderImpl({final String? $type})
       : $type = $type ?? 'refImageBorder';
 
-  factory _$ShowcaseTypeRefImageBorder.fromJson(Map<String, dynamic> json) =>
-      _$$ShowcaseTypeRefImageBorderFromJson(json);
+  factory _$ShowcaseTypeRefImageBorderImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ShowcaseTypeRefImageBorderImplFromJson(json);
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -1129,12 +1113,13 @@ class _$ShowcaseTypeRefImageBorder implements ShowcaseTypeRefImageBorder {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ShowcaseTypeRefImageBorder);
+            other is _$ShowcaseTypeRefImageBorderImpl);
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -1151,9 +1136,9 @@ class _$ShowcaseTypeRefImageBorder implements ShowcaseTypeRefImageBorder {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? opacity,
-    TResult Function()? refImageBorder,
-    TResult Function()? blinkComparison,
+    TResult? Function()? opacity,
+    TResult? Function()? refImageBorder,
+    TResult? Function()? blinkComparison,
   }) {
     return refImageBorder?.call();
   }
@@ -1186,9 +1171,9 @@ class _$ShowcaseTypeRefImageBorder implements ShowcaseTypeRefImageBorder {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ShowcaseTypeOpacity value)? opacity,
-    TResult Function(ShowcaseTypeRefImageBorder value)? refImageBorder,
-    TResult Function(ShowcaseTypeBlinkComparison value)? blinkComparison,
+    TResult? Function(ShowcaseTypeOpacity value)? opacity,
+    TResult? Function(ShowcaseTypeRefImageBorder value)? refImageBorder,
+    TResult? Function(ShowcaseTypeBlinkComparison value)? blinkComparison,
   }) {
     return refImageBorder?.call(this);
   }
@@ -1209,46 +1194,49 @@ class _$ShowcaseTypeRefImageBorder implements ShowcaseTypeRefImageBorder {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ShowcaseTypeRefImageBorderToJson(this);
+    return _$$ShowcaseTypeRefImageBorderImplToJson(
+      this,
+    );
   }
 }
 
 abstract class ShowcaseTypeRefImageBorder implements ShowcaseType {
-  const factory ShowcaseTypeRefImageBorder() = _$ShowcaseTypeRefImageBorder;
+  const factory ShowcaseTypeRefImageBorder() = _$ShowcaseTypeRefImageBorderImpl;
 
   factory ShowcaseTypeRefImageBorder.fromJson(Map<String, dynamic> json) =
-      _$ShowcaseTypeRefImageBorder.fromJson;
+      _$ShowcaseTypeRefImageBorderImpl.fromJson;
 }
 
 /// @nodoc
-abstract class $ShowcaseTypeBlinkComparisonCopyWith<$Res> {
-  factory $ShowcaseTypeBlinkComparisonCopyWith(
-          ShowcaseTypeBlinkComparison value,
-          $Res Function(ShowcaseTypeBlinkComparison) then) =
-      _$ShowcaseTypeBlinkComparisonCopyWithImpl<$Res>;
+abstract class _$$ShowcaseTypeBlinkComparisonImplCopyWith<$Res> {
+  factory _$$ShowcaseTypeBlinkComparisonImplCopyWith(
+          _$ShowcaseTypeBlinkComparisonImpl value,
+          $Res Function(_$ShowcaseTypeBlinkComparisonImpl) then) =
+      __$$ShowcaseTypeBlinkComparisonImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ShowcaseTypeBlinkComparisonCopyWithImpl<$Res>
-    extends _$ShowcaseTypeCopyWithImpl<$Res>
-    implements $ShowcaseTypeBlinkComparisonCopyWith<$Res> {
-  _$ShowcaseTypeBlinkComparisonCopyWithImpl(ShowcaseTypeBlinkComparison _value,
-      $Res Function(ShowcaseTypeBlinkComparison) _then)
-      : super(_value, (v) => _then(v as ShowcaseTypeBlinkComparison));
+class __$$ShowcaseTypeBlinkComparisonImplCopyWithImpl<$Res>
+    extends _$ShowcaseTypeCopyWithImpl<$Res, _$ShowcaseTypeBlinkComparisonImpl>
+    implements _$$ShowcaseTypeBlinkComparisonImplCopyWith<$Res> {
+  __$$ShowcaseTypeBlinkComparisonImplCopyWithImpl(
+      _$ShowcaseTypeBlinkComparisonImpl _value,
+      $Res Function(_$ShowcaseTypeBlinkComparisonImpl) _then)
+      : super(_value, _then);
 
-  @override
-  ShowcaseTypeBlinkComparison get _value =>
-      super._value as ShowcaseTypeBlinkComparison;
+  /// Create a copy of ShowcaseType
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ShowcaseTypeBlinkComparison implements ShowcaseTypeBlinkComparison {
-  const _$ShowcaseTypeBlinkComparison({String? $type})
+class _$ShowcaseTypeBlinkComparisonImpl implements ShowcaseTypeBlinkComparison {
+  const _$ShowcaseTypeBlinkComparisonImpl({final String? $type})
       : $type = $type ?? 'blinkComparison';
 
-  factory _$ShowcaseTypeBlinkComparison.fromJson(Map<String, dynamic> json) =>
-      _$$ShowcaseTypeBlinkComparisonFromJson(json);
+  factory _$ShowcaseTypeBlinkComparisonImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ShowcaseTypeBlinkComparisonImplFromJson(json);
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -1259,12 +1247,13 @@ class _$ShowcaseTypeBlinkComparison implements ShowcaseTypeBlinkComparison {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ShowcaseTypeBlinkComparison);
+            other is _$ShowcaseTypeBlinkComparisonImpl);
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -1281,9 +1270,9 @@ class _$ShowcaseTypeBlinkComparison implements ShowcaseTypeBlinkComparison {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? opacity,
-    TResult Function()? refImageBorder,
-    TResult Function()? blinkComparison,
+    TResult? Function()? opacity,
+    TResult? Function()? refImageBorder,
+    TResult? Function()? blinkComparison,
   }) {
     return blinkComparison?.call();
   }
@@ -1316,9 +1305,9 @@ class _$ShowcaseTypeBlinkComparison implements ShowcaseTypeBlinkComparison {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ShowcaseTypeOpacity value)? opacity,
-    TResult Function(ShowcaseTypeRefImageBorder value)? refImageBorder,
-    TResult Function(ShowcaseTypeBlinkComparison value)? blinkComparison,
+    TResult? Function(ShowcaseTypeOpacity value)? opacity,
+    TResult? Function(ShowcaseTypeRefImageBorder value)? refImageBorder,
+    TResult? Function(ShowcaseTypeBlinkComparison value)? blinkComparison,
   }) {
     return blinkComparison?.call(this);
   }
@@ -1339,13 +1328,16 @@ class _$ShowcaseTypeBlinkComparison implements ShowcaseTypeBlinkComparison {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ShowcaseTypeBlinkComparisonToJson(this);
+    return _$$ShowcaseTypeBlinkComparisonImplToJson(
+      this,
+    );
   }
 }
 
 abstract class ShowcaseTypeBlinkComparison implements ShowcaseType {
-  const factory ShowcaseTypeBlinkComparison() = _$ShowcaseTypeBlinkComparison;
+  const factory ShowcaseTypeBlinkComparison() =
+      _$ShowcaseTypeBlinkComparisonImpl;
 
   factory ShowcaseTypeBlinkComparison.fromJson(Map<String, dynamic> json) =
-      _$ShowcaseTypeBlinkComparison.fromJson;
+      _$ShowcaseTypeBlinkComparisonImpl.fromJson;
 }

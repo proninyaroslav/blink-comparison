@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -27,10 +27,10 @@ class PortraitOnlyWidget extends StatelessWidget {
   final RotateDirection direction;
 
   const PortraitOnlyWidget({
-    Key? key,
+    super.key,
     required this.child,
     this.direction = RotateDirection.counterclockwise,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'generate_thumbnail_job.dart';
 
@@ -12,27 +12,7 @@ part of 'generate_thumbnail_job.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$GenerateThumbnailResultTearOff {
-  const _$GenerateThumbnailResultTearOff();
-
-  GenerateThumbnailResultSuccess success({required Uint8List thumbnail}) {
-    return GenerateThumbnailResultSuccess(
-      thumbnail: thumbnail,
-    );
-  }
-
-  GenerateThumbnailResultFail fail(GenerateThumbnailError error) {
-    return GenerateThumbnailResultFail(
-      error,
-    );
-  }
-}
-
-/// @nodoc
-const $GenerateThumbnailResult = _$GenerateThumbnailResultTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$GenerateThumbnailResult {
@@ -44,8 +24,8 @@ mixin _$GenerateThumbnailResult {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Uint8List thumbnail)? success,
-    TResult Function(GenerateThumbnailError error)? fail,
+    TResult? Function(Uint8List thumbnail)? success,
+    TResult? Function(GenerateThumbnailError error)? fail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,8 +43,8 @@ mixin _$GenerateThumbnailResult {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(GenerateThumbnailResultSuccess value)? success,
-    TResult Function(GenerateThumbnailResultFail value)? fail,
+    TResult? Function(GenerateThumbnailResultSuccess value)? success,
+    TResult? Function(GenerateThumbnailResultFail value)? fail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,47 +60,53 @@ mixin _$GenerateThumbnailResult {
 abstract class $GenerateThumbnailResultCopyWith<$Res> {
   factory $GenerateThumbnailResultCopyWith(GenerateThumbnailResult value,
           $Res Function(GenerateThumbnailResult) then) =
-      _$GenerateThumbnailResultCopyWithImpl<$Res>;
+      _$GenerateThumbnailResultCopyWithImpl<$Res, GenerateThumbnailResult>;
 }
 
 /// @nodoc
-class _$GenerateThumbnailResultCopyWithImpl<$Res>
+class _$GenerateThumbnailResultCopyWithImpl<$Res,
+        $Val extends GenerateThumbnailResult>
     implements $GenerateThumbnailResultCopyWith<$Res> {
   _$GenerateThumbnailResultCopyWithImpl(this._value, this._then);
 
-  final GenerateThumbnailResult _value;
   // ignore: unused_field
-  final $Res Function(GenerateThumbnailResult) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of GenerateThumbnailResult
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class $GenerateThumbnailResultSuccessCopyWith<$Res> {
-  factory $GenerateThumbnailResultSuccessCopyWith(
-          GenerateThumbnailResultSuccess value,
-          $Res Function(GenerateThumbnailResultSuccess) then) =
-      _$GenerateThumbnailResultSuccessCopyWithImpl<$Res>;
+abstract class _$$GenerateThumbnailResultSuccessImplCopyWith<$Res> {
+  factory _$$GenerateThumbnailResultSuccessImplCopyWith(
+          _$GenerateThumbnailResultSuccessImpl value,
+          $Res Function(_$GenerateThumbnailResultSuccessImpl) then) =
+      __$$GenerateThumbnailResultSuccessImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({Uint8List thumbnail});
 }
 
 /// @nodoc
-class _$GenerateThumbnailResultSuccessCopyWithImpl<$Res>
-    extends _$GenerateThumbnailResultCopyWithImpl<$Res>
-    implements $GenerateThumbnailResultSuccessCopyWith<$Res> {
-  _$GenerateThumbnailResultSuccessCopyWithImpl(
-      GenerateThumbnailResultSuccess _value,
-      $Res Function(GenerateThumbnailResultSuccess) _then)
-      : super(_value, (v) => _then(v as GenerateThumbnailResultSuccess));
+class __$$GenerateThumbnailResultSuccessImplCopyWithImpl<$Res>
+    extends _$GenerateThumbnailResultCopyWithImpl<$Res,
+        _$GenerateThumbnailResultSuccessImpl>
+    implements _$$GenerateThumbnailResultSuccessImplCopyWith<$Res> {
+  __$$GenerateThumbnailResultSuccessImplCopyWithImpl(
+      _$GenerateThumbnailResultSuccessImpl _value,
+      $Res Function(_$GenerateThumbnailResultSuccessImpl) _then)
+      : super(_value, _then);
 
-  @override
-  GenerateThumbnailResultSuccess get _value =>
-      super._value as GenerateThumbnailResultSuccess;
-
+  /// Create a copy of GenerateThumbnailResult
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? thumbnail = freezed,
+    Object? thumbnail = null,
   }) {
-    return _then(GenerateThumbnailResultSuccess(
-      thumbnail: thumbnail == freezed
+    return _then(_$GenerateThumbnailResultSuccessImpl(
+      thumbnail: null == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
               as Uint8List,
@@ -130,9 +116,9 @@ class _$GenerateThumbnailResultSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GenerateThumbnailResultSuccess
+class _$GenerateThumbnailResultSuccessImpl
     implements GenerateThumbnailResultSuccess {
-  const _$GenerateThumbnailResultSuccess({required this.thumbnail});
+  const _$GenerateThumbnailResultSuccessImpl({required this.thumbnail});
 
   @override
   final Uint8List thumbnail;
@@ -143,10 +129,10 @@ class _$GenerateThumbnailResultSuccess
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is GenerateThumbnailResultSuccess &&
+            other is _$GenerateThumbnailResultSuccessImpl &&
             const DeepCollectionEquality().equals(other.thumbnail, thumbnail));
   }
 
@@ -154,11 +140,15 @@ class _$GenerateThumbnailResultSuccess
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(thumbnail));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GenerateThumbnailResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $GenerateThumbnailResultSuccessCopyWith<GenerateThumbnailResultSuccess>
-      get copyWith => _$GenerateThumbnailResultSuccessCopyWithImpl<
-          GenerateThumbnailResultSuccess>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$GenerateThumbnailResultSuccessImplCopyWith<
+          _$GenerateThumbnailResultSuccessImpl>
+      get copyWith => __$$GenerateThumbnailResultSuccessImplCopyWithImpl<
+          _$GenerateThumbnailResultSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -172,8 +162,8 @@ class _$GenerateThumbnailResultSuccess
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Uint8List thumbnail)? success,
-    TResult Function(GenerateThumbnailError error)? fail,
+    TResult? Function(Uint8List thumbnail)? success,
+    TResult? Function(GenerateThumbnailError error)? fail,
   }) {
     return success?.call(thumbnail);
   }
@@ -203,8 +193,8 @@ class _$GenerateThumbnailResultSuccess
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(GenerateThumbnailResultSuccess value)? success,
-    TResult Function(GenerateThumbnailResultFail value)? fail,
+    TResult? Function(GenerateThumbnailResultSuccess value)? success,
+    TResult? Function(GenerateThumbnailResultFail value)? fail,
   }) {
     return success?.call(this);
   }
@@ -225,51 +215,61 @@ class _$GenerateThumbnailResultSuccess
 
 abstract class GenerateThumbnailResultSuccess
     implements GenerateThumbnailResult {
-  const factory GenerateThumbnailResultSuccess({required Uint8List thumbnail}) =
-      _$GenerateThumbnailResultSuccess;
+  const factory GenerateThumbnailResultSuccess(
+          {required final Uint8List thumbnail}) =
+      _$GenerateThumbnailResultSuccessImpl;
 
   Uint8List get thumbnail;
-  @JsonKey(ignore: true)
-  $GenerateThumbnailResultSuccessCopyWith<GenerateThumbnailResultSuccess>
+
+  /// Create a copy of GenerateThumbnailResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GenerateThumbnailResultSuccessImplCopyWith<
+          _$GenerateThumbnailResultSuccessImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GenerateThumbnailResultFailCopyWith<$Res> {
-  factory $GenerateThumbnailResultFailCopyWith(
-          GenerateThumbnailResultFail value,
-          $Res Function(GenerateThumbnailResultFail) then) =
-      _$GenerateThumbnailResultFailCopyWithImpl<$Res>;
+abstract class _$$GenerateThumbnailResultFailImplCopyWith<$Res> {
+  factory _$$GenerateThumbnailResultFailImplCopyWith(
+          _$GenerateThumbnailResultFailImpl value,
+          $Res Function(_$GenerateThumbnailResultFailImpl) then) =
+      __$$GenerateThumbnailResultFailImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({GenerateThumbnailError error});
 
   $GenerateThumbnailErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
-class _$GenerateThumbnailResultFailCopyWithImpl<$Res>
-    extends _$GenerateThumbnailResultCopyWithImpl<$Res>
-    implements $GenerateThumbnailResultFailCopyWith<$Res> {
-  _$GenerateThumbnailResultFailCopyWithImpl(GenerateThumbnailResultFail _value,
-      $Res Function(GenerateThumbnailResultFail) _then)
-      : super(_value, (v) => _then(v as GenerateThumbnailResultFail));
+class __$$GenerateThumbnailResultFailImplCopyWithImpl<$Res>
+    extends _$GenerateThumbnailResultCopyWithImpl<$Res,
+        _$GenerateThumbnailResultFailImpl>
+    implements _$$GenerateThumbnailResultFailImplCopyWith<$Res> {
+  __$$GenerateThumbnailResultFailImplCopyWithImpl(
+      _$GenerateThumbnailResultFailImpl _value,
+      $Res Function(_$GenerateThumbnailResultFailImpl) _then)
+      : super(_value, _then);
 
-  @override
-  GenerateThumbnailResultFail get _value =>
-      super._value as GenerateThumbnailResultFail;
-
+  /// Create a copy of GenerateThumbnailResult
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
-    return _then(GenerateThumbnailResultFail(
-      error == freezed
+    return _then(_$GenerateThumbnailResultFailImpl(
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as GenerateThumbnailError,
     ));
   }
 
+  /// Create a copy of GenerateThumbnailResult
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $GenerateThumbnailErrorCopyWith<$Res> get error {
     return $GenerateThumbnailErrorCopyWith<$Res>(_value.error, (value) {
       return _then(_value.copyWith(error: value));
@@ -279,8 +279,8 @@ class _$GenerateThumbnailResultFailCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GenerateThumbnailResultFail implements GenerateThumbnailResultFail {
-  const _$GenerateThumbnailResultFail(this.error);
+class _$GenerateThumbnailResultFailImpl implements GenerateThumbnailResultFail {
+  const _$GenerateThumbnailResultFailImpl(this.error);
 
   @override
   final GenerateThumbnailError error;
@@ -291,22 +291,24 @@ class _$GenerateThumbnailResultFail implements GenerateThumbnailResultFail {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is GenerateThumbnailResultFail &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$GenerateThumbnailResultFailImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GenerateThumbnailResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $GenerateThumbnailResultFailCopyWith<GenerateThumbnailResultFail>
-      get copyWith => _$GenerateThumbnailResultFailCopyWithImpl<
-          GenerateThumbnailResultFail>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$GenerateThumbnailResultFailImplCopyWith<_$GenerateThumbnailResultFailImpl>
+      get copyWith => __$$GenerateThumbnailResultFailImplCopyWithImpl<
+          _$GenerateThumbnailResultFailImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -320,8 +322,8 @@ class _$GenerateThumbnailResultFail implements GenerateThumbnailResultFail {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Uint8List thumbnail)? success,
-    TResult Function(GenerateThumbnailError error)? fail,
+    TResult? Function(Uint8List thumbnail)? success,
+    TResult? Function(GenerateThumbnailError error)? fail,
   }) {
     return fail?.call(error);
   }
@@ -351,8 +353,8 @@ class _$GenerateThumbnailResultFail implements GenerateThumbnailResultFail {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(GenerateThumbnailResultSuccess value)? success,
-    TResult Function(GenerateThumbnailResultFail value)? fail,
+    TResult? Function(GenerateThumbnailResultSuccess value)? success,
+    TResult? Function(GenerateThumbnailResultFail value)? fail,
   }) {
     return fail?.call(this);
   }
@@ -372,12 +374,15 @@ class _$GenerateThumbnailResultFail implements GenerateThumbnailResultFail {
 }
 
 abstract class GenerateThumbnailResultFail implements GenerateThumbnailResult {
-  const factory GenerateThumbnailResultFail(GenerateThumbnailError error) =
-      _$GenerateThumbnailResultFail;
+  const factory GenerateThumbnailResultFail(
+      final GenerateThumbnailError error) = _$GenerateThumbnailResultFailImpl;
 
   GenerateThumbnailError get error;
-  @JsonKey(ignore: true)
-  $GenerateThumbnailResultFailCopyWith<GenerateThumbnailResultFail>
+
+  /// Create a copy of GenerateThumbnailResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GenerateThumbnailResultFailImplCopyWith<_$GenerateThumbnailResultFailImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -401,37 +406,6 @@ GenerateThumbnailError _$GenerateThumbnailErrorFromJson(
 }
 
 /// @nodoc
-class _$GenerateThumbnailErrorTearOff {
-  const _$GenerateThumbnailErrorTearOff();
-
-  GenerateThumbnailErrorFs fs(FsError error) {
-    return GenerateThumbnailErrorFs(
-      error,
-    );
-  }
-
-  GenerateThumbnailErrorFileNotFound fileNotFound({required String path}) {
-    return GenerateThumbnailErrorFileNotFound(
-      path: path,
-    );
-  }
-
-  GenerateThumbnailErrorUnsupportedFormat unsupportedFormat(
-      {required String path}) {
-    return GenerateThumbnailErrorUnsupportedFormat(
-      path: path,
-    );
-  }
-
-  GenerateThumbnailError fromJson(Map<String, Object?> json) {
-    return GenerateThumbnailError.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $GenerateThumbnailError = _$GenerateThumbnailErrorTearOff();
-
-/// @nodoc
 mixin _$GenerateThumbnailError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -442,9 +416,9 @@ mixin _$GenerateThumbnailError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(FsError error)? fs,
-    TResult Function(String path)? fileNotFound,
-    TResult Function(String path)? unsupportedFormat,
+    TResult? Function(FsError error)? fs,
+    TResult? Function(String path)? fileNotFound,
+    TResult? Function(String path)? unsupportedFormat,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -466,9 +440,9 @@ mixin _$GenerateThumbnailError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(GenerateThumbnailErrorFs value)? fs,
-    TResult Function(GenerateThumbnailErrorFileNotFound value)? fileNotFound,
-    TResult Function(GenerateThumbnailErrorUnsupportedFormat value)?
+    TResult? Function(GenerateThumbnailErrorFs value)? fs,
+    TResult? Function(GenerateThumbnailErrorFileNotFound value)? fileNotFound,
+    TResult? Function(GenerateThumbnailErrorUnsupportedFormat value)?
         unsupportedFormat,
   }) =>
       throw _privateConstructorUsedError;
@@ -481,6 +455,8 @@ mixin _$GenerateThumbnailError {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this GenerateThumbnailError to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
@@ -488,54 +464,65 @@ mixin _$GenerateThumbnailError {
 abstract class $GenerateThumbnailErrorCopyWith<$Res> {
   factory $GenerateThumbnailErrorCopyWith(GenerateThumbnailError value,
           $Res Function(GenerateThumbnailError) then) =
-      _$GenerateThumbnailErrorCopyWithImpl<$Res>;
+      _$GenerateThumbnailErrorCopyWithImpl<$Res, GenerateThumbnailError>;
 }
 
 /// @nodoc
-class _$GenerateThumbnailErrorCopyWithImpl<$Res>
+class _$GenerateThumbnailErrorCopyWithImpl<$Res,
+        $Val extends GenerateThumbnailError>
     implements $GenerateThumbnailErrorCopyWith<$Res> {
   _$GenerateThumbnailErrorCopyWithImpl(this._value, this._then);
 
-  final GenerateThumbnailError _value;
   // ignore: unused_field
-  final $Res Function(GenerateThumbnailError) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of GenerateThumbnailError
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class $GenerateThumbnailErrorFsCopyWith<$Res> {
-  factory $GenerateThumbnailErrorFsCopyWith(GenerateThumbnailErrorFs value,
-          $Res Function(GenerateThumbnailErrorFs) then) =
-      _$GenerateThumbnailErrorFsCopyWithImpl<$Res>;
+abstract class _$$GenerateThumbnailErrorFsImplCopyWith<$Res> {
+  factory _$$GenerateThumbnailErrorFsImplCopyWith(
+          _$GenerateThumbnailErrorFsImpl value,
+          $Res Function(_$GenerateThumbnailErrorFsImpl) then) =
+      __$$GenerateThumbnailErrorFsImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({FsError error});
 
   $FsErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
-class _$GenerateThumbnailErrorFsCopyWithImpl<$Res>
-    extends _$GenerateThumbnailErrorCopyWithImpl<$Res>
-    implements $GenerateThumbnailErrorFsCopyWith<$Res> {
-  _$GenerateThumbnailErrorFsCopyWithImpl(GenerateThumbnailErrorFs _value,
-      $Res Function(GenerateThumbnailErrorFs) _then)
-      : super(_value, (v) => _then(v as GenerateThumbnailErrorFs));
+class __$$GenerateThumbnailErrorFsImplCopyWithImpl<$Res>
+    extends _$GenerateThumbnailErrorCopyWithImpl<$Res,
+        _$GenerateThumbnailErrorFsImpl>
+    implements _$$GenerateThumbnailErrorFsImplCopyWith<$Res> {
+  __$$GenerateThumbnailErrorFsImplCopyWithImpl(
+      _$GenerateThumbnailErrorFsImpl _value,
+      $Res Function(_$GenerateThumbnailErrorFsImpl) _then)
+      : super(_value, _then);
 
-  @override
-  GenerateThumbnailErrorFs get _value =>
-      super._value as GenerateThumbnailErrorFs;
-
+  /// Create a copy of GenerateThumbnailError
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
-    return _then(GenerateThumbnailErrorFs(
-      error == freezed
+    return _then(_$GenerateThumbnailErrorFsImpl(
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as FsError,
     ));
   }
 
+  /// Create a copy of GenerateThumbnailError
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $FsErrorCopyWith<$Res> get error {
     return $FsErrorCopyWith<$Res>(_value.error, (value) {
       return _then(_value.copyWith(error: value));
@@ -545,12 +532,12 @@ class _$GenerateThumbnailErrorFsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$GenerateThumbnailErrorFs implements GenerateThumbnailErrorFs {
-  const _$GenerateThumbnailErrorFs(this.error, {String? $type})
+class _$GenerateThumbnailErrorFsImpl implements GenerateThumbnailErrorFs {
+  const _$GenerateThumbnailErrorFsImpl(this.error, {final String? $type})
       : $type = $type ?? 'fs';
 
-  factory _$GenerateThumbnailErrorFs.fromJson(Map<String, dynamic> json) =>
-      _$$GenerateThumbnailErrorFsFromJson(json);
+  factory _$GenerateThumbnailErrorFsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GenerateThumbnailErrorFsImplFromJson(json);
 
   @override
   final FsError error;
@@ -564,22 +551,25 @@ class _$GenerateThumbnailErrorFs implements GenerateThumbnailErrorFs {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is GenerateThumbnailErrorFs &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is _$GenerateThumbnailErrorFsImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GenerateThumbnailError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $GenerateThumbnailErrorFsCopyWith<GenerateThumbnailErrorFs> get copyWith =>
-      _$GenerateThumbnailErrorFsCopyWithImpl<GenerateThumbnailErrorFs>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$GenerateThumbnailErrorFsImplCopyWith<_$GenerateThumbnailErrorFsImpl>
+      get copyWith => __$$GenerateThumbnailErrorFsImplCopyWithImpl<
+          _$GenerateThumbnailErrorFsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -594,9 +584,9 @@ class _$GenerateThumbnailErrorFs implements GenerateThumbnailErrorFs {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(FsError error)? fs,
-    TResult Function(String path)? fileNotFound,
-    TResult Function(String path)? unsupportedFormat,
+    TResult? Function(FsError error)? fs,
+    TResult? Function(String path)? fileNotFound,
+    TResult? Function(String path)? unsupportedFormat,
   }) {
     return fs?.call(error);
   }
@@ -630,9 +620,9 @@ class _$GenerateThumbnailErrorFs implements GenerateThumbnailErrorFs {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(GenerateThumbnailErrorFs value)? fs,
-    TResult Function(GenerateThumbnailErrorFileNotFound value)? fileNotFound,
-    TResult Function(GenerateThumbnailErrorUnsupportedFormat value)?
+    TResult? Function(GenerateThumbnailErrorFs value)? fs,
+    TResult? Function(GenerateThumbnailErrorFileNotFound value)? fileNotFound,
+    TResult? Function(GenerateThumbnailErrorUnsupportedFormat value)?
         unsupportedFormat,
   }) {
     return fs?.call(this);
@@ -655,51 +645,57 @@ class _$GenerateThumbnailErrorFs implements GenerateThumbnailErrorFs {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GenerateThumbnailErrorFsToJson(this);
+    return _$$GenerateThumbnailErrorFsImplToJson(
+      this,
+    );
   }
 }
 
 abstract class GenerateThumbnailErrorFs implements GenerateThumbnailError {
-  const factory GenerateThumbnailErrorFs(FsError error) =
-      _$GenerateThumbnailErrorFs;
+  const factory GenerateThumbnailErrorFs(final FsError error) =
+      _$GenerateThumbnailErrorFsImpl;
 
   factory GenerateThumbnailErrorFs.fromJson(Map<String, dynamic> json) =
-      _$GenerateThumbnailErrorFs.fromJson;
+      _$GenerateThumbnailErrorFsImpl.fromJson;
 
   FsError get error;
-  @JsonKey(ignore: true)
-  $GenerateThumbnailErrorFsCopyWith<GenerateThumbnailErrorFs> get copyWith =>
-      throw _privateConstructorUsedError;
+
+  /// Create a copy of GenerateThumbnailError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GenerateThumbnailErrorFsImplCopyWith<_$GenerateThumbnailErrorFsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GenerateThumbnailErrorFileNotFoundCopyWith<$Res> {
-  factory $GenerateThumbnailErrorFileNotFoundCopyWith(
-          GenerateThumbnailErrorFileNotFound value,
-          $Res Function(GenerateThumbnailErrorFileNotFound) then) =
-      _$GenerateThumbnailErrorFileNotFoundCopyWithImpl<$Res>;
+abstract class _$$GenerateThumbnailErrorFileNotFoundImplCopyWith<$Res> {
+  factory _$$GenerateThumbnailErrorFileNotFoundImplCopyWith(
+          _$GenerateThumbnailErrorFileNotFoundImpl value,
+          $Res Function(_$GenerateThumbnailErrorFileNotFoundImpl) then) =
+      __$$GenerateThumbnailErrorFileNotFoundImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({String path});
 }
 
 /// @nodoc
-class _$GenerateThumbnailErrorFileNotFoundCopyWithImpl<$Res>
-    extends _$GenerateThumbnailErrorCopyWithImpl<$Res>
-    implements $GenerateThumbnailErrorFileNotFoundCopyWith<$Res> {
-  _$GenerateThumbnailErrorFileNotFoundCopyWithImpl(
-      GenerateThumbnailErrorFileNotFound _value,
-      $Res Function(GenerateThumbnailErrorFileNotFound) _then)
-      : super(_value, (v) => _then(v as GenerateThumbnailErrorFileNotFound));
+class __$$GenerateThumbnailErrorFileNotFoundImplCopyWithImpl<$Res>
+    extends _$GenerateThumbnailErrorCopyWithImpl<$Res,
+        _$GenerateThumbnailErrorFileNotFoundImpl>
+    implements _$$GenerateThumbnailErrorFileNotFoundImplCopyWith<$Res> {
+  __$$GenerateThumbnailErrorFileNotFoundImplCopyWithImpl(
+      _$GenerateThumbnailErrorFileNotFoundImpl _value,
+      $Res Function(_$GenerateThumbnailErrorFileNotFoundImpl) _then)
+      : super(_value, _then);
 
-  @override
-  GenerateThumbnailErrorFileNotFound get _value =>
-      super._value as GenerateThumbnailErrorFileNotFound;
-
+  /// Create a copy of GenerateThumbnailError
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? path = freezed,
+    Object? path = null,
   }) {
-    return _then(GenerateThumbnailErrorFileNotFound(
-      path: path == freezed
+    return _then(_$GenerateThumbnailErrorFileNotFoundImpl(
+      path: null == path
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
               as String,
@@ -709,15 +705,15 @@ class _$GenerateThumbnailErrorFileNotFoundCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$GenerateThumbnailErrorFileNotFound
+class _$GenerateThumbnailErrorFileNotFoundImpl
     implements GenerateThumbnailErrorFileNotFound {
-  const _$GenerateThumbnailErrorFileNotFound(
-      {required this.path, String? $type})
+  const _$GenerateThumbnailErrorFileNotFoundImpl(
+      {required this.path, final String? $type})
       : $type = $type ?? 'fileNotFound';
 
-  factory _$GenerateThumbnailErrorFileNotFound.fromJson(
+  factory _$GenerateThumbnailErrorFileNotFoundImpl.fromJson(
           Map<String, dynamic> json) =>
-      _$$GenerateThumbnailErrorFileNotFoundFromJson(json);
+      _$$GenerateThumbnailErrorFileNotFoundImplFromJson(json);
 
   @override
   final String path;
@@ -731,23 +727,26 @@ class _$GenerateThumbnailErrorFileNotFound
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is GenerateThumbnailErrorFileNotFound &&
-            const DeepCollectionEquality().equals(other.path, path));
+            other is _$GenerateThumbnailErrorFileNotFoundImpl &&
+            (identical(other.path, path) || other.path == path));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(path));
+  int get hashCode => Object.hash(runtimeType, path);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GenerateThumbnailError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $GenerateThumbnailErrorFileNotFoundCopyWith<
-          GenerateThumbnailErrorFileNotFound>
-      get copyWith => _$GenerateThumbnailErrorFileNotFoundCopyWithImpl<
-          GenerateThumbnailErrorFileNotFound>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$GenerateThumbnailErrorFileNotFoundImplCopyWith<
+          _$GenerateThumbnailErrorFileNotFoundImpl>
+      get copyWith => __$$GenerateThumbnailErrorFileNotFoundImplCopyWithImpl<
+          _$GenerateThumbnailErrorFileNotFoundImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -762,9 +761,9 @@ class _$GenerateThumbnailErrorFileNotFound
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(FsError error)? fs,
-    TResult Function(String path)? fileNotFound,
-    TResult Function(String path)? unsupportedFormat,
+    TResult? Function(FsError error)? fs,
+    TResult? Function(String path)? fileNotFound,
+    TResult? Function(String path)? unsupportedFormat,
   }) {
     return fileNotFound?.call(path);
   }
@@ -798,9 +797,9 @@ class _$GenerateThumbnailErrorFileNotFound
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(GenerateThumbnailErrorFs value)? fs,
-    TResult Function(GenerateThumbnailErrorFileNotFound value)? fileNotFound,
-    TResult Function(GenerateThumbnailErrorUnsupportedFormat value)?
+    TResult? Function(GenerateThumbnailErrorFs value)? fs,
+    TResult? Function(GenerateThumbnailErrorFileNotFound value)? fileNotFound,
+    TResult? Function(GenerateThumbnailErrorUnsupportedFormat value)?
         unsupportedFormat,
   }) {
     return fileNotFound?.call(this);
@@ -823,55 +822,60 @@ class _$GenerateThumbnailErrorFileNotFound
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GenerateThumbnailErrorFileNotFoundToJson(this);
+    return _$$GenerateThumbnailErrorFileNotFoundImplToJson(
+      this,
+    );
   }
 }
 
 abstract class GenerateThumbnailErrorFileNotFound
     implements GenerateThumbnailError {
-  const factory GenerateThumbnailErrorFileNotFound({required String path}) =
-      _$GenerateThumbnailErrorFileNotFound;
+  const factory GenerateThumbnailErrorFileNotFound(
+      {required final String path}) = _$GenerateThumbnailErrorFileNotFoundImpl;
 
   factory GenerateThumbnailErrorFileNotFound.fromJson(
           Map<String, dynamic> json) =
-      _$GenerateThumbnailErrorFileNotFound.fromJson;
+      _$GenerateThumbnailErrorFileNotFoundImpl.fromJson;
 
   String get path;
-  @JsonKey(ignore: true)
-  $GenerateThumbnailErrorFileNotFoundCopyWith<
-          GenerateThumbnailErrorFileNotFound>
+
+  /// Create a copy of GenerateThumbnailError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GenerateThumbnailErrorFileNotFoundImplCopyWith<
+          _$GenerateThumbnailErrorFileNotFoundImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GenerateThumbnailErrorUnsupportedFormatCopyWith<$Res> {
-  factory $GenerateThumbnailErrorUnsupportedFormatCopyWith(
-          GenerateThumbnailErrorUnsupportedFormat value,
-          $Res Function(GenerateThumbnailErrorUnsupportedFormat) then) =
-      _$GenerateThumbnailErrorUnsupportedFormatCopyWithImpl<$Res>;
+abstract class _$$GenerateThumbnailErrorUnsupportedFormatImplCopyWith<$Res> {
+  factory _$$GenerateThumbnailErrorUnsupportedFormatImplCopyWith(
+          _$GenerateThumbnailErrorUnsupportedFormatImpl value,
+          $Res Function(_$GenerateThumbnailErrorUnsupportedFormatImpl) then) =
+      __$$GenerateThumbnailErrorUnsupportedFormatImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({String path});
 }
 
 /// @nodoc
-class _$GenerateThumbnailErrorUnsupportedFormatCopyWithImpl<$Res>
-    extends _$GenerateThumbnailErrorCopyWithImpl<$Res>
-    implements $GenerateThumbnailErrorUnsupportedFormatCopyWith<$Res> {
-  _$GenerateThumbnailErrorUnsupportedFormatCopyWithImpl(
-      GenerateThumbnailErrorUnsupportedFormat _value,
-      $Res Function(GenerateThumbnailErrorUnsupportedFormat) _then)
-      : super(
-            _value, (v) => _then(v as GenerateThumbnailErrorUnsupportedFormat));
+class __$$GenerateThumbnailErrorUnsupportedFormatImplCopyWithImpl<$Res>
+    extends _$GenerateThumbnailErrorCopyWithImpl<$Res,
+        _$GenerateThumbnailErrorUnsupportedFormatImpl>
+    implements _$$GenerateThumbnailErrorUnsupportedFormatImplCopyWith<$Res> {
+  __$$GenerateThumbnailErrorUnsupportedFormatImplCopyWithImpl(
+      _$GenerateThumbnailErrorUnsupportedFormatImpl _value,
+      $Res Function(_$GenerateThumbnailErrorUnsupportedFormatImpl) _then)
+      : super(_value, _then);
 
-  @override
-  GenerateThumbnailErrorUnsupportedFormat get _value =>
-      super._value as GenerateThumbnailErrorUnsupportedFormat;
-
+  /// Create a copy of GenerateThumbnailError
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? path = freezed,
+    Object? path = null,
   }) {
-    return _then(GenerateThumbnailErrorUnsupportedFormat(
-      path: path == freezed
+    return _then(_$GenerateThumbnailErrorUnsupportedFormatImpl(
+      path: null == path
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
               as String,
@@ -881,15 +885,15 @@ class _$GenerateThumbnailErrorUnsupportedFormatCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$GenerateThumbnailErrorUnsupportedFormat
+class _$GenerateThumbnailErrorUnsupportedFormatImpl
     implements GenerateThumbnailErrorUnsupportedFormat {
-  const _$GenerateThumbnailErrorUnsupportedFormat(
-      {required this.path, String? $type})
+  const _$GenerateThumbnailErrorUnsupportedFormatImpl(
+      {required this.path, final String? $type})
       : $type = $type ?? 'unsupportedFormat';
 
-  factory _$GenerateThumbnailErrorUnsupportedFormat.fromJson(
+  factory _$GenerateThumbnailErrorUnsupportedFormatImpl.fromJson(
           Map<String, dynamic> json) =>
-      _$$GenerateThumbnailErrorUnsupportedFormatFromJson(json);
+      _$$GenerateThumbnailErrorUnsupportedFormatImplFromJson(json);
 
   @override
   final String path;
@@ -903,23 +907,27 @@ class _$GenerateThumbnailErrorUnsupportedFormat
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is GenerateThumbnailErrorUnsupportedFormat &&
-            const DeepCollectionEquality().equals(other.path, path));
+            other is _$GenerateThumbnailErrorUnsupportedFormatImpl &&
+            (identical(other.path, path) || other.path == path));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(path));
+  int get hashCode => Object.hash(runtimeType, path);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GenerateThumbnailError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $GenerateThumbnailErrorUnsupportedFormatCopyWith<
-          GenerateThumbnailErrorUnsupportedFormat>
-      get copyWith => _$GenerateThumbnailErrorUnsupportedFormatCopyWithImpl<
-          GenerateThumbnailErrorUnsupportedFormat>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$GenerateThumbnailErrorUnsupportedFormatImplCopyWith<
+          _$GenerateThumbnailErrorUnsupportedFormatImpl>
+      get copyWith =>
+          __$$GenerateThumbnailErrorUnsupportedFormatImplCopyWithImpl<
+              _$GenerateThumbnailErrorUnsupportedFormatImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -934,9 +942,9 @@ class _$GenerateThumbnailErrorUnsupportedFormat
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(FsError error)? fs,
-    TResult Function(String path)? fileNotFound,
-    TResult Function(String path)? unsupportedFormat,
+    TResult? Function(FsError error)? fs,
+    TResult? Function(String path)? fileNotFound,
+    TResult? Function(String path)? unsupportedFormat,
   }) {
     return unsupportedFormat?.call(path);
   }
@@ -970,9 +978,9 @@ class _$GenerateThumbnailErrorUnsupportedFormat
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(GenerateThumbnailErrorFs value)? fs,
-    TResult Function(GenerateThumbnailErrorFileNotFound value)? fileNotFound,
-    TResult Function(GenerateThumbnailErrorUnsupportedFormat value)?
+    TResult? Function(GenerateThumbnailErrorFs value)? fs,
+    TResult? Function(GenerateThumbnailErrorFileNotFound value)? fileNotFound,
+    TResult? Function(GenerateThumbnailErrorUnsupportedFormat value)?
         unsupportedFormat,
   }) {
     return unsupportedFormat?.call(this);
@@ -995,22 +1003,28 @@ class _$GenerateThumbnailErrorUnsupportedFormat
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GenerateThumbnailErrorUnsupportedFormatToJson(this);
+    return _$$GenerateThumbnailErrorUnsupportedFormatImplToJson(
+      this,
+    );
   }
 }
 
 abstract class GenerateThumbnailErrorUnsupportedFormat
     implements GenerateThumbnailError {
   const factory GenerateThumbnailErrorUnsupportedFormat(
-      {required String path}) = _$GenerateThumbnailErrorUnsupportedFormat;
+          {required final String path}) =
+      _$GenerateThumbnailErrorUnsupportedFormatImpl;
 
   factory GenerateThumbnailErrorUnsupportedFormat.fromJson(
           Map<String, dynamic> json) =
-      _$GenerateThumbnailErrorUnsupportedFormat.fromJson;
+      _$GenerateThumbnailErrorUnsupportedFormatImpl.fromJson;
 
   String get path;
-  @JsonKey(ignore: true)
-  $GenerateThumbnailErrorUnsupportedFormatCopyWith<
-          GenerateThumbnailErrorUnsupportedFormat>
+
+  /// Create a copy of GenerateThumbnailError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GenerateThumbnailErrorUnsupportedFormatImplCopyWith<
+          _$GenerateThumbnailErrorUnsupportedFormatImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

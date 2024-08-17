@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -18,8 +18,8 @@
 import 'dart:typed_data';
 
 import 'package:blink_comparison/core/date_time_provider.dart';
+import 'package:blink_comparison/core/encrypt/encrypt.dart';
 import 'package:blink_comparison/core/encrypt/password_hasher.dart';
-import 'package:blink_comparison/core/encrypt/secure_key.dart';
 import 'package:blink_comparison/core/entity/entity.dart';
 import 'package:blink_comparison/core/storage/password_repository.dart';
 import 'package:blink_comparison/core/storage/ref_image_secure_storage.dart';
@@ -221,7 +221,7 @@ void main() {
         ).thenAnswer((_) async => info.hash);
         when(
           () => mockSecureStorage.setSecureKey(
-            const SecureKey.password(password),
+            const AppSecureKey.password(password),
           ),
         ).thenAnswer((_) => {});
         when(() => mockDateTimeProvider.now()).thenReturn(DateTime(2021));
@@ -231,7 +231,7 @@ void main() {
 
         verify(
           () => mockSecureStorage.setSecureKey(
-            const SecureKey.password(password),
+            const AppSecureKey.password(password),
           ),
         ).called(1);
       },

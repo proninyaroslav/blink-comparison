@@ -6,85 +6,89 @@ part of 'save_ref_image_service.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ServiceRequest _$$_ServiceRequestFromJson(Map<String, dynamic> json) =>
-    _$_ServiceRequest(
+_$ServiceRequestImpl _$$ServiceRequestImplFromJson(Map<String, dynamic> json) =>
+    _$ServiceRequestImpl(
       info: RefImageInfo.fromJson(json['info'] as Map<String, dynamic>),
       srcFile: const XFileConverter().fromJson(json['srcFile'] as String),
-      key: SecureKey.fromJson(json['key'] as Map<String, dynamic>),
+      key: AppSecureKey.fromJson(json['key'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_ServiceRequestToJson(_$_ServiceRequest instance) =>
+Map<String, dynamic> _$$ServiceRequestImplToJson(
+        _$ServiceRequestImpl instance) =>
     <String, dynamic>{
       'info': instance.info.toJson(),
       'srcFile': const XFileConverter().toJson(instance.srcFile),
       'key': instance.key.toJson(),
     };
 
-_$ServiceResultSuccess _$$ServiceResultSuccessFromJson(
+_$ServiceResultSuccessImpl _$$ServiceResultSuccessImplFromJson(
         Map<String, dynamic> json) =>
-    _$ServiceResultSuccess(
+    _$ServiceResultSuccessImpl(
       request: ServiceRequest.fromJson(json['request'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$ServiceResultSuccessToJson(
-        _$ServiceResultSuccess instance) =>
+Map<String, dynamic> _$$ServiceResultSuccessImplToJson(
+        _$ServiceResultSuccessImpl instance) =>
     <String, dynamic>{
       'request': instance.request.toJson(),
       'runtimeType': instance.$type,
     };
 
-_$ServiceResultFail _$$ServiceResultFailFromJson(Map<String, dynamic> json) =>
-    _$ServiceResultFail(
+_$ServiceResultFailImpl _$$ServiceResultFailImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ServiceResultFailImpl(
       request: ServiceRequest.fromJson(json['request'] as Map<String, dynamic>),
       error: ServiceError.fromJson(json['error'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$ServiceResultFailToJson(_$ServiceResultFail instance) =>
+Map<String, dynamic> _$$ServiceResultFailImplToJson(
+        _$ServiceResultFailImpl instance) =>
     <String, dynamic>{
       'request': instance.request.toJson(),
       'error': instance.error.toJson(),
       'runtimeType': instance.$type,
     };
 
-_$ServiceErrorSaveImage _$$ServiceErrorSaveImageFromJson(
+_$ServiceErrorSaveImageImpl _$$ServiceErrorSaveImageImplFromJson(
         Map<String, dynamic> json) =>
-    _$ServiceErrorSaveImage(
+    _$ServiceErrorSaveImageImpl(
       SaveRefImageError.fromJson(json['error'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$ServiceErrorSaveImageToJson(
-        _$ServiceErrorSaveImage instance) =>
+Map<String, dynamic> _$$ServiceErrorSaveImageImplToJson(
+        _$ServiceErrorSaveImageImpl instance) =>
     <String, dynamic>{
       'error': instance.error.toJson(),
       'runtimeType': instance.$type,
     };
 
-_$ServiceErrorGenerateThumbnail _$$ServiceErrorGenerateThumbnailFromJson(
-        Map<String, dynamic> json) =>
-    _$ServiceErrorGenerateThumbnail(
-      GenerateThumbnailError.fromJson(json['error'] as Map<String, dynamic>),
-      $type: json['runtimeType'] as String?,
-    );
+_$ServiceErrorGenerateThumbnailImpl
+    _$$ServiceErrorGenerateThumbnailImplFromJson(Map<String, dynamic> json) =>
+        _$ServiceErrorGenerateThumbnailImpl(
+          GenerateThumbnailError.fromJson(
+              json['error'] as Map<String, dynamic>),
+          $type: json['runtimeType'] as String?,
+        );
 
-Map<String, dynamic> _$$ServiceErrorGenerateThumbnailToJson(
-        _$ServiceErrorGenerateThumbnail instance) =>
+Map<String, dynamic> _$$ServiceErrorGenerateThumbnailImplToJson(
+        _$ServiceErrorGenerateThumbnailImpl instance) =>
     <String, dynamic>{
       'error': instance.error.toJson(),
       'runtimeType': instance.$type,
     };
 
-_$ServiceErrorSaveThumbnail _$$ServiceErrorSaveThumbnailFromJson(
+_$ServiceErrorSaveThumbnailImpl _$$ServiceErrorSaveThumbnailImplFromJson(
         Map<String, dynamic> json) =>
-    _$ServiceErrorSaveThumbnail(
+    _$ServiceErrorSaveThumbnailImpl(
       SaveThumbnailError.fromJson(json['error'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$ServiceErrorSaveThumbnailToJson(
-        _$ServiceErrorSaveThumbnail instance) =>
+Map<String, dynamic> _$$ServiceErrorSaveThumbnailImplToJson(
+        _$ServiceErrorSaveThumbnailImpl instance) =>
     <String, dynamic>{
       'error': instance.error.toJson(),
       'runtimeType': instance.$type,

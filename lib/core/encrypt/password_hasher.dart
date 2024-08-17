@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -16,13 +16,14 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'dart:async';
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:convert/convert.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_sodium/flutter_sodium.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:sodium_libs/sodium_libs_sumo.dart';
 
 part 'password_hasher.freezed.dart';
 
@@ -39,7 +40,11 @@ const _hashLength = 16;
 
 @Injectable(as: PasswordHasher)
 class PasswordHasherImpl implements PasswordHasher {
-  /// Used Argon2i 1.3 algorithm with 16-bytes key length.
+  final SodiumSumo _sodium;
+
+  PasswordHasherImpl(this._sodium);
+
+  /// Used Argon2id 1.3 algorithm with 16-bytes key length.
   /// Requires 256 MiB of dedicated RAM, and takes about 0.7 seconds
   /// on a 2.8 Ghz Core i7 CPU.
   @override
@@ -47,32 +52,35 @@ class PasswordHasherImpl implements PasswordHasher {
     required String password,
     required Uint8List salt,
   }) async {
-    return compute(
-      _calculate,
-      _SodiumHashInfo(
-        password: password,
-        salt: salt,
+    return _sodium.runIsolated(
+      (sodium, secureKeys, keyPairs) => _calculate(
+        sodium,
+        _SodiumHashInfo(
+          password: password,
+          salt: salt,
+        ),
       ),
     );
   }
 }
 
+// Runs in Isolate
+Future<String> _calculate(SodiumSumo sodium, _SodiumHashInfo info) async {
+  final hash = sodium.crypto.pwhash(
+    password: Int8List.fromList(utf8.encoder.convert(info.password)),
+    salt: info.salt,
+    outLen: _hashLength,
+    opsLimit: _sodiumOpslimitModerate,
+    memLimit: _sodiumMemlimitModerate,
+    alg: CryptoPwhashAlgorithm.argon2id13,
+  );
+  return hex.encode(hash.extractBytes());
+}
+
 @freezed
-class _SodiumHashInfo with _$_SodiumHashInfo {
+class _SodiumHashInfo with _$SodiumHashInfo {
   const factory _SodiumHashInfo({
     required String password,
     required Uint8List salt,
   }) = _SodiumHashInfoData;
-}
-
-Future<String> _calculate(_SodiumHashInfo info) async {
-  final hash = PasswordHash.hashString(
-    info.password,
-    info.salt,
-    outlen: _hashLength,
-    opslimit: _sodiumOpslimitModerate,
-    memlimit: _sodiumMemlimitModerate,
-    alg: PasswordHashAlgorithm.Argon2i13,
-  );
-  return hex.encode(hash);
 }

@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -18,21 +18,23 @@
 import 'package:blink_comparison/core/encrypt/encrypt.dart';
 import 'package:blink_comparison/core/encrypt/encrypt_key_derivation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:sodium_libs/sodium_libs_sumo.dart';
 
 abstract class EncryptModuleProvider {
-  EncryptModule getByKey(SecureKey key);
+  EncryptModule getByKey(AppSecureKey key);
 }
 
 @Singleton(as: EncryptModuleProvider)
 class EncryptModuleProviderImpl implements EncryptModuleProvider {
+  final SodiumSumo _sodium;
   final EncryptKeyDerivation _derivation;
 
-  EncryptModuleProviderImpl(this._derivation);
+  EncryptModuleProviderImpl(this._sodium, this._derivation);
 
   @override
-  EncryptModule getByKey(SecureKey key) {
+  EncryptModule getByKey(AppSecureKey key) {
     return key.when(
-      password: (password) => PBEModule(password, _derivation),
+      password: (password) => PBEModule(_sodium, password, _derivation),
     );
   }
 }

@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -23,12 +23,20 @@ import 'package:blink_comparison/core/entity/entity.dart';
 import 'package:convert/convert.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:sodium_libs/sodium_libs_sumo.dart';
 
 import '../mock/mock.dart';
+import 'load_sodium.dart';
 
 void main() {
   group('Encrypt module |', () {
     late EncryptKeyDerivation mockDerivation;
+    late final SodiumSumo sodium;
+
+    setUpAll(() async {
+      sodium = await loadSodiumSumo();
+      mockDerivation = MockEncryptKeyDerivation();
+    });
 
     setUp(() {
       mockDerivation = MockEncryptKeyDerivation();
@@ -41,7 +49,7 @@ void main() {
         // 16 KB + 1 byte (unaligned size)
         final bytes = Uint8List.fromList(List.generate(16385, (i) => i));
         const password = 'password';
-        final pbe = PBEModule(password, mockDerivation);
+        final pbe = PBEModule(sodium, password, mockDerivation);
         final info = RefImageInfo(
           id: '1',
           dateAdded: DateTime(2021),
@@ -79,7 +87,7 @@ void main() {
         // 16 KB + 1 byte (unaligned size)
         final bytes = Uint8List.fromList(List.generate(16385, (i) => i));
         const password = 'password';
-        final pbe = PBEModule(password, mockDerivation);
+        final pbe = PBEModule(sodium, password, mockDerivation);
         final info = RefImageInfo(
           id: '1',
           dateAdded: DateTime(2021),
@@ -117,7 +125,7 @@ void main() {
         // 16 KB + 1 byte (unaligned size)
         final bytes = Uint8List.fromList(List.generate(16385, (i) => i));
         const password = 'password';
-        final pbe = PBEModule(password, mockDerivation);
+        final pbe = PBEModule(sodium, password, mockDerivation);
         final info = RefImageInfo(
           id: '1',
           dateAdded: DateTime(2021),

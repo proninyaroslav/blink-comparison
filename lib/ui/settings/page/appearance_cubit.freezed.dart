@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'appearance_cubit.dart';
 
@@ -12,45 +12,11 @@ part of 'appearance_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$AppearanceStateTearOff {
-  const _$AppearanceStateTearOff();
-
-  AppearanceStateInitial initial(AppearanceInfo info) {
-    return AppearanceStateInitial(
-      info,
-    );
-  }
-
-  AppearanceStateThemeChanged themeChanged(AppearanceInfo info) {
-    return AppearanceStateThemeChanged(
-      info,
-    );
-  }
-
-  AppearanceStateLocaleChanged localeChanged(AppearanceInfo info) {
-    return AppearanceStateLocaleChanged(
-      info,
-    );
-  }
-
-  AppearanceStateRefImageBorderColorChanged refImageBorderColorChanged(
-      AppearanceInfo info) {
-    return AppearanceStateRefImageBorderColorChanged(
-      info,
-    );
-  }
-}
-
-/// @nodoc
-const $AppearanceState = _$AppearanceStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AppearanceState {
   AppearanceInfo get info => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(AppearanceInfo info) initial,
@@ -61,10 +27,10 @@ mixin _$AppearanceState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(AppearanceInfo info)? initial,
-    TResult Function(AppearanceInfo info)? themeChanged,
-    TResult Function(AppearanceInfo info)? localeChanged,
-    TResult Function(AppearanceInfo info)? refImageBorderColorChanged,
+    TResult? Function(AppearanceInfo info)? initial,
+    TResult? Function(AppearanceInfo info)? themeChanged,
+    TResult? Function(AppearanceInfo info)? localeChanged,
+    TResult? Function(AppearanceInfo info)? refImageBorderColorChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -87,10 +53,10 @@ mixin _$AppearanceState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AppearanceStateInitial value)? initial,
-    TResult Function(AppearanceStateThemeChanged value)? themeChanged,
-    TResult Function(AppearanceStateLocaleChanged value)? localeChanged,
-    TResult Function(AppearanceStateRefImageBorderColorChanged value)?
+    TResult? Function(AppearanceStateInitial value)? initial,
+    TResult? Function(AppearanceStateThemeChanged value)? themeChanged,
+    TResult? Function(AppearanceStateLocaleChanged value)? localeChanged,
+    TResult? Function(AppearanceStateRefImageBorderColorChanged value)?
         refImageBorderColorChanged,
   }) =>
       throw _privateConstructorUsedError;
@@ -105,7 +71,9 @@ mixin _$AppearanceState {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppearanceState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AppearanceStateCopyWith<AppearanceState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -114,48 +82,58 @@ mixin _$AppearanceState {
 abstract class $AppearanceStateCopyWith<$Res> {
   factory $AppearanceStateCopyWith(
           AppearanceState value, $Res Function(AppearanceState) then) =
-      _$AppearanceStateCopyWithImpl<$Res>;
+      _$AppearanceStateCopyWithImpl<$Res, AppearanceState>;
+  @useResult
   $Res call({AppearanceInfo info});
 
   $AppearanceInfoCopyWith<$Res> get info;
 }
 
 /// @nodoc
-class _$AppearanceStateCopyWithImpl<$Res>
+class _$AppearanceStateCopyWithImpl<$Res, $Val extends AppearanceState>
     implements $AppearanceStateCopyWith<$Res> {
   _$AppearanceStateCopyWithImpl(this._value, this._then);
 
-  final AppearanceState _value;
   // ignore: unused_field
-  final $Res Function(AppearanceState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of AppearanceState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? info = freezed,
+    Object? info = null,
   }) {
     return _then(_value.copyWith(
-      info: info == freezed
+      info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as AppearanceInfo,
-    ));
+    ) as $Val);
   }
 
+  /// Create a copy of AppearanceState
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $AppearanceInfoCopyWith<$Res> get info {
     return $AppearanceInfoCopyWith<$Res>(_value.info, (value) {
-      return _then(_value.copyWith(info: value));
+      return _then(_value.copyWith(info: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class $AppearanceStateInitialCopyWith<$Res>
+abstract class _$$AppearanceStateInitialImplCopyWith<$Res>
     implements $AppearanceStateCopyWith<$Res> {
-  factory $AppearanceStateInitialCopyWith(AppearanceStateInitial value,
-          $Res Function(AppearanceStateInitial) then) =
-      _$AppearanceStateInitialCopyWithImpl<$Res>;
+  factory _$$AppearanceStateInitialImplCopyWith(
+          _$AppearanceStateInitialImpl value,
+          $Res Function(_$AppearanceStateInitialImpl) then) =
+      __$$AppearanceStateInitialImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({AppearanceInfo info});
 
   @override
@@ -163,22 +141,23 @@ abstract class $AppearanceStateInitialCopyWith<$Res>
 }
 
 /// @nodoc
-class _$AppearanceStateInitialCopyWithImpl<$Res>
-    extends _$AppearanceStateCopyWithImpl<$Res>
-    implements $AppearanceStateInitialCopyWith<$Res> {
-  _$AppearanceStateInitialCopyWithImpl(AppearanceStateInitial _value,
-      $Res Function(AppearanceStateInitial) _then)
-      : super(_value, (v) => _then(v as AppearanceStateInitial));
+class __$$AppearanceStateInitialImplCopyWithImpl<$Res>
+    extends _$AppearanceStateCopyWithImpl<$Res, _$AppearanceStateInitialImpl>
+    implements _$$AppearanceStateInitialImplCopyWith<$Res> {
+  __$$AppearanceStateInitialImplCopyWithImpl(
+      _$AppearanceStateInitialImpl _value,
+      $Res Function(_$AppearanceStateInitialImpl) _then)
+      : super(_value, _then);
 
-  @override
-  AppearanceStateInitial get _value => super._value as AppearanceStateInitial;
-
+  /// Create a copy of AppearanceState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? info = freezed,
+    Object? info = null,
   }) {
-    return _then(AppearanceStateInitial(
-      info == freezed
+    return _then(_$AppearanceStateInitialImpl(
+      null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as AppearanceInfo,
@@ -188,8 +167,8 @@ class _$AppearanceStateInitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AppearanceStateInitial implements AppearanceStateInitial {
-  const _$AppearanceStateInitial(this.info);
+class _$AppearanceStateInitialImpl implements AppearanceStateInitial {
+  const _$AppearanceStateInitialImpl(this.info);
 
   @override
   final AppearanceInfo info;
@@ -200,22 +179,24 @@ class _$AppearanceStateInitial implements AppearanceStateInitial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is AppearanceStateInitial &&
-            const DeepCollectionEquality().equals(other.info, info));
+            other is _$AppearanceStateInitialImpl &&
+            (identical(other.info, info) || other.info == info));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(info));
+  int get hashCode => Object.hash(runtimeType, info);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppearanceState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $AppearanceStateInitialCopyWith<AppearanceStateInitial> get copyWith =>
-      _$AppearanceStateInitialCopyWithImpl<AppearanceStateInitial>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$AppearanceStateInitialImplCopyWith<_$AppearanceStateInitialImpl>
+      get copyWith => __$$AppearanceStateInitialImplCopyWithImpl<
+          _$AppearanceStateInitialImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -231,10 +212,10 @@ class _$AppearanceStateInitial implements AppearanceStateInitial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(AppearanceInfo info)? initial,
-    TResult Function(AppearanceInfo info)? themeChanged,
-    TResult Function(AppearanceInfo info)? localeChanged,
-    TResult Function(AppearanceInfo info)? refImageBorderColorChanged,
+    TResult? Function(AppearanceInfo info)? initial,
+    TResult? Function(AppearanceInfo info)? themeChanged,
+    TResult? Function(AppearanceInfo info)? localeChanged,
+    TResult? Function(AppearanceInfo info)? refImageBorderColorChanged,
   }) {
     return initial?.call(info);
   }
@@ -269,10 +250,10 @@ class _$AppearanceStateInitial implements AppearanceStateInitial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AppearanceStateInitial value)? initial,
-    TResult Function(AppearanceStateThemeChanged value)? themeChanged,
-    TResult Function(AppearanceStateLocaleChanged value)? localeChanged,
-    TResult Function(AppearanceStateRefImageBorderColorChanged value)?
+    TResult? Function(AppearanceStateInitial value)? initial,
+    TResult? Function(AppearanceStateThemeChanged value)? themeChanged,
+    TResult? Function(AppearanceStateLocaleChanged value)? localeChanged,
+    TResult? Function(AppearanceStateRefImageBorderColorChanged value)?
         refImageBorderColorChanged,
   }) {
     return initial?.call(this);
@@ -296,25 +277,29 @@ class _$AppearanceStateInitial implements AppearanceStateInitial {
 }
 
 abstract class AppearanceStateInitial implements AppearanceState {
-  const factory AppearanceStateInitial(AppearanceInfo info) =
-      _$AppearanceStateInitial;
+  const factory AppearanceStateInitial(final AppearanceInfo info) =
+      _$AppearanceStateInitialImpl;
 
   @override
   AppearanceInfo get info;
+
+  /// Create a copy of AppearanceState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  $AppearanceStateInitialCopyWith<AppearanceStateInitial> get copyWith =>
-      throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AppearanceStateInitialImplCopyWith<_$AppearanceStateInitialImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AppearanceStateThemeChangedCopyWith<$Res>
+abstract class _$$AppearanceStateThemeChangedImplCopyWith<$Res>
     implements $AppearanceStateCopyWith<$Res> {
-  factory $AppearanceStateThemeChangedCopyWith(
-          AppearanceStateThemeChanged value,
-          $Res Function(AppearanceStateThemeChanged) then) =
-      _$AppearanceStateThemeChangedCopyWithImpl<$Res>;
+  factory _$$AppearanceStateThemeChangedImplCopyWith(
+          _$AppearanceStateThemeChangedImpl value,
+          $Res Function(_$AppearanceStateThemeChangedImpl) then) =
+      __$$AppearanceStateThemeChangedImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({AppearanceInfo info});
 
   @override
@@ -322,23 +307,24 @@ abstract class $AppearanceStateThemeChangedCopyWith<$Res>
 }
 
 /// @nodoc
-class _$AppearanceStateThemeChangedCopyWithImpl<$Res>
-    extends _$AppearanceStateCopyWithImpl<$Res>
-    implements $AppearanceStateThemeChangedCopyWith<$Res> {
-  _$AppearanceStateThemeChangedCopyWithImpl(AppearanceStateThemeChanged _value,
-      $Res Function(AppearanceStateThemeChanged) _then)
-      : super(_value, (v) => _then(v as AppearanceStateThemeChanged));
+class __$$AppearanceStateThemeChangedImplCopyWithImpl<$Res>
+    extends _$AppearanceStateCopyWithImpl<$Res,
+        _$AppearanceStateThemeChangedImpl>
+    implements _$$AppearanceStateThemeChangedImplCopyWith<$Res> {
+  __$$AppearanceStateThemeChangedImplCopyWithImpl(
+      _$AppearanceStateThemeChangedImpl _value,
+      $Res Function(_$AppearanceStateThemeChangedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  AppearanceStateThemeChanged get _value =>
-      super._value as AppearanceStateThemeChanged;
-
+  /// Create a copy of AppearanceState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? info = freezed,
+    Object? info = null,
   }) {
-    return _then(AppearanceStateThemeChanged(
-      info == freezed
+    return _then(_$AppearanceStateThemeChangedImpl(
+      null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as AppearanceInfo,
@@ -348,8 +334,8 @@ class _$AppearanceStateThemeChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AppearanceStateThemeChanged implements AppearanceStateThemeChanged {
-  const _$AppearanceStateThemeChanged(this.info);
+class _$AppearanceStateThemeChangedImpl implements AppearanceStateThemeChanged {
+  const _$AppearanceStateThemeChangedImpl(this.info);
 
   @override
   final AppearanceInfo info;
@@ -360,22 +346,24 @@ class _$AppearanceStateThemeChanged implements AppearanceStateThemeChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is AppearanceStateThemeChanged &&
-            const DeepCollectionEquality().equals(other.info, info));
+            other is _$AppearanceStateThemeChangedImpl &&
+            (identical(other.info, info) || other.info == info));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(info));
+  int get hashCode => Object.hash(runtimeType, info);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppearanceState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $AppearanceStateThemeChangedCopyWith<AppearanceStateThemeChanged>
-      get copyWith => _$AppearanceStateThemeChangedCopyWithImpl<
-          AppearanceStateThemeChanged>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$AppearanceStateThemeChangedImplCopyWith<_$AppearanceStateThemeChangedImpl>
+      get copyWith => __$$AppearanceStateThemeChangedImplCopyWithImpl<
+          _$AppearanceStateThemeChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -391,10 +379,10 @@ class _$AppearanceStateThemeChanged implements AppearanceStateThemeChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(AppearanceInfo info)? initial,
-    TResult Function(AppearanceInfo info)? themeChanged,
-    TResult Function(AppearanceInfo info)? localeChanged,
-    TResult Function(AppearanceInfo info)? refImageBorderColorChanged,
+    TResult? Function(AppearanceInfo info)? initial,
+    TResult? Function(AppearanceInfo info)? themeChanged,
+    TResult? Function(AppearanceInfo info)? localeChanged,
+    TResult? Function(AppearanceInfo info)? refImageBorderColorChanged,
   }) {
     return themeChanged?.call(info);
   }
@@ -429,10 +417,10 @@ class _$AppearanceStateThemeChanged implements AppearanceStateThemeChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AppearanceStateInitial value)? initial,
-    TResult Function(AppearanceStateThemeChanged value)? themeChanged,
-    TResult Function(AppearanceStateLocaleChanged value)? localeChanged,
-    TResult Function(AppearanceStateRefImageBorderColorChanged value)?
+    TResult? Function(AppearanceStateInitial value)? initial,
+    TResult? Function(AppearanceStateThemeChanged value)? themeChanged,
+    TResult? Function(AppearanceStateLocaleChanged value)? localeChanged,
+    TResult? Function(AppearanceStateRefImageBorderColorChanged value)?
         refImageBorderColorChanged,
   }) {
     return themeChanged?.call(this);
@@ -456,25 +444,29 @@ class _$AppearanceStateThemeChanged implements AppearanceStateThemeChanged {
 }
 
 abstract class AppearanceStateThemeChanged implements AppearanceState {
-  const factory AppearanceStateThemeChanged(AppearanceInfo info) =
-      _$AppearanceStateThemeChanged;
+  const factory AppearanceStateThemeChanged(final AppearanceInfo info) =
+      _$AppearanceStateThemeChangedImpl;
 
   @override
   AppearanceInfo get info;
+
+  /// Create a copy of AppearanceState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  $AppearanceStateThemeChangedCopyWith<AppearanceStateThemeChanged>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AppearanceStateThemeChangedImplCopyWith<_$AppearanceStateThemeChangedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AppearanceStateLocaleChangedCopyWith<$Res>
+abstract class _$$AppearanceStateLocaleChangedImplCopyWith<$Res>
     implements $AppearanceStateCopyWith<$Res> {
-  factory $AppearanceStateLocaleChangedCopyWith(
-          AppearanceStateLocaleChanged value,
-          $Res Function(AppearanceStateLocaleChanged) then) =
-      _$AppearanceStateLocaleChangedCopyWithImpl<$Res>;
+  factory _$$AppearanceStateLocaleChangedImplCopyWith(
+          _$AppearanceStateLocaleChangedImpl value,
+          $Res Function(_$AppearanceStateLocaleChangedImpl) then) =
+      __$$AppearanceStateLocaleChangedImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({AppearanceInfo info});
 
   @override
@@ -482,24 +474,24 @@ abstract class $AppearanceStateLocaleChangedCopyWith<$Res>
 }
 
 /// @nodoc
-class _$AppearanceStateLocaleChangedCopyWithImpl<$Res>
-    extends _$AppearanceStateCopyWithImpl<$Res>
-    implements $AppearanceStateLocaleChangedCopyWith<$Res> {
-  _$AppearanceStateLocaleChangedCopyWithImpl(
-      AppearanceStateLocaleChanged _value,
-      $Res Function(AppearanceStateLocaleChanged) _then)
-      : super(_value, (v) => _then(v as AppearanceStateLocaleChanged));
+class __$$AppearanceStateLocaleChangedImplCopyWithImpl<$Res>
+    extends _$AppearanceStateCopyWithImpl<$Res,
+        _$AppearanceStateLocaleChangedImpl>
+    implements _$$AppearanceStateLocaleChangedImplCopyWith<$Res> {
+  __$$AppearanceStateLocaleChangedImplCopyWithImpl(
+      _$AppearanceStateLocaleChangedImpl _value,
+      $Res Function(_$AppearanceStateLocaleChangedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  AppearanceStateLocaleChanged get _value =>
-      super._value as AppearanceStateLocaleChanged;
-
+  /// Create a copy of AppearanceState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? info = freezed,
+    Object? info = null,
   }) {
-    return _then(AppearanceStateLocaleChanged(
-      info == freezed
+    return _then(_$AppearanceStateLocaleChangedImpl(
+      null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as AppearanceInfo,
@@ -509,8 +501,9 @@ class _$AppearanceStateLocaleChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AppearanceStateLocaleChanged implements AppearanceStateLocaleChanged {
-  const _$AppearanceStateLocaleChanged(this.info);
+class _$AppearanceStateLocaleChangedImpl
+    implements AppearanceStateLocaleChanged {
+  const _$AppearanceStateLocaleChangedImpl(this.info);
 
   @override
   final AppearanceInfo info;
@@ -521,22 +514,25 @@ class _$AppearanceStateLocaleChanged implements AppearanceStateLocaleChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is AppearanceStateLocaleChanged &&
-            const DeepCollectionEquality().equals(other.info, info));
+            other is _$AppearanceStateLocaleChangedImpl &&
+            (identical(other.info, info) || other.info == info));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(info));
+  int get hashCode => Object.hash(runtimeType, info);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppearanceState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $AppearanceStateLocaleChangedCopyWith<AppearanceStateLocaleChanged>
-      get copyWith => _$AppearanceStateLocaleChangedCopyWithImpl<
-          AppearanceStateLocaleChanged>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$AppearanceStateLocaleChangedImplCopyWith<
+          _$AppearanceStateLocaleChangedImpl>
+      get copyWith => __$$AppearanceStateLocaleChangedImplCopyWithImpl<
+          _$AppearanceStateLocaleChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -552,10 +548,10 @@ class _$AppearanceStateLocaleChanged implements AppearanceStateLocaleChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(AppearanceInfo info)? initial,
-    TResult Function(AppearanceInfo info)? themeChanged,
-    TResult Function(AppearanceInfo info)? localeChanged,
-    TResult Function(AppearanceInfo info)? refImageBorderColorChanged,
+    TResult? Function(AppearanceInfo info)? initial,
+    TResult? Function(AppearanceInfo info)? themeChanged,
+    TResult? Function(AppearanceInfo info)? localeChanged,
+    TResult? Function(AppearanceInfo info)? refImageBorderColorChanged,
   }) {
     return localeChanged?.call(info);
   }
@@ -590,10 +586,10 @@ class _$AppearanceStateLocaleChanged implements AppearanceStateLocaleChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AppearanceStateInitial value)? initial,
-    TResult Function(AppearanceStateThemeChanged value)? themeChanged,
-    TResult Function(AppearanceStateLocaleChanged value)? localeChanged,
-    TResult Function(AppearanceStateRefImageBorderColorChanged value)?
+    TResult? Function(AppearanceStateInitial value)? initial,
+    TResult? Function(AppearanceStateThemeChanged value)? themeChanged,
+    TResult? Function(AppearanceStateLocaleChanged value)? localeChanged,
+    TResult? Function(AppearanceStateRefImageBorderColorChanged value)?
         refImageBorderColorChanged,
   }) {
     return localeChanged?.call(this);
@@ -617,25 +613,30 @@ class _$AppearanceStateLocaleChanged implements AppearanceStateLocaleChanged {
 }
 
 abstract class AppearanceStateLocaleChanged implements AppearanceState {
-  const factory AppearanceStateLocaleChanged(AppearanceInfo info) =
-      _$AppearanceStateLocaleChanged;
+  const factory AppearanceStateLocaleChanged(final AppearanceInfo info) =
+      _$AppearanceStateLocaleChangedImpl;
 
   @override
   AppearanceInfo get info;
+
+  /// Create a copy of AppearanceState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  $AppearanceStateLocaleChangedCopyWith<AppearanceStateLocaleChanged>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AppearanceStateLocaleChangedImplCopyWith<
+          _$AppearanceStateLocaleChangedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AppearanceStateRefImageBorderColorChangedCopyWith<$Res>
+abstract class _$$AppearanceStateRefImageBorderColorChangedImplCopyWith<$Res>
     implements $AppearanceStateCopyWith<$Res> {
-  factory $AppearanceStateRefImageBorderColorChangedCopyWith(
-          AppearanceStateRefImageBorderColorChanged value,
-          $Res Function(AppearanceStateRefImageBorderColorChanged) then) =
-      _$AppearanceStateRefImageBorderColorChangedCopyWithImpl<$Res>;
+  factory _$$AppearanceStateRefImageBorderColorChangedImplCopyWith(
+          _$AppearanceStateRefImageBorderColorChangedImpl value,
+          $Res Function(_$AppearanceStateRefImageBorderColorChangedImpl) then) =
+      __$$AppearanceStateRefImageBorderColorChangedImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({AppearanceInfo info});
 
   @override
@@ -643,25 +644,24 @@ abstract class $AppearanceStateRefImageBorderColorChangedCopyWith<$Res>
 }
 
 /// @nodoc
-class _$AppearanceStateRefImageBorderColorChangedCopyWithImpl<$Res>
-    extends _$AppearanceStateCopyWithImpl<$Res>
-    implements $AppearanceStateRefImageBorderColorChangedCopyWith<$Res> {
-  _$AppearanceStateRefImageBorderColorChangedCopyWithImpl(
-      AppearanceStateRefImageBorderColorChanged _value,
-      $Res Function(AppearanceStateRefImageBorderColorChanged) _then)
-      : super(_value,
-            (v) => _then(v as AppearanceStateRefImageBorderColorChanged));
+class __$$AppearanceStateRefImageBorderColorChangedImplCopyWithImpl<$Res>
+    extends _$AppearanceStateCopyWithImpl<$Res,
+        _$AppearanceStateRefImageBorderColorChangedImpl>
+    implements _$$AppearanceStateRefImageBorderColorChangedImplCopyWith<$Res> {
+  __$$AppearanceStateRefImageBorderColorChangedImplCopyWithImpl(
+      _$AppearanceStateRefImageBorderColorChangedImpl _value,
+      $Res Function(_$AppearanceStateRefImageBorderColorChangedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  AppearanceStateRefImageBorderColorChanged get _value =>
-      super._value as AppearanceStateRefImageBorderColorChanged;
-
+  /// Create a copy of AppearanceState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? info = freezed,
+    Object? info = null,
   }) {
-    return _then(AppearanceStateRefImageBorderColorChanged(
-      info == freezed
+    return _then(_$AppearanceStateRefImageBorderColorChangedImpl(
+      null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as AppearanceInfo,
@@ -671,9 +671,9 @@ class _$AppearanceStateRefImageBorderColorChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AppearanceStateRefImageBorderColorChanged
+class _$AppearanceStateRefImageBorderColorChangedImpl
     implements AppearanceStateRefImageBorderColorChanged {
-  const _$AppearanceStateRefImageBorderColorChanged(this.info);
+  const _$AppearanceStateRefImageBorderColorChangedImpl(this.info);
 
   @override
   final AppearanceInfo info;
@@ -684,23 +684,27 @@ class _$AppearanceStateRefImageBorderColorChanged
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is AppearanceStateRefImageBorderColorChanged &&
-            const DeepCollectionEquality().equals(other.info, info));
+            other is _$AppearanceStateRefImageBorderColorChangedImpl &&
+            (identical(other.info, info) || other.info == info));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(info));
+  int get hashCode => Object.hash(runtimeType, info);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppearanceState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  $AppearanceStateRefImageBorderColorChangedCopyWith<
-          AppearanceStateRefImageBorderColorChanged>
-      get copyWith => _$AppearanceStateRefImageBorderColorChangedCopyWithImpl<
-          AppearanceStateRefImageBorderColorChanged>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$AppearanceStateRefImageBorderColorChangedImplCopyWith<
+          _$AppearanceStateRefImageBorderColorChangedImpl>
+      get copyWith =>
+          __$$AppearanceStateRefImageBorderColorChangedImplCopyWithImpl<
+                  _$AppearanceStateRefImageBorderColorChangedImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -716,10 +720,10 @@ class _$AppearanceStateRefImageBorderColorChanged
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(AppearanceInfo info)? initial,
-    TResult Function(AppearanceInfo info)? themeChanged,
-    TResult Function(AppearanceInfo info)? localeChanged,
-    TResult Function(AppearanceInfo info)? refImageBorderColorChanged,
+    TResult? Function(AppearanceInfo info)? initial,
+    TResult? Function(AppearanceInfo info)? themeChanged,
+    TResult? Function(AppearanceInfo info)? localeChanged,
+    TResult? Function(AppearanceInfo info)? refImageBorderColorChanged,
   }) {
     return refImageBorderColorChanged?.call(info);
   }
@@ -754,10 +758,10 @@ class _$AppearanceStateRefImageBorderColorChanged
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AppearanceStateInitial value)? initial,
-    TResult Function(AppearanceStateThemeChanged value)? themeChanged,
-    TResult Function(AppearanceStateLocaleChanged value)? localeChanged,
-    TResult Function(AppearanceStateRefImageBorderColorChanged value)?
+    TResult? Function(AppearanceStateInitial value)? initial,
+    TResult? Function(AppearanceStateThemeChanged value)? themeChanged,
+    TResult? Function(AppearanceStateLocaleChanged value)? localeChanged,
+    TResult? Function(AppearanceStateRefImageBorderColorChanged value)?
         refImageBorderColorChanged,
   }) {
     return refImageBorderColorChanged?.call(this);
@@ -782,36 +786,21 @@ class _$AppearanceStateRefImageBorderColorChanged
 
 abstract class AppearanceStateRefImageBorderColorChanged
     implements AppearanceState {
-  const factory AppearanceStateRefImageBorderColorChanged(AppearanceInfo info) =
-      _$AppearanceStateRefImageBorderColorChanged;
+  const factory AppearanceStateRefImageBorderColorChanged(
+          final AppearanceInfo info) =
+      _$AppearanceStateRefImageBorderColorChangedImpl;
 
   @override
   AppearanceInfo get info;
+
+  /// Create a copy of AppearanceState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  $AppearanceStateRefImageBorderColorChangedCopyWith<
-          AppearanceStateRefImageBorderColorChanged>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AppearanceStateRefImageBorderColorChangedImplCopyWith<
+          _$AppearanceStateRefImageBorderColorChangedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$AppearanceInfoTearOff {
-  const _$AppearanceInfoTearOff();
-
-  _AppearanceInfo call(
-      {required AppThemeType theme,
-      required AppLocaleType locale,
-      required int refImageBorderColor}) {
-    return _AppearanceInfo(
-      theme: theme,
-      locale: locale,
-      refImageBorderColor: refImageBorderColor,
-    );
-  }
-}
-
-/// @nodoc
-const $AppearanceInfo = _$AppearanceInfoTearOff();
 
 /// @nodoc
 mixin _$AppearanceInfo {
@@ -819,7 +808,9 @@ mixin _$AppearanceInfo {
   AppLocaleType get locale => throw _privateConstructorUsedError;
   int get refImageBorderColor => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppearanceInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AppearanceInfoCopyWith<AppearanceInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -828,7 +819,8 @@ mixin _$AppearanceInfo {
 abstract class $AppearanceInfoCopyWith<$Res> {
   factory $AppearanceInfoCopyWith(
           AppearanceInfo value, $Res Function(AppearanceInfo) then) =
-      _$AppearanceInfoCopyWithImpl<$Res>;
+      _$AppearanceInfoCopyWithImpl<$Res, AppearanceInfo>;
+  @useResult
   $Res call(
       {AppThemeType theme, AppLocaleType locale, int refImageBorderColor});
 
@@ -837,58 +829,69 @@ abstract class $AppearanceInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AppearanceInfoCopyWithImpl<$Res>
+class _$AppearanceInfoCopyWithImpl<$Res, $Val extends AppearanceInfo>
     implements $AppearanceInfoCopyWith<$Res> {
   _$AppearanceInfoCopyWithImpl(this._value, this._then);
 
-  final AppearanceInfo _value;
   // ignore: unused_field
-  final $Res Function(AppearanceInfo) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of AppearanceInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? theme = freezed,
-    Object? locale = freezed,
-    Object? refImageBorderColor = freezed,
+    Object? theme = null,
+    Object? locale = null,
+    Object? refImageBorderColor = null,
   }) {
     return _then(_value.copyWith(
-      theme: theme == freezed
+      theme: null == theme
           ? _value.theme
           : theme // ignore: cast_nullable_to_non_nullable
               as AppThemeType,
-      locale: locale == freezed
+      locale: null == locale
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as AppLocaleType,
-      refImageBorderColor: refImageBorderColor == freezed
+      refImageBorderColor: null == refImageBorderColor
           ? _value.refImageBorderColor
           : refImageBorderColor // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 
+  /// Create a copy of AppearanceInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $AppThemeTypeCopyWith<$Res> get theme {
     return $AppThemeTypeCopyWith<$Res>(_value.theme, (value) {
-      return _then(_value.copyWith(theme: value));
+      return _then(_value.copyWith(theme: value) as $Val);
     });
   }
 
+  /// Create a copy of AppearanceInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $AppLocaleTypeCopyWith<$Res> get locale {
     return $AppLocaleTypeCopyWith<$Res>(_value.locale, (value) {
-      return _then(_value.copyWith(locale: value));
+      return _then(_value.copyWith(locale: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$AppearanceInfoCopyWith<$Res>
+abstract class _$$AppearanceInfoImplCopyWith<$Res>
     implements $AppearanceInfoCopyWith<$Res> {
-  factory _$AppearanceInfoCopyWith(
-          _AppearanceInfo value, $Res Function(_AppearanceInfo) then) =
-      __$AppearanceInfoCopyWithImpl<$Res>;
+  factory _$$AppearanceInfoImplCopyWith(_$AppearanceInfoImpl value,
+          $Res Function(_$AppearanceInfoImpl) then) =
+      __$$AppearanceInfoImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {AppThemeType theme, AppLocaleType locale, int refImageBorderColor});
 
@@ -899,32 +902,32 @@ abstract class _$AppearanceInfoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$AppearanceInfoCopyWithImpl<$Res>
-    extends _$AppearanceInfoCopyWithImpl<$Res>
-    implements _$AppearanceInfoCopyWith<$Res> {
-  __$AppearanceInfoCopyWithImpl(
-      _AppearanceInfo _value, $Res Function(_AppearanceInfo) _then)
-      : super(_value, (v) => _then(v as _AppearanceInfo));
+class __$$AppearanceInfoImplCopyWithImpl<$Res>
+    extends _$AppearanceInfoCopyWithImpl<$Res, _$AppearanceInfoImpl>
+    implements _$$AppearanceInfoImplCopyWith<$Res> {
+  __$$AppearanceInfoImplCopyWithImpl(
+      _$AppearanceInfoImpl _value, $Res Function(_$AppearanceInfoImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _AppearanceInfo get _value => super._value as _AppearanceInfo;
-
+  /// Create a copy of AppearanceInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? theme = freezed,
-    Object? locale = freezed,
-    Object? refImageBorderColor = freezed,
+    Object? theme = null,
+    Object? locale = null,
+    Object? refImageBorderColor = null,
   }) {
-    return _then(_AppearanceInfo(
-      theme: theme == freezed
+    return _then(_$AppearanceInfoImpl(
+      theme: null == theme
           ? _value.theme
           : theme // ignore: cast_nullable_to_non_nullable
               as AppThemeType,
-      locale: locale == freezed
+      locale: null == locale
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as AppLocaleType,
-      refImageBorderColor: refImageBorderColor == freezed
+      refImageBorderColor: null == refImageBorderColor
           ? _value.refImageBorderColor
           : refImageBorderColor // ignore: cast_nullable_to_non_nullable
               as int,
@@ -934,8 +937,8 @@ class __$AppearanceInfoCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AppearanceInfo implements _AppearanceInfo {
-  const _$_AppearanceInfo(
+class _$AppearanceInfoImpl implements _AppearanceInfo {
+  const _$AppearanceInfoImpl(
       {required this.theme,
       required this.locale,
       required this.refImageBorderColor});
@@ -953,34 +956,35 @@ class _$_AppearanceInfo implements _AppearanceInfo {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AppearanceInfo &&
-            const DeepCollectionEquality().equals(other.theme, theme) &&
-            const DeepCollectionEquality().equals(other.locale, locale) &&
-            const DeepCollectionEquality()
-                .equals(other.refImageBorderColor, refImageBorderColor));
+            other is _$AppearanceInfoImpl &&
+            (identical(other.theme, theme) || other.theme == theme) &&
+            (identical(other.locale, locale) || other.locale == locale) &&
+            (identical(other.refImageBorderColor, refImageBorderColor) ||
+                other.refImageBorderColor == refImageBorderColor));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(theme),
-      const DeepCollectionEquality().hash(locale),
-      const DeepCollectionEquality().hash(refImageBorderColor));
+  int get hashCode =>
+      Object.hash(runtimeType, theme, locale, refImageBorderColor);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppearanceInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$AppearanceInfoCopyWith<_AppearanceInfo> get copyWith =>
-      __$AppearanceInfoCopyWithImpl<_AppearanceInfo>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$AppearanceInfoImplCopyWith<_$AppearanceInfoImpl> get copyWith =>
+      __$$AppearanceInfoImplCopyWithImpl<_$AppearanceInfoImpl>(
+          this, _$identity);
 }
 
 abstract class _AppearanceInfo implements AppearanceInfo {
   const factory _AppearanceInfo(
-      {required AppThemeType theme,
-      required AppLocaleType locale,
-      required int refImageBorderColor}) = _$_AppearanceInfo;
+      {required final AppThemeType theme,
+      required final AppLocaleType locale,
+      required final int refImageBorderColor}) = _$AppearanceInfoImpl;
 
   @override
   AppThemeType get theme;
@@ -988,8 +992,11 @@ abstract class _AppearanceInfo implements AppearanceInfo {
   AppLocaleType get locale;
   @override
   int get refImageBorderColor;
+
+  /// Create a copy of AppearanceInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$AppearanceInfoCopyWith<_AppearanceInfo> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AppearanceInfoImplCopyWith<_$AppearanceInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

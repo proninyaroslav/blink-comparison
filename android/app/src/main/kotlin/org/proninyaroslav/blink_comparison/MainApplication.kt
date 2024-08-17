@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+ * Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
  *
  * This file is part of Blink Comparison.
  *
@@ -19,9 +19,7 @@
 
 package org.proninyaroslav.blink_comparison
 
-import android.content.ComponentName
 import android.content.Context
-import android.content.pm.PackageManager
 import android.util.Log
 import io.flutter.app.FlutterApplication
 import org.acra.BuildConfig
@@ -64,21 +62,5 @@ class MainApplication : FlutterApplication() {
                 sendOnClick = true
             }
         }
-
-        disableReceivers()
-    }
-
-    /// Disable receivers requested by third party plugins
-    private fun disableReceivers() {
-        val r1 = ComponentName(this, com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver::class.java)
-        val r2 = ComponentName(this, com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver::class.java)
-        packageManager.setComponentEnabledSetting(
-            r1, PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-            PackageManager.DONT_KILL_APP
-        )
-        packageManager.setComponentEnabledSetting(
-            r2, PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-            PackageManager.DONT_KILL_APP
-        )
     }
 }

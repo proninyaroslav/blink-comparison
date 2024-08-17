@@ -102,8 +102,8 @@ class RefImageRepositoryImpl implements RefImageRepository {
   }
 
   Future<String> _randomUniqueId() async {
-    const _maxNumAttempts = 100;
-    for (var i = 0; i < _maxNumAttempts; i++) {
+    const maxNumAttempts = 100;
+    for (var i = 0; i < maxNumAttempts; i++) {
       final id = _idGenerator.randomUnique();
       final exists = await _db.referenceImageDao.existsById(id);
       if (!exists) {
