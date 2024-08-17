@@ -78,6 +78,7 @@ All reference images that added to the app stored as encrypted, making it harder
 If you like Blink Comparison you can support developer with these methods. If you have problems with payment or you want to donate in another way, contact me: `proninyaroslav@mail.ru`. Thank you!
 
  - **Bitcoin**: `12isaLkH8nZ4DkFguVFeYrGHqQi7EEgUrM `
+ - **USDT TRC20**: `TK79fzUYwRtmANuLjk1Zzhz3hjTaFQbxfg`
  - **Monero**: `48j4Mo7J7t51EeBf35Lpdmehmi9chUwzSXxHrnjpRJ6fPQafPWvSCdFafw3rA5ZRWievfYEDToNso8VppbJf2RVH9cdZmHa`
  - **Yandex Money (YooMoney)**: `410011738561939`
  - **WebMoney**:
