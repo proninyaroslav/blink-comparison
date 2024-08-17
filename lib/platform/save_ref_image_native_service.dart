@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -51,7 +51,7 @@ class SaveRefImageNativeService {
       throw 'Callback must be a static or top-level function';
     }
 
-    final locale = await AppLocale.loadLocale(
+    final locale = await loadLocale(
       await _platform.currentLocale ?? 'en_US',
     );
     await channel.invokeMethod(

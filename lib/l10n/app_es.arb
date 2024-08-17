@@ -48,7 +48,7 @@
   "refresh": "Actualizar",
   "loadPageFailed": "Error al cargar la página",
   "saveImageError": "Ocurrió un error al guardar",
-  "IOError": "error de E/S",
+  "ioError": "error de E/S",
   "encryptionError": "error de cifrado",
   "selectedCounter": "Seleccionado: {count}",
   "deleteImagesDialog": "{howMany, plural, one {¿Quieres eliminar la imagen seleccionada?} other {¿Quieres eliminar las imágenes seleccionadas?}}",

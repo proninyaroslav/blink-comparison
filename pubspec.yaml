@@ -41,11 +41,14 @@ dependencies:
   flutter_image_compress: ^2.3.0
   flutter_linkify: ^6.0.0
   flutter_local_notifications: ^17.2.1+2
+  flutter_localizations:
+    sdk: flutter
   flutter_staggered_animations: ^1.0.0
   flutter_staggered_grid_view: ^0.7.0
   freezed_annotation: ^2.4.4
   image_picker: ^1.1.2
   injectable: ^2.4.4
+  intl: any
   json_annotation: ^4.9.0
   json_serializable: ^6.0.0
   just_audio: ^0.9.16
@@ -100,6 +103,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  generate: true
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

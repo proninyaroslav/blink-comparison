@@ -490,7 +490,7 @@ class _SaveImageError extends StatelessWidget {
       ),
       dialogMsg: error.error.map(
         fs: (value) => value.error.map(
-          io: (_) => S.of(context).IOError,
+          io: (_) => S.of(context).ioError,
         ),
         encrypt: (_) => S.of(context).encryptionError,
       ),

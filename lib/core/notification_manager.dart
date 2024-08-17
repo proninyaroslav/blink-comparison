@@ -75,7 +75,7 @@ class NotificationManagerImpl implements NotificationManager {
   final PlatformInfo _platformInfo;
 
   String? _currentLocale;
-  S? _currentAppLocale;
+  AppLocalizations? _currentAppLocale;
 
   final _notifyPlugin = FlutterLocalNotificationsPlugin();
   final _onNotifySelected = StreamController<NotificationAction>.broadcast();
@@ -129,11 +129,11 @@ class NotificationManagerImpl implements NotificationManager {
     return _onNotifySelected.stream;
   }
 
-  Future<S> _getAppLocale() async {
+  Future<AppLocalizations> _getAppLocale() async {
     final oldLocale = _currentLocale;
     _currentLocale = await _platformInfo.currentLocale;
     if (_currentAppLocale == null || _currentLocale != oldLocale) {
-      return _currentAppLocale = await AppLocale.loadLocale(_currentLocale!);
+      return _currentAppLocale = await loadLocale(_currentLocale!);
     } else {
       return _currentAppLocale!;
     }
@@ -206,7 +206,7 @@ class NotificationManagerImpl implements NotificationManager {
     final title = '⛔ ${locale.saveImageError}';
     final body = error.map(
       fs: (value) => value.error.map(
-        io: (_) => locale.IOError,
+        io: (_) => locale.ioError,
       ),
       encrypt: (_) => locale.encryptionError,
     );
@@ -243,7 +243,7 @@ class _AndroidChannel {
     required this.description,
   });
 
-  _AndroidChannel.defaultChan(S locale)
+  _AndroidChannel.defaultChan(AppLocalizations locale)
       : this._(
           id: 'org.proninyaroslav.blink_comparison.DEFAULT_CHANNEL',
           name: locale.defaultNotifyChannelTitle,

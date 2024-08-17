@@ -127,7 +127,7 @@ void main() {
         () => mockPlatform.currentLocale,
       ).thenAnswer((_) async => 'en_US');
       final handle = PluginUtilities.getCallbackHandle(callbackDispatcher);
-      final locale = await AppLocale.loadLocale('en_US');
+      final locale = await loadLocale('en_US');
       await service.start(callbackDispatcher: callbackDispatcher);
       expect(log, [
         isMethodCall(

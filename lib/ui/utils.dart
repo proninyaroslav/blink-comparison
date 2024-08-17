@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -27,7 +27,7 @@ class UiUtils {
   static const Duration defaultAnimatedListDuration =
       Duration(milliseconds: 200);
 
-  static final supportedLocales = AppLocale.supportedLocales
+  static final supportedLocales = AppLocalizations.supportedLocales
       .map(
         (Locale locale) => MapEntry(
           Locale(

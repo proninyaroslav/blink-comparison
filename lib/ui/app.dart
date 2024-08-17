@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -22,6 +22,7 @@ import 'package:blink_comparison/core/platform_info.dart';
 import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/ui/app_cubit.dart';
 import 'package:blink_comparison/ui/app_router.gr.dart';
+import 'package:blink_comparison/ui/intl_locale_bridge.dart';
 // ignore: depend_on_referenced_packages
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
@@ -118,7 +119,7 @@ class _AppState extends State<App> {
 
   Widget _buildDevicePreview() {
     return DevicePreview(
-      availableLocales: AppLocale.supportedLocales,
+      availableLocales: AppLocalizations.supportedLocales,
       builder: (context) => _buildApp(
         context,
         locale: DevicePreview.locale(context),
@@ -145,8 +146,8 @@ class _AppState extends State<App> {
             themeMode: themeMode ?? _mapThemeMode(state.theme),
             theme: AppTheme.getThemeData(),
             darkTheme: AppTheme.getThemeData(dark: true),
-            localizationsDelegates: AppLocale.localizationsDelegates,
-            supportedLocales: AppLocale.supportedLocales,
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
             locale: locale ?? _mapLocale(state.locale),
             routerDelegate: AutoRouterDelegate(
               _appRouter,
@@ -156,6 +157,9 @@ class _AppState extends State<App> {
                 ),
               ],
             ),
+            builder: (context, child) {
+              return InltLocaleBridge(child: child);
+            },
             routeInformationParser: _appRouter.defaultRouteParser(),
           );
         },

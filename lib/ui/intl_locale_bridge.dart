@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -15,24 +15,29 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:intl/locale.dart' as intl;
+import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
 
-export 'package:flutter_gen/gen_l10n/app_localizations.dart';
+/// Sets [Intl.defaultLocale] to the current locale of the app.
+class InltLocaleBridge extends StatefulWidget {
+  final Widget? child;
 
-class S {
-  static AppLocalizations of(BuildContext context) {
-    return Localizations.of<AppLocalizations>(context, AppLocalizations)!;
-  }
+  const InltLocaleBridge({super.key, this.child});
+
+  @override
+  State<InltLocaleBridge> createState() => _IntlLocaelState();
 }
 
-Future<AppLocalizations> loadLocale(String localeStr) {
-  final locale = intl.Locale.parse(localeStr);
-  return AppLocalizations.delegate.load(
-    Locale(
-      locale.languageCode,
-      locale.countryCode,
-    ),
-  );
+class _IntlLocaelState extends State<InltLocaleBridge> {
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    Intl.defaultLocale = Localizations.localeOf(context).toString();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return widget.child ?? widget;
+  }
 }
