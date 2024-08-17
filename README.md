@@ -77,16 +77,16 @@ All reference images that added to the app stored as encrypted, making it harder
 
 If you like Blink Comparison you can support developer with these methods. If you have problems with payment or you want to donate in another way, contact me: `proninyaroslav@mail.ru`. Thank you!
 
- - **Bitcoin**: `12isaLkH8nZ4DkFguVFeYrGHqQi7EEgUrM `
- - **USDT TRC20**: `TK79fzUYwRtmANuLjk1Zzhz3hjTaFQbxfg`
- - **Monero**: `48j4Mo7J7t51EeBf35Lpdmehmi9chUwzSXxHrnjpRJ6fPQafPWvSCdFafw3rA5ZRWievfYEDToNso8VppbJf2RVH9cdZmHa`
- - **Yandex Money (YooMoney)**: `410011738561939`
- - **WebMoney**:
-     - **WMZ**: `Z335461926163`
-     - **WMR**: `R151579576467`
- - **Amazon.com eGift Cards**: just choose your amount and type e-mail `proninyaroslav@mail.ru`
-in the gift card details https://smile.amazon.com/gp/product/B004LLIKVU/
- - **Liberapay**: [![liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/proninyaroslav/donate)
+- **Bitcoin**: `12isaLkH8nZ4DkFguVFeYrGHqQi7EEgUrM `
+- **USDT TRC20**: `TK79fzUYwRtmANuLjk1Zzhz3hjTaFQbxfg`
+- **Monero**: `48j4Mo7J7t51EeBf35Lpdmehmi9chUwzSXxHrnjpRJ6fPQafPWvSCdFafw3rA5ZRWievfYEDToNso8VppbJf2RVH9cdZmHa`
+- **Yandex Money (YooMoney)**: `410011738561939`
+- **WebMoney**:
+  - **WMZ**: `Z335461926163`
+  - **WMR**: `R151579576467`
+- **Amazon.com eGift Cards**: just choose your amount and type e-mail `proninyaroslav@mail.ru`
+  in the gift card details https://smile.amazon.com/gp/product/B004LLIKVU/
+- **Liberapay**: [![liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/proninyaroslav/donate)
 
 ## ⚙️ Building
 
