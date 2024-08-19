@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -22,7 +22,8 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-import '../../mock/mock.dart';
+import '../../mock/settings/mock_settings.dart';
+import '../../mock/ui/mock_app_cubit.dart';
 
 void main() {
   group('CameraSettingsCubit |', () {
@@ -32,13 +33,18 @@ void main() {
 
     setUpAll(() {
       mockPref = MockAppSettings();
-      when(() => mockPref.enableFlashByDefault).thenReturn(true);
-      when(() => mockPref.cameraFullscreenMode).thenReturn(true);
       mockAppCubit = MockAppCubit();
     });
 
     setUp(() {
-      cubit = CameraSettingsCubit(mockPref, mockAppCubit);
+      cubit = CameraSettingsCubit(
+        mockPref,
+        mockAppCubit,
+        const CameraInfo(
+          enableFlashByDefault: true,
+          fullscreenMode: true,
+        ),
+      );
     });
 
     blocTest(
@@ -50,12 +56,15 @@ void main() {
     blocTest(
       'Enable flash by default',
       build: () => cubit,
-      act: (CameraSettingsCubit cubit) {
-        cubit.setEnableFlashByDefault(false);
-        verify(() => mockPref.enableFlashByDefault = false).called(1);
+      act: (CameraSettingsCubit cubit) async {
+        when(() => mockPref.setEnableFlashByDefault(any()))
+            .thenAnswer((_) => Future.value());
 
-        cubit.setEnableFlashByDefault(true);
-        verify(() => mockPref.enableFlashByDefault = true).called(1);
+        await cubit.setEnableFlashByDefault(false);
+        verify(() => mockPref.setEnableFlashByDefault(false)).called(1);
+
+        await cubit.setEnableFlashByDefault(true);
+        verify(() => mockPref.setEnableFlashByDefault(true)).called(1);
       },
       expect: () => [
         const CameraState.enableFlashChanged(
@@ -76,13 +85,16 @@ void main() {
     blocTest(
       'Fullscreen mode',
       build: () => cubit,
-      act: (CameraSettingsCubit cubit) {
-        cubit.setFullscreenMode(false);
-        verify(() => mockPref.cameraFullscreenMode = false).called(1);
+      act: (CameraSettingsCubit cubit) async {
+        when(() => mockPref.setCameraFullscreenMode(any()))
+            .thenAnswer((_) => Future.value());
+
+        await cubit.setFullscreenMode(false);
+        verify(() => mockPref.setCameraFullscreenMode(false)).called(1);
         verify(() => mockAppCubit.setCameraFullscreenMode(false)).called(1);
 
-        cubit.setFullscreenMode(true);
-        verify(() => mockPref.cameraFullscreenMode = true).called(1);
+        await cubit.setFullscreenMode(true);
+        verify(() => mockPref.setCameraFullscreenMode(true)).called(1);
         verify(() => mockAppCubit.setCameraFullscreenMode(true)).called(1);
       },
       expect: () => [

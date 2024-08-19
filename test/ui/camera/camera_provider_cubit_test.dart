@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -60,7 +60,7 @@ void main() {
         ];
         when(() => mockProvider.availableCameras())
             .thenAnswer((_) async => expectedCameras);
-        when(() => mockPref.enableFlashByDefault).thenReturn(true);
+        when(() => mockPref.enableFlashByDefault).thenAnswer((_) async => true);
         await cubit.loadAvailableCameras();
       },
       expect: () => [
@@ -101,7 +101,7 @@ void main() {
         ];
         when(() => mockProvider.availableCameras())
             .thenAnswer((_) async => expectedCameras);
-        when(() => mockPref.enableFlashByDefault).thenReturn(true);
+        when(() => mockPref.enableFlashByDefault).thenAnswer((_) async => true);
         await cubit.loadAvailableCameras();
         await cubit.loadAvailableCameras();
         verify(() => mockProvider.availableCameras()).called(1);
@@ -175,7 +175,7 @@ void main() {
         ];
         when(() => mockProvider.availableCameras())
             .thenAnswer((_) async => expectedCameras);
-        when(() => mockPref.enableFlashByDefault).thenReturn(true);
+        when(() => mockPref.enableFlashByDefault).thenAnswer((_) async => true);
         await cubit.loadAvailableCameras();
         await cubit.switchCamera(expectedCameras.last);
       },

@@ -20,17 +20,23 @@ import 'dart:ui';
 import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+// ignore: depend_on_referenced_packages
+import 'package:shared_preferences_platform_interface/in_memory_shared_preferences_async.dart';
+// ignore: depend_on_referenced_packages
+import 'package:shared_preferences_platform_interface/shared_preferences_async_platform_interface.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('Application settings |', () {
-    late SharedPreferences sharedPref;
+    late SharedPreferencesAsync sharedPref;
     late AppSettings pref;
 
     setUpAll(() async {
-      SharedPreferences.setMockInitialValues(<String, Object>{});
-      sharedPref = await SharedPreferences.getInstance();
+      SharedPreferencesAsyncPlatform.instance =
+          InMemorySharedPreferencesAsync.empty();
+
+      sharedPref = SharedPreferencesAsync();
       pref = AppSettingsImpl(sharedPref);
     });
 
@@ -38,60 +44,62 @@ void main() {
       sharedPref.clear();
     });
 
-    test('Opacity of the reference image overlay', () {
+    test('Opacity of the reference image overlay', () async {
       expect(
-        pref.refImageOverlayOpacity,
+        await pref.refImageOverlayOpacity,
         AppSettingsDefault.refImageOverlayOpacity,
       );
-      pref.refImageOverlayOpacity = 0.9;
-      expect(pref.refImageOverlayOpacity, 0.9);
+      await pref.setRefImageOverlayOpacity(0.9);
+      expect(await pref.refImageOverlayOpacity, 0.9);
       expect(
-        sharedPref.containsKey('pref_key_ref_image_overlay_opacity'),
+        await sharedPref.containsKey('pref_key_ref_image_overlay_opacity'),
         isTrue,
       );
     });
 
-    test('Theme', () {
-      expect(pref.theme, AppSettingsDefault.theme);
-      pref.theme = const AppThemeType.dark();
-      expect(pref.theme, const AppThemeType.dark());
-      expect(sharedPref.containsKey('pref_key_theme'), isTrue);
+    test('Theme', () async {
+      expect(await pref.theme, AppSettingsDefault.theme);
+      await pref.setTheme(const AppThemeType.dark());
+      expect(await pref.theme, const AppThemeType.dark());
+      expect(await sharedPref.containsKey('pref_key_theme'), isTrue);
     });
 
-    test('Locale', () {
-      expect(pref.locale, AppSettingsDefault.locale);
+    test('Locale', () async {
+      expect(await pref.locale, AppSettingsDefault.locale);
       const expectedLocale = AppLocaleType.inner(
         locale: Locale('ru', 'RU'),
       );
-      pref.locale = expectedLocale;
-      expect(pref.locale, expectedLocale);
-      expect(sharedPref.containsKey('pref_key_locale'), isTrue);
+      await pref.setLocale(expectedLocale);
+      expect(await pref.locale, expectedLocale);
+      expect(await sharedPref.containsKey('pref_key_locale'), isTrue);
     });
 
-    test('Reference image border color', () {
-      expect(pref.refImageBorderColor, AppSettingsDefault.refImageBorderColor);
+    test('Reference image border color', () async {
+      expect(await pref.refImageBorderColor,
+          AppSettingsDefault.refImageBorderColor);
       const expectedColor = 0xffffffff;
-      pref.refImageBorderColor = expectedColor;
-      expect(pref.refImageBorderColor, expectedColor);
-      expect(sharedPref.containsKey('pref_key_ref_image_border_color'), isTrue);
+      await pref.setRefImageBorderColor(expectedColor);
+      expect(await pref.refImageBorderColor, expectedColor);
+      expect(await sharedPref.containsKey('pref_key_ref_image_border_color'),
+          isTrue);
     });
 
-    test('Enable flash by default', () {
+    test('Enable flash by default', () async {
       expect(
-        pref.enableFlashByDefault,
+        await pref.enableFlashByDefault,
         AppSettingsDefault.enableFlashByDefault,
       );
-      pref.enableFlashByDefault = false;
-      expect(pref.enableFlashByDefault, false);
+      await pref.setEnableFlashByDefault(false);
+      expect(await pref.enableFlashByDefault, false);
       expect(
-        sharedPref.containsKey('pref_key_enable_Flash_by_default'),
+        await sharedPref.containsKey('pref_key_enable_Flash_by_default'),
         isTrue,
       );
     });
 
-    test('Completed showcases', () {
+    test('Completed showcases', () async {
       expect(
-        pref.completedShowcases,
+        await pref.completedShowcases,
         AppSettingsDefault.completedShowcases,
       );
       final expectedShowcases = {
@@ -99,20 +107,21 @@ void main() {
         const ShowcaseType.opacity(),
         const ShowcaseType.refImageBorder(),
       };
-      pref.completedShowcases = expectedShowcases;
-      expect(pref.completedShowcases, expectedShowcases);
-      expect(sharedPref.containsKey('pref_key_completed_showcases'), isTrue);
+      await pref.setCompletedShowcases(expectedShowcases);
+      expect(await pref.completedShowcases, expectedShowcases);
+      expect(
+          await sharedPref.containsKey('pref_key_completed_showcases'), isTrue);
     });
 
-    test('Camera fullscreeen mode', () {
+    test('Camera fullscreeen mode', () async {
       expect(
-        pref.cameraFullscreenMode,
+        await pref.cameraFullscreenMode,
         AppSettingsDefault.cameraFullscreenMode,
       );
-      pref.cameraFullscreenMode = false;
-      expect(pref.cameraFullscreenMode, false);
+      await pref.setCameraFullscreenMode(false);
+      expect(await pref.cameraFullscreenMode, false);
       expect(
-        sharedPref.containsKey('pref_key_camera_fullscreen_mode'),
+        await sharedPref.containsKey('pref_key_camera_fullscreen_mode'),
         isTrue,
       );
     });

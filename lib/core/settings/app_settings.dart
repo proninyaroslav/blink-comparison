@@ -26,22 +26,36 @@ import 'model.dart';
 export 'model.dart';
 
 abstract class AppSettings {
-  abstract double refImageOverlayOpacity;
+  abstract final Future<double> refImageOverlayOpacity;
 
-  abstract AppThemeType theme;
+  Future<void> setRefImageOverlayOpacity(double value);
 
-  abstract AppLocaleType locale;
+  abstract final Future<AppThemeType> theme;
 
-  abstract int refImageBorderColor;
+  Future<void> setTheme(AppThemeType value);
 
-  abstract bool enableFlashByDefault;
+  abstract final Future<AppLocaleType> locale;
 
-  abstract Set<ShowcaseType> completedShowcases;
+  Future<void> setLocale(AppLocaleType value);
 
-  abstract bool cameraFullscreenMode;
+  abstract final Future<int> refImageBorderColor;
+
+  Future<void> setRefImageBorderColor(int value);
+
+  abstract final Future<bool> enableFlashByDefault;
+
+  Future<void> setEnableFlashByDefault(bool value);
+
+  abstract final Future<Set<ShowcaseType>> completedShowcases;
+
+  Future<void> setCompletedShowcases(Set<ShowcaseType> value);
+
+  abstract final Future<bool> cameraFullscreenMode;
+
+  Future<void> setCameraFullscreenMode(bool value);
 }
 
-abstract class AppSettingsDefault {
+abstract final class AppSettingsDefault {
   const AppSettingsDefault._();
 
   static const refImageOverlayOpacity = 0.3;
@@ -61,22 +75,22 @@ abstract class AppSettingsDefault {
 
 @Singleton(as: AppSettings)
 class AppSettingsImpl implements AppSettings {
-  final SharedPreferences _pref;
+  final SharedPreferencesAsync _pref;
 
   AppSettingsImpl(this._pref);
 
   @override
-  double get refImageOverlayOpacity =>
-      _pref.getDouble(_AppSettingsKey.refImageOverlayOpacity) ??
+  Future<double> get refImageOverlayOpacity async =>
+      await _pref.getDouble(_AppSettingsKey.refImageOverlayOpacity) ??
       AppSettingsDefault.refImageOverlayOpacity;
 
   @override
-  set refImageOverlayOpacity(double value) =>
-      _pref.setDouble(_AppSettingsKey.refImageOverlayOpacity, value);
+  Future<void> setRefImageOverlayOpacity(double value) async =>
+      await _pref.setDouble(_AppSettingsKey.refImageOverlayOpacity, value);
 
   @override
-  AppLocaleType get locale {
-    final str = _pref.getString(_AppSettingsKey.locale);
+  Future<AppLocaleType> get locale async {
+    final str = await _pref.getString(_AppSettingsKey.locale);
     final json = str == null ? null : jsonDecode(str);
     return json == null
         ? AppSettingsDefault.locale
@@ -84,16 +98,16 @@ class AppSettingsImpl implements AppSettings {
   }
 
   @override
-  set locale(AppLocaleType? value) {
+  Future<void> setLocale(AppLocaleType? value) async {
     final json = value?.toJson();
     if (json != null) {
-      _pref.setString(_AppSettingsKey.locale, jsonEncode(json));
+      await _pref.setString(_AppSettingsKey.locale, jsonEncode(json));
     }
   }
 
   @override
-  AppThemeType get theme {
-    final str = _pref.getString(_AppSettingsKey.theme);
+  Future<AppThemeType> get theme async {
+    final str = await _pref.getString(_AppSettingsKey.theme);
     final json = str == null ? null : jsonDecode(str);
     return json == null
         ? AppSettingsDefault.theme
@@ -101,56 +115,58 @@ class AppSettingsImpl implements AppSettings {
   }
 
   @override
-  set theme(AppThemeType? value) {
+  Future<void> setTheme(AppThemeType? value) async {
     final json = value?.toJson();
     if (json != null) {
-      _pref.setString(_AppSettingsKey.theme, jsonEncode(json));
+      await _pref.setString(_AppSettingsKey.theme, jsonEncode(json));
     }
   }
 
   @override
-  int get refImageBorderColor =>
-      _pref.getInt(_AppSettingsKey.refImageBorderColor) ??
+  Future<int> get refImageBorderColor async =>
+      await _pref.getInt(_AppSettingsKey.refImageBorderColor) ??
       AppSettingsDefault.refImageBorderColor;
 
   @override
-  set refImageBorderColor(int value) =>
-      _pref.setInt(_AppSettingsKey.refImageBorderColor, value);
+  Future<void> setRefImageBorderColor(int value) async =>
+      await _pref.setInt(_AppSettingsKey.refImageBorderColor, value);
 
   @override
-  bool get enableFlashByDefault =>
-      _pref.getBool(_AppSettingsKey.enableFlashByDefault) ??
+  Future<bool> get enableFlashByDefault async =>
+      await _pref.getBool(_AppSettingsKey.enableFlashByDefault) ??
       AppSettingsDefault.enableFlashByDefault;
 
   @override
-  set enableFlashByDefault(bool value) =>
-      _pref.setBool(_AppSettingsKey.enableFlashByDefault, value);
+  Future<void> setEnableFlashByDefault(bool value) async =>
+      await _pref.setBool(_AppSettingsKey.enableFlashByDefault, value);
 
   @override
-  Set<ShowcaseType> get completedShowcases =>
-      _pref.getStringList(_AppSettingsKey.completedShowcases)?.map((str) {
-        final json = jsonDecode(str);
-        return ShowcaseType.fromJson(json as Map<String, dynamic>);
-      }).toSet() ??
+  Future<Set<ShowcaseType>> get completedShowcases async =>
+      (await _pref.getStringList(_AppSettingsKey.completedShowcases))?.map(
+        (str) {
+          final json = jsonDecode(str);
+          return ShowcaseType.fromJson(json as Map<String, dynamic>);
+        },
+      ).toSet() ??
       AppSettingsDefault.completedShowcases;
 
   @override
-  set completedShowcases(Set<ShowcaseType> values) {
+  Future<void> setCompletedShowcases(Set<ShowcaseType> values) async {
     final strList = values.map((v) => jsonEncode(v.toJson())).toList();
-    _pref.setStringList(_AppSettingsKey.completedShowcases, strList);
+    await _pref.setStringList(_AppSettingsKey.completedShowcases, strList);
   }
 
   @override
-  bool get cameraFullscreenMode =>
-      _pref.getBool(_AppSettingsKey.cameraFullscreenMode) ??
+  Future<bool> get cameraFullscreenMode async =>
+      await _pref.getBool(_AppSettingsKey.cameraFullscreenMode) ??
       AppSettingsDefault.cameraFullscreenMode;
 
   @override
-  set cameraFullscreenMode(bool value) =>
-      _pref.setBool(_AppSettingsKey.cameraFullscreenMode, value);
+  Future<void> setCameraFullscreenMode(bool value) async =>
+      await _pref.setBool(_AppSettingsKey.cameraFullscreenMode, value);
 }
 
-abstract class _AppSettingsKey {
+abstract final class _AppSettingsKey {
   static const refImageOverlayOpacity = 'pref_key_ref_image_overlay_opacity';
   static const theme = 'pref_key_theme';
   static const locale = 'pref_key_locale';

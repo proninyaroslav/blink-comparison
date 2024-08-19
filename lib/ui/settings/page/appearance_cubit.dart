@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -58,38 +58,49 @@ class AppearanceSettingsCubit extends Cubit<AppearanceState> {
   final AppCubit _appCubit;
   final ComparisonSettingsCubit _comparisonSettingsCubit;
 
+  @FactoryMethod(preResolve: true)
+  static Future<AppearanceSettingsCubit> init(
+    AppSettings pref,
+    AppCubit appCubit,
+    ComparisonSettingsCubit comparisonSettingsCubit,
+  ) async {
+    return AppearanceSettingsCubit(
+      pref,
+      appCubit,
+      comparisonSettingsCubit,
+      AppearanceInfo(
+        theme: await pref.theme,
+        locale: await pref.locale,
+        refImageBorderColor: await pref.refImageBorderColor,
+      ),
+    );
+  }
+
   AppearanceSettingsCubit(
     this._pref,
     this._appCubit,
     this._comparisonSettingsCubit,
-  ) : super(
-          AppearanceState.initial(
-            AppearanceInfo(
-              theme: _pref.theme,
-              locale: _pref.locale,
-              refImageBorderColor: _pref.refImageBorderColor,
-            ),
-          ),
-        );
+    AppearanceInfo initialValue,
+  ) : super(AppearanceState.initial(initialValue));
 
-  void setTheme(AppThemeType theme) {
-    _pref.theme = theme;
+  Future<void> setTheme(AppThemeType theme) async {
+    await _pref.setTheme(theme);
     _appCubit.setTheme(theme);
     emit(AppearanceState.themeChanged(
       state.info.copyWith(theme: theme),
     ));
   }
 
-  void setLocale(AppLocaleType locale) {
-    _pref.locale = locale;
+  Future<void> setLocale(AppLocaleType locale) async {
+    await _pref.setLocale(locale);
     _appCubit.setLocale(locale);
     emit(AppearanceState.localeChanged(
       state.info.copyWith(locale: locale),
     ));
   }
 
-  void setRefImageBorderColor(int color) {
-    _pref.refImageBorderColor = color;
+  Future<void> setRefImageBorderColor(int color) async {
+    await _pref.setRefImageBorderColor(color);
     _comparisonSettingsCubit.setRefImageBorderColor(color);
     emit(AppearanceState.refImageBorderColorChanged(
       state.info.copyWith(refImageBorderColor: color),

@@ -90,9 +90,11 @@ class AppearanceSettingsPage extends StatelessWidget {
               builder: (context, state) {
                 return _ThemeList(
                   initialValue: state.info.theme,
-                  onSelected: (theme) {
-                    cubit.setTheme(theme);
-                    Navigator.of(context).pop();
+                  onSelected: (theme) async {
+                    await cubit.setTheme(theme);
+                    if (context.mounted) {
+                      Navigator.of(context).pop();
+                    }
                   },
                 );
               },
@@ -150,9 +152,11 @@ class AppearanceSettingsPage extends StatelessWidget {
               builder: (context, state) {
                 return _LanguageList(
                   initialValue: state.info.locale,
-                  onSelected: (locale) {
-                    cubit.setLocale(locale);
-                    Navigator.of(context).pop();
+                  onSelected: (locale) async {
+                    await cubit.setLocale(locale);
+                    if (context.mounted) {
+                      Navigator.of(context).pop();
+                    }
                   },
                 );
               },
@@ -210,8 +214,8 @@ class AppearanceSettingsPage extends StatelessWidget {
                 return ColorPicker(
                   pickerColor: Color(state.info.refImageBorderColor),
                   enableAlpha: false,
-                  onColorChanged: (color) {
-                    cubit.setRefImageBorderColor(color.value);
+                  onColorChanged: (color) async {
+                    await cubit.setRefImageBorderColor(color.value);
                   },
                 );
               },

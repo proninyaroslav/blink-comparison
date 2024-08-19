@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -15,26 +15,16 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/ui/comparison/comparison.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
-
-import '../../mock/mock.dart';
 
 void main() {
   group('ComparisonSettingsCubit |', () {
     late ComparisonSettingsCubit cubit;
-    late AppSettings mockSettings;
-
-    setUpAll(() {
-      mockSettings = MockAppSettings();
-      when(() => mockSettings.refImageBorderColor).thenReturn(0xffffffff);
-    });
 
     setUp(() {
-      cubit = ComparisonSettingsCubit(mockSettings);
+      cubit = ComparisonSettingsCubit(refImageBorderColor: 0xffffffff);
     });
 
     blocTest(

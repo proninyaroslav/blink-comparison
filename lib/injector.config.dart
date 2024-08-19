@@ -113,7 +113,7 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i124.SelectableRefImageCubit());
     gh.factory<_i491.BlinkComparisonCubit>(() => _i491.BlinkComparisonCubit());
     await gh.singletonAsync<_i460.SharedPreferences>(
-      () => sharedPreferencesModule.pref,
+      () => sharedPreferencesModule.prefOld,
       preResolve: true,
     );
     await gh.singletonAsync<_i539.SodiumSumo>(
@@ -127,8 +127,6 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i54.AboutCubit(gh<_i1009.PlatformInfo>()));
     gh.factory<_i332.RefImageIdGenerator>(
         () => _i332.RefImageIdGeneratorImpl());
-    gh.singleton<_i49.AppSettings>(
-        () => _i49.AppSettingsImpl(gh<_i460.SharedPreferences>()));
     gh.factory<_i187.SaltGenerator>(
         () => _i187.SaltGeneratorImpl(gh<_i539.SodiumSumo>()));
     gh.factory<_i705.Thumbnailer>(() => _i705.ThumbnailerImpl());
@@ -139,13 +137,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i673.DateTimeProvider>(() => _i673.DateTimeProviderImpl());
     gh.factory<_i496.EncryptKeyDerivation>(
         () => _i496.EncryptKeyDerivationImpl(gh<_i539.SodiumSumo>()));
+    await gh.singletonAsync<_i460.SharedPreferencesAsync>(
+      () => sharedPreferencesModule.pref(gh<_i460.SharedPreferences>()),
+      preResolve: true,
+    );
     gh.factory<_i493.CameraProvider>(() => _i493.CameraProviderImpl());
-    gh.factory<_i168.RefImageOptionsCubit>(
-        () => _i168.RefImageOptionsCubit(gh<_i49.AppSettings>()));
-    gh.factory<_i808.ComparisonSettingsCubit>(
-        () => _i808.ComparisonSettingsCubit(gh<_i49.AppSettings>()));
-    gh.factory<_i716.ShowcaseCubit>(
-        () => _i716.ShowcaseCubit(gh<_i49.AppSettings>()));
     gh.factory<_i809.GenerateThumbnailJob>(
         () => _i809.GenerateThumbnailJobImpl(gh<_i705.Thumbnailer>()));
     gh.factory<_i1004.CrashReportIdGenerator>(
@@ -162,6 +158,8 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i1009.PlatformInfo>(),
           gh<_i303.FileSystem>(),
         ));
+    gh.singleton<_i49.AppSettings>(
+        () => _i49.AppSettingsImpl(gh<_i460.SharedPreferencesAsync>()));
     gh.factory<_i970.CrashReportBuilder>(
       () => _i970.DevCrashReportBuilder(
         gh<_i1009.PlatformInfo>(),
@@ -184,11 +182,22 @@ extension GetItInjectableX on _i174.GetIt {
       ),
       registerFor: {_test},
     );
-    gh.singleton<_i606.AppCubit>(() => _i606.AppCubit(gh<_i49.AppSettings>()));
-    gh.factory<_i181.CameraSettingsCubit>(() => _i181.CameraSettingsCubit(
-          gh<_i49.AppSettings>(),
-          gh<_i606.AppCubit>(),
-        ));
+    await gh.singletonAsync<_i606.AppCubit>(
+      () => _i606.AppCubit.init(gh<_i49.AppSettings>()),
+      preResolve: true,
+    );
+    await gh.factoryAsync<_i168.RefImageOptionsCubit>(
+      () => _i168.RefImageOptionsCubit.init(gh<_i49.AppSettings>()),
+      preResolve: true,
+    );
+    await gh.factoryAsync<_i808.ComparisonSettingsCubit>(
+      () => _i808.ComparisonSettingsCubit.init(gh<_i49.AppSettings>()),
+      preResolve: true,
+    );
+    await gh.factoryAsync<_i716.ShowcaseCubit>(
+      () => _i716.ShowcaseCubit.init(gh<_i49.AppSettings>()),
+      preResolve: true,
+    );
     gh.singleton<_i670.EncryptModuleProvider>(
         () => _i670.EncryptModuleProviderImpl(
               gh<_i539.SodiumSumo>(),
@@ -198,6 +207,13 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i1009.PlatformInfo>(),
           gh<_i303.FileSystem>(),
         ));
+    await gh.factoryAsync<_i181.CameraSettingsCubit>(
+      () => _i181.CameraSettingsCubit.init(
+        gh<_i49.AppSettings>(),
+        gh<_i606.AppCubit>(),
+      ),
+      preResolve: true,
+    );
     gh.factory<_i317.SystemPickerCubit>(() => _i317.SystemPickerCubit(
           gh<_i183.ImagePicker>(),
           gh<_i1009.PlatformInfo>(),
@@ -223,12 +239,14 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i551.ErrorReportCubit(gh<_i496.CrashReportManager>()));
     gh.singleton<_i266.AppDatabase>(
         () => _i266.AppDatabaseImpl(gh<_i310.Database>()));
-    gh.factory<_i424.AppearanceSettingsCubit>(
-        () => _i424.AppearanceSettingsCubit(
-              gh<_i49.AppSettings>(),
-              gh<_i606.AppCubit>(),
-              gh<_i484.ComparisonSettingsCubit>(),
-            ));
+    await gh.factoryAsync<_i424.AppearanceSettingsCubit>(
+      () => _i424.AppearanceSettingsCubit.init(
+        gh<_i49.AppSettings>(),
+        gh<_i606.AppCubit>(),
+        gh<_i484.ComparisonSettingsCubit>(),
+      ),
+      preResolve: true,
+    );
     gh.singleton<_i231.PasswordRepository>(() => _i231.PasswordRepositoryImpl(
           gh<_i266.AppDatabase>(),
           gh<_i498.SaltGenerator>(),

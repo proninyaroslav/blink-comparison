@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -52,25 +52,33 @@ class CameraSettingsCubit extends Cubit<CameraState> {
   final AppSettings _pref;
   final AppCubit _appCubit;
 
-  CameraSettingsCubit(this._pref, this._appCubit)
-      : super(
-          CameraState.initial(
-            CameraInfo(
-              enableFlashByDefault: _pref.enableFlashByDefault,
-              fullscreenMode: _pref.cameraFullscreenMode,
-            ),
-          ),
-        );
+  @FactoryMethod(preResolve: true)
+  static Future<CameraSettingsCubit> init(
+    AppSettings pref,
+    AppCubit appCubit,
+  ) async {
+    return CameraSettingsCubit(
+      pref,
+      appCubit,
+      CameraInfo(
+        enableFlashByDefault: await pref.enableFlashByDefault,
+        fullscreenMode: await pref.cameraFullscreenMode,
+      ),
+    );
+  }
 
-  void setEnableFlashByDefault(bool enable) {
-    _pref.enableFlashByDefault = enable;
+  CameraSettingsCubit(this._pref, this._appCubit, CameraInfo initialValue)
+      : super(CameraState.initial(initialValue));
+
+  Future<void> setEnableFlashByDefault(bool enable) async {
+    await _pref.setEnableFlashByDefault(enable);
     emit(CameraState.enableFlashChanged(
       state.info.copyWith(enableFlashByDefault: enable),
     ));
   }
 
-  void setFullscreenMode(bool enable) {
-    _pref.cameraFullscreenMode = enable;
+  Future<void> setFullscreenMode(bool enable) async {
+    await _pref.setCameraFullscreenMode(enable);
     _appCubit.setCameraFullscreenMode(enable);
     emit(CameraState.fullscreenModeChanged(
       state.info.copyWith(fullscreenMode: enable),

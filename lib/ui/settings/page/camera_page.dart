@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -49,6 +49,8 @@ class CameraSettingsPage extends StatelessWidget {
   }
 
   Widget _buildEnableFlashByDefaultOption(BuildContext context) {
+    final cubit = context.read<CameraSettingsCubit>();
+
     return BlocBuilder<CameraSettingsCubit, CameraState>(
       buildWhen: (prev, current) => current is CameraStateEnableFlashChanged,
       builder: (context, state) {
@@ -56,14 +58,17 @@ class CameraSettingsPage extends StatelessWidget {
           title: Text(S.of(context).settingsFlashByDefault),
           value: state.info.enableFlashByDefault,
           secondary: const Icon(Icons.flash_on_outlined),
-          onChanged:
-              context.read<CameraSettingsCubit>().setEnableFlashByDefault,
+          onChanged: (value) async {
+            await cubit.setEnableFlashByDefault(value);
+          },
         );
       },
     );
   }
 
   Widget _buildFullscreenModeOption(BuildContext context) {
+    final cubit = context.read<CameraSettingsCubit>();
+
     return BlocBuilder<CameraSettingsCubit, CameraState>(
       buildWhen: (prev, current) => current is CameraStateFullscreenModeChanged,
       builder: (context, state) {
@@ -71,7 +76,9 @@ class CameraSettingsPage extends StatelessWidget {
           title: Text(S.of(context).settingsCameraFullscreenMode),
           value: state.info.fullscreenMode,
           secondary: const Icon(Icons.fullscreen_outlined),
-          onChanged: context.read<CameraSettingsCubit>().setFullscreenMode,
+          onChanged: (value) async {
+            await cubit.setFullscreenMode(value);
+          },
         );
       },
     );

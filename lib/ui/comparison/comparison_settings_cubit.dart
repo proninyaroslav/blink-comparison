@@ -35,12 +35,17 @@ class ComparisonSettingsState with _$ComparisonSettingsState {
 
 @injectable
 class ComparisonSettingsCubit extends Cubit<ComparisonSettingsState> {
-  ComparisonSettingsCubit(AppSettings pref)
-      : super(
-          ComparisonSettingsState.initial(
-            refImageBorderColor: pref.refImageBorderColor,
-          ),
-        );
+  @FactoryMethod(preResolve: true)
+  static Future<ComparisonSettingsCubit> init(AppSettings pref) async {
+    return ComparisonSettingsCubit(
+      refImageBorderColor: await pref.refImageBorderColor,
+    );
+  }
+
+  ComparisonSettingsCubit({required int refImageBorderColor})
+      : super(ComparisonSettingsState.initial(
+          refImageBorderColor: refImageBorderColor,
+        ));
 
   void setRefImageBorderColor(int color) {
     emit(ComparisonSettingsState.changed(

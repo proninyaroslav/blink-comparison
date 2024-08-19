@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -39,21 +39,32 @@ class AppState with _$AppState {
 
 @singleton
 class AppCubit extends Cubit<AppState> {
-  AppCubit(AppSettings pref)
-      : super(
+  @FactoryMethod(preResolve: true)
+  static Future<AppCubit> init(AppSettings pref) async {
+    return AppCubit(
+      theme: await pref.theme,
+      locale: await pref.locale,
+      cameraFullscreenMode: await pref.cameraFullscreenMode,
+    );
+  }
+
+  AppCubit({
+    required AppThemeType theme,
+    required AppLocaleType locale,
+    required bool cameraFullscreenMode,
+  }) : super(
           AppState.initial(
-            theme: pref.theme,
-            locale: pref.locale,
-            cameraFullscreenMode: pref.cameraFullscreenMode,
+            theme: theme,
+            locale: locale,
+            cameraFullscreenMode: cameraFullscreenMode,
           ),
         );
 
   void setTheme(AppThemeType theme) {
     emit(AppState.changed(
-      theme: theme,
-      locale: state.locale,
-      cameraFullscreenMode: state.cameraFullscreenMode
-    ));
+        theme: theme,
+        locale: state.locale,
+        cameraFullscreenMode: state.cameraFullscreenMode));
   }
 
   void setLocale(AppLocaleType locale) {

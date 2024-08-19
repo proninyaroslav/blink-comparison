@@ -39,12 +39,17 @@ class ShowcaseState with _$ShowcaseState {
 class ShowcaseCubit extends Cubit<ShowcaseState> {
   final AppSettings _pref;
 
-  ShowcaseCubit(this._pref)
-      : super(ShowcaseState.initial(_pref.completedShowcases));
+  @FactoryMethod(preResolve: true)
+  static Future<ShowcaseCubit> init(AppSettings pref) async {
+    return ShowcaseCubit(pref, await pref.completedShowcases);
+  }
 
-  void completed(ShowcaseType type) {
+  ShowcaseCubit(this._pref, Set<ShowcaseType> completedShowcases)
+      : super(ShowcaseState.initial(completedShowcases));
+
+  Future<void> completed(ShowcaseType type) async {
     final completed = {...state.completed, type};
-    _pref.completedShowcases = completed;
+    await _pref.setCompletedShowcases(completed);
     emit(ShowcaseState.changed(completed));
   }
 }

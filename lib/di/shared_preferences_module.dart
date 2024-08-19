@@ -15,6 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'package:blink_comparison/core/settings/shared_pref_migrator.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -22,5 +23,19 @@ import 'package:shared_preferences/shared_preferences.dart';
 abstract class SharedPreferencesModule {
   @singleton
   @preResolve
-  Future<SharedPreferences> get pref async => SharedPreferences.getInstance();
+  Future<SharedPreferences> get prefOld async =>
+      SharedPreferences.getInstance();
+
+  @singleton
+  @preResolve
+  Future<SharedPreferencesAsync> pref(SharedPreferences prefOld) async {
+    final pref = SharedPreferencesAsync();
+    final migrator = SharedPreferencesMigrator(
+      oldPrefs: prefOld,
+      newPrefs: pref,
+    );
+    await migrator.migrate();
+
+    return pref;
+  }
 }

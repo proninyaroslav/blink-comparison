@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -59,7 +59,7 @@ class CameraProviderCubit extends Cubit<CameraProviderState> {
         CameraProviderState.loaded(
           primaryCamera: _availableCameras.first,
           otherCameras: _availableCameras.sublist(1),
-          enableFlashByDefault: _pref.enableFlashByDefault,
+          enableFlashByDefault: await _pref.enableFlashByDefault,
         ),
       );
     } on CameraException catch (e, stackTrace) {
@@ -73,7 +73,7 @@ class CameraProviderCubit extends Cubit<CameraProviderState> {
       CameraProviderState.loaded(
         primaryCamera: camera,
         otherCameras: _availableCameras.where((c) => c != camera).toList(),
-        enableFlashByDefault: _pref.enableFlashByDefault,
+        enableFlashByDefault: await _pref.enableFlashByDefault,
       ),
     );
   }

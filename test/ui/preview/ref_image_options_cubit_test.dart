@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -30,8 +30,10 @@ void main() {
 
     setUp(() {
       mockPref = MockAppSettings();
-      when(() => mockPref.refImageOverlayOpacity).thenReturn(0.0);
-      cubit = RefImageOptionsCubit(mockPref);
+      cubit = RefImageOptionsCubit(
+        mockPref,
+        const RefImageOptions(opacity: 0.0),
+      );
     });
 
     blocTest(
@@ -45,10 +47,10 @@ void main() {
       build: () => cubit,
       act: (RefImageOptionsCubit cubit) {
         when(
-          () => mockPref.refImageOverlayOpacity = 1,
-        ).thenAnswer((_) => 1);
+          () => mockPref.setRefImageOverlayOpacity(1),
+        ).thenAnswer((_) => Future.value());
         cubit.setOpacity(1);
-        verify(() => mockPref.refImageOverlayOpacity = 1).called(1);
+        verify(() => mockPref.setRefImageOverlayOpacity(1)).called(1);
       },
       expect: () => [
         const RefImageOptionsState.opacityChanged(
@@ -61,8 +63,11 @@ void main() {
       'Change opacity without saving in settings',
       build: () => cubit,
       act: (RefImageOptionsCubit cubit) {
+        when(
+          () => mockPref.setRefImageOverlayOpacity(1),
+        ).thenAnswer((_) => Future.value());
         cubit.setOpacity(1, saveInSettings: false);
-        verifyNever(() => mockPref.refImageOverlayOpacity = 1);
+        verifyNever(() => mockPref.setRefImageOverlayOpacity(1));
       },
       expect: () => [
         const RefImageOptionsState.opacityChanged(

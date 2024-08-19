@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -30,8 +30,7 @@ void main() {
 
     setUp(() async {
       mockPref = MockAppSettings();
-      when(() => mockPref.completedShowcases).thenReturn({});
-      cubit = ShowcaseCubit(mockPref);
+      cubit = ShowcaseCubit(mockPref, {});
     });
 
     blocTest(
@@ -43,29 +42,33 @@ void main() {
     blocTest(
       'Changed',
       build: () => cubit,
-      act: (ShowcaseCubit cubit) {
-        cubit.completed(const ShowcaseType.blinkComparison());
+      act: (ShowcaseCubit cubit) async {
+        when(
+          () => mockPref.setCompletedShowcases(any()),
+        ).thenAnswer((_) => Future.value());
+
+        await cubit.completed(const ShowcaseType.blinkComparison());
         verify(
-          () => mockPref.completedShowcases = {
+          () => mockPref.setCompletedShowcases({
             const ShowcaseType.blinkComparison(),
-          },
+          }),
         ).called(1);
 
-        cubit.completed(const ShowcaseType.opacity());
+        await cubit.completed(const ShowcaseType.opacity());
         verify(
-          () => mockPref.completedShowcases = {
+          () => mockPref.setCompletedShowcases({
             const ShowcaseType.blinkComparison(),
             const ShowcaseType.opacity(),
-          },
+          }),
         ).called(1);
 
-        cubit.completed(const ShowcaseType.refImageBorder());
+        await cubit.completed(const ShowcaseType.refImageBorder());
         verify(
-          () => mockPref.completedShowcases = {
+          () => mockPref.setCompletedShowcases({
             const ShowcaseType.blinkComparison(),
             const ShowcaseType.opacity(),
             const ShowcaseType.refImageBorder(),
-          },
+          }),
         ).called(1);
       },
       expect: () => [

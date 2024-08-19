@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -36,15 +36,10 @@ void main() {
 
     setUpAll(() {
       mockPref = MockAppSettings();
-      when(() => mockPref.theme).thenReturn(
-        const AppThemeType.system(),
-      );
-      when(() => mockPref.locale).thenReturn(
-        const AppLocaleType.system(),
-      );
-      when(() => mockPref.refImageBorderColor).thenReturn(0xffffffff);
       mockAppCubit = MockAppCubit();
       mockComparisonSettingsCubit = MockComparisonSettingsCubit();
+      registerFallbackValue(const AppThemeType.system());
+      registerFallbackValue(const AppLocaleType.system());
     });
 
     setUp(() {
@@ -52,6 +47,11 @@ void main() {
         mockPref,
         mockAppCubit,
         mockComparisonSettingsCubit,
+        const AppearanceInfo(
+          theme: AppThemeType.system(),
+          locale: AppLocaleType.system(),
+          refImageBorderColor: 0xffffffff,
+        ),
       );
     });
 
@@ -64,29 +64,33 @@ void main() {
     blocTest(
       'Change theme',
       build: () => cubit,
-      act: (AppearanceSettingsCubit cubit) {
-        cubit.setTheme(const AppThemeType.dark());
+      act: (AppearanceSettingsCubit cubit) async {
+        when(
+          () => mockPref.setTheme(any()),
+        ).thenAnswer((_) => Future.value());
+
+        await cubit.setTheme(const AppThemeType.dark());
         verify(
           () => mockAppCubit.setTheme(const AppThemeType.dark()),
         ).called(1);
         verify(
-          () => mockPref.theme = const AppThemeType.dark(),
+          () => mockPref.setTheme(const AppThemeType.dark()),
         ).called(1);
 
-        cubit.setTheme(const AppThemeType.light());
+        await cubit.setTheme(const AppThemeType.light());
         verify(
           () => mockAppCubit.setTheme(const AppThemeType.light()),
         ).called(1);
         verify(
-          () => mockPref.theme = const AppThemeType.light(),
+          () => mockPref.setTheme(const AppThemeType.light()),
         ).called(1);
 
-        cubit.setTheme(const AppThemeType.system());
+        await cubit.setTheme(const AppThemeType.system());
         verify(
           () => mockAppCubit.setTheme(const AppThemeType.system()),
         ).called(1);
         verify(
-          () => mockPref.theme = const AppThemeType.system(),
+          () => mockPref.setTheme(const AppThemeType.system()),
         ).called(1);
       },
       expect: () => [
@@ -117,8 +121,12 @@ void main() {
     blocTest(
       'Change locale',
       build: () => cubit,
-      act: (AppearanceSettingsCubit cubit) {
-        cubit.setLocale(
+      act: (AppearanceSettingsCubit cubit) async {
+        when(
+          () => mockPref.setLocale(any()),
+        ).thenAnswer((_) => Future.value());
+
+        await cubit.setLocale(
           const AppLocaleType.inner(
             locale: Locale('ru', 'RU'),
           ),
@@ -131,19 +139,19 @@ void main() {
           ),
         ).called(1);
         verify(
-          () => mockPref.locale = const AppLocaleType.inner(
+          () => mockPref.setLocale(const AppLocaleType.inner(
             locale: Locale('ru', 'RU'),
-          ),
+          )),
         ).called(1);
 
-        cubit.setLocale(const AppLocaleType.system());
+        await cubit.setLocale(const AppLocaleType.system());
         verify(
           () => mockAppCubit.setLocale(
             const AppLocaleType.system(),
           ),
         ).called(1);
         verify(
-          () => mockPref.locale = const AppLocaleType.system(),
+          () => mockPref.setLocale(const AppLocaleType.system()),
         ).called(1);
       },
       expect: () => [
@@ -169,18 +177,22 @@ void main() {
     blocTest(
       'Change reference image border color',
       build: () => cubit,
-      act: (AppearanceSettingsCubit cubit) {
-        cubit.setRefImageBorderColor(0x00000000);
+      act: (AppearanceSettingsCubit cubit) async {
+        when(
+          () => mockPref.setRefImageBorderColor(any()),
+        ).thenAnswer((_) => Future.value());
+
+        await cubit.setRefImageBorderColor(0x00000000);
         verify(
-          () => mockPref.refImageBorderColor = 0x00000000,
+          () => mockPref.setRefImageBorderColor(0x00000000),
         ).called(1);
         verify(
           () => mockComparisonSettingsCubit.setRefImageBorderColor(0x00000000),
         ).called(1);
 
-        cubit.setRefImageBorderColor(0xffffffff);
+        await cubit.setRefImageBorderColor(0xffffffff);
         verify(
-          () => mockPref.refImageBorderColor = 0xffffffff,
+          () => mockPref.setRefImageBorderColor(0xffffffff),
         ).called(1);
         verify(
           () => mockComparisonSettingsCubit.setRefImageBorderColor(0xffffffff),

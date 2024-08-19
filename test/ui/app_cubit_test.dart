@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -21,26 +21,17 @@ import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/ui/app_cubit.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
-
-import '../mock/mock.dart';
 
 void main() {
   group('AppCubit |', () {
     late AppCubit cubit;
-    late AppSettings mockSettings;
-
-    setUpAll(() {
-      mockSettings = MockAppSettings();
-      when(() => mockSettings.theme).thenReturn(
-        const AppThemeType.system(),
-      );
-      when(() => mockSettings.locale).thenReturn(const AppLocaleType.system());
-      when(() => mockSettings.cameraFullscreenMode).thenReturn(true);
-    });
 
     setUp(() {
-      cubit = AppCubit(mockSettings);
+      cubit = AppCubit(
+        theme: const AppThemeType.system(),
+        locale: const AppLocaleType.system(),
+        cameraFullscreenMode: true,
+      );
     });
 
     blocTest(

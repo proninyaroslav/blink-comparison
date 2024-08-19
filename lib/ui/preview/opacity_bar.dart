@@ -55,6 +55,7 @@ class _OpacityBarState extends State<OpacityBar> {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<RefImageOptionsCubit>();
     return BottomSheet(
       builder: (context) {
         return SafeArea(
@@ -87,13 +88,11 @@ class _OpacityBarState extends State<OpacityBar> {
                       onChangeStart: (value) {
                         _readyToClose = false;
                       },
-                      onChanged: (value) {
-                        context
-                            .read<RefImageOptionsCubit>()
-                            .setOpacity(value, saveInSettings: false);
+                      onChanged: (value) async {
+                        await cubit.setOpacity(value, saveInSettings: false);
                       },
-                      onChangeEnd: (value) {
-                        context.read<RefImageOptionsCubit>().setOpacity(value);
+                      onChangeEnd: (value) async {
+                        await cubit.setOpacity(value);
                         _readyToClose = true;
                         _closeTimer.reset();
                       },

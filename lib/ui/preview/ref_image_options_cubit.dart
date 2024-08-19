@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -44,18 +44,22 @@ class RefImageOptions with _$RefImageOptions {
 class RefImageOptionsCubit extends Cubit<RefImageOptionsState> {
   final AppSettings _pref;
 
-  RefImageOptionsCubit(this._pref)
-      : super(
-          RefImageOptionsState.initial(
-            RefImageOptions(
-              opacity: _pref.refImageOverlayOpacity,
-            ),
-          ),
-        );
+  @FactoryMethod(preResolve: true)
+  static Future<RefImageOptionsCubit> init(AppSettings pref) async {
+    return RefImageOptionsCubit(
+      pref,
+      RefImageOptions(
+        opacity: await pref.refImageOverlayOpacity,
+      ),
+    );
+  }
 
-  void setOpacity(double opacity, {bool saveInSettings = true}) {
+  RefImageOptionsCubit(this._pref, RefImageOptions initialValue)
+      : super(RefImageOptionsState.initial(initialValue));
+
+  Future<void> setOpacity(double opacity, {bool saveInSettings = true}) async {
     if (saveInSettings) {
-      _pref.refImageOverlayOpacity = opacity;
+      await _pref.setRefImageOverlayOpacity(opacity);
     }
     emit(RefImageOptionsState.opacityChanged(
       state.options.copyWith(opacity: opacity),

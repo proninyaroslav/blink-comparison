@@ -108,12 +108,12 @@ class _BlinkComparisonPageState extends State<BlinkComparisonPage> {
               takenPhotoWidget: takenPhotoWidget,
             );
           },
-          onComplete: (i, key) {
+          onComplete: (i, key) async {
             final cubit = context.read<ShowcaseCubit>();
             if (key == _refImageBorderShowcaseKey) {
-              cubit.completed(const ShowcaseType.refImageBorder());
+              await cubit.completed(const ShowcaseType.refImageBorder());
             } else if (key == _blinkComparisonShowcaseKey) {
-              cubit.completed(const ShowcaseType.blinkComparison());
+              await cubit.completed(const ShowcaseType.blinkComparison());
             }
           },
         );
