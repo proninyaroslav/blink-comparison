@@ -970,6 +970,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.2"
+  open_settings_plus:
+    dependency: "direct main"
+    description:
+      name: open_settings_plus
+      sha256: "5f813700e62bc77db830e0225e09e77c6573c67784a4e7b00483f3a16341c081"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.3"
   package_config:
     dependency: transitive
     description:

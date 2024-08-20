@@ -57,6 +57,8 @@
   "selectAll": "Select all",
   "loadingReferenceImage": "Loading and decrypting, please wait...",
   "openCameraError": "Unable to open the camera",
+  "cameraAccessDenied": "Camera access denied. Please grant the permission in the system settings",
+  "openAppSettings": "Open settings",
   "cameraErrorReason": "Error: {reason}",
   "noSelectedCameraError": "Error: no camera selected or unavailable",
   "takePhotoError": "Unable to take a photo",

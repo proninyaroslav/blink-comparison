@@ -27,6 +27,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:open_settings_plus/open_settings_plus.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
@@ -84,7 +85,7 @@ class _CameraViewState extends State<CameraView> {
           },
           loadFailed: (e, stackTrace) {
             return _OpenCameraError(
-              error: CameraInitializationError(
+              error: CameraInitializationError.exception(
                 exception: e,
                 stackTrace: stackTrace,
               ),
@@ -139,9 +140,7 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
 
     WidgetsBinding.instance.addObserver(this);
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      if (!_initialized) {
-        await _initController();
-      }
+      await _initController();
     });
   }
 
@@ -149,6 +148,7 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
   void didUpdateWidget(covariant _Preview oldWidget) {
     if (oldWidget.camera != widget.camera) {
       WidgetsBinding.instance.addPostFrameCallback((_) async {
+        await _disposeController();
         await _initController();
       });
     }
@@ -159,12 +159,9 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) async {
     if (state == AppLifecycleState.paused) {
-      await _controller?.dispose();
-      _controller = null;
+      await _disposeController();
     } else if (state == AppLifecycleState.resumed) {
-      if (!_initialized) {
-        await _initController();
-      }
+      await _initController();
     }
   }
 
@@ -173,15 +170,16 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
     super.dispose();
 
     WidgetsBinding.instance.removeObserver(this);
-    _controller?.dispose();
+
+    _disposeController();
     _audioPlayer.dispose();
   }
 
   Future<void> _initController() async {
-    _initializeError = null;
     if (_controller != null) {
-      await _controller?.dispose();
+      return;
     }
+    _initializeError = null;
     _controller = CameraControllerWrapper(
       widget.camera,
       ResolutionPreset.max,
@@ -212,12 +210,17 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
         error: e,
         stackTrace: stackTrace,
       );
+
       if (mounted) {
         setState(() {
-          _initializeError = CameraInitializationError(
-            exception: e,
-            stackTrace: stackTrace,
-          );
+          _initializeError = switch (e.code) {
+            'CameraAccessDenied' =>
+              const CameraInitializationError.accessDenied(),
+            _ => CameraInitializationError.exception(
+                exception: e,
+                stackTrace: stackTrace,
+              )
+          };
         });
       }
       return;
@@ -243,10 +246,28 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
     }
   }
 
+  Future<void> _disposeController() async {
+    await _controller?.dispose();
+    _controller = null;
+  }
+
+  Future<void> _openAppPermisisons() async {
+    await switch (OpenSettingsPlus.shared) {
+      OpenSettingsPlusAndroid settings => settings.applicationDetails(),
+      OpenSettingsPlusIOS settings => settings.privacy(),
+      _ => throw Exception('Platform not supported'),
+    };
+  }
+
   @override
   Widget build(BuildContext context) {
     if (_initializeError != null) {
-      return _OpenCameraError(error: _initializeError!);
+      return _OpenCameraError(
+        error: _initializeError!,
+        onOpenAppPermissions: () async {
+          await _openAppPermisisons();
+        },
+      );
     } else if (!_initialized) {
       return Container();
     } else if (_capturedPhoto != null) {
@@ -568,9 +589,11 @@ class _TakePhotoButton extends StatelessWidget {
 
 class _OpenCameraError extends StatelessWidget {
   final CameraInitializationError error;
+  final Function? onOpenAppPermissions;
 
   const _OpenCameraError({
     required this.error,
+    this.onOpenAppPermissions,
   });
 
   @override
@@ -590,7 +613,10 @@ class _OpenCameraError extends StatelessWidget {
             ),
             const SizedBox(height: 8.0),
             Text(
-              S.of(context).openCameraError,
+              error.when(
+                accessDenied: () => S.of(context).cameraAccessDenied,
+                exception: (e, stackTrace) => S.of(context).openCameraError,
+              ),
               style: theme.textTheme.titleLarge!.copyWith(
                 color: theme.colorScheme.error,
               ),
@@ -598,13 +624,21 @@ class _OpenCameraError extends StatelessWidget {
             ),
             const SizedBox(height: 16.0),
             OutlinedButton(
-              onPressed: () => _errorDialog(
-                context,
-                reportMsg: 'Unable to initialize the camera',
-                exception: error.exception,
-                stackTrace: error.stackTrace,
+              onPressed: () {
+                error.when(
+                  accessDenied: () => onOpenAppPermissions?.call(),
+                  exception: (e, stackTrace) => _errorDialog(
+                    context,
+                    reportMsg: 'Unable to initialize the camera',
+                    exception: e,
+                    stackTrace: stackTrace,
+                  ),
+                );
+              },
+              child: error.when(
+                accessDenied: () => Text(S.of(context).openAppSettings),
+                exception: (e, stackTrace) => Text(S.of(context).showError),
               ),
-              child: Text(S.of(context).showError),
             ),
           ],
         ),

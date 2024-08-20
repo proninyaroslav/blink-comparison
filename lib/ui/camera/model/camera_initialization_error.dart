@@ -14,17 +14,17 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:camera/camera.dart';
-import 'package:flutter/material.dart';
+part 'camera_initialization_error.freezed.dart';
 
-@immutable
-class CameraInitializationError {
-  final CameraException exception;
-  final StackTrace? stackTrace;
+@freezed
+class CameraInitializationError with _$CameraInitializationError {
+  const factory CameraInitializationError.accessDenied() =
+      CameraInitializationErrorAccessDenied;
 
-  const CameraInitializationError({
-    required this.exception,
-    this.stackTrace,
-  });
+  const factory CameraInitializationError.exception({
+    required Exception exception,
+    StackTrace? stackTrace,
+  }) = CameraInitializationErrorException;
 }
