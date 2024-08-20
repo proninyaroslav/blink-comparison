@@ -169,12 +169,12 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
   }
 
   @override
-  void dispose() async {
+  void dispose() {
     super.dispose();
 
     WidgetsBinding.instance.removeObserver(this);
-    await _controller?.dispose();
-    await _audioPlayer.dispose();
+    _controller?.dispose();
+    _audioPlayer.dispose();
   }
 
   Future<void> _initController() async {
@@ -207,8 +207,11 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
     try {
       await cameraController.initialize();
     } on CameraException catch (e, stackTrace) {
-      log().e('Unable to initialize the camera',
-          error: e, stackTrace: stackTrace);
+      log().e(
+        'Unable to initialize the camera',
+        error: e,
+        stackTrace: stackTrace,
+      );
       if (mounted) {
         setState(() {
           _initializeError = CameraInitializationError(
@@ -218,6 +221,12 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
         });
       }
       return;
+    } on FlutterError catch (e, stackTrace) {
+      log().e(
+        'Unable to initialize the camera',
+        error: e,
+        stackTrace: stackTrace,
+      );
     }
 
     try {
