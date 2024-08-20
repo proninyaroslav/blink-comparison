@@ -237,6 +237,10 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
       log().e('Unable to initialize the camera',
           error: e, stackTrace: stackTrace);
     }
+
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   @override
@@ -273,7 +277,7 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
       child: Stack(
         children: [
           Align(
-            alignment: Alignment.topCenter,
+            alignment: Alignment.center,
             child: LayoutBuilder(
               builder: (context, constraints) {
                 return GestureDetector(
