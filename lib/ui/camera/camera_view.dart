@@ -139,7 +139,9 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
 
     WidgetsBinding.instance.addObserver(this);
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await _initController();
+      if (!_initialized) {
+        await _initController();
+      }
     });
   }
 
@@ -160,7 +162,9 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
       await _controller?.dispose();
       _controller = null;
     } else if (state == AppLifecycleState.resumed) {
-      await _initController();
+      if (!_initialized) {
+        await _initController();
+      }
     }
   }
 
