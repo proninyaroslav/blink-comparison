@@ -19,6 +19,8 @@ import 'dart:async';
 
 import 'package:blink_comparison/core/platform_info.dart';
 import 'package:blink_comparison/ui/camera/confirmation_dialog.dart';
+import 'package:blink_comparison/ui/camera/model/camera_controller_wrapper.dart';
+import 'package:blink_comparison/ui/camera/model/camera_initialization_error.dart';
 import 'package:blink_comparison/ui/cubit/error_report_cubit.dart';
 import 'package:blink_comparison/ui/widget/widget.dart';
 import 'package:camera/camera.dart';
@@ -82,7 +84,7 @@ class _CameraViewState extends State<CameraView> {
           },
           loadFailed: (e, stackTrace) {
             return _OpenCameraError(
-              error: _CameraInitializationError(
+              error: CameraInitializationError(
                 exception: e,
                 stackTrace: stackTrace,
               ),
@@ -119,11 +121,10 @@ class _Preview extends StatefulWidget {
 }
 
 class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
-  CameraController? _controller;
+  CameraControllerWrapper? _controller;
   final _takePictureFlashKey = GlobalKey<_TakePictureFlashState>();
   late final _audioPlayer = AudioPlayer();
-  _CameraInitializationError? _initializeError;
-  bool _disposed = true;
+  CameraInitializationError? _initializeError;
   late bool _keepFlash = widget.enableFlashByDefault;
   double _minAvailableZoom = 1.0;
   double _maxAvailableZoom = 1.0;
@@ -137,54 +138,52 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
     super.initState();
 
     WidgetsBinding.instance.addObserver(this);
-    _initController();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await _initController();
+    });
   }
 
   @override
   void didUpdateWidget(covariant _Preview oldWidget) {
     if (oldWidget.camera != widget.camera) {
-      _initController();
+      WidgetsBinding.instance.addPostFrameCallback((_) async {
+        await _initController();
+      });
     }
 
     super.didUpdateWidget(oldWidget);
   }
 
   @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    // App state changed before we got the chance to initialize.
-    if (_controller == null || !_controller!.value.isInitialized) {
-      return;
-    }
-    if (state == AppLifecycleState.inactive) {
-      _disposed = true;
-      _controller?.dispose();
+  void didChangeAppLifecycleState(AppLifecycleState state) async {
+    if (state == AppLifecycleState.paused) {
+      await _controller?.dispose();
+      _controller = null;
     } else if (state == AppLifecycleState.resumed) {
-      _initController();
+      await _initController();
     }
   }
 
   @override
-  void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
-    _disposed = true;
-    _controller?.dispose();
-    _audioPlayer.dispose();
-
+  void dispose() async {
     super.dispose();
+
+    WidgetsBinding.instance.removeObserver(this);
+    await _controller?.dispose();
+    await _audioPlayer.dispose();
   }
 
   Future<void> _initController() async {
     _initializeError = null;
     if (_controller != null) {
-      _disposed = true;
       await _controller?.dispose();
     }
-    _controller = CameraController(
+    _controller = CameraControllerWrapper(
       widget.camera,
       ResolutionPreset.max,
       enableAudio: false,
     );
-    CameraController cameraController = _controller!;
+    CameraControllerWrapper cameraController = _controller!;
     cameraController.addListener(() {
       if (cameraController.value.hasError) {
         final errorDescription = cameraController.value.errorDescription;
@@ -198,9 +197,7 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
         }
       }
       if (mounted) {
-        setState(() {
-          _disposed = false;
-        });
+        setState(() {});
       }
     });
     try {
@@ -210,7 +207,7 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
           error: e, stackTrace: stackTrace);
       if (mounted) {
         setState(() {
-          _initializeError = _CameraInitializationError(
+          _initializeError = CameraInitializationError(
             exception: e,
             stackTrace: stackTrace,
           );
@@ -227,23 +224,15 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
       log().e('Unable to initialize the camera',
           error: e, stackTrace: stackTrace);
     }
-
-    if (mounted) {
-      setState(() {
-        _disposed = false;
-      });
-    }
   }
 
   @override
   Widget build(BuildContext context) {
     if (_initializeError != null) {
-      _switchFlash(false);
       return _OpenCameraError(error: _initializeError!);
     } else if (!_initialized) {
       return Container();
     } else if (_capturedPhoto != null) {
-      _switchFlash(false);
       if (widget.showConfirmationDialog) {
         return ConfirmationDialog(
           photoFile: _capturedPhoto!,
@@ -262,7 +251,6 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
         widget.onTakePhoto?.call(_capturedPhoto!);
       }
     }
-    _switchFlash(_keepFlash);
 
     CameraController cameraController = _controller!;
 
@@ -435,18 +423,9 @@ class _PreviewState extends State<_Preview> with WidgetsBindingObserver {
   }
 
   bool get _initialized =>
-      !_disposed && _controller != null && _controller!.value.isInitialized;
-}
-
-@immutable
-class _CameraInitializationError {
-  final CameraException exception;
-  final StackTrace? stackTrace;
-
-  const _CameraInitializationError({
-    required this.exception,
-    this.stackTrace,
-  });
+      _controller != null &&
+      !_controller!.disposed &&
+      _controller!.value.isInitialized;
 }
 
 class _FlashButton extends StatefulWidget {
@@ -571,7 +550,7 @@ class _TakePhotoButton extends StatelessWidget {
 }
 
 class _OpenCameraError extends StatelessWidget {
-  final _CameraInitializationError error;
+  final CameraInitializationError error;
 
   const _OpenCameraError({
     required this.error,
