@@ -18,8 +18,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:blink_comparison/ui/comparison/model/blink_comparison_state.dart';
 import 'package:blink_comparison/ui/comparison/model/comparison_settings_state.dart';
-import 'package:blink_comparison/ui/model/showcase_cubit.dart';
 import 'package:blink_comparison/ui/components/widget.dart';
+import 'package:blink_comparison/ui/model/showcase_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showcaseview/showcaseview.dart';
@@ -226,11 +226,19 @@ class _Image extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const borderWidth = 2.0;
+    final showFrame = frameColor != null;
+
     return Container(
+      margin: const EdgeInsets.symmetric(horizontal: borderWidth),
       decoration: BoxDecoration(
-        border: frameColor == null
-            ? null
-            : Border.all(color: frameColor!, width: 2.0),
+        border: showFrame
+            ? Border.all(
+                color: frameColor!,
+                width: borderWidth,
+                strokeAlign: BorderSide.strokeAlignOutside,
+              )
+            : null,
       ),
       child: AspectRatio(
         aspectRatio: aspectRatio,
@@ -242,7 +250,7 @@ class _Image extends StatelessWidget {
               width: double.infinity,
               fit: BoxFit.cover,
             ),
-            if (frameColor != null)
+            if (showFrame)
               Align(
                 alignment: Alignment.topCenter,
                 child: CustomShowcase(
