@@ -53,23 +53,23 @@ class RefImageListPage extends StatefulWidget implements AutoRouteWrapper {
   Widget wrappedRoute(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<AddRefImageCubit>(
-          create: (context) => getIt<AddRefImageCubit>(),
+        BlocProvider<AddRefImageCubit>.value(
+          value: getIt<AddRefImageCubit>(),
         ),
-        BlocProvider<SystemPickerCubit>(
-          create: (context) => getIt<SystemPickerCubit>(),
+        BlocProvider<SystemPickerCubit>.value(
+          value: getIt<SystemPickerCubit>(),
         ),
-        BlocProvider<RefImagesCubit>(
-          create: (context) => getIt<RefImagesCubit>(),
+        BlocProvider<RefImagesCubit>.value(
+          value: getIt<RefImagesCubit>(),
         ),
-        BlocProvider<ErrorReportCubit>(
-          create: (context) => getIt<ErrorReportCubit>(),
+        BlocProvider<ErrorReportCubit>.value(
+          value: getIt<ErrorReportCubit>(),
         ),
-        BlocProvider<SelectableRefImageCubit>(
-          create: (context) => getIt<SelectableRefImageCubit>(),
+        BlocProvider<SelectableRefImageCubit>.value(
+          value: getIt<SelectableRefImageCubit>(),
         ),
-        BlocProvider<RefImagesActionsCubit>(
-          create: (context) => getIt<RefImagesActionsCubit>(),
+        BlocProvider<RefImagesActionsCubit>.value(
+          value: getIt<RefImagesActionsCubit>(),
         ),
       ],
       child: this,

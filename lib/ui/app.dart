@@ -137,8 +137,8 @@ class _AppState extends State<App> {
     bool useInheritedMediaQuery = false,
     ThemeMode? themeMode,
   }) {
-    return BlocProvider(
-      create: (context) => getIt<AppCubit>(),
+    return BlocProvider.value(
+      value: getIt<AppCubit>(),
       child: BlocBuilder<AppCubit, AppState>(
         builder: (context, state) {
           return MaterialApp.router(

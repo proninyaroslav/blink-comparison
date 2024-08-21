@@ -48,11 +48,11 @@ class AuthPage extends StatefulWidget implements AutoRouteWrapper {
   Widget wrappedRoute(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<AuthCubit>(
-          create: (context) => getIt<AuthCubit>(),
+        BlocProvider<AuthCubit>.value(
+          value: getIt<AuthCubit>(),
         ),
-        BlocProvider<SignUpCubit>(
-          create: (context) => getIt<SignUpCubit>(),
+        BlocProvider<SignUpCubit>.value(
+          value: getIt<SignUpCubit>(),
         ),
       ],
       child: this,

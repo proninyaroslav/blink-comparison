@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -40,11 +40,11 @@ class CameraPickerPage extends StatefulWidget implements AutoRouteWrapper {
   Widget wrappedRoute(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<CameraProviderCubit>(
-          create: (context) => getIt<CameraProviderCubit>(),
+        BlocProvider<CameraProviderCubit>.value(
+          value: getIt<CameraProviderCubit>(),
         ),
-        BlocProvider<ErrorReportCubit>(
-          create: (context) => getIt<ErrorReportCubit>(),
+        BlocProvider<ErrorReportCubit>.value(
+          value: getIt<ErrorReportCubit>(),
         ),
       ],
       child: this,

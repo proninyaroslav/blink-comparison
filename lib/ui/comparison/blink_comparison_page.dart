@@ -50,14 +50,14 @@ class BlinkComparisonPage extends StatefulWidget implements AutoRouteWrapper {
   Widget wrappedRoute(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<BlinkComparisonCubit>(
-          create: (context) => getIt<BlinkComparisonCubit>(),
+        BlocProvider<BlinkComparisonCubit>.value(
+          value: getIt<BlinkComparisonCubit>(),
         ),
-        BlocProvider<ComparisonSettingsCubit>(
-          create: (context) => getIt<ComparisonSettingsCubit>(),
+        BlocProvider<ComparisonSettingsCubit>.value(
+          value: getIt<ComparisonSettingsCubit>(),
         ),
-        BlocProvider<ShowcaseCubit>(
-          create: (context) => getIt<ShowcaseCubit>(),
+        BlocProvider<ShowcaseCubit>.value(
+          value: getIt<ShowcaseCubit>(),
         ),
       ],
       child: this,

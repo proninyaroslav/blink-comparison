@@ -39,11 +39,11 @@ class SettingsPage extends StatefulWidget implements AutoRouteWrapper {
   Widget wrappedRoute(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<AppearanceSettingsCubit>(
-          create: (context) => getIt<AppearanceSettingsCubit>(),
+        BlocProvider<AppearanceSettingsCubit>.value(
+          value: getIt<AppearanceSettingsCubit>(),
         ),
-        BlocProvider<CameraSettingsCubit>(
-          create: (context) => getIt<CameraSettingsCubit>(),
+        BlocProvider<CameraSettingsCubit>.value(
+          value: getIt<CameraSettingsCubit>(),
         ),
       ],
       child: this,

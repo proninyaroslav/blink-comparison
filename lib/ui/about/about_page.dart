@@ -34,8 +34,8 @@ class AboutPage extends StatefulWidget implements AutoRouteWrapper {
 
   @override
   Widget wrappedRoute(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<AboutCubit>(),
+    return BlocProvider.value(
+      value: getIt<AboutCubit>(),
       child: this,
     );
   }

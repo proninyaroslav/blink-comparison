@@ -218,7 +218,7 @@ class PlatformInfoImpl implements PlatformInfo {
     return const DeviceInfo.unknown();
   }
 
-  // TODO: Windows/macOS support
+  // TODO: Windows support
   @override
   Future<String?> get currentLocale async {
     final locale = await Devicelocale.currentLocale;

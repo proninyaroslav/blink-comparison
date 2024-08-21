@@ -54,20 +54,20 @@ class RefImagePreviewPage extends StatelessWidget implements AutoRouteWrapper {
   Widget wrappedRoute(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<RefImageCubit>(
-          create: (context) => getIt<RefImageCubit>(),
+        BlocProvider<RefImageCubit>.value(
+          value: getIt<RefImageCubit>(),
         ),
-        BlocProvider<CameraProviderCubit>(
-          create: (context) => getIt<CameraProviderCubit>(),
+        BlocProvider<CameraProviderCubit>.value(
+          value: getIt<CameraProviderCubit>(),
         ),
-        BlocProvider<ErrorReportCubit>(
-          create: (context) => getIt<ErrorReportCubit>(),
+        BlocProvider<ErrorReportCubit>.value(
+          value: getIt<ErrorReportCubit>(),
         ),
-        BlocProvider<RefImageOptionsCubit>(
-          create: (context) => getIt<RefImageOptionsCubit>(),
+        BlocProvider<RefImageOptionsCubit>.value(
+          value: getIt<RefImageOptionsCubit>(),
         ),
-        BlocProvider<ShowcaseCubit>(
-          create: (context) => getIt<ShowcaseCubit>(),
+        BlocProvider<ShowcaseCubit>.value(
+          value: getIt<ShowcaseCubit>(),
         ),
       ],
       child: this,
