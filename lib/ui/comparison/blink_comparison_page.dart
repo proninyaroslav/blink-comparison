@@ -230,7 +230,7 @@ class _Image extends StatelessWidget {
     final showFrame = frameColor != null;
 
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: borderWidth),
+      margin: const EdgeInsets.all(borderWidth),
       decoration: BoxDecoration(
         border: showFrame
             ? Border.all(
