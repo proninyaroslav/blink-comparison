@@ -220,5 +220,11 @@ class PlatformInfoImpl implements PlatformInfo {
 
   // TODO: Windows/macOS support
   @override
-  Future<String?> get currentLocale => Devicelocale.currentLocale;
+  Future<String?> get currentLocale async {
+    final locale = await Devicelocale.currentLocale;
+    // Some returned locales have the sharp (#) character in the subtag,
+    // for example en_US_#u-fw-mon-mu-celsius.
+    // It needs to be removed to bring it to Unicode format.
+    return locale?.replaceAll('#', '');
+  }
 }
