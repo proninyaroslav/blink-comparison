@@ -15,7 +15,8 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'package:blink_comparison/ui/cubit/selectable_cubit.dart';
+import 'package:blink_comparison/ui/model/selectable_cubit.dart';
+import 'package:blink_comparison/ui/model/selectable_state.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 

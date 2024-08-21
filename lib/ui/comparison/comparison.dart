@@ -15,4 +15,4 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
-export 'comparison_settings_cubit.dart';
+export 'model/comparison_settings_cubit.dart';

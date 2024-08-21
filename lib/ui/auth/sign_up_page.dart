@@ -15,8 +15,9 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'package:blink_comparison/ui/cubit/error_report_cubit.dart';
-import 'package:blink_comparison/ui/widget/widget.dart';
+import 'package:blink_comparison/ui/auth/model/sign_up_state.dart';
+import 'package:blink_comparison/ui/components/widget.dart';
+import 'package:blink_comparison/ui/model/error_report_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -24,7 +25,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import '../../locale.dart';
 import '../../logger.dart';
 import '../theme.dart';
-import 'sign_up_cubit.dart';
+import 'model/sign_up_cubit.dart';
 
 class SignUpButton extends StatelessWidget {
   const SignUpButton({super.key});

@@ -16,8 +16,10 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:auto_route/auto_route.dart';
-import 'package:blink_comparison/ui/cubit/showcase_cubit.dart';
-import 'package:blink_comparison/ui/widget/widget.dart';
+import 'package:blink_comparison/ui/comparison/model/blink_comparison_state.dart';
+import 'package:blink_comparison/ui/comparison/model/comparison_settings_state.dart';
+import 'package:blink_comparison/ui/model/showcase_cubit.dart';
+import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showcaseview/showcaseview.dart';
@@ -25,8 +27,8 @@ import 'package:showcaseview/showcaseview.dart';
 import '../../injector.dart';
 import '../../locale.dart';
 import '../theme.dart';
-import 'blink_comparison_cubit.dart';
-import 'comparison_settings_cubit.dart';
+import 'model/blink_comparison_cubit.dart';
+import 'model/comparison_settings_cubit.dart';
 
 final _refImageBorderShowcaseKey = GlobalKey();
 final _blinkComparisonShowcaseKey = GlobalKey();

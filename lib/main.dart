@@ -26,7 +26,7 @@ import 'core/notification_manager.dart';
 import 'env.dart';
 import 'injector.dart';
 import 'ui/app.dart';
-import 'ui/crash_report_dialog/dialog_crash_handler.dart';
+import 'ui/crash_report_dialog/model/dialog_crash_handler.dart';
 
 final _navigatorKey = GlobalKey<NavigatorState>();
 

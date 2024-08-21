@@ -15,16 +15,17 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'package:blink_comparison/ui/cubit/error_report_cubit.dart';
-import 'package:blink_comparison/ui/widget/page_icon.dart';
-import 'package:blink_comparison/ui/widget/progress_fab.dart';
+import 'package:blink_comparison/ui/auth/model/auth_state.dart';
+import 'package:blink_comparison/ui/components/page_icon.dart';
+import 'package:blink_comparison/ui/components/progress_fab.dart';
+import 'package:blink_comparison/ui/model/error_report_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../locale.dart';
 import '../../logger.dart';
 import '../theme.dart';
-import 'auth_cubit.dart';
+import 'model/auth_cubit.dart';
 
 class SignInButton extends StatelessWidget {
   final TextEditingController passwordFieldController;

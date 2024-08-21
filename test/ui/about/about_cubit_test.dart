@@ -16,7 +16,8 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:blink_comparison/core/platform_info.dart';
-import 'package:blink_comparison/ui/about/about_cubit.dart';
+import 'package:blink_comparison/ui/about/model/about_cubit.dart';
+import 'package:blink_comparison/ui/about/model/about_state.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';

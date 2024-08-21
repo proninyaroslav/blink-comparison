@@ -16,16 +16,18 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:auto_route/auto_route.dart';
-import 'package:blink_comparison/ui/widget/widget.dart';
+import 'package:blink_comparison/ui/auth/model/auth_state.dart';
+import 'package:blink_comparison/ui/auth/model/sign_up_state.dart';
+import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import '../../injector.dart';
-import '../utils.dart';
-import 'auth_cubit.dart';
+import '../model/utils.dart';
+import 'model/auth_cubit.dart';
+import 'model/sign_up_cubit.dart';
 import 'sign_in_page.dart';
-import 'sign_up_cubit.dart';
 import 'sign_up_page.dart';
 
 const _pagePadding =

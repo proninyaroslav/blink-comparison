@@ -16,12 +16,15 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:auto_route/auto_route.dart';
-import 'package:blink_comparison/ui/camera/camera.dart';
-import 'package:blink_comparison/ui/cubit/error_report_cubit.dart';
-import 'package:blink_comparison/ui/cubit/showcase_cubit.dart';
+import 'package:blink_comparison/ui/camera_picker/components/camera_view.dart';
+import 'package:blink_comparison/ui/camera_picker/model/camera_provider_cubit.dart';
+import 'package:blink_comparison/ui/components/widget.dart';
+import 'package:blink_comparison/ui/model/error_report_cubit.dart';
+import 'package:blink_comparison/ui/model/showcase_cubit.dart';
+import 'package:blink_comparison/ui/model/xfile_provider.dart';
+import 'package:blink_comparison/ui/preview/model/ref_image_options_state.dart';
+import 'package:blink_comparison/ui/preview/model/ref_image_state.dart';
 import 'package:blink_comparison/ui/theme.dart';
-import 'package:blink_comparison/ui/widget/widget.dart';
-import 'package:blink_comparison/ui/xfile_provider.dart';
 import 'package:cross_file/cross_file.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
@@ -31,10 +34,10 @@ import 'package:showcaseview/showcaseview.dart';
 import '../../injector.dart';
 import '../../locale.dart';
 import '../../logger.dart';
-import '../app_router.gr.dart';
-import 'opacity_bar.dart';
-import 'ref_image_cubit.dart';
-import 'ref_image_options_cubit.dart';
+import '../routes/routes.dart';
+import 'components/opacity_bar.dart';
+import 'model/ref_image_cubit.dart';
+import 'model/ref_image_options_cubit.dart';
 
 final _opacityShowcaseKey = GlobalKey();
 

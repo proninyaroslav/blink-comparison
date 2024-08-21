@@ -20,9 +20,9 @@ import 'package:blink_comparison/core/crash_report/crash_report_manager.dart';
 import 'package:blink_comparison/core/notification_manager.dart';
 import 'package:blink_comparison/core/platform_info.dart';
 import 'package:blink_comparison/core/settings/app_settings.dart';
-import 'package:blink_comparison/ui/app_cubit.dart';
-import 'package:blink_comparison/ui/app_router.gr.dart';
-import 'package:blink_comparison/ui/intl_locale_bridge.dart';
+import 'package:blink_comparison/ui/components/intl_locale_bridge.dart';
+import 'package:blink_comparison/ui/model/app_cubit.dart';
+import 'package:blink_comparison/ui/model/app_state.dart';
 // ignore: depend_on_referenced_packages
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
@@ -33,7 +33,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../injector.dart';
 import '../locale.dart';
 import '../logger.dart';
-import 'app_router.dart';
+import 'routes/routes.dart';
 import 'theme.dart';
 
 class App extends StatefulWidget {

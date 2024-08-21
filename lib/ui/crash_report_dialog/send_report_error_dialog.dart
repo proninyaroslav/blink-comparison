@@ -16,7 +16,7 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:blink_comparison/core/crash_report/crash_report_manager.dart';
-import 'package:blink_comparison/ui/widget/widget.dart';
+import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../locale.dart';

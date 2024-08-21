@@ -17,7 +17,8 @@
 
 import 'package:blink_comparison/core/entity/entity.dart';
 import 'package:blink_comparison/core/storage/storage_result.dart';
-import 'package:blink_comparison/ui/home/add_ref_image_cubit.dart';
+import 'package:blink_comparison/ui/home/model/add_ref_image_cubit.dart';
+import 'package:blink_comparison/ui/home/model/add_ref_image_state.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:image_picker/image_picker.dart';

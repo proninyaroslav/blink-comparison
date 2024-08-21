@@ -15,6 +15,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
-export 'page/appearance_page.dart';
-export 'page/camera_page.dart';
+export 'appearance_page.dart';
+export 'camera_page.dart';
 export 'settings_page.dart';

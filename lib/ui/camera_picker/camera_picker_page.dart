@@ -16,9 +16,10 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:auto_route/auto_route.dart';
-import 'package:blink_comparison/ui/camera/camera.dart';
-import 'package:blink_comparison/ui/cubit/error_report_cubit.dart';
-import 'package:blink_comparison/ui/widget/widget.dart';
+import 'package:blink_comparison/ui/camera_picker/components/camera_view.dart';
+import 'package:blink_comparison/ui/camera_picker/model/camera_provider_cubit.dart';
+import 'package:blink_comparison/ui/components/widget.dart';
+import 'package:blink_comparison/ui/model/error_report_cubit.dart';
 import 'package:cross_file/cross_file.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

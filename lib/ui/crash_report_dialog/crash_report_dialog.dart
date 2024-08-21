@@ -17,7 +17,7 @@
 
 import 'dart:async';
 
-import 'package:blink_comparison/ui/widget/widget.dart';
+import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../locale.dart';

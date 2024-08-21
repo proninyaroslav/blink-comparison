@@ -17,16 +17,16 @@
 
 import 'package:auto_route/auto_route.dart';
 import 'package:blink_comparison/injector.dart';
-import 'package:blink_comparison/ui/app_router.gr.dart';
-import 'package:blink_comparison/ui/settings/page/appearance_cubit.dart';
-import 'package:blink_comparison/ui/settings/settings_pages_list.dart';
+import 'package:blink_comparison/ui/settings/components/settings_pages_list.dart';
+import 'package:blink_comparison/ui/settings/model/appearance_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import '../../locale.dart';
-import 'model.dart';
-import 'page/camera_cubit.dart';
+import '../routes/routes.dart';
+import 'model/camera_cubit.dart';
+import 'model/settings_route_item.dart';
 
 @RoutePage()
 class SettingsPage extends StatefulWidget implements AutoRouteWrapper {

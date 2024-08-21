@@ -16,7 +16,8 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:auto_route/auto_route.dart';
-import 'package:blink_comparison/ui/widget/widget.dart';
+import 'package:blink_comparison/ui/about/model/about_state.dart';
+import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,8 +26,8 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../injector.dart';
 import '../../locale.dart';
 import '../../logger.dart';
-import '../toast.dart';
-import 'about_cubit.dart';
+import '../components/toast.dart';
+import 'model/about_cubit.dart';
 
 class AboutPage extends StatefulWidget implements AutoRouteWrapper {
   const AboutPage({super.key});

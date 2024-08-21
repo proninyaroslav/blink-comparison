@@ -18,9 +18,10 @@
 import 'dart:ui';
 
 import 'package:blink_comparison/core/settings/app_settings.dart';
-import 'package:blink_comparison/ui/app_cubit.dart';
 import 'package:blink_comparison/ui/comparison/comparison.dart';
-import 'package:blink_comparison/ui/settings/page/appearance_cubit.dart';
+import 'package:blink_comparison/ui/model/app_cubit.dart';
+import 'package:blink_comparison/ui/settings/model/appearance_cubit.dart';
+import 'package:blink_comparison/ui/settings/model/appearance_state.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';

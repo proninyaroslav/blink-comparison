@@ -15,7 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'package:blink_comparison/ui/app_cubit.dart';
+import 'package:blink_comparison/ui/model/app_cubit.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockAppCubit extends Mock implements AppCubit {}

@@ -18,7 +18,8 @@
 import 'package:blink_comparison/core/entity/entity.dart';
 import 'package:blink_comparison/core/storage/password_repository.dart';
 import 'package:blink_comparison/core/storage/storage_result.dart';
-import 'package:blink_comparison/ui/auth/sign_up_cubit.dart';
+import 'package:blink_comparison/ui/auth/model/sign_up_cubit.dart';
+import 'package:blink_comparison/ui/auth/model/sign_up_state.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';

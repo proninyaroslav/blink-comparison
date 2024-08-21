@@ -16,7 +16,8 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:blink_comparison/core/crash_report/crash_report_manager.dart';
-import 'package:blink_comparison/ui/cubit/error_report_cubit.dart';
+import 'package:blink_comparison/ui/model/error_report_cubit.dart';
+import 'package:blink_comparison/ui/model/error_report_state.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';

@@ -15,7 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'package:blink_comparison/ui/camera/camera_provider.dart';
+import 'package:blink_comparison/ui/camera_picker/model/camera_provider.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockCameraProvider extends Mock implements CameraProvider {}

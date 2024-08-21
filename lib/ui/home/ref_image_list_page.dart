@@ -17,11 +17,16 @@
 
 import 'package:auto_route/auto_route.dart';
 import 'package:blink_comparison/core/entity/entity.dart';
-import 'package:blink_comparison/ui/cubit/error_report_cubit.dart';
-import 'package:blink_comparison/ui/cubit/selectable_cubit.dart';
-import 'package:blink_comparison/ui/cubit/system_picker_cubit.dart';
-import 'package:blink_comparison/ui/home/ref_images_cubit.dart';
-import 'package:blink_comparison/ui/widget/widget.dart';
+import 'package:blink_comparison/ui/components/widget.dart';
+import 'package:blink_comparison/ui/home/model/add_ref_image_state.dart';
+import 'package:blink_comparison/ui/home/model/ref_images_actions_state.dart';
+import 'package:blink_comparison/ui/home/model/ref_images_cubit.dart';
+import 'package:blink_comparison/ui/home/model/ref_images_state.dart';
+import 'package:blink_comparison/ui/home/model/selectable_ref_image_item.dart';
+import 'package:blink_comparison/ui/model/error_report_cubit.dart';
+import 'package:blink_comparison/ui/model/selectable_state.dart';
+import 'package:blink_comparison/ui/model/system_picker_cubit.dart';
+import 'package:blink_comparison/ui/model/system_picker_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -31,14 +36,14 @@ import 'package:responsive_builder/responsive_builder.dart';
 import '../../injector.dart';
 import '../../locale.dart';
 import '../../logger.dart';
-import '../app_router.gr.dart';
+import '../model/utils.dart';
+import '../model/xfile_provider.dart';
+import '../routes/routes.dart';
 import '../theme.dart';
-import '../utils.dart';
-import '../xfile_provider.dart';
-import 'add_ref_image_cubit.dart';
-import 'app_bar.dart';
-import 'ref_images_actions_cubit.dart';
-import 'selectable_ref_image_cubit.dart';
+import 'components/app_bar.dart';
+import 'model/add_ref_image_cubit.dart';
+import 'model/ref_images_actions_cubit.dart';
+import 'model/selectable_ref_image_cubit.dart';
 
 @RoutePage()
 class RefImageListPage extends StatefulWidget implements AutoRouteWrapper {
