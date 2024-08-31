@@ -17,6 +17,7 @@
 
 import 'dart:convert';
 
+import 'package:blink_comparison/env.dart';
 import 'package:flutter/material.dart' show Colors;
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -73,7 +74,7 @@ abstract final class AppSettingsDefault {
   static bool cameraFullscreenMode = true;
 }
 
-@Singleton(as: AppSettings)
+@Singleton(as: AppSettings, env: [Env.dev, Env.prod])
 class AppSettingsImpl implements AppSettings {
   final SharedPreferencesAsync _pref;
 
