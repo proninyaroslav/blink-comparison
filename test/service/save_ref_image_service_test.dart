@@ -33,7 +33,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-import '../mock/encrypt/mock_auth_factor.dart';
 import '../mock/mock.dart';
 
 void main() {
