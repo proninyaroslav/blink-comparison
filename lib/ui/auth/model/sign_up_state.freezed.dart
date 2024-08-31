@@ -27,9 +27,9 @@ mixin _$SignUpState {
     required TResult Function(Password password, RepeatPassword repeatPassword)
         passwordMismatch,
     required TResult Function() savingPassword,
-    required TResult Function() passwordSaved,
+    required TResult Function() savedAndAuthorized,
     required TResult Function(Password password, RepeatPassword repeatPassword,
-            Exception? exception, StackTrace? stackTrace)
+            Object? error, StackTrace? stackTrace)
         savePasswordFailed,
   }) =>
       throw _privateConstructorUsedError;
@@ -44,9 +44,9 @@ mixin _$SignUpState {
     TResult? Function(Password password, RepeatPassword repeatPassword)?
         passwordMismatch,
     TResult? Function()? savingPassword,
-    TResult? Function()? passwordSaved,
+    TResult? Function()? savedAndAuthorized,
     TResult? Function(Password password, RepeatPassword repeatPassword,
-            Exception? exception, StackTrace? stackTrace)?
+            Object? error, StackTrace? stackTrace)?
         savePasswordFailed,
   }) =>
       throw _privateConstructorUsedError;
@@ -60,9 +60,9 @@ mixin _$SignUpState {
     TResult Function(Password password, RepeatPassword repeatPassword)?
         passwordMismatch,
     TResult Function()? savingPassword,
-    TResult Function()? passwordSaved,
+    TResult Function()? savedAndAuthorized,
     TResult Function(Password password, RepeatPassword repeatPassword,
-            Exception? exception, StackTrace? stackTrace)?
+            Object? error, StackTrace? stackTrace)?
         savePasswordFailed,
     required TResult orElse(),
   }) =>
@@ -75,7 +75,8 @@ mixin _$SignUpState {
     required TResult Function(SignUpStatePasswordMismatch value)
         passwordMismatch,
     required TResult Function(SignUpStateSavingPassword value) savingPassword,
-    required TResult Function(SignUpStatePasswordSaved value) passwordSaved,
+    required TResult Function(SignUpStatePasswordSavedAndAuthorized value)
+        savedAndAuthorized,
     required TResult Function(SignUpStateSavePasswordFailed value)
         savePasswordFailed,
   }) =>
@@ -87,7 +88,8 @@ mixin _$SignUpState {
     TResult? Function(SignUpStateInvalidPassword value)? invalidPassword,
     TResult? Function(SignUpStatePasswordMismatch value)? passwordMismatch,
     TResult? Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult? Function(SignUpStatePasswordSaved value)? passwordSaved,
+    TResult? Function(SignUpStatePasswordSavedAndAuthorized value)?
+        savedAndAuthorized,
     TResult? Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
   }) =>
       throw _privateConstructorUsedError;
@@ -98,7 +100,8 @@ mixin _$SignUpState {
     TResult Function(SignUpStateInvalidPassword value)? invalidPassword,
     TResult Function(SignUpStatePasswordMismatch value)? passwordMismatch,
     TResult Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult Function(SignUpStatePasswordSaved value)? passwordSaved,
+    TResult Function(SignUpStatePasswordSavedAndAuthorized value)?
+        savedAndAuthorized,
     TResult Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
     required TResult orElse(),
   }) =>
@@ -252,9 +255,9 @@ class _$SignUpStateInitialImpl
     required TResult Function(Password password, RepeatPassword repeatPassword)
         passwordMismatch,
     required TResult Function() savingPassword,
-    required TResult Function() passwordSaved,
+    required TResult Function() savedAndAuthorized,
     required TResult Function(Password password, RepeatPassword repeatPassword,
-            Exception? exception, StackTrace? stackTrace)
+            Object? error, StackTrace? stackTrace)
         savePasswordFailed,
   }) {
     return initial(password, repeatPassword);
@@ -272,9 +275,9 @@ class _$SignUpStateInitialImpl
     TResult? Function(Password password, RepeatPassword repeatPassword)?
         passwordMismatch,
     TResult? Function()? savingPassword,
-    TResult? Function()? passwordSaved,
+    TResult? Function()? savedAndAuthorized,
     TResult? Function(Password password, RepeatPassword repeatPassword,
-            Exception? exception, StackTrace? stackTrace)?
+            Object? error, StackTrace? stackTrace)?
         savePasswordFailed,
   }) {
     return initial?.call(password, repeatPassword);
@@ -291,9 +294,9 @@ class _$SignUpStateInitialImpl
     TResult Function(Password password, RepeatPassword repeatPassword)?
         passwordMismatch,
     TResult Function()? savingPassword,
-    TResult Function()? passwordSaved,
+    TResult Function()? savedAndAuthorized,
     TResult Function(Password password, RepeatPassword repeatPassword,
-            Exception? exception, StackTrace? stackTrace)?
+            Object? error, StackTrace? stackTrace)?
         savePasswordFailed,
     required TResult orElse(),
   }) {
@@ -312,7 +315,8 @@ class _$SignUpStateInitialImpl
     required TResult Function(SignUpStatePasswordMismatch value)
         passwordMismatch,
     required TResult Function(SignUpStateSavingPassword value) savingPassword,
-    required TResult Function(SignUpStatePasswordSaved value) passwordSaved,
+    required TResult Function(SignUpStatePasswordSavedAndAuthorized value)
+        savedAndAuthorized,
     required TResult Function(SignUpStateSavePasswordFailed value)
         savePasswordFailed,
   }) {
@@ -327,7 +331,8 @@ class _$SignUpStateInitialImpl
     TResult? Function(SignUpStateInvalidPassword value)? invalidPassword,
     TResult? Function(SignUpStatePasswordMismatch value)? passwordMismatch,
     TResult? Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult? Function(SignUpStatePasswordSaved value)? passwordSaved,
+    TResult? Function(SignUpStatePasswordSavedAndAuthorized value)?
+        savedAndAuthorized,
     TResult? Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
   }) {
     return initial?.call(this);
@@ -341,7 +346,8 @@ class _$SignUpStateInitialImpl
     TResult Function(SignUpStateInvalidPassword value)? invalidPassword,
     TResult Function(SignUpStatePasswordMismatch value)? passwordMismatch,
     TResult Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult Function(SignUpStatePasswordSaved value)? passwordSaved,
+    TResult Function(SignUpStatePasswordSavedAndAuthorized value)?
+        savedAndAuthorized,
     TResult Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
     required TResult orElse(),
   }) {
@@ -492,9 +498,9 @@ class _$SignUpStatePasswordChangedImpl
     required TResult Function(Password password, RepeatPassword repeatPassword)
         passwordMismatch,
     required TResult Function() savingPassword,
-    required TResult Function() passwordSaved,
+    required TResult Function() savedAndAuthorized,
     required TResult Function(Password password, RepeatPassword repeatPassword,
-            Exception? exception, StackTrace? stackTrace)
+            Object? error, StackTrace? stackTrace)
         savePasswordFailed,
   }) {
     return passwordChanged(password, repeatPassword);
@@ -512,9 +518,9 @@ class _$SignUpStatePasswordChangedImpl
     TResult? Function(Password password, RepeatPassword repeatPassword)?
         passwordMismatch,
     TResult? Function()? savingPassword,
-    TResult? Function()? passwordSaved,
+    TResult? Function()? savedAndAuthorized,
     TResult? Function(Password password, RepeatPassword repeatPassword,
-            Exception? exception, StackTrace? stackTrace)?
+            Object? error, StackTrace? stackTrace)?
         savePasswordFailed,
   }) {
     return passwordChanged?.call(password, repeatPassword);
@@ -531,9 +537,9 @@ class _$SignUpStatePasswordChangedImpl
     TResult Function(Password password, RepeatPassword repeatPassword)?
         passwordMismatch,
     TResult Function()? savingPassword,
-    TResult Function()? passwordSaved,
+    TResult Function()? savedAndAuthorized,
     TResult Function(Password password, RepeatPassword repeatPassword,
-            Exception? exception, StackTrace? stackTrace)?
+            Object? error, StackTrace? stackTrace)?
         savePasswordFailed,
     required TResult orElse(),
   }) {
@@ -552,7 +558,8 @@ class _$SignUpStatePasswordChangedImpl
     required TResult Function(SignUpStatePasswordMismatch value)
         passwordMismatch,
     required TResult Function(SignUpStateSavingPassword value) savingPassword,
-    required TResult Function(SignUpStatePasswordSaved value) passwordSaved,
+    required TResult Function(SignUpStatePasswordSavedAndAuthorized value)
+        savedAndAuthorized,
     required TResult Function(SignUpStateSavePasswordFailed value)
         savePasswordFailed,
   }) {
@@ -567,7 +574,8 @@ class _$SignUpStatePasswordChangedImpl
     TResult? Function(SignUpStateInvalidPassword value)? invalidPassword,
     TResult? Function(SignUpStatePasswordMismatch value)? passwordMismatch,
     TResult? Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult? Function(SignUpStatePasswordSaved value)? passwordSaved,
+    TResult? Function(SignUpStatePasswordSavedAndAuthorized value)?
+        savedAndAuthorized,
     TResult? Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
   }) {
     return passwordChanged?.call(this);
@@ -581,7 +589,8 @@ class _$SignUpStatePasswordChangedImpl
     TResult Function(SignUpStateInvalidPassword value)? invalidPassword,
     TResult Function(SignUpStatePasswordMismatch value)? passwordMismatch,
     TResult Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult Function(SignUpStatePasswordSaved value)? passwordSaved,
+    TResult Function(SignUpStatePasswordSavedAndAuthorized value)?
+        savedAndAuthorized,
     TResult Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
     required TResult orElse(),
   }) {
@@ -733,9 +742,9 @@ class _$SignUpStateInvalidPasswordImpl
     required TResult Function(Password password, RepeatPassword repeatPassword)
         passwordMismatch,
     required TResult Function() savingPassword,
-    required TResult Function() passwordSaved,
+    required TResult Function() savedAndAuthorized,
     required TResult Function(Password password, RepeatPassword repeatPassword,
-            Exception? exception, StackTrace? stackTrace)
+            Object? error, StackTrace? stackTrace)
         savePasswordFailed,
   }) {
     return invalidPassword(password, repeatPassword);
@@ -753,9 +762,9 @@ class _$SignUpStateInvalidPasswordImpl
     TResult? Function(Password password, RepeatPassword repeatPassword)?
         passwordMismatch,
     TResult? Function()? savingPassword,
-    TResult? Function()? passwordSaved,
+    TResult? Function()? savedAndAuthorized,
     TResult? Function(Password password, RepeatPassword repeatPassword,
-            Exception? exception, StackTrace? stackTrace)?
+            Object? error, StackTrace? stackTrace)?
         savePasswordFailed,
   }) {
     return invalidPassword?.call(password, repeatPassword);
@@ -772,9 +781,9 @@ class _$SignUpStateInvalidPasswordImpl
     TResult Function(Password password, RepeatPassword repeatPassword)?
         passwordMismatch,
     TResult Function()? savingPassword,
-    TResult Function()? passwordSaved,
+    TResult Function()? savedAndAuthorized,
     TResult Function(Password password, RepeatPassword repeatPassword,
-            Exception? exception, StackTrace? stackTrace)?
+            Object? error, StackTrace? stackTrace)?
         savePasswordFailed,
     required TResult orElse(),
   }) {
@@ -793,7 +802,8 @@ class _$SignUpStateInvalidPasswordImpl
     required TResult Function(SignUpStatePasswordMismatch value)
         passwordMismatch,
     required TResult Function(SignUpStateSavingPassword value) savingPassword,
-    required TResult Function(SignUpStatePasswordSaved value) passwordSaved,
+    required TResult Function(SignUpStatePasswordSavedAndAuthorized value)
+        savedAndAuthorized,
     required TResult Function(SignUpStateSavePasswordFailed value)
         savePasswordFailed,
   }) {
@@ -808,7 +818,8 @@ class _$SignUpStateInvalidPasswordImpl
     TResult? Function(SignUpStateInvalidPassword value)? invalidPassword,
     TResult? Function(SignUpStatePasswordMismatch value)? passwordMismatch,
     TResult? Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult? Function(SignUpStatePasswordSaved value)? passwordSaved,
+    TResult? Function(SignUpStatePasswordSavedAndAuthorized value)?
+        savedAndAuthorized,
     TResult? Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
   }) {
     return invalidPassword?.call(this);
@@ -822,7 +833,8 @@ class _$SignUpStateInvalidPasswordImpl
     TResult Function(SignUpStateInvalidPassword value)? invalidPassword,
     TResult Function(SignUpStatePasswordMismatch value)? passwordMismatch,
     TResult Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult Function(SignUpStatePasswordSaved value)? passwordSaved,
+    TResult Function(SignUpStatePasswordSavedAndAuthorized value)?
+        savedAndAuthorized,
     TResult Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
     required TResult orElse(),
   }) {
@@ -974,9 +986,9 @@ class _$SignUpStatePasswordMismatchImpl
     required TResult Function(Password password, RepeatPassword repeatPassword)
         passwordMismatch,
     required TResult Function() savingPassword,
-    required TResult Function() passwordSaved,
+    required TResult Function() savedAndAuthorized,
     required TResult Function(Password password, RepeatPassword repeatPassword,
-            Exception? exception, StackTrace? stackTrace)
+            Object? error, StackTrace? stackTrace)
         savePasswordFailed,
   }) {
     return passwordMismatch(password, repeatPassword);
@@ -994,9 +1006,9 @@ class _$SignUpStatePasswordMismatchImpl
     TResult? Function(Password password, RepeatPassword repeatPassword)?
         passwordMismatch,
     TResult? Function()? savingPassword,
-    TResult? Function()? passwordSaved,
+    TResult? Function()? savedAndAuthorized,
     TResult? Function(Password password, RepeatPassword repeatPassword,
-            Exception? exception, StackTrace? stackTrace)?
+            Object? error, StackTrace? stackTrace)?
         savePasswordFailed,
   }) {
     return passwordMismatch?.call(password, repeatPassword);
@@ -1013,9 +1025,9 @@ class _$SignUpStatePasswordMismatchImpl
     TResult Function(Password password, RepeatPassword repeatPassword)?
         passwordMismatch,
     TResult Function()? savingPassword,
-    TResult Function()? passwordSaved,
+    TResult Function()? savedAndAuthorized,
     TResult Function(Password password, RepeatPassword repeatPassword,
-            Exception? exception, StackTrace? stackTrace)?
+            Object? error, StackTrace? stackTrace)?
         savePasswordFailed,
     required TResult orElse(),
   }) {
@@ -1034,7 +1046,8 @@ class _$SignUpStatePasswordMismatchImpl
     required TResult Function(SignUpStatePasswordMismatch value)
         passwordMismatch,
     required TResult Function(SignUpStateSavingPassword value) savingPassword,
-    required TResult Function(SignUpStatePasswordSaved value) passwordSaved,
+    required TResult Function(SignUpStatePasswordSavedAndAuthorized value)
+        savedAndAuthorized,
     required TResult Function(SignUpStateSavePasswordFailed value)
         savePasswordFailed,
   }) {
@@ -1049,7 +1062,8 @@ class _$SignUpStatePasswordMismatchImpl
     TResult? Function(SignUpStateInvalidPassword value)? invalidPassword,
     TResult? Function(SignUpStatePasswordMismatch value)? passwordMismatch,
     TResult? Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult? Function(SignUpStatePasswordSaved value)? passwordSaved,
+    TResult? Function(SignUpStatePasswordSavedAndAuthorized value)?
+        savedAndAuthorized,
     TResult? Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
   }) {
     return passwordMismatch?.call(this);
@@ -1063,7 +1077,8 @@ class _$SignUpStatePasswordMismatchImpl
     TResult Function(SignUpStateInvalidPassword value)? invalidPassword,
     TResult Function(SignUpStatePasswordMismatch value)? passwordMismatch,
     TResult Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult Function(SignUpStatePasswordSaved value)? passwordSaved,
+    TResult Function(SignUpStatePasswordSavedAndAuthorized value)?
+        savedAndAuthorized,
     TResult Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
     required TResult orElse(),
   }) {
@@ -1151,9 +1166,9 @@ class _$SignUpStateSavingPasswordImpl
     required TResult Function(Password password, RepeatPassword repeatPassword)
         passwordMismatch,
     required TResult Function() savingPassword,
-    required TResult Function() passwordSaved,
+    required TResult Function() savedAndAuthorized,
     required TResult Function(Password password, RepeatPassword repeatPassword,
-            Exception? exception, StackTrace? stackTrace)
+            Object? error, StackTrace? stackTrace)
         savePasswordFailed,
   }) {
     return savingPassword();
@@ -1171,9 +1186,9 @@ class _$SignUpStateSavingPasswordImpl
     TResult? Function(Password password, RepeatPassword repeatPassword)?
         passwordMismatch,
     TResult? Function()? savingPassword,
-    TResult? Function()? passwordSaved,
+    TResult? Function()? savedAndAuthorized,
     TResult? Function(Password password, RepeatPassword repeatPassword,
-            Exception? exception, StackTrace? stackTrace)?
+            Object? error, StackTrace? stackTrace)?
         savePasswordFailed,
   }) {
     return savingPassword?.call();
@@ -1190,9 +1205,9 @@ class _$SignUpStateSavingPasswordImpl
     TResult Function(Password password, RepeatPassword repeatPassword)?
         passwordMismatch,
     TResult Function()? savingPassword,
-    TResult Function()? passwordSaved,
+    TResult Function()? savedAndAuthorized,
     TResult Function(Password password, RepeatPassword repeatPassword,
-            Exception? exception, StackTrace? stackTrace)?
+            Object? error, StackTrace? stackTrace)?
         savePasswordFailed,
     required TResult orElse(),
   }) {
@@ -1211,7 +1226,8 @@ class _$SignUpStateSavingPasswordImpl
     required TResult Function(SignUpStatePasswordMismatch value)
         passwordMismatch,
     required TResult Function(SignUpStateSavingPassword value) savingPassword,
-    required TResult Function(SignUpStatePasswordSaved value) passwordSaved,
+    required TResult Function(SignUpStatePasswordSavedAndAuthorized value)
+        savedAndAuthorized,
     required TResult Function(SignUpStateSavePasswordFailed value)
         savePasswordFailed,
   }) {
@@ -1226,7 +1242,8 @@ class _$SignUpStateSavingPasswordImpl
     TResult? Function(SignUpStateInvalidPassword value)? invalidPassword,
     TResult? Function(SignUpStatePasswordMismatch value)? passwordMismatch,
     TResult? Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult? Function(SignUpStatePasswordSaved value)? passwordSaved,
+    TResult? Function(SignUpStatePasswordSavedAndAuthorized value)?
+        savedAndAuthorized,
     TResult? Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
   }) {
     return savingPassword?.call(this);
@@ -1240,7 +1257,8 @@ class _$SignUpStateSavingPasswordImpl
     TResult Function(SignUpStateInvalidPassword value)? invalidPassword,
     TResult Function(SignUpStatePasswordMismatch value)? passwordMismatch,
     TResult Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult Function(SignUpStatePasswordSaved value)? passwordSaved,
+    TResult Function(SignUpStatePasswordSavedAndAuthorized value)?
+        savedAndAuthorized,
     TResult Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
     required TResult orElse(),
   }) {
@@ -1256,20 +1274,21 @@ abstract class SignUpStateSavingPassword implements SignUpState {
 }
 
 /// @nodoc
-abstract class _$$SignUpStatePasswordSavedImplCopyWith<$Res> {
-  factory _$$SignUpStatePasswordSavedImplCopyWith(
-          _$SignUpStatePasswordSavedImpl value,
-          $Res Function(_$SignUpStatePasswordSavedImpl) then) =
-      __$$SignUpStatePasswordSavedImplCopyWithImpl<$Res>;
+abstract class _$$SignUpStatePasswordSavedAndAuthorizedImplCopyWith<$Res> {
+  factory _$$SignUpStatePasswordSavedAndAuthorizedImplCopyWith(
+          _$SignUpStatePasswordSavedAndAuthorizedImpl value,
+          $Res Function(_$SignUpStatePasswordSavedAndAuthorizedImpl) then) =
+      __$$SignUpStatePasswordSavedAndAuthorizedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$SignUpStatePasswordSavedImplCopyWithImpl<$Res>
-    extends _$SignUpStateCopyWithImpl<$Res, _$SignUpStatePasswordSavedImpl>
-    implements _$$SignUpStatePasswordSavedImplCopyWith<$Res> {
-  __$$SignUpStatePasswordSavedImplCopyWithImpl(
-      _$SignUpStatePasswordSavedImpl _value,
-      $Res Function(_$SignUpStatePasswordSavedImpl) _then)
+class __$$SignUpStatePasswordSavedAndAuthorizedImplCopyWithImpl<$Res>
+    extends _$SignUpStateCopyWithImpl<$Res,
+        _$SignUpStatePasswordSavedAndAuthorizedImpl>
+    implements _$$SignUpStatePasswordSavedAndAuthorizedImplCopyWith<$Res> {
+  __$$SignUpStatePasswordSavedAndAuthorizedImplCopyWithImpl(
+      _$SignUpStatePasswordSavedAndAuthorizedImpl _value,
+      $Res Function(_$SignUpStatePasswordSavedAndAuthorizedImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of SignUpState
@@ -1278,27 +1297,28 @@ class __$$SignUpStatePasswordSavedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SignUpStatePasswordSavedImpl
+class _$SignUpStatePasswordSavedAndAuthorizedImpl
     with DiagnosticableTreeMixin
-    implements SignUpStatePasswordSaved {
-  const _$SignUpStatePasswordSavedImpl();
+    implements SignUpStatePasswordSavedAndAuthorized {
+  const _$SignUpStatePasswordSavedAndAuthorizedImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SignUpState.passwordSaved()';
+    return 'SignUpState.savedAndAuthorized()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'SignUpState.passwordSaved'));
+    properties
+        .add(DiagnosticsProperty('type', 'SignUpState.savedAndAuthorized'));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SignUpStatePasswordSavedImpl);
+            other is _$SignUpStatePasswordSavedAndAuthorizedImpl);
   }
 
   @override
@@ -1316,12 +1336,12 @@ class _$SignUpStatePasswordSavedImpl
     required TResult Function(Password password, RepeatPassword repeatPassword)
         passwordMismatch,
     required TResult Function() savingPassword,
-    required TResult Function() passwordSaved,
+    required TResult Function() savedAndAuthorized,
     required TResult Function(Password password, RepeatPassword repeatPassword,
-            Exception? exception, StackTrace? stackTrace)
+            Object? error, StackTrace? stackTrace)
         savePasswordFailed,
   }) {
-    return passwordSaved();
+    return savedAndAuthorized();
   }
 
   @override
@@ -1336,12 +1356,12 @@ class _$SignUpStatePasswordSavedImpl
     TResult? Function(Password password, RepeatPassword repeatPassword)?
         passwordMismatch,
     TResult? Function()? savingPassword,
-    TResult? Function()? passwordSaved,
+    TResult? Function()? savedAndAuthorized,
     TResult? Function(Password password, RepeatPassword repeatPassword,
-            Exception? exception, StackTrace? stackTrace)?
+            Object? error, StackTrace? stackTrace)?
         savePasswordFailed,
   }) {
-    return passwordSaved?.call();
+    return savedAndAuthorized?.call();
   }
 
   @override
@@ -1355,14 +1375,14 @@ class _$SignUpStatePasswordSavedImpl
     TResult Function(Password password, RepeatPassword repeatPassword)?
         passwordMismatch,
     TResult Function()? savingPassword,
-    TResult Function()? passwordSaved,
+    TResult Function()? savedAndAuthorized,
     TResult Function(Password password, RepeatPassword repeatPassword,
-            Exception? exception, StackTrace? stackTrace)?
+            Object? error, StackTrace? stackTrace)?
         savePasswordFailed,
     required TResult orElse(),
   }) {
-    if (passwordSaved != null) {
-      return passwordSaved();
+    if (savedAndAuthorized != null) {
+      return savedAndAuthorized();
     }
     return orElse();
   }
@@ -1376,11 +1396,12 @@ class _$SignUpStatePasswordSavedImpl
     required TResult Function(SignUpStatePasswordMismatch value)
         passwordMismatch,
     required TResult Function(SignUpStateSavingPassword value) savingPassword,
-    required TResult Function(SignUpStatePasswordSaved value) passwordSaved,
+    required TResult Function(SignUpStatePasswordSavedAndAuthorized value)
+        savedAndAuthorized,
     required TResult Function(SignUpStateSavePasswordFailed value)
         savePasswordFailed,
   }) {
-    return passwordSaved(this);
+    return savedAndAuthorized(this);
   }
 
   @override
@@ -1391,10 +1412,11 @@ class _$SignUpStatePasswordSavedImpl
     TResult? Function(SignUpStateInvalidPassword value)? invalidPassword,
     TResult? Function(SignUpStatePasswordMismatch value)? passwordMismatch,
     TResult? Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult? Function(SignUpStatePasswordSaved value)? passwordSaved,
+    TResult? Function(SignUpStatePasswordSavedAndAuthorized value)?
+        savedAndAuthorized,
     TResult? Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
   }) {
-    return passwordSaved?.call(this);
+    return savedAndAuthorized?.call(this);
   }
 
   @override
@@ -1405,19 +1427,21 @@ class _$SignUpStatePasswordSavedImpl
     TResult Function(SignUpStateInvalidPassword value)? invalidPassword,
     TResult Function(SignUpStatePasswordMismatch value)? passwordMismatch,
     TResult Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult Function(SignUpStatePasswordSaved value)? passwordSaved,
+    TResult Function(SignUpStatePasswordSavedAndAuthorized value)?
+        savedAndAuthorized,
     TResult Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
     required TResult orElse(),
   }) {
-    if (passwordSaved != null) {
-      return passwordSaved(this);
+    if (savedAndAuthorized != null) {
+      return savedAndAuthorized(this);
     }
     return orElse();
   }
 }
 
-abstract class SignUpStatePasswordSaved implements SignUpState {
-  const factory SignUpStatePasswordSaved() = _$SignUpStatePasswordSavedImpl;
+abstract class SignUpStatePasswordSavedAndAuthorized implements SignUpState {
+  const factory SignUpStatePasswordSavedAndAuthorized() =
+      _$SignUpStatePasswordSavedAndAuthorizedImpl;
 }
 
 /// @nodoc
@@ -1430,7 +1454,7 @@ abstract class _$$SignUpStateSavePasswordFailedImplCopyWith<$Res> {
   $Res call(
       {Password password,
       RepeatPassword repeatPassword,
-      Exception? exception,
+      Object? error,
       StackTrace? stackTrace});
 
   $PasswordCopyWith<$Res> get password;
@@ -1453,7 +1477,7 @@ class __$$SignUpStateSavePasswordFailedImplCopyWithImpl<$Res>
   $Res call({
     Object? password = null,
     Object? repeatPassword = null,
-    Object? exception = freezed,
+    Object? error = freezed,
     Object? stackTrace = freezed,
   }) {
     return _then(_$SignUpStateSavePasswordFailedImpl(
@@ -1465,10 +1489,7 @@ class __$$SignUpStateSavePasswordFailedImplCopyWithImpl<$Res>
           ? _value.repeatPassword
           : repeatPassword // ignore: cast_nullable_to_non_nullable
               as RepeatPassword,
-      exception: freezed == exception
-          ? _value.exception
-          : exception // ignore: cast_nullable_to_non_nullable
-              as Exception?,
+      error: freezed == error ? _value.error : error,
       stackTrace: freezed == stackTrace
           ? _value.stackTrace
           : stackTrace // ignore: cast_nullable_to_non_nullable
@@ -1505,7 +1526,7 @@ class _$SignUpStateSavePasswordFailedImpl
   const _$SignUpStateSavePasswordFailedImpl(
       {required this.password,
       required this.repeatPassword,
-      this.exception,
+      this.error,
       this.stackTrace});
 
   @override
@@ -1513,13 +1534,13 @@ class _$SignUpStateSavePasswordFailedImpl
   @override
   final RepeatPassword repeatPassword;
   @override
-  final Exception? exception;
+  final Object? error;
   @override
   final StackTrace? stackTrace;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SignUpState.savePasswordFailed(password: $password, repeatPassword: $repeatPassword, exception: $exception, stackTrace: $stackTrace)';
+    return 'SignUpState.savePasswordFailed(password: $password, repeatPassword: $repeatPassword, error: $error, stackTrace: $stackTrace)';
   }
 
   @override
@@ -1529,7 +1550,7 @@ class _$SignUpStateSavePasswordFailedImpl
       ..add(DiagnosticsProperty('type', 'SignUpState.savePasswordFailed'))
       ..add(DiagnosticsProperty('password', password))
       ..add(DiagnosticsProperty('repeatPassword', repeatPassword))
-      ..add(DiagnosticsProperty('exception', exception))
+      ..add(DiagnosticsProperty('error', error))
       ..add(DiagnosticsProperty('stackTrace', stackTrace));
   }
 
@@ -1542,15 +1563,14 @@ class _$SignUpStateSavePasswordFailedImpl
                 other.password == password) &&
             (identical(other.repeatPassword, repeatPassword) ||
                 other.repeatPassword == repeatPassword) &&
-            (identical(other.exception, exception) ||
-                other.exception == exception) &&
+            const DeepCollectionEquality().equals(other.error, error) &&
             (identical(other.stackTrace, stackTrace) ||
                 other.stackTrace == stackTrace));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, password, repeatPassword, exception, stackTrace);
+  int get hashCode => Object.hash(runtimeType, password, repeatPassword,
+      const DeepCollectionEquality().hash(error), stackTrace);
 
   /// Create a copy of SignUpState
   /// with the given fields replaced by the non-null parameter values.
@@ -1574,12 +1594,12 @@ class _$SignUpStateSavePasswordFailedImpl
     required TResult Function(Password password, RepeatPassword repeatPassword)
         passwordMismatch,
     required TResult Function() savingPassword,
-    required TResult Function() passwordSaved,
+    required TResult Function() savedAndAuthorized,
     required TResult Function(Password password, RepeatPassword repeatPassword,
-            Exception? exception, StackTrace? stackTrace)
+            Object? error, StackTrace? stackTrace)
         savePasswordFailed,
   }) {
-    return savePasswordFailed(password, repeatPassword, exception, stackTrace);
+    return savePasswordFailed(password, repeatPassword, error, stackTrace);
   }
 
   @override
@@ -1594,13 +1614,13 @@ class _$SignUpStateSavePasswordFailedImpl
     TResult? Function(Password password, RepeatPassword repeatPassword)?
         passwordMismatch,
     TResult? Function()? savingPassword,
-    TResult? Function()? passwordSaved,
+    TResult? Function()? savedAndAuthorized,
     TResult? Function(Password password, RepeatPassword repeatPassword,
-            Exception? exception, StackTrace? stackTrace)?
+            Object? error, StackTrace? stackTrace)?
         savePasswordFailed,
   }) {
     return savePasswordFailed?.call(
-        password, repeatPassword, exception, stackTrace);
+        password, repeatPassword, error, stackTrace);
   }
 
   @override
@@ -1614,15 +1634,14 @@ class _$SignUpStateSavePasswordFailedImpl
     TResult Function(Password password, RepeatPassword repeatPassword)?
         passwordMismatch,
     TResult Function()? savingPassword,
-    TResult Function()? passwordSaved,
+    TResult Function()? savedAndAuthorized,
     TResult Function(Password password, RepeatPassword repeatPassword,
-            Exception? exception, StackTrace? stackTrace)?
+            Object? error, StackTrace? stackTrace)?
         savePasswordFailed,
     required TResult orElse(),
   }) {
     if (savePasswordFailed != null) {
-      return savePasswordFailed(
-          password, repeatPassword, exception, stackTrace);
+      return savePasswordFailed(password, repeatPassword, error, stackTrace);
     }
     return orElse();
   }
@@ -1636,7 +1655,8 @@ class _$SignUpStateSavePasswordFailedImpl
     required TResult Function(SignUpStatePasswordMismatch value)
         passwordMismatch,
     required TResult Function(SignUpStateSavingPassword value) savingPassword,
-    required TResult Function(SignUpStatePasswordSaved value) passwordSaved,
+    required TResult Function(SignUpStatePasswordSavedAndAuthorized value)
+        savedAndAuthorized,
     required TResult Function(SignUpStateSavePasswordFailed value)
         savePasswordFailed,
   }) {
@@ -1651,7 +1671,8 @@ class _$SignUpStateSavePasswordFailedImpl
     TResult? Function(SignUpStateInvalidPassword value)? invalidPassword,
     TResult? Function(SignUpStatePasswordMismatch value)? passwordMismatch,
     TResult? Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult? Function(SignUpStatePasswordSaved value)? passwordSaved,
+    TResult? Function(SignUpStatePasswordSavedAndAuthorized value)?
+        savedAndAuthorized,
     TResult? Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
   }) {
     return savePasswordFailed?.call(this);
@@ -1665,7 +1686,8 @@ class _$SignUpStateSavePasswordFailedImpl
     TResult Function(SignUpStateInvalidPassword value)? invalidPassword,
     TResult Function(SignUpStatePasswordMismatch value)? passwordMismatch,
     TResult Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult Function(SignUpStatePasswordSaved value)? passwordSaved,
+    TResult Function(SignUpStatePasswordSavedAndAuthorized value)?
+        savedAndAuthorized,
     TResult Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
     required TResult orElse(),
   }) {
@@ -1680,12 +1702,12 @@ abstract class SignUpStateSavePasswordFailed implements SignUpState {
   const factory SignUpStateSavePasswordFailed(
       {required final Password password,
       required final RepeatPassword repeatPassword,
-      final Exception? exception,
+      final Object? error,
       final StackTrace? stackTrace}) = _$SignUpStateSavePasswordFailedImpl;
 
   Password get password;
   RepeatPassword get repeatPassword;
-  Exception? get exception;
+  Object? get error;
   StackTrace? get stackTrace;
 
   /// Create a copy of SignUpState

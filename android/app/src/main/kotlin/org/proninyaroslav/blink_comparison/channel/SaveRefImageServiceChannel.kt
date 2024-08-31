@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+ * Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
  *
  * This file is part of Blink Comparison.
  *
@@ -22,12 +22,11 @@ package org.proninyaroslav.blink_comparison.channel
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import org.proninyaroslav.blink_comparison.isServiceRunning
-import org.proninyaroslav.blink_comparison.service.SaveRefImageService
 import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
-import org.json.JSONObject
+import org.proninyaroslav.blink_comparison.isServiceRunning
+import org.proninyaroslav.blink_comparison.service.SaveRefImageService
 import java.util.*
 
 open class SaveRefImageServiceChannel(
@@ -57,7 +56,13 @@ open class SaveRefImageServiceChannel(
     }
 
     override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
-        val args = if (call.arguments == null) null else JSONObject(call.arguments as Map<*, *>)
+        val args: List<Map<*, *>?>? = call.arguments?.let {
+            when (it) {
+                is List<*> -> it.map { arg -> arg as Map<*, *>? }
+                else -> listOf(it as Map<*, *>?)
+            }
+        }
+
         when (call.method) {
             Methods.start -> {
                 val i = Intent(appContext, SaveRefImageService::class.java)
@@ -65,20 +70,27 @@ open class SaveRefImageServiceChannel(
                         action = SaveRefImageService.actionStart
                         putExtra(
                             SaveRefImageService.tagCallbackHandle,
-                            args?.getLong(Arguments.callbackHandle)
+                            args?.first()?.let {
+                                it[Arguments.callbackHandle] as Long
+                            }
                         )
                         putExtra(
                             SaveRefImageService.tagNotificationChannelName,
-                            args?.getString(Arguments.notificationChannelName)
+                            args?.first()?.let {
+                                it[Arguments.notificationChannelName] as String
+                            }
                         )
                         putExtra(
                             SaveRefImageService.tagNotificationTitle,
-                            args?.getString(Arguments.notificationTitle)
+                            args?.first()?.let {
+                                it[Arguments.notificationTitle] as String
+                            }
                         )
                     }
                 startService(i)
                 result.success(null)
             }
+
             Methods.stop -> {
                 val i = Intent(appContext, SaveRefImageService::class.java)
                     .apply {
@@ -87,27 +99,36 @@ open class SaveRefImageServiceChannel(
                 startService(i)
                 result.success(null)
             }
+
             Methods.isRunning -> {
                 result.success(appContext.isServiceRunning(SaveRefImageService::class.java))
             }
+
             Methods.pushQueue -> {
-                args?.let { queueChannel.push(it.toString()) }
+                args?.let {
+                    val (request, factor) = it
+                    queueChannel.setAuthFactor(factor)
+                    queueChannel.push(request as Map<*, *>)
+                }
                 result.success(null)
             }
+
             Methods.getAllInProgress -> {
                 result.success(queueChannel.getAllInProgress())
             }
+
             Methods.sendResult -> {
                 args?.let {
                     queueChannel.onCompleted(
-                        it.getJSONObject(Arguments.saveImageRequest).toString()
+                        it.first()?.get(Arguments.saveImageRequest) as Map<*, *>
                     )
                     resultChannel.send(
-                        it.getJSONObject(Arguments.saveImageResult).toString()
+                        it.first()?.get(Arguments.saveImageResult) as Map<*, *>
                     )
                 }
                 result.success(null)
             }
+
             else -> result.notImplemented()
         }
     }
@@ -124,32 +145,42 @@ open class SaveRefImageServiceChannel(
 open class SaveRefImageServiceQueueChannel : EventChannel.StreamHandler {
     companion object {
         const val channelName = "org.proninyaroslav.blink_comparison/save_ref_image_service/queue"
-        val queue = LinkedList<String>()
-        var currentImagesInProgress = mutableSetOf<String>()
+        val queue = LinkedList<Map<*, *>>()
+        var currentImagesInProgress = mutableSetOf<Map<*, *>>()
         var eventSink: EventChannel.EventSink? = null
+        var authFactor: Map<*, *>? = null
     }
 
     object Methods {
         const val observeQueue = "observeQueue"
     }
 
-    open fun push(request: String) {
-        if (eventSink?.sendEvent(request) != true) {
+    class EventObject(val request: Map<*, *>, val factor: Map<*, *>?) {
+        fun toMap(): Map<*, *> =
+            mapOf("request" to request, "factor" to factor)
+    }
+
+    open fun setAuthFactor(key: Map<*, *>?) {
+        authFactor = key
+    }
+
+    open fun push(request: Map<*, *>) {
+        if (eventSink?.sendEvent(EventObject(request = request, factor = authFactor)) != true) {
             queue.push(request)
         }
     }
 
-    private fun EventChannel.EventSink.sendEvent(request: String): Boolean {
-        currentImagesInProgress.add(request)
-        success(request)
+    private fun EventChannel.EventSink.sendEvent(event: EventObject): Boolean {
+        currentImagesInProgress.add(event.request)
+        success(event.toMap())
         return true
     }
 
-    open fun getAllInProgress(): List<String> = queue.toMutableList().apply {
+    open fun getAllInProgress(): List<Map<*, *>> = queue.toMutableList().apply {
         addAll(currentImagesInProgress)
     }
 
-    open fun onCompleted(request: String) {
+    open fun onCompleted(request: Map<*, *>) {
         currentImagesInProgress.remove(request)
     }
 
@@ -158,9 +189,10 @@ open class SaveRefImageServiceQueueChannel : EventChannel.StreamHandler {
             Methods.observeQueue -> {
                 SaveRefImageServiceQueueChannel.eventSink = eventSink
                 while (queue.isNotEmpty()) {
-                    eventSink?.sendEvent(queue.pop())
+                    eventSink?.sendEvent(EventObject(request = queue.pop(), factor = authFactor))
                 }
             }
+
             else -> {
                 eventSink?.apply {
                     error("1", "Unknown method: $method", null)
@@ -171,6 +203,7 @@ open class SaveRefImageServiceQueueChannel : EventChannel.StreamHandler {
     }
 
     override fun onCancel(arguments: Any?) {
+        authFactor = null
         eventSink = null
     }
 }
@@ -185,7 +218,7 @@ open class SaveRefImageServiceResultChannel : EventChannel.StreamHandler {
         const val observeResult = "observeResult"
     }
 
-    open fun send(result: String) {
+    open fun send(result: Map<*, *>) {
         eventSinkList.forEach { it?.success(result) }
     }
 

@@ -18,20 +18,22 @@
 import 'dart:async';
 import 'dart:typed_data';
 
-import 'package:blink_comparison/core/encrypt/encrypt.dart';
 import 'package:blink_comparison/core/entity/entity.dart';
 import 'package:blink_comparison/core/fs/fs_result.dart';
 import 'package:blink_comparison/core/service/generate_thumbnail_job.dart';
 import 'package:blink_comparison/core/service/save_ref_image_job.dart';
 import 'package:blink_comparison/core/service/save_ref_image_service.dart';
 import 'package:blink_comparison/core/service/save_thumbnail_job.dart';
+import 'package:blink_comparison/core/storage/auth_factor_repository.dart';
 import 'package:blink_comparison/platform/save_ref_image_native_service.dart';
 import 'package:cross_file/cross_file.dart';
 import 'package:file/file.dart';
 import 'package:file/memory.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
+import '../mock/encrypt/mock_auth_factor.dart';
 import '../mock/mock.dart';
 
 void main() {
@@ -41,6 +43,9 @@ void main() {
     late SaveThumbnailJob mockSaveThumbnailJob;
     late SaveRefImageServiceController mockServiceController;
     late SaveRefImageJobController mockJobController;
+    late AuthFactorRepository mockAppSecureKeyRepository;
+    late AuthFactor mockKeyImmutable;
+    late MutableAuthFactor mockKey;
     late final FileSystem fs;
     late final File srcFile;
     late SaveRefImageService service;
@@ -58,7 +63,17 @@ void main() {
       mockJobController = MockSaveRefImageJobController();
       mockGenerateThumbnailJob = MockGenerateThumbnailJob();
       mockSaveThumbnailJob = MockSaveThumbnailJob();
+      mockAppSecureKeyRepository = MockAppSecureKeyRepository();
+      mockKeyImmutable = MockAuthFactorPassword();
+      mockKey = MockMutableAuthFactorPassword();
+
+      when(() => mockKey.clear()).thenAnswer((_) {});
+      when(() => mockKey.toImmutable()).thenReturn(mockKeyImmutable);
+      when(() => mockKeyImmutable.copy()).thenReturn(mockKey);
+      when(() => mockAppSecureKeyRepository.get()).thenReturn(mockKeyImmutable);
+      when(() => mockAppSecureKeyRepository.hasSecureKey()).thenReturn(true);
       await srcFile.create();
+
       service = SaveRefImageServiceImpl(
         mockSaveJob,
         fs,
@@ -66,6 +81,7 @@ void main() {
         mockJobController,
         mockGenerateThumbnailJob,
         mockSaveThumbnailJob,
+        mockAppSecureKeyRepository,
       );
     });
 
@@ -77,18 +93,18 @@ void main() {
           encryptSalt: 'salt',
         ),
         srcFile: XFile(srcFile.path),
-        key: const AppSecureKey.password('123'),
       );
       when(
-        () => mockJobController.pushQueue(request),
+        () => mockJobController.pushQueue(request, factor: mockKey),
       ).thenAnswer((_) async => {});
 
       await service.save(
         info: request.info,
         srcImage: request.srcFile,
-        key: request.key,
       );
-      verify(() => mockJobController.pushQueue(request)).called(1);
+      verify(() => mockJobController.pushQueue(request, factor: mockKey))
+          .called(1);
+      verify(() => mockKey.clear()).called(1);
     });
 
     test('Get current status', () async {
@@ -118,14 +134,12 @@ void main() {
             (info) => SaveRefImageStatus.inProgress(imageId: info.id),
           )
           .toList();
-      const key = AppSecureKey.password('123');
       final controller = StreamController<ServiceResult>();
       controller.add(
         ServiceResult.fail(
           request: ServiceRequest(
             info: infoList[0],
             srcFile: XFile(srcFile.path),
-            key: key,
           ),
           error: ServiceError.saveImage(
             SaveRefImageError.fs(
@@ -142,7 +156,6 @@ void main() {
             request: ServiceRequest(
               info: info,
               srcFile: XFile(srcFile.path),
-              key: key,
             ),
           ),
         );
@@ -185,46 +198,51 @@ void main() {
 
     group('Job |', () {
       test('Run job', () async {
-        const key = AppSecureKey.password('123');
-        final requests = [
-          ServiceRequest(
-            info: RefImageInfo(
-              id: '1',
-              dateAdded: DateTime(2021),
-              encryptSalt: 'salt',
+        final items = [
+          ServiceQueueItem(
+            request: ServiceRequest(
+              info: RefImageInfo(
+                id: '1',
+                dateAdded: DateTime(2021),
+                encryptSalt: 'salt',
+              ),
+              srcFile: XFile(srcFile.path),
             ),
-            srcFile: XFile(srcFile.path),
-            key: key,
+            factor: mockKey,
           ),
-          ServiceRequest(
-            info: RefImageInfo(
-              id: '2',
-              dateAdded: DateTime(2021),
-              encryptSalt: 'salt',
+          ServiceQueueItem(
+            request: ServiceRequest(
+              info: RefImageInfo(
+                id: '2',
+                dateAdded: DateTime(2021),
+                encryptSalt: 'salt',
+              ),
+              srcFile: XFile(srcFile.path),
             ),
-            srcFile: XFile(srcFile.path),
-            key: key,
+            factor: mockKey,
           ),
-          ServiceRequest(
-            info: RefImageInfo(
-              id: '3',
-              dateAdded: DateTime(2021),
-              encryptSalt: 'salt',
+          ServiceQueueItem(
+            request: ServiceRequest(
+              info: RefImageInfo(
+                id: '2',
+                dateAdded: DateTime(2021),
+                encryptSalt: 'salt',
+              ),
+              srcFile: XFile(srcFile.path),
             ),
-            srcFile: XFile(srcFile.path),
-            key: key,
+            factor: mockKey,
           ),
         ];
         final thumbnail = Uint8List.fromList([1, 2, 3]);
         when(
           () => mockServiceController.observeQueue(),
-        ).thenAnswer((_) => Stream.fromIterable(requests));
-        for (final request in requests) {
+        ).thenAnswer((_) => Stream.fromIterable(items));
+        for (final ServiceQueueItem(:request) in items) {
           when(
             () => mockSaveJob.run(
               info: request.info,
               file: request.srcFile,
-              key: key,
+              key: mockKeyImmutable,
             ),
           ).thenAnswer((_) async => const SaveRefImageResult.success());
           when(
@@ -251,17 +269,17 @@ void main() {
         ).thenAnswer((_) async => {});
 
         await (service as SaveRefImageServiceImpl).runJob();
-        for (final request in requests) {
+        for (final ServiceQueueItem(:request) in items) {
           verify(
             () => mockServiceController.sendResult(
               ServiceResult.success(request: request),
             ),
           ).called(1);
         }
+        verify(() => mockKey.clear()).called(items.length);
       });
 
       test('Save image error', () async {
-        const key = AppSecureKey.password('123');
         final request = ServiceRequest(
           info: RefImageInfo(
             id: '1',
@@ -269,7 +287,10 @@ void main() {
             encryptSalt: 'salt',
           ),
           srcFile: XFile(srcFile.path),
-          key: key,
+        );
+        final item = ServiceQueueItem(
+          request: request,
+          factor: mockKey,
         );
         final expectedResult = ServiceResult.fail(
           request: request,
@@ -282,12 +303,12 @@ void main() {
         );
         when(
           () => mockServiceController.observeQueue(),
-        ).thenAnswer((_) => Stream.value(request));
+        ).thenAnswer((_) => Stream.value(item));
         when(
           () => mockSaveJob.run(
             info: request.info,
             file: request.srcFile,
-            key: key,
+            key: mockKeyImmutable,
           ),
         ).thenAnswer(
           (_) async => SaveRefImageResult.error(
@@ -308,10 +329,10 @@ void main() {
         verify(
           () => mockServiceController.sendResult(expectedResult),
         ).called(1);
+        verify(() => mockKey.clear()).called(1);
       });
 
       test('Generate thumbnail error', () async {
-        const key = AppSecureKey.password('123');
         final request = ServiceRequest(
           info: RefImageInfo(
             id: '1',
@@ -319,7 +340,10 @@ void main() {
             encryptSalt: 'salt',
           ),
           srcFile: XFile(srcFile.path),
-          key: key,
+        );
+        final item = ServiceQueueItem(
+          request: request,
+          factor: mockKey,
         );
         final expectedResult = ServiceResult.fail(
           request: request,
@@ -329,12 +353,12 @@ void main() {
         );
         when(
           () => mockServiceController.observeQueue(),
-        ).thenAnswer((_) => Stream.value(request));
+        ).thenAnswer((_) => Stream.value(item));
         when(
           () => mockSaveJob.run(
             info: request.info,
             file: request.srcFile,
-            key: key,
+            key: mockKeyImmutable,
           ),
         ).thenAnswer((_) async => const SaveRefImageResult.success());
         when(
@@ -357,10 +381,10 @@ void main() {
         verify(
           () => mockServiceController.sendResult(expectedResult),
         ).called(1);
+        verify(() => mockKey.clear()).called(1);
       });
 
       test('Save thumbnail error', () async {
-        const key = AppSecureKey.password('123');
         final request = ServiceRequest(
           info: RefImageInfo(
             id: '1',
@@ -368,7 +392,10 @@ void main() {
             encryptSalt: 'salt',
           ),
           srcFile: XFile(srcFile.path),
-          key: key,
+        );
+        final item = ServiceQueueItem(
+          request: request,
+          factor: mockKey,
         );
         final expectedResult = ServiceResult.fail(
           request: request,
@@ -379,12 +406,12 @@ void main() {
         final thumbnail = Uint8List.fromList([1, 2, 3]);
         when(
           () => mockServiceController.observeQueue(),
-        ).thenAnswer((_) => Stream.value(request));
+        ).thenAnswer((_) => Stream.value(item));
         when(
           () => mockSaveJob.run(
             info: request.info,
             file: request.srcFile,
-            key: key,
+            key: mockKeyImmutable,
           ),
         ).thenAnswer((_) async => const SaveRefImageResult.success());
         when(
@@ -413,6 +440,7 @@ void main() {
         verify(
           () => mockServiceController.sendResult(expectedResult),
         ).called(1);
+        verify(() => mockKey.clear()).called(1);
       });
 
       test('Timeout', () async {
@@ -452,7 +480,6 @@ void main() {
               encryptSalt: 'salt',
             ),
             srcFile: XFile(srcFile.path),
-            key: const AppSecureKey.password('123'),
           ),
         );
         when(
@@ -482,7 +509,6 @@ void main() {
             encryptSalt: 'salt',
           ),
           srcFile: XFile(srcFile.path),
-          key: const AppSecureKey.password('123'),
         );
         when(
           () => mockNativeService.getAllInProgress(),
@@ -520,18 +546,17 @@ void main() {
             encryptSalt: 'salt',
           ),
           srcFile: XFile(srcFile.path),
-          key: const AppSecureKey.password('123'),
         );
         when(
-          () => mockNativeService.pushQueue(request),
+          () => mockNativeService.pushQueue(request, factor: mockKey),
         ).thenAnswer((_) async => {});
         when(
           () => mockNativeService.isRunning(),
         ).thenAnswer((_) async => true);
 
-        await jobController.pushQueue(request);
+        await jobController.pushQueue(request, factor: mockKey);
         verify(
-          () => mockNativeService.pushQueue(request),
+          () => mockNativeService.pushQueue(request, factor: mockKey),
         ).called(1);
       });
 
@@ -543,10 +568,9 @@ void main() {
             encryptSalt: 'salt',
           ),
           srcFile: XFile(srcFile.path),
-          key: const AppSecureKey.password('123'),
         );
         when(
-          () => mockNativeService.pushQueue(request),
+          () => mockNativeService.pushQueue(request, factor: mockKey),
         ).thenAnswer((_) async => {});
         when(
           () => mockNativeService.isRunning(),
@@ -555,9 +579,9 @@ void main() {
           () => mockNativeService.start(callbackDispatcher: callbackDispatcher),
         ).thenAnswer((_) async => {});
 
-        await jobController.pushQueue(request);
+        await jobController.pushQueue(request, factor: mockKey);
         verify(
-          () => mockNativeService.pushQueue(request),
+          () => mockNativeService.pushQueue(request, factor: mockKey),
         ).called(1);
         verify(
           () => mockNativeService.start(callbackDispatcher: callbackDispatcher),

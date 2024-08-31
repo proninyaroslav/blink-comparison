@@ -221,14 +221,14 @@ class CameraSettingsRoute extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i6.PageNotFound]
-class RouteNotFound extends _i11.PageRouteInfo<void> {
-  const RouteNotFound({List<_i11.PageRouteInfo>? children})
+class PageNotFountRoute extends _i11.PageRouteInfo<void> {
+  const PageNotFountRoute({List<_i11.PageRouteInfo>? children})
       : super(
-          RouteNotFound.name,
+          PageNotFountRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'RouteNotFound';
+  static const String name = 'PageNotFountRoute';
 
   static _i11.PageInfo page = _i11.PageInfo(
     name,

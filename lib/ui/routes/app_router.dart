@@ -20,7 +20,7 @@ import 'package:blink_comparison/ui/routes/auth_guard.dart';
 
 import 'app_router.gr.dart';
 
-@AutoRouterConfig(replaceInRouteName: 'Screen|Page,Route')
+@AutoRouterConfig()
 class AppRouter extends RootStackRouter {
   AppRouter({super.navigatorKey});
 
@@ -32,8 +32,8 @@ class AppRouter extends RootStackRouter {
     AutoRoute(
       page: RefImageListRoute.page,
       path: '/',
-      guards: [AuthGuard()],
       initial: true,
+      guards: [AuthGuard()],
     ),
     AutoRoute(page: AuthRoute.page, path: '/auth'),
     AutoRoute(
@@ -68,6 +68,6 @@ class AppRouter extends RootStackRouter {
         ),
       ],
     ),
-    AutoRoute(page: RouteNotFound.page, path: '*'),
+    AutoRoute(page: PageNotFountRoute.page, path: '*'),
   ];
 }

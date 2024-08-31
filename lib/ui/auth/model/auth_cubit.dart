@@ -16,14 +16,16 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'dart:async';
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:blink_comparison/core/date_time_provider.dart';
-import 'package:blink_comparison/core/encrypt/app_secure_key.dart';
 import 'package:blink_comparison/core/encrypt/password_hasher.dart';
+import 'package:blink_comparison/core/encrypt/secure_key_factory.dart';
 import 'package:blink_comparison/core/entity/entity.dart';
+import 'package:blink_comparison/core/storage/auth_factor_repository.dart';
 import 'package:blink_comparison/core/storage/password_repository.dart';
-import 'package:blink_comparison/core/storage/ref_image_secure_storage.dart';
+import 'package:blink_comparison/core/utils.dart';
 import 'package:blink_comparison/ui/auth/model/auth_state.dart';
 import 'package:bloc/bloc.dart';
 import 'package:convert/convert.dart';
@@ -35,14 +37,16 @@ class AuthCubit extends Cubit<AuthState> {
 
   final PasswordRepository _passwordRepo;
   final PasswordHasher _hasher;
-  final RefImageSecureStorage _secureStorage;
   final DateTimeProvider _dateTimeProvider;
+  final AuthFactorRepository _factorRepo;
+  final SecureKeyFactory _keyFactory;
 
   AuthCubit(
     this._passwordRepo,
     this._hasher,
-    this._secureStorage,
     this._dateTimeProvider,
+    this._factorRepo,
+    this._keyFactory,
   ) : super(const AuthState.initial());
 
   Future<void> loadPassword() async {
@@ -96,19 +100,44 @@ class AuthCubit extends Cubit<AuthState> {
       return;
     }
     final startTime = _dateTimeProvider.now().toUtc();
-    final hash = await _hasher.calculate(
-      password: password,
-      salt: Uint8List.fromList(hex.decode(info.salt)),
-    );
-    if (hash == info.hash) {
-      _secureStorage.setSecureKey(AppSecureKey.password(password));
-      emit(AuthState.authSuccess(info: info));
-    } else {
-      await _delayAfterFailed(startTime);
-      emit(AuthState.authFailed(
-        info: info,
-        reason: const AuthError.wrongPassword(),
-      ));
+    final pwBytes = utf8.encode(password);
+    late final SecureKey pwKey;
+    late final SecureKey pwHashKey;
+    try {
+      pwKey = _keyFactory.fromList(pwBytes);
+      pwHashKey = await _hasher.calculate(
+        password: pwKey.toImmutable(),
+        salt: Uint8List.fromList(hex.decode(info.salt)),
+      );
+      final hash = hex.encode(pwHashKey.extractBytes());
+      if (hash == info.hash) {
+        final res = _factorRepo.set(
+          MutableAuthFactor.password(
+            value: _keyFactory.fromList(pwBytes),
+          ),
+        );
+        emit(switch (res) {
+          AuthFactorModifyResultSuccess() => AuthState.authSuccess(info: info),
+          AuthFactorModifyResultFailed(:final error, :final stackTrace) =>
+            AuthState.authFailed(
+              info: info,
+              reason: AuthError.exception(
+                error: error,
+                stackTrace: stackTrace,
+              ),
+            )
+        });
+      } else {
+        await _delayAfterFailed(startTime);
+        emit(AuthState.authFailed(
+          info: info,
+          reason: const AuthError.wrongPassword(),
+        ));
+      }
+    } finally {
+      pwBytes.zeroing();
+      pwKey.dispose();
+      pwHashKey.dispose();
     }
   }
 

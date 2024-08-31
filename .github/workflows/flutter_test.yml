@@ -17,5 +17,7 @@ jobs:
         run: flutter pub get
       - name: Analyze code
         run: flutter analyze
+      - name: Install Linux dependencies
+        run: sudo apt update && sudo apt install libsodium23 -y
       - name: Run tests
         run: flutter test test

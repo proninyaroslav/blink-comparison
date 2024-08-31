@@ -15,8 +15,13 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'dart:convert';
+
+import 'package:blink_comparison/core/encrypt/secure_key_factory.dart';
 import 'package:blink_comparison/core/entity/entity.dart';
+import 'package:blink_comparison/core/storage/auth_factor_repository.dart';
 import 'package:blink_comparison/core/storage/password_repository.dart';
+import 'package:blink_comparison/core/utils.dart';
 import 'package:blink_comparison/ui/auth/model/sign_up_state.dart';
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
@@ -24,8 +29,11 @@ import 'package:injectable/injectable.dart';
 @injectable
 class SignUpCubit extends Cubit<SignUpState> {
   final PasswordRepository _passwordRepo;
+  final AuthFactorRepository _factorRepo;
+  final SecureKeyFactory _keyFactory;
 
-  SignUpCubit(this._passwordRepo) : super(const SignUpState.initial());
+  SignUpCubit(this._passwordRepo, this._factorRepo, this._keyFactory)
+      : super(const SignUpState.initial());
 
   void passwordChanged(String value) {
     _handleCurrentState((password, repeatPassword) {
@@ -57,7 +65,7 @@ class SignUpCubit extends Cubit<SignUpState> {
       savePasswordFailed: (password, repeatPassword, exception, stackTrace) =>
           _submit(password, repeatPassword),
       savingPassword: () {},
-      passwordSaved: () {},
+      savedAndAuthorized: () {},
       passwordMismatch: (password, repeatPassword) =>
           _submit(password, repeatPassword),
     );
@@ -67,6 +75,94 @@ class SignUpCubit extends Cubit<SignUpState> {
     Password password,
     RepeatPassword repeatPassword,
   ) async {
+    final _PasswordValidationResult(
+      password: passwordStr,
+      repeatPassword: repeatPasswordStr,
+      :passErr,
+      :repeatPassErr
+    ) = _validate(password, repeatPassword);
+
+    if (passwordStr == null || repeatPasswordStr == null) {
+      emit(
+        SignUpState.invalidPassword(
+          password: password.copyWith(error: passErr),
+          repeatPassword: repeatPassword.copyWith(error: repeatPassErr),
+        ),
+      );
+      return;
+    }
+
+    if (passwordStr != repeatPasswordStr) {
+      emit(
+        SignUpState.passwordMismatch(
+          password: password,
+          repeatPassword: repeatPassword.copyWith(
+            error: const RepeatPasswordError.mismatch(),
+          ),
+        ),
+      );
+      return;
+    }
+
+    emit(const SignUpState.savingPassword());
+    final pwBytes = utf8.encode(passwordStr);
+    late final SecureKey pwKey;
+    try {
+      pwKey = _keyFactory.fromList(pwBytes);
+      final res = await _passwordRepo.insert(
+        type: const PasswordType.encryptKey(),
+        password: pwKey.toImmutable(),
+      );
+      res.when(
+        (value) {
+          final res = _factorRepo.set(
+            MutableAuthFactor.password(value: pwKey),
+          );
+          emit(switch (res) {
+            AuthFactorModifyResultSuccess() =>
+              const SignUpState.savedAndAuthorized(),
+            AuthFactorModifyResultFailed(:final error, :final stackTrace) =>
+              SignUpState.savePasswordFailed(
+                password: password,
+                repeatPassword: repeatPassword,
+                error: error,
+                stackTrace: stackTrace,
+              ),
+          });
+        },
+        error: (e) => e.when(
+          database: (exception, stackTrace) {
+            emit(
+              SignUpState.savePasswordFailed(
+                password: password,
+                repeatPassword: repeatPassword,
+                error: exception,
+                stackTrace: stackTrace,
+              ),
+            );
+          },
+          fs: (e) => e.when(io: (e, stackTrace) {
+            emit(
+              SignUpState.savePasswordFailed(
+                password: password,
+                repeatPassword: repeatPassword,
+                error: e,
+                stackTrace: stackTrace,
+              ),
+            );
+          }),
+        ),
+      );
+    } finally {
+      pwBytes.zeroing();
+      pwKey.dispose();
+    }
+  }
+
+  _PasswordValidationResult _validate(
+    Password password,
+    RepeatPassword repeatPassword,
+  ) {
     final passRes = PasswordValidator.of(password).validate();
     final repeatPassRes = RepeatPasswordValidator.of(repeatPassword).validate();
 
@@ -92,57 +188,11 @@ class SignUpCubit extends Cubit<SignUpState> {
       },
     );
 
-    if (passwordStr == null || repeatPasswordStr == null) {
-      emit(
-        SignUpState.invalidPassword(
-          password: password.copyWith(error: passErr),
-          repeatPassword: repeatPassword.copyWith(error: repeatPassErr),
-        ),
-      );
-      return;
-    }
-
-    if (passwordStr != repeatPasswordStr) {
-      emit(
-        SignUpState.passwordMismatch(
-          password: password,
-          repeatPassword: repeatPassword.copyWith(
-            error: const RepeatPasswordError.mismatch(),
-          ),
-        ),
-      );
-      return;
-    }
-
-    emit(const SignUpState.savingPassword());
-    final res = await _passwordRepo.insert(
-      type: const PasswordType.encryptKey(),
-      password: passwordStr!,
-    );
-    res.when(
-      (value) => emit(const SignUpState.passwordSaved()),
-      error: (e) => e.when(
-        database: (exception, stackTrace) {
-          emit(
-            SignUpState.savePasswordFailed(
-              password: password,
-              repeatPassword: repeatPassword,
-              exception: exception,
-              stackTrace: stackTrace,
-            ),
-          );
-        },
-        fs: (e) => e.when(io: (e, stackTrace) {
-          emit(
-            SignUpState.savePasswordFailed(
-              password: password,
-              repeatPassword: repeatPassword,
-              exception: e,
-              stackTrace: stackTrace,
-            ),
-          );
-        }),
-      ),
+    return _PasswordValidationResult(
+      password: passwordStr,
+      repeatPassword: repeatPasswordStr,
+      passErr: passErr,
+      repeatPassErr: repeatPassErr,
     );
   }
 
@@ -156,7 +206,21 @@ class SignUpCubit extends Cubit<SignUpState> {
       passwordMismatch: (password, repeatPassword) =>
           onEmit(password, repeatPassword),
       savingPassword: () {},
-      passwordSaved: () {},
+      savedAndAuthorized: () {},
     );
   }
+}
+
+class _PasswordValidationResult {
+  final String? password;
+  final String? repeatPassword;
+  final PasswordError? passErr;
+  final RepeatPasswordError? repeatPassErr;
+
+  _PasswordValidationResult({
+    required this.password,
+    required this.repeatPassword,
+    required this.passErr,
+    required this.repeatPassErr,
+  });
 }

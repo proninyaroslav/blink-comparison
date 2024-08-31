@@ -19,25 +19,33 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:blink_comparison/core/encrypt/password_hasher.dart';
+import 'package:blink_comparison/core/entity/secure_key.dart';
+import 'package:blink_comparison/env.dart';
+import 'package:blink_comparison/injector.dart';
+import 'package:convert/convert.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'load_sodium.dart';
+import 'package:sodium_libs/sodium_libs_sumo.dart';
 
 void main() {
   group('Password hasher |', () {
     late final PasswordHasher hasher;
+    late final SodiumSumo sodium;
 
     setUpAll(() async {
-      hasher = PasswordHasherImpl(await loadSodiumSumo());
+      await initInjector(Env.test);
+      sodium = getIt<SodiumSumo>();
+      hasher = PasswordHasherImpl(sodium);
     });
 
     test('Calculate', () async {
       const expectedHash = 'c929c0c434b93b29f61415cfcd62c25a';
       final salt = Uint8List.fromList(utf8.encode('01234567890abcdf'));
-      expect(
-        await hasher.calculate(password: 'test', salt: salt),
-        expectedHash,
+      final key = await hasher.calculate(
+        password: SecureKey.fromList(sodium, utf8.encode('test')).toImmutable(),
+        salt: salt,
       );
+      expect(hex.encode(key.extractBytes()), expectedHash);
+      key.dispose();
     });
   });
 }

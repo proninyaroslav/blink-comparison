@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SodiumHashInfo {
-  String get password => throw _privateConstructorUsedError;
+  SecureKey get password => throw _privateConstructorUsedError;
   Uint8List get salt => throw _privateConstructorUsedError;
 
   /// Create a copy of _SodiumHashInfo
@@ -32,7 +32,7 @@ abstract class _$SodiumHashInfoCopyWith<$Res> {
           _SodiumHashInfo value, $Res Function(_SodiumHashInfo) then) =
       __$SodiumHashInfoCopyWithImpl<$Res, _SodiumHashInfo>;
   @useResult
-  $Res call({String password, Uint8List salt});
+  $Res call({SecureKey password, Uint8List salt});
 }
 
 /// @nodoc
@@ -57,7 +57,7 @@ class __$SodiumHashInfoCopyWithImpl<$Res, $Val extends _SodiumHashInfo>
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
-              as String,
+              as SecureKey,
       salt: null == salt
           ? _value.salt
           : salt // ignore: cast_nullable_to_non_nullable
@@ -74,7 +74,7 @@ abstract class _$$SodiumHashInfoDataImplCopyWith<$Res>
       __$$SodiumHashInfoDataImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String password, Uint8List salt});
+  $Res call({SecureKey password, Uint8List salt});
 }
 
 /// @nodoc
@@ -97,7 +97,7 @@ class __$$SodiumHashInfoDataImplCopyWithImpl<$Res>
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
-              as String,
+              as SecureKey,
       salt: null == salt
           ? _value.salt
           : salt // ignore: cast_nullable_to_non_nullable
@@ -114,7 +114,7 @@ class _$SodiumHashInfoDataImpl
   const _$SodiumHashInfoDataImpl({required this.password, required this.salt});
 
   @override
-  final String password;
+  final SecureKey password;
   @override
   final Uint8List salt;
 
@@ -158,11 +158,11 @@ class _$SodiumHashInfoDataImpl
 
 abstract class _SodiumHashInfoData implements _SodiumHashInfo {
   const factory _SodiumHashInfoData(
-      {required final String password,
+      {required final SecureKey password,
       required final Uint8List salt}) = _$SodiumHashInfoDataImpl;
 
   @override
-  String get password;
+  SecureKey get password;
   @override
   Uint8List get salt;
 

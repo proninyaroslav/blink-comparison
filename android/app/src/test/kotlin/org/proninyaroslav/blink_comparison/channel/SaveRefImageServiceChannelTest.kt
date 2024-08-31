@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+ * Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
  *
  * This file is part of Blink Comparison.
  *
@@ -24,14 +24,18 @@ import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import junit.framework.Assert.assertEquals
-import org.json.JSONObject
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito
 import org.mockito.Mockito.mock
-import org.mockito.kotlin.*
+import org.mockito.kotlin.any
+import org.mockito.kotlin.doNothing
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.never
+import org.mockito.kotlin.verify
+import org.mockito.kotlin.whenever
 import org.robolectric.RobolectricTestRunner
 
 @RunWith(RobolectricTestRunner::class)
@@ -56,26 +60,30 @@ class SaveRefImageServiceChannelTest {
     @Test
     fun `Push queue`() {
         val request = mapOf("foo" to "bar")
-        val requestJson = JSONObject(request).toString()
+        val appSecureKey = mapOf("foo" to "bar")
 
         val mockResult = mock(MethodChannel.Result::class.java, Mockito.CALLS_REAL_METHODS)
         doNothing().whenever(mockResult).success(null)
-        doNothing().whenever(mockQueueChannel).push(requestJson)
+        doNothing().whenever(mockQueueChannel).push(request)
+        doNothing().whenever(mockQueueChannel).setAuthFactor(appSecureKey)
 
         channel.onMethodCall(
-            call = MethodCall(SaveRefImageServiceChannel.Methods.pushQueue, request),
+            call = MethodCall(
+                SaveRefImageServiceChannel.Methods.pushQueue,
+                listOf(request, appSecureKey)
+            ),
             result = mockResult,
         )
 
         verify(mockResult).success(null)
-        verify(mockQueueChannel).push(requestJson)
+        verify(mockQueueChannel).push(request)
+        verify(mockQueueChannel).setAuthFactor(appSecureKey)
     }
 
     @Test
     fun `Get all in progress`() {
         val request = mapOf("foo" to "bar")
-        val requestJson = JSONObject(request).toString()
-        val requestList = listOf(requestJson)
+        val requestList = listOf(request)
 
         val mockResult = mock(MethodChannel.Result::class.java, Mockito.CALLS_REAL_METHODS)
         doNothing().whenever(mockResult).success(null)
@@ -92,19 +100,17 @@ class SaveRefImageServiceChannelTest {
 
     @Test
     fun `Send result`() {
-        val request = JSONObject(mapOf("foo1" to "bar1"))
-        val result = JSONObject(mapOf("foo2" to "bar2"))
+        val request = mapOf("foo1" to "bar1")
+        val result = mapOf("foo2" to "bar2")
         val args = mapOf(
             SaveRefImageServiceChannel.Arguments.saveImageRequest to request,
             SaveRefImageServiceChannel.Arguments.saveImageResult to result
         )
-        val requestJson = request.toString()
-        val resultJson = result.toString()
 
         val mockResult = mock(MethodChannel.Result::class.java, Mockito.CALLS_REAL_METHODS)
         doNothing().whenever(mockResult).success(null)
-        doNothing().whenever(mockQueueChannel).onCompleted(requestJson)
-        doNothing().whenever(mockResultChannel).send(resultJson)
+        doNothing().whenever(mockQueueChannel).onCompleted(request)
+        doNothing().whenever(mockResultChannel).send(result)
 
         channel.onMethodCall(
             call = MethodCall(SaveRefImageServiceChannel.Methods.sendResult, args),
@@ -112,8 +118,8 @@ class SaveRefImageServiceChannelTest {
         )
 
         verify(mockResult).success(null)
-        verify(mockQueueChannel).onCompleted(requestJson)
-        verify(mockResultChannel).send(resultJson)
+        verify(mockQueueChannel).onCompleted(request)
+        verify(mockResultChannel).send(result)
     }
 }
 
@@ -135,18 +141,25 @@ class SaveRefImageServiceQueueChannelTest {
 
     @Test
     fun `Listen with non empty queue`() {
-        val request = "request"
+        val request = mapOf("foo" to "bar")
+        val appSecureKey = mapOf("foo" to "bar")
 
         val mockSink = mock(EventChannel.EventSink::class.java, Mockito.CALLS_REAL_METHODS)
         doNothing().whenever(mockSink).success(request)
 
+        channel.setAuthFactor(appSecureKey)
         channel.push(request)
         channel.onListen(
             arguments = SaveRefImageServiceQueueChannel.Methods.observeQueue,
             eventSink = mockSink,
         )
 
-        verify(mockSink).success(request)
+        verify(mockSink).success(
+            mapOf(
+                "request" to request,
+                "key" to appSecureKey
+            )
+        )
     }
 
     @Test
@@ -163,7 +176,8 @@ class SaveRefImageServiceQueueChannelTest {
 
     @Test
     fun push() {
-        val request = "request"
+        val request = mapOf("foo" to "bar")
+        val appSecureKey = mapOf("foo" to "bar")
 
         val mockSink = mock(EventChannel.EventSink::class.java, Mockito.CALLS_REAL_METHODS)
         doNothing().whenever(mockSink).success(request)
@@ -172,15 +186,21 @@ class SaveRefImageServiceQueueChannelTest {
             arguments = SaveRefImageServiceQueueChannel.Methods.observeQueue,
             eventSink = mockSink,
         )
+        channel.setAuthFactor(appSecureKey)
         channel.push(request)
 
-        verify(mockSink).success(request)
+        verify(mockSink).success(
+            mapOf(
+                "request" to request,
+                "key" to appSecureKey
+            )
+        )
     }
 
     @Test
     fun `Get all in progress`() {
-        val request1 = "request1"
-        val request2 = "request2"
+        val request1 = mapOf("foo1" to "bar1")
+        val request2 = mapOf("foo2" to "bar2")
 
         val mockSink = mock(EventChannel.EventSink::class.java, Mockito.CALLS_REAL_METHODS)
         doNothing().whenever(mockSink).success(request1)
@@ -194,12 +214,15 @@ class SaveRefImageServiceQueueChannelTest {
             eventSink = mockSink,
         )
         channel.push(request2)
-        assertEquals(listOf(request1, request2), channel.getAllInProgress())
+        assertEquals(
+            listOf(request1, request2),
+            channel.getAllInProgress()
+        )
     }
 
     @Test
     fun `On completed`() {
-        val request = "request"
+        val request = mapOf("foo" to "bar")
 
         val mockSink = mock(EventChannel.EventSink::class.java, Mockito.CALLS_REAL_METHODS)
         doNothing().whenever(mockSink).success(request)
@@ -230,7 +253,7 @@ class SaveRefImageServiceResultChannelTest {
 
     @Test
     fun send() {
-        val result = "result"
+        val result = mapOf("foo" to "bar")
 
         val mockSink1 = mock(EventChannel.EventSink::class.java, Mockito.CALLS_REAL_METHODS)
         val mockSink2 = mock(EventChannel.EventSink::class.java, Mockito.CALLS_REAL_METHODS)

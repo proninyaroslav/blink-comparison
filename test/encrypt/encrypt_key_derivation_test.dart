@@ -19,17 +19,22 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:blink_comparison/core/encrypt/encrypt_key_derivation.dart';
+import 'package:blink_comparison/core/entity/entity.dart';
+import 'package:blink_comparison/env.dart';
+import 'package:blink_comparison/injector.dart';
 import 'package:convert/convert.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'load_sodium.dart';
+import 'package:sodium_libs/sodium_libs_sumo.dart';
 
 void main() {
   group('Encrypt key derivation |', () {
     late final EncryptKeyDerivation hasher;
+    late final SodiumSumo sodium;
 
     setUpAll(() async {
-      hasher = EncryptKeyDerivationImpl(await loadSodiumSumo());
+      await initInjector(Env.test);
+      sodium = getIt<SodiumSumo>();
+      hasher = EncryptKeyDerivationImpl(sodium);
     });
 
     test('Derive', () async {
@@ -37,10 +42,12 @@ void main() {
         hex.decode('d5a502df3c21c4e50659134bd41b756e'),
       );
       final salt = Uint8List.fromList(utf8.encode('01234567890abcdf'));
-      expect(
-        await hasher.derive(password: 'test', salt: salt, keyLength: 16),
-        expectedKey,
+      final key = await hasher.derive(
+        password: SecureKey.fromList(sodium, utf8.encode('test')).toImmutable(),
+        salt: salt,
+        keyLength: 16,
       );
+      expect(key.extractBytes(), expectedKey);
     });
   });
 }

@@ -1,4 +1,4 @@
-// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -15,6 +15,11 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
-export 'encrypt_module.dart';
-export 'encrypt_module_provider.dart';
-export 'salt_generator.dart';
+import 'package:json_annotation/json_annotation.dart';
+
+class JsonKeyIgnore extends JsonKey {
+  const JsonKeyIgnore({
+    super.includeFromJson = false,
+    super.includeToJson = false,
+  });
+}

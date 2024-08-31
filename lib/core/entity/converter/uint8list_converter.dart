@@ -1,4 +1,4 @@
-// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -15,6 +15,17 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
-export 'encrypt_module.dart';
-export 'encrypt_module_provider.dart';
-export 'salt_generator.dart';
+import 'dart:typed_data';
+
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+class Uint8ListConverter implements JsonConverter<Uint8List, List<dynamic>> {
+  const Uint8ListConverter();
+
+  @override
+  Uint8List fromJson(List<dynamic> json) =>
+      Uint8List.fromList(json.cast<int>());
+
+  @override
+  List<dynamic> toJson(Uint8List list) => List<dynamic>.from(list);
+}

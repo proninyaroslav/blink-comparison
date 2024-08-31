@@ -33,8 +33,6 @@ import 'sign_up_page.dart';
 const _pagePadding =
     EdgeInsets.fromLTRB(16.0, 16.0, 16.0, UiUtils.fabBottomMargin);
 
-const _pageAnimationDuration = Duration(milliseconds: 500);
-
 @RoutePage()
 class AuthPage extends StatefulWidget implements AutoRouteWrapper {
   final VoidCallback? onAuthSuccess;
@@ -63,41 +61,20 @@ class AuthPage extends StatefulWidget implements AutoRouteWrapper {
   State<AuthPage> createState() => _AuthPageState();
 }
 
-enum _PageType {
-  signIn,
-  signUp,
-}
-
 class _AuthPageState extends State<AuthPage> {
-  late final PageController _controller;
   late final TextEditingController _passwordFieldController;
-  _PageType _currentPage = _PageType.signIn;
-  late final List<Widget> _pages;
-  late final Map<_PageType, Widget> _buttons;
 
   @override
   void initState() {
     super.initState();
 
-    _controller = PageController();
     _passwordFieldController = TextEditingController();
-    _pages = [
-      SignInPage(passwordFieldController: _passwordFieldController),
-      const SignUpPage(),
-    ];
-    _buttons = {
-      _PageType.signIn: SignInButton(
-        passwordFieldController: _passwordFieldController,
-      ),
-      _PageType.signUp: const SignUpButton(),
-    };
     context.read<AuthCubit>().loadPassword();
   }
 
   @override
   void dispose() {
     _passwordFieldController.dispose();
-    _controller.dispose();
 
     super.dispose();
   }
@@ -110,47 +87,46 @@ class _AuthPageState extends State<AuthPage> {
           BlocListener<AuthCubit, AuthState>(
             listener: (context, state) {
               state.maybeWhen(
-                noPassword: () {
-                  if (_currentPage != _PageType.signUp) {
-                    _currentPage = _PageType.signUp;
-                    _animateNextPage();
-                  }
-                },
                 authSuccess: (info) => widget.onAuthSuccess?.call(),
-                orElse: () {
-                  if (_currentPage != _PageType.signIn) {
-                    _currentPage = _PageType.signIn;
-                    _animateNextPage();
-                  }
-                },
+                orElse: () {},
               );
             },
           ),
           BlocListener<SignUpCubit, SignUpState>(
             listener: (context, state) {
               state.maybeWhen(
-                passwordSaved: () {
-                  context.read<AuthCubit>().loadPassword();
-                },
+                savedAndAuthorized: () => widget.onAuthSuccess?.call(),
                 orElse: () {},
               );
             },
           ),
         ],
-        child: _Body(
-          controller: _controller,
-          pages: _pages,
+        child: BlocBuilder<AuthCubit, AuthState>(
+          builder: (context, state) => _Body(
+            child: state.maybeWhen(
+              initial: () => const CircularProgressIndicator(),
+              authSuccess: (_) => const CircularProgressIndicator(),
+              noPassword: () => const SignUpPage(),
+              orElse: () => SignInPage(
+                passwordFieldController: _passwordFieldController,
+              ),
+            ),
+          ),
         ),
       ),
-      floatingActionButton: _PageButton(buttons: _buttons),
+      floatingActionButton: BlocBuilder<AuthCubit, AuthState>(
+        builder: (context, state) => _AdaptiveFab(
+          child: state.maybeWhen(
+            initial: () => const SizedBox.shrink(),
+            authSuccess: (_) => const SizedBox.shrink(),
+            noPassword: () => const SignUpButton(),
+            orElse: () => SignInButton(
+              passwordFieldController: _passwordFieldController,
+            ),
+          ),
+        ),
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-    );
-  }
-
-  void _animateNextPage() {
-    _controller.nextPage(
-      duration: _pageAnimationDuration,
-      curve: Curves.ease,
     );
   }
 }
@@ -171,75 +147,45 @@ double _getAdaptiveWidth({
 }
 
 class _Body extends StatelessWidget {
-  final PageController controller;
-  final List<Widget> pages;
+  final Widget child;
 
-  const _Body({
-    required this.controller,
-    required this.pages,
-  });
+  const _Body({required this.child});
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final padding = mediaQuery.padding;
+
     return SafeArea(
       child: Unfocus(
-        child: PageView.builder(
-          physics: const NeverScrollableScrollPhysics(),
-          controller: controller,
-          itemBuilder: (pageViewContext, position) {
-            final mediaQuery = MediaQuery.of(context);
-            final padding = mediaQuery.padding;
-            return _Page(
-              height: mediaQuery.size.height - padding.top - padding.bottom,
-              child: pages[position % pages.length],
-            );
-          },
-        ),
-      ),
-    );
-  }
-}
-
-class _PageButton extends StatelessWidget {
-  final Map<_PageType, Widget> buttons;
-
-  const _PageButton({
-    required this.buttons,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<AuthCubit, AuthState>(
-      builder: (context, state) {
-        return _AdaptiveFab(
-          child: AnimatedSwitcher(
-            duration: const Duration(milliseconds: 200),
-            transitionBuilder: (child, animation) {
-              return ScaleTransition(
-                scale: animation,
-                child: child,
-              );
-            },
-            layoutBuilder: (currentChild, previousChildren) {
-              return Stack(
-                fit: StackFit.passthrough,
-                children: <Widget>[
-                  ...previousChildren,
-                  if (currentChild != null) currentChild,
-                ],
-              );
-            },
-            child: state.maybeWhen(
-              noPassword: () => buttons[_PageType.signUp]!,
-              passwordLoaded: (_) => buttons[_PageType.signIn]!,
-              authInProgress: (_) => buttons[_PageType.signIn]!,
-              authFailed: (_, reason) => buttons[_PageType.signIn]!,
-              authSuccess: (_) => buttons[_PageType.signIn]!,
-              orElse: () => const SizedBox.shrink(),
+        child: Scrollbar(
+          child: SingleChildScrollView(
+            reverse: true,
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight:
+                    mediaQuery.size.height - padding.top - padding.bottom,
+              ),
+              child: Center(
+                child: ResponsiveBuilder(
+                  builder: (context, sizingInfo) {
+                    final orientation = MediaQuery.of(context).orientation;
+                    final width = _getAdaptiveWidth(
+                      orientation: orientation,
+                      sizingInfo: sizingInfo,
+                    );
+                    return Container(
+                      constraints: BoxConstraints(maxWidth: width),
+                      padding: _pagePadding,
+                      child: child,
+                    );
+                  },
+                ),
+              ),
             ),
           ),
-        );
-      },
+        ),
+      ),
     );
   }
 }
@@ -267,44 +213,6 @@ class _AdaptiveFab extends StatelessWidget {
           child: child,
         );
       },
-    );
-  }
-}
-
-class _Page extends StatelessWidget {
-  final Widget child;
-  final double height;
-
-  const _Page({
-    required this.child,
-    required this.height,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Scrollbar(
-      child: SingleChildScrollView(
-        reverse: true,
-        child: ConstrainedBox(
-          constraints: BoxConstraints(minHeight: height),
-          child: Center(
-            child: ResponsiveBuilder(
-              builder: (context, sizingInfo) {
-                final orientation = MediaQuery.of(context).orientation;
-                final width = _getAdaptiveWidth(
-                  orientation: orientation,
-                  sizingInfo: sizingInfo,
-                );
-                return Container(
-                  constraints: BoxConstraints(maxWidth: width),
-                  padding: _pagePadding,
-                  child: child,
-                );
-              },
-            ),
-          ),
-        ),
-      ),
     );
   }
 }

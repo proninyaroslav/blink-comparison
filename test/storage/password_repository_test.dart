@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -15,6 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:blink_comparison/core/encrypt/encrypt.dart';
@@ -54,24 +55,27 @@ void main() {
     });
 
     test('Insert encrypt key', () async {
-      const password = 'test';
+      final password = TestSecureKey.fromList(utf8.encode('test'));
+      final pwImmutable = password.toImmutable();
       final salt = Uint8List.fromList([1, 2, 3]);
       final expectedInfo = PasswordInfo(
         id: 'encrypt_key',
-        hash: 'hash',
+        hash: hex.encode(password.list),
         salt: hex.encode(salt),
       );
+      final expectedKey = MockSecureKey();
+      when(() => expectedKey.extractBytes()).thenReturn(password.list);
       when(
         () => mockSaltGenerator.randomBytes(),
       ).thenReturn(salt);
       when(
-        () => mockHasher.calculate(password: password, salt: salt),
-      ).thenAnswer((_) async => expectedInfo.hash);
+        () => mockHasher.calculate(password: pwImmutable, salt: salt),
+      ).thenAnswer((_) async => expectedKey);
 
       expect(
         await repo.insert(
           type: const PasswordType.encryptKey(),
-          password: password,
+          password: pwImmutable,
         ),
         StorageResult(expectedInfo),
       );
@@ -82,29 +86,36 @@ void main() {
     });
 
     test('Replace existing encrypt key', () async {
-      const password = 'test';
+      final password1 = TestSecureKey.fromList(utf8.encode('test1'));
+      final password2 = TestSecureKey.fromList(utf8.encode('test2'));
+      final pw1Immutable = password1.toImmutable();
+      final pw2Immutable = password2.toImmutable();
       final salt = Uint8List.fromList([1, 2, 3]);
       final expectedInfo1 = PasswordInfo(
         id: 'encrypt_key',
-        hash: 'hash1',
+        hash: hex.encode(password1.list),
         salt: hex.encode(salt),
       );
       final expectedInfo2 = PasswordInfo(
         id: 'encrypt_key',
-        hash: 'hash2',
+        hash: hex.encode(password2.list),
         salt: hex.encode(salt),
       );
+      final expectedKey1 = MockSecureKey();
+      final expectedKey2 = MockSecureKey();
+      when(() => expectedKey1.extractBytes()).thenReturn(password1.list);
+      when(() => expectedKey2.extractBytes()).thenReturn(password2.list);
       when(
         () => mockSaltGenerator.randomBytes(),
       ).thenReturn(salt);
       when(
-        () => mockHasher.calculate(password: password, salt: salt),
-      ).thenAnswer((_) async => expectedInfo1.hash);
+        () => mockHasher.calculate(password: pw1Immutable, salt: salt),
+      ).thenAnswer((_) async => expectedKey1);
 
       expect(
         await repo.insert(
           type: const PasswordType.encryptKey(),
-          password: password,
+          password: pw1Immutable,
         ),
         StorageResult(expectedInfo1),
       );
@@ -114,13 +125,13 @@ void main() {
       );
 
       when(
-        () => mockHasher.calculate(password: password, salt: salt),
-      ).thenAnswer((_) async => expectedInfo2.hash);
+        () => mockHasher.calculate(password: pw2Immutable, salt: salt),
+      ).thenAnswer((_) async => expectedKey2);
 
       expect(
         await repo.insert(
           type: const PasswordType.encryptKey(),
-          password: password,
+          password: pw2Immutable,
         ),
         StorageResult(expectedInfo2),
       );
@@ -131,24 +142,27 @@ void main() {
     });
 
     test('Delete', () async {
-      const password = 'test';
+      final password = TestSecureKey.fromList(utf8.encode('test'));
+      final pwImmutable = password.toImmutable();
       final salt = Uint8List.fromList([1, 2, 3]);
       final expectedInfo = PasswordInfo(
         id: 'encrypt_key',
-        hash: 'hash',
+        hash: hex.encode(password.list),
         salt: hex.encode(salt),
       );
+      final expectedKey = MockSecureKey();
+      when(() => expectedKey.extractBytes()).thenReturn(password.list);
       when(
         () => mockSaltGenerator.randomBytes(),
       ).thenReturn(salt);
       when(
-        () => mockHasher.calculate(password: password, salt: salt),
-      ).thenAnswer((_) async => expectedInfo.hash);
+        () => mockHasher.calculate(password: pwImmutable, salt: salt),
+      ).thenAnswer((_) async => expectedKey);
 
       expect(
         await repo.insert(
           type: const PasswordType.encryptKey(),
-          password: password,
+          password: pwImmutable,
         ),
         StorageResult(expectedInfo),
       );

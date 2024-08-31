@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -18,3 +18,4 @@
 export 'date_time_epoch_converter.dart';
 export 'error_converter.dart';
 export 'stack_trace_converter.dart';
+export 'uint8list_converter.dart';

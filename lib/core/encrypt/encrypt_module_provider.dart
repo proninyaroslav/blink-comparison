@@ -20,8 +20,10 @@ import 'package:blink_comparison/core/encrypt/encrypt_key_derivation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:sodium_libs/sodium_libs_sumo.dart';
 
+import '../entity/entity.dart';
+
 abstract class EncryptModuleProvider {
-  EncryptModule getByKey(AppSecureKey key);
+  EncryptModule? getByKey(AuthFactor key);
 }
 
 @Singleton(as: EncryptModuleProvider)
@@ -32,9 +34,10 @@ class EncryptModuleProviderImpl implements EncryptModuleProvider {
   EncryptModuleProviderImpl(this._sodium, this._derivation);
 
   @override
-  EncryptModule getByKey(AppSecureKey key) {
-    return key.when(
-      password: (password) => PBEModule(_sodium, password, _derivation),
-    );
+  EncryptModule? getByKey(AuthFactor key) {
+    return switch (key) {
+      AuthFactorPassword(:final value) =>
+        value == null ? null : PBEModule(_sodium, key, _derivation),
+    };
   }
 }

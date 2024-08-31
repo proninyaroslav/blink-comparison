@@ -1,4 +1,4 @@
-// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -15,6 +15,23 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
-export 'encrypt_module.dart';
-export 'encrypt_module_provider.dart';
-export 'salt_generator.dart';
+import 'package:flutter/foundation.dart';
+
+extension ChannelMapExtension on Map<Object?, Object?> {
+  /// Cast to Map<String, dynamic>, including nested [Map]
+  Map<String, dynamic> deepCast() =>
+      cast<String, dynamic>().map((key, value) => MapEntry(
+            key,
+            value is Map<Object?, Object?>
+                ? (value.deepCast()) as dynamic
+                : value,
+          ));
+}
+
+extension Uint8ListExtension on Uint8List {
+  void zeroing() {
+    for (int i = 0; i < length; i++) {
+      this[i] = 0;
+    }
+  }
+}

@@ -15,6 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../env.dart';
@@ -118,6 +119,7 @@ class DevCrashReportBuilder extends CrashReportBuilderImpl {
 }
 
 @Injectable(as: CrashReportBuilder, env: [Env.test])
+@visibleForTesting
 class TestCrashReportBuilder extends DevCrashReportBuilder {
   TestCrashReportBuilder(
     super.platform,

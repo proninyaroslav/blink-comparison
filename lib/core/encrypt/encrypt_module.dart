@@ -54,10 +54,12 @@ class EncryptResult with _$EncryptResult {
 
 @freezed
 class EncryptError with _$EncryptError {
-  const factory EncryptError({
+  const factory EncryptError.exception({
     @ExceptionConverter() Exception? error,
     @StackTraceConverter() StackTrace? stackTrace,
-  }) = _EncryptError;
+  }) = EncryptErrorException;
+
+  const factory EncryptError.noSecureKey() = EncryptErrorNoSecureKey;
 
   factory EncryptError.fromJson(Map<String, dynamic> json) =>
       _$EncryptErrorFromJson(json);
@@ -76,42 +78,50 @@ class DecryptResult with _$DecryptResult {
 
 @freezed
 class DecryptError with _$DecryptError {
-  const factory DecryptError({
+  const factory DecryptError.exception({
     Exception? error,
     StackTrace? stackTrace,
-  }) = DecryptErrorValue;
+  }) = DecryptErrorException;
 
-  const factory DecryptError.invalidKey() = DecryptErrorInvalidKey;
+  const factory DecryptError.noSecureKey() = DecryptErrorNoSecureKey;
 }
 
 /// Uses XChaCha20Poly1305 to encrypt bytes
 class PBEModule implements EncryptModule {
   final SodiumSumo _sodium;
-  final String _password;
+  late final AuthFactorPassword _key;
   final EncryptKeyDerivation _derivation;
 
-  PBEModule(this._sodium, this._password, this._derivation);
+  PBEModule(this._sodium, this._key, this._derivation);
 
   @override
   Future<DecryptResult> decrypt({
     required Uint8List src,
     required RefImageInfo info,
   }) async {
+    final password = _key.value;
+    if (password == null) {
+      return const DecryptResult.fail(DecryptError.noSecureKey());
+    }
     final derivedKey = await _deriveKey(
       derivation: _derivation,
-      password: _password,
+      password: password,
       salt: info.encryptSalt,
     );
+
+    final pbeInfo = _PBEInfo(src: src, key: derivedKey);
     try {
-      final decryptBytes = await _decrypt(_PBEInfo(src: src, key: derivedKey));
+      final decryptBytes = await _decrypt(pbeInfo);
       return DecryptResult.success(bytes: decryptBytes);
     } on Exception catch (e, stackTrace) {
       return DecryptResult.fail(
-        DecryptError(
+        DecryptError.exception(
           error: e,
           stackTrace: stackTrace,
         ),
       );
+    } finally {
+      pbeInfo.clearKey();
     }
   }
 
@@ -120,22 +130,29 @@ class PBEModule implements EncryptModule {
     required Uint8List src,
     required RefImageInfo info,
   }) async {
+    final password = _key.value;
+    if (password == null) {
+      return const EncryptResult.fail(EncryptError.noSecureKey());
+    }
     final derivedKey = await _deriveKey(
       derivation: _derivation,
-      password: _password,
+      password: password,
       salt: info.encryptSalt,
     );
-    try {
-      final encryptBytes = await _encrypt(_PBEInfo(src: src, key: derivedKey));
 
+    final pbeInfo = _PBEInfo(src: src, key: derivedKey);
+    try {
+      final encryptBytes = await _encrypt(pbeInfo);
       return EncryptResult.success(bytes: encryptBytes);
     } on Exception catch (e, stackTrace) {
       return EncryptResult.fail(
-        EncryptError(
+        EncryptError.exception(
           error: e,
           stackTrace: stackTrace,
         ),
       );
+    } finally {
+      pbeInfo.clearKey();
     }
   }
 
@@ -144,7 +161,7 @@ class PBEModule implements EncryptModule {
 
     final ouStream = secretStream.pushEx(
       messageStream: _buildMessageStream(info.src),
-      key: SecureKey.fromList(_sodium, info.key),
+      key: info.key,
     );
 
     final outputBytes = Uint8Buffer();
@@ -180,7 +197,7 @@ class PBEModule implements EncryptModule {
 
     final ouStream = secretStream.pullEx(
       cipherStream: _buildChiperStream(info.src),
-      key: SecureKey.fromList(_sodium, info.key),
+      key: info.key,
     );
 
     final outputBytes = Uint8Buffer();
@@ -211,9 +228,9 @@ class PBEModule implements EncryptModule {
 
   Uint8List _decodeHex(String hexStr) => Uint8List.fromList(hex.decode(hexStr));
 
-  Future<Uint8List> _deriveKey({
+  Future<SecureKey> _deriveKey({
     required EncryptKeyDerivation derivation,
-    required String password,
+    required ImmutableSecureKey password,
     required String salt,
   }) {
     return derivation.derive(
@@ -226,10 +243,13 @@ class PBEModule implements EncryptModule {
 
 const _readBufSize = 4096;
 
-@freezed
-class _PBEInfo with _$PBEInfo {
-  const factory _PBEInfo({
-    required Uint8List src,
-    required Uint8List key,
-  }) = _PBEInfoData;
+class _PBEInfo {
+  final Uint8List src;
+  final SecureKey key;
+
+  _PBEInfo({required this.src, required this.key});
+
+  void clearKey() {
+    key.dispose();
+  }
 }

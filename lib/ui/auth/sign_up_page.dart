@@ -53,7 +53,7 @@ VoidCallback? _handleSubmitCallbackState(
 ) {
   return state.maybeWhen(
     savingPassword: () => null,
-    passwordSaved: () => null,
+    savedAndAuthorized: () => null,
     orElse: () => _submit(context),
   );
 }
@@ -186,11 +186,11 @@ class _Fields extends StatelessWidget {
 
   void _savePasswordFailedMsg(
     BuildContext context,
-    Exception? exception,
+    Object? error,
     StackTrace? stackTrace,
   ) {
     const msg = 'Failed to save password';
-    log().e(msg, error: exception, stackTrace: stackTrace);
+    log().e(msg, error: error, stackTrace: stackTrace);
 
     final reportCubit = context.read<ErrorReportCubit>();
     showDialog(
@@ -209,11 +209,11 @@ class _Fields extends StatelessWidget {
                 textAlign: TextAlign.end,
               ),
             ),
-            if (exception != null)
+            if (error != null)
               TextButton(
                 onPressed: () {
                   reportCubit.sendReport(
-                    error: exception,
+                    error: error,
                     stackTrace: stackTrace,
                     message: msg,
                   );

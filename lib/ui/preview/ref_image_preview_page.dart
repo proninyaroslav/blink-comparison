@@ -418,7 +418,7 @@ class _LoadRefImageError extends StatelessWidget {
           errorMsg = S.of(context).decryptReferenceImageNoEncryptKey;
         },
         decrypt: (e) => e.when(
-          (e, stackTrace) {
+          exception: (e, stackTrace) {
             log().e(
               "Unable to decrypt reference image",
               error: e,
@@ -433,7 +433,7 @@ class _LoadRefImageError extends StatelessWidget {
               );
             }
           },
-          invalidKey: () {
+          noSecureKey: () {
             errorMsg = S.of(context).decryptReferenceImageInvalidKey;
           },
         ),

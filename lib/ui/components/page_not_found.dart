@@ -20,7 +20,7 @@ import 'package:flutter/material.dart';
 
 import '../../locale.dart';
 
-@RoutePage()
+@RoutePage(name: 'PageNotFountRoute')
 class PageNotFound extends StatelessWidget {
   const PageNotFound({super.key});
 

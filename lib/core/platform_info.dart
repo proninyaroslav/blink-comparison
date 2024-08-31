@@ -17,6 +17,7 @@
 
 import 'dart:io' as io;
 
+import 'package:blink_comparison/env.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:devicelocale/devicelocale.dart';
 import 'package:flutter/foundation.dart';
@@ -125,7 +126,7 @@ class DeviceInfo with _$DeviceInfo {
   }) = WebDeviceInfo;
 }
 
-@Injectable(as: PlatformInfo)
+@Injectable(as: PlatformInfo, env: [Env.dev, Env.prod])
 class PlatformInfoImpl implements PlatformInfo {
   @override
   Future<String> getApplicationDocumentsDirectory() => path_provider
@@ -227,4 +228,44 @@ class PlatformInfoImpl implements PlatformInfo {
     // It needs to be removed to bring it to Unicode format.
     return locale?.replaceAll('#', '');
   }
+}
+
+@Injectable(as: PlatformInfo, env: [Env.test])
+class TestPlatformInfo implements PlatformInfo {
+  @override
+  Future<AppInfo> get appInfo => throw UnimplementedError();
+
+  @override
+  Future<String?> get currentLocale => throw UnimplementedError();
+
+  @override
+  Future<DeviceInfo> get deviceInfo => throw UnimplementedError();
+
+  @override
+  Future<String> getApplicationDocumentsDirectory() {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<io.Directory> getApplicationDocumentsDirectoryFile() {
+    throw UnimplementedError();
+  }
+
+  @override
+  bool get isAndroid => throw UnimplementedError();
+
+  @override
+  bool get isIOS => throw UnimplementedError();
+
+  @override
+  bool get isLinux => throw UnimplementedError();
+
+  @override
+  bool get isMacOS => throw UnimplementedError();
+
+  @override
+  bool get isWeb => throw UnimplementedError();
+
+  @override
+  bool get isWindows => throw UnimplementedError();
 }

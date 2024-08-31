@@ -17,27 +17,32 @@
 
 import 'package:blink_comparison/core/encrypt/encrypt.dart';
 import 'package:blink_comparison/core/encrypt/encrypt_key_derivation.dart';
+import 'package:blink_comparison/core/entity/auth_factor.dart';
+import 'package:blink_comparison/env.dart';
+import 'package:blink_comparison/injector.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:sodium_libs/sodium_libs_sumo.dart';
 
 import '../mock/mock.dart';
-import 'load_sodium.dart';
 
 void main() {
   group('Encryption module provider |', () {
-    late EncryptKeyDerivation mockDerivation;
-    late EncryptModuleProvider encryptProvider;
+    late final EncryptKeyDerivation mockDerivation;
+    late final EncryptModuleProvider encryptProvider;
+    late final SodiumSumo sodium;
 
     setUpAll(() async {
+      await initInjector(Env.test);
+      sodium = getIt<SodiumSumo>();
       mockDerivation = MockEncryptKeyDerivation();
-      encryptProvider = EncryptModuleProviderImpl(
-        await loadSodiumSumo(),
-        mockDerivation,
-      );
+      encryptProvider = EncryptModuleProviderImpl(sodium, mockDerivation);
     });
 
     test('PBE', () {
       expect(
-        encryptProvider.getByKey(const AppSecureKey.password('')),
+        encryptProvider.getByKey(
+          MutableAuthFactor.password(value: SecureKey(sodium, 0)).toImmutable(),
+        ),
         isA<PBEModule>(),
       );
     });

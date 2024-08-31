@@ -15,14 +15,15 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:blink_comparison/core/date_time_provider.dart';
-import 'package:blink_comparison/core/encrypt/encrypt.dart';
 import 'package:blink_comparison/core/encrypt/password_hasher.dart';
+import 'package:blink_comparison/core/encrypt/secure_key_factory.dart';
 import 'package:blink_comparison/core/entity/entity.dart';
+import 'package:blink_comparison/core/storage/auth_factor_repository.dart';
 import 'package:blink_comparison/core/storage/password_repository.dart';
-import 'package:blink_comparison/core/storage/ref_image_secure_storage.dart';
 import 'package:blink_comparison/core/storage/storage_result.dart';
 import 'package:blink_comparison/ui/auth/model/auth_cubit.dart';
 import 'package:blink_comparison/ui/auth/model/auth_state.dart';
@@ -37,23 +38,29 @@ void main() {
   group('AuthCubit |', () {
     late PasswordRepository mockPasswordRepo;
     late PasswordHasher mockHasher;
-    late RefImageSecureStorage mockSecureStorage;
     late DateTimeProvider mockDateTimeProvider;
+    late AuthFactorRepository mockFactorRepo;
+    late SecureKeyFactory testKeyFactory;
     late AuthCubit cubit;
 
     setUpAll(() {
       mockPasswordRepo = MockPasswordRepository();
       mockHasher = MockPasswordHasher();
-      mockSecureStorage = MockRefImageSecureStorage();
       mockDateTimeProvider = MockDateTimeProvider();
+      mockFactorRepo = MockAppSecureKeyRepository();
+      testKeyFactory = TestSecureKeyFactory();
+      registerFallbackValue(
+        MutableAuthFactor.password(value: TestSecureKey(0)),
+      );
     });
 
     setUp(() {
       cubit = AuthCubit(
         mockPasswordRepo,
         mockHasher,
-        mockSecureStorage,
         mockDateTimeProvider,
+        mockFactorRepo,
+        testKeyFactory,
       );
     });
 
@@ -143,12 +150,16 @@ void main() {
       build: () => cubit,
       act: (AuthCubit cubit) async {
         final salt = Uint8List.fromList([1, 2, 3]);
-        const password = 'password';
+        const passwordStr = 'password';
+        final password = TestSecureKey.fromList(utf8.encode(passwordStr));
         final info = PasswordInfo(
           id: 'test',
-          hash: 'hash',
+          hash: hex.encode(utf8.encode('another_password')),
           salt: hex.encode(salt),
         );
+        final mockHashKey = MockSecureKey();
+        when(() => mockHashKey.extractBytes()).thenReturn(password.list);
+        when(() => mockHashKey.dispose()).thenAnswer((_) {});
         when(
           () => mockPasswordRepo.getByType(const PasswordType.encryptKey()),
         ).thenAnswer(
@@ -156,41 +167,42 @@ void main() {
         );
         when(
           () => mockHasher.calculate(
-            password: password,
+            password: password.toImmutable(),
             salt: salt,
           ),
-        ).thenAnswer((_) async => 'another_hash');
+        ).thenAnswer((_) async => mockHashKey);
 
         final startTime = DateTime.now().toUtc();
         when(() => mockDateTimeProvider.now()).thenReturn(startTime);
         await cubit.loadPassword();
-        await cubit.auth(password);
+        await cubit.auth(passwordStr);
         final endTime = DateTime.now().toUtc();
         final delay = endTime.difference(startTime);
         expect(
           delay >= const Duration(seconds: 3),
           isTrue,
         );
+        verify(() => mockHashKey.dispose()).called(1);
       },
       expect: () => [
         AuthState.passwordLoaded(
           info: PasswordInfo(
             id: 'test',
-            hash: 'hash',
+            hash: hex.encode(utf8.encode('another_password')),
             salt: hex.encode(Uint8List.fromList([1, 2, 3])),
           ),
         ),
         AuthState.authInProgress(
           info: PasswordInfo(
             id: 'test',
-            hash: 'hash',
+            hash: hex.encode(utf8.encode('another_password')),
             salt: hex.encode(Uint8List.fromList([1, 2, 3])),
           ),
         ),
         AuthState.authFailed(
           info: PasswordInfo(
             id: 'test',
-            hash: 'hash',
+            hash: hex.encode(utf8.encode('another_password')),
             salt: hex.encode(Uint8List.fromList([1, 2, 3])),
           ),
           reason: const AuthError.wrongPassword(),
@@ -203,12 +215,16 @@ void main() {
       build: () => cubit,
       act: (AuthCubit cubit) async {
         final salt = Uint8List.fromList([1, 2, 3]);
-        const password = 'password';
+        const passwordStr = 'password';
+        final password = TestSecureKey.fromList(utf8.encode(passwordStr));
         final info = PasswordInfo(
           id: 'test',
-          hash: 'hash',
+          hash: hex.encode(password.list),
           salt: hex.encode(salt),
         );
+        final mockHashKey = MockSecureKey();
+        when(() => mockHashKey.extractBytes()).thenReturn(password.list);
+        when(() => mockHashKey.dispose()).thenAnswer((_) {});
         when(
           () => mockPasswordRepo.getByType(const PasswordType.encryptKey()),
         ).thenAnswer(
@@ -216,45 +232,42 @@ void main() {
         );
         when(
           () => mockHasher.calculate(
-            password: password,
+            password: password.toImmutable(),
             salt: salt,
           ),
-        ).thenAnswer((_) async => info.hash);
-        when(
-          () => mockSecureStorage.setSecureKey(
-            const AppSecureKey.password(password),
-          ),
-        ).thenAnswer((_) => {});
+        ).thenAnswer((_) async => mockHashKey);
         when(() => mockDateTimeProvider.now()).thenReturn(DateTime(2021));
+        when(
+          () => mockFactorRepo.set(any()),
+        ).thenReturn(AuthFactorModifyResult.success());
 
         await cubit.loadPassword();
-        await cubit.auth(password);
+        await cubit.auth(passwordStr);
 
         verify(
-          () => mockSecureStorage.setSecureKey(
-            const AppSecureKey.password(password),
-          ),
+          () => mockFactorRepo.set(any()),
         ).called(1);
+        verify(() => mockHashKey.dispose()).called(1);
       },
       expect: () => [
         AuthState.passwordLoaded(
           info: PasswordInfo(
             id: 'test',
-            hash: 'hash',
+            hash: hex.encode(utf8.encode('password')),
             salt: hex.encode(Uint8List.fromList([1, 2, 3])),
           ),
         ),
         AuthState.authInProgress(
           info: PasswordInfo(
             id: 'test',
-            hash: 'hash',
+            hash: hex.encode(utf8.encode('password')),
             salt: hex.encode(Uint8List.fromList([1, 2, 3])),
           ),
         ),
         AuthState.authSuccess(
           info: PasswordInfo(
             id: 'test',
-            hash: 'hash',
+            hash: hex.encode(utf8.encode('password')),
             salt: hex.encode(Uint8List.fromList([1, 2, 3])),
           ),
         ),
@@ -266,56 +279,69 @@ void main() {
       build: () => cubit,
       act: (AuthCubit cubit) async {
         final salt = Uint8List.fromList([1, 2, 3]);
-        const password = 'password';
+        const passwordStr = 'password';
+        final password = TestSecureKey.fromList(utf8.encode(passwordStr));
         final info = PasswordInfo(
           id: 'test',
-          hash: 'hash',
+          hash: hex.encode(password.list),
           salt: hex.encode(salt),
         );
+        final mockHashKey = MockSecureKey();
+        when(() => mockHashKey.dispose()).thenAnswer((_) {});
         when(
           () => mockPasswordRepo.getByType(const PasswordType.encryptKey()),
         ).thenAnswer(
           (_) async => StorageResult(info),
         );
         when(() => mockDateTimeProvider.now()).thenReturn(DateTime(2021));
+        when(
+          () => mockFactorRepo.set(any()),
+        ).thenReturn(AuthFactorModifyResult.success());
 
         await cubit.loadPassword();
 
+        when(() => mockHashKey.extractBytes())
+            .thenReturn(utf8.encode('another_password'));
         when(
           () => mockHasher.calculate(
-            password: password,
+            password: password.toImmutable(),
             salt: salt,
           ),
-        ).thenAnswer((_) async => 'another_hash');
-        await cubit.auth(password);
+        ).thenAnswer((_) async => mockHashKey);
+        await cubit.auth(passwordStr);
 
+        when(() => mockHashKey.extractBytes()).thenReturn(password.list);
         when(
           () => mockHasher.calculate(
-            password: password,
+            password: password.toImmutable(),
             salt: salt,
           ),
-        ).thenAnswer((_) async => info.hash);
-        await cubit.auth(password);
+        ).thenAnswer((_) async => mockHashKey);
+        await cubit.auth(passwordStr);
+        verify(
+          () => mockFactorRepo.set(any()),
+        ).called(1);
+        verify(() => mockHashKey.dispose()).called(2);
       },
       expect: () => [
         AuthState.passwordLoaded(
           info: PasswordInfo(
             id: 'test',
-            hash: 'hash',
+            hash: hex.encode(utf8.encode('password')),
             salt: hex.encode(Uint8List.fromList([1, 2, 3])),
           ),
         ),
         AuthState.authInProgress(
           info: PasswordInfo(
             id: 'test',
-            hash: 'hash',
+            hash: hex.encode(utf8.encode('password')),
             salt: hex.encode(Uint8List.fromList([1, 2, 3])),
           ),
         ),
         AuthState.authFailed(
           info: PasswordInfo(
             id: 'test',
-            hash: 'hash',
+            hash: hex.encode(utf8.encode('password')),
             salt: hex.encode(Uint8List.fromList([1, 2, 3])),
           ),
           reason: const AuthError.wrongPassword(),
@@ -323,14 +349,14 @@ void main() {
         AuthState.authInProgress(
           info: PasswordInfo(
             id: 'test',
-            hash: 'hash',
+            hash: hex.encode(utf8.encode('password')),
             salt: hex.encode(Uint8List.fromList([1, 2, 3])),
           ),
         ),
         AuthState.authSuccess(
           info: PasswordInfo(
             id: 'test',
-            hash: 'hash',
+            hash: hex.encode(utf8.encode('password')),
             salt: hex.encode(Uint8List.fromList([1, 2, 3])),
           ),
         ),

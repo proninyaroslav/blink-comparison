@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -15,7 +15,9 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
+export 'auth_factor.dart';
 export 'password.dart';
 export 'ref_image.dart';
 export 'save_ref_image_status.dart';
+export 'secure_key.dart';
 export 'thumbnail.dart';

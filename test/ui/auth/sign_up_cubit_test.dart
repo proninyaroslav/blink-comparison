@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -15,7 +15,9 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'package:blink_comparison/core/encrypt/secure_key_factory.dart';
 import 'package:blink_comparison/core/entity/entity.dart';
+import 'package:blink_comparison/core/storage/auth_factor_repository.dart';
 import 'package:blink_comparison/core/storage/password_repository.dart';
 import 'package:blink_comparison/core/storage/storage_result.dart';
 import 'package:blink_comparison/ui/auth/model/sign_up_cubit.dart';
@@ -29,14 +31,26 @@ import '../../mock/mock.dart';
 void main() {
   group('SignUpCubit |', () {
     late final PasswordRepository mockPasswordRepo;
+    late final AuthFactorRepository mockAppSecureKeyRepo;
+    late final SecureKeyFactory testKeyFactory;
     late SignUpCubit cubit;
 
     setUpAll(() {
       mockPasswordRepo = MockPasswordRepository();
+      mockAppSecureKeyRepo = MockAppSecureKeyRepository();
+      testKeyFactory = TestSecureKeyFactory();
+      registerFallbackValue(ImmutableSecureKey(TestSecureKey(0)));
+      registerFallbackValue(
+        MutableAuthFactor.password(value: TestSecureKey(0)),
+      );
     });
 
     setUp(() {
-      cubit = SignUpCubit(mockPasswordRepo);
+      cubit = SignUpCubit(
+        mockPasswordRepo,
+        mockAppSecureKeyRepo,
+        testKeyFactory,
+      );
     });
 
     blocTest(
@@ -185,7 +199,7 @@ void main() {
         when(
           () => mockPasswordRepo.insert(
             type: const PasswordType.encryptKey(),
-            password: password,
+            password: any(named: 'password'),
           ),
         ).thenAnswer(
           (_) async => const StorageResult(
@@ -196,15 +210,18 @@ void main() {
             ),
           ),
         );
+        when(() => mockAppSecureKeyRepo.set(any()))
+            .thenReturn(AuthFactorModifyResult.success());
         cubit.passwordChanged(password);
         cubit.repeatPasswordChanged(password);
         await cubit.submit();
         verify(
           () => mockPasswordRepo.insert(
             type: const PasswordType.encryptKey(),
-            password: password,
+            password: any(named: 'password'),
           ),
         ).called(1);
+        verify(() => mockAppSecureKeyRepo.set(any())).called(1);
       },
       expect: () => [
         const SignUpState.passwordChanged(
@@ -216,7 +233,7 @@ void main() {
           repeatPassword: RepeatPassword(value: '12345'),
         ),
         const SignUpState.savingPassword(),
-        const SignUpState.passwordSaved(),
+        const SignUpState.savedAndAuthorized(),
       ],
     );
 
@@ -228,7 +245,7 @@ void main() {
         when(
           () => mockPasswordRepo.insert(
             type: const PasswordType.encryptKey(),
-            password: password,
+            password: any(named: 'password'),
           ),
         ).thenAnswer(
           (_) async => const StorageResult(
@@ -267,10 +284,12 @@ void main() {
       build: () => cubit,
       act: (SignUpCubit cubit) async {
         const password = '12345';
+        when(() => mockAppSecureKeyRepo.set(any()))
+            .thenReturn(AuthFactorModifyResult.success());
         when(
           () => mockPasswordRepo.insert(
             type: const PasswordType.encryptKey(),
-            password: password,
+            password: any(named: 'password'),
           ),
         ).thenAnswer(
           (_) async => StorageResult.error(
@@ -286,7 +305,7 @@ void main() {
         when(
           () => mockPasswordRepo.insert(
             type: const PasswordType.encryptKey(),
-            password: password,
+            password: any(named: 'password'),
           ),
         ).thenAnswer(
           (_) async => const StorageResult(
@@ -298,6 +317,7 @@ void main() {
           ),
         );
         await cubit.submit();
+        verify(() => mockAppSecureKeyRepo.set(any())).called(1);
       },
       expect: () => [
         const SignUpState.passwordChanged(
@@ -311,7 +331,7 @@ void main() {
         const SignUpState.savingPassword(),
         isA<SignUpStateSavePasswordFailed>(),
         const SignUpState.savingPassword(),
-        const SignUpState.passwordSaved(),
+        const SignUpState.savedAndAuthorized(),
       ],
     );
 
@@ -323,7 +343,7 @@ void main() {
         when(
           () => mockPasswordRepo.insert(
             type: const PasswordType.encryptKey(),
-            password: password,
+            password: any(named: 'password'),
           ),
         ).thenAnswer(
           (_) async => const StorageResult(
@@ -334,10 +354,13 @@ void main() {
             ),
           ),
         );
+        when(() => mockAppSecureKeyRepo.set(any()))
+            .thenReturn(AuthFactorModifyResult.success());
         cubit.passwordChanged(password);
         cubit.repeatPasswordChanged(password);
         await cubit.submit();
         cubit.passwordChanged('123456');
+        verify(() => mockAppSecureKeyRepo.set(any())).called(1);
       },
       expect: () => [
         const SignUpState.passwordChanged(
@@ -349,7 +372,7 @@ void main() {
           repeatPassword: RepeatPassword(value: '12345'),
         ),
         const SignUpState.savingPassword(),
-        const SignUpState.passwordSaved(),
+        const SignUpState.savedAndAuthorized(),
       ],
     );
   });

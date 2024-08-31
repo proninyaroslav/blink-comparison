@@ -16,23 +16,24 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:auto_route/auto_route.dart';
+import 'package:blink_comparison/core/storage/auth_factor_repository.dart';
+import 'package:blink_comparison/injector.dart';
 
 import 'app_router.gr.dart';
 
 class AuthGuard extends AutoRouteGuard {
-  bool _authenticated = false;
+  final keyRepo = getIt<AuthFactorRepository>();
 
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) {
-    if (_authenticated) {
+    if (keyRepo.hasSecureKey()) {
       resolver.next(true);
     } else {
       router.push(
         AuthRoute(
           onAuthSuccess: () async {
-            _authenticated = true;
             router.removeLast();
-            resolver.next(_authenticated);
+            resolver.next(keyRepo.hasSecureKey());
           },
         ),
       );

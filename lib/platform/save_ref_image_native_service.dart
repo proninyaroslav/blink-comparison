@@ -16,11 +16,12 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'dart:async';
-import 'dart:convert';
 import 'dart:ui';
 
+import 'package:blink_comparison/core/entity/auth_factor.dart';
 import 'package:blink_comparison/core/platform_info.dart';
 import 'package:blink_comparison/core/service/save_ref_image_service.dart';
+import 'package:blink_comparison/core/utils.dart';
 import 'package:blink_comparison/locale.dart';
 import 'package:flutter/services.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -72,20 +73,30 @@ class SaveRefImageNativeService {
     return await channel.invokeMethod('isRunning');
   }
 
-  Future<void> pushQueue(ServiceRequest info) async {
-    await channel.invokeMethod('pushQueue', info.toJson());
+  /// Push [factor] only on first time.
+  Future<void> pushQueue(
+    ServiceRequest info, {
+    required MutableAuthFactor? factor,
+  }) async {
+    await channel.invokeMethod('pushQueue', [info.toJson(), factor?.toJson()]);
   }
 
-  Stream<ServiceRequest> observeQueue() {
+  Stream<ServiceQueueItem> observeQueue() {
     return queueChannel
         .receiveBroadcastStream('observeQueue')
-        .map((json) => ServiceRequest.fromJson(jsonDecode(json)));
+        .map((json) => ServiceQueueItem.fromJson(
+              (json as Map<Object?, Object?>).deepCast(),
+            ));
   }
 
   Future<List<ServiceRequest>> getAllInProgress() async {
     final List<Object?> list = await channel.invokeMethod('getAllInProgress');
     return list
-        .map((json) => ServiceRequest.fromJson(jsonDecode(json as String)))
+        .map(
+          (json) => ServiceRequest.fromJson(
+            (json as Map<Object?, Object?>).deepCast(),
+          ),
+        )
         .toList();
   }
 
@@ -100,8 +111,9 @@ class SaveRefImageNativeService {
   }
 
   Stream<ServiceResult> observeResult() {
-    return resultChannel
-        .receiveBroadcastStream('observeResult')
-        .map((json) => ServiceResult.fromJson(jsonDecode(json)));
+    return resultChannel.receiveBroadcastStream('observeResult').map(
+          (json) => ServiceResult.fromJson(
+              (json as Map<Object?, Object?>).deepCast()),
+        );
   }
 }

@@ -18,9 +18,9 @@
 import 'dart:async';
 
 import 'package:blink_comparison/core/crash_catcher/handler/notification_crash_handler.dart';
-import 'package:blink_comparison/core/encrypt/encrypt.dart';
 import 'package:blink_comparison/core/service/generate_thumbnail_job.dart';
 import 'package:blink_comparison/core/service/save_ref_image_job.dart';
+import 'package:blink_comparison/core/storage/auth_factor_repository.dart';
 import 'package:blink_comparison/core/storage/ref_image_status_repository.dart';
 import 'package:blink_comparison/platform/save_ref_image_native_service.dart';
 import 'package:cross_file/cross_file.dart';
@@ -46,7 +46,6 @@ abstract class SaveRefImageService {
   Future<void> save({
     required RefImageInfo info,
     required XFile srcImage,
-    required AppSecureKey key,
   });
 
   Future<List<SaveRefImageStatus>> getCurrentStatus();
@@ -65,6 +64,7 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
   final FileSystem _fs;
   final SaveRefImageServiceController _serviceController;
   final SaveRefImageJobController _jobController;
+  final AuthFactorRepository _factorRepo;
 
   SaveRefImageServiceImpl(
     this._saveJob,
@@ -73,20 +73,32 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
     this._jobController,
     this._generateThumbnailJob,
     this._saveThumbnailJob,
+    this._factorRepo,
   );
 
   @override
   Future<void> save({
     required RefImageInfo info,
     required XFile srcImage,
-    required AppSecureKey key,
   }) async {
-    final saveInfo = ServiceRequest(
-      info: info,
-      srcFile: srcImage,
-      key: key,
-    );
-    await _jobController.pushQueue(saveInfo);
+    final factor = _factorRepo.get();
+    if (factor == null) {
+      throw Exception('Authorization factor not found');
+    }
+    final mutableFactor = factor.copy();
+    try {
+      final saveInfo = ServiceRequest(
+        info: info,
+        srcFile: srcImage,
+      );
+      await _jobController.pushQueue(saveInfo, factor: mutableFactor);
+    } finally {
+      try {
+        mutableFactor.clear();
+      } catch (e, stackTrace) {
+        log().e('Unable to clear key', error: e, stackTrace: stackTrace);
+      }
+    }
   }
 
   @override
@@ -128,9 +140,13 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
     final completer = Completer();
     int jobsCount = 0;
     final subscription = _serviceController.observeQueue().listen(
-      (request) async {
+      (item) async {
+        final ServiceQueueItem(:request, :factor) = item;
         try {
           ++jobsCount;
+          if (factor == null) {
+            throw Exception('Authorization factor not found');
+          }
           final file = _fs.file(request.srcFile.path);
           if (!file.existsSync()) {
             log().d('[Save image] ${file.path} not found');
@@ -139,7 +155,7 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
           final saveResult = await _saveJob.run(
             info: request.info,
             file: request.srcFile,
-            key: request.key,
+            key: factor.toImmutable(),
           );
           await saveResult.when(
             success: () async {
@@ -158,6 +174,11 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
         } catch (e, stackTrace) {
           _stop(completer, error: e, stackTrace: stackTrace);
         } finally {
+          try {
+            factor?.clear();
+          } catch (e, stackTrace) {
+            log().e('Unable to clear key', error: e, stackTrace: stackTrace);
+          }
           --jobsCount;
         }
       },
@@ -168,11 +189,13 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
         _stop(completer);
       }
     });
-    await completer.future;
-
-    log().i('[Save image] Stop job');
-    subscription.cancel();
-    await _serviceController.stopService();
+    try {
+      await completer.future;
+    } finally {
+      log().i('[Save image] Stop job');
+      subscription.cancel();
+      await _serviceController.stopService();
+    }
   }
 
   void _stop(
@@ -295,7 +318,6 @@ class ServiceRequest with _$ServiceRequest {
   const factory ServiceRequest({
     required RefImageInfo info,
     @XFileConverter() required XFile srcFile,
-    required AppSecureKey key,
   }) = _ServiceRequest;
 
   factory ServiceRequest.fromJson(Map<String, dynamic> json) =>
@@ -345,13 +367,26 @@ class ServiceError with _$ServiceError {
       _$ServiceErrorFromJson(json);
 }
 
+@freezed
+class ServiceQueueItem with _$ServiceQueueItem {
+  factory ServiceQueueItem({
+    // ignore: invalid_annotation_target
+    @JsonKey(name: 'request') required ServiceRequest request,
+    // ignore: invalid_annotation_target
+    @JsonKey(name: 'factor') required MutableAuthFactor? factor,
+  }) = _ServiceQueueItem;
+
+  factory ServiceQueueItem.fromJson(Map<String, dynamic> json) =>
+      _$ServiceQueueItemFromJson(json);
+}
+
 @singleton
 class SaveRefImageServiceController {
   final SaveRefImageNativeService _nativeService;
 
   SaveRefImageServiceController(this._nativeService);
 
-  Stream<ServiceRequest> observeQueue() => _nativeService.observeQueue();
+  Stream<ServiceQueueItem> observeQueue() => _nativeService.observeQueue();
 
   Future<List<RefImageInfo>> getAllInProgress() => _nativeService
       .getAllInProgress()
@@ -371,8 +406,12 @@ class SaveRefImageJobController {
 
   Stream<ServiceResult> observeResult() => _nativeService.observeResult();
 
-  Future<void> pushQueue(ServiceRequest request) async {
-    await _nativeService.pushQueue(request);
+  /// Push [factor] only on first time.
+  Future<void> pushQueue(
+    ServiceRequest request, {
+    required MutableAuthFactor? factor,
+  }) async {
+    await _nativeService.pushQueue(request, factor: factor);
     if (!await _nativeService.isRunning()) {
       await _nativeService.start(callbackDispatcher: callbackDispatcher);
     }

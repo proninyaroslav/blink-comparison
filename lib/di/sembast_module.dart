@@ -16,9 +16,11 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:blink_comparison/core/platform_info.dart';
+import 'package:blink_comparison/env.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path/path.dart' as path;
 import 'package:sembast/sembast.dart';
+import 'package:sembast/sembast_memory.dart';
 import 'package:sembast_sqflite/sembast_sqflite.dart';
 import 'package:sqflite/sqflite.dart' as sqflite;
 import 'package:sqflite_common_ffi/sqflite_ffi.dart' as sqflite_ffi;
@@ -27,7 +29,7 @@ const _dbName = 'blink_comparison.db';
 
 @module
 abstract class SembastModule {
-  @singleton
+  @Singleton(env: [Env.dev, Env.prod])
   @preResolve
   Future<Database> db(PlatformInfo platform) async {
     final dir = await platform.getApplicationDocumentsDirectoryFile();
@@ -46,4 +48,9 @@ abstract class SembastModule {
       path.join(dir.path, _dbName),
     );
   }
+
+  @Singleton(env: [Env.test])
+  @preResolve
+  Future<Database> dbTest() async =>
+      databaseFactoryMemoryFs.openDatabase(_dbName);
 }

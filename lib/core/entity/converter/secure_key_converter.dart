@@ -1,4 +1,4 @@
-// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -15,16 +15,21 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'package:flutter/foundation.dart';
+import 'package:blink_comparison/core/encrypt/secure_key_factory.dart';
+import 'package:blink_comparison/core/entity/converter/uint8list_converter.dart';
+import 'package:blink_comparison/injector.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:sodium/sodium.dart';
 
-part 'app_secure_key.freezed.dart';
-part 'app_secure_key.g.dart';
+class SecureKeyConverter implements JsonConverter<SecureKey, List<dynamic>> {
+  final _listConverter = const Uint8ListConverter();
 
-@freezed
-class AppSecureKey with _$AppSecureKey {
-  const factory AppSecureKey.password(String value) = AppSecureKeyPassword;
+  const SecureKeyConverter();
 
-  factory AppSecureKey.fromJson(Map<String, dynamic> json) =>
-      _$AppSecureKeyFromJson(json);
+  @override
+  SecureKey fromJson(List<dynamic> json) =>
+      getIt<SecureKeyFactory>().fromList(_listConverter.fromJson(json));
+
+  @override
+  List<dynamic> toJson(SecureKey key) => List<dynamic>.from(key.extractBytes());
 }

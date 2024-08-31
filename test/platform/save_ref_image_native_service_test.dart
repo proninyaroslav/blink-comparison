@@ -18,10 +18,11 @@
 import 'dart:convert';
 import 'dart:ui';
 
-import 'package:blink_comparison/core/encrypt/encrypt.dart';
 import 'package:blink_comparison/core/entity/entity.dart';
 import 'package:blink_comparison/core/platform_info.dart';
 import 'package:blink_comparison/core/service/save_ref_image_service.dart';
+import 'package:blink_comparison/env.dart';
+import 'package:blink_comparison/injector.dart';
 import 'package:blink_comparison/locale.dart';
 import 'package:blink_comparison/platform/save_ref_image_native_service.dart';
 import 'package:cross_file/cross_file.dart';
@@ -32,7 +33,7 @@ import 'package:path/path.dart' as path;
 
 import '../mock/mock.dart';
 
-void main() {
+Future<void> main() async {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('Save reference image native service |', () {
@@ -46,13 +47,16 @@ void main() {
         encryptSalt: 'salt',
       ),
       srcFile: XFile(path.join('foo', 'bar')),
-      key: const AppSecureKey.password('123'),
     );
     final expectedResult = ServiceResult.success(
       request: expectedRequest,
     );
+    final expectedFactor = MutableAuthFactor.password(
+      value: TestSecureKey.fromList(utf8.encode('123')),
+    );
 
-    setUpAll(() {
+    setUpAll(() async {
+      await initInjector(Env.test);
       mockPlatform = MockPlatformInfo();
       when(() => mockPlatform.isAndroid).thenReturn(true);
     });
@@ -70,7 +74,7 @@ void main() {
             case 'isRunning':
               return true;
             case 'getAllInProgress':
-              return [jsonEncode(expectedRequest.toJson())];
+              return [expectedRequest.toJson()];
           }
           return null;
         },
@@ -83,9 +87,10 @@ void main() {
             case 'listen':
               await binaryMessenger.handlePlatformMessage(
                 service.queueChannel.name,
-                service.queueChannel.codec.encodeSuccessEnvelope(
-                  jsonEncode(expectedRequest.toJson()),
-                ),
+                service.queueChannel.codec.encodeSuccessEnvelope({
+                  'request': expectedRequest.toJson(),
+                  'factor': expectedFactor.toJson(),
+                }),
                 (_) {},
               );
               break;
@@ -104,7 +109,7 @@ void main() {
               await binaryMessenger.handlePlatformMessage(
                 service.resultChannel.name,
                 service.resultChannel.codec.encodeSuccessEnvelope(
-                  jsonEncode(expectedResult.toJson()),
+                  expectedResult.toJson(),
                 ),
                 (_) {},
               );
@@ -152,33 +157,32 @@ void main() {
     });
 
     test('Push to queue', () async {
-      await service.pushQueue(expectedRequest);
+      await service.pushQueue(expectedRequest, factor: expectedFactor);
       expect(log, [
         isMethodCall(
           'pushQueue',
-          arguments: expectedRequest.toJson(),
+          arguments: [expectedRequest.toJson(), expectedFactor.toJson()],
         )
       ]);
     });
 
     test('Listen queue', () async {
-      final request = await service.observeQueue().first;
+      final ServiceQueueItem(:request, :factor) =
+          await service.observeQueue().first;
       expect(request.info, expectedRequest.info);
-      expect(request.key, expectedRequest.key);
+      expect(factor, expectedFactor);
       expect(request.srcFile.path, expectedRequest.srcFile.path);
     });
 
     test('Get all in progress', () async {
       final requestList = await service.getAllInProgress();
       expect(requestList[0].info, expectedRequest.info);
-      expect(requestList[0].key, expectedRequest.key);
       expect(requestList[0].srcFile.path, expectedRequest.srcFile.path);
     });
 
     test('Observe result', () async {
       final result = await service.observeResult().first;
       expect(result.request.info, expectedRequest.info);
-      expect(result.request.key, expectedRequest.key);
       expect(result.request.srcFile.path, expectedRequest.srcFile.path);
     });
 

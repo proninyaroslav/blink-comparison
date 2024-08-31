@@ -16,17 +16,30 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:blink_comparison/core/settings/shared_pref_migrator.dart';
+import 'package:blink_comparison/env.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+// ignore: depend_on_referenced_packages
+import 'package:shared_preferences_platform_interface/in_memory_shared_preferences_async.dart';
+// ignore: depend_on_referenced_packages
+import 'package:shared_preferences_platform_interface/shared_preferences_async_platform_interface.dart';
 
 @module
 abstract class SharedPreferencesModule {
-  @singleton
+  @Singleton(env: [Env.dev, Env.prod])
   @preResolve
   Future<SharedPreferences> get prefOld async =>
       SharedPreferences.getInstance();
 
-  @singleton
+  @Singleton(env: [Env.test])
+  @preResolve
+  Future<SharedPreferences> get prefOldTest async {
+    // ignore: invalid_use_of_visible_for_testing_member
+    SharedPreferences.setMockInitialValues(<String, Object>{});
+    return SharedPreferences.getInstance();
+  }
+
+  @Singleton(env: [Env.dev, Env.prod])
   @preResolve
   Future<SharedPreferencesAsync> pref(SharedPreferences prefOld) async {
     final pref = SharedPreferencesAsync();
@@ -37,5 +50,13 @@ abstract class SharedPreferencesModule {
     await migrator.migrate();
 
     return pref;
+  }
+
+  @Singleton(env: [Env.test])
+  SharedPreferencesAsync prefTest() {
+    SharedPreferencesAsyncPlatform.instance =
+        InMemorySharedPreferencesAsync.empty();
+
+    return SharedPreferencesAsync();
   }
 }

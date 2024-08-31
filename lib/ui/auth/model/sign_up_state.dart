@@ -45,12 +45,13 @@ class SignUpState with _$SignUpState {
 
   const factory SignUpState.savingPassword() = SignUpStateSavingPassword;
 
-  const factory SignUpState.passwordSaved() = SignUpStatePasswordSaved;
+  const factory SignUpState.savedAndAuthorized() =
+      SignUpStatePasswordSavedAndAuthorized;
 
   const factory SignUpState.savePasswordFailed({
     required Password password,
     required RepeatPassword repeatPassword,
-    Exception? exception,
+    Object? error,
     StackTrace? stackTrace,
   }) = SignUpStateSavePasswordFailed;
 }

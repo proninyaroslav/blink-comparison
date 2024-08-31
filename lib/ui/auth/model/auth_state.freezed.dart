@@ -1644,18 +1644,21 @@ mixin _$AuthError {
   TResult when<TResult extends Object?>({
     required TResult Function() emptyPassword,
     required TResult Function() wrongPassword,
+    required TResult Function(Object error, StackTrace stackTrace) exception,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? emptyPassword,
     TResult? Function()? wrongPassword,
+    TResult? Function(Object error, StackTrace stackTrace)? exception,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? emptyPassword,
     TResult Function()? wrongPassword,
+    TResult Function(Object error, StackTrace stackTrace)? exception,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1663,18 +1666,21 @@ mixin _$AuthError {
   TResult map<TResult extends Object?>({
     required TResult Function(_AuthErrorEmptyPassword value) emptyPassword,
     required TResult Function(_AuthErrorWrongPassword value) wrongPassword,
+    required TResult Function(_AuthErrorException value) exception,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AuthErrorEmptyPassword value)? emptyPassword,
     TResult? Function(_AuthErrorWrongPassword value)? wrongPassword,
+    TResult? Function(_AuthErrorException value)? exception,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AuthErrorEmptyPassword value)? emptyPassword,
     TResult Function(_AuthErrorWrongPassword value)? wrongPassword,
+    TResult Function(_AuthErrorException value)? exception,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1754,6 +1760,7 @@ class _$AuthErrorEmptyPasswordImpl
   TResult when<TResult extends Object?>({
     required TResult Function() emptyPassword,
     required TResult Function() wrongPassword,
+    required TResult Function(Object error, StackTrace stackTrace) exception,
   }) {
     return emptyPassword();
   }
@@ -1763,6 +1770,7 @@ class _$AuthErrorEmptyPasswordImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? emptyPassword,
     TResult? Function()? wrongPassword,
+    TResult? Function(Object error, StackTrace stackTrace)? exception,
   }) {
     return emptyPassword?.call();
   }
@@ -1772,6 +1780,7 @@ class _$AuthErrorEmptyPasswordImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? emptyPassword,
     TResult Function()? wrongPassword,
+    TResult Function(Object error, StackTrace stackTrace)? exception,
     required TResult orElse(),
   }) {
     if (emptyPassword != null) {
@@ -1785,6 +1794,7 @@ class _$AuthErrorEmptyPasswordImpl
   TResult map<TResult extends Object?>({
     required TResult Function(_AuthErrorEmptyPassword value) emptyPassword,
     required TResult Function(_AuthErrorWrongPassword value) wrongPassword,
+    required TResult Function(_AuthErrorException value) exception,
   }) {
     return emptyPassword(this);
   }
@@ -1794,6 +1804,7 @@ class _$AuthErrorEmptyPasswordImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AuthErrorEmptyPassword value)? emptyPassword,
     TResult? Function(_AuthErrorWrongPassword value)? wrongPassword,
+    TResult? Function(_AuthErrorException value)? exception,
   }) {
     return emptyPassword?.call(this);
   }
@@ -1803,6 +1814,7 @@ class _$AuthErrorEmptyPasswordImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AuthErrorEmptyPassword value)? emptyPassword,
     TResult Function(_AuthErrorWrongPassword value)? wrongPassword,
+    TResult Function(_AuthErrorException value)? exception,
     required TResult orElse(),
   }) {
     if (emptyPassword != null) {
@@ -1870,6 +1882,7 @@ class _$AuthErrorWrongPasswordImpl
   TResult when<TResult extends Object?>({
     required TResult Function() emptyPassword,
     required TResult Function() wrongPassword,
+    required TResult Function(Object error, StackTrace stackTrace) exception,
   }) {
     return wrongPassword();
   }
@@ -1879,6 +1892,7 @@ class _$AuthErrorWrongPasswordImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? emptyPassword,
     TResult? Function()? wrongPassword,
+    TResult? Function(Object error, StackTrace stackTrace)? exception,
   }) {
     return wrongPassword?.call();
   }
@@ -1888,6 +1902,7 @@ class _$AuthErrorWrongPasswordImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? emptyPassword,
     TResult Function()? wrongPassword,
+    TResult Function(Object error, StackTrace stackTrace)? exception,
     required TResult orElse(),
   }) {
     if (wrongPassword != null) {
@@ -1901,6 +1916,7 @@ class _$AuthErrorWrongPasswordImpl
   TResult map<TResult extends Object?>({
     required TResult Function(_AuthErrorEmptyPassword value) emptyPassword,
     required TResult Function(_AuthErrorWrongPassword value) wrongPassword,
+    required TResult Function(_AuthErrorException value) exception,
   }) {
     return wrongPassword(this);
   }
@@ -1910,6 +1926,7 @@ class _$AuthErrorWrongPasswordImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AuthErrorEmptyPassword value)? emptyPassword,
     TResult? Function(_AuthErrorWrongPassword value)? wrongPassword,
+    TResult? Function(_AuthErrorException value)? exception,
   }) {
     return wrongPassword?.call(this);
   }
@@ -1919,6 +1936,7 @@ class _$AuthErrorWrongPasswordImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AuthErrorEmptyPassword value)? emptyPassword,
     TResult Function(_AuthErrorWrongPassword value)? wrongPassword,
+    TResult Function(_AuthErrorException value)? exception,
     required TResult orElse(),
   }) {
     if (wrongPassword != null) {
@@ -1930,4 +1948,173 @@ class _$AuthErrorWrongPasswordImpl
 
 abstract class _AuthErrorWrongPassword implements AuthError {
   const factory _AuthErrorWrongPassword() = _$AuthErrorWrongPasswordImpl;
+}
+
+/// @nodoc
+abstract class _$$AuthErrorExceptionImplCopyWith<$Res> {
+  factory _$$AuthErrorExceptionImplCopyWith(_$AuthErrorExceptionImpl value,
+          $Res Function(_$AuthErrorExceptionImpl) then) =
+      __$$AuthErrorExceptionImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Object error, StackTrace stackTrace});
+}
+
+/// @nodoc
+class __$$AuthErrorExceptionImplCopyWithImpl<$Res>
+    extends _$AuthErrorCopyWithImpl<$Res, _$AuthErrorExceptionImpl>
+    implements _$$AuthErrorExceptionImplCopyWith<$Res> {
+  __$$AuthErrorExceptionImplCopyWithImpl(_$AuthErrorExceptionImpl _value,
+      $Res Function(_$AuthErrorExceptionImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AuthError
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+    Object? stackTrace = null,
+  }) {
+    return _then(_$AuthErrorExceptionImpl(
+      error: null == error ? _value.error : error,
+      stackTrace: null == stackTrace
+          ? _value.stackTrace
+          : stackTrace // ignore: cast_nullable_to_non_nullable
+              as StackTrace,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AuthErrorExceptionImpl
+    with DiagnosticableTreeMixin
+    implements _AuthErrorException {
+  const _$AuthErrorExceptionImpl(
+      {required this.error, required this.stackTrace});
+
+  @override
+  final Object error;
+  @override
+  final StackTrace stackTrace;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AuthError.exception(error: $error, stackTrace: $stackTrace)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AuthError.exception'))
+      ..add(DiagnosticsProperty('error', error))
+      ..add(DiagnosticsProperty('stackTrace', stackTrace));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AuthErrorExceptionImpl &&
+            const DeepCollectionEquality().equals(other.error, error) &&
+            (identical(other.stackTrace, stackTrace) ||
+                other.stackTrace == stackTrace));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(error), stackTrace);
+
+  /// Create a copy of AuthError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AuthErrorExceptionImplCopyWith<_$AuthErrorExceptionImpl> get copyWith =>
+      __$$AuthErrorExceptionImplCopyWithImpl<_$AuthErrorExceptionImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() emptyPassword,
+    required TResult Function() wrongPassword,
+    required TResult Function(Object error, StackTrace stackTrace) exception,
+  }) {
+    return exception(error, stackTrace);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? emptyPassword,
+    TResult? Function()? wrongPassword,
+    TResult? Function(Object error, StackTrace stackTrace)? exception,
+  }) {
+    return exception?.call(error, stackTrace);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? emptyPassword,
+    TResult Function()? wrongPassword,
+    TResult Function(Object error, StackTrace stackTrace)? exception,
+    required TResult orElse(),
+  }) {
+    if (exception != null) {
+      return exception(error, stackTrace);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthErrorEmptyPassword value) emptyPassword,
+    required TResult Function(_AuthErrorWrongPassword value) wrongPassword,
+    required TResult Function(_AuthErrorException value) exception,
+  }) {
+    return exception(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AuthErrorEmptyPassword value)? emptyPassword,
+    TResult? Function(_AuthErrorWrongPassword value)? wrongPassword,
+    TResult? Function(_AuthErrorException value)? exception,
+  }) {
+    return exception?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthErrorEmptyPassword value)? emptyPassword,
+    TResult Function(_AuthErrorWrongPassword value)? wrongPassword,
+    TResult Function(_AuthErrorException value)? exception,
+    required TResult orElse(),
+  }) {
+    if (exception != null) {
+      return exception(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AuthErrorException implements AuthError {
+  const factory _AuthErrorException(
+      {required final Object error,
+      required final StackTrace stackTrace}) = _$AuthErrorExceptionImpl;
+
+  Object get error;
+  StackTrace get stackTrace;
+
+  /// Create a copy of AuthError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AuthErrorExceptionImplCopyWith<_$AuthErrorExceptionImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

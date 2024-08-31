@@ -590,7 +590,7 @@ class _TakePhotoButton extends StatelessWidget {
 
 class _OpenCameraError extends StatelessWidget {
   final CameraInitializationError error;
-  final Function? onOpenAppPermissions;
+  final VoidCallback? onOpenAppPermissions;
 
   const _OpenCameraError({
     required this.error,

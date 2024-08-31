@@ -16,20 +16,20 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'dart:async';
-import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:convert/convert.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:sodium_libs/sodium_libs_sumo.dart';
 
+import '../entity/entity.dart';
+
 part 'password_hasher.freezed.dart';
 
 abstract class PasswordHasher {
-  Future<String> calculate({
-    required String password,
+  Future<SecureKey> calculate({
+    required ImmutableSecureKey password,
     required Uint8List salt,
   });
 }
@@ -48,39 +48,37 @@ class PasswordHasherImpl implements PasswordHasher {
   /// Requires 256 MiB of dedicated RAM, and takes about 0.7 seconds
   /// on a 2.8 Ghz Core i7 CPU.
   @override
-  Future<String> calculate({
-    required String password,
+  Future<SecureKey> calculate({
+    required ImmutableSecureKey password,
     required Uint8List salt,
-  }) async {
-    return _sodium.runIsolated(
-      (sodium, secureKeys, keyPairs) => _calculate(
-        sodium,
-        _SodiumHashInfo(
-          password: password,
-          salt: salt,
+  }) async =>
+      _sodium.runIsolated(
+        (sodium, secureKeys, keyPairs) => _calculate(
+          sodium,
+          _SodiumHashInfo(
+            password: secureKeys.first,
+            salt: salt,
+          ),
         ),
-      ),
-    );
-  }
+        secureKeys: [password],
+      );
 }
 
 // Runs in Isolate
-Future<String> _calculate(SodiumSumo sodium, _SodiumHashInfo info) async {
-  final hash = sodium.crypto.pwhash(
-    password: Int8List.fromList(utf8.encoder.convert(info.password)),
-    salt: info.salt,
-    outLen: _hashLength,
-    opsLimit: _sodiumOpslimitModerate,
-    memLimit: _sodiumMemlimitModerate,
-    alg: CryptoPwhashAlgorithm.argon2id13,
-  );
-  return hex.encode(hash.extractBytes());
-}
+Future<SecureKey> _calculate(SodiumSumo sodium, _SodiumHashInfo info) async =>
+    sodium.crypto.pwhash(
+      password: Int8List.fromList(info.password.extractBytes()),
+      salt: info.salt,
+      outLen: _hashLength,
+      opsLimit: _sodiumOpslimitModerate,
+      memLimit: _sodiumMemlimitModerate,
+      alg: CryptoPwhashAlgorithm.argon2id13,
+    );
 
 @freezed
 class _SodiumHashInfo with _$SodiumHashInfo {
   const factory _SodiumHashInfo({
-    required String password,
+    required SecureKey password,
     required Uint8List salt,
   }) = _SodiumHashInfoData;
 }

@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -15,6 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:blink_comparison/core/encrypt/encrypt.dart';
@@ -22,6 +23,7 @@ import 'package:blink_comparison/core/entity/entity.dart';
 import 'package:blink_comparison/core/fs/fs_result.dart';
 import 'package:blink_comparison/core/fs/ref_image_fs.dart';
 import 'package:blink_comparison/core/service/save_ref_image_service.dart';
+import 'package:blink_comparison/core/storage/auth_factor_repository.dart';
 import 'package:blink_comparison/core/storage/ref_image_secure_storage.dart';
 import 'package:blink_comparison/core/storage/storage_result.dart';
 import 'package:cross_file/cross_file.dart';
@@ -38,18 +40,24 @@ void main() {
     late EncryptModule mockModule;
     late SaveRefImageService mockService;
     late RefImageSecureStorage secureStorage;
+    late AuthFactorRepository mockAppSecureKeyRepo;
 
-    const key = AppSecureKey.password('123');
+    final key = MutableAuthFactor.password(
+      value: TestSecureKey.fromList(utf8.encode('123')),
+    );
+    final keyImmutable = key.toImmutable();
 
     setUp(() {
       mockFs = MockRefImageFs();
       mockEncryptProvider = MockEncryptModuleProvider();
       mockModule = MockEncryptModule();
       mockService = MockSaveRefImageService();
+      mockAppSecureKeyRepo = MockAppSecureKeyRepository();
       secureStorage = RefImageSecureStorageImpl(
         mockFs,
         mockEncryptProvider,
         mockService,
+        mockAppSecureKeyRepo,
       );
     });
 
@@ -64,6 +72,8 @@ void main() {
         dateAdded: DateTime.now(),
         encryptSalt: 'salt',
       );
+
+      when(() => mockAppSecureKeyRepo.hasSecureKey()).thenReturn(false);
 
       final addRes = await secureStorage.add(info, file);
       addRes.when(
@@ -90,17 +100,18 @@ void main() {
         encryptSalt: 'salt',
       );
 
+      when(() => mockAppSecureKeyRepo.hasSecureKey()).thenReturn(true);
+      when(() => mockAppSecureKeyRepo.get()).thenReturn(keyImmutable);
       when(
-        () => mockService.save(info: info, srcImage: file, key: key),
+        () => mockService.save(info: info, srcImage: file),
       ).thenAnswer((_) async => {});
 
-      secureStorage.setSecureKey(key);
       expect(
         await secureStorage.add(info, file),
         SecStorageResult.empty,
       );
       verify(
-        () => mockService.save(info: info, srcImage: file, key: key),
+        () => mockService.save(info: info, srcImage: file),
       ).called(1);
     });
 
@@ -114,7 +125,10 @@ void main() {
       );
       final expectedImage = RefImage(info: info, bytes: decBytes);
 
-      when(() => mockEncryptProvider.getByKey(key)).thenReturn(mockModule);
+      when(() => mockAppSecureKeyRepo.hasSecureKey()).thenReturn(true);
+      when(() => mockAppSecureKeyRepo.get()).thenReturn(keyImmutable);
+      when(() => mockEncryptProvider.getByKey(keyImmutable))
+          .thenReturn(mockModule);
       when(
         () => mockModule.decrypt(src: any(named: 'src'), info: info),
       ).thenAnswer(
@@ -124,7 +138,6 @@ void main() {
         () => mockFs.read(info),
       ).thenAnswer((_) async => FsResult(srcBytes));
 
-      secureStorage.setSecureKey(key);
       expect(
         await secureStorage.get(info),
         SecStorageResult(expectedImage),

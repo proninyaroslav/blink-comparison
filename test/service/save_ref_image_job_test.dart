@@ -15,6 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:blink_comparison/core/encrypt/encrypt.dart';
@@ -35,7 +36,10 @@ void main() {
     late RefImageFS mockImageFs;
     late SaveRefImageJob job;
 
-    const key = AppSecureKey.password('123');
+    final factor = MutableAuthFactor.password(
+      value: TestSecureKey.fromList(utf8.encode('123')),
+    );
+    final factorImmutable = factor.toImmutable();
 
     setUp(() {
       mockEncryptProvider = MockEncryptModuleProvider();
@@ -54,7 +58,8 @@ void main() {
         encryptSalt: 'salt',
       );
 
-      when(() => mockEncryptProvider.getByKey(key)).thenReturn(mockModule);
+      when(() => mockEncryptProvider.getByKey(factorImmutable))
+          .thenReturn(mockModule);
       when(
         () => mockModule.encrypt(src: srcBytes, info: info),
       ).thenAnswer((_) async => EncryptResult.success(bytes: encBytes));
@@ -63,7 +68,7 @@ void main() {
       ).thenAnswer((_) async => FsResult.empty);
 
       expect(
-        await job.run(info: info, file: srcFile, key: key),
+        await job.run(info: info, file: srcFile, key: factorImmutable),
         const SaveRefImageResult.success(),
       );
       verify(() => mockImageFs.save(info, encBytes)).called(1);
@@ -78,16 +83,18 @@ void main() {
         encryptSalt: 'salt',
       );
 
-      when(() => mockEncryptProvider.getByKey(key)).thenReturn(mockModule);
+      when(() => mockEncryptProvider.getByKey(factorImmutable))
+          .thenReturn(mockModule);
       when(
         () => mockModule.encrypt(src: srcBytes, info: info),
-      ).thenAnswer((_) async => const EncryptResult.fail(EncryptError()));
+      ).thenAnswer(
+          (_) async => const EncryptResult.fail(EncryptError.exception()));
 
       expect(
-        await job.run(info: info, file: srcFile, key: key),
+        await job.run(info: info, file: srcFile, key: factorImmutable),
         const SaveRefImageResult.error(
           SaveRefImageError.encrypt(
-            error: EncryptError(),
+            error: EncryptError.exception(),
           ),
         ),
       );
@@ -103,7 +110,8 @@ void main() {
         encryptSalt: 'salt',
       );
 
-      when(() => mockEncryptProvider.getByKey(key)).thenReturn(mockModule);
+      when(() => mockEncryptProvider.getByKey(factorImmutable))
+          .thenReturn(mockModule);
       when(
         () => mockModule.encrypt(src: srcBytes, info: info),
       ).thenAnswer((_) async => EncryptResult.success(bytes: encBytes));
@@ -114,7 +122,7 @@ void main() {
       );
 
       expect(
-        await job.run(info: info, file: srcFile, key: key),
+        await job.run(info: info, file: srcFile, key: factorImmutable),
         SaveRefImageResult.error(
           SaveRefImageError.fs(
             path: srcFile.path,

@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -128,7 +128,7 @@ void main() {
         ).thenAnswer(
           (_) async => const SecStorageResult.error(
             SecStorageError.decrypt(
-              error: DecryptError(),
+              error: DecryptError.exception(),
             ),
           ),
         );
@@ -137,7 +137,7 @@ void main() {
       expect: () => [
         const RefImageState.loading(),
         const RefImageState.loadFailed(
-          LoadRefImageError.decrypt(DecryptError()),
+          LoadRefImageError.decrypt(DecryptError.exception()),
         ),
       ],
     );

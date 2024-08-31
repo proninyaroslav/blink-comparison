@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -18,6 +18,7 @@
 import 'package:blink_comparison/core/encrypt/encrypt.dart';
 import 'package:blink_comparison/core/encrypt/password_hasher.dart';
 import 'package:blink_comparison/core/entity/password.dart';
+import 'package:blink_comparison/core/entity/secure_key.dart';
 import 'package:blink_comparison/core/storage/app_database.dart';
 import 'package:convert/convert.dart';
 import 'package:injectable/injectable.dart';
@@ -29,7 +30,7 @@ const _encryptKeyId = 'encrypt_key';
 abstract class PasswordRepository {
   Future<StorageResult<PasswordInfo>> insert({
     required PasswordType type,
-    required String password,
+    required ImmutableSecureKey password,
   });
 
   Future<StorageResult<void>> delete(PasswordInfo info);
@@ -52,18 +53,19 @@ class PasswordRepositoryImpl implements PasswordRepository {
   @override
   Future<StorageResult<PasswordInfo>> insert({
     required PasswordType type,
-    required String password,
+    required ImmutableSecureKey password,
   }) async {
     final salt = _saltGenerator.randomBytes();
-    final info = PasswordInfo(
-      id: type.getId(),
-      hash: await _hasher.calculate(
-        password: password,
-        salt: salt,
-      ),
-      salt: hex.encode(salt),
+    final key = await _hasher.calculate(
+      password: password,
+      salt: salt,
     );
     try {
+      final info = PasswordInfo(
+        id: type.getId(),
+        hash: hex.encode(key.extractBytes()),
+        salt: hex.encode(salt),
+      );
       await _db.passwordDao.insert(info);
       return StorageResult(info);
     } on Exception catch (e, stackTrace) {
@@ -73,6 +75,8 @@ class PasswordRepositoryImpl implements PasswordRepository {
           stackTrace: stackTrace,
         ),
       );
+    } finally {
+      key.dispose();
     }
   }
 

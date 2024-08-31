@@ -10,7 +10,6 @@ _$ServiceRequestImpl _$$ServiceRequestImplFromJson(Map<String, dynamic> json) =>
     _$ServiceRequestImpl(
       info: RefImageInfo.fromJson(json['info'] as Map<String, dynamic>),
       srcFile: const XFileConverter().fromJson(json['srcFile'] as String),
-      key: AppSecureKey.fromJson(json['key'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$ServiceRequestImplToJson(
@@ -18,7 +17,6 @@ Map<String, dynamic> _$$ServiceRequestImplToJson(
     <String, dynamic>{
       'info': instance.info.toJson(),
       'srcFile': const XFileConverter().toJson(instance.srcFile),
-      'key': instance.key.toJson(),
     };
 
 _$ServiceResultSuccessImpl _$$ServiceResultSuccessImplFromJson(
@@ -92,4 +90,20 @@ Map<String, dynamic> _$$ServiceErrorSaveThumbnailImplToJson(
     <String, dynamic>{
       'error': instance.error.toJson(),
       'runtimeType': instance.$type,
+    };
+
+_$ServiceQueueItemImpl _$$ServiceQueueItemImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ServiceQueueItemImpl(
+      request: ServiceRequest.fromJson(json['request'] as Map<String, dynamic>),
+      factor: json['factor'] == null
+          ? null
+          : MutableAuthFactor.fromJson(json['factor'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$ServiceQueueItemImplToJson(
+        _$ServiceQueueItemImpl instance) =>
+    <String, dynamic>{
+      'request': instance.request.toJson(),
+      'factor': instance.factor?.toJson(),
     };

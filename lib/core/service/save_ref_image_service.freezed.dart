@@ -23,7 +23,6 @@ mixin _$ServiceRequest {
   RefImageInfo get info => throw _privateConstructorUsedError;
   @XFileConverter()
   XFile get srcFile => throw _privateConstructorUsedError;
-  AppSecureKey get key => throw _privateConstructorUsedError;
 
   /// Serializes this ServiceRequest to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,11 +40,9 @@ abstract class $ServiceRequestCopyWith<$Res> {
           ServiceRequest value, $Res Function(ServiceRequest) then) =
       _$ServiceRequestCopyWithImpl<$Res, ServiceRequest>;
   @useResult
-  $Res call(
-      {RefImageInfo info, @XFileConverter() XFile srcFile, AppSecureKey key});
+  $Res call({RefImageInfo info, @XFileConverter() XFile srcFile});
 
   $RefImageInfoCopyWith<$Res> get info;
-  $AppSecureKeyCopyWith<$Res> get key;
 }
 
 /// @nodoc
@@ -65,7 +62,6 @@ class _$ServiceRequestCopyWithImpl<$Res, $Val extends ServiceRequest>
   $Res call({
     Object? info = null,
     Object? srcFile = null,
-    Object? key = null,
   }) {
     return _then(_value.copyWith(
       info: null == info
@@ -76,10 +72,6 @@ class _$ServiceRequestCopyWithImpl<$Res, $Val extends ServiceRequest>
           ? _value.srcFile
           : srcFile // ignore: cast_nullable_to_non_nullable
               as XFile,
-      key: null == key
-          ? _value.key
-          : key // ignore: cast_nullable_to_non_nullable
-              as AppSecureKey,
     ) as $Val);
   }
 
@@ -92,16 +84,6 @@ class _$ServiceRequestCopyWithImpl<$Res, $Val extends ServiceRequest>
       return _then(_value.copyWith(info: value) as $Val);
     });
   }
-
-  /// Create a copy of ServiceRequest
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AppSecureKeyCopyWith<$Res> get key {
-    return $AppSecureKeyCopyWith<$Res>(_value.key, (value) {
-      return _then(_value.copyWith(key: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -112,13 +94,10 @@ abstract class _$$ServiceRequestImplCopyWith<$Res>
       __$$ServiceRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {RefImageInfo info, @XFileConverter() XFile srcFile, AppSecureKey key});
+  $Res call({RefImageInfo info, @XFileConverter() XFile srcFile});
 
   @override
   $RefImageInfoCopyWith<$Res> get info;
-  @override
-  $AppSecureKeyCopyWith<$Res> get key;
 }
 
 /// @nodoc
@@ -136,7 +115,6 @@ class __$$ServiceRequestImplCopyWithImpl<$Res>
   $Res call({
     Object? info = null,
     Object? srcFile = null,
-    Object? key = null,
   }) {
     return _then(_$ServiceRequestImpl(
       info: null == info
@@ -147,10 +125,6 @@ class __$$ServiceRequestImplCopyWithImpl<$Res>
           ? _value.srcFile
           : srcFile // ignore: cast_nullable_to_non_nullable
               as XFile,
-      key: null == key
-          ? _value.key
-          : key // ignore: cast_nullable_to_non_nullable
-              as AppSecureKey,
     ));
   }
 }
@@ -161,9 +135,7 @@ class _$ServiceRequestImpl
     with DiagnosticableTreeMixin
     implements _ServiceRequest {
   const _$ServiceRequestImpl(
-      {required this.info,
-      @XFileConverter() required this.srcFile,
-      required this.key});
+      {required this.info, @XFileConverter() required this.srcFile});
 
   factory _$ServiceRequestImpl.fromJson(Map<String, dynamic> json) =>
       _$$ServiceRequestImplFromJson(json);
@@ -173,12 +145,10 @@ class _$ServiceRequestImpl
   @override
   @XFileConverter()
   final XFile srcFile;
-  @override
-  final AppSecureKey key;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ServiceRequest(info: $info, srcFile: $srcFile, key: $key)';
+    return 'ServiceRequest(info: $info, srcFile: $srcFile)';
   }
 
   @override
@@ -187,8 +157,7 @@ class _$ServiceRequestImpl
     properties
       ..add(DiagnosticsProperty('type', 'ServiceRequest'))
       ..add(DiagnosticsProperty('info', info))
-      ..add(DiagnosticsProperty('srcFile', srcFile))
-      ..add(DiagnosticsProperty('key', key));
+      ..add(DiagnosticsProperty('srcFile', srcFile));
   }
 
   @override
@@ -197,13 +166,12 @@ class _$ServiceRequestImpl
         (other.runtimeType == runtimeType &&
             other is _$ServiceRequestImpl &&
             (identical(other.info, info) || other.info == info) &&
-            (identical(other.srcFile, srcFile) || other.srcFile == srcFile) &&
-            (identical(other.key, key) || other.key == key));
+            (identical(other.srcFile, srcFile) || other.srcFile == srcFile));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, info, srcFile, key);
+  int get hashCode => Object.hash(runtimeType, info, srcFile);
 
   /// Create a copy of ServiceRequest
   /// with the given fields replaced by the non-null parameter values.
@@ -225,8 +193,7 @@ class _$ServiceRequestImpl
 abstract class _ServiceRequest implements ServiceRequest {
   const factory _ServiceRequest(
       {required final RefImageInfo info,
-      @XFileConverter() required final XFile srcFile,
-      required final AppSecureKey key}) = _$ServiceRequestImpl;
+      @XFileConverter() required final XFile srcFile}) = _$ServiceRequestImpl;
 
   factory _ServiceRequest.fromJson(Map<String, dynamic> json) =
       _$ServiceRequestImpl.fromJson;
@@ -236,8 +203,6 @@ abstract class _ServiceRequest implements ServiceRequest {
   @override
   @XFileConverter()
   XFile get srcFile;
-  @override
-  AppSecureKey get key;
 
   /// Create a copy of ServiceRequest
   /// with the given fields replaced by the non-null parameter values.
@@ -1403,4 +1368,216 @@ abstract class ServiceErrorSaveThumbnail implements ServiceError {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ServiceErrorSaveThumbnailImplCopyWith<_$ServiceErrorSaveThumbnailImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+ServiceQueueItem _$ServiceQueueItemFromJson(Map<String, dynamic> json) {
+  return _ServiceQueueItem.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ServiceQueueItem {
+// ignore: invalid_annotation_target
+  @JsonKey(name: 'request')
+  ServiceRequest get request =>
+      throw _privateConstructorUsedError; // ignore: invalid_annotation_target
+  @JsonKey(name: 'factor')
+  MutableAuthFactor? get factor => throw _privateConstructorUsedError;
+
+  /// Serializes this ServiceQueueItem to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of ServiceQueueItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $ServiceQueueItemCopyWith<ServiceQueueItem> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ServiceQueueItemCopyWith<$Res> {
+  factory $ServiceQueueItemCopyWith(
+          ServiceQueueItem value, $Res Function(ServiceQueueItem) then) =
+      _$ServiceQueueItemCopyWithImpl<$Res, ServiceQueueItem>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'request') ServiceRequest request,
+      @JsonKey(name: 'factor') MutableAuthFactor? factor});
+
+  $ServiceRequestCopyWith<$Res> get request;
+}
+
+/// @nodoc
+class _$ServiceQueueItemCopyWithImpl<$Res, $Val extends ServiceQueueItem>
+    implements $ServiceQueueItemCopyWith<$Res> {
+  _$ServiceQueueItemCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of ServiceQueueItem
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? request = null,
+    Object? factor = freezed,
+  }) {
+    return _then(_value.copyWith(
+      request: null == request
+          ? _value.request
+          : request // ignore: cast_nullable_to_non_nullable
+              as ServiceRequest,
+      factor: freezed == factor
+          ? _value.factor
+          : factor // ignore: cast_nullable_to_non_nullable
+              as MutableAuthFactor?,
+    ) as $Val);
+  }
+
+  /// Create a copy of ServiceQueueItem
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ServiceRequestCopyWith<$Res> get request {
+    return $ServiceRequestCopyWith<$Res>(_value.request, (value) {
+      return _then(_value.copyWith(request: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$ServiceQueueItemImplCopyWith<$Res>
+    implements $ServiceQueueItemCopyWith<$Res> {
+  factory _$$ServiceQueueItemImplCopyWith(_$ServiceQueueItemImpl value,
+          $Res Function(_$ServiceQueueItemImpl) then) =
+      __$$ServiceQueueItemImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'request') ServiceRequest request,
+      @JsonKey(name: 'factor') MutableAuthFactor? factor});
+
+  @override
+  $ServiceRequestCopyWith<$Res> get request;
+}
+
+/// @nodoc
+class __$$ServiceQueueItemImplCopyWithImpl<$Res>
+    extends _$ServiceQueueItemCopyWithImpl<$Res, _$ServiceQueueItemImpl>
+    implements _$$ServiceQueueItemImplCopyWith<$Res> {
+  __$$ServiceQueueItemImplCopyWithImpl(_$ServiceQueueItemImpl _value,
+      $Res Function(_$ServiceQueueItemImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ServiceQueueItem
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? request = null,
+    Object? factor = freezed,
+  }) {
+    return _then(_$ServiceQueueItemImpl(
+      request: null == request
+          ? _value.request
+          : request // ignore: cast_nullable_to_non_nullable
+              as ServiceRequest,
+      factor: freezed == factor
+          ? _value.factor
+          : factor // ignore: cast_nullable_to_non_nullable
+              as MutableAuthFactor?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ServiceQueueItemImpl
+    with DiagnosticableTreeMixin
+    implements _ServiceQueueItem {
+  _$ServiceQueueItemImpl(
+      {@JsonKey(name: 'request') required this.request,
+      @JsonKey(name: 'factor') required this.factor});
+
+  factory _$ServiceQueueItemImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ServiceQueueItemImplFromJson(json);
+
+// ignore: invalid_annotation_target
+  @override
+  @JsonKey(name: 'request')
+  final ServiceRequest request;
+// ignore: invalid_annotation_target
+  @override
+  @JsonKey(name: 'factor')
+  final MutableAuthFactor? factor;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ServiceQueueItem(request: $request, factor: $factor)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ServiceQueueItem'))
+      ..add(DiagnosticsProperty('request', request))
+      ..add(DiagnosticsProperty('factor', factor));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ServiceQueueItemImpl &&
+            (identical(other.request, request) || other.request == request) &&
+            (identical(other.factor, factor) || other.factor == factor));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, request, factor);
+
+  /// Create a copy of ServiceQueueItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ServiceQueueItemImplCopyWith<_$ServiceQueueItemImpl> get copyWith =>
+      __$$ServiceQueueItemImplCopyWithImpl<_$ServiceQueueItemImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ServiceQueueItemImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ServiceQueueItem implements ServiceQueueItem {
+  factory _ServiceQueueItem(
+          {@JsonKey(name: 'request') required final ServiceRequest request,
+          @JsonKey(name: 'factor') required final MutableAuthFactor? factor}) =
+      _$ServiceQueueItemImpl;
+
+  factory _ServiceQueueItem.fromJson(Map<String, dynamic> json) =
+      _$ServiceQueueItemImpl.fromJson;
+
+// ignore: invalid_annotation_target
+  @override
+  @JsonKey(name: 'request')
+  ServiceRequest get request; // ignore: invalid_annotation_target
+  @override
+  @JsonKey(name: 'factor')
+  MutableAuthFactor? get factor;
+
+  /// Create a copy of ServiceQueueItem
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ServiceQueueItemImplCopyWith<_$ServiceQueueItemImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

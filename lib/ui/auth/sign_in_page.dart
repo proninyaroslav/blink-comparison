@@ -137,9 +137,14 @@ class _PasswordField extends StatelessWidget {
             hintText: S.of(context).enterPassword,
             errorText: state.maybeWhen(
               authFailed: (info, reason) => reason.when(
-                emptyPassword: () => S.of(context).emptyPasswordError,
-                wrongPassword: () => S.of(context).wrongPassword,
-              ),
+                  emptyPassword: () => S.of(context).emptyPasswordError,
+                  wrongPassword: () => S.of(context).wrongPassword,
+                  exception: (error, stackTrace) {
+                    log().e('Unable to sign in',
+                        error: error, stackTrace: stackTrace);
+                    // TODO
+                    return '';
+                  }),
               orElse: () => null,
             ),
           ),

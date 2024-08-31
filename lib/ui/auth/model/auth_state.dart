@@ -58,4 +58,9 @@ class AuthError with _$AuthError {
   const factory AuthError.emptyPassword() = _AuthErrorEmptyPassword;
 
   const factory AuthError.wrongPassword() = _AuthErrorWrongPassword;
+
+  const factory AuthError.exception({
+    required Object error,
+    required StackTrace stackTrace,
+  }) = _AuthErrorException;
 }

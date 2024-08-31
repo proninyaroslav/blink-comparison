@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -19,11 +19,13 @@ export 'crash_report/mock_crash_report_builder.dart';
 export 'crash_report/mock_crash_report_id_generator.dart';
 export 'crash_report/mock_crash_report_manager.dart';
 export 'crash_report/mock_crash_report_sender.dart';
+export 'encrypt/mock_auth_factor.dart';
 export 'encrypt/mock_encrypt_key_derivation.dart';
 export 'encrypt/mock_encrypt_module.dart';
 export 'encrypt/mock_encrypt_module_provider.dart';
 export 'encrypt/mock_password_hasher.dart';
 export 'encrypt/mock_salt_generator.dart';
+export 'encrypt/mock_secure_key.dart';
 export 'fs/mock_file.dart';
 export 'fs/mock_file_system.dart';
 export 'fs/mock_ref_image_fs.dart';
@@ -38,6 +40,7 @@ export 'service/mock_save_ref_image_job.dart';
 export 'service/mock_save_ref_image_service.dart';
 export 'service/mock_save_thumbnail_job.dart';
 export 'settings/mock_settings.dart';
+export 'storage/mock_app_secure_key_repository.dart';
 export 'storage/mock_password_repository.dart';
 export 'storage/mock_ref_image_secure_storage.dart';
 export 'storage/mock_ref_image_status_repository.dart';
