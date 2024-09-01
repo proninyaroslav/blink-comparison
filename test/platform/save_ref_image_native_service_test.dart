@@ -18,16 +18,16 @@
 import 'dart:convert';
 import 'dart:ui';
 
+import 'package:blink_comparison/core/encrypt/secure_key_factory.dart';
 import 'package:blink_comparison/core/entity/entity.dart';
 import 'package:blink_comparison/core/platform_info.dart';
 import 'package:blink_comparison/core/service/save_ref_image_service.dart';
-import 'package:blink_comparison/env.dart';
-import 'package:blink_comparison/injector.dart';
 import 'package:blink_comparison/locale.dart';
 import 'package:blink_comparison/platform/save_ref_image_native_service.dart';
 import 'package:cross_file/cross_file.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:get_it/get_it.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:path/path.dart' as path;
 
@@ -56,7 +56,9 @@ Future<void> main() async {
     );
 
     setUpAll(() async {
-      await initInjector(Env.test);
+      final getIt = GetIt.instance;
+      getIt.registerSingleton<SecureKeyFactory>(TestSecureKeyFactory());
+
       mockPlatform = MockPlatformInfo();
       when(() => mockPlatform.isAndroid).thenReturn(true);
     });

@@ -16,18 +16,16 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:blink_comparison/core/encrypt/encrypt.dart';
-import 'package:blink_comparison/env.dart';
-import 'package:blink_comparison/injector.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:sodium_libs/sodium_libs_sumo.dart';
+
+import 'load_sodium.dart';
 
 void main() {
   group('Salt generator |', () {
     late final SaltGenerator generator;
 
     setUpAll(() async {
-      await initInjector(Env.test);
-      generator = SaltGeneratorImpl(getIt<SodiumSumo>());
+      generator = SaltGeneratorImpl(await loadSodiumSumo());
     });
 
     test('Random bytes', () {

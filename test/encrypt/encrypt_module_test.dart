@@ -21,14 +21,13 @@ import 'dart:typed_data';
 import 'package:blink_comparison/core/encrypt/encrypt_key_derivation.dart';
 import 'package:blink_comparison/core/encrypt/encrypt_module.dart';
 import 'package:blink_comparison/core/entity/entity.dart';
-import 'package:blink_comparison/env.dart';
-import 'package:blink_comparison/injector.dart';
 import 'package:convert/convert.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:sodium_libs/sodium_libs_sumo.dart';
 
 import '../mock/mock.dart';
+import 'load_sodium.dart';
 
 void main() {
   group('Encrypt module |', () {
@@ -36,8 +35,7 @@ void main() {
     late final SodiumSumo sodium;
 
     setUpAll(() async {
-      await initInjector(Env.test);
-      sodium = getIt<SodiumSumo>();
+      sodium = await loadSodiumSumo();
       mockDerivation = MockEncryptKeyDerivation();
     });
 

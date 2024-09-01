@@ -17,7 +17,6 @@
 
 import 'dart:typed_data';
 
-import 'package:blink_comparison/env.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:sodium_libs/sodium_libs_sumo.dart';
@@ -35,7 +34,7 @@ abstract class SecureKeyFactory {
   SecureKey random(int length);
 }
 
-@Injectable(as: SecureKeyFactory, env: [Env.dev, Env.prod])
+@Injectable(as: SecureKeyFactory)
 class SecureKeyFactoryImpl implements SecureKeyFactory {
   final SodiumSumo _sodium;
 
@@ -51,7 +50,6 @@ class SecureKeyFactoryImpl implements SecureKeyFactory {
   SecureKey random(int length) => SecureKey.random(_sodium, length);
 }
 
-@Injectable(as: SecureKeyFactory, env: [Env.test])
 @visibleForTesting
 class TestSecureKeyFactory implements SecureKeyFactory {
   @override

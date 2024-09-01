@@ -20,11 +20,11 @@ import 'dart:typed_data';
 
 import 'package:blink_comparison/core/encrypt/password_hasher.dart';
 import 'package:blink_comparison/core/entity/secure_key.dart';
-import 'package:blink_comparison/env.dart';
-import 'package:blink_comparison/injector.dart';
 import 'package:convert/convert.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sodium_libs/sodium_libs_sumo.dart';
+
+import 'load_sodium.dart';
 
 void main() {
   group('Password hasher |', () {
@@ -32,8 +32,7 @@ void main() {
     late final SodiumSumo sodium;
 
     setUpAll(() async {
-      await initInjector(Env.test);
-      sodium = getIt<SodiumSumo>();
+      sodium = await loadSodiumSumo();
       hasher = PasswordHasherImpl(sodium);
     });
 
