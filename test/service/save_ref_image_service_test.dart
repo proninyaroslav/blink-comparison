@@ -66,7 +66,7 @@ void main() {
       mockKeyImmutable = MockAuthFactorPassword();
       mockKey = MockMutableAuthFactorPassword();
 
-      when(() => mockKey.clear()).thenAnswer((_) {});
+      when(() => mockKey.dispose()).thenAnswer((_) {});
       when(() => mockKey.toImmutable()).thenReturn(mockKeyImmutable);
       when(() => mockKeyImmutable.copy()).thenReturn(mockKey);
       when(() => mockAppSecureKeyRepository.get()).thenReturn(mockKeyImmutable);
@@ -103,7 +103,7 @@ void main() {
       );
       verify(() => mockJobController.pushQueue(request, factor: mockKey))
           .called(1);
-      verify(() => mockKey.clear()).called(1);
+      verify(() => mockKey.dispose()).called(1);
     });
 
     test('Get current status', () async {
@@ -275,7 +275,7 @@ void main() {
             ),
           ).called(1);
         }
-        verify(() => mockKey.clear()).called(items.length);
+        verify(() => mockKey.dispose()).called(items.length);
       });
 
       test('Save image error', () async {
@@ -328,7 +328,7 @@ void main() {
         verify(
           () => mockServiceController.sendResult(expectedResult),
         ).called(1);
-        verify(() => mockKey.clear()).called(1);
+        verify(() => mockKey.dispose()).called(1);
       });
 
       test('Generate thumbnail error', () async {
@@ -380,7 +380,7 @@ void main() {
         verify(
           () => mockServiceController.sendResult(expectedResult),
         ).called(1);
-        verify(() => mockKey.clear()).called(1);
+        verify(() => mockKey.dispose()).called(1);
       });
 
       test('Save thumbnail error', () async {
@@ -439,7 +439,7 @@ void main() {
         verify(
           () => mockServiceController.sendResult(expectedResult),
         ).called(1);
-        verify(() => mockKey.clear()).called(1);
+        verify(() => mockKey.dispose()).called(1);
       });
 
       test('Timeout', () async {

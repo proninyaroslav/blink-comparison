@@ -86,6 +86,9 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
       throw Exception('Authorization factor not found');
     }
     final mutableFactor = factor.copy();
+    if (mutableFactor == null) {
+      throw Exception('Authorization factor not found');
+    }
     try {
       final saveInfo = ServiceRequest(
         info: info,
@@ -94,7 +97,7 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
       await _jobController.pushQueue(saveInfo, factor: mutableFactor);
     } finally {
       try {
-        mutableFactor.clear();
+        mutableFactor.dispose();
       } catch (e, stackTrace) {
         log().e('Unable to clear key', error: e, stackTrace: stackTrace);
       }
@@ -175,7 +178,7 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
           _stop(completer, error: e, stackTrace: stackTrace);
         } finally {
           try {
-            factor?.clear();
+            factor?.dispose();
           } catch (e, stackTrace) {
             log().e('Unable to clear key', error: e, stackTrace: stackTrace);
           }

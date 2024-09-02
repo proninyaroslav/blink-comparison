@@ -31,7 +31,7 @@ class AuthFactorRepositoryImpl implements AuthFactorRepository {
   @override
   AuthFactorModifyResult set(MutableAuthFactor key) {
     try {
-      _key?.clear();
+      _key?.dispose();
       _key = key;
       return AuthFactorModifyResult.success();
     } catch (e, stackTrace) {
@@ -42,7 +42,7 @@ class AuthFactorRepositoryImpl implements AuthFactorRepository {
   @override
   AuthFactorModifyResult remove() {
     try {
-      _key?.clear();
+      _key?.dispose();
       _key = null;
       return AuthFactorModifyResult.success();
     } catch (e, stackTrace) {

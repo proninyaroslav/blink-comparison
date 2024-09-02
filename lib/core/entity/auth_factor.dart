@@ -39,14 +39,14 @@ sealed class MutableAuthFactor with _$MutableAuthFactor {
     @JsonKeyIgnore() @Default(false) @protected bool isDisposed,
   }) = MutableAuthFactorPassword;
 
-  void clear() {
+  void dispose() {
     isDisposed = true;
     value.dispose();
   }
 
-  MutableAuthFactor copy() => switch (this) {
-        MutableAuthFactorPassword(:final value) =>
-          MutableAuthFactor.password(value: value.copy())
+  MutableAuthFactor? copy() => switch (this) {
+        MutableAuthFactorPassword(:final value, :final isDisposed) =>
+          isDisposed ? null : MutableAuthFactor.password(value: value.copy())
       };
 
   AuthFactor toImmutable() {
@@ -65,7 +65,7 @@ sealed class AuthFactor<K extends MutableAuthFactor> with EquatableMixin {
 
   AuthFactor(this._key);
 
-  MutableAuthFactor copy() => _key.copy();
+  MutableAuthFactor? copy() => _key.isDisposed ? null : _key.copy();
 }
 
 class AuthFactorPassword extends AuthFactor<MutableAuthFactorPassword> {
