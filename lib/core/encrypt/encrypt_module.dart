@@ -121,7 +121,7 @@ class PBEModule implements EncryptModule {
         ),
       );
     } finally {
-      pbeInfo.clearKey();
+      pbeInfo.disposeKey();
     }
   }
 
@@ -152,7 +152,7 @@ class PBEModule implements EncryptModule {
         ),
       );
     } finally {
-      pbeInfo.clearKey();
+      pbeInfo.disposeKey();
     }
   }
 
@@ -249,7 +249,7 @@ class _PBEInfo {
 
   _PBEInfo({required this.src, required this.key});
 
-  void clearKey() {
+  void disposeKey() {
     key.dispose();
   }
 }

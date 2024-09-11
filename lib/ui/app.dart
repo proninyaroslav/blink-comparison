@@ -20,14 +20,16 @@ import 'package:blink_comparison/core/crash_report/crash_report_manager.dart';
 import 'package:blink_comparison/core/notification_manager.dart';
 import 'package:blink_comparison/core/platform_info.dart';
 import 'package:blink_comparison/core/settings/app_settings.dart';
+import 'package:blink_comparison/core/storage/auth_factor_repository.dart';
+import 'package:blink_comparison/ui/auth_lifecycle_observer.dart';
 import 'package:blink_comparison/ui/components/intl_locale_bridge.dart';
 import 'package:blink_comparison/ui/model/app_cubit.dart';
 import 'package:blink_comparison/ui/model/app_state.dart';
+import 'package:blink_comparison/ui/system_ui_mode_observer.dart';
 // ignore: depend_on_referenced_packages
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../injector.dart';
@@ -51,15 +53,27 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  late final _appRouter = AppRouter(
-    navigatorKey: widget.navigatorKey,
-  );
+  late final _appRouter = AppRouter(navigatorKey: widget.navigatorKey);
+  late final AuthLifecycleObserver authLifecycleObserver;
+
+  @override
+  void dispose() {
+    authLifecycleObserver.dispose();
+
+    super.dispose();
+  }
 
   @override
   void initState() {
     super.initState();
+
     final notifyManager = getIt<NotificationManager>();
     final platform = getIt<PlatformInfo>();
+
+    authLifecycleObserver = AuthLifecycleObserver(
+      getIt<AuthFactorRepository>(),
+      onReevaluateGuards: () => _appRouter.reevaluateGuards(),
+    );
 
     notifyManager.listenOnSelectNotification().listen(
       (action) {
@@ -183,46 +197,5 @@ class _AppState extends State<App> {
         locale.countryCode,
       ),
     );
-  }
-}
-
-class SystemUIModeObserver extends AutoRouterObserver {
-  final bool fullscreenMode;
-
-  SystemUIModeObserver({required this.fullscreenMode});
-
-  @override
-  void didPush(Route route, Route? previousRoute) {
-    final name = route.settings.name;
-    if (fullscreenMode &&
-        (name == RefImagePreviewRoute.name ||
-            name == CameraPickerRoute.name ||
-            name == BlinkComparisonRoute.name)) {
-      SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-    } else if (route.settings.name != null) {
-      SystemChrome.setEnabledSystemUIMode(
-        SystemUiMode.manual,
-        overlays: [
-          SystemUiOverlay.top,
-          SystemUiOverlay.bottom,
-        ],
-      );
-    }
-  }
-
-  @override
-  void didPop(Route route, Route? previousRoute) {
-    final name = route.settings.name;
-    if (name == RefImagePreviewRoute.name ||
-        name == CameraPickerRoute.name ||
-        name == BlinkComparisonRoute.name) {
-      SystemChrome.setEnabledSystemUIMode(
-        SystemUiMode.manual,
-        overlays: [
-          SystemUiOverlay.top,
-          SystemUiOverlay.bottom,
-        ],
-      );
-    }
   }
 }
