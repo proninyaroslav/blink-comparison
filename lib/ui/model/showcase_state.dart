@@ -25,9 +25,13 @@ part 'showcase_state.freezed.dart';
 
 @freezed
 class ShowcaseState with _$ShowcaseState {
-  const factory ShowcaseState.initial(
+  const factory ShowcaseState.initial({
+    @Default(null) Set<ShowcaseType>? completed,
+  }) = ShowcaseStateInitial;
+
+  const factory ShowcaseState.loaded(
     Set<ShowcaseType> completed,
-  ) = ShowcaseStateInitial;
+  ) = ShowcaseStateLoaded;
 
   const factory ShowcaseState.changed(
     Set<ShowcaseType> completed,

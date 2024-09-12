@@ -18,7 +18,6 @@
 import 'dart:ui';
 
 import 'package:blink_comparison/core/settings/app_settings.dart';
-import 'package:blink_comparison/ui/comparison/comparison.dart';
 import 'package:blink_comparison/ui/model/app_cubit.dart';
 import 'package:blink_comparison/ui/settings/model/appearance_cubit.dart';
 import 'package:blink_comparison/ui/settings/model/appearance_state.dart';
@@ -33,27 +32,29 @@ void main() {
     late AppearanceSettingsCubit cubit;
     late AppSettings mockPref;
     late AppCubit mockAppCubit;
-    late ComparisonSettingsCubit mockComparisonSettingsCubit;
 
     setUpAll(() {
       mockPref = MockAppSettings();
       mockAppCubit = MockAppCubit();
-      mockComparisonSettingsCubit = MockComparisonSettingsCubit();
       registerFallbackValue(const AppThemeType.system());
       registerFallbackValue(const AppLocaleType.system());
     });
 
-    setUp(() {
+    setUp(() async {
+      when(() => mockPref.theme).thenAnswer(
+        (_) async => const AppThemeType.system(),
+      );
+      when(() => mockPref.locale).thenAnswer(
+        (_) async => const AppLocaleType.system(),
+      );
+      when(() => mockPref.refImageBorderColor).thenAnswer(
+        (_) async => 0xffffffff,
+      );
       cubit = AppearanceSettingsCubit(
         mockPref,
         mockAppCubit,
-        mockComparisonSettingsCubit,
-        const AppearanceInfo(
-          theme: AppThemeType.system(),
-          locale: AppLocaleType.system(),
-          refImageBorderColor: 0xffffffff,
-        ),
       );
+      await cubit.load();
     });
 
     blocTest(
@@ -187,16 +188,10 @@ void main() {
         verify(
           () => mockPref.setRefImageBorderColor(0x00000000),
         ).called(1);
-        verify(
-          () => mockComparisonSettingsCubit.setRefImageBorderColor(0x00000000),
-        ).called(1);
 
         await cubit.setRefImageBorderColor(0xffffffff);
         verify(
           () => mockPref.setRefImageBorderColor(0xffffffff),
-        ).called(1);
-        verify(
-          () => mockComparisonSettingsCubit.setRefImageBorderColor(0xffffffff),
         ).called(1);
       },
       expect: () => [

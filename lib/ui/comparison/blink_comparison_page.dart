@@ -16,6 +16,7 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:auto_route/auto_route.dart';
+import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/ui/comparison/model/blink_comparison_state.dart';
 import 'package:blink_comparison/ui/comparison/model/comparison_settings_state.dart';
 import 'package:blink_comparison/ui/components/widget.dart';
@@ -50,14 +51,14 @@ class BlinkComparisonPage extends StatefulWidget implements AutoRouteWrapper {
   Widget wrappedRoute(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<BlinkComparisonCubit>.value(
-          value: getIt<BlinkComparisonCubit>(),
+        BlocProvider(
+          create: (context) => BlinkComparisonCubit(),
         ),
-        BlocProvider<ComparisonSettingsCubit>.value(
-          value: getIt<ComparisonSettingsCubit>(),
+        BlocProvider(
+          create: (context) => ComparisonSettingsCubit(getIt<AppSettings>()),
         ),
-        BlocProvider<ShowcaseCubit>.value(
-          value: getIt<ShowcaseCubit>(),
+        BlocProvider(
+          create: (context) => ShowcaseCubit(getIt<AppSettings>()),
         ),
       ],
       child: this,
@@ -69,6 +70,18 @@ class BlinkComparisonPage extends StatefulWidget implements AutoRouteWrapper {
 }
 
 class _BlinkComparisonPageState extends State<BlinkComparisonPage> {
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await Future.wait([
+        context.read<ComparisonSettingsCubit>().load(),
+        context.read<ShowcaseCubit>().load(),
+      ]);
+    });
+  }
+
   @override
   void didChangeDependencies() {
     Future.wait([
@@ -97,7 +110,10 @@ class _BlinkComparisonPageState extends State<BlinkComparisonPage> {
         final refImageWidget = _Image(
           image: widget.refImage,
           aspectRatio: widget.aspectRatio,
-          frameColor: Color(state.refImageBorderColor),
+          frameColor: switch (state.refImageBorderColor) {
+            final color? => Color(color),
+            null => null,
+          },
         );
         final takenPhotoWidget = _Image(
           image: widget.takenPhoto,
@@ -150,9 +166,9 @@ class _BodyState extends State<_Body> {
   void _startShowcase() {
     final completed = context.read<ShowcaseCubit>().state.completed;
     final showcases = [
-      if (!completed.contains(const ShowcaseType.blinkComparison()))
+      if (!(completed?.contains(const ShowcaseType.blinkComparison()) ?? true))
         _blinkComparisonShowcaseKey,
-      if (!completed.contains(const ShowcaseType.refImageBorder()))
+      if (!(completed?.contains(const ShowcaseType.refImageBorder()) ?? true))
         _refImageBorderShowcaseKey,
     ];
     if (showcases.isNotEmpty) {

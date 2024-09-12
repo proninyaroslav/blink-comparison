@@ -23,12 +23,18 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'app_state.freezed.dart';
 
 @freezed
-class AppState with _$AppState {
+sealed class AppState with _$AppState {
   const factory AppState.initial({
+    @Default(null) AppThemeType? theme,
+    @Default(null) AppLocaleType? locale,
+    @Default(null) bool? cameraFullscreenMode,
+  }) = AppStateInitial;
+
+  const factory AppState.loaded({
     required AppThemeType theme,
     required AppLocaleType locale,
     required bool cameraFullscreenMode,
-  }) = AppStateInitial;
+  }) = AppStateLoaded;
 
   const factory AppState.changed({
     required AppThemeType theme,

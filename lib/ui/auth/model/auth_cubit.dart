@@ -29,9 +29,7 @@ import 'package:blink_comparison/core/utils.dart';
 import 'package:blink_comparison/ui/auth/model/auth_state.dart';
 import 'package:bloc/bloc.dart';
 import 'package:convert/convert.dart';
-import 'package:injectable/injectable.dart';
 
-@injectable
 class AuthCubit extends Cubit<AuthState> {
   static const _authFailedDelay = Duration(seconds: 3);
 

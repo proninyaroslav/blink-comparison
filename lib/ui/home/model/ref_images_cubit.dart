@@ -26,11 +26,9 @@ import 'package:bloc/bloc.dart';
 // ignore: unnecessary_import
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:injectable/injectable.dart';
 
 part 'ref_images_cubit.freezed.dart';
 
-@injectable
 class RefImagesCubit extends Cubit<RefImagesState> {
   final RefImageRepository _imageRepo;
   final RefImageStatusRepository _imageStatusRepo;

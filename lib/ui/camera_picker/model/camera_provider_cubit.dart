@@ -20,9 +20,7 @@ import 'package:blink_comparison/ui/camera_picker/model/camera_provider.dart';
 import 'package:blink_comparison/ui/camera_picker/model/camera_provider_state.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:injectable/injectable.dart';
 
-@injectable
 class CameraProviderCubit extends Cubit<CameraProviderState> {
   final CameraProvider _provider;
   final AppSettings _pref;

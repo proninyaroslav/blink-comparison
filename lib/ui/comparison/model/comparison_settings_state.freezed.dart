@@ -16,22 +16,25 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ComparisonSettingsState {
-  int get refImageBorderColor => throw _privateConstructorUsedError;
+  int? get refImageBorderColor => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int refImageBorderColor) initial,
+    required TResult Function(int? refImageBorderColor) initial,
+    required TResult Function(int refImageBorderColor) loaded,
     required TResult Function(int refImageBorderColor) changed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int refImageBorderColor)? initial,
+    TResult? Function(int? refImageBorderColor)? initial,
+    TResult? Function(int refImageBorderColor)? loaded,
     TResult? Function(int refImageBorderColor)? changed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int refImageBorderColor)? initial,
+    TResult Function(int? refImageBorderColor)? initial,
+    TResult Function(int refImageBorderColor)? loaded,
     TResult Function(int refImageBorderColor)? changed,
     required TResult orElse(),
   }) =>
@@ -39,18 +42,21 @@ mixin _$ComparisonSettingsState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ComparisonSettingsStateInitial value) initial,
+    required TResult Function(ComparisonSettingsStateLoaded value) loaded,
     required TResult Function(ComparisonSettingsStateChanged value) changed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ComparisonSettingsStateInitial value)? initial,
+    TResult? Function(ComparisonSettingsStateLoaded value)? loaded,
     TResult? Function(ComparisonSettingsStateChanged value)? changed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ComparisonSettingsStateInitial value)? initial,
+    TResult Function(ComparisonSettingsStateLoaded value)? loaded,
     TResult Function(ComparisonSettingsStateChanged value)? changed,
     required TResult orElse(),
   }) =>
@@ -92,7 +98,7 @@ class _$ComparisonSettingsStateCopyWithImpl<$Res,
   }) {
     return _then(_value.copyWith(
       refImageBorderColor: null == refImageBorderColor
-          ? _value.refImageBorderColor
+          ? _value.refImageBorderColor!
           : refImageBorderColor // ignore: cast_nullable_to_non_nullable
               as int,
     ) as $Val);
@@ -108,7 +114,7 @@ abstract class _$$ComparisonSettingsStateInitialImplCopyWith<$Res>
       __$$ComparisonSettingsStateInitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int refImageBorderColor});
+  $Res call({int? refImageBorderColor});
 }
 
 /// @nodoc
@@ -126,13 +132,13 @@ class __$$ComparisonSettingsStateInitialImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? refImageBorderColor = null,
+    Object? refImageBorderColor = freezed,
   }) {
     return _then(_$ComparisonSettingsStateInitialImpl(
-      refImageBorderColor: null == refImageBorderColor
+      refImageBorderColor: freezed == refImageBorderColor
           ? _value.refImageBorderColor
           : refImageBorderColor // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -142,11 +148,11 @@ class __$$ComparisonSettingsStateInitialImplCopyWithImpl<$Res>
 class _$ComparisonSettingsStateInitialImpl
     with DiagnosticableTreeMixin
     implements ComparisonSettingsStateInitial {
-  const _$ComparisonSettingsStateInitialImpl(
-      {required this.refImageBorderColor});
+  const _$ComparisonSettingsStateInitialImpl({this.refImageBorderColor = null});
 
   @override
-  final int refImageBorderColor;
+  @JsonKey()
+  final int? refImageBorderColor;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -186,7 +192,8 @@ class _$ComparisonSettingsStateInitialImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int refImageBorderColor) initial,
+    required TResult Function(int? refImageBorderColor) initial,
+    required TResult Function(int refImageBorderColor) loaded,
     required TResult Function(int refImageBorderColor) changed,
   }) {
     return initial(refImageBorderColor);
@@ -195,7 +202,8 @@ class _$ComparisonSettingsStateInitialImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int refImageBorderColor)? initial,
+    TResult? Function(int? refImageBorderColor)? initial,
+    TResult? Function(int refImageBorderColor)? loaded,
     TResult? Function(int refImageBorderColor)? changed,
   }) {
     return initial?.call(refImageBorderColor);
@@ -204,7 +212,8 @@ class _$ComparisonSettingsStateInitialImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int refImageBorderColor)? initial,
+    TResult Function(int? refImageBorderColor)? initial,
+    TResult Function(int refImageBorderColor)? loaded,
     TResult Function(int refImageBorderColor)? changed,
     required TResult orElse(),
   }) {
@@ -218,6 +227,7 @@ class _$ComparisonSettingsStateInitialImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ComparisonSettingsStateInitial value) initial,
+    required TResult Function(ComparisonSettingsStateLoaded value) loaded,
     required TResult Function(ComparisonSettingsStateChanged value) changed,
   }) {
     return initial(this);
@@ -227,6 +237,7 @@ class _$ComparisonSettingsStateInitialImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ComparisonSettingsStateInitial value)? initial,
+    TResult? Function(ComparisonSettingsStateLoaded value)? loaded,
     TResult? Function(ComparisonSettingsStateChanged value)? changed,
   }) {
     return initial?.call(this);
@@ -236,6 +247,7 @@ class _$ComparisonSettingsStateInitialImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ComparisonSettingsStateInitial value)? initial,
+    TResult Function(ComparisonSettingsStateLoaded value)? loaded,
     TResult Function(ComparisonSettingsStateChanged value)? changed,
     required TResult orElse(),
   }) {
@@ -249,8 +261,178 @@ class _$ComparisonSettingsStateInitialImpl
 abstract class ComparisonSettingsStateInitial
     implements ComparisonSettingsState {
   const factory ComparisonSettingsStateInitial(
+      {final int? refImageBorderColor}) = _$ComparisonSettingsStateInitialImpl;
+
+  @override
+  int? get refImageBorderColor;
+
+  /// Create a copy of ComparisonSettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ComparisonSettingsStateInitialImplCopyWith<
+          _$ComparisonSettingsStateInitialImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ComparisonSettingsStateLoadedImplCopyWith<$Res>
+    implements $ComparisonSettingsStateCopyWith<$Res> {
+  factory _$$ComparisonSettingsStateLoadedImplCopyWith(
+          _$ComparisonSettingsStateLoadedImpl value,
+          $Res Function(_$ComparisonSettingsStateLoadedImpl) then) =
+      __$$ComparisonSettingsStateLoadedImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int refImageBorderColor});
+}
+
+/// @nodoc
+class __$$ComparisonSettingsStateLoadedImplCopyWithImpl<$Res>
+    extends _$ComparisonSettingsStateCopyWithImpl<$Res,
+        _$ComparisonSettingsStateLoadedImpl>
+    implements _$$ComparisonSettingsStateLoadedImplCopyWith<$Res> {
+  __$$ComparisonSettingsStateLoadedImplCopyWithImpl(
+      _$ComparisonSettingsStateLoadedImpl _value,
+      $Res Function(_$ComparisonSettingsStateLoadedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ComparisonSettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? refImageBorderColor = null,
+  }) {
+    return _then(_$ComparisonSettingsStateLoadedImpl(
+      refImageBorderColor: null == refImageBorderColor
+          ? _value.refImageBorderColor
+          : refImageBorderColor // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ComparisonSettingsStateLoadedImpl
+    with DiagnosticableTreeMixin
+    implements ComparisonSettingsStateLoaded {
+  const _$ComparisonSettingsStateLoadedImpl(
+      {required this.refImageBorderColor});
+
+  @override
+  final int refImageBorderColor;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ComparisonSettingsState.loaded(refImageBorderColor: $refImageBorderColor)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ComparisonSettingsState.loaded'))
+      ..add(DiagnosticsProperty('refImageBorderColor', refImageBorderColor));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ComparisonSettingsStateLoadedImpl &&
+            (identical(other.refImageBorderColor, refImageBorderColor) ||
+                other.refImageBorderColor == refImageBorderColor));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, refImageBorderColor);
+
+  /// Create a copy of ComparisonSettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ComparisonSettingsStateLoadedImplCopyWith<
+          _$ComparisonSettingsStateLoadedImpl>
+      get copyWith => __$$ComparisonSettingsStateLoadedImplCopyWithImpl<
+          _$ComparisonSettingsStateLoadedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int? refImageBorderColor) initial,
+    required TResult Function(int refImageBorderColor) loaded,
+    required TResult Function(int refImageBorderColor) changed,
+  }) {
+    return loaded(refImageBorderColor);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int? refImageBorderColor)? initial,
+    TResult? Function(int refImageBorderColor)? loaded,
+    TResult? Function(int refImageBorderColor)? changed,
+  }) {
+    return loaded?.call(refImageBorderColor);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int? refImageBorderColor)? initial,
+    TResult Function(int refImageBorderColor)? loaded,
+    TResult Function(int refImageBorderColor)? changed,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(refImageBorderColor);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ComparisonSettingsStateInitial value) initial,
+    required TResult Function(ComparisonSettingsStateLoaded value) loaded,
+    required TResult Function(ComparisonSettingsStateChanged value) changed,
+  }) {
+    return loaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ComparisonSettingsStateInitial value)? initial,
+    TResult? Function(ComparisonSettingsStateLoaded value)? loaded,
+    TResult? Function(ComparisonSettingsStateChanged value)? changed,
+  }) {
+    return loaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ComparisonSettingsStateInitial value)? initial,
+    TResult Function(ComparisonSettingsStateLoaded value)? loaded,
+    TResult Function(ComparisonSettingsStateChanged value)? changed,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ComparisonSettingsStateLoaded
+    implements ComparisonSettingsState {
+  const factory ComparisonSettingsStateLoaded(
           {required final int refImageBorderColor}) =
-      _$ComparisonSettingsStateInitialImpl;
+      _$ComparisonSettingsStateLoadedImpl;
 
   @override
   int get refImageBorderColor;
@@ -259,8 +441,8 @@ abstract class ComparisonSettingsStateInitial
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ComparisonSettingsStateInitialImplCopyWith<
-          _$ComparisonSettingsStateInitialImpl>
+  _$$ComparisonSettingsStateLoadedImplCopyWith<
+          _$ComparisonSettingsStateLoadedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -351,7 +533,8 @@ class _$ComparisonSettingsStateChangedImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int refImageBorderColor) initial,
+    required TResult Function(int? refImageBorderColor) initial,
+    required TResult Function(int refImageBorderColor) loaded,
     required TResult Function(int refImageBorderColor) changed,
   }) {
     return changed(refImageBorderColor);
@@ -360,7 +543,8 @@ class _$ComparisonSettingsStateChangedImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int refImageBorderColor)? initial,
+    TResult? Function(int? refImageBorderColor)? initial,
+    TResult? Function(int refImageBorderColor)? loaded,
     TResult? Function(int refImageBorderColor)? changed,
   }) {
     return changed?.call(refImageBorderColor);
@@ -369,7 +553,8 @@ class _$ComparisonSettingsStateChangedImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int refImageBorderColor)? initial,
+    TResult Function(int? refImageBorderColor)? initial,
+    TResult Function(int refImageBorderColor)? loaded,
     TResult Function(int refImageBorderColor)? changed,
     required TResult orElse(),
   }) {
@@ -383,6 +568,7 @@ class _$ComparisonSettingsStateChangedImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ComparisonSettingsStateInitial value) initial,
+    required TResult Function(ComparisonSettingsStateLoaded value) loaded,
     required TResult Function(ComparisonSettingsStateChanged value) changed,
   }) {
     return changed(this);
@@ -392,6 +578,7 @@ class _$ComparisonSettingsStateChangedImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ComparisonSettingsStateInitial value)? initial,
+    TResult? Function(ComparisonSettingsStateLoaded value)? loaded,
     TResult? Function(ComparisonSettingsStateChanged value)? changed,
   }) {
     return changed?.call(this);
@@ -401,6 +588,7 @@ class _$ComparisonSettingsStateChangedImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ComparisonSettingsStateInitial value)? initial,
+    TResult Function(ComparisonSettingsStateLoaded value)? loaded,
     TResult Function(ComparisonSettingsStateChanged value)? changed,
     required TResult orElse(),
   }) {

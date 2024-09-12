@@ -18,21 +18,18 @@
 import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/ui/comparison/model/comparison_settings_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:injectable/injectable.dart';
 
-@injectable
 class ComparisonSettingsCubit extends Cubit<ComparisonSettingsState> {
-  @FactoryMethod(preResolve: true)
-  static Future<ComparisonSettingsCubit> init(AppSettings pref) async {
-    return ComparisonSettingsCubit(
-      refImageBorderColor: await pref.refImageBorderColor,
-    );
-  }
+  final AppSettings _pref;
 
-  ComparisonSettingsCubit({required int refImageBorderColor})
-      : super(ComparisonSettingsState.initial(
-          refImageBorderColor: refImageBorderColor,
-        ));
+  ComparisonSettingsCubit(this._pref)
+      : super(const ComparisonSettingsState.initial());
+
+  Future<void> load() async {
+    emit(ComparisonSettingsState.loaded(
+      refImageBorderColor: await _pref.refImageBorderColor,
+    ));
+  }
 
   void setRefImageBorderColor(int color) {
     emit(ComparisonSettingsState.changed(

@@ -22,10 +22,14 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'ref_image_options_state.freezed.dart';
 
 @freezed
-class RefImageOptionsState with _$RefImageOptionsState {
-  const factory RefImageOptionsState.initial(
+sealed class RefImageOptionsState with _$RefImageOptionsState {
+  const factory RefImageOptionsState.initial({
+    @Default(null) RefImageOptions? options,
+  }) = RefImageOptionsStateInitial;
+
+  const factory RefImageOptionsState.loaded(
     RefImageOptions options,
-  ) = RefImageOptionsStateInitial;
+  ) = RefImageOptionsStateLoaded;
 
   const factory RefImageOptionsState.opacityChanged(
     RefImageOptions options,

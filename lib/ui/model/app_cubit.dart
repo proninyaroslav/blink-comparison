@@ -18,51 +18,47 @@
 import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/ui/model/app_state.dart';
 import 'package:bloc/bloc.dart';
-import 'package:injectable/injectable.dart';
 
-@singleton
 class AppCubit extends Cubit<AppState> {
-  @FactoryMethod(preResolve: true)
-  static Future<AppCubit> init(AppSettings pref) async {
-    return AppCubit(
-      theme: await pref.theme,
-      locale: await pref.locale,
-      cameraFullscreenMode: await pref.cameraFullscreenMode,
-    );
+  final AppSettings _pref;
+
+  AppCubit(this._pref) : super(const AppState.initial());
+
+  Future<void> load() async {
+    emit(AppState.loaded(
+      theme: await _pref.theme,
+      locale: await _pref.locale,
+      cameraFullscreenMode: await _pref.cameraFullscreenMode,
+    ));
   }
 
-  AppCubit({
-    required AppThemeType theme,
-    required AppLocaleType locale,
-    required bool cameraFullscreenMode,
-  }) : super(
-          AppState.initial(
-            theme: theme,
-            locale: locale,
-            cameraFullscreenMode: cameraFullscreenMode,
-          ),
-        );
-
   void setTheme(AppThemeType theme) {
-    emit(AppState.changed(
+    if (state case AppState(:final locale?, :final cameraFullscreenMode?)) {
+      emit(AppState.changed(
         theme: theme,
-        locale: state.locale,
-        cameraFullscreenMode: state.cameraFullscreenMode));
+        locale: locale,
+        cameraFullscreenMode: cameraFullscreenMode,
+      ));
+    }
   }
 
   void setLocale(AppLocaleType locale) {
-    emit(AppState.changed(
-      theme: state.theme,
-      locale: locale,
-      cameraFullscreenMode: state.cameraFullscreenMode,
-    ));
+    if (state case AppState(:final theme?, :final cameraFullscreenMode?)) {
+      emit(AppState.changed(
+        theme: theme,
+        locale: locale,
+        cameraFullscreenMode: cameraFullscreenMode,
+      ));
+    }
   }
 
   void setCameraFullscreenMode(bool enable) {
-    emit(AppState.changed(
-      theme: state.theme,
-      locale: state.locale,
-      cameraFullscreenMode: enable,
-    ));
+    if (state case AppState(:final theme?, :final locale?)) {
+      emit(AppState.changed(
+        theme: theme,
+        locale: locale,
+        cameraFullscreenMode: enable,
+      ));
+    }
   }
 }

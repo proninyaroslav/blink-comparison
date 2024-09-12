@@ -16,7 +16,9 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:auto_route/auto_route.dart';
+import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/injector.dart';
+import 'package:blink_comparison/ui/model/app_cubit.dart';
 import 'package:blink_comparison/ui/settings/components/settings_pages_list.dart';
 import 'package:blink_comparison/ui/settings/model/appearance_cubit.dart';
 import 'package:flutter/material.dart';
@@ -39,11 +41,17 @@ class SettingsPage extends StatefulWidget implements AutoRouteWrapper {
   Widget wrappedRoute(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<AppearanceSettingsCubit>.value(
-          value: getIt<AppearanceSettingsCubit>(),
+        BlocProvider(
+          create: (context) => AppearanceSettingsCubit(
+            getIt<AppSettings>(),
+            context.read<AppCubit>(),
+          ),
         ),
-        BlocProvider<CameraSettingsCubit>.value(
-          value: getIt<CameraSettingsCubit>(),
+        BlocProvider(
+          create: (context) => CameraSettingsCubit(
+            getIt<AppSettings>(),
+            context.read<AppCubit>(),
+          ),
         ),
       ],
       child: this,
@@ -54,6 +62,18 @@ class SettingsPage extends StatefulWidget implements AutoRouteWrapper {
 class _SettingsPageState extends State<SettingsPage> {
   final _routerKey = GlobalKey<AutoRouterState>();
   final _tabsKey = GlobalKey<AutoTabsRouterState>();
+
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await Future.wait([
+        context.read<AppearanceSettingsCubit>().load(),
+        context.read<CameraSettingsCubit>().load(),
+      ]);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

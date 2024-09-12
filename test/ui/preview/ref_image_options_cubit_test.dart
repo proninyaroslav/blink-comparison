@@ -29,12 +29,11 @@ void main() {
     late AppSettings mockPref;
     late RefImageOptionsCubit cubit;
 
-    setUp(() {
+    setUp(() async {
       mockPref = MockAppSettings();
-      cubit = RefImageOptionsCubit(
-        mockPref,
-        const RefImageOptions(opacity: 0.0),
-      );
+      when(() => mockPref.refImageOverlayOpacity).thenAnswer((_) async => 0.0);
+      cubit = RefImageOptionsCubit(mockPref);
+      await cubit.load();
     });
 
     blocTest(

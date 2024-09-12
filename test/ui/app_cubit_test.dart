@@ -22,17 +22,26 @@ import 'package:blink_comparison/ui/model/app_cubit.dart';
 import 'package:blink_comparison/ui/model/app_state.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
+
+import '../mock/mock.dart';
 
 void main() {
   group('AppCubit |', () {
     late AppCubit cubit;
+    late AppSettings mockPref;
 
-    setUp(() {
-      cubit = AppCubit(
-        theme: const AppThemeType.system(),
-        locale: const AppLocaleType.system(),
-        cameraFullscreenMode: true,
+    setUp(() async {
+      mockPref = MockAppSettings();
+      when(() => mockPref.theme).thenAnswer(
+        (_) async => const AppThemeType.system(),
       );
+      when(() => mockPref.locale).thenAnswer(
+        (_) async => const AppLocaleType.system(),
+      );
+      when(() => mockPref.cameraFullscreenMode).thenAnswer((_) async => true);
+      cubit = AppCubit(mockPref);
+      await cubit.load();
     });
 
     blocTest(

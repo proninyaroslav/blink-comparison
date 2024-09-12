@@ -24,8 +24,12 @@ part 'comparison_settings_state.freezed.dart';
 @freezed
 class ComparisonSettingsState with _$ComparisonSettingsState {
   const factory ComparisonSettingsState.initial({
-    required int refImageBorderColor,
+    @Default(null) int? refImageBorderColor,
   }) = ComparisonSettingsStateInitial;
+
+  const factory ComparisonSettingsState.loaded({
+    required int refImageBorderColor,
+  }) = ComparisonSettingsStateLoaded;
 
   const factory ComparisonSettingsState.changed({
     required int refImageBorderColor,

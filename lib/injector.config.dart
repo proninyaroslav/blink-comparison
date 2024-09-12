@@ -56,36 +56,12 @@ import 'package:blink_comparison/di/shared_preferences_module.dart' as _i980;
 import 'package:blink_comparison/di/sodium_module.dart' as _i298;
 import 'package:blink_comparison/platform/save_ref_image_native_service.dart'
     as _i188;
-import 'package:blink_comparison/ui/about/model/about_cubit.dart' as _i839;
-import 'package:blink_comparison/ui/auth/model/auth_cubit.dart' as _i986;
-import 'package:blink_comparison/ui/auth/model/sign_up_cubit.dart' as _i238;
 import 'package:blink_comparison/ui/camera_picker/model/camera_provider.dart'
     as _i1041;
-import 'package:blink_comparison/ui/camera_picker/model/camera_provider_cubit.dart'
-    as _i194;
-import 'package:blink_comparison/ui/comparison/comparison.dart' as _i484;
 import 'package:blink_comparison/ui/comparison/model/blink_comparison_cubit.dart'
     as _i202;
-import 'package:blink_comparison/ui/comparison/model/comparison_settings_cubit.dart'
-    as _i807;
-import 'package:blink_comparison/ui/home/model/add_ref_image_cubit.dart'
-    as _i877;
-import 'package:blink_comparison/ui/home/model/ref_images_actions_cubit.dart'
-    as _i419;
-import 'package:blink_comparison/ui/home/model/ref_images_cubit.dart' as _i833;
 import 'package:blink_comparison/ui/home/model/selectable_ref_image_cubit.dart'
     as _i904;
-import 'package:blink_comparison/ui/model/app_cubit.dart' as _i1070;
-import 'package:blink_comparison/ui/model/error_report_cubit.dart' as _i86;
-import 'package:blink_comparison/ui/model/showcase_cubit.dart' as _i189;
-import 'package:blink_comparison/ui/model/system_picker_cubit.dart' as _i718;
-import 'package:blink_comparison/ui/preview/model/ref_image_cubit.dart'
-    as _i118;
-import 'package:blink_comparison/ui/preview/model/ref_image_options_cubit.dart'
-    as _i238;
-import 'package:blink_comparison/ui/settings/model/appearance_cubit.dart'
-    as _i501;
-import 'package:blink_comparison/ui/settings/model/camera_cubit.dart' as _i328;
 import 'package:file/file.dart' as _i303;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:image_picker/image_picker.dart' as _i183;
@@ -129,8 +105,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i1009.PlatformInfo>(() => _i1009.PlatformInfoImpl());
     gh.factory<_i188.SaveRefImageNativeService>(
         () => _i188.SaveRefImageNativeService(gh<_i1009.PlatformInfo>()));
-    gh.factory<_i839.AboutCubit>(
-        () => _i839.AboutCubit(gh<_i1009.PlatformInfo>()));
     gh.factory<_i332.RefImageIdGenerator>(
         () => _i332.RefImageIdGeneratorImpl());
     gh.factory<_i187.SaltGenerator>(
@@ -186,22 +160,6 @@ extension GetItInjectableX on _i174.GetIt {
         _prod,
       },
     );
-    await gh.singletonAsync<_i1070.AppCubit>(
-      () => _i1070.AppCubit.init(gh<_i49.AppSettings>()),
-      preResolve: true,
-    );
-    await gh.factoryAsync<_i238.RefImageOptionsCubit>(
-      () => _i238.RefImageOptionsCubit.init(gh<_i49.AppSettings>()),
-      preResolve: true,
-    );
-    await gh.factoryAsync<_i807.ComparisonSettingsCubit>(
-      () => _i807.ComparisonSettingsCubit.init(gh<_i49.AppSettings>()),
-      preResolve: true,
-    );
-    await gh.factoryAsync<_i189.ShowcaseCubit>(
-      () => _i189.ShowcaseCubit.init(gh<_i49.AppSettings>()),
-      preResolve: true,
-    );
     gh.singleton<_i670.EncryptModuleProvider>(
         () => _i670.EncryptModuleProviderImpl(
               gh<_i539.SodiumSumo>(),
@@ -211,17 +169,6 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i1009.PlatformInfo>(),
           gh<_i303.FileSystem>(),
         ));
-    gh.factory<_i718.SystemPickerCubit>(() => _i718.SystemPickerCubit(
-          gh<_i183.ImagePicker>(),
-          gh<_i1009.PlatformInfo>(),
-        ));
-    await gh.factoryAsync<_i328.CameraSettingsCubit>(
-      () => _i328.CameraSettingsCubit.init(
-        gh<_i49.AppSettings>(),
-        gh<_i1070.AppCubit>(),
-      ),
-      preResolve: true,
-    );
     gh.factory<_i496.CrashReportManager>(() => _i496.CrashReportManagerImpl(
           gh<_i970.CrashReportBuilder>(),
           gh<_i129.CrashReportSender>(),
@@ -249,34 +196,8 @@ extension GetItInjectableX on _i174.GetIt {
       ),
       registerFor: {_prod},
     );
-    gh.factory<_i238.SignUpCubit>(() => _i238.SignUpCubit(
-          gh<_i231.PasswordRepository>(),
-          gh<_i105.AuthFactorRepository>(),
-          gh<_i479.SecureKeyFactory>(),
-        ));
     gh.factory<_i63.SaveThumbnailJob>(
         () => _i63.SaveThumbnailJobImpl(gh<_i966.ThumbnailFS>()));
-    gh.factory<_i86.ErrorReportCubit>(
-        () => _i86.ErrorReportCubit(gh<_i496.CrashReportManager>()));
-    gh.factory<_i986.AuthCubit>(() => _i986.AuthCubit(
-          gh<_i231.PasswordRepository>(),
-          gh<_i41.PasswordHasher>(),
-          gh<_i673.DateTimeProvider>(),
-          gh<_i105.AuthFactorRepository>(),
-          gh<_i479.SecureKeyFactory>(),
-        ));
-    gh.factory<_i194.CameraProviderCubit>(() => _i194.CameraProviderCubit(
-          gh<_i1041.CameraProvider>(),
-          gh<_i49.AppSettings>(),
-        ));
-    await gh.factoryAsync<_i501.AppearanceSettingsCubit>(
-      () => _i501.AppearanceSettingsCubit.init(
-        gh<_i49.AppSettings>(),
-        gh<_i1070.AppCubit>(),
-        gh<_i484.ComparisonSettingsCubit>(),
-      ),
-      preResolve: true,
-    );
     gh.singleton<_i1003.SaveRefImageService>(
         () => _i1003.SaveRefImageServiceImpl(
               gh<_i923.SaveRefImageJob>(),
@@ -303,16 +224,6 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i755.RefImageSecureStorage>(),
           gh<_i966.ThumbnailFS>(),
           gh<_i187.SaltGenerator>(),
-        ));
-    gh.factory<_i419.RefImagesActionsCubit>(
-        () => _i419.RefImagesActionsCubit(gh<_i443.RefImageRepository>()));
-    gh.factory<_i118.RefImageCubit>(
-        () => _i118.RefImageCubit(gh<_i443.RefImageRepository>()));
-    gh.factory<_i877.AddRefImageCubit>(
-        () => _i877.AddRefImageCubit(gh<_i443.RefImageRepository>()));
-    gh.factory<_i833.RefImagesCubit>(() => _i833.RefImagesCubit(
-          gh<_i443.RefImageRepository>(),
-          gh<_i1016.RefImageStatusRepository>(),
         ));
     return this;
   }

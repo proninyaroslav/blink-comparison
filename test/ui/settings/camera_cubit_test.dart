@@ -37,15 +37,11 @@ void main() {
       mockAppCubit = MockAppCubit();
     });
 
-    setUp(() {
-      cubit = CameraSettingsCubit(
-        mockPref,
-        mockAppCubit,
-        const CameraInfo(
-          enableFlashByDefault: true,
-          fullscreenMode: true,
-        ),
-      );
+    setUp(() async {
+      when(() => mockPref.enableFlashByDefault).thenAnswer((_) async => true);
+      when(() => mockPref.cameraFullscreenMode).thenAnswer((_) async => true);
+      cubit = CameraSettingsCubit(mockPref, mockAppCubit);
+      await cubit.load();
     });
 
     blocTest(

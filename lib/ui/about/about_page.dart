@@ -16,6 +16,7 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:auto_route/auto_route.dart';
+import 'package:blink_comparison/core/platform_info.dart';
 import 'package:blink_comparison/ui/about/model/about_state.dart';
 import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:flutter/material.dart';
@@ -34,8 +35,8 @@ class AboutPage extends StatefulWidget implements AutoRouteWrapper {
 
   @override
   Widget wrappedRoute(BuildContext context) {
-    return BlocProvider.value(
-      value: getIt<AboutCubit>(),
+    return BlocProvider(
+      create: (context) => AboutCubit(getIt<PlatformInfo>()),
       child: this,
     );
   }

@@ -35,16 +35,23 @@ class CameraSettingsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(S.of(context).settingsCamera),
       ),
-      body: SettingsList(
-        key: const PageStorageKey('camera_list'),
-        groups: [
-          SettingsListGroup(
-            items: [
-              _buildEnableFlashByDefaultOption(context),
-              _buildFullscreenModeOption(context),
-            ],
-          ),
-        ],
+      body: BlocBuilder<CameraSettingsCubit, CameraState>(
+        buildWhen: (prev, next) => next is CameraStateLoaded,
+        builder: (context, state) => switch (state) {
+          CameraStateInitial() =>
+            const Center(child: CircularProgressIndicator()),
+          _ => SettingsList(
+              key: const PageStorageKey('camera_list'),
+              groups: [
+                SettingsListGroup(
+                  items: [
+                    _buildEnableFlashByDefaultOption(context),
+                    _buildFullscreenModeOption(context),
+                  ],
+                ),
+              ],
+            ),
+        },
       ),
     );
   }
@@ -57,7 +64,7 @@ class CameraSettingsPage extends StatelessWidget {
       builder: (context, state) {
         return SwitchListTile(
           title: Text(S.of(context).settingsFlashByDefault),
-          value: state.info.enableFlashByDefault,
+          value: state.info!.enableFlashByDefault,
           secondary: const Icon(Icons.flash_on_outlined),
           onChanged: (value) async {
             await cubit.setEnableFlashByDefault(value);
@@ -75,7 +82,7 @@ class CameraSettingsPage extends StatelessWidget {
       builder: (context, state) {
         return SwitchListTile(
           title: Text(S.of(context).settingsCameraFullscreenMode),
-          value: state.info.fullscreenMode,
+          value: state.info!.fullscreenMode,
           secondary: const Icon(Icons.fullscreen_outlined),
           onChanged: (value) async {
             await cubit.setFullscreenMode(value);

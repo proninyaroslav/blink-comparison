@@ -16,7 +16,10 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:auto_route/auto_route.dart';
+import 'package:blink_comparison/core/crash_report/crash_report_manager.dart';
+import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/ui/camera_picker/components/camera_view.dart';
+import 'package:blink_comparison/ui/camera_picker/model/camera_provider.dart';
 import 'package:blink_comparison/ui/camera_picker/model/camera_provider_cubit.dart';
 import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:blink_comparison/ui/model/error_report_cubit.dart';
@@ -40,11 +43,16 @@ class CameraPickerPage extends StatefulWidget implements AutoRouteWrapper {
   Widget wrappedRoute(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<CameraProviderCubit>.value(
-          value: getIt<CameraProviderCubit>(),
+        BlocProvider(
+          create: (context) => CameraProviderCubit(
+            getIt<CameraProvider>(),
+            getIt<AppSettings>(),
+          ),
         ),
-        BlocProvider<ErrorReportCubit>.value(
-          value: getIt<ErrorReportCubit>(),
+        BlocProvider(
+          create: (context) => ErrorReportCubit(
+            getIt<CrashReportManager>(),
+          ),
         ),
       ],
       child: this,

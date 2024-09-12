@@ -16,7 +16,12 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:auto_route/auto_route.dart';
+import 'package:blink_comparison/core/crash_report/crash_report_manager.dart';
 import 'package:blink_comparison/core/entity/entity.dart';
+import 'package:blink_comparison/core/platform_info.dart';
+import 'package:blink_comparison/core/storage/ref_image_repository.dart';
+import 'package:blink_comparison/core/storage/ref_image_status_repository.dart';
+import 'package:blink_comparison/injector.dart';
 import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:blink_comparison/ui/home/model/add_ref_image_state.dart';
 import 'package:blink_comparison/ui/home/model/ref_images_actions_state.dart';
@@ -33,7 +38,6 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-import '../../injector.dart';
 import '../../locale.dart';
 import '../../logger.dart';
 import '../model/utils.dart';
@@ -53,23 +57,31 @@ class RefImageListPage extends StatefulWidget implements AutoRouteWrapper {
   Widget wrappedRoute(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<AddRefImageCubit>.value(
-          value: getIt<AddRefImageCubit>(),
+        BlocProvider(
+          create: (context) => AddRefImageCubit(getIt<RefImageRepository>()),
         ),
-        BlocProvider<SystemPickerCubit>.value(
-          value: getIt<SystemPickerCubit>(),
+        BlocProvider(
+          create: (context) => SystemPickerCubit(
+            getIt<ImagePicker>(),
+            getIt<PlatformInfo>(),
+          ),
         ),
-        BlocProvider<RefImagesCubit>.value(
-          value: getIt<RefImagesCubit>(),
+        BlocProvider(
+          create: (context) => RefImagesCubit(
+            getIt<RefImageRepository>(),
+            getIt<RefImageStatusRepository>(),
+          ),
         ),
-        BlocProvider<ErrorReportCubit>.value(
-          value: getIt<ErrorReportCubit>(),
+        BlocProvider(
+          create: (context) => ErrorReportCubit(getIt<CrashReportManager>()),
         ),
-        BlocProvider<SelectableRefImageCubit>.value(
-          value: getIt<SelectableRefImageCubit>(),
+        BlocProvider(
+          create: (context) => SelectableRefImageCubit(),
         ),
-        BlocProvider<RefImagesActionsCubit>.value(
-          value: getIt<RefImagesActionsCubit>(),
+        BlocProvider(
+          create: (context) => RefImagesActionsCubit(
+            getIt<RefImageRepository>(),
+          ),
         ),
       ],
       child: this,

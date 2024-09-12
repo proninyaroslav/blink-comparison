@@ -39,22 +39,29 @@ class AppearanceSettingsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(S.of(context).settingsAppearance),
       ),
-      body: SettingsList(
-        key: const PageStorageKey('appearance_list'),
-        groups: [
-          SettingsListGroup(
-            items: [
-              _buildThemeOption(context),
-              _buildLanguageOption(context),
-            ],
-          ),
-          SettingsListGroup(
-            title: S.of(context).settingsBlinkComparisonPage,
-            items: [
-              _buildRefImageBorderOption(context),
-            ],
-          ),
-        ],
+      body: BlocBuilder<AppearanceSettingsCubit, AppearanceState>(
+        buildWhen: (prev, next) => next is AppearanceStateLoaded,
+        builder: (context, state) => switch (state) {
+          AppearanceStateInitial() =>
+            const Center(child: CircularProgressIndicator()),
+          _ => SettingsList(
+              key: const PageStorageKey('appearance_list'),
+              groups: [
+                SettingsListGroup(
+                  items: [
+                    _buildThemeOption(context),
+                    _buildLanguageOption(context),
+                  ],
+                ),
+                SettingsListGroup(
+                  title: S.of(context).settingsBlinkComparisonPage,
+                  items: [
+                    _buildRefImageBorderOption(context),
+                  ],
+                ),
+              ],
+            ),
+        },
       ),
     );
   }
@@ -66,7 +73,7 @@ class AppearanceSettingsPage extends StatelessWidget {
         buildWhen: (prev, current) => current is AppearanceStateThemeChanged,
         builder: (context, state) {
           return Text(
-            state.info.theme.toLocalizedString(context),
+            state.info!.theme.toLocalizedString(context),
           );
         },
       ),
@@ -90,7 +97,7 @@ class AppearanceSettingsPage extends StatelessWidget {
                   current is AppearanceStateThemeChanged,
               builder: (context, state) {
                 return _ThemeList(
-                  initialValue: state.info.theme,
+                  initialValue: state.info!.theme,
                   onSelected: (theme) async {
                     await cubit.setTheme(theme);
                     if (context.mounted) {
@@ -124,7 +131,7 @@ class AppearanceSettingsPage extends StatelessWidget {
         buildWhen: (prev, current) => current is AppearanceStateLocaleChanged,
         builder: (context, state) {
           return Text(
-            state.info.locale.when(
+            state.info!.locale.when(
               system: () => S.of(context).settingsSystemLanguageOption,
               inner: (locale) =>
                   UiUtils.localeToLocalizedStr(locale.toString()),
@@ -152,7 +159,7 @@ class AppearanceSettingsPage extends StatelessWidget {
                   current is AppearanceStateLocaleChanged,
               builder: (context, state) {
                 return _LanguageList(
-                  initialValue: state.info.locale,
+                  initialValue: state.info!.locale,
                   onSelected: (locale) async {
                     await cubit.setLocale(locale);
                     if (context.mounted) {
@@ -190,7 +197,7 @@ class AppearanceSettingsPage extends StatelessWidget {
         buildWhen: (prev, current) =>
             current is AppearanceStateRefImageBorderColorChanged,
         builder: (context, state) => _ColorView(
-          color: Color(state.info.refImageBorderColor),
+          color: Color(state.info!.refImageBorderColor),
         ),
       ),
       leading: const Icon(Icons.image_outlined),
@@ -213,7 +220,7 @@ class AppearanceSettingsPage extends StatelessWidget {
                   current is AppearanceStateRefImageBorderColorChanged,
               builder: (context, state) {
                 return ColorPicker(
-                  pickerColor: Color(state.info.refImageBorderColor),
+                  pickerColor: Color(state.info!.refImageBorderColor),
                   enableAlpha: false,
                   onColorChanged: (color) async {
                     await cubit.setRefImageBorderColor(color.value);

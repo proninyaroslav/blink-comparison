@@ -31,7 +31,9 @@ void main() {
 
     setUp(() async {
       mockPref = MockAppSettings();
-      cubit = ShowcaseCubit(mockPref, {});
+      when(() => mockPref.completedShowcases).thenAnswer((_) async => {});
+      cubit = ShowcaseCubit(mockPref);
+      await cubit.load();
     });
 
     blocTest(

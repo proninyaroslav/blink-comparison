@@ -24,9 +24,7 @@ import 'package:blink_comparison/core/storage/password_repository.dart';
 import 'package:blink_comparison/core/utils.dart';
 import 'package:blink_comparison/ui/auth/model/sign_up_state.dart';
 import 'package:bloc/bloc.dart';
-import 'package:injectable/injectable.dart';
 
-@injectable
 class SignUpCubit extends Cubit<SignUpState> {
   final PasswordRepository _passwordRepo;
   final AuthFactorRepository _factorRepo;

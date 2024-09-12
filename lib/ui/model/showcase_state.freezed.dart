@@ -16,22 +16,25 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ShowcaseState {
-  Set<ShowcaseType> get completed => throw _privateConstructorUsedError;
+  Set<ShowcaseType>? get completed => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Set<ShowcaseType> completed) initial,
+    required TResult Function(Set<ShowcaseType>? completed) initial,
+    required TResult Function(Set<ShowcaseType> completed) loaded,
     required TResult Function(Set<ShowcaseType> completed) changed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Set<ShowcaseType> completed)? initial,
+    TResult? Function(Set<ShowcaseType>? completed)? initial,
+    TResult? Function(Set<ShowcaseType> completed)? loaded,
     TResult? Function(Set<ShowcaseType> completed)? changed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Set<ShowcaseType> completed)? initial,
+    TResult Function(Set<ShowcaseType>? completed)? initial,
+    TResult Function(Set<ShowcaseType> completed)? loaded,
     TResult Function(Set<ShowcaseType> completed)? changed,
     required TResult orElse(),
   }) =>
@@ -39,18 +42,21 @@ mixin _$ShowcaseState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ShowcaseStateInitial value) initial,
+    required TResult Function(ShowcaseStateLoaded value) loaded,
     required TResult Function(ShowcaseStateChanged value) changed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ShowcaseStateInitial value)? initial,
+    TResult? Function(ShowcaseStateLoaded value)? loaded,
     TResult? Function(ShowcaseStateChanged value)? changed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ShowcaseStateInitial value)? initial,
+    TResult Function(ShowcaseStateLoaded value)? loaded,
     TResult Function(ShowcaseStateChanged value)? changed,
     required TResult orElse(),
   }) =>
@@ -91,7 +97,7 @@ class _$ShowcaseStateCopyWithImpl<$Res, $Val extends ShowcaseState>
   }) {
     return _then(_value.copyWith(
       completed: null == completed
-          ? _value.completed
+          ? _value.completed!
           : completed // ignore: cast_nullable_to_non_nullable
               as Set<ShowcaseType>,
     ) as $Val);
@@ -106,7 +112,7 @@ abstract class _$$ShowcaseStateInitialImplCopyWith<$Res>
       __$$ShowcaseStateInitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Set<ShowcaseType> completed});
+  $Res call({Set<ShowcaseType>? completed});
 }
 
 /// @nodoc
@@ -122,13 +128,13 @@ class __$$ShowcaseStateInitialImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? completed = null,
+    Object? completed = freezed,
   }) {
     return _then(_$ShowcaseStateInitialImpl(
-      null == completed
+      completed: freezed == completed
           ? _value._completed
           : completed // ignore: cast_nullable_to_non_nullable
-              as Set<ShowcaseType>,
+              as Set<ShowcaseType>?,
     ));
   }
 }
@@ -138,15 +144,18 @@ class __$$ShowcaseStateInitialImplCopyWithImpl<$Res>
 class _$ShowcaseStateInitialImpl
     with DiagnosticableTreeMixin
     implements ShowcaseStateInitial {
-  const _$ShowcaseStateInitialImpl(final Set<ShowcaseType> completed)
+  const _$ShowcaseStateInitialImpl({final Set<ShowcaseType>? completed = null})
       : _completed = completed;
 
-  final Set<ShowcaseType> _completed;
+  final Set<ShowcaseType>? _completed;
   @override
-  Set<ShowcaseType> get completed {
+  @JsonKey()
+  Set<ShowcaseType>? get completed {
+    final value = _completed;
+    if (value == null) return null;
     if (_completed is EqualUnmodifiableSetView) return _completed;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableSetView(_completed);
+    return EqualUnmodifiableSetView(value);
   }
 
   @override
@@ -188,7 +197,8 @@ class _$ShowcaseStateInitialImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Set<ShowcaseType> completed) initial,
+    required TResult Function(Set<ShowcaseType>? completed) initial,
+    required TResult Function(Set<ShowcaseType> completed) loaded,
     required TResult Function(Set<ShowcaseType> completed) changed,
   }) {
     return initial(completed);
@@ -197,7 +207,8 @@ class _$ShowcaseStateInitialImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Set<ShowcaseType> completed)? initial,
+    TResult? Function(Set<ShowcaseType>? completed)? initial,
+    TResult? Function(Set<ShowcaseType> completed)? loaded,
     TResult? Function(Set<ShowcaseType> completed)? changed,
   }) {
     return initial?.call(completed);
@@ -206,7 +217,8 @@ class _$ShowcaseStateInitialImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Set<ShowcaseType> completed)? initial,
+    TResult Function(Set<ShowcaseType>? completed)? initial,
+    TResult Function(Set<ShowcaseType> completed)? loaded,
     TResult Function(Set<ShowcaseType> completed)? changed,
     required TResult orElse(),
   }) {
@@ -220,6 +232,7 @@ class _$ShowcaseStateInitialImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ShowcaseStateInitial value) initial,
+    required TResult Function(ShowcaseStateLoaded value) loaded,
     required TResult Function(ShowcaseStateChanged value) changed,
   }) {
     return initial(this);
@@ -229,6 +242,7 @@ class _$ShowcaseStateInitialImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ShowcaseStateInitial value)? initial,
+    TResult? Function(ShowcaseStateLoaded value)? loaded,
     TResult? Function(ShowcaseStateChanged value)? changed,
   }) {
     return initial?.call(this);
@@ -238,6 +252,7 @@ class _$ShowcaseStateInitialImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ShowcaseStateInitial value)? initial,
+    TResult Function(ShowcaseStateLoaded value)? loaded,
     TResult Function(ShowcaseStateChanged value)? changed,
     required TResult orElse(),
   }) {
@@ -249,8 +264,178 @@ class _$ShowcaseStateInitialImpl
 }
 
 abstract class ShowcaseStateInitial implements ShowcaseState {
-  const factory ShowcaseStateInitial(final Set<ShowcaseType> completed) =
+  const factory ShowcaseStateInitial({final Set<ShowcaseType>? completed}) =
       _$ShowcaseStateInitialImpl;
+
+  @override
+  Set<ShowcaseType>? get completed;
+
+  /// Create a copy of ShowcaseState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ShowcaseStateInitialImplCopyWith<_$ShowcaseStateInitialImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ShowcaseStateLoadedImplCopyWith<$Res>
+    implements $ShowcaseStateCopyWith<$Res> {
+  factory _$$ShowcaseStateLoadedImplCopyWith(_$ShowcaseStateLoadedImpl value,
+          $Res Function(_$ShowcaseStateLoadedImpl) then) =
+      __$$ShowcaseStateLoadedImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Set<ShowcaseType> completed});
+}
+
+/// @nodoc
+class __$$ShowcaseStateLoadedImplCopyWithImpl<$Res>
+    extends _$ShowcaseStateCopyWithImpl<$Res, _$ShowcaseStateLoadedImpl>
+    implements _$$ShowcaseStateLoadedImplCopyWith<$Res> {
+  __$$ShowcaseStateLoadedImplCopyWithImpl(_$ShowcaseStateLoadedImpl _value,
+      $Res Function(_$ShowcaseStateLoadedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ShowcaseState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? completed = null,
+  }) {
+    return _then(_$ShowcaseStateLoadedImpl(
+      null == completed
+          ? _value._completed
+          : completed // ignore: cast_nullable_to_non_nullable
+              as Set<ShowcaseType>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ShowcaseStateLoadedImpl
+    with DiagnosticableTreeMixin
+    implements ShowcaseStateLoaded {
+  const _$ShowcaseStateLoadedImpl(final Set<ShowcaseType> completed)
+      : _completed = completed;
+
+  final Set<ShowcaseType> _completed;
+  @override
+  Set<ShowcaseType> get completed {
+    if (_completed is EqualUnmodifiableSetView) return _completed;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(_completed);
+  }
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ShowcaseState.loaded(completed: $completed)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ShowcaseState.loaded'))
+      ..add(DiagnosticsProperty('completed', completed));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ShowcaseStateLoadedImpl &&
+            const DeepCollectionEquality()
+                .equals(other._completed, _completed));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_completed));
+
+  /// Create a copy of ShowcaseState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ShowcaseStateLoadedImplCopyWith<_$ShowcaseStateLoadedImpl> get copyWith =>
+      __$$ShowcaseStateLoadedImplCopyWithImpl<_$ShowcaseStateLoadedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Set<ShowcaseType>? completed) initial,
+    required TResult Function(Set<ShowcaseType> completed) loaded,
+    required TResult Function(Set<ShowcaseType> completed) changed,
+  }) {
+    return loaded(completed);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Set<ShowcaseType>? completed)? initial,
+    TResult? Function(Set<ShowcaseType> completed)? loaded,
+    TResult? Function(Set<ShowcaseType> completed)? changed,
+  }) {
+    return loaded?.call(completed);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Set<ShowcaseType>? completed)? initial,
+    TResult Function(Set<ShowcaseType> completed)? loaded,
+    TResult Function(Set<ShowcaseType> completed)? changed,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(completed);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ShowcaseStateInitial value) initial,
+    required TResult Function(ShowcaseStateLoaded value) loaded,
+    required TResult Function(ShowcaseStateChanged value) changed,
+  }) {
+    return loaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ShowcaseStateInitial value)? initial,
+    TResult? Function(ShowcaseStateLoaded value)? loaded,
+    TResult? Function(ShowcaseStateChanged value)? changed,
+  }) {
+    return loaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ShowcaseStateInitial value)? initial,
+    TResult Function(ShowcaseStateLoaded value)? loaded,
+    TResult Function(ShowcaseStateChanged value)? changed,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ShowcaseStateLoaded implements ShowcaseState {
+  const factory ShowcaseStateLoaded(final Set<ShowcaseType> completed) =
+      _$ShowcaseStateLoadedImpl;
 
   @override
   Set<ShowcaseType> get completed;
@@ -259,8 +444,8 @@ abstract class ShowcaseStateInitial implements ShowcaseState {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ShowcaseStateInitialImplCopyWith<_$ShowcaseStateInitialImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$ShowcaseStateLoadedImplCopyWith<_$ShowcaseStateLoadedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -353,7 +538,8 @@ class _$ShowcaseStateChangedImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Set<ShowcaseType> completed) initial,
+    required TResult Function(Set<ShowcaseType>? completed) initial,
+    required TResult Function(Set<ShowcaseType> completed) loaded,
     required TResult Function(Set<ShowcaseType> completed) changed,
   }) {
     return changed(completed);
@@ -362,7 +548,8 @@ class _$ShowcaseStateChangedImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Set<ShowcaseType> completed)? initial,
+    TResult? Function(Set<ShowcaseType>? completed)? initial,
+    TResult? Function(Set<ShowcaseType> completed)? loaded,
     TResult? Function(Set<ShowcaseType> completed)? changed,
   }) {
     return changed?.call(completed);
@@ -371,7 +558,8 @@ class _$ShowcaseStateChangedImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Set<ShowcaseType> completed)? initial,
+    TResult Function(Set<ShowcaseType>? completed)? initial,
+    TResult Function(Set<ShowcaseType> completed)? loaded,
     TResult Function(Set<ShowcaseType> completed)? changed,
     required TResult orElse(),
   }) {
@@ -385,6 +573,7 @@ class _$ShowcaseStateChangedImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ShowcaseStateInitial value) initial,
+    required TResult Function(ShowcaseStateLoaded value) loaded,
     required TResult Function(ShowcaseStateChanged value) changed,
   }) {
     return changed(this);
@@ -394,6 +583,7 @@ class _$ShowcaseStateChangedImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ShowcaseStateInitial value)? initial,
+    TResult? Function(ShowcaseStateLoaded value)? loaded,
     TResult? Function(ShowcaseStateChanged value)? changed,
   }) {
     return changed?.call(this);
@@ -403,6 +593,7 @@ class _$ShowcaseStateChangedImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ShowcaseStateInitial value)? initial,
+    TResult Function(ShowcaseStateLoaded value)? loaded,
     TResult Function(ShowcaseStateChanged value)? changed,
     required TResult orElse(),
   }) {

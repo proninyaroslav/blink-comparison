@@ -15,17 +15,26 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/ui/comparison/comparison.dart';
 import 'package:blink_comparison/ui/comparison/model/comparison_settings_state.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
+
+import '../../mock/settings/mock_settings.dart';
 
 void main() {
   group('ComparisonSettingsCubit |', () {
+    late AppSettings mockPref;
     late ComparisonSettingsCubit cubit;
 
-    setUp(() {
-      cubit = ComparisonSettingsCubit(refImageBorderColor: 0xffffffff);
+    setUp(() async {
+      mockPref = MockAppSettings();
+      when(() => mockPref.refImageBorderColor)
+          .thenAnswer((_) async => 0xffffffff);
+      cubit = ComparisonSettingsCubit(mockPref);
+      await cubit.load();
     });
 
     blocTest(

@@ -18,9 +18,7 @@
 import 'package:blink_comparison/core/platform_info.dart';
 import 'package:blink_comparison/ui/about/model/about_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:injectable/injectable.dart';
 
-@injectable
 class AboutCubit extends Cubit<AboutState> {
   final PlatformInfo _platform;
 

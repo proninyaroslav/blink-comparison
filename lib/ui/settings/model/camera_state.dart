@@ -22,10 +22,14 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'camera_state.freezed.dart';
 
 @freezed
-class CameraState with _$CameraState {
-  const factory CameraState.initial(
+sealed class CameraState with _$CameraState {
+  const factory CameraState.initial({
+    @Default(null) CameraInfo? info,
+  }) = CameraStateInitial;
+
+  const factory CameraState.loaded(
     CameraInfo info,
-  ) = CameraStateInitial;
+  ) = CameraStateLoaded;
 
   const factory CameraState.enableFlashChanged(
     CameraInfo info,

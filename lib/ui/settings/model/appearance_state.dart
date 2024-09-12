@@ -23,10 +23,14 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'appearance_state.freezed.dart';
 
 @freezed
-class AppearanceState with _$AppearanceState {
-  const factory AppearanceState.initial(
+sealed class AppearanceState with _$AppearanceState {
+  const factory AppearanceState.initial({
+    @Default(null) AppearanceInfo? info,
+  }) = AppearanceStateInitial;
+
+  const factory AppearanceState.loaded(
     AppearanceInfo info,
-  ) = AppearanceStateInitial;
+  ) = AppearanceStateLoaded;
 
   const factory AppearanceState.themeChanged(
     AppearanceInfo info,

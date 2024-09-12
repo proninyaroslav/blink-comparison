@@ -70,6 +70,10 @@ class _AppState extends State<App> {
     final notifyManager = getIt<NotificationManager>();
     final platform = getIt<PlatformInfo>();
 
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await context.read<AppCubit>().load();
+    });
+
     authLifecycleObserver = AuthLifecycleObserver(
       getIt<AuthFactorRepository>(),
       onReevaluateGuards: () => _appRouter.reevaluateGuards(),
@@ -151,33 +155,42 @@ class _AppState extends State<App> {
     bool useInheritedMediaQuery = false,
     ThemeMode? themeMode,
   }) {
-    return BlocProvider.value(
-      value: getIt<AppCubit>(),
-      child: BlocBuilder<AppCubit, AppState>(
-        builder: (context, state) {
-          return MaterialApp.router(
-            title: 'Blink Comparison',
-            themeMode: themeMode ?? _mapThemeMode(state.theme),
-            theme: AppTheme.getThemeData(),
-            darkTheme: AppTheme.getThemeData(dark: true),
-            localizationsDelegates: AppLocalizations.localizationsDelegates,
-            supportedLocales: AppLocalizations.supportedLocales,
-            locale: locale ?? _mapLocale(state.locale),
-            routerDelegate: AutoRouterDelegate(
-              _appRouter,
-              navigatorObservers: () => [
-                SystemUIModeObserver(
-                  fullscreenMode: state.cameraFullscreenMode,
-                ),
-              ],
-            ),
-            builder: (context, child) {
-              return InltLocaleBridge(child: child);
-            },
-            routeInformationParser: _appRouter.defaultRouteParser(),
-          );
-        },
-      ),
+    return BlocBuilder<AppCubit, AppState>(
+      builder: (context, state) {
+        switch (state) {
+          case AppStateInitial():
+            return const _Loading();
+          case AppStateLoaded(
+                  locale: var sLocale,
+                  :final theme,
+                  :final cameraFullscreenMode
+                ) ||
+                AppStateChanged(
+                  locale: var sLocale,
+                  :final theme,
+                  :final cameraFullscreenMode
+                ):
+            return MaterialApp.router(
+              title: 'Blink Comparison',
+              themeMode: themeMode ?? _mapThemeMode(theme),
+              theme: AppTheme.getThemeData(),
+              darkTheme: AppTheme.getThemeData(dark: true),
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+              locale: locale ?? _mapLocale(sLocale),
+              routerDelegate: AutoRouterDelegate(
+                _appRouter,
+                navigatorObservers: () => [
+                  SystemUIModeObserver(
+                    fullscreenMode: cameraFullscreenMode,
+                  ),
+                ],
+              ),
+              builder: (context, child) => InltLocaleBridge(child: child),
+              routeInformationParser: _appRouter.defaultRouteParser(),
+            );
+        }
+      },
     );
   }
 
@@ -195,6 +208,21 @@ class _AppState extends State<App> {
       inner: (locale) => Locale(
         locale.languageCode,
         locale.countryCode,
+      ),
+    );
+  }
+}
+
+class _Loading extends StatelessWidget {
+  const _Loading();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      color: AppTheme.paletteLight.background,
+      child: CircularProgressIndicator(
+        color: AppTheme.paletteLight.primary,
       ),
     );
   }

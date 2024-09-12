@@ -18,24 +18,22 @@
 import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/ui/model/showcase_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:injectable/injectable.dart';
 
 export 'package:blink_comparison/core/settings/model.dart';
 
-@injectable
 class ShowcaseCubit extends Cubit<ShowcaseState> {
   final AppSettings _pref;
 
-  @FactoryMethod(preResolve: true)
-  static Future<ShowcaseCubit> init(AppSettings pref) async {
-    return ShowcaseCubit(pref, await pref.completedShowcases);
+  ShowcaseCubit(this._pref) : super(const ShowcaseState.initial());
+
+  Future<void> load() async {
+    emit(ShowcaseState.loaded(
+      await _pref.completedShowcases,
+    ));
   }
 
-  ShowcaseCubit(this._pref, Set<ShowcaseType> completedShowcases)
-      : super(ShowcaseState.initial(completedShowcases));
-
   Future<void> completed(ShowcaseType type) async {
-    final completed = {...state.completed, type};
+    final completed = {...?state.completed, type};
     await _pref.setCompletedShowcases(completed);
     emit(ShowcaseState.changed(completed));
   }

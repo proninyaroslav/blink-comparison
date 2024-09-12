@@ -18,31 +18,27 @@
 import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/ui/preview/model/ref_image_options_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:injectable/injectable.dart';
 
-@injectable
 class RefImageOptionsCubit extends Cubit<RefImageOptionsState> {
   final AppSettings _pref;
 
-  @FactoryMethod(preResolve: true)
-  static Future<RefImageOptionsCubit> init(AppSettings pref) async {
-    return RefImageOptionsCubit(
-      pref,
-      RefImageOptions(
-        opacity: await pref.refImageOverlayOpacity,
-      ),
-    );
+  RefImageOptionsCubit(this._pref)
+      : super(const RefImageOptionsState.initial());
+
+  Future<void> load() async {
+    emit(RefImageOptionsState.loaded(
+      RefImageOptions(opacity: await _pref.refImageOverlayOpacity),
+    ));
   }
 
-  RefImageOptionsCubit(this._pref, RefImageOptions initialValue)
-      : super(RefImageOptionsState.initial(initialValue));
-
   Future<void> setOpacity(double opacity, {bool saveInSettings = true}) async {
-    if (saveInSettings) {
-      await _pref.setRefImageOverlayOpacity(opacity);
+    if (state case RefImageOptionsState(:final options?)) {
+      if (saveInSettings) {
+        await _pref.setRefImageOverlayOpacity(opacity);
+      }
+      emit(RefImageOptionsState.opacityChanged(
+        options.copyWith(opacity: opacity),
+      ));
     }
-    emit(RefImageOptionsState.opacityChanged(
-      state.options.copyWith(opacity: opacity),
-    ));
   }
 }

@@ -16,22 +16,25 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$RefImageOptionsState {
-  RefImageOptions get options => throw _privateConstructorUsedError;
+  RefImageOptions? get options => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(RefImageOptions options) initial,
+    required TResult Function(RefImageOptions? options) initial,
+    required TResult Function(RefImageOptions options) loaded,
     required TResult Function(RefImageOptions options) opacityChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RefImageOptions options)? initial,
+    TResult? Function(RefImageOptions? options)? initial,
+    TResult? Function(RefImageOptions options)? loaded,
     TResult? Function(RefImageOptions options)? opacityChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RefImageOptions options)? initial,
+    TResult Function(RefImageOptions? options)? initial,
+    TResult Function(RefImageOptions options)? loaded,
     TResult Function(RefImageOptions options)? opacityChanged,
     required TResult orElse(),
   }) =>
@@ -39,6 +42,7 @@ mixin _$RefImageOptionsState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(RefImageOptionsStateInitial value) initial,
+    required TResult Function(RefImageOptionsStateLoaded value) loaded,
     required TResult Function(RefImageOptionsStateOpacityChanged value)
         opacityChanged,
   }) =>
@@ -46,12 +50,14 @@ mixin _$RefImageOptionsState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RefImageOptionsStateInitial value)? initial,
+    TResult? Function(RefImageOptionsStateLoaded value)? loaded,
     TResult? Function(RefImageOptionsStateOpacityChanged value)? opacityChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RefImageOptionsStateInitial value)? initial,
+    TResult Function(RefImageOptionsStateLoaded value)? loaded,
     TResult Function(RefImageOptionsStateOpacityChanged value)? opacityChanged,
     required TResult orElse(),
   }) =>
@@ -72,7 +78,7 @@ abstract class $RefImageOptionsStateCopyWith<$Res> {
   @useResult
   $Res call({RefImageOptions options});
 
-  $RefImageOptionsCopyWith<$Res> get options;
+  $RefImageOptionsCopyWith<$Res>? get options;
 }
 
 /// @nodoc
@@ -95,7 +101,7 @@ class _$RefImageOptionsStateCopyWithImpl<$Res,
   }) {
     return _then(_value.copyWith(
       options: null == options
-          ? _value.options
+          ? _value.options!
           : options // ignore: cast_nullable_to_non_nullable
               as RefImageOptions,
     ) as $Val);
@@ -105,8 +111,12 @@ class _$RefImageOptionsStateCopyWithImpl<$Res,
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $RefImageOptionsCopyWith<$Res> get options {
-    return $RefImageOptionsCopyWith<$Res>(_value.options, (value) {
+  $RefImageOptionsCopyWith<$Res>? get options {
+    if (_value.options == null) {
+      return null;
+    }
+
+    return $RefImageOptionsCopyWith<$Res>(_value.options!, (value) {
       return _then(_value.copyWith(options: value) as $Val);
     });
   }
@@ -121,10 +131,10 @@ abstract class _$$RefImageOptionsStateInitialImplCopyWith<$Res>
       __$$RefImageOptionsStateInitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({RefImageOptions options});
+  $Res call({RefImageOptions? options});
 
   @override
-  $RefImageOptionsCopyWith<$Res> get options;
+  $RefImageOptionsCopyWith<$Res>? get options;
 }
 
 /// @nodoc
@@ -142,13 +152,13 @@ class __$$RefImageOptionsStateInitialImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? options = null,
+    Object? options = freezed,
   }) {
     return _then(_$RefImageOptionsStateInitialImpl(
-      null == options
+      options: freezed == options
           ? _value.options
           : options // ignore: cast_nullable_to_non_nullable
-              as RefImageOptions,
+              as RefImageOptions?,
     ));
   }
 }
@@ -158,10 +168,11 @@ class __$$RefImageOptionsStateInitialImplCopyWithImpl<$Res>
 class _$RefImageOptionsStateInitialImpl
     with DiagnosticableTreeMixin
     implements RefImageOptionsStateInitial {
-  const _$RefImageOptionsStateInitialImpl(this.options);
+  const _$RefImageOptionsStateInitialImpl({this.options = null});
 
   @override
-  final RefImageOptions options;
+  @JsonKey()
+  final RefImageOptions? options;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -199,7 +210,8 @@ class _$RefImageOptionsStateInitialImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(RefImageOptions options) initial,
+    required TResult Function(RefImageOptions? options) initial,
+    required TResult Function(RefImageOptions options) loaded,
     required TResult Function(RefImageOptions options) opacityChanged,
   }) {
     return initial(options);
@@ -208,7 +220,8 @@ class _$RefImageOptionsStateInitialImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RefImageOptions options)? initial,
+    TResult? Function(RefImageOptions? options)? initial,
+    TResult? Function(RefImageOptions options)? loaded,
     TResult? Function(RefImageOptions options)? opacityChanged,
   }) {
     return initial?.call(options);
@@ -217,7 +230,8 @@ class _$RefImageOptionsStateInitialImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RefImageOptions options)? initial,
+    TResult Function(RefImageOptions? options)? initial,
+    TResult Function(RefImageOptions options)? loaded,
     TResult Function(RefImageOptions options)? opacityChanged,
     required TResult orElse(),
   }) {
@@ -231,6 +245,7 @@ class _$RefImageOptionsStateInitialImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(RefImageOptionsStateInitial value) initial,
+    required TResult Function(RefImageOptionsStateLoaded value) loaded,
     required TResult Function(RefImageOptionsStateOpacityChanged value)
         opacityChanged,
   }) {
@@ -241,6 +256,7 @@ class _$RefImageOptionsStateInitialImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RefImageOptionsStateInitial value)? initial,
+    TResult? Function(RefImageOptionsStateLoaded value)? loaded,
     TResult? Function(RefImageOptionsStateOpacityChanged value)? opacityChanged,
   }) {
     return initial?.call(this);
@@ -250,6 +266,7 @@ class _$RefImageOptionsStateInitialImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RefImageOptionsStateInitial value)? initial,
+    TResult Function(RefImageOptionsStateLoaded value)? loaded,
     TResult Function(RefImageOptionsStateOpacityChanged value)? opacityChanged,
     required TResult orElse(),
   }) {
@@ -261,8 +278,187 @@ class _$RefImageOptionsStateInitialImpl
 }
 
 abstract class RefImageOptionsStateInitial implements RefImageOptionsState {
-  const factory RefImageOptionsStateInitial(final RefImageOptions options) =
+  const factory RefImageOptionsStateInitial({final RefImageOptions? options}) =
       _$RefImageOptionsStateInitialImpl;
+
+  @override
+  RefImageOptions? get options;
+
+  /// Create a copy of RefImageOptionsState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RefImageOptionsStateInitialImplCopyWith<_$RefImageOptionsStateInitialImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RefImageOptionsStateLoadedImplCopyWith<$Res>
+    implements $RefImageOptionsStateCopyWith<$Res> {
+  factory _$$RefImageOptionsStateLoadedImplCopyWith(
+          _$RefImageOptionsStateLoadedImpl value,
+          $Res Function(_$RefImageOptionsStateLoadedImpl) then) =
+      __$$RefImageOptionsStateLoadedImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({RefImageOptions options});
+
+  @override
+  $RefImageOptionsCopyWith<$Res> get options;
+}
+
+/// @nodoc
+class __$$RefImageOptionsStateLoadedImplCopyWithImpl<$Res>
+    extends _$RefImageOptionsStateCopyWithImpl<$Res,
+        _$RefImageOptionsStateLoadedImpl>
+    implements _$$RefImageOptionsStateLoadedImplCopyWith<$Res> {
+  __$$RefImageOptionsStateLoadedImplCopyWithImpl(
+      _$RefImageOptionsStateLoadedImpl _value,
+      $Res Function(_$RefImageOptionsStateLoadedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of RefImageOptionsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? options = null,
+  }) {
+    return _then(_$RefImageOptionsStateLoadedImpl(
+      null == options
+          ? _value.options
+          : options // ignore: cast_nullable_to_non_nullable
+              as RefImageOptions,
+    ));
+  }
+
+  /// Create a copy of RefImageOptionsState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $RefImageOptionsCopyWith<$Res> get options {
+    return $RefImageOptionsCopyWith<$Res>(_value.options, (value) {
+      return _then(_value.copyWith(options: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$RefImageOptionsStateLoadedImpl
+    with DiagnosticableTreeMixin
+    implements RefImageOptionsStateLoaded {
+  const _$RefImageOptionsStateLoadedImpl(this.options);
+
+  @override
+  final RefImageOptions options;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'RefImageOptionsState.loaded(options: $options)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'RefImageOptionsState.loaded'))
+      ..add(DiagnosticsProperty('options', options));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RefImageOptionsStateLoadedImpl &&
+            (identical(other.options, options) || other.options == options));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, options);
+
+  /// Create a copy of RefImageOptionsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RefImageOptionsStateLoadedImplCopyWith<_$RefImageOptionsStateLoadedImpl>
+      get copyWith => __$$RefImageOptionsStateLoadedImplCopyWithImpl<
+          _$RefImageOptionsStateLoadedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(RefImageOptions? options) initial,
+    required TResult Function(RefImageOptions options) loaded,
+    required TResult Function(RefImageOptions options) opacityChanged,
+  }) {
+    return loaded(options);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(RefImageOptions? options)? initial,
+    TResult? Function(RefImageOptions options)? loaded,
+    TResult? Function(RefImageOptions options)? opacityChanged,
+  }) {
+    return loaded?.call(options);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(RefImageOptions? options)? initial,
+    TResult Function(RefImageOptions options)? loaded,
+    TResult Function(RefImageOptions options)? opacityChanged,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(options);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(RefImageOptionsStateInitial value) initial,
+    required TResult Function(RefImageOptionsStateLoaded value) loaded,
+    required TResult Function(RefImageOptionsStateOpacityChanged value)
+        opacityChanged,
+  }) {
+    return loaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(RefImageOptionsStateInitial value)? initial,
+    TResult? Function(RefImageOptionsStateLoaded value)? loaded,
+    TResult? Function(RefImageOptionsStateOpacityChanged value)? opacityChanged,
+  }) {
+    return loaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(RefImageOptionsStateInitial value)? initial,
+    TResult Function(RefImageOptionsStateLoaded value)? loaded,
+    TResult Function(RefImageOptionsStateOpacityChanged value)? opacityChanged,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RefImageOptionsStateLoaded implements RefImageOptionsState {
+  const factory RefImageOptionsStateLoaded(final RefImageOptions options) =
+      _$RefImageOptionsStateLoadedImpl;
 
   @override
   RefImageOptions get options;
@@ -271,7 +467,7 @@ abstract class RefImageOptionsStateInitial implements RefImageOptionsState {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RefImageOptionsStateInitialImplCopyWith<_$RefImageOptionsStateInitialImpl>
+  _$$RefImageOptionsStateLoadedImplCopyWith<_$RefImageOptionsStateLoadedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -313,6 +509,16 @@ class __$$RefImageOptionsStateOpacityChangedImplCopyWithImpl<$Res>
           : options // ignore: cast_nullable_to_non_nullable
               as RefImageOptions,
     ));
+  }
+
+  /// Create a copy of RefImageOptionsState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $RefImageOptionsCopyWith<$Res> get options {
+    return $RefImageOptionsCopyWith<$Res>(_value.options, (value) {
+      return _then(_value.copyWith(options: value));
+    });
   }
 }
 
@@ -363,7 +569,8 @@ class _$RefImageOptionsStateOpacityChangedImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(RefImageOptions options) initial,
+    required TResult Function(RefImageOptions? options) initial,
+    required TResult Function(RefImageOptions options) loaded,
     required TResult Function(RefImageOptions options) opacityChanged,
   }) {
     return opacityChanged(options);
@@ -372,7 +579,8 @@ class _$RefImageOptionsStateOpacityChangedImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RefImageOptions options)? initial,
+    TResult? Function(RefImageOptions? options)? initial,
+    TResult? Function(RefImageOptions options)? loaded,
     TResult? Function(RefImageOptions options)? opacityChanged,
   }) {
     return opacityChanged?.call(options);
@@ -381,7 +589,8 @@ class _$RefImageOptionsStateOpacityChangedImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RefImageOptions options)? initial,
+    TResult Function(RefImageOptions? options)? initial,
+    TResult Function(RefImageOptions options)? loaded,
     TResult Function(RefImageOptions options)? opacityChanged,
     required TResult orElse(),
   }) {
@@ -395,6 +604,7 @@ class _$RefImageOptionsStateOpacityChangedImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(RefImageOptionsStateInitial value) initial,
+    required TResult Function(RefImageOptionsStateLoaded value) loaded,
     required TResult Function(RefImageOptionsStateOpacityChanged value)
         opacityChanged,
   }) {
@@ -405,6 +615,7 @@ class _$RefImageOptionsStateOpacityChangedImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RefImageOptionsStateInitial value)? initial,
+    TResult? Function(RefImageOptionsStateLoaded value)? loaded,
     TResult? Function(RefImageOptionsStateOpacityChanged value)? opacityChanged,
   }) {
     return opacityChanged?.call(this);
@@ -414,6 +625,7 @@ class _$RefImageOptionsStateOpacityChangedImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RefImageOptionsStateInitial value)? initial,
+    TResult Function(RefImageOptionsStateLoaded value)? loaded,
     TResult Function(RefImageOptionsStateOpacityChanged value)? opacityChanged,
     required TResult orElse(),
   }) {

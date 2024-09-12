@@ -16,10 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AppearanceState {
-  AppearanceInfo get info => throw _privateConstructorUsedError;
+  AppearanceInfo? get info => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AppearanceInfo info) initial,
+    required TResult Function(AppearanceInfo? info) initial,
+    required TResult Function(AppearanceInfo info) loaded,
     required TResult Function(AppearanceInfo info) themeChanged,
     required TResult Function(AppearanceInfo info) localeChanged,
     required TResult Function(AppearanceInfo info) refImageBorderColorChanged,
@@ -27,7 +28,8 @@ mixin _$AppearanceState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AppearanceInfo info)? initial,
+    TResult? Function(AppearanceInfo? info)? initial,
+    TResult? Function(AppearanceInfo info)? loaded,
     TResult? Function(AppearanceInfo info)? themeChanged,
     TResult? Function(AppearanceInfo info)? localeChanged,
     TResult? Function(AppearanceInfo info)? refImageBorderColorChanged,
@@ -35,7 +37,8 @@ mixin _$AppearanceState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AppearanceInfo info)? initial,
+    TResult Function(AppearanceInfo? info)? initial,
+    TResult Function(AppearanceInfo info)? loaded,
     TResult Function(AppearanceInfo info)? themeChanged,
     TResult Function(AppearanceInfo info)? localeChanged,
     TResult Function(AppearanceInfo info)? refImageBorderColorChanged,
@@ -45,6 +48,7 @@ mixin _$AppearanceState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppearanceStateInitial value) initial,
+    required TResult Function(AppearanceStateLoaded value) loaded,
     required TResult Function(AppearanceStateThemeChanged value) themeChanged,
     required TResult Function(AppearanceStateLocaleChanged value) localeChanged,
     required TResult Function(AppearanceStateRefImageBorderColorChanged value)
@@ -54,6 +58,7 @@ mixin _$AppearanceState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppearanceStateInitial value)? initial,
+    TResult? Function(AppearanceStateLoaded value)? loaded,
     TResult? Function(AppearanceStateThemeChanged value)? themeChanged,
     TResult? Function(AppearanceStateLocaleChanged value)? localeChanged,
     TResult? Function(AppearanceStateRefImageBorderColorChanged value)?
@@ -63,6 +68,7 @@ mixin _$AppearanceState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppearanceStateInitial value)? initial,
+    TResult Function(AppearanceStateLoaded value)? loaded,
     TResult Function(AppearanceStateThemeChanged value)? themeChanged,
     TResult Function(AppearanceStateLocaleChanged value)? localeChanged,
     TResult Function(AppearanceStateRefImageBorderColorChanged value)?
@@ -86,7 +92,7 @@ abstract class $AppearanceStateCopyWith<$Res> {
   @useResult
   $Res call({AppearanceInfo info});
 
-  $AppearanceInfoCopyWith<$Res> get info;
+  $AppearanceInfoCopyWith<$Res>? get info;
 }
 
 /// @nodoc
@@ -108,7 +114,7 @@ class _$AppearanceStateCopyWithImpl<$Res, $Val extends AppearanceState>
   }) {
     return _then(_value.copyWith(
       info: null == info
-          ? _value.info
+          ? _value.info!
           : info // ignore: cast_nullable_to_non_nullable
               as AppearanceInfo,
     ) as $Val);
@@ -118,8 +124,12 @@ class _$AppearanceStateCopyWithImpl<$Res, $Val extends AppearanceState>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $AppearanceInfoCopyWith<$Res> get info {
-    return $AppearanceInfoCopyWith<$Res>(_value.info, (value) {
+  $AppearanceInfoCopyWith<$Res>? get info {
+    if (_value.info == null) {
+      return null;
+    }
+
+    return $AppearanceInfoCopyWith<$Res>(_value.info!, (value) {
       return _then(_value.copyWith(info: value) as $Val);
     });
   }
@@ -134,10 +144,10 @@ abstract class _$$AppearanceStateInitialImplCopyWith<$Res>
       __$$AppearanceStateInitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({AppearanceInfo info});
+  $Res call({AppearanceInfo? info});
 
   @override
-  $AppearanceInfoCopyWith<$Res> get info;
+  $AppearanceInfoCopyWith<$Res>? get info;
 }
 
 /// @nodoc
@@ -154,13 +164,13 @@ class __$$AppearanceStateInitialImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? info = null,
+    Object? info = freezed,
   }) {
     return _then(_$AppearanceStateInitialImpl(
-      null == info
+      info: freezed == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
-              as AppearanceInfo,
+              as AppearanceInfo?,
     ));
   }
 }
@@ -170,10 +180,11 @@ class __$$AppearanceStateInitialImplCopyWithImpl<$Res>
 class _$AppearanceStateInitialImpl
     with DiagnosticableTreeMixin
     implements AppearanceStateInitial {
-  const _$AppearanceStateInitialImpl(this.info);
+  const _$AppearanceStateInitialImpl({this.info = null});
 
   @override
-  final AppearanceInfo info;
+  @JsonKey()
+  final AppearanceInfo? info;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -211,7 +222,8 @@ class _$AppearanceStateInitialImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AppearanceInfo info) initial,
+    required TResult Function(AppearanceInfo? info) initial,
+    required TResult Function(AppearanceInfo info) loaded,
     required TResult Function(AppearanceInfo info) themeChanged,
     required TResult Function(AppearanceInfo info) localeChanged,
     required TResult Function(AppearanceInfo info) refImageBorderColorChanged,
@@ -222,7 +234,8 @@ class _$AppearanceStateInitialImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AppearanceInfo info)? initial,
+    TResult? Function(AppearanceInfo? info)? initial,
+    TResult? Function(AppearanceInfo info)? loaded,
     TResult? Function(AppearanceInfo info)? themeChanged,
     TResult? Function(AppearanceInfo info)? localeChanged,
     TResult? Function(AppearanceInfo info)? refImageBorderColorChanged,
@@ -233,7 +246,8 @@ class _$AppearanceStateInitialImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AppearanceInfo info)? initial,
+    TResult Function(AppearanceInfo? info)? initial,
+    TResult Function(AppearanceInfo info)? loaded,
     TResult Function(AppearanceInfo info)? themeChanged,
     TResult Function(AppearanceInfo info)? localeChanged,
     TResult Function(AppearanceInfo info)? refImageBorderColorChanged,
@@ -249,6 +263,7 @@ class _$AppearanceStateInitialImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppearanceStateInitial value) initial,
+    required TResult Function(AppearanceStateLoaded value) loaded,
     required TResult Function(AppearanceStateThemeChanged value) themeChanged,
     required TResult Function(AppearanceStateLocaleChanged value) localeChanged,
     required TResult Function(AppearanceStateRefImageBorderColorChanged value)
@@ -261,6 +276,7 @@ class _$AppearanceStateInitialImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppearanceStateInitial value)? initial,
+    TResult? Function(AppearanceStateLoaded value)? loaded,
     TResult? Function(AppearanceStateThemeChanged value)? themeChanged,
     TResult? Function(AppearanceStateLocaleChanged value)? localeChanged,
     TResult? Function(AppearanceStateRefImageBorderColorChanged value)?
@@ -273,6 +289,7 @@ class _$AppearanceStateInitialImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppearanceStateInitial value)? initial,
+    TResult Function(AppearanceStateLoaded value)? loaded,
     TResult Function(AppearanceStateThemeChanged value)? themeChanged,
     TResult Function(AppearanceStateLocaleChanged value)? localeChanged,
     TResult Function(AppearanceStateRefImageBorderColorChanged value)?
@@ -287,8 +304,199 @@ class _$AppearanceStateInitialImpl
 }
 
 abstract class AppearanceStateInitial implements AppearanceState {
-  const factory AppearanceStateInitial(final AppearanceInfo info) =
+  const factory AppearanceStateInitial({final AppearanceInfo? info}) =
       _$AppearanceStateInitialImpl;
+
+  @override
+  AppearanceInfo? get info;
+
+  /// Create a copy of AppearanceState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AppearanceStateInitialImplCopyWith<_$AppearanceStateInitialImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AppearanceStateLoadedImplCopyWith<$Res>
+    implements $AppearanceStateCopyWith<$Res> {
+  factory _$$AppearanceStateLoadedImplCopyWith(
+          _$AppearanceStateLoadedImpl value,
+          $Res Function(_$AppearanceStateLoadedImpl) then) =
+      __$$AppearanceStateLoadedImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({AppearanceInfo info});
+
+  @override
+  $AppearanceInfoCopyWith<$Res> get info;
+}
+
+/// @nodoc
+class __$$AppearanceStateLoadedImplCopyWithImpl<$Res>
+    extends _$AppearanceStateCopyWithImpl<$Res, _$AppearanceStateLoadedImpl>
+    implements _$$AppearanceStateLoadedImplCopyWith<$Res> {
+  __$$AppearanceStateLoadedImplCopyWithImpl(_$AppearanceStateLoadedImpl _value,
+      $Res Function(_$AppearanceStateLoadedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AppearanceState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? info = null,
+  }) {
+    return _then(_$AppearanceStateLoadedImpl(
+      null == info
+          ? _value.info
+          : info // ignore: cast_nullable_to_non_nullable
+              as AppearanceInfo,
+    ));
+  }
+
+  /// Create a copy of AppearanceState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AppearanceInfoCopyWith<$Res> get info {
+    return $AppearanceInfoCopyWith<$Res>(_value.info, (value) {
+      return _then(_value.copyWith(info: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$AppearanceStateLoadedImpl
+    with DiagnosticableTreeMixin
+    implements AppearanceStateLoaded {
+  const _$AppearanceStateLoadedImpl(this.info);
+
+  @override
+  final AppearanceInfo info;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AppearanceState.loaded(info: $info)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AppearanceState.loaded'))
+      ..add(DiagnosticsProperty('info', info));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AppearanceStateLoadedImpl &&
+            (identical(other.info, info) || other.info == info));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, info);
+
+  /// Create a copy of AppearanceState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AppearanceStateLoadedImplCopyWith<_$AppearanceStateLoadedImpl>
+      get copyWith => __$$AppearanceStateLoadedImplCopyWithImpl<
+          _$AppearanceStateLoadedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AppearanceInfo? info) initial,
+    required TResult Function(AppearanceInfo info) loaded,
+    required TResult Function(AppearanceInfo info) themeChanged,
+    required TResult Function(AppearanceInfo info) localeChanged,
+    required TResult Function(AppearanceInfo info) refImageBorderColorChanged,
+  }) {
+    return loaded(info);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AppearanceInfo? info)? initial,
+    TResult? Function(AppearanceInfo info)? loaded,
+    TResult? Function(AppearanceInfo info)? themeChanged,
+    TResult? Function(AppearanceInfo info)? localeChanged,
+    TResult? Function(AppearanceInfo info)? refImageBorderColorChanged,
+  }) {
+    return loaded?.call(info);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AppearanceInfo? info)? initial,
+    TResult Function(AppearanceInfo info)? loaded,
+    TResult Function(AppearanceInfo info)? themeChanged,
+    TResult Function(AppearanceInfo info)? localeChanged,
+    TResult Function(AppearanceInfo info)? refImageBorderColorChanged,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(info);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppearanceStateInitial value) initial,
+    required TResult Function(AppearanceStateLoaded value) loaded,
+    required TResult Function(AppearanceStateThemeChanged value) themeChanged,
+    required TResult Function(AppearanceStateLocaleChanged value) localeChanged,
+    required TResult Function(AppearanceStateRefImageBorderColorChanged value)
+        refImageBorderColorChanged,
+  }) {
+    return loaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppearanceStateInitial value)? initial,
+    TResult? Function(AppearanceStateLoaded value)? loaded,
+    TResult? Function(AppearanceStateThemeChanged value)? themeChanged,
+    TResult? Function(AppearanceStateLocaleChanged value)? localeChanged,
+    TResult? Function(AppearanceStateRefImageBorderColorChanged value)?
+        refImageBorderColorChanged,
+  }) {
+    return loaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppearanceStateInitial value)? initial,
+    TResult Function(AppearanceStateLoaded value)? loaded,
+    TResult Function(AppearanceStateThemeChanged value)? themeChanged,
+    TResult Function(AppearanceStateLocaleChanged value)? localeChanged,
+    TResult Function(AppearanceStateRefImageBorderColorChanged value)?
+        refImageBorderColorChanged,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AppearanceStateLoaded implements AppearanceState {
+  const factory AppearanceStateLoaded(final AppearanceInfo info) =
+      _$AppearanceStateLoadedImpl;
 
   @override
   AppearanceInfo get info;
@@ -297,7 +505,7 @@ abstract class AppearanceStateInitial implements AppearanceState {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AppearanceStateInitialImplCopyWith<_$AppearanceStateInitialImpl>
+  _$$AppearanceStateLoadedImplCopyWith<_$AppearanceStateLoadedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -339,6 +547,16 @@ class __$$AppearanceStateThemeChangedImplCopyWithImpl<$Res>
           : info // ignore: cast_nullable_to_non_nullable
               as AppearanceInfo,
     ));
+  }
+
+  /// Create a copy of AppearanceState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AppearanceInfoCopyWith<$Res> get info {
+    return $AppearanceInfoCopyWith<$Res>(_value.info, (value) {
+      return _then(_value.copyWith(info: value));
+    });
   }
 }
 
@@ -388,7 +606,8 @@ class _$AppearanceStateThemeChangedImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AppearanceInfo info) initial,
+    required TResult Function(AppearanceInfo? info) initial,
+    required TResult Function(AppearanceInfo info) loaded,
     required TResult Function(AppearanceInfo info) themeChanged,
     required TResult Function(AppearanceInfo info) localeChanged,
     required TResult Function(AppearanceInfo info) refImageBorderColorChanged,
@@ -399,7 +618,8 @@ class _$AppearanceStateThemeChangedImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AppearanceInfo info)? initial,
+    TResult? Function(AppearanceInfo? info)? initial,
+    TResult? Function(AppearanceInfo info)? loaded,
     TResult? Function(AppearanceInfo info)? themeChanged,
     TResult? Function(AppearanceInfo info)? localeChanged,
     TResult? Function(AppearanceInfo info)? refImageBorderColorChanged,
@@ -410,7 +630,8 @@ class _$AppearanceStateThemeChangedImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AppearanceInfo info)? initial,
+    TResult Function(AppearanceInfo? info)? initial,
+    TResult Function(AppearanceInfo info)? loaded,
     TResult Function(AppearanceInfo info)? themeChanged,
     TResult Function(AppearanceInfo info)? localeChanged,
     TResult Function(AppearanceInfo info)? refImageBorderColorChanged,
@@ -426,6 +647,7 @@ class _$AppearanceStateThemeChangedImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppearanceStateInitial value) initial,
+    required TResult Function(AppearanceStateLoaded value) loaded,
     required TResult Function(AppearanceStateThemeChanged value) themeChanged,
     required TResult Function(AppearanceStateLocaleChanged value) localeChanged,
     required TResult Function(AppearanceStateRefImageBorderColorChanged value)
@@ -438,6 +660,7 @@ class _$AppearanceStateThemeChangedImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppearanceStateInitial value)? initial,
+    TResult? Function(AppearanceStateLoaded value)? loaded,
     TResult? Function(AppearanceStateThemeChanged value)? themeChanged,
     TResult? Function(AppearanceStateLocaleChanged value)? localeChanged,
     TResult? Function(AppearanceStateRefImageBorderColorChanged value)?
@@ -450,6 +673,7 @@ class _$AppearanceStateThemeChangedImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppearanceStateInitial value)? initial,
+    TResult Function(AppearanceStateLoaded value)? loaded,
     TResult Function(AppearanceStateThemeChanged value)? themeChanged,
     TResult Function(AppearanceStateLocaleChanged value)? localeChanged,
     TResult Function(AppearanceStateRefImageBorderColorChanged value)?
@@ -517,6 +741,16 @@ class __$$AppearanceStateLocaleChangedImplCopyWithImpl<$Res>
               as AppearanceInfo,
     ));
   }
+
+  /// Create a copy of AppearanceState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AppearanceInfoCopyWith<$Res> get info {
+    return $AppearanceInfoCopyWith<$Res>(_value.info, (value) {
+      return _then(_value.copyWith(info: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -566,7 +800,8 @@ class _$AppearanceStateLocaleChangedImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AppearanceInfo info) initial,
+    required TResult Function(AppearanceInfo? info) initial,
+    required TResult Function(AppearanceInfo info) loaded,
     required TResult Function(AppearanceInfo info) themeChanged,
     required TResult Function(AppearanceInfo info) localeChanged,
     required TResult Function(AppearanceInfo info) refImageBorderColorChanged,
@@ -577,7 +812,8 @@ class _$AppearanceStateLocaleChangedImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AppearanceInfo info)? initial,
+    TResult? Function(AppearanceInfo? info)? initial,
+    TResult? Function(AppearanceInfo info)? loaded,
     TResult? Function(AppearanceInfo info)? themeChanged,
     TResult? Function(AppearanceInfo info)? localeChanged,
     TResult? Function(AppearanceInfo info)? refImageBorderColorChanged,
@@ -588,7 +824,8 @@ class _$AppearanceStateLocaleChangedImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AppearanceInfo info)? initial,
+    TResult Function(AppearanceInfo? info)? initial,
+    TResult Function(AppearanceInfo info)? loaded,
     TResult Function(AppearanceInfo info)? themeChanged,
     TResult Function(AppearanceInfo info)? localeChanged,
     TResult Function(AppearanceInfo info)? refImageBorderColorChanged,
@@ -604,6 +841,7 @@ class _$AppearanceStateLocaleChangedImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppearanceStateInitial value) initial,
+    required TResult Function(AppearanceStateLoaded value) loaded,
     required TResult Function(AppearanceStateThemeChanged value) themeChanged,
     required TResult Function(AppearanceStateLocaleChanged value) localeChanged,
     required TResult Function(AppearanceStateRefImageBorderColorChanged value)
@@ -616,6 +854,7 @@ class _$AppearanceStateLocaleChangedImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppearanceStateInitial value)? initial,
+    TResult? Function(AppearanceStateLoaded value)? loaded,
     TResult? Function(AppearanceStateThemeChanged value)? themeChanged,
     TResult? Function(AppearanceStateLocaleChanged value)? localeChanged,
     TResult? Function(AppearanceStateRefImageBorderColorChanged value)?
@@ -628,6 +867,7 @@ class _$AppearanceStateLocaleChangedImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppearanceStateInitial value)? initial,
+    TResult Function(AppearanceStateLoaded value)? loaded,
     TResult Function(AppearanceStateThemeChanged value)? themeChanged,
     TResult Function(AppearanceStateLocaleChanged value)? localeChanged,
     TResult Function(AppearanceStateRefImageBorderColorChanged value)?
@@ -696,6 +936,16 @@ class __$$AppearanceStateRefImageBorderColorChangedImplCopyWithImpl<$Res>
               as AppearanceInfo,
     ));
   }
+
+  /// Create a copy of AppearanceState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AppearanceInfoCopyWith<$Res> get info {
+    return $AppearanceInfoCopyWith<$Res>(_value.info, (value) {
+      return _then(_value.copyWith(info: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -748,7 +998,8 @@ class _$AppearanceStateRefImageBorderColorChangedImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AppearanceInfo info) initial,
+    required TResult Function(AppearanceInfo? info) initial,
+    required TResult Function(AppearanceInfo info) loaded,
     required TResult Function(AppearanceInfo info) themeChanged,
     required TResult Function(AppearanceInfo info) localeChanged,
     required TResult Function(AppearanceInfo info) refImageBorderColorChanged,
@@ -759,7 +1010,8 @@ class _$AppearanceStateRefImageBorderColorChangedImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AppearanceInfo info)? initial,
+    TResult? Function(AppearanceInfo? info)? initial,
+    TResult? Function(AppearanceInfo info)? loaded,
     TResult? Function(AppearanceInfo info)? themeChanged,
     TResult? Function(AppearanceInfo info)? localeChanged,
     TResult? Function(AppearanceInfo info)? refImageBorderColorChanged,
@@ -770,7 +1022,8 @@ class _$AppearanceStateRefImageBorderColorChangedImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AppearanceInfo info)? initial,
+    TResult Function(AppearanceInfo? info)? initial,
+    TResult Function(AppearanceInfo info)? loaded,
     TResult Function(AppearanceInfo info)? themeChanged,
     TResult Function(AppearanceInfo info)? localeChanged,
     TResult Function(AppearanceInfo info)? refImageBorderColorChanged,
@@ -786,6 +1039,7 @@ class _$AppearanceStateRefImageBorderColorChangedImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppearanceStateInitial value) initial,
+    required TResult Function(AppearanceStateLoaded value) loaded,
     required TResult Function(AppearanceStateThemeChanged value) themeChanged,
     required TResult Function(AppearanceStateLocaleChanged value) localeChanged,
     required TResult Function(AppearanceStateRefImageBorderColorChanged value)
@@ -798,6 +1052,7 @@ class _$AppearanceStateRefImageBorderColorChangedImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppearanceStateInitial value)? initial,
+    TResult? Function(AppearanceStateLoaded value)? loaded,
     TResult? Function(AppearanceStateThemeChanged value)? themeChanged,
     TResult? Function(AppearanceStateLocaleChanged value)? localeChanged,
     TResult? Function(AppearanceStateRefImageBorderColorChanged value)?
@@ -810,6 +1065,7 @@ class _$AppearanceStateRefImageBorderColorChangedImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppearanceStateInitial value)? initial,
+    TResult Function(AppearanceStateLoaded value)? loaded,
     TResult Function(AppearanceStateThemeChanged value)? themeChanged,
     TResult Function(AppearanceStateLocaleChanged value)? localeChanged,
     TResult Function(AppearanceStateRefImageBorderColorChanged value)?

@@ -16,6 +16,11 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:auto_route/auto_route.dart';
+import 'package:blink_comparison/core/date_time_provider.dart';
+import 'package:blink_comparison/core/encrypt/password_hasher.dart';
+import 'package:blink_comparison/core/encrypt/secure_key_factory.dart';
+import 'package:blink_comparison/core/storage/auth_factor_repository.dart';
+import 'package:blink_comparison/core/storage/password_repository.dart';
 import 'package:blink_comparison/ui/auth/model/auth_state.dart';
 import 'package:blink_comparison/ui/auth/model/sign_up_state.dart';
 import 'package:blink_comparison/ui/components/widget.dart';
@@ -46,11 +51,21 @@ class AuthPage extends StatefulWidget implements AutoRouteWrapper {
   Widget wrappedRoute(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<AuthCubit>.value(
-          value: getIt<AuthCubit>(),
+        BlocProvider(
+          create: (context) => AuthCubit(
+            getIt<PasswordRepository>(),
+            getIt<PasswordHasher>(),
+            getIt<DateTimeProvider>(),
+            getIt<AuthFactorRepository>(),
+            getIt<SecureKeyFactory>(),
+          ),
         ),
-        BlocProvider<SignUpCubit>.value(
-          value: getIt<SignUpCubit>(),
+        BlocProvider(
+          create: (context) => SignUpCubit(
+            getIt<PasswordRepository>(),
+            getIt<AuthFactorRepository>(),
+            getIt<SecureKeyFactory>(),
+          ),
         ),
       ],
       child: this,

@@ -18,9 +18,7 @@
 import 'package:blink_comparison/core/crash_report/crash_report_manager.dart';
 import 'package:blink_comparison/ui/model/error_report_state.dart';
 import 'package:bloc/bloc.dart';
-import 'package:injectable/injectable.dart';
 
-@injectable
 class ErrorReportCubit extends Cubit<ErrorReportState> {
   final CrashReportManager _reportManager;
 

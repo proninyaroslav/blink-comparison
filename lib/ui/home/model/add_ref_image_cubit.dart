@@ -20,9 +20,7 @@ import 'package:blink_comparison/core/storage/ref_image_repository.dart';
 import 'package:blink_comparison/ui/home/model/add_ref_image_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:injectable/injectable.dart';
 
-@injectable
 class AddRefImageCubit extends Cubit<AddRefImageState> {
   final RefImageRepository _refRepo;
 

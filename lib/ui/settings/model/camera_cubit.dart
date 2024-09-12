@@ -18,45 +18,41 @@
 import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/ui/settings/model/camera_state.dart';
 import 'package:bloc/bloc.dart';
-import 'package:injectable/injectable.dart';
 
 import '../../model/app_cubit.dart';
 
-@injectable
 class CameraSettingsCubit extends Cubit<CameraState> {
   final AppSettings _pref;
   final AppCubit _appCubit;
 
-  @FactoryMethod(preResolve: true)
-  static Future<CameraSettingsCubit> init(
-    AppSettings pref,
-    AppCubit appCubit,
-  ) async {
-    return CameraSettingsCubit(
-      pref,
-      appCubit,
+  CameraSettingsCubit(this._pref, this._appCubit)
+      : super(const CameraState.initial());
+
+  Future<void> load() async {
+    emit(CameraState.loaded(
       CameraInfo(
-        enableFlashByDefault: await pref.enableFlashByDefault,
-        fullscreenMode: await pref.cameraFullscreenMode,
+        enableFlashByDefault: await _pref.enableFlashByDefault,
+        fullscreenMode: await _pref.cameraFullscreenMode,
       ),
-    );
+    ));
   }
 
-  CameraSettingsCubit(this._pref, this._appCubit, CameraInfo initialValue)
-      : super(CameraState.initial(initialValue));
-
   Future<void> setEnableFlashByDefault(bool enable) async {
-    await _pref.setEnableFlashByDefault(enable);
-    emit(CameraState.enableFlashChanged(
-      state.info.copyWith(enableFlashByDefault: enable),
-    ));
+    if (state case CameraState(:final info?)) {
+      await _pref.setEnableFlashByDefault(enable);
+      emit(CameraState.enableFlashChanged(
+        info.copyWith(enableFlashByDefault: enable),
+      ));
+    }
   }
 
   Future<void> setFullscreenMode(bool enable) async {
-    await _pref.setCameraFullscreenMode(enable);
-    _appCubit.setCameraFullscreenMode(enable);
-    emit(CameraState.fullscreenModeChanged(
-      state.info.copyWith(fullscreenMode: enable),
-    ));
+    if (state case CameraState(:final info?)) {
+      await _pref.setCameraFullscreenMode(enable);
+      _appCubit.setCameraFullscreenMode(enable);
+      emit(CameraState.fullscreenModeChanged(
+        info.copyWith(fullscreenMode: enable),
+      ));
+    }
   }
 }

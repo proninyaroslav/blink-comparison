@@ -66,7 +66,7 @@ class _OpacityBarState extends State<OpacityBar> {
               buildWhen: (prev, next) =>
                   next is RefImageOptionsStateOpacityChanged,
               builder: (context, state) {
-                final opacity = state.options.opacity;
+                final opacity = state.options!.opacity;
                 return Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,

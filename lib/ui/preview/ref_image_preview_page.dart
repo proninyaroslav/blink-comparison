@@ -16,7 +16,12 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:auto_route/auto_route.dart';
+import 'package:blink_comparison/core/crash_report/crash_report_manager.dart';
+import 'package:blink_comparison/core/settings/app_settings.dart';
+import 'package:blink_comparison/core/storage/ref_image_repository.dart';
+import 'package:blink_comparison/injector.dart';
 import 'package:blink_comparison/ui/camera_picker/components/camera_view.dart';
+import 'package:blink_comparison/ui/camera_picker/model/camera_provider.dart';
 import 'package:blink_comparison/ui/camera_picker/model/camera_provider_cubit.dart';
 import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:blink_comparison/ui/model/error_report_cubit.dart';
@@ -31,7 +36,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showcaseview/showcaseview.dart';
 
-import '../../injector.dart';
 import '../../locale.dart';
 import '../../logger.dart';
 import '../routes/routes.dart';
@@ -54,20 +58,23 @@ class RefImagePreviewPage extends StatelessWidget implements AutoRouteWrapper {
   Widget wrappedRoute(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<RefImageCubit>.value(
-          value: getIt<RefImageCubit>(),
+        BlocProvider(
+          create: (context) => RefImageCubit(getIt<RefImageRepository>()),
         ),
-        BlocProvider<CameraProviderCubit>.value(
-          value: getIt<CameraProviderCubit>(),
+        BlocProvider(
+          create: (context) => CameraProviderCubit(
+            getIt<CameraProvider>(),
+            getIt<AppSettings>(),
+          ),
         ),
-        BlocProvider<ErrorReportCubit>.value(
-          value: getIt<ErrorReportCubit>(),
+        BlocProvider(
+          create: (context) => ErrorReportCubit(getIt<CrashReportManager>()),
         ),
-        BlocProvider<RefImageOptionsCubit>.value(
-          value: getIt<RefImageOptionsCubit>(),
+        BlocProvider(
+          create: (context) => RefImageOptionsCubit(getIt<AppSettings>()),
         ),
-        BlocProvider<ShowcaseCubit>.value(
-          value: getIt<ShowcaseCubit>(),
+        BlocProvider(
+          create: (context) => ShowcaseCubit(getIt<AppSettings>()),
         ),
       ],
       child: this,
@@ -113,8 +120,12 @@ class _BodyState extends State<_Body> {
   void initState() {
     super.initState();
 
-    context.read<RefImageCubit>().load(widget.imageId);
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await Future.wait([
+        context.read<RefImageOptionsCubit>().load(),
+        context.read<RefImageCubit>().load(widget.imageId),
+      ]);
+
       Future.delayed(const Duration(milliseconds: 400), _startShowcase);
     });
   }
@@ -122,7 +133,7 @@ class _BodyState extends State<_Body> {
   void _startShowcase() {
     final completed = context.read<ShowcaseCubit>().state.completed;
     final showcases = [
-      if (!completed.contains(const ShowcaseType.opacity()))
+      if (!(completed?.contains(const ShowcaseType.opacity()) ?? true))
         _opacityShowcaseKey,
     ];
     if (showcases.isNotEmpty) {
@@ -313,7 +324,10 @@ class _ImageViewState extends State<_ImageView>
                 image: widget.image,
                 enableLoadState: true,
                 opacity: _fadeImageAnimation,
-                color: Colors.black.withOpacity(state.options.opacity),
+                color: switch (state.options) {
+                  final options? => Colors.black.withOpacity(options.opacity),
+                  null => null,
+                },
                 colorBlendMode: BlendMode.dstATop,
                 fit: BoxFit.contain,
                 beforePaintImage: (canvas, imageRect, image, paint) {
