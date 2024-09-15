@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -31,7 +31,7 @@ abstract class GenerateThumbnailJob {
 }
 
 @freezed
-class GenerateThumbnailResult with _$GenerateThumbnailResult {
+sealed class GenerateThumbnailResult with _$GenerateThumbnailResult {
   const factory GenerateThumbnailResult.success({
     required Uint8List thumbnail,
   }) = GenerateThumbnailResultSuccess;
@@ -42,7 +42,7 @@ class GenerateThumbnailResult with _$GenerateThumbnailResult {
 }
 
 @freezed
-class GenerateThumbnailError with _$GenerateThumbnailError {
+sealed class GenerateThumbnailError with _$GenerateThumbnailError {
   const factory GenerateThumbnailError.fs(FsError error) =
       GenerateThumbnailErrorFs;
 

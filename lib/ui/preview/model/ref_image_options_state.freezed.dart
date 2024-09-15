@@ -17,51 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$RefImageOptionsState {
   RefImageOptions? get options => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RefImageOptions? options) initial,
-    required TResult Function(RefImageOptions options) loaded,
-    required TResult Function(RefImageOptions options) opacityChanged,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RefImageOptions? options)? initial,
-    TResult? Function(RefImageOptions options)? loaded,
-    TResult? Function(RefImageOptions options)? opacityChanged,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RefImageOptions? options)? initial,
-    TResult Function(RefImageOptions options)? loaded,
-    TResult Function(RefImageOptions options)? opacityChanged,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(RefImageOptionsStateInitial value) initial,
-    required TResult Function(RefImageOptionsStateLoaded value) loaded,
-    required TResult Function(RefImageOptionsStateOpacityChanged value)
-        opacityChanged,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RefImageOptionsStateInitial value)? initial,
-    TResult? Function(RefImageOptionsStateLoaded value)? loaded,
-    TResult? Function(RefImageOptionsStateOpacityChanged value)? opacityChanged,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(RefImageOptionsStateInitial value)? initial,
-    TResult Function(RefImageOptionsStateLoaded value)? loaded,
-    TResult Function(RefImageOptionsStateOpacityChanged value)? opacityChanged,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   /// Create a copy of RefImageOptionsState
   /// with the given fields replaced by the non-null parameter values.
@@ -206,75 +161,6 @@ class _$RefImageOptionsStateInitialImpl
   _$$RefImageOptionsStateInitialImplCopyWith<_$RefImageOptionsStateInitialImpl>
       get copyWith => __$$RefImageOptionsStateInitialImplCopyWithImpl<
           _$RefImageOptionsStateInitialImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RefImageOptions? options) initial,
-    required TResult Function(RefImageOptions options) loaded,
-    required TResult Function(RefImageOptions options) opacityChanged,
-  }) {
-    return initial(options);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RefImageOptions? options)? initial,
-    TResult? Function(RefImageOptions options)? loaded,
-    TResult? Function(RefImageOptions options)? opacityChanged,
-  }) {
-    return initial?.call(options);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RefImageOptions? options)? initial,
-    TResult Function(RefImageOptions options)? loaded,
-    TResult Function(RefImageOptions options)? opacityChanged,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(options);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(RefImageOptionsStateInitial value) initial,
-    required TResult Function(RefImageOptionsStateLoaded value) loaded,
-    required TResult Function(RefImageOptionsStateOpacityChanged value)
-        opacityChanged,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RefImageOptionsStateInitial value)? initial,
-    TResult? Function(RefImageOptionsStateLoaded value)? loaded,
-    TResult? Function(RefImageOptionsStateOpacityChanged value)? opacityChanged,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(RefImageOptionsStateInitial value)? initial,
-    TResult Function(RefImageOptionsStateLoaded value)? loaded,
-    TResult Function(RefImageOptionsStateOpacityChanged value)? opacityChanged,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class RefImageOptionsStateInitial implements RefImageOptionsState {
@@ -385,75 +271,6 @@ class _$RefImageOptionsStateLoadedImpl
   _$$RefImageOptionsStateLoadedImplCopyWith<_$RefImageOptionsStateLoadedImpl>
       get copyWith => __$$RefImageOptionsStateLoadedImplCopyWithImpl<
           _$RefImageOptionsStateLoadedImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RefImageOptions? options) initial,
-    required TResult Function(RefImageOptions options) loaded,
-    required TResult Function(RefImageOptions options) opacityChanged,
-  }) {
-    return loaded(options);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RefImageOptions? options)? initial,
-    TResult? Function(RefImageOptions options)? loaded,
-    TResult? Function(RefImageOptions options)? opacityChanged,
-  }) {
-    return loaded?.call(options);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RefImageOptions? options)? initial,
-    TResult Function(RefImageOptions options)? loaded,
-    TResult Function(RefImageOptions options)? opacityChanged,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(options);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(RefImageOptionsStateInitial value) initial,
-    required TResult Function(RefImageOptionsStateLoaded value) loaded,
-    required TResult Function(RefImageOptionsStateOpacityChanged value)
-        opacityChanged,
-  }) {
-    return loaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RefImageOptionsStateInitial value)? initial,
-    TResult? Function(RefImageOptionsStateLoaded value)? loaded,
-    TResult? Function(RefImageOptionsStateOpacityChanged value)? opacityChanged,
-  }) {
-    return loaded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(RefImageOptionsStateInitial value)? initial,
-    TResult Function(RefImageOptionsStateLoaded value)? loaded,
-    TResult Function(RefImageOptionsStateOpacityChanged value)? opacityChanged,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class RefImageOptionsStateLoaded implements RefImageOptionsState {
@@ -565,75 +382,6 @@ class _$RefImageOptionsStateOpacityChangedImpl
           _$RefImageOptionsStateOpacityChangedImpl>
       get copyWith => __$$RefImageOptionsStateOpacityChangedImplCopyWithImpl<
           _$RefImageOptionsStateOpacityChangedImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RefImageOptions? options) initial,
-    required TResult Function(RefImageOptions options) loaded,
-    required TResult Function(RefImageOptions options) opacityChanged,
-  }) {
-    return opacityChanged(options);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RefImageOptions? options)? initial,
-    TResult? Function(RefImageOptions options)? loaded,
-    TResult? Function(RefImageOptions options)? opacityChanged,
-  }) {
-    return opacityChanged?.call(options);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RefImageOptions? options)? initial,
-    TResult Function(RefImageOptions options)? loaded,
-    TResult Function(RefImageOptions options)? opacityChanged,
-    required TResult orElse(),
-  }) {
-    if (opacityChanged != null) {
-      return opacityChanged(options);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(RefImageOptionsStateInitial value) initial,
-    required TResult Function(RefImageOptionsStateLoaded value) loaded,
-    required TResult Function(RefImageOptionsStateOpacityChanged value)
-        opacityChanged,
-  }) {
-    return opacityChanged(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RefImageOptionsStateInitial value)? initial,
-    TResult? Function(RefImageOptionsStateLoaded value)? loaded,
-    TResult? Function(RefImageOptionsStateOpacityChanged value)? opacityChanged,
-  }) {
-    return opacityChanged?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(RefImageOptionsStateInitial value)? initial,
-    TResult Function(RefImageOptionsStateLoaded value)? loaded,
-    TResult Function(RefImageOptionsStateOpacityChanged value)? opacityChanged,
-    required TResult orElse(),
-  }) {
-    if (opacityChanged != null) {
-      return opacityChanged(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class RefImageOptionsStateOpacityChanged

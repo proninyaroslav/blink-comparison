@@ -17,17 +17,18 @@
 
 import 'package:blink_comparison/ui/comparison/model/blink_comparison_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:injectable/injectable.dart';
 
-@injectable
 class BlinkComparisonCubit extends Cubit<BlinkComparisonState> {
   BlinkComparisonCubit() : super(const BlinkComparisonState.initial());
 
   void switchImage() {
-    emit(state.when(
-      initial: () => const BlinkComparisonState.showTakenPhoto(),
-      showRefImage: () => const BlinkComparisonState.showTakenPhoto(),
-      showTakenPhoto: () => const BlinkComparisonState.showRefImage(),
-    ));
+    final newState = switch (state) {
+      BlinkComparisonStateInitial() ||
+      BlinkComparisonStateShowRefImage() =>
+        const BlinkComparisonState.showTakenPhoto(),
+      BlinkComparisonStateShowTakenPhoto() =>
+        const BlinkComparisonState.showRefImage(),
+    };
+    emit(newState);
   }
 }

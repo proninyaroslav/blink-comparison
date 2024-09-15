@@ -30,46 +30,6 @@ SaveRefImageStatus _$SaveRefImageStatusFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SaveRefImageStatus {
   String get imageId => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String imageId) inProgress,
-    required TResult Function(String imageId, SaveRefImageStatusError? error)
-        completed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String imageId)? inProgress,
-    TResult? Function(String imageId, SaveRefImageStatusError? error)?
-        completed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String imageId)? inProgress,
-    TResult Function(String imageId, SaveRefImageStatusError? error)? completed,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SaveRefImageStatusProgress value) inProgress,
-    required TResult Function(SaveRefImageStatusCompleted value) completed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SaveRefImageStatusProgress value)? inProgress,
-    TResult? Function(SaveRefImageStatusCompleted value)? completed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SaveRefImageStatusProgress value)? inProgress,
-    TResult Function(SaveRefImageStatusCompleted value)? completed,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   /// Serializes this SaveRefImageStatus to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -206,70 +166,6 @@ class _$SaveRefImageStatusProgressImpl
   _$$SaveRefImageStatusProgressImplCopyWith<_$SaveRefImageStatusProgressImpl>
       get copyWith => __$$SaveRefImageStatusProgressImplCopyWithImpl<
           _$SaveRefImageStatusProgressImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String imageId) inProgress,
-    required TResult Function(String imageId, SaveRefImageStatusError? error)
-        completed,
-  }) {
-    return inProgress(imageId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String imageId)? inProgress,
-    TResult? Function(String imageId, SaveRefImageStatusError? error)?
-        completed,
-  }) {
-    return inProgress?.call(imageId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String imageId)? inProgress,
-    TResult Function(String imageId, SaveRefImageStatusError? error)? completed,
-    required TResult orElse(),
-  }) {
-    if (inProgress != null) {
-      return inProgress(imageId);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SaveRefImageStatusProgress value) inProgress,
-    required TResult Function(SaveRefImageStatusCompleted value) completed,
-  }) {
-    return inProgress(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SaveRefImageStatusProgress value)? inProgress,
-    TResult? Function(SaveRefImageStatusCompleted value)? completed,
-  }) {
-    return inProgress?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SaveRefImageStatusProgress value)? inProgress,
-    TResult Function(SaveRefImageStatusCompleted value)? completed,
-    required TResult orElse(),
-  }) {
-    if (inProgress != null) {
-      return inProgress(this);
-    }
-    return orElse();
-  }
 
   @override
   Map<String, dynamic> toJson() {
@@ -414,70 +310,6 @@ class _$SaveRefImageStatusCompletedImpl
           _$SaveRefImageStatusCompletedImpl>(this, _$identity);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String imageId) inProgress,
-    required TResult Function(String imageId, SaveRefImageStatusError? error)
-        completed,
-  }) {
-    return completed(imageId, error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String imageId)? inProgress,
-    TResult? Function(String imageId, SaveRefImageStatusError? error)?
-        completed,
-  }) {
-    return completed?.call(imageId, error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String imageId)? inProgress,
-    TResult Function(String imageId, SaveRefImageStatusError? error)? completed,
-    required TResult orElse(),
-  }) {
-    if (completed != null) {
-      return completed(imageId, error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SaveRefImageStatusProgress value) inProgress,
-    required TResult Function(SaveRefImageStatusCompleted value) completed,
-  }) {
-    return completed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SaveRefImageStatusProgress value)? inProgress,
-    TResult? Function(SaveRefImageStatusCompleted value)? completed,
-  }) {
-    return completed?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SaveRefImageStatusProgress value)? inProgress,
-    TResult Function(SaveRefImageStatusCompleted value)? completed,
-    required TResult orElse(),
-  }) {
-    if (completed != null) {
-      return completed(this);
-    }
-    return orElse();
-  }
-
-  @override
   Map<String, dynamic> toJson() {
     return _$$SaveRefImageStatusCompletedImplToJson(
       this,
@@ -528,55 +360,6 @@ SaveRefImageStatusError _$SaveRefImageStatusErrorFromJson(
 /// @nodoc
 mixin _$SaveRefImageStatusError {
   Object get error => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(SaveRefImageError error) saveImage,
-    required TResult Function(GenerateThumbnailError error) generateThumbnail,
-    required TResult Function(SaveThumbnailError error) saveThumbnail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SaveRefImageError error)? saveImage,
-    TResult? Function(GenerateThumbnailError error)? generateThumbnail,
-    TResult? Function(SaveThumbnailError error)? saveThumbnail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SaveRefImageError error)? saveImage,
-    TResult Function(GenerateThumbnailError error)? generateThumbnail,
-    TResult Function(SaveThumbnailError error)? saveThumbnail,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SaveRefImageStatusErrorSaveImage value) saveImage,
-    required TResult Function(SaveRefImageStatusErrorGenerateThumbnail value)
-        generateThumbnail,
-    required TResult Function(SaveRefImageStatusErrorSaveThumbnail value)
-        saveThumbnail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SaveRefImageStatusErrorSaveImage value)? saveImage,
-    TResult? Function(SaveRefImageStatusErrorGenerateThumbnail value)?
-        generateThumbnail,
-    TResult? Function(SaveRefImageStatusErrorSaveThumbnail value)?
-        saveThumbnail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SaveRefImageStatusErrorSaveImage value)? saveImage,
-    TResult Function(SaveRefImageStatusErrorGenerateThumbnail value)?
-        generateThumbnail,
-    TResult Function(SaveRefImageStatusErrorSaveThumbnail value)? saveThumbnail,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   /// Serializes this SaveRefImageStatusError to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -705,79 +488,6 @@ class _$SaveRefImageStatusErrorSaveImageImpl
           _$SaveRefImageStatusErrorSaveImageImpl>
       get copyWith => __$$SaveRefImageStatusErrorSaveImageImplCopyWithImpl<
           _$SaveRefImageStatusErrorSaveImageImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(SaveRefImageError error) saveImage,
-    required TResult Function(GenerateThumbnailError error) generateThumbnail,
-    required TResult Function(SaveThumbnailError error) saveThumbnail,
-  }) {
-    return saveImage(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SaveRefImageError error)? saveImage,
-    TResult? Function(GenerateThumbnailError error)? generateThumbnail,
-    TResult? Function(SaveThumbnailError error)? saveThumbnail,
-  }) {
-    return saveImage?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SaveRefImageError error)? saveImage,
-    TResult Function(GenerateThumbnailError error)? generateThumbnail,
-    TResult Function(SaveThumbnailError error)? saveThumbnail,
-    required TResult orElse(),
-  }) {
-    if (saveImage != null) {
-      return saveImage(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SaveRefImageStatusErrorSaveImage value) saveImage,
-    required TResult Function(SaveRefImageStatusErrorGenerateThumbnail value)
-        generateThumbnail,
-    required TResult Function(SaveRefImageStatusErrorSaveThumbnail value)
-        saveThumbnail,
-  }) {
-    return saveImage(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SaveRefImageStatusErrorSaveImage value)? saveImage,
-    TResult? Function(SaveRefImageStatusErrorGenerateThumbnail value)?
-        generateThumbnail,
-    TResult? Function(SaveRefImageStatusErrorSaveThumbnail value)?
-        saveThumbnail,
-  }) {
-    return saveImage?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SaveRefImageStatusErrorSaveImage value)? saveImage,
-    TResult Function(SaveRefImageStatusErrorGenerateThumbnail value)?
-        generateThumbnail,
-    TResult Function(SaveRefImageStatusErrorSaveThumbnail value)? saveThumbnail,
-    required TResult orElse(),
-  }) {
-    if (saveImage != null) {
-      return saveImage(this);
-    }
-    return orElse();
-  }
 
   @override
   Map<String, dynamic> toJson() {
@@ -911,79 +621,6 @@ class _$SaveRefImageStatusErrorGenerateThumbnailImpl
               _$SaveRefImageStatusErrorGenerateThumbnailImpl>(this, _$identity);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(SaveRefImageError error) saveImage,
-    required TResult Function(GenerateThumbnailError error) generateThumbnail,
-    required TResult Function(SaveThumbnailError error) saveThumbnail,
-  }) {
-    return generateThumbnail(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SaveRefImageError error)? saveImage,
-    TResult? Function(GenerateThumbnailError error)? generateThumbnail,
-    TResult? Function(SaveThumbnailError error)? saveThumbnail,
-  }) {
-    return generateThumbnail?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SaveRefImageError error)? saveImage,
-    TResult Function(GenerateThumbnailError error)? generateThumbnail,
-    TResult Function(SaveThumbnailError error)? saveThumbnail,
-    required TResult orElse(),
-  }) {
-    if (generateThumbnail != null) {
-      return generateThumbnail(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SaveRefImageStatusErrorSaveImage value) saveImage,
-    required TResult Function(SaveRefImageStatusErrorGenerateThumbnail value)
-        generateThumbnail,
-    required TResult Function(SaveRefImageStatusErrorSaveThumbnail value)
-        saveThumbnail,
-  }) {
-    return generateThumbnail(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SaveRefImageStatusErrorSaveImage value)? saveImage,
-    TResult? Function(SaveRefImageStatusErrorGenerateThumbnail value)?
-        generateThumbnail,
-    TResult? Function(SaveRefImageStatusErrorSaveThumbnail value)?
-        saveThumbnail,
-  }) {
-    return generateThumbnail?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SaveRefImageStatusErrorSaveImage value)? saveImage,
-    TResult Function(SaveRefImageStatusErrorGenerateThumbnail value)?
-        generateThumbnail,
-    TResult Function(SaveRefImageStatusErrorSaveThumbnail value)? saveThumbnail,
-    required TResult orElse(),
-  }) {
-    if (generateThumbnail != null) {
-      return generateThumbnail(this);
-    }
-    return orElse();
-  }
-
-  @override
   Map<String, dynamic> toJson() {
     return _$$SaveRefImageStatusErrorGenerateThumbnailImplToJson(
       this,
@@ -1114,79 +751,6 @@ class _$SaveRefImageStatusErrorSaveThumbnailImpl
           _$SaveRefImageStatusErrorSaveThumbnailImpl>
       get copyWith => __$$SaveRefImageStatusErrorSaveThumbnailImplCopyWithImpl<
           _$SaveRefImageStatusErrorSaveThumbnailImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(SaveRefImageError error) saveImage,
-    required TResult Function(GenerateThumbnailError error) generateThumbnail,
-    required TResult Function(SaveThumbnailError error) saveThumbnail,
-  }) {
-    return saveThumbnail(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SaveRefImageError error)? saveImage,
-    TResult? Function(GenerateThumbnailError error)? generateThumbnail,
-    TResult? Function(SaveThumbnailError error)? saveThumbnail,
-  }) {
-    return saveThumbnail?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SaveRefImageError error)? saveImage,
-    TResult Function(GenerateThumbnailError error)? generateThumbnail,
-    TResult Function(SaveThumbnailError error)? saveThumbnail,
-    required TResult orElse(),
-  }) {
-    if (saveThumbnail != null) {
-      return saveThumbnail(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SaveRefImageStatusErrorSaveImage value) saveImage,
-    required TResult Function(SaveRefImageStatusErrorGenerateThumbnail value)
-        generateThumbnail,
-    required TResult Function(SaveRefImageStatusErrorSaveThumbnail value)
-        saveThumbnail,
-  }) {
-    return saveThumbnail(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SaveRefImageStatusErrorSaveImage value)? saveImage,
-    TResult? Function(SaveRefImageStatusErrorGenerateThumbnail value)?
-        generateThumbnail,
-    TResult? Function(SaveRefImageStatusErrorSaveThumbnail value)?
-        saveThumbnail,
-  }) {
-    return saveThumbnail?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SaveRefImageStatusErrorSaveImage value)? saveImage,
-    TResult Function(SaveRefImageStatusErrorGenerateThumbnail value)?
-        generateThumbnail,
-    TResult Function(SaveRefImageStatusErrorSaveThumbnail value)? saveThumbnail,
-    required TResult orElse(),
-  }) {
-    if (saveThumbnail != null) {
-      return saveThumbnail(this);
-    }
-    return orElse();
-  }
 
   @override
   Map<String, dynamic> toJson() {

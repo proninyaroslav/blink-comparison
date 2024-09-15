@@ -15,46 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$GenerateThumbnailResult {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Uint8List thumbnail) success,
-    required TResult Function(GenerateThumbnailError error) fail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Uint8List thumbnail)? success,
-    TResult? Function(GenerateThumbnailError error)? fail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Uint8List thumbnail)? success,
-    TResult Function(GenerateThumbnailError error)? fail,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GenerateThumbnailResultSuccess value) success,
-    required TResult Function(GenerateThumbnailResultFail value) fail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GenerateThumbnailResultSuccess value)? success,
-    TResult? Function(GenerateThumbnailResultFail value)? fail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GenerateThumbnailResultSuccess value)? success,
-    TResult Function(GenerateThumbnailResultFail value)? fail,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$GenerateThumbnailResult {}
 
 /// @nodoc
 abstract class $GenerateThumbnailResultCopyWith<$Res> {
@@ -149,68 +110,6 @@ class _$GenerateThumbnailResultSuccessImpl
           _$GenerateThumbnailResultSuccessImpl>
       get copyWith => __$$GenerateThumbnailResultSuccessImplCopyWithImpl<
           _$GenerateThumbnailResultSuccessImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Uint8List thumbnail) success,
-    required TResult Function(GenerateThumbnailError error) fail,
-  }) {
-    return success(thumbnail);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Uint8List thumbnail)? success,
-    TResult? Function(GenerateThumbnailError error)? fail,
-  }) {
-    return success?.call(thumbnail);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Uint8List thumbnail)? success,
-    TResult Function(GenerateThumbnailError error)? fail,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(thumbnail);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GenerateThumbnailResultSuccess value) success,
-    required TResult Function(GenerateThumbnailResultFail value) fail,
-  }) {
-    return success(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GenerateThumbnailResultSuccess value)? success,
-    TResult? Function(GenerateThumbnailResultFail value)? fail,
-  }) {
-    return success?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GenerateThumbnailResultSuccess value)? success,
-    TResult Function(GenerateThumbnailResultFail value)? fail,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class GenerateThumbnailResultSuccess
@@ -309,68 +208,6 @@ class _$GenerateThumbnailResultFailImpl implements GenerateThumbnailResultFail {
   _$$GenerateThumbnailResultFailImplCopyWith<_$GenerateThumbnailResultFailImpl>
       get copyWith => __$$GenerateThumbnailResultFailImplCopyWithImpl<
           _$GenerateThumbnailResultFailImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Uint8List thumbnail) success,
-    required TResult Function(GenerateThumbnailError error) fail,
-  }) {
-    return fail(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Uint8List thumbnail)? success,
-    TResult? Function(GenerateThumbnailError error)? fail,
-  }) {
-    return fail?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Uint8List thumbnail)? success,
-    TResult Function(GenerateThumbnailError error)? fail,
-    required TResult orElse(),
-  }) {
-    if (fail != null) {
-      return fail(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GenerateThumbnailResultSuccess value) success,
-    required TResult Function(GenerateThumbnailResultFail value) fail,
-  }) {
-    return fail(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GenerateThumbnailResultSuccess value)? success,
-    TResult? Function(GenerateThumbnailResultFail value)? fail,
-  }) {
-    return fail?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GenerateThumbnailResultSuccess value)? success,
-    TResult Function(GenerateThumbnailResultFail value)? fail,
-    required TResult orElse(),
-  }) {
-    if (fail != null) {
-      return fail(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class GenerateThumbnailResultFail implements GenerateThumbnailResult {
@@ -407,55 +244,6 @@ GenerateThumbnailError _$GenerateThumbnailErrorFromJson(
 
 /// @nodoc
 mixin _$GenerateThumbnailError {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(FsError error) fs,
-    required TResult Function(String path) fileNotFound,
-    required TResult Function(String path) unsupportedFormat,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(FsError error)? fs,
-    TResult? Function(String path)? fileNotFound,
-    TResult? Function(String path)? unsupportedFormat,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(FsError error)? fs,
-    TResult Function(String path)? fileNotFound,
-    TResult Function(String path)? unsupportedFormat,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GenerateThumbnailErrorFs value) fs,
-    required TResult Function(GenerateThumbnailErrorFileNotFound value)
-        fileNotFound,
-    required TResult Function(GenerateThumbnailErrorUnsupportedFormat value)
-        unsupportedFormat,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GenerateThumbnailErrorFs value)? fs,
-    TResult? Function(GenerateThumbnailErrorFileNotFound value)? fileNotFound,
-    TResult? Function(GenerateThumbnailErrorUnsupportedFormat value)?
-        unsupportedFormat,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GenerateThumbnailErrorFs value)? fs,
-    TResult Function(GenerateThumbnailErrorFileNotFound value)? fileNotFound,
-    TResult Function(GenerateThumbnailErrorUnsupportedFormat value)?
-        unsupportedFormat,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-
   /// Serializes this GenerateThumbnailError to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
@@ -572,78 +360,6 @@ class _$GenerateThumbnailErrorFsImpl implements GenerateThumbnailErrorFs {
           _$GenerateThumbnailErrorFsImpl>(this, _$identity);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(FsError error) fs,
-    required TResult Function(String path) fileNotFound,
-    required TResult Function(String path) unsupportedFormat,
-  }) {
-    return fs(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(FsError error)? fs,
-    TResult? Function(String path)? fileNotFound,
-    TResult? Function(String path)? unsupportedFormat,
-  }) {
-    return fs?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(FsError error)? fs,
-    TResult Function(String path)? fileNotFound,
-    TResult Function(String path)? unsupportedFormat,
-    required TResult orElse(),
-  }) {
-    if (fs != null) {
-      return fs(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GenerateThumbnailErrorFs value) fs,
-    required TResult Function(GenerateThumbnailErrorFileNotFound value)
-        fileNotFound,
-    required TResult Function(GenerateThumbnailErrorUnsupportedFormat value)
-        unsupportedFormat,
-  }) {
-    return fs(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GenerateThumbnailErrorFs value)? fs,
-    TResult? Function(GenerateThumbnailErrorFileNotFound value)? fileNotFound,
-    TResult? Function(GenerateThumbnailErrorUnsupportedFormat value)?
-        unsupportedFormat,
-  }) {
-    return fs?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GenerateThumbnailErrorFs value)? fs,
-    TResult Function(GenerateThumbnailErrorFileNotFound value)? fileNotFound,
-    TResult Function(GenerateThumbnailErrorUnsupportedFormat value)?
-        unsupportedFormat,
-    required TResult orElse(),
-  }) {
-    if (fs != null) {
-      return fs(this);
-    }
-    return orElse();
-  }
-
-  @override
   Map<String, dynamic> toJson() {
     return _$$GenerateThumbnailErrorFsImplToJson(
       this,
@@ -747,78 +463,6 @@ class _$GenerateThumbnailErrorFileNotFoundImpl
           _$GenerateThumbnailErrorFileNotFoundImpl>
       get copyWith => __$$GenerateThumbnailErrorFileNotFoundImplCopyWithImpl<
           _$GenerateThumbnailErrorFileNotFoundImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(FsError error) fs,
-    required TResult Function(String path) fileNotFound,
-    required TResult Function(String path) unsupportedFormat,
-  }) {
-    return fileNotFound(path);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(FsError error)? fs,
-    TResult? Function(String path)? fileNotFound,
-    TResult? Function(String path)? unsupportedFormat,
-  }) {
-    return fileNotFound?.call(path);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(FsError error)? fs,
-    TResult Function(String path)? fileNotFound,
-    TResult Function(String path)? unsupportedFormat,
-    required TResult orElse(),
-  }) {
-    if (fileNotFound != null) {
-      return fileNotFound(path);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GenerateThumbnailErrorFs value) fs,
-    required TResult Function(GenerateThumbnailErrorFileNotFound value)
-        fileNotFound,
-    required TResult Function(GenerateThumbnailErrorUnsupportedFormat value)
-        unsupportedFormat,
-  }) {
-    return fileNotFound(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GenerateThumbnailErrorFs value)? fs,
-    TResult? Function(GenerateThumbnailErrorFileNotFound value)? fileNotFound,
-    TResult? Function(GenerateThumbnailErrorUnsupportedFormat value)?
-        unsupportedFormat,
-  }) {
-    return fileNotFound?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GenerateThumbnailErrorFs value)? fs,
-    TResult Function(GenerateThumbnailErrorFileNotFound value)? fileNotFound,
-    TResult Function(GenerateThumbnailErrorUnsupportedFormat value)?
-        unsupportedFormat,
-    required TResult orElse(),
-  }) {
-    if (fileNotFound != null) {
-      return fileNotFound(this);
-    }
-    return orElse();
-  }
 
   @override
   Map<String, dynamic> toJson() {
@@ -928,78 +572,6 @@ class _$GenerateThumbnailErrorUnsupportedFormatImpl
       get copyWith =>
           __$$GenerateThumbnailErrorUnsupportedFormatImplCopyWithImpl<
               _$GenerateThumbnailErrorUnsupportedFormatImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(FsError error) fs,
-    required TResult Function(String path) fileNotFound,
-    required TResult Function(String path) unsupportedFormat,
-  }) {
-    return unsupportedFormat(path);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(FsError error)? fs,
-    TResult? Function(String path)? fileNotFound,
-    TResult? Function(String path)? unsupportedFormat,
-  }) {
-    return unsupportedFormat?.call(path);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(FsError error)? fs,
-    TResult Function(String path)? fileNotFound,
-    TResult Function(String path)? unsupportedFormat,
-    required TResult orElse(),
-  }) {
-    if (unsupportedFormat != null) {
-      return unsupportedFormat(path);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GenerateThumbnailErrorFs value) fs,
-    required TResult Function(GenerateThumbnailErrorFileNotFound value)
-        fileNotFound,
-    required TResult Function(GenerateThumbnailErrorUnsupportedFormat value)
-        unsupportedFormat,
-  }) {
-    return unsupportedFormat(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GenerateThumbnailErrorFs value)? fs,
-    TResult? Function(GenerateThumbnailErrorFileNotFound value)? fileNotFound,
-    TResult? Function(GenerateThumbnailErrorUnsupportedFormat value)?
-        unsupportedFormat,
-  }) {
-    return unsupportedFormat?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GenerateThumbnailErrorFs value)? fs,
-    TResult Function(GenerateThumbnailErrorFileNotFound value)? fileNotFound,
-    TResult Function(GenerateThumbnailErrorUnsupportedFormat value)?
-        unsupportedFormat,
-    required TResult orElse(),
-  }) {
-    if (unsupportedFormat != null) {
-      return unsupportedFormat(this);
-    }
-    return orElse();
-  }
 
   @override
   Map<String, dynamic> toJson() {

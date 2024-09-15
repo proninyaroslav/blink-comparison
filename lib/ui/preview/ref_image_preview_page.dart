@@ -17,6 +17,8 @@
 
 import 'package:auto_route/auto_route.dart';
 import 'package:blink_comparison/core/crash_report/crash_report_manager.dart';
+import 'package:blink_comparison/core/encrypt/encrypt_module.dart';
+import 'package:blink_comparison/core/fs/fs_result.dart';
 import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/core/storage/ref_image_repository.dart';
 import 'package:blink_comparison/injector.dart';
@@ -145,30 +147,38 @@ class _BodyState extends State<_Body> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        BlocBuilder<RefImageCubit, RefImageState>(
-          builder: (context, state) {
-            return state.when(
-              initial: () => const Center(
-                child: CircularProgressIndicator(),
-              ),
-              loading: () => const _DecodeImageProgress(),
-              loaded: (image) {
+        BlocConsumer<RefImageCubit, RefImageState>(
+          listenWhen: (prev, next) =>
+              next is RefImageStateLoaded || next is RefImageStateLoadFailed,
+          listener: (context, state) {
+            switch (state) {
+              case RefImageStateLoaded(:final image):
                 _refImage = ExtendedMemoryImageProvider(image.bytes);
-                return CameraView(
+              case RefImageStateLoadFailed(:final error):
+                _printError(error);
+              case _:
+                break;
+            }
+          },
+          builder: (context, state) {
+            return switch (state) {
+              RefImageStateInitial() => const Center(
+                  child: CircularProgressIndicator(),
+                ),
+              RefImageStateLoading() => const _DecodeImageProgress(),
+              RefImageStateLoaded(:final image) => CameraView(
                   overlayChild: _ImageView(
-                    image: _refImage!,
+                    image: ExtendedMemoryImageProvider(image.bytes),
                     onImageLoaded: (info) {
                       _refImageSize = getImageSize(info);
                     },
                   ),
                   showConfirmationDialog: false,
                   onTakePhoto: _onTakePhoto,
-                );
-              },
-              loadFailed: (error) => _LoadRefImageError(
-                error: error,
-              ),
-            );
+                ),
+              RefImageStateLoadFailed(:final error) =>
+                _LoadRefImageError(error: error),
+            };
           },
         ),
         const Positioned(
@@ -184,6 +194,39 @@ class _BodyState extends State<_Body> {
         ),
       ],
     );
+  }
+
+  void _printError(LoadRefImageError error) {
+    switch (error) {
+      case LoadRefImageErrorStorage(:final exception, :final stackTrace):
+        log().e(
+          "Unable to load reference image",
+          error: exception,
+          stackTrace: stackTrace,
+        );
+      case LoadRefImageErrorFs(:final error):
+        switch (error) {
+          case FsErrorIO(:final exception, :final stackTrace):
+            log().e(
+              "Unable to load reference image: I/O error",
+              error: exception,
+              stackTrace: stackTrace,
+            );
+        }
+      case LoadRefImageErrorDecrypt(:final error):
+        switch (error) {
+          case DecryptErrorException(:final error, :final stackTrace):
+            log().e(
+              "Unable to decrypt reference image",
+              error: error,
+              stackTrace: stackTrace,
+            );
+          case _:
+            break;
+        }
+      case _:
+        break;
+    }
   }
 
   void _onTakePhoto(XFile file) {
@@ -387,72 +430,7 @@ class _LoadRefImageError extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    late String errorMsg;
-    _ErrorReportButton? reportButton;
-    if (error == null) {
-      errorMsg = S.of(context).loadReferenceImageFailed;
-    } else {
-      error!.when(
-        notFound: () {
-          errorMsg = S.of(context).referenceImageNotFound;
-        },
-        database: (e, stackTrace) {
-          log().e(
-            "Unable to load reference image",
-            error: e,
-            stackTrace: stackTrace,
-          );
-          errorMsg = S.of(context).loadReferenceImageFailed;
-          if (e != null) {
-            reportButton = _ErrorReportButton(
-              error: e,
-              stackTrace: stackTrace,
-              reportMsg: 'Unable to load reference image',
-            );
-          }
-        },
-        fs: (e) => e.when(
-          io: (e, stackTrace) {
-            log().e(
-              "Unable to load reference image: I/O error",
-              error: e,
-              stackTrace: stackTrace,
-            );
-            errorMsg = S.of(context).loadReferenceImageFailedIO;
-            if (e != null) {
-              reportButton = _ErrorReportButton(
-                error: e,
-                stackTrace: stackTrace,
-                reportMsg: 'Unable to load reference image: I/O error',
-              );
-            }
-          },
-        ),
-        noSecureKey: () {
-          errorMsg = S.of(context).decryptReferenceImageNoEncryptKey;
-        },
-        decrypt: (e) => e.when(
-          exception: (e, stackTrace) {
-            log().e(
-              "Unable to decrypt reference image",
-              error: e,
-              stackTrace: stackTrace,
-            );
-            errorMsg = S.of(context).decryptReferenceImageFailed;
-            if (e != null) {
-              reportButton = _ErrorReportButton(
-                error: e,
-                stackTrace: stackTrace,
-                reportMsg: 'Unable to decrypt reference image',
-              );
-            }
-          },
-          noSecureKey: () {
-            errorMsg = S.of(context).decryptReferenceImageInvalidKey;
-          },
-        ),
-      );
-    }
+    final (errorMsg, reportButton) = _mapError(context);
     final theme = Theme.of(context);
     return Center(
       child: Padding(
@@ -478,12 +456,67 @@ class _LoadRefImageError extends StatelessWidget {
               const SizedBox(
                 height: 16.0,
               ),
-              reportButton!,
+              reportButton,
             ],
           ],
         ),
       ),
     );
+  }
+
+  (String, _ErrorReportButton?) _mapError(BuildContext context) {
+    return switch (error) {
+      null => (S.of(context).loadReferenceImageFailed, null),
+      LoadRefImageErrorNotFound() => (
+          S.of(context).referenceImageNotFound,
+          null
+        ),
+      LoadRefImageErrorStorage(:final exception?, :final stackTrace) => (
+          S.of(context).loadReferenceImageFailed,
+          _ErrorReportButton(
+            error: exception,
+            stackTrace: stackTrace,
+            reportMsg: 'Unable to load reference image',
+          )
+        ),
+      LoadRefImageErrorStorage() => (
+          S.of(context).loadReferenceImageFailed,
+          null
+        ),
+      LoadRefImageErrorFs(:final error) => switch (error) {
+          FsErrorIO(:final exception?, :final stackTrace) => (
+              S.of(context).loadReferenceImageFailedIO,
+              _ErrorReportButton(
+                error: exception,
+                stackTrace: stackTrace,
+                reportMsg: 'Unable to load reference image: I/O error',
+              )
+            ),
+          FsErrorIO() => (S.of(context).loadReferenceImageFailedIO, null),
+        },
+      LoadRefImageErrorNoSecureKey() => (
+          S.of(context).decryptReferenceImageInvalidKey,
+          null
+        ),
+      LoadRefImageErrorDecrypt(:final error) => switch (error) {
+          DecryptErrorException(:final error?, :final stackTrace) => (
+              S.of(context).decryptReferenceImageFailed,
+              _ErrorReportButton(
+                error: error,
+                stackTrace: stackTrace,
+                reportMsg: 'Unable to decrypt reference image',
+              )
+            ),
+          DecryptErrorException() => (
+              S.of(context).decryptReferenceImageFailed,
+              null
+            ),
+          DecryptErrorNoSecureKey() => (
+              S.of(context).decryptReferenceImageNoEncryptKey,
+              null
+            ),
+        }
+    };
   }
 }
 

@@ -23,8 +23,10 @@ import 'package:blink_comparison/core/date_time_provider.dart';
 import 'package:blink_comparison/core/encrypt/password_hasher.dart';
 import 'package:blink_comparison/core/encrypt/secure_key_factory.dart';
 import 'package:blink_comparison/core/entity/entity.dart';
+import 'package:blink_comparison/core/fs/fs_result.dart';
 import 'package:blink_comparison/core/storage/auth_factor_repository.dart';
 import 'package:blink_comparison/core/storage/password_repository.dart';
+import 'package:blink_comparison/core/storage/storage_result.dart';
 import 'package:blink_comparison/core/utils.dart';
 import 'package:blink_comparison/ui/auth/model/auth_state.dart';
 import 'package:bloc/bloc.dart';
@@ -49,43 +51,38 @@ class AuthCubit extends Cubit<AuthState> {
 
   Future<void> loadPassword() async {
     final res = await _passwordRepo.getByType(const PasswordType.encryptKey());
-    res.when(
-      (info) {
-        emit(
-          info == null
-              ? const AuthState.noPassword()
-              : AuthState.passwordLoaded(info: info),
-        );
-      },
-      error: (e) => e.when(
-        database: (e, stackTrace) {
-          emit(
+    final newState = switch (res) {
+      StorageResultValue(:final value?) =>
+        AuthState.passwordLoaded(info: value),
+      StorageResultValue() => const AuthState.noPassword(),
+      StorageResultError(:final error) => switch (error) {
+          StorageErrorDatabase(:final exception, :final stackTrace) =>
             AuthState.loadPasswordFailed(
-              exception: e,
+              exception: exception,
               stackTrace: stackTrace,
             ),
-          );
-        },
-        fs: (e) => e.when(io: (e, stackTrace) {
-          emit(
-            AuthState.loadPasswordFailed(
-              exception: e,
-              stackTrace: stackTrace,
-            ),
-          );
-        }),
-      ),
-    );
+          StorageErrorFs(:final error) => switch (error) {
+              FsErrorIO(:final exception, :final stackTrace) =>
+                AuthState.loadPasswordFailed(
+                  exception: exception,
+                  stackTrace: stackTrace,
+                ),
+            }
+        }
+    };
+    emit(newState);
   }
 
   Future<void> auth(String password) async {
-    await state.maybeWhen(
-      passwordLoaded: (info) => _auth(password, info),
-      authInProgress: (info) {},
-      authSuccess: (info) {},
-      authFailed: (info, reason) => _auth(password, info),
-      orElse: () async => emit(const AuthState.passwordNotLoaded()),
-    );
+    switch (state) {
+      case AuthStatePasswordLoaded(:final info) ||
+            AuthStateAuthFailed(:final info):
+        await _auth(password, info);
+      case AuthStateAuthInProgress() || AuthStateAuthSuccess():
+        break;
+      case _:
+        emit(const AuthState.passwordNotLoaded());
+    }
   }
 
   Future<void> _auth(String password, PasswordInfo info) async {

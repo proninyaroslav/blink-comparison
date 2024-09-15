@@ -31,51 +31,6 @@ AppThemeType _$AppThemeTypeFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AppThemeType {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() light,
-    required TResult Function() dark,
-    required TResult Function() system,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? light,
-    TResult? Function()? dark,
-    TResult? Function()? system,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? light,
-    TResult Function()? dark,
-    TResult Function()? system,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AppThemeTypeLight value) light,
-    required TResult Function(AppThemeTypeDark value) dark,
-    required TResult Function(AppThemeTypeSystem value) system,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AppThemeTypeLight value)? light,
-    TResult? Function(AppThemeTypeDark value)? dark,
-    TResult? Function(AppThemeTypeSystem value)? system,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AppThemeTypeLight value)? light,
-    TResult Function(AppThemeTypeDark value)? dark,
-    TResult Function(AppThemeTypeSystem value)? system,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-
   /// Serializes this AppThemeType to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
@@ -148,74 +103,6 @@ class _$AppThemeTypeLightImpl implements AppThemeTypeLight {
   int get hashCode => runtimeType.hashCode;
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() light,
-    required TResult Function() dark,
-    required TResult Function() system,
-  }) {
-    return light();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? light,
-    TResult? Function()? dark,
-    TResult? Function()? system,
-  }) {
-    return light?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? light,
-    TResult Function()? dark,
-    TResult Function()? system,
-    required TResult orElse(),
-  }) {
-    if (light != null) {
-      return light();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AppThemeTypeLight value) light,
-    required TResult Function(AppThemeTypeDark value) dark,
-    required TResult Function(AppThemeTypeSystem value) system,
-  }) {
-    return light(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AppThemeTypeLight value)? light,
-    TResult? Function(AppThemeTypeDark value)? dark,
-    TResult? Function(AppThemeTypeSystem value)? system,
-  }) {
-    return light?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AppThemeTypeLight value)? light,
-    TResult Function(AppThemeTypeDark value)? dark,
-    TResult Function(AppThemeTypeSystem value)? system,
-    required TResult orElse(),
-  }) {
-    if (light != null) {
-      return light(this);
-    }
-    return orElse();
-  }
-
-  @override
   Map<String, dynamic> toJson() {
     return _$$AppThemeTypeLightImplToJson(
       this,
@@ -274,74 +161,6 @@ class _$AppThemeTypeDarkImpl implements AppThemeTypeDark {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() light,
-    required TResult Function() dark,
-    required TResult Function() system,
-  }) {
-    return dark();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? light,
-    TResult? Function()? dark,
-    TResult? Function()? system,
-  }) {
-    return dark?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? light,
-    TResult Function()? dark,
-    TResult Function()? system,
-    required TResult orElse(),
-  }) {
-    if (dark != null) {
-      return dark();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AppThemeTypeLight value) light,
-    required TResult Function(AppThemeTypeDark value) dark,
-    required TResult Function(AppThemeTypeSystem value) system,
-  }) {
-    return dark(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AppThemeTypeLight value)? light,
-    TResult? Function(AppThemeTypeDark value)? dark,
-    TResult? Function(AppThemeTypeSystem value)? system,
-  }) {
-    return dark?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AppThemeTypeLight value)? light,
-    TResult Function(AppThemeTypeDark value)? dark,
-    TResult Function(AppThemeTypeSystem value)? system,
-    required TResult orElse(),
-  }) {
-    if (dark != null) {
-      return dark(this);
-    }
-    return orElse();
-  }
 
   @override
   Map<String, dynamic> toJson() {
@@ -405,74 +224,6 @@ class _$AppThemeTypeSystemImpl implements AppThemeTypeSystem {
   int get hashCode => runtimeType.hashCode;
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() light,
-    required TResult Function() dark,
-    required TResult Function() system,
-  }) {
-    return system();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? light,
-    TResult? Function()? dark,
-    TResult? Function()? system,
-  }) {
-    return system?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? light,
-    TResult Function()? dark,
-    TResult Function()? system,
-    required TResult orElse(),
-  }) {
-    if (system != null) {
-      return system();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AppThemeTypeLight value) light,
-    required TResult Function(AppThemeTypeDark value) dark,
-    required TResult Function(AppThemeTypeSystem value) system,
-  }) {
-    return system(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AppThemeTypeLight value)? light,
-    TResult? Function(AppThemeTypeDark value)? dark,
-    TResult? Function(AppThemeTypeSystem value)? system,
-  }) {
-    return system?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AppThemeTypeLight value)? light,
-    TResult Function(AppThemeTypeDark value)? dark,
-    TResult Function(AppThemeTypeSystem value)? system,
-    required TResult orElse(),
-  }) {
-    if (system != null) {
-      return system(this);
-    }
-    return orElse();
-  }
-
-  @override
   Map<String, dynamic> toJson() {
     return _$$AppThemeTypeSystemImplToJson(
       this,
@@ -502,45 +253,6 @@ AppLocaleType _$AppLocaleTypeFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AppLocaleType {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() system,
-    required TResult Function(@LocaleConverter() Locale locale) inner,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? system,
-    TResult? Function(@LocaleConverter() Locale locale)? inner,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? system,
-    TResult Function(@LocaleConverter() Locale locale)? inner,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AppLocaleTypeSystem value) system,
-    required TResult Function(AppLocaleTypeInner value) inner,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AppLocaleTypeSystem value)? system,
-    TResult? Function(AppLocaleTypeInner value)? inner,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AppLocaleTypeSystem value)? system,
-    TResult Function(AppLocaleTypeInner value)? inner,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-
   /// Serializes this AppLocaleType to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
@@ -612,68 +324,6 @@ class _$AppLocaleTypeSystemImpl implements AppLocaleTypeSystem {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() system,
-    required TResult Function(@LocaleConverter() Locale locale) inner,
-  }) {
-    return system();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? system,
-    TResult? Function(@LocaleConverter() Locale locale)? inner,
-  }) {
-    return system?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? system,
-    TResult Function(@LocaleConverter() Locale locale)? inner,
-    required TResult orElse(),
-  }) {
-    if (system != null) {
-      return system();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AppLocaleTypeSystem value) system,
-    required TResult Function(AppLocaleTypeInner value) inner,
-  }) {
-    return system(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AppLocaleTypeSystem value)? system,
-    TResult? Function(AppLocaleTypeInner value)? inner,
-  }) {
-    return system?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AppLocaleTypeSystem value)? system,
-    TResult Function(AppLocaleTypeInner value)? inner,
-    required TResult orElse(),
-  }) {
-    if (system != null) {
-      return system(this);
-    }
-    return orElse();
-  }
 
   @override
   Map<String, dynamic> toJson() {
@@ -767,68 +417,6 @@ class _$AppLocaleTypeInnerImpl implements AppLocaleTypeInner {
           this, _$identity);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() system,
-    required TResult Function(@LocaleConverter() Locale locale) inner,
-  }) {
-    return inner(locale);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? system,
-    TResult? Function(@LocaleConverter() Locale locale)? inner,
-  }) {
-    return inner?.call(locale);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? system,
-    TResult Function(@LocaleConverter() Locale locale)? inner,
-    required TResult orElse(),
-  }) {
-    if (inner != null) {
-      return inner(locale);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AppLocaleTypeSystem value) system,
-    required TResult Function(AppLocaleTypeInner value) inner,
-  }) {
-    return inner(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AppLocaleTypeSystem value)? system,
-    TResult? Function(AppLocaleTypeInner value)? inner,
-  }) {
-    return inner?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AppLocaleTypeSystem value)? system,
-    TResult Function(AppLocaleTypeInner value)? inner,
-    required TResult orElse(),
-  }) {
-    if (inner != null) {
-      return inner(this);
-    }
-    return orElse();
-  }
-
-  @override
   Map<String, dynamic> toJson() {
     return _$$AppLocaleTypeInnerImplToJson(
       this,
@@ -871,52 +459,6 @@ ShowcaseType _$ShowcaseTypeFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ShowcaseType {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() opacity,
-    required TResult Function() refImageBorder,
-    required TResult Function() blinkComparison,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? opacity,
-    TResult? Function()? refImageBorder,
-    TResult? Function()? blinkComparison,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? opacity,
-    TResult Function()? refImageBorder,
-    TResult Function()? blinkComparison,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ShowcaseTypeOpacity value) opacity,
-    required TResult Function(ShowcaseTypeRefImageBorder value) refImageBorder,
-    required TResult Function(ShowcaseTypeBlinkComparison value)
-        blinkComparison,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ShowcaseTypeOpacity value)? opacity,
-    TResult? Function(ShowcaseTypeRefImageBorder value)? refImageBorder,
-    TResult? Function(ShowcaseTypeBlinkComparison value)? blinkComparison,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ShowcaseTypeOpacity value)? opacity,
-    TResult Function(ShowcaseTypeRefImageBorder value)? refImageBorder,
-    TResult Function(ShowcaseTypeBlinkComparison value)? blinkComparison,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-
   /// Serializes this ShowcaseType to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
@@ -990,75 +532,6 @@ class _$ShowcaseTypeOpacityImpl implements ShowcaseTypeOpacity {
   int get hashCode => runtimeType.hashCode;
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() opacity,
-    required TResult Function() refImageBorder,
-    required TResult Function() blinkComparison,
-  }) {
-    return opacity();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? opacity,
-    TResult? Function()? refImageBorder,
-    TResult? Function()? blinkComparison,
-  }) {
-    return opacity?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? opacity,
-    TResult Function()? refImageBorder,
-    TResult Function()? blinkComparison,
-    required TResult orElse(),
-  }) {
-    if (opacity != null) {
-      return opacity();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ShowcaseTypeOpacity value) opacity,
-    required TResult Function(ShowcaseTypeRefImageBorder value) refImageBorder,
-    required TResult Function(ShowcaseTypeBlinkComparison value)
-        blinkComparison,
-  }) {
-    return opacity(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ShowcaseTypeOpacity value)? opacity,
-    TResult? Function(ShowcaseTypeRefImageBorder value)? refImageBorder,
-    TResult? Function(ShowcaseTypeBlinkComparison value)? blinkComparison,
-  }) {
-    return opacity?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ShowcaseTypeOpacity value)? opacity,
-    TResult Function(ShowcaseTypeRefImageBorder value)? refImageBorder,
-    TResult Function(ShowcaseTypeBlinkComparison value)? blinkComparison,
-    required TResult orElse(),
-  }) {
-    if (opacity != null) {
-      return opacity(this);
-    }
-    return orElse();
-  }
-
-  @override
   Map<String, dynamic> toJson() {
     return _$$ShowcaseTypeOpacityImplToJson(
       this,
@@ -1124,75 +597,6 @@ class _$ShowcaseTypeRefImageBorderImpl implements ShowcaseTypeRefImageBorder {
   int get hashCode => runtimeType.hashCode;
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() opacity,
-    required TResult Function() refImageBorder,
-    required TResult Function() blinkComparison,
-  }) {
-    return refImageBorder();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? opacity,
-    TResult? Function()? refImageBorder,
-    TResult? Function()? blinkComparison,
-  }) {
-    return refImageBorder?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? opacity,
-    TResult Function()? refImageBorder,
-    TResult Function()? blinkComparison,
-    required TResult orElse(),
-  }) {
-    if (refImageBorder != null) {
-      return refImageBorder();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ShowcaseTypeOpacity value) opacity,
-    required TResult Function(ShowcaseTypeRefImageBorder value) refImageBorder,
-    required TResult Function(ShowcaseTypeBlinkComparison value)
-        blinkComparison,
-  }) {
-    return refImageBorder(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ShowcaseTypeOpacity value)? opacity,
-    TResult? Function(ShowcaseTypeRefImageBorder value)? refImageBorder,
-    TResult? Function(ShowcaseTypeBlinkComparison value)? blinkComparison,
-  }) {
-    return refImageBorder?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ShowcaseTypeOpacity value)? opacity,
-    TResult Function(ShowcaseTypeRefImageBorder value)? refImageBorder,
-    TResult Function(ShowcaseTypeBlinkComparison value)? blinkComparison,
-    required TResult orElse(),
-  }) {
-    if (refImageBorder != null) {
-      return refImageBorder(this);
-    }
-    return orElse();
-  }
-
-  @override
   Map<String, dynamic> toJson() {
     return _$$ShowcaseTypeRefImageBorderImplToJson(
       this,
@@ -1256,75 +660,6 @@ class _$ShowcaseTypeBlinkComparisonImpl implements ShowcaseTypeBlinkComparison {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() opacity,
-    required TResult Function() refImageBorder,
-    required TResult Function() blinkComparison,
-  }) {
-    return blinkComparison();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? opacity,
-    TResult? Function()? refImageBorder,
-    TResult? Function()? blinkComparison,
-  }) {
-    return blinkComparison?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? opacity,
-    TResult Function()? refImageBorder,
-    TResult Function()? blinkComparison,
-    required TResult orElse(),
-  }) {
-    if (blinkComparison != null) {
-      return blinkComparison();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ShowcaseTypeOpacity value) opacity,
-    required TResult Function(ShowcaseTypeRefImageBorder value) refImageBorder,
-    required TResult Function(ShowcaseTypeBlinkComparison value)
-        blinkComparison,
-  }) {
-    return blinkComparison(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ShowcaseTypeOpacity value)? opacity,
-    TResult? Function(ShowcaseTypeRefImageBorder value)? refImageBorder,
-    TResult? Function(ShowcaseTypeBlinkComparison value)? blinkComparison,
-  }) {
-    return blinkComparison?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ShowcaseTypeOpacity value)? opacity,
-    TResult Function(ShowcaseTypeRefImageBorder value)? refImageBorder,
-    TResult Function(ShowcaseTypeBlinkComparison value)? blinkComparison,
-    required TResult orElse(),
-  }) {
-    if (blinkComparison != null) {
-      return blinkComparison(this);
-    }
-    return orElse();
-  }
 
   @override
   Map<String, dynamic> toJson() {

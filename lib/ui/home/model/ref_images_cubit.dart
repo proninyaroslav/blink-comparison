@@ -41,20 +41,24 @@ class RefImagesCubit extends Cubit<RefImagesState> {
   Future<void> observeRefImages() async {
     final group = StreamGroup.mergeBroadcast([
       _imageRepo.observeAllInfo().asyncMap(
-            (res) => res.when(
-              (list) => _buildEntries(infoList: list),
-              error: (e) async => _BuildResult.failed(error: e),
-            ),
+            (res) => switch (res) {
+              StorageResultValue(:final value) =>
+                _buildEntries(infoList: value),
+              StorageResultError(:final error) =>
+                Future.value(_BuildResult.failed(error: error)),
+            },
           ),
       _imageStatusRepo.observeAllSaveStatus().asyncMap(
             (list) => _buildEntries(statusList: list),
           ),
     ]);
     await for (final res in group) {
-      res.when(
-        (entries) => emit(RefImagesState.loaded(entries: entries)),
-        failed: (e) => emit(RefImagesState.loadingFailed(error: e)),
-      );
+      switch (res) {
+        case _BuildResultData(:final entries):
+          emit(RefImagesState.loaded(entries: entries));
+        case _BuildResultFailed(:final error):
+          emit(RefImagesState.loadingFailed(error: error));
+      }
 
       if (res is _BuildResultFailed) {
         break;
@@ -69,10 +73,10 @@ class RefImagesCubit extends Cubit<RefImagesState> {
     try {
       final List<RefImageInfo> infoList0 = infoList ??
           await _imageRepo.getAllInfo().then(
-                (res) => res.when(
-                  (value) => value,
-                  error: (e) => throw e,
-                ),
+                (res) => switch (res) {
+                  StorageResultValue(:final value) => value,
+                  StorageResultError(:final error) => throw error,
+                },
               );
 
       final List<SaveRefImageStatus> statusList0 =
@@ -90,10 +94,10 @@ class RefImagesCubit extends Cubit<RefImagesState> {
         entries.add(
           RefImageEntry(
             info: info,
-            thumbnail: res.when(
-              (value) => value,
-              error: (e) => throw e,
-            ),
+            thumbnail: switch (res) {
+              StorageResultValue(:final value) => value,
+              StorageResultError(:final error) => throw error,
+            },
             status: statusMap[info.id],
           ),
         );
@@ -106,7 +110,7 @@ class RefImagesCubit extends Cubit<RefImagesState> {
 }
 
 @freezed
-class _BuildResult with _$BuildResult {
+sealed class _BuildResult with _$BuildResult {
   const factory _BuildResult({
     required List<RefImageEntry> entries,
   }) = _BuildResultData;

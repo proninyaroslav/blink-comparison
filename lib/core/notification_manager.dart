@@ -18,6 +18,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:blink_comparison/core/fs/fs_result.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -50,7 +51,7 @@ abstract class NotificationManager {
 }
 
 @freezed
-class NotificationAction with _$NotificationAction {
+sealed class NotificationAction with _$NotificationAction {
   const factory NotificationAction.reportCrash({
     required CrashInfo info,
   }) = NotificationActionReportCrash;
@@ -204,12 +205,12 @@ class NotificationManagerImpl implements NotificationManager {
     final defaultChannel = _AndroidChannel.defaultChan(locale);
 
     final title = '⛔ ${locale.saveImageError}';
-    final body = error.map(
-      fs: (value) => value.error.map(
-        io: (_) => locale.ioError,
-      ),
-      encrypt: (_) => locale.encryptionError,
-    );
+    final body = switch (error) {
+      SaveRefImageErrorFs(:final error) => switch (error) {
+          FsErrorIO() => locale.ioError,
+        },
+      SaveRefImageErrorEncrypt() => locale.encryptionError,
+    };
     final androidDetails = AndroidNotificationDetails(
       defaultChannel.id,
       defaultChannel.name,

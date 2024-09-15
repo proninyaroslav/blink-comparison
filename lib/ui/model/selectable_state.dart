@@ -22,7 +22,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'selectable_state.freezed.dart';
 
 @freezed
-class SelectableState<T> with _$SelectableState<T> {
+sealed class SelectableState<T> with _$SelectableState<T> {
   const factory SelectableState.initial() = SelectableStateInitial;
 
   const factory SelectableState.noSelection() = SelectableStateNoSelection;

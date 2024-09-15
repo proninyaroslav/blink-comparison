@@ -212,119 +212,7 @@ abstract class _AppInfo implements AppInfo {
 }
 
 /// @nodoc
-mixin _$DeviceInfo {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() unknown,
-    required TResult Function(
-            String? systemVersion,
-            List<String?> supportedAbis,
-            String? brand,
-            String? device,
-            String? model,
-            String? hardware,
-            String? product)
-        android,
-    required TResult Function(String? deviceName, String? deviceModel,
-            String? systemName, String? systemVersion)
-        iOS,
-    required TResult Function(
-            String osName, String kernelVersion, String? osVersion)
-        linux,
-    required TResult Function(String osVersion) windows,
-    required TResult Function(
-            String arch, String kernelVersion, String osVersion, String model)
-        macOS,
-    required TResult Function(
-            String browserName, String? platform, String? vendor)
-        web,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? unknown,
-    TResult? Function(
-            String? systemVersion,
-            List<String?> supportedAbis,
-            String? brand,
-            String? device,
-            String? model,
-            String? hardware,
-            String? product)?
-        android,
-    TResult? Function(String? deviceName, String? deviceModel,
-            String? systemName, String? systemVersion)?
-        iOS,
-    TResult? Function(String osName, String kernelVersion, String? osVersion)?
-        linux,
-    TResult? Function(String osVersion)? windows,
-    TResult? Function(
-            String arch, String kernelVersion, String osVersion, String model)?
-        macOS,
-    TResult? Function(String browserName, String? platform, String? vendor)?
-        web,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? unknown,
-    TResult Function(
-            String? systemVersion,
-            List<String?> supportedAbis,
-            String? brand,
-            String? device,
-            String? model,
-            String? hardware,
-            String? product)?
-        android,
-    TResult Function(String? deviceName, String? deviceModel,
-            String? systemName, String? systemVersion)?
-        iOS,
-    TResult Function(String osName, String kernelVersion, String? osVersion)?
-        linux,
-    TResult Function(String osVersion)? windows,
-    TResult Function(
-            String arch, String kernelVersion, String osVersion, String model)?
-        macOS,
-    TResult Function(String browserName, String? platform, String? vendor)? web,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UnknownDeviceInfo value) unknown,
-    required TResult Function(AndroidDeviceInfo value) android,
-    required TResult Function(IOSDeviceInfo value) iOS,
-    required TResult Function(LinuxDeviceInfo value) linux,
-    required TResult Function(WindowsDeviceInfo value) windows,
-    required TResult Function(MacOSDeviceInfo value) macOS,
-    required TResult Function(WebDeviceInfo value) web,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UnknownDeviceInfo value)? unknown,
-    TResult? Function(AndroidDeviceInfo value)? android,
-    TResult? Function(IOSDeviceInfo value)? iOS,
-    TResult? Function(LinuxDeviceInfo value)? linux,
-    TResult? Function(WindowsDeviceInfo value)? windows,
-    TResult? Function(MacOSDeviceInfo value)? macOS,
-    TResult? Function(WebDeviceInfo value)? web,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UnknownDeviceInfo value)? unknown,
-    TResult Function(AndroidDeviceInfo value)? android,
-    TResult Function(IOSDeviceInfo value)? iOS,
-    TResult Function(LinuxDeviceInfo value)? linux,
-    TResult Function(WindowsDeviceInfo value)? windows,
-    TResult Function(MacOSDeviceInfo value)? macOS,
-    TResult Function(WebDeviceInfo value)? web,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$DeviceInfo {}
 
 /// @nodoc
 abstract class $DeviceInfoCopyWith<$Res> {
@@ -348,18 +236,18 @@ class _$DeviceInfoCopyWithImpl<$Res, $Val extends DeviceInfo>
 }
 
 /// @nodoc
-abstract class _$$UnknownDeviceInfoImplCopyWith<$Res> {
-  factory _$$UnknownDeviceInfoImplCopyWith(_$UnknownDeviceInfoImpl value,
-          $Res Function(_$UnknownDeviceInfoImpl) then) =
-      __$$UnknownDeviceInfoImplCopyWithImpl<$Res>;
+abstract class _$$DeviceInfoUnknownImplCopyWith<$Res> {
+  factory _$$DeviceInfoUnknownImplCopyWith(_$DeviceInfoUnknownImpl value,
+          $Res Function(_$DeviceInfoUnknownImpl) then) =
+      __$$DeviceInfoUnknownImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$UnknownDeviceInfoImplCopyWithImpl<$Res>
-    extends _$DeviceInfoCopyWithImpl<$Res, _$UnknownDeviceInfoImpl>
-    implements _$$UnknownDeviceInfoImplCopyWith<$Res> {
-  __$$UnknownDeviceInfoImplCopyWithImpl(_$UnknownDeviceInfoImpl _value,
-      $Res Function(_$UnknownDeviceInfoImpl) _then)
+class __$$DeviceInfoUnknownImplCopyWithImpl<$Res>
+    extends _$DeviceInfoCopyWithImpl<$Res, _$DeviceInfoUnknownImpl>
+    implements _$$DeviceInfoUnknownImplCopyWith<$Res> {
+  __$$DeviceInfoUnknownImplCopyWithImpl(_$DeviceInfoUnknownImpl _value,
+      $Res Function(_$DeviceInfoUnknownImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of DeviceInfo
@@ -368,10 +256,10 @@ class __$$UnknownDeviceInfoImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UnknownDeviceInfoImpl
+class _$DeviceInfoUnknownImpl
     with DiagnosticableTreeMixin
-    implements UnknownDeviceInfo {
-  const _$UnknownDeviceInfoImpl();
+    implements DeviceInfoUnknown {
+  const _$DeviceInfoUnknownImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -387,157 +275,22 @@ class _$UnknownDeviceInfoImpl
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UnknownDeviceInfoImpl);
+        (other.runtimeType == runtimeType && other is _$DeviceInfoUnknownImpl);
   }
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() unknown,
-    required TResult Function(
-            String? systemVersion,
-            List<String?> supportedAbis,
-            String? brand,
-            String? device,
-            String? model,
-            String? hardware,
-            String? product)
-        android,
-    required TResult Function(String? deviceName, String? deviceModel,
-            String? systemName, String? systemVersion)
-        iOS,
-    required TResult Function(
-            String osName, String kernelVersion, String? osVersion)
-        linux,
-    required TResult Function(String osVersion) windows,
-    required TResult Function(
-            String arch, String kernelVersion, String osVersion, String model)
-        macOS,
-    required TResult Function(
-            String browserName, String? platform, String? vendor)
-        web,
-  }) {
-    return unknown();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? unknown,
-    TResult? Function(
-            String? systemVersion,
-            List<String?> supportedAbis,
-            String? brand,
-            String? device,
-            String? model,
-            String? hardware,
-            String? product)?
-        android,
-    TResult? Function(String? deviceName, String? deviceModel,
-            String? systemName, String? systemVersion)?
-        iOS,
-    TResult? Function(String osName, String kernelVersion, String? osVersion)?
-        linux,
-    TResult? Function(String osVersion)? windows,
-    TResult? Function(
-            String arch, String kernelVersion, String osVersion, String model)?
-        macOS,
-    TResult? Function(String browserName, String? platform, String? vendor)?
-        web,
-  }) {
-    return unknown?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? unknown,
-    TResult Function(
-            String? systemVersion,
-            List<String?> supportedAbis,
-            String? brand,
-            String? device,
-            String? model,
-            String? hardware,
-            String? product)?
-        android,
-    TResult Function(String? deviceName, String? deviceModel,
-            String? systemName, String? systemVersion)?
-        iOS,
-    TResult Function(String osName, String kernelVersion, String? osVersion)?
-        linux,
-    TResult Function(String osVersion)? windows,
-    TResult Function(
-            String arch, String kernelVersion, String osVersion, String model)?
-        macOS,
-    TResult Function(String browserName, String? platform, String? vendor)? web,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UnknownDeviceInfo value) unknown,
-    required TResult Function(AndroidDeviceInfo value) android,
-    required TResult Function(IOSDeviceInfo value) iOS,
-    required TResult Function(LinuxDeviceInfo value) linux,
-    required TResult Function(WindowsDeviceInfo value) windows,
-    required TResult Function(MacOSDeviceInfo value) macOS,
-    required TResult Function(WebDeviceInfo value) web,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UnknownDeviceInfo value)? unknown,
-    TResult? Function(AndroidDeviceInfo value)? android,
-    TResult? Function(IOSDeviceInfo value)? iOS,
-    TResult? Function(LinuxDeviceInfo value)? linux,
-    TResult? Function(WindowsDeviceInfo value)? windows,
-    TResult? Function(MacOSDeviceInfo value)? macOS,
-    TResult? Function(WebDeviceInfo value)? web,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UnknownDeviceInfo value)? unknown,
-    TResult Function(AndroidDeviceInfo value)? android,
-    TResult Function(IOSDeviceInfo value)? iOS,
-    TResult Function(LinuxDeviceInfo value)? linux,
-    TResult Function(WindowsDeviceInfo value)? windows,
-    TResult Function(MacOSDeviceInfo value)? macOS,
-    TResult Function(WebDeviceInfo value)? web,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
-  }
 }
 
-abstract class UnknownDeviceInfo implements DeviceInfo {
-  const factory UnknownDeviceInfo() = _$UnknownDeviceInfoImpl;
+abstract class DeviceInfoUnknown implements DeviceInfo {
+  const factory DeviceInfoUnknown() = _$DeviceInfoUnknownImpl;
 }
 
 /// @nodoc
-abstract class _$$AndroidDeviceInfoImplCopyWith<$Res> {
-  factory _$$AndroidDeviceInfoImplCopyWith(_$AndroidDeviceInfoImpl value,
-          $Res Function(_$AndroidDeviceInfoImpl) then) =
-      __$$AndroidDeviceInfoImplCopyWithImpl<$Res>;
+abstract class _$$DeviceInfoAndroidImplCopyWith<$Res> {
+  factory _$$DeviceInfoAndroidImplCopyWith(_$DeviceInfoAndroidImpl value,
+          $Res Function(_$DeviceInfoAndroidImpl) then) =
+      __$$DeviceInfoAndroidImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {String? systemVersion,
@@ -550,11 +303,11 @@ abstract class _$$AndroidDeviceInfoImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$AndroidDeviceInfoImplCopyWithImpl<$Res>
-    extends _$DeviceInfoCopyWithImpl<$Res, _$AndroidDeviceInfoImpl>
-    implements _$$AndroidDeviceInfoImplCopyWith<$Res> {
-  __$$AndroidDeviceInfoImplCopyWithImpl(_$AndroidDeviceInfoImpl _value,
-      $Res Function(_$AndroidDeviceInfoImpl) _then)
+class __$$DeviceInfoAndroidImplCopyWithImpl<$Res>
+    extends _$DeviceInfoCopyWithImpl<$Res, _$DeviceInfoAndroidImpl>
+    implements _$$DeviceInfoAndroidImplCopyWith<$Res> {
+  __$$DeviceInfoAndroidImplCopyWithImpl(_$DeviceInfoAndroidImpl _value,
+      $Res Function(_$DeviceInfoAndroidImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of DeviceInfo
@@ -570,7 +323,7 @@ class __$$AndroidDeviceInfoImplCopyWithImpl<$Res>
     Object? hardware = freezed,
     Object? product = freezed,
   }) {
-    return _then(_$AndroidDeviceInfoImpl(
+    return _then(_$DeviceInfoAndroidImpl(
       systemVersion: freezed == systemVersion
           ? _value.systemVersion
           : systemVersion // ignore: cast_nullable_to_non_nullable
@@ -605,10 +358,10 @@ class __$$AndroidDeviceInfoImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AndroidDeviceInfoImpl
+class _$DeviceInfoAndroidImpl
     with DiagnosticableTreeMixin
-    implements AndroidDeviceInfo {
-  const _$AndroidDeviceInfoImpl(
+    implements DeviceInfoAndroid {
+  const _$DeviceInfoAndroidImpl(
       {this.systemVersion,
       final List<String?> supportedAbis = const [],
       this.brand,
@@ -677,7 +430,7 @@ class _$AndroidDeviceInfoImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AndroidDeviceInfoImpl &&
+            other is _$DeviceInfoAndroidImpl &&
             (identical(other.systemVersion, systemVersion) ||
                 other.systemVersion == systemVersion) &&
             const DeepCollectionEquality()
@@ -706,158 +459,20 @@ class _$AndroidDeviceInfoImpl
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$AndroidDeviceInfoImplCopyWith<_$AndroidDeviceInfoImpl> get copyWith =>
-      __$$AndroidDeviceInfoImplCopyWithImpl<_$AndroidDeviceInfoImpl>(
+  _$$DeviceInfoAndroidImplCopyWith<_$DeviceInfoAndroidImpl> get copyWith =>
+      __$$DeviceInfoAndroidImplCopyWithImpl<_$DeviceInfoAndroidImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() unknown,
-    required TResult Function(
-            String? systemVersion,
-            List<String?> supportedAbis,
-            String? brand,
-            String? device,
-            String? model,
-            String? hardware,
-            String? product)
-        android,
-    required TResult Function(String? deviceName, String? deviceModel,
-            String? systemName, String? systemVersion)
-        iOS,
-    required TResult Function(
-            String osName, String kernelVersion, String? osVersion)
-        linux,
-    required TResult Function(String osVersion) windows,
-    required TResult Function(
-            String arch, String kernelVersion, String osVersion, String model)
-        macOS,
-    required TResult Function(
-            String browserName, String? platform, String? vendor)
-        web,
-  }) {
-    return android(
-        systemVersion, supportedAbis, brand, device, model, hardware, product);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? unknown,
-    TResult? Function(
-            String? systemVersion,
-            List<String?> supportedAbis,
-            String? brand,
-            String? device,
-            String? model,
-            String? hardware,
-            String? product)?
-        android,
-    TResult? Function(String? deviceName, String? deviceModel,
-            String? systemName, String? systemVersion)?
-        iOS,
-    TResult? Function(String osName, String kernelVersion, String? osVersion)?
-        linux,
-    TResult? Function(String osVersion)? windows,
-    TResult? Function(
-            String arch, String kernelVersion, String osVersion, String model)?
-        macOS,
-    TResult? Function(String browserName, String? platform, String? vendor)?
-        web,
-  }) {
-    return android?.call(
-        systemVersion, supportedAbis, brand, device, model, hardware, product);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? unknown,
-    TResult Function(
-            String? systemVersion,
-            List<String?> supportedAbis,
-            String? brand,
-            String? device,
-            String? model,
-            String? hardware,
-            String? product)?
-        android,
-    TResult Function(String? deviceName, String? deviceModel,
-            String? systemName, String? systemVersion)?
-        iOS,
-    TResult Function(String osName, String kernelVersion, String? osVersion)?
-        linux,
-    TResult Function(String osVersion)? windows,
-    TResult Function(
-            String arch, String kernelVersion, String osVersion, String model)?
-        macOS,
-    TResult Function(String browserName, String? platform, String? vendor)? web,
-    required TResult orElse(),
-  }) {
-    if (android != null) {
-      return android(systemVersion, supportedAbis, brand, device, model,
-          hardware, product);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UnknownDeviceInfo value) unknown,
-    required TResult Function(AndroidDeviceInfo value) android,
-    required TResult Function(IOSDeviceInfo value) iOS,
-    required TResult Function(LinuxDeviceInfo value) linux,
-    required TResult Function(WindowsDeviceInfo value) windows,
-    required TResult Function(MacOSDeviceInfo value) macOS,
-    required TResult Function(WebDeviceInfo value) web,
-  }) {
-    return android(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UnknownDeviceInfo value)? unknown,
-    TResult? Function(AndroidDeviceInfo value)? android,
-    TResult? Function(IOSDeviceInfo value)? iOS,
-    TResult? Function(LinuxDeviceInfo value)? linux,
-    TResult? Function(WindowsDeviceInfo value)? windows,
-    TResult? Function(MacOSDeviceInfo value)? macOS,
-    TResult? Function(WebDeviceInfo value)? web,
-  }) {
-    return android?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UnknownDeviceInfo value)? unknown,
-    TResult Function(AndroidDeviceInfo value)? android,
-    TResult Function(IOSDeviceInfo value)? iOS,
-    TResult Function(LinuxDeviceInfo value)? linux,
-    TResult Function(WindowsDeviceInfo value)? windows,
-    TResult Function(MacOSDeviceInfo value)? macOS,
-    TResult Function(WebDeviceInfo value)? web,
-    required TResult orElse(),
-  }) {
-    if (android != null) {
-      return android(this);
-    }
-    return orElse();
-  }
 }
 
-abstract class AndroidDeviceInfo implements DeviceInfo {
-  const factory AndroidDeviceInfo(
+abstract class DeviceInfoAndroid implements DeviceInfo {
+  const factory DeviceInfoAndroid(
       {final String? systemVersion,
       final List<String?> supportedAbis,
       final String? brand,
       final String? device,
       final String? model,
       final String? hardware,
-      final String? product}) = _$AndroidDeviceInfoImpl;
+      final String? product}) = _$DeviceInfoAndroidImpl;
 
   String? get systemVersion;
 
@@ -883,15 +498,15 @@ abstract class AndroidDeviceInfo implements DeviceInfo {
   /// Create a copy of DeviceInfo
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AndroidDeviceInfoImplCopyWith<_$AndroidDeviceInfoImpl> get copyWith =>
+  _$$DeviceInfoAndroidImplCopyWith<_$DeviceInfoAndroidImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$IOSDeviceInfoImplCopyWith<$Res> {
-  factory _$$IOSDeviceInfoImplCopyWith(
-          _$IOSDeviceInfoImpl value, $Res Function(_$IOSDeviceInfoImpl) then) =
-      __$$IOSDeviceInfoImplCopyWithImpl<$Res>;
+abstract class _$$DeviceInfoIOSImplCopyWith<$Res> {
+  factory _$$DeviceInfoIOSImplCopyWith(
+          _$DeviceInfoIOSImpl value, $Res Function(_$DeviceInfoIOSImpl) then) =
+      __$$DeviceInfoIOSImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {String? deviceName,
@@ -901,11 +516,11 @@ abstract class _$$IOSDeviceInfoImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$IOSDeviceInfoImplCopyWithImpl<$Res>
-    extends _$DeviceInfoCopyWithImpl<$Res, _$IOSDeviceInfoImpl>
-    implements _$$IOSDeviceInfoImplCopyWith<$Res> {
-  __$$IOSDeviceInfoImplCopyWithImpl(
-      _$IOSDeviceInfoImpl _value, $Res Function(_$IOSDeviceInfoImpl) _then)
+class __$$DeviceInfoIOSImplCopyWithImpl<$Res>
+    extends _$DeviceInfoCopyWithImpl<$Res, _$DeviceInfoIOSImpl>
+    implements _$$DeviceInfoIOSImplCopyWith<$Res> {
+  __$$DeviceInfoIOSImplCopyWithImpl(
+      _$DeviceInfoIOSImpl _value, $Res Function(_$DeviceInfoIOSImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of DeviceInfo
@@ -918,7 +533,7 @@ class __$$IOSDeviceInfoImplCopyWithImpl<$Res>
     Object? systemName = freezed,
     Object? systemVersion = freezed,
   }) {
-    return _then(_$IOSDeviceInfoImpl(
+    return _then(_$DeviceInfoIOSImpl(
       deviceName: freezed == deviceName
           ? _value.deviceName
           : deviceName // ignore: cast_nullable_to_non_nullable
@@ -941,10 +556,10 @@ class __$$IOSDeviceInfoImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$IOSDeviceInfoImpl
+class _$DeviceInfoIOSImpl
     with DiagnosticableTreeMixin
-    implements IOSDeviceInfo {
-  const _$IOSDeviceInfoImpl(
+    implements DeviceInfoIOS {
+  const _$DeviceInfoIOSImpl(
       {this.deviceName, this.deviceModel, this.systemName, this.systemVersion});
 
   @override
@@ -976,7 +591,7 @@ class _$IOSDeviceInfoImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$IOSDeviceInfoImpl &&
+            other is _$DeviceInfoIOSImpl &&
             (identical(other.deviceName, deviceName) ||
                 other.deviceName == deviceName) &&
             (identical(other.deviceModel, deviceModel) ||
@@ -996,151 +611,16 @@ class _$IOSDeviceInfoImpl
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$IOSDeviceInfoImplCopyWith<_$IOSDeviceInfoImpl> get copyWith =>
-      __$$IOSDeviceInfoImplCopyWithImpl<_$IOSDeviceInfoImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() unknown,
-    required TResult Function(
-            String? systemVersion,
-            List<String?> supportedAbis,
-            String? brand,
-            String? device,
-            String? model,
-            String? hardware,
-            String? product)
-        android,
-    required TResult Function(String? deviceName, String? deviceModel,
-            String? systemName, String? systemVersion)
-        iOS,
-    required TResult Function(
-            String osName, String kernelVersion, String? osVersion)
-        linux,
-    required TResult Function(String osVersion) windows,
-    required TResult Function(
-            String arch, String kernelVersion, String osVersion, String model)
-        macOS,
-    required TResult Function(
-            String browserName, String? platform, String? vendor)
-        web,
-  }) {
-    return iOS(deviceName, deviceModel, systemName, systemVersion);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? unknown,
-    TResult? Function(
-            String? systemVersion,
-            List<String?> supportedAbis,
-            String? brand,
-            String? device,
-            String? model,
-            String? hardware,
-            String? product)?
-        android,
-    TResult? Function(String? deviceName, String? deviceModel,
-            String? systemName, String? systemVersion)?
-        iOS,
-    TResult? Function(String osName, String kernelVersion, String? osVersion)?
-        linux,
-    TResult? Function(String osVersion)? windows,
-    TResult? Function(
-            String arch, String kernelVersion, String osVersion, String model)?
-        macOS,
-    TResult? Function(String browserName, String? platform, String? vendor)?
-        web,
-  }) {
-    return iOS?.call(deviceName, deviceModel, systemName, systemVersion);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? unknown,
-    TResult Function(
-            String? systemVersion,
-            List<String?> supportedAbis,
-            String? brand,
-            String? device,
-            String? model,
-            String? hardware,
-            String? product)?
-        android,
-    TResult Function(String? deviceName, String? deviceModel,
-            String? systemName, String? systemVersion)?
-        iOS,
-    TResult Function(String osName, String kernelVersion, String? osVersion)?
-        linux,
-    TResult Function(String osVersion)? windows,
-    TResult Function(
-            String arch, String kernelVersion, String osVersion, String model)?
-        macOS,
-    TResult Function(String browserName, String? platform, String? vendor)? web,
-    required TResult orElse(),
-  }) {
-    if (iOS != null) {
-      return iOS(deviceName, deviceModel, systemName, systemVersion);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UnknownDeviceInfo value) unknown,
-    required TResult Function(AndroidDeviceInfo value) android,
-    required TResult Function(IOSDeviceInfo value) iOS,
-    required TResult Function(LinuxDeviceInfo value) linux,
-    required TResult Function(WindowsDeviceInfo value) windows,
-    required TResult Function(MacOSDeviceInfo value) macOS,
-    required TResult Function(WebDeviceInfo value) web,
-  }) {
-    return iOS(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UnknownDeviceInfo value)? unknown,
-    TResult? Function(AndroidDeviceInfo value)? android,
-    TResult? Function(IOSDeviceInfo value)? iOS,
-    TResult? Function(LinuxDeviceInfo value)? linux,
-    TResult? Function(WindowsDeviceInfo value)? windows,
-    TResult? Function(MacOSDeviceInfo value)? macOS,
-    TResult? Function(WebDeviceInfo value)? web,
-  }) {
-    return iOS?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UnknownDeviceInfo value)? unknown,
-    TResult Function(AndroidDeviceInfo value)? android,
-    TResult Function(IOSDeviceInfo value)? iOS,
-    TResult Function(LinuxDeviceInfo value)? linux,
-    TResult Function(WindowsDeviceInfo value)? windows,
-    TResult Function(MacOSDeviceInfo value)? macOS,
-    TResult Function(WebDeviceInfo value)? web,
-    required TResult orElse(),
-  }) {
-    if (iOS != null) {
-      return iOS(this);
-    }
-    return orElse();
-  }
+  _$$DeviceInfoIOSImplCopyWith<_$DeviceInfoIOSImpl> get copyWith =>
+      __$$DeviceInfoIOSImplCopyWithImpl<_$DeviceInfoIOSImpl>(this, _$identity);
 }
 
-abstract class IOSDeviceInfo implements DeviceInfo {
-  const factory IOSDeviceInfo(
+abstract class DeviceInfoIOS implements DeviceInfo {
+  const factory DeviceInfoIOS(
       {final String? deviceName,
       final String? deviceModel,
       final String? systemName,
-      final String? systemVersion}) = _$IOSDeviceInfoImpl;
+      final String? systemVersion}) = _$DeviceInfoIOSImpl;
 
   String? get deviceName;
   String? get deviceModel;
@@ -1150,25 +630,25 @@ abstract class IOSDeviceInfo implements DeviceInfo {
   /// Create a copy of DeviceInfo
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$IOSDeviceInfoImplCopyWith<_$IOSDeviceInfoImpl> get copyWith =>
+  _$$DeviceInfoIOSImplCopyWith<_$DeviceInfoIOSImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LinuxDeviceInfoImplCopyWith<$Res> {
-  factory _$$LinuxDeviceInfoImplCopyWith(_$LinuxDeviceInfoImpl value,
-          $Res Function(_$LinuxDeviceInfoImpl) then) =
-      __$$LinuxDeviceInfoImplCopyWithImpl<$Res>;
+abstract class _$$DeviceInfoLinuxImplCopyWith<$Res> {
+  factory _$$DeviceInfoLinuxImplCopyWith(_$DeviceInfoLinuxImpl value,
+          $Res Function(_$DeviceInfoLinuxImpl) then) =
+      __$$DeviceInfoLinuxImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String osName, String kernelVersion, String? osVersion});
 }
 
 /// @nodoc
-class __$$LinuxDeviceInfoImplCopyWithImpl<$Res>
-    extends _$DeviceInfoCopyWithImpl<$Res, _$LinuxDeviceInfoImpl>
-    implements _$$LinuxDeviceInfoImplCopyWith<$Res> {
-  __$$LinuxDeviceInfoImplCopyWithImpl(
-      _$LinuxDeviceInfoImpl _value, $Res Function(_$LinuxDeviceInfoImpl) _then)
+class __$$DeviceInfoLinuxImplCopyWithImpl<$Res>
+    extends _$DeviceInfoCopyWithImpl<$Res, _$DeviceInfoLinuxImpl>
+    implements _$$DeviceInfoLinuxImplCopyWith<$Res> {
+  __$$DeviceInfoLinuxImplCopyWithImpl(
+      _$DeviceInfoLinuxImpl _value, $Res Function(_$DeviceInfoLinuxImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of DeviceInfo
@@ -1180,7 +660,7 @@ class __$$LinuxDeviceInfoImplCopyWithImpl<$Res>
     Object? kernelVersion = null,
     Object? osVersion = freezed,
   }) {
-    return _then(_$LinuxDeviceInfoImpl(
+    return _then(_$DeviceInfoLinuxImpl(
       osName: null == osName
           ? _value.osName
           : osName // ignore: cast_nullable_to_non_nullable
@@ -1199,10 +679,10 @@ class __$$LinuxDeviceInfoImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LinuxDeviceInfoImpl
+class _$DeviceInfoLinuxImpl
     with DiagnosticableTreeMixin
-    implements LinuxDeviceInfo {
-  const _$LinuxDeviceInfoImpl(
+    implements DeviceInfoLinux {
+  const _$DeviceInfoLinuxImpl(
       {required this.osName, required this.kernelVersion, this.osVersion});
 
   @override
@@ -1231,7 +711,7 @@ class _$LinuxDeviceInfoImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LinuxDeviceInfoImpl &&
+            other is _$DeviceInfoLinuxImpl &&
             (identical(other.osName, osName) || other.osName == osName) &&
             (identical(other.kernelVersion, kernelVersion) ||
                 other.kernelVersion == kernelVersion) &&
@@ -1248,151 +728,16 @@ class _$LinuxDeviceInfoImpl
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$LinuxDeviceInfoImplCopyWith<_$LinuxDeviceInfoImpl> get copyWith =>
-      __$$LinuxDeviceInfoImplCopyWithImpl<_$LinuxDeviceInfoImpl>(
+  _$$DeviceInfoLinuxImplCopyWith<_$DeviceInfoLinuxImpl> get copyWith =>
+      __$$DeviceInfoLinuxImplCopyWithImpl<_$DeviceInfoLinuxImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() unknown,
-    required TResult Function(
-            String? systemVersion,
-            List<String?> supportedAbis,
-            String? brand,
-            String? device,
-            String? model,
-            String? hardware,
-            String? product)
-        android,
-    required TResult Function(String? deviceName, String? deviceModel,
-            String? systemName, String? systemVersion)
-        iOS,
-    required TResult Function(
-            String osName, String kernelVersion, String? osVersion)
-        linux,
-    required TResult Function(String osVersion) windows,
-    required TResult Function(
-            String arch, String kernelVersion, String osVersion, String model)
-        macOS,
-    required TResult Function(
-            String browserName, String? platform, String? vendor)
-        web,
-  }) {
-    return linux(osName, kernelVersion, osVersion);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? unknown,
-    TResult? Function(
-            String? systemVersion,
-            List<String?> supportedAbis,
-            String? brand,
-            String? device,
-            String? model,
-            String? hardware,
-            String? product)?
-        android,
-    TResult? Function(String? deviceName, String? deviceModel,
-            String? systemName, String? systemVersion)?
-        iOS,
-    TResult? Function(String osName, String kernelVersion, String? osVersion)?
-        linux,
-    TResult? Function(String osVersion)? windows,
-    TResult? Function(
-            String arch, String kernelVersion, String osVersion, String model)?
-        macOS,
-    TResult? Function(String browserName, String? platform, String? vendor)?
-        web,
-  }) {
-    return linux?.call(osName, kernelVersion, osVersion);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? unknown,
-    TResult Function(
-            String? systemVersion,
-            List<String?> supportedAbis,
-            String? brand,
-            String? device,
-            String? model,
-            String? hardware,
-            String? product)?
-        android,
-    TResult Function(String? deviceName, String? deviceModel,
-            String? systemName, String? systemVersion)?
-        iOS,
-    TResult Function(String osName, String kernelVersion, String? osVersion)?
-        linux,
-    TResult Function(String osVersion)? windows,
-    TResult Function(
-            String arch, String kernelVersion, String osVersion, String model)?
-        macOS,
-    TResult Function(String browserName, String? platform, String? vendor)? web,
-    required TResult orElse(),
-  }) {
-    if (linux != null) {
-      return linux(osName, kernelVersion, osVersion);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UnknownDeviceInfo value) unknown,
-    required TResult Function(AndroidDeviceInfo value) android,
-    required TResult Function(IOSDeviceInfo value) iOS,
-    required TResult Function(LinuxDeviceInfo value) linux,
-    required TResult Function(WindowsDeviceInfo value) windows,
-    required TResult Function(MacOSDeviceInfo value) macOS,
-    required TResult Function(WebDeviceInfo value) web,
-  }) {
-    return linux(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UnknownDeviceInfo value)? unknown,
-    TResult? Function(AndroidDeviceInfo value)? android,
-    TResult? Function(IOSDeviceInfo value)? iOS,
-    TResult? Function(LinuxDeviceInfo value)? linux,
-    TResult? Function(WindowsDeviceInfo value)? windows,
-    TResult? Function(MacOSDeviceInfo value)? macOS,
-    TResult? Function(WebDeviceInfo value)? web,
-  }) {
-    return linux?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UnknownDeviceInfo value)? unknown,
-    TResult Function(AndroidDeviceInfo value)? android,
-    TResult Function(IOSDeviceInfo value)? iOS,
-    TResult Function(LinuxDeviceInfo value)? linux,
-    TResult Function(WindowsDeviceInfo value)? windows,
-    TResult Function(MacOSDeviceInfo value)? macOS,
-    TResult Function(WebDeviceInfo value)? web,
-    required TResult orElse(),
-  }) {
-    if (linux != null) {
-      return linux(this);
-    }
-    return orElse();
-  }
 }
 
-abstract class LinuxDeviceInfo implements DeviceInfo {
-  const factory LinuxDeviceInfo(
+abstract class DeviceInfoLinux implements DeviceInfo {
+  const factory DeviceInfoLinux(
       {required final String osName,
       required final String kernelVersion,
-      final String? osVersion}) = _$LinuxDeviceInfoImpl;
+      final String? osVersion}) = _$DeviceInfoLinuxImpl;
 
   String get osName;
   String get kernelVersion;
@@ -1401,25 +746,25 @@ abstract class LinuxDeviceInfo implements DeviceInfo {
   /// Create a copy of DeviceInfo
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LinuxDeviceInfoImplCopyWith<_$LinuxDeviceInfoImpl> get copyWith =>
+  _$$DeviceInfoLinuxImplCopyWith<_$DeviceInfoLinuxImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$WindowsDeviceInfoImplCopyWith<$Res> {
-  factory _$$WindowsDeviceInfoImplCopyWith(_$WindowsDeviceInfoImpl value,
-          $Res Function(_$WindowsDeviceInfoImpl) then) =
-      __$$WindowsDeviceInfoImplCopyWithImpl<$Res>;
+abstract class _$$DeviceInfoWindowsImplCopyWith<$Res> {
+  factory _$$DeviceInfoWindowsImplCopyWith(_$DeviceInfoWindowsImpl value,
+          $Res Function(_$DeviceInfoWindowsImpl) then) =
+      __$$DeviceInfoWindowsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String osVersion});
 }
 
 /// @nodoc
-class __$$WindowsDeviceInfoImplCopyWithImpl<$Res>
-    extends _$DeviceInfoCopyWithImpl<$Res, _$WindowsDeviceInfoImpl>
-    implements _$$WindowsDeviceInfoImplCopyWith<$Res> {
-  __$$WindowsDeviceInfoImplCopyWithImpl(_$WindowsDeviceInfoImpl _value,
-      $Res Function(_$WindowsDeviceInfoImpl) _then)
+class __$$DeviceInfoWindowsImplCopyWithImpl<$Res>
+    extends _$DeviceInfoCopyWithImpl<$Res, _$DeviceInfoWindowsImpl>
+    implements _$$DeviceInfoWindowsImplCopyWith<$Res> {
+  __$$DeviceInfoWindowsImplCopyWithImpl(_$DeviceInfoWindowsImpl _value,
+      $Res Function(_$DeviceInfoWindowsImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of DeviceInfo
@@ -1429,7 +774,7 @@ class __$$WindowsDeviceInfoImplCopyWithImpl<$Res>
   $Res call({
     Object? osVersion = null,
   }) {
-    return _then(_$WindowsDeviceInfoImpl(
+    return _then(_$DeviceInfoWindowsImpl(
       osVersion: null == osVersion
           ? _value.osVersion
           : osVersion // ignore: cast_nullable_to_non_nullable
@@ -1440,10 +785,10 @@ class __$$WindowsDeviceInfoImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$WindowsDeviceInfoImpl
+class _$DeviceInfoWindowsImpl
     with DiagnosticableTreeMixin
-    implements WindowsDeviceInfo {
-  const _$WindowsDeviceInfoImpl({required this.osVersion});
+    implements DeviceInfoWindows {
+  const _$DeviceInfoWindowsImpl({required this.osVersion});
 
   @override
   final String osVersion;
@@ -1465,7 +810,7 @@ class _$WindowsDeviceInfoImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WindowsDeviceInfoImpl &&
+            other is _$DeviceInfoWindowsImpl &&
             (identical(other.osVersion, osVersion) ||
                 other.osVersion == osVersion));
   }
@@ -1478,175 +823,40 @@ class _$WindowsDeviceInfoImpl
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$WindowsDeviceInfoImplCopyWith<_$WindowsDeviceInfoImpl> get copyWith =>
-      __$$WindowsDeviceInfoImplCopyWithImpl<_$WindowsDeviceInfoImpl>(
+  _$$DeviceInfoWindowsImplCopyWith<_$DeviceInfoWindowsImpl> get copyWith =>
+      __$$DeviceInfoWindowsImplCopyWithImpl<_$DeviceInfoWindowsImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() unknown,
-    required TResult Function(
-            String? systemVersion,
-            List<String?> supportedAbis,
-            String? brand,
-            String? device,
-            String? model,
-            String? hardware,
-            String? product)
-        android,
-    required TResult Function(String? deviceName, String? deviceModel,
-            String? systemName, String? systemVersion)
-        iOS,
-    required TResult Function(
-            String osName, String kernelVersion, String? osVersion)
-        linux,
-    required TResult Function(String osVersion) windows,
-    required TResult Function(
-            String arch, String kernelVersion, String osVersion, String model)
-        macOS,
-    required TResult Function(
-            String browserName, String? platform, String? vendor)
-        web,
-  }) {
-    return windows(osVersion);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? unknown,
-    TResult? Function(
-            String? systemVersion,
-            List<String?> supportedAbis,
-            String? brand,
-            String? device,
-            String? model,
-            String? hardware,
-            String? product)?
-        android,
-    TResult? Function(String? deviceName, String? deviceModel,
-            String? systemName, String? systemVersion)?
-        iOS,
-    TResult? Function(String osName, String kernelVersion, String? osVersion)?
-        linux,
-    TResult? Function(String osVersion)? windows,
-    TResult? Function(
-            String arch, String kernelVersion, String osVersion, String model)?
-        macOS,
-    TResult? Function(String browserName, String? platform, String? vendor)?
-        web,
-  }) {
-    return windows?.call(osVersion);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? unknown,
-    TResult Function(
-            String? systemVersion,
-            List<String?> supportedAbis,
-            String? brand,
-            String? device,
-            String? model,
-            String? hardware,
-            String? product)?
-        android,
-    TResult Function(String? deviceName, String? deviceModel,
-            String? systemName, String? systemVersion)?
-        iOS,
-    TResult Function(String osName, String kernelVersion, String? osVersion)?
-        linux,
-    TResult Function(String osVersion)? windows,
-    TResult Function(
-            String arch, String kernelVersion, String osVersion, String model)?
-        macOS,
-    TResult Function(String browserName, String? platform, String? vendor)? web,
-    required TResult orElse(),
-  }) {
-    if (windows != null) {
-      return windows(osVersion);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UnknownDeviceInfo value) unknown,
-    required TResult Function(AndroidDeviceInfo value) android,
-    required TResult Function(IOSDeviceInfo value) iOS,
-    required TResult Function(LinuxDeviceInfo value) linux,
-    required TResult Function(WindowsDeviceInfo value) windows,
-    required TResult Function(MacOSDeviceInfo value) macOS,
-    required TResult Function(WebDeviceInfo value) web,
-  }) {
-    return windows(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UnknownDeviceInfo value)? unknown,
-    TResult? Function(AndroidDeviceInfo value)? android,
-    TResult? Function(IOSDeviceInfo value)? iOS,
-    TResult? Function(LinuxDeviceInfo value)? linux,
-    TResult? Function(WindowsDeviceInfo value)? windows,
-    TResult? Function(MacOSDeviceInfo value)? macOS,
-    TResult? Function(WebDeviceInfo value)? web,
-  }) {
-    return windows?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UnknownDeviceInfo value)? unknown,
-    TResult Function(AndroidDeviceInfo value)? android,
-    TResult Function(IOSDeviceInfo value)? iOS,
-    TResult Function(LinuxDeviceInfo value)? linux,
-    TResult Function(WindowsDeviceInfo value)? windows,
-    TResult Function(MacOSDeviceInfo value)? macOS,
-    TResult Function(WebDeviceInfo value)? web,
-    required TResult orElse(),
-  }) {
-    if (windows != null) {
-      return windows(this);
-    }
-    return orElse();
-  }
 }
 
-abstract class WindowsDeviceInfo implements DeviceInfo {
-  const factory WindowsDeviceInfo({required final String osVersion}) =
-      _$WindowsDeviceInfoImpl;
+abstract class DeviceInfoWindows implements DeviceInfo {
+  const factory DeviceInfoWindows({required final String osVersion}) =
+      _$DeviceInfoWindowsImpl;
 
   String get osVersion;
 
   /// Create a copy of DeviceInfo
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$WindowsDeviceInfoImplCopyWith<_$WindowsDeviceInfoImpl> get copyWith =>
+  _$$DeviceInfoWindowsImplCopyWith<_$DeviceInfoWindowsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$MacOSDeviceInfoImplCopyWith<$Res> {
-  factory _$$MacOSDeviceInfoImplCopyWith(_$MacOSDeviceInfoImpl value,
-          $Res Function(_$MacOSDeviceInfoImpl) then) =
-      __$$MacOSDeviceInfoImplCopyWithImpl<$Res>;
+abstract class _$$DeviceInfoMacOSImplCopyWith<$Res> {
+  factory _$$DeviceInfoMacOSImplCopyWith(_$DeviceInfoMacOSImpl value,
+          $Res Function(_$DeviceInfoMacOSImpl) then) =
+      __$$DeviceInfoMacOSImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {String arch, String kernelVersion, String osVersion, String model});
 }
 
 /// @nodoc
-class __$$MacOSDeviceInfoImplCopyWithImpl<$Res>
-    extends _$DeviceInfoCopyWithImpl<$Res, _$MacOSDeviceInfoImpl>
-    implements _$$MacOSDeviceInfoImplCopyWith<$Res> {
-  __$$MacOSDeviceInfoImplCopyWithImpl(
-      _$MacOSDeviceInfoImpl _value, $Res Function(_$MacOSDeviceInfoImpl) _then)
+class __$$DeviceInfoMacOSImplCopyWithImpl<$Res>
+    extends _$DeviceInfoCopyWithImpl<$Res, _$DeviceInfoMacOSImpl>
+    implements _$$DeviceInfoMacOSImplCopyWith<$Res> {
+  __$$DeviceInfoMacOSImplCopyWithImpl(
+      _$DeviceInfoMacOSImpl _value, $Res Function(_$DeviceInfoMacOSImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of DeviceInfo
@@ -1659,7 +869,7 @@ class __$$MacOSDeviceInfoImplCopyWithImpl<$Res>
     Object? osVersion = null,
     Object? model = null,
   }) {
-    return _then(_$MacOSDeviceInfoImpl(
+    return _then(_$DeviceInfoMacOSImpl(
       arch: null == arch
           ? _value.arch
           : arch // ignore: cast_nullable_to_non_nullable
@@ -1682,10 +892,10 @@ class __$$MacOSDeviceInfoImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$MacOSDeviceInfoImpl
+class _$DeviceInfoMacOSImpl
     with DiagnosticableTreeMixin
-    implements MacOSDeviceInfo {
-  const _$MacOSDeviceInfoImpl(
+    implements DeviceInfoMacOS {
+  const _$DeviceInfoMacOSImpl(
       {required this.arch,
       required this.kernelVersion,
       required this.osVersion,
@@ -1720,7 +930,7 @@ class _$MacOSDeviceInfoImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MacOSDeviceInfoImpl &&
+            other is _$DeviceInfoMacOSImpl &&
             (identical(other.arch, arch) || other.arch == arch) &&
             (identical(other.kernelVersion, kernelVersion) ||
                 other.kernelVersion == kernelVersion) &&
@@ -1738,152 +948,17 @@ class _$MacOSDeviceInfoImpl
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$MacOSDeviceInfoImplCopyWith<_$MacOSDeviceInfoImpl> get copyWith =>
-      __$$MacOSDeviceInfoImplCopyWithImpl<_$MacOSDeviceInfoImpl>(
+  _$$DeviceInfoMacOSImplCopyWith<_$DeviceInfoMacOSImpl> get copyWith =>
+      __$$DeviceInfoMacOSImplCopyWithImpl<_$DeviceInfoMacOSImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() unknown,
-    required TResult Function(
-            String? systemVersion,
-            List<String?> supportedAbis,
-            String? brand,
-            String? device,
-            String? model,
-            String? hardware,
-            String? product)
-        android,
-    required TResult Function(String? deviceName, String? deviceModel,
-            String? systemName, String? systemVersion)
-        iOS,
-    required TResult Function(
-            String osName, String kernelVersion, String? osVersion)
-        linux,
-    required TResult Function(String osVersion) windows,
-    required TResult Function(
-            String arch, String kernelVersion, String osVersion, String model)
-        macOS,
-    required TResult Function(
-            String browserName, String? platform, String? vendor)
-        web,
-  }) {
-    return macOS(arch, kernelVersion, osVersion, model);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? unknown,
-    TResult? Function(
-            String? systemVersion,
-            List<String?> supportedAbis,
-            String? brand,
-            String? device,
-            String? model,
-            String? hardware,
-            String? product)?
-        android,
-    TResult? Function(String? deviceName, String? deviceModel,
-            String? systemName, String? systemVersion)?
-        iOS,
-    TResult? Function(String osName, String kernelVersion, String? osVersion)?
-        linux,
-    TResult? Function(String osVersion)? windows,
-    TResult? Function(
-            String arch, String kernelVersion, String osVersion, String model)?
-        macOS,
-    TResult? Function(String browserName, String? platform, String? vendor)?
-        web,
-  }) {
-    return macOS?.call(arch, kernelVersion, osVersion, model);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? unknown,
-    TResult Function(
-            String? systemVersion,
-            List<String?> supportedAbis,
-            String? brand,
-            String? device,
-            String? model,
-            String? hardware,
-            String? product)?
-        android,
-    TResult Function(String? deviceName, String? deviceModel,
-            String? systemName, String? systemVersion)?
-        iOS,
-    TResult Function(String osName, String kernelVersion, String? osVersion)?
-        linux,
-    TResult Function(String osVersion)? windows,
-    TResult Function(
-            String arch, String kernelVersion, String osVersion, String model)?
-        macOS,
-    TResult Function(String browserName, String? platform, String? vendor)? web,
-    required TResult orElse(),
-  }) {
-    if (macOS != null) {
-      return macOS(arch, kernelVersion, osVersion, model);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UnknownDeviceInfo value) unknown,
-    required TResult Function(AndroidDeviceInfo value) android,
-    required TResult Function(IOSDeviceInfo value) iOS,
-    required TResult Function(LinuxDeviceInfo value) linux,
-    required TResult Function(WindowsDeviceInfo value) windows,
-    required TResult Function(MacOSDeviceInfo value) macOS,
-    required TResult Function(WebDeviceInfo value) web,
-  }) {
-    return macOS(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UnknownDeviceInfo value)? unknown,
-    TResult? Function(AndroidDeviceInfo value)? android,
-    TResult? Function(IOSDeviceInfo value)? iOS,
-    TResult? Function(LinuxDeviceInfo value)? linux,
-    TResult? Function(WindowsDeviceInfo value)? windows,
-    TResult? Function(MacOSDeviceInfo value)? macOS,
-    TResult? Function(WebDeviceInfo value)? web,
-  }) {
-    return macOS?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UnknownDeviceInfo value)? unknown,
-    TResult Function(AndroidDeviceInfo value)? android,
-    TResult Function(IOSDeviceInfo value)? iOS,
-    TResult Function(LinuxDeviceInfo value)? linux,
-    TResult Function(WindowsDeviceInfo value)? windows,
-    TResult Function(MacOSDeviceInfo value)? macOS,
-    TResult Function(WebDeviceInfo value)? web,
-    required TResult orElse(),
-  }) {
-    if (macOS != null) {
-      return macOS(this);
-    }
-    return orElse();
-  }
 }
 
-abstract class MacOSDeviceInfo implements DeviceInfo {
-  const factory MacOSDeviceInfo(
+abstract class DeviceInfoMacOS implements DeviceInfo {
+  const factory DeviceInfoMacOS(
       {required final String arch,
       required final String kernelVersion,
       required final String osVersion,
-      required final String model}) = _$MacOSDeviceInfoImpl;
+      required final String model}) = _$DeviceInfoMacOSImpl;
 
   String get arch;
   String get kernelVersion;
@@ -1893,25 +968,25 @@ abstract class MacOSDeviceInfo implements DeviceInfo {
   /// Create a copy of DeviceInfo
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MacOSDeviceInfoImplCopyWith<_$MacOSDeviceInfoImpl> get copyWith =>
+  _$$DeviceInfoMacOSImplCopyWith<_$DeviceInfoMacOSImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$WebDeviceInfoImplCopyWith<$Res> {
-  factory _$$WebDeviceInfoImplCopyWith(
-          _$WebDeviceInfoImpl value, $Res Function(_$WebDeviceInfoImpl) then) =
-      __$$WebDeviceInfoImplCopyWithImpl<$Res>;
+abstract class _$$DeviceInfoWebImplCopyWith<$Res> {
+  factory _$$DeviceInfoWebImplCopyWith(
+          _$DeviceInfoWebImpl value, $Res Function(_$DeviceInfoWebImpl) then) =
+      __$$DeviceInfoWebImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String browserName, String? platform, String? vendor});
 }
 
 /// @nodoc
-class __$$WebDeviceInfoImplCopyWithImpl<$Res>
-    extends _$DeviceInfoCopyWithImpl<$Res, _$WebDeviceInfoImpl>
-    implements _$$WebDeviceInfoImplCopyWith<$Res> {
-  __$$WebDeviceInfoImplCopyWithImpl(
-      _$WebDeviceInfoImpl _value, $Res Function(_$WebDeviceInfoImpl) _then)
+class __$$DeviceInfoWebImplCopyWithImpl<$Res>
+    extends _$DeviceInfoCopyWithImpl<$Res, _$DeviceInfoWebImpl>
+    implements _$$DeviceInfoWebImplCopyWith<$Res> {
+  __$$DeviceInfoWebImplCopyWithImpl(
+      _$DeviceInfoWebImpl _value, $Res Function(_$DeviceInfoWebImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of DeviceInfo
@@ -1923,7 +998,7 @@ class __$$WebDeviceInfoImplCopyWithImpl<$Res>
     Object? platform = freezed,
     Object? vendor = freezed,
   }) {
-    return _then(_$WebDeviceInfoImpl(
+    return _then(_$DeviceInfoWebImpl(
       browserName: null == browserName
           ? _value.browserName
           : browserName // ignore: cast_nullable_to_non_nullable
@@ -1942,10 +1017,10 @@ class __$$WebDeviceInfoImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$WebDeviceInfoImpl
+class _$DeviceInfoWebImpl
     with DiagnosticableTreeMixin
-    implements WebDeviceInfo {
-  const _$WebDeviceInfoImpl(
+    implements DeviceInfoWeb {
+  const _$DeviceInfoWebImpl(
       {required this.browserName, this.platform, this.vendor});
 
   @override
@@ -1978,7 +1053,7 @@ class _$WebDeviceInfoImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WebDeviceInfoImpl &&
+            other is _$DeviceInfoWebImpl &&
             (identical(other.browserName, browserName) ||
                 other.browserName == browserName) &&
             (identical(other.platform, platform) ||
@@ -1994,150 +1069,15 @@ class _$WebDeviceInfoImpl
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$WebDeviceInfoImplCopyWith<_$WebDeviceInfoImpl> get copyWith =>
-      __$$WebDeviceInfoImplCopyWithImpl<_$WebDeviceInfoImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() unknown,
-    required TResult Function(
-            String? systemVersion,
-            List<String?> supportedAbis,
-            String? brand,
-            String? device,
-            String? model,
-            String? hardware,
-            String? product)
-        android,
-    required TResult Function(String? deviceName, String? deviceModel,
-            String? systemName, String? systemVersion)
-        iOS,
-    required TResult Function(
-            String osName, String kernelVersion, String? osVersion)
-        linux,
-    required TResult Function(String osVersion) windows,
-    required TResult Function(
-            String arch, String kernelVersion, String osVersion, String model)
-        macOS,
-    required TResult Function(
-            String browserName, String? platform, String? vendor)
-        web,
-  }) {
-    return web(browserName, platform, vendor);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? unknown,
-    TResult? Function(
-            String? systemVersion,
-            List<String?> supportedAbis,
-            String? brand,
-            String? device,
-            String? model,
-            String? hardware,
-            String? product)?
-        android,
-    TResult? Function(String? deviceName, String? deviceModel,
-            String? systemName, String? systemVersion)?
-        iOS,
-    TResult? Function(String osName, String kernelVersion, String? osVersion)?
-        linux,
-    TResult? Function(String osVersion)? windows,
-    TResult? Function(
-            String arch, String kernelVersion, String osVersion, String model)?
-        macOS,
-    TResult? Function(String browserName, String? platform, String? vendor)?
-        web,
-  }) {
-    return web?.call(browserName, platform, vendor);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? unknown,
-    TResult Function(
-            String? systemVersion,
-            List<String?> supportedAbis,
-            String? brand,
-            String? device,
-            String? model,
-            String? hardware,
-            String? product)?
-        android,
-    TResult Function(String? deviceName, String? deviceModel,
-            String? systemName, String? systemVersion)?
-        iOS,
-    TResult Function(String osName, String kernelVersion, String? osVersion)?
-        linux,
-    TResult Function(String osVersion)? windows,
-    TResult Function(
-            String arch, String kernelVersion, String osVersion, String model)?
-        macOS,
-    TResult Function(String browserName, String? platform, String? vendor)? web,
-    required TResult orElse(),
-  }) {
-    if (web != null) {
-      return web(browserName, platform, vendor);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UnknownDeviceInfo value) unknown,
-    required TResult Function(AndroidDeviceInfo value) android,
-    required TResult Function(IOSDeviceInfo value) iOS,
-    required TResult Function(LinuxDeviceInfo value) linux,
-    required TResult Function(WindowsDeviceInfo value) windows,
-    required TResult Function(MacOSDeviceInfo value) macOS,
-    required TResult Function(WebDeviceInfo value) web,
-  }) {
-    return web(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UnknownDeviceInfo value)? unknown,
-    TResult? Function(AndroidDeviceInfo value)? android,
-    TResult? Function(IOSDeviceInfo value)? iOS,
-    TResult? Function(LinuxDeviceInfo value)? linux,
-    TResult? Function(WindowsDeviceInfo value)? windows,
-    TResult? Function(MacOSDeviceInfo value)? macOS,
-    TResult? Function(WebDeviceInfo value)? web,
-  }) {
-    return web?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UnknownDeviceInfo value)? unknown,
-    TResult Function(AndroidDeviceInfo value)? android,
-    TResult Function(IOSDeviceInfo value)? iOS,
-    TResult Function(LinuxDeviceInfo value)? linux,
-    TResult Function(WindowsDeviceInfo value)? windows,
-    TResult Function(MacOSDeviceInfo value)? macOS,
-    TResult Function(WebDeviceInfo value)? web,
-    required TResult orElse(),
-  }) {
-    if (web != null) {
-      return web(this);
-    }
-    return orElse();
-  }
+  _$$DeviceInfoWebImplCopyWith<_$DeviceInfoWebImpl> get copyWith =>
+      __$$DeviceInfoWebImplCopyWithImpl<_$DeviceInfoWebImpl>(this, _$identity);
 }
 
-abstract class WebDeviceInfo implements DeviceInfo {
-  const factory WebDeviceInfo(
+abstract class DeviceInfoWeb implements DeviceInfo {
+  const factory DeviceInfoWeb(
       {required final String browserName,
       final String? platform,
-      final String? vendor}) = _$WebDeviceInfoImpl;
+      final String? vendor}) = _$DeviceInfoWebImpl;
 
   String get browserName;
 
@@ -2150,6 +1090,6 @@ abstract class WebDeviceInfo implements DeviceInfo {
   /// Create a copy of DeviceInfo
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$WebDeviceInfoImplCopyWith<_$WebDeviceInfoImpl> get copyWith =>
+  _$$DeviceInfoWebImplCopyWith<_$DeviceInfoWebImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

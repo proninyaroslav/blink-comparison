@@ -17,6 +17,7 @@
 
 import 'package:blink_comparison/core/entity/entity.dart';
 import 'package:blink_comparison/core/storage/ref_image_repository.dart';
+import 'package:blink_comparison/core/storage/storage_result.dart';
 import 'package:blink_comparison/ui/home/model/add_ref_image_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -32,41 +33,33 @@ class AddRefImageCubit extends Cubit<AddRefImageState> {
     final failedList = <AddRefImageError>[];
     for (final file in files) {
       final res = await _refRepo.addFromFile(file);
-      final noSecureKey = res.when(
-        (info) {
-          successList.add(info);
-        },
-        error: (e) => e.when(
-          database: (e, stackTrace) {
-            failedList.add(
-              AddRefImageError(
-                path: file.path,
-                exception: e,
-                stackTrace: stackTrace,
-              ),
-            );
-          },
-          fs: (e) {
-            failedList.add(
-              AddRefImageError.fs(path: file.path, error: e),
-            );
-          },
-          noKey: () {
-            emit(const AddRefImageState.noSecureKey());
-            return true;
-          },
-          encrypt: (e) {
-            failedList.add(
-              AddRefImageError.encrypt(path: file.path, error: e),
-            );
-          },
-          decrypt: (e) {
-            throw 'Unknown error state';
-          },
-        ),
-      );
-      if (noSecureKey == true) {
-        return;
+      switch (res) {
+        case SecStorageResultSuccess(:final value):
+          successList.add(value);
+        case SecStorageResultError(:final error):
+          switch (error) {
+            case SecStorageErrorDatabase(:final exception, :final stackTrace):
+              failedList.add(
+                AddRefImageError(
+                  path: file.path,
+                  exception: exception,
+                  stackTrace: stackTrace,
+                ),
+              );
+            case SecStorageErrorFs(:final error):
+              failedList.add(
+                AddRefImageError.fs(path: file.path, error: error),
+              );
+            case SecStorageErrorNoKey():
+              emit(const AddRefImageState.noSecureKey());
+              return;
+            case SecStorageErrorEncrypt(:final error):
+              failedList.add(
+                AddRefImageError.encrypt(path: file.path, error: error),
+              );
+            case SecStorageErrorDecrypt():
+              throw 'Unknown error state';
+          }
       }
     }
     emit(

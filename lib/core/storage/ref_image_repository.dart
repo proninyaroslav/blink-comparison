@@ -20,6 +20,7 @@ import 'dart:async';
 import 'package:blink_comparison/core/date_time_provider.dart';
 import 'package:blink_comparison/core/encrypt/salt_generator.dart';
 import 'package:blink_comparison/core/entity/entity.dart';
+import 'package:blink_comparison/core/fs/fs_result.dart';
 import 'package:blink_comparison/core/fs/thumbnail_fs.dart';
 import 'package:blink_comparison/core/ref_image_id_generator.dart';
 import 'package:blink_comparison/core/storage/app_database.dart';
@@ -95,10 +96,10 @@ class RefImageRepositoryImpl implements RefImageRepository {
     }
 
     final res = await _secureStorage.add(info, srcImage);
-    return res.when(
-      (_) => SecStorageResult(info),
-      error: (e) => SecStorageResult.error(e),
-    );
+    return switch (res) {
+      SecStorageResultSuccess() => SecStorageResult(info),
+      SecStorageResultError(:final error) => SecStorageResult.error(error),
+    };
   }
 
   Future<String> _randomUniqueId() async {
@@ -137,10 +138,10 @@ class RefImageRepositoryImpl implements RefImageRepository {
       final resMap = <RefImageInfo, SecStorageResult<void>>{};
       for (final info in infoList) {
         final res = await _secureStorage.delete(info);
-        resMap[info] = res.when(
-          (_) => (SecStorageResult.empty),
-          error: (e) => SecStorageResult.error(e),
-        );
+        resMap[info] = switch (res) {
+          SecStorageResultSuccess() => (SecStorageResult.empty),
+          SecStorageResultError(:final error) => SecStorageResult.error(error),
+        };
       }
       return resMap;
     } on Exception catch (e, stackTrace) {
@@ -230,16 +231,12 @@ class RefImageRepositoryImpl implements RefImageRepository {
   @override
   Future<StorageResult<Thumbnail>> getThumbnail(RefImageInfo info) async {
     final res = await _thumbnailFs.get(info);
-    return res.when(
-      (file) => StorageResult(
-        Thumbnail(
-          refImageId: info.id,
-          file: file,
+    return switch (res) {
+      FsResultSuccess(value: final file) => StorageResult(
+          Thumbnail(refImageId: info.id, file: file),
         ),
-      ),
-      error: (e) => StorageResult.error(
-        StorageError.fs(error: e),
-      ),
-    );
+      FsResultError(:final error) =>
+        StorageResult.error(StorageError.fs(error: error)),
+    };
   }
 }

@@ -38,11 +38,10 @@ class ErrorReportCubit extends Cubit<ErrorReportState> {
         message: message,
       ),
     );
-    emit(
-      res.when(
-        success: () => const ErrorReportState.success(),
-        emailUnsupported: () => const ErrorReportState.emailUnsupported(),
-      ),
-    );
+    emit(switch (res) {
+      CrashReportSendResultSuccess() => const ErrorReportState.success(),
+      CrashReportSendResultEmailUnsupported() =>
+        const ErrorReportState.emailUnsupported(),
+    });
   }
 }

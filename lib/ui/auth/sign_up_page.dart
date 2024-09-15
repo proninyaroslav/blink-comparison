@@ -35,13 +35,12 @@ class SignUpButton extends StatelessWidget {
     return BlocBuilder<SignUpCubit, SignUpState>(
       builder: (context, state) {
         return FloatingActionButton.extended(
-          key: const ValueKey('sign_up_button'),
-          onPressed: _handleSubmitCallbackState(context, state),
-          label: state.maybeWhen(
-            savingPassword: () => const ProgressFab(),
-            orElse: () => Text(S.of(context).save),
-          ),
-        );
+            key: const ValueKey('sign_up_button'),
+            onPressed: _handleSubmitCallbackState(context, state),
+            label: switch (state) {
+              SignUpStateSavingPassword() => const ProgressFab(),
+              _ => Text(S.of(context).save),
+            });
       },
     );
   }
@@ -51,11 +50,10 @@ VoidCallback? _handleSubmitCallbackState(
   BuildContext context,
   SignUpState state,
 ) {
-  return state.maybeWhen(
-    savingPassword: () => null,
-    savedAndAuthorized: () => null,
-    orElse: () => _submit(context),
-  );
+  return switch (state) {
+    SignUpStateSavingPassword() || SignUpStateSavedAndAuthorized() => null,
+    _ => _submit(context),
+  };
 }
 
 VoidCallback _submit(BuildContext context) {
@@ -97,26 +95,22 @@ class _Fields extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<SignUpCubit, SignUpState>(
       listener: (context, state) {
-        state.maybeWhen(
-          savePasswordFailed: (password, repeatPassword, e, stackTrace) {
-            _savePasswordFailedMsg(context, e, stackTrace);
-          },
-          orElse: () {},
-        );
+        if (state
+            case SignUpStateSavePasswordFailed(
+              :final error,
+              :final stackTrace
+            )) {
+          _savePasswordFailedMsg(context, error, stackTrace);
+        }
       },
       builder: (context, state) {
-        return state.maybeWhen(
-          passwordChanged: (password, repeatPassword) {
-            return _buildFields(context, password, repeatPassword, state);
-          },
-          invalidPassword: (password, repeatPassword) {
-            return _buildFields(context, password, repeatPassword, state);
-          },
-          passwordMismatch: (password, repeatPassword) {
-            return _buildFields(context, password, repeatPassword, state);
-          },
-          orElse: () => _buildFields(context, null, null, state),
-        );
+        return switch (state) {
+          SignUpStatePasswordChanged(:final password, :final repeatPassword) ||
+          SignUpStateInvalidPassword(:final password, :final repeatPassword) ||
+          SignUpStatePasswordMismatch(:final password, :final repeatPassword) =>
+            _buildFields(context, password, repeatPassword, state),
+          _ => _buildFields(context, null, null, state),
+        };
       },
     );
   }
@@ -167,21 +161,25 @@ class _Fields extends StatelessWidget {
   }
 
   String? _getPasswordErrorStr(BuildContext context, PasswordError? error) {
-    return error?.when(
-      empty: () => S.of(context).passwordEmptyError,
-      tooShort: () => S.of(context).passwordTooShort(Password.minLength),
-      tooLong: () => S.of(context).passwordTooLong(Password.maxLength),
-    );
+    return switch (error) {
+      null => null,
+      PasswordErrorEmpty() => S.of(context).passwordEmptyError,
+      PasswordErrorTooShort() =>
+        S.of(context).passwordTooShort(Password.minLength),
+      PasswordErrorTooLong() =>
+        S.of(context).passwordTooLong(Password.maxLength),
+    };
   }
 
   String? _getRepeatPasswordErrorStr(
     BuildContext context,
     RepeatPasswordError? error,
   ) {
-    return error?.when(
-      empty: () => S.of(context).passwordRepeatError,
-      mismatch: () => S.of(context).passwordMismatch,
-    );
+    return switch (error) {
+      null => null,
+      RepeatPasswordErrorEmpty() => S.of(context).passwordRepeatError,
+      RepeatPasswordErrorMismatch() => S.of(context).passwordMismatch,
+    };
   }
 
   void _savePasswordFailedMsg(

@@ -19,7 +19,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'camera_initialization_error.freezed.dart';
 
 @freezed
-class CameraInitializationError with _$CameraInitializationError {
+sealed class CameraInitializationError with _$CameraInitializationError {
   const factory CameraInitializationError.accessDenied() =
       CameraInitializationErrorAccessDenied;
 

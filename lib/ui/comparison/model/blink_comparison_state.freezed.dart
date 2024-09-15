@@ -15,54 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$BlinkComparisonState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() showRefImage,
-    required TResult Function() showTakenPhoto,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? showRefImage,
-    TResult? Function()? showTakenPhoto,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? showRefImage,
-    TResult Function()? showTakenPhoto,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(BlinkComparisonStateInitial value) initial,
-    required TResult Function(BlinkComparisonStateShowRefImage value)
-        showRefImage,
-    required TResult Function(BlinkComparisonStateShowTakenPhoto value)
-        showTakenPhoto,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(BlinkComparisonStateInitial value)? initial,
-    TResult? Function(BlinkComparisonStateShowRefImage value)? showRefImage,
-    TResult? Function(BlinkComparisonStateShowTakenPhoto value)? showTakenPhoto,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(BlinkComparisonStateInitial value)? initial,
-    TResult Function(BlinkComparisonStateShowRefImage value)? showRefImage,
-    TResult Function(BlinkComparisonStateShowTakenPhoto value)? showTakenPhoto,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$BlinkComparisonState {}
 
 /// @nodoc
 abstract class $BlinkComparisonStateCopyWith<$Res> {
@@ -127,76 +80,6 @@ class _$BlinkComparisonStateInitialImpl implements BlinkComparisonStateInitial {
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() showRefImage,
-    required TResult Function() showTakenPhoto,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? showRefImage,
-    TResult? Function()? showTakenPhoto,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? showRefImage,
-    TResult Function()? showTakenPhoto,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(BlinkComparisonStateInitial value) initial,
-    required TResult Function(BlinkComparisonStateShowRefImage value)
-        showRefImage,
-    required TResult Function(BlinkComparisonStateShowTakenPhoto value)
-        showTakenPhoto,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(BlinkComparisonStateInitial value)? initial,
-    TResult? Function(BlinkComparisonStateShowRefImage value)? showRefImage,
-    TResult? Function(BlinkComparisonStateShowTakenPhoto value)? showTakenPhoto,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(BlinkComparisonStateInitial value)? initial,
-    TResult Function(BlinkComparisonStateShowRefImage value)? showRefImage,
-    TResult Function(BlinkComparisonStateShowTakenPhoto value)? showTakenPhoto,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class BlinkComparisonStateInitial implements BlinkComparisonState {
@@ -246,76 +129,6 @@ class _$BlinkComparisonStateShowRefImageImpl
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() showRefImage,
-    required TResult Function() showTakenPhoto,
-  }) {
-    return showRefImage();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? showRefImage,
-    TResult? Function()? showTakenPhoto,
-  }) {
-    return showRefImage?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? showRefImage,
-    TResult Function()? showTakenPhoto,
-    required TResult orElse(),
-  }) {
-    if (showRefImage != null) {
-      return showRefImage();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(BlinkComparisonStateInitial value) initial,
-    required TResult Function(BlinkComparisonStateShowRefImage value)
-        showRefImage,
-    required TResult Function(BlinkComparisonStateShowTakenPhoto value)
-        showTakenPhoto,
-  }) {
-    return showRefImage(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(BlinkComparisonStateInitial value)? initial,
-    TResult? Function(BlinkComparisonStateShowRefImage value)? showRefImage,
-    TResult? Function(BlinkComparisonStateShowTakenPhoto value)? showTakenPhoto,
-  }) {
-    return showRefImage?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(BlinkComparisonStateInitial value)? initial,
-    TResult Function(BlinkComparisonStateShowRefImage value)? showRefImage,
-    TResult Function(BlinkComparisonStateShowTakenPhoto value)? showTakenPhoto,
-    required TResult orElse(),
-  }) {
-    if (showRefImage != null) {
-      return showRefImage(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class BlinkComparisonStateShowRefImage
@@ -366,76 +179,6 @@ class _$BlinkComparisonStateShowTakenPhotoImpl
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() showRefImage,
-    required TResult Function() showTakenPhoto,
-  }) {
-    return showTakenPhoto();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? showRefImage,
-    TResult? Function()? showTakenPhoto,
-  }) {
-    return showTakenPhoto?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? showRefImage,
-    TResult Function()? showTakenPhoto,
-    required TResult orElse(),
-  }) {
-    if (showTakenPhoto != null) {
-      return showTakenPhoto();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(BlinkComparisonStateInitial value) initial,
-    required TResult Function(BlinkComparisonStateShowRefImage value)
-        showRefImage,
-    required TResult Function(BlinkComparisonStateShowTakenPhoto value)
-        showTakenPhoto,
-  }) {
-    return showTakenPhoto(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(BlinkComparisonStateInitial value)? initial,
-    TResult? Function(BlinkComparisonStateShowRefImage value)? showRefImage,
-    TResult? Function(BlinkComparisonStateShowTakenPhoto value)? showTakenPhoto,
-  }) {
-    return showTakenPhoto?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(BlinkComparisonStateInitial value)? initial,
-    TResult Function(BlinkComparisonStateShowRefImage value)? showRefImage,
-    TResult Function(BlinkComparisonStateShowTakenPhoto value)? showTakenPhoto,
-    required TResult orElse(),
-  }) {
-    if (showTakenPhoto != null) {
-      return showTakenPhoto(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class BlinkComparisonStateShowTakenPhoto

@@ -21,6 +21,7 @@ import 'package:blink_comparison/ui/about/about_page.dart';
 import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:blink_comparison/ui/home/model/ref_images_actions_state.dart';
 import 'package:blink_comparison/ui/home/model/ref_images_cubit.dart';
+import 'package:blink_comparison/ui/home/model/ref_images_state.dart';
 import 'package:blink_comparison/ui/home/model/selectable_ref_image_item.dart';
 import 'package:blink_comparison/ui/model/selectable_state.dart';
 import 'package:flutter/material.dart';
@@ -79,10 +80,10 @@ class _HomeAppBarState extends State<HomeAppBar> {
         SelectableState<SelectableRefImageItem>>(
       listener: (context, state) {
         setState(() {
-          _currentAppBar = state.maybeWhen(
-            selected: (items) => CrossFadeState.showSecond,
-            orElse: () => CrossFadeState.showFirst,
-          );
+          _currentAppBar = switch (state) {
+            SelectableStateSelected() => CrossFadeState.showSecond,
+            _ => CrossFadeState.showFirst,
+          };
         });
       },
       child: Material(
@@ -139,32 +140,28 @@ class _ContextualAppBar extends StatelessWidget {
     final cubit = context.read<SelectableRefImageCubit>();
     return BlocListener<RefImagesActionsCubit, RefImagesActionsState>(
       listener: (context, state) {
-        state.maybeWhen(
-          deleted: (count, errors) {
-            late final String message;
-            if (errors.isEmpty) {
-              message = S.of(context).imagesDeleted(count);
-            } else {
-              message = S.of(context).deleteImagesFailed(errors.length);
-            }
-            for (final entry in errors.entries) {
-              log().e('[${entry.key.id}] Unable to delete image',
-                  error: entry.value);
-            }
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(message)),
-            );
-          },
-          orElse: () {},
-        );
+        if (state
+            case RefImagesActionsStateDeleted(:final count, :final errors)) {
+          final message = switch (errors.isEmpty) {
+            true => S.of(context).imagesDeleted(count),
+            false => S.of(context).deleteImagesFailed(errors.length),
+          };
+          for (final entry in errors.entries) {
+            log().e('[${entry.key.id}] Unable to delete image',
+                error: entry.value);
+          }
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(message)),
+          );
+        }
       },
       child: BlocBuilder<SelectableRefImageCubit,
           SelectableState<SelectableRefImageItem>>(
         builder: (context, state) {
-          final itemsCount = state.maybeWhen(
-            selected: (items) => items.length,
-            orElse: () => 0,
-          );
+          final itemsCount = switch (state) {
+            SelectableStateSelected(:final items) => items.length,
+            _ => 0,
+          };
           return AppBar(
             key: const ValueKey('contextual_app_bar'),
             title: Text(
@@ -177,14 +174,13 @@ class _ContextualAppBar extends StatelessWidget {
                 icon: const Icon(Icons.delete_outline_rounded),
                 tooltip: S.of(context).delete,
                 onPressed: () {
-                  cubit.state.maybeWhen(
-                    selected: (items) => _showDeleteDialog(
+                  if (cubit.state case SelectableStateSelected(:final items)) {
+                    _showDeleteDialog(
                       context: context,
                       items: items,
                       onDone: () => cubit.clearSelection(),
-                    ),
-                    orElse: () {},
-                  );
+                    );
+                  }
                 },
               ),
               IconButton(
@@ -240,16 +236,12 @@ class _ContextualAppBar extends StatelessWidget {
     final selectableCubit = context.read<SelectableRefImageCubit>();
     final imagesCubit = context.read<RefImagesCubit>();
 
-    imagesCubit.state.when(
-      initial: () {},
-      loadingFailed: (error) {},
-      loaded: (entries) {
-        selectableCubit.selectSet(
-          entries
-              .map((entry) => SelectableRefImageItem(info: entry.info))
-              .toSet(),
-        );
-      },
-    );
+    if (imagesCubit.state case RefImagesStateLoaded(:final entries)) {
+      selectableCubit.selectSet(
+        entries
+            .map((entry) => SelectableRefImageItem(info: entry.info))
+            .toSet(),
+      );
+    }
   }
 }

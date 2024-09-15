@@ -74,16 +74,18 @@ void main() {
         );
 
         final res = await pbe.encrypt(src: bytes, info: info);
-        await res.when(
-          success: (encBytes) async {
+        switch (res) {
+          case EncryptResultSuccess(bytes: final encBytes):
             final res = await pbe.decrypt(src: encBytes, info: info);
-            res.when(
-              success: (decBytes) => expect(decBytes, bytes),
-              fail: (error) => throw error,
-            );
-          },
-          fail: (error) => throw error,
-        );
+            switch (res) {
+              case DecryptResultSuccess(bytes: final decBytes):
+                expect(decBytes, bytes);
+              case DecryptResultFail(:final error):
+                throw error;
+            }
+          case EncryptResultFail(:final error):
+            throw error;
+        }
       });
 
       test('Decrypt with wrong key', () async {
@@ -125,16 +127,15 @@ void main() {
         });
 
         final res = await pbe.encrypt(src: bytes, info: info);
-        await res.when(
-          success: (encBytes) async {
+        switch (res) {
+          case EncryptResultSuccess(bytes: final encBytes):
             final res = await pbe.decrypt(src: encBytes, info: info);
-            return res.when(
-              success: (decBytes) => fail('Decryption should not succeed'),
-              fail: (error) {},
-            );
-          },
-          fail: (error) => throw error,
-        );
+            if (res case DecryptResultSuccess()) {
+              fail('Decryption should not succeed');
+            }
+          case EncryptResultFail(:final error):
+            throw error;
+        }
       });
 
       test('Decrypt unencrypted data ', () async {
@@ -167,10 +168,9 @@ void main() {
         );
 
         final res = await pbe.decrypt(src: bytes, info: info);
-        res.when(
-          success: (decBytes) => fail('Decryption should not succeed'),
-          fail: (error) {},
-        );
+        if (res case DecryptResultSuccess()) {
+          fail('Decryption should not succeed');
+        }
       });
     });
   });

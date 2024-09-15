@@ -113,5 +113,5 @@ class PasswordRepositoryImpl implements PasswordRepository {
 }
 
 extension PasswordTypeExtension on PasswordType {
-  String getId() => when(encryptKey: () => _encryptKeyId);
+  String getId() => switch (this) { PasswordTypeEncryptKey() => _encryptKeyId };
 }

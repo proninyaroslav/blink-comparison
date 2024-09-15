@@ -15,98 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$SignUpState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        initial,
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        passwordChanged,
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        invalidPassword,
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        passwordMismatch,
-    required TResult Function() savingPassword,
-    required TResult Function() savedAndAuthorized,
-    required TResult Function(Password password, RepeatPassword repeatPassword,
-            Object? error, StackTrace? stackTrace)
-        savePasswordFailed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        initial,
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        passwordChanged,
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        invalidPassword,
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        passwordMismatch,
-    TResult? Function()? savingPassword,
-    TResult? Function()? savedAndAuthorized,
-    TResult? Function(Password password, RepeatPassword repeatPassword,
-            Object? error, StackTrace? stackTrace)?
-        savePasswordFailed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Password password, RepeatPassword repeatPassword)? initial,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
-        passwordChanged,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
-        invalidPassword,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
-        passwordMismatch,
-    TResult Function()? savingPassword,
-    TResult Function()? savedAndAuthorized,
-    TResult Function(Password password, RepeatPassword repeatPassword,
-            Object? error, StackTrace? stackTrace)?
-        savePasswordFailed,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SignUpStateInitial value) initial,
-    required TResult Function(SignUpStatePasswordChanged value) passwordChanged,
-    required TResult Function(SignUpStateInvalidPassword value) invalidPassword,
-    required TResult Function(SignUpStatePasswordMismatch value)
-        passwordMismatch,
-    required TResult Function(SignUpStateSavingPassword value) savingPassword,
-    required TResult Function(SignUpStatePasswordSavedAndAuthorized value)
-        savedAndAuthorized,
-    required TResult Function(SignUpStateSavePasswordFailed value)
-        savePasswordFailed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SignUpStateInitial value)? initial,
-    TResult? Function(SignUpStatePasswordChanged value)? passwordChanged,
-    TResult? Function(SignUpStateInvalidPassword value)? invalidPassword,
-    TResult? Function(SignUpStatePasswordMismatch value)? passwordMismatch,
-    TResult? Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult? Function(SignUpStatePasswordSavedAndAuthorized value)?
-        savedAndAuthorized,
-    TResult? Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SignUpStateInitial value)? initial,
-    TResult Function(SignUpStatePasswordChanged value)? passwordChanged,
-    TResult Function(SignUpStateInvalidPassword value)? invalidPassword,
-    TResult Function(SignUpStatePasswordMismatch value)? passwordMismatch,
-    TResult Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult Function(SignUpStatePasswordSavedAndAuthorized value)?
-        savedAndAuthorized,
-    TResult Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$SignUpState {}
 
 /// @nodoc
 abstract class $SignUpStateCopyWith<$Res> {
@@ -242,120 +151,6 @@ class _$SignUpStateInitialImpl
   _$$SignUpStateInitialImplCopyWith<_$SignUpStateInitialImpl> get copyWith =>
       __$$SignUpStateInitialImplCopyWithImpl<_$SignUpStateInitialImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        initial,
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        passwordChanged,
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        invalidPassword,
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        passwordMismatch,
-    required TResult Function() savingPassword,
-    required TResult Function() savedAndAuthorized,
-    required TResult Function(Password password, RepeatPassword repeatPassword,
-            Object? error, StackTrace? stackTrace)
-        savePasswordFailed,
-  }) {
-    return initial(password, repeatPassword);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        initial,
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        passwordChanged,
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        invalidPassword,
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        passwordMismatch,
-    TResult? Function()? savingPassword,
-    TResult? Function()? savedAndAuthorized,
-    TResult? Function(Password password, RepeatPassword repeatPassword,
-            Object? error, StackTrace? stackTrace)?
-        savePasswordFailed,
-  }) {
-    return initial?.call(password, repeatPassword);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Password password, RepeatPassword repeatPassword)? initial,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
-        passwordChanged,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
-        invalidPassword,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
-        passwordMismatch,
-    TResult Function()? savingPassword,
-    TResult Function()? savedAndAuthorized,
-    TResult Function(Password password, RepeatPassword repeatPassword,
-            Object? error, StackTrace? stackTrace)?
-        savePasswordFailed,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(password, repeatPassword);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SignUpStateInitial value) initial,
-    required TResult Function(SignUpStatePasswordChanged value) passwordChanged,
-    required TResult Function(SignUpStateInvalidPassword value) invalidPassword,
-    required TResult Function(SignUpStatePasswordMismatch value)
-        passwordMismatch,
-    required TResult Function(SignUpStateSavingPassword value) savingPassword,
-    required TResult Function(SignUpStatePasswordSavedAndAuthorized value)
-        savedAndAuthorized,
-    required TResult Function(SignUpStateSavePasswordFailed value)
-        savePasswordFailed,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SignUpStateInitial value)? initial,
-    TResult? Function(SignUpStatePasswordChanged value)? passwordChanged,
-    TResult? Function(SignUpStateInvalidPassword value)? invalidPassword,
-    TResult? Function(SignUpStatePasswordMismatch value)? passwordMismatch,
-    TResult? Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult? Function(SignUpStatePasswordSavedAndAuthorized value)?
-        savedAndAuthorized,
-    TResult? Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SignUpStateInitial value)? initial,
-    TResult Function(SignUpStatePasswordChanged value)? passwordChanged,
-    TResult Function(SignUpStateInvalidPassword value)? invalidPassword,
-    TResult Function(SignUpStatePasswordMismatch value)? passwordMismatch,
-    TResult Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult Function(SignUpStatePasswordSavedAndAuthorized value)?
-        savedAndAuthorized,
-    TResult Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SignUpStateInitial implements SignUpState {
@@ -485,120 +280,6 @@ class _$SignUpStatePasswordChangedImpl
   _$$SignUpStatePasswordChangedImplCopyWith<_$SignUpStatePasswordChangedImpl>
       get copyWith => __$$SignUpStatePasswordChangedImplCopyWithImpl<
           _$SignUpStatePasswordChangedImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        initial,
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        passwordChanged,
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        invalidPassword,
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        passwordMismatch,
-    required TResult Function() savingPassword,
-    required TResult Function() savedAndAuthorized,
-    required TResult Function(Password password, RepeatPassword repeatPassword,
-            Object? error, StackTrace? stackTrace)
-        savePasswordFailed,
-  }) {
-    return passwordChanged(password, repeatPassword);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        initial,
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        passwordChanged,
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        invalidPassword,
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        passwordMismatch,
-    TResult? Function()? savingPassword,
-    TResult? Function()? savedAndAuthorized,
-    TResult? Function(Password password, RepeatPassword repeatPassword,
-            Object? error, StackTrace? stackTrace)?
-        savePasswordFailed,
-  }) {
-    return passwordChanged?.call(password, repeatPassword);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Password password, RepeatPassword repeatPassword)? initial,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
-        passwordChanged,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
-        invalidPassword,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
-        passwordMismatch,
-    TResult Function()? savingPassword,
-    TResult Function()? savedAndAuthorized,
-    TResult Function(Password password, RepeatPassword repeatPassword,
-            Object? error, StackTrace? stackTrace)?
-        savePasswordFailed,
-    required TResult orElse(),
-  }) {
-    if (passwordChanged != null) {
-      return passwordChanged(password, repeatPassword);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SignUpStateInitial value) initial,
-    required TResult Function(SignUpStatePasswordChanged value) passwordChanged,
-    required TResult Function(SignUpStateInvalidPassword value) invalidPassword,
-    required TResult Function(SignUpStatePasswordMismatch value)
-        passwordMismatch,
-    required TResult Function(SignUpStateSavingPassword value) savingPassword,
-    required TResult Function(SignUpStatePasswordSavedAndAuthorized value)
-        savedAndAuthorized,
-    required TResult Function(SignUpStateSavePasswordFailed value)
-        savePasswordFailed,
-  }) {
-    return passwordChanged(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SignUpStateInitial value)? initial,
-    TResult? Function(SignUpStatePasswordChanged value)? passwordChanged,
-    TResult? Function(SignUpStateInvalidPassword value)? invalidPassword,
-    TResult? Function(SignUpStatePasswordMismatch value)? passwordMismatch,
-    TResult? Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult? Function(SignUpStatePasswordSavedAndAuthorized value)?
-        savedAndAuthorized,
-    TResult? Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
-  }) {
-    return passwordChanged?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SignUpStateInitial value)? initial,
-    TResult Function(SignUpStatePasswordChanged value)? passwordChanged,
-    TResult Function(SignUpStateInvalidPassword value)? invalidPassword,
-    TResult Function(SignUpStatePasswordMismatch value)? passwordMismatch,
-    TResult Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult Function(SignUpStatePasswordSavedAndAuthorized value)?
-        savedAndAuthorized,
-    TResult Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
-    required TResult orElse(),
-  }) {
-    if (passwordChanged != null) {
-      return passwordChanged(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SignUpStatePasswordChanged implements SignUpState {
@@ -729,120 +410,6 @@ class _$SignUpStateInvalidPasswordImpl
   _$$SignUpStateInvalidPasswordImplCopyWith<_$SignUpStateInvalidPasswordImpl>
       get copyWith => __$$SignUpStateInvalidPasswordImplCopyWithImpl<
           _$SignUpStateInvalidPasswordImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        initial,
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        passwordChanged,
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        invalidPassword,
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        passwordMismatch,
-    required TResult Function() savingPassword,
-    required TResult Function() savedAndAuthorized,
-    required TResult Function(Password password, RepeatPassword repeatPassword,
-            Object? error, StackTrace? stackTrace)
-        savePasswordFailed,
-  }) {
-    return invalidPassword(password, repeatPassword);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        initial,
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        passwordChanged,
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        invalidPassword,
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        passwordMismatch,
-    TResult? Function()? savingPassword,
-    TResult? Function()? savedAndAuthorized,
-    TResult? Function(Password password, RepeatPassword repeatPassword,
-            Object? error, StackTrace? stackTrace)?
-        savePasswordFailed,
-  }) {
-    return invalidPassword?.call(password, repeatPassword);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Password password, RepeatPassword repeatPassword)? initial,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
-        passwordChanged,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
-        invalidPassword,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
-        passwordMismatch,
-    TResult Function()? savingPassword,
-    TResult Function()? savedAndAuthorized,
-    TResult Function(Password password, RepeatPassword repeatPassword,
-            Object? error, StackTrace? stackTrace)?
-        savePasswordFailed,
-    required TResult orElse(),
-  }) {
-    if (invalidPassword != null) {
-      return invalidPassword(password, repeatPassword);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SignUpStateInitial value) initial,
-    required TResult Function(SignUpStatePasswordChanged value) passwordChanged,
-    required TResult Function(SignUpStateInvalidPassword value) invalidPassword,
-    required TResult Function(SignUpStatePasswordMismatch value)
-        passwordMismatch,
-    required TResult Function(SignUpStateSavingPassword value) savingPassword,
-    required TResult Function(SignUpStatePasswordSavedAndAuthorized value)
-        savedAndAuthorized,
-    required TResult Function(SignUpStateSavePasswordFailed value)
-        savePasswordFailed,
-  }) {
-    return invalidPassword(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SignUpStateInitial value)? initial,
-    TResult? Function(SignUpStatePasswordChanged value)? passwordChanged,
-    TResult? Function(SignUpStateInvalidPassword value)? invalidPassword,
-    TResult? Function(SignUpStatePasswordMismatch value)? passwordMismatch,
-    TResult? Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult? Function(SignUpStatePasswordSavedAndAuthorized value)?
-        savedAndAuthorized,
-    TResult? Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
-  }) {
-    return invalidPassword?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SignUpStateInitial value)? initial,
-    TResult Function(SignUpStatePasswordChanged value)? passwordChanged,
-    TResult Function(SignUpStateInvalidPassword value)? invalidPassword,
-    TResult Function(SignUpStatePasswordMismatch value)? passwordMismatch,
-    TResult Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult Function(SignUpStatePasswordSavedAndAuthorized value)?
-        savedAndAuthorized,
-    TResult Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
-    required TResult orElse(),
-  }) {
-    if (invalidPassword != null) {
-      return invalidPassword(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SignUpStateInvalidPassword implements SignUpState {
@@ -973,120 +540,6 @@ class _$SignUpStatePasswordMismatchImpl
   _$$SignUpStatePasswordMismatchImplCopyWith<_$SignUpStatePasswordMismatchImpl>
       get copyWith => __$$SignUpStatePasswordMismatchImplCopyWithImpl<
           _$SignUpStatePasswordMismatchImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        initial,
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        passwordChanged,
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        invalidPassword,
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        passwordMismatch,
-    required TResult Function() savingPassword,
-    required TResult Function() savedAndAuthorized,
-    required TResult Function(Password password, RepeatPassword repeatPassword,
-            Object? error, StackTrace? stackTrace)
-        savePasswordFailed,
-  }) {
-    return passwordMismatch(password, repeatPassword);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        initial,
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        passwordChanged,
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        invalidPassword,
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        passwordMismatch,
-    TResult? Function()? savingPassword,
-    TResult? Function()? savedAndAuthorized,
-    TResult? Function(Password password, RepeatPassword repeatPassword,
-            Object? error, StackTrace? stackTrace)?
-        savePasswordFailed,
-  }) {
-    return passwordMismatch?.call(password, repeatPassword);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Password password, RepeatPassword repeatPassword)? initial,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
-        passwordChanged,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
-        invalidPassword,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
-        passwordMismatch,
-    TResult Function()? savingPassword,
-    TResult Function()? savedAndAuthorized,
-    TResult Function(Password password, RepeatPassword repeatPassword,
-            Object? error, StackTrace? stackTrace)?
-        savePasswordFailed,
-    required TResult orElse(),
-  }) {
-    if (passwordMismatch != null) {
-      return passwordMismatch(password, repeatPassword);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SignUpStateInitial value) initial,
-    required TResult Function(SignUpStatePasswordChanged value) passwordChanged,
-    required TResult Function(SignUpStateInvalidPassword value) invalidPassword,
-    required TResult Function(SignUpStatePasswordMismatch value)
-        passwordMismatch,
-    required TResult Function(SignUpStateSavingPassword value) savingPassword,
-    required TResult Function(SignUpStatePasswordSavedAndAuthorized value)
-        savedAndAuthorized,
-    required TResult Function(SignUpStateSavePasswordFailed value)
-        savePasswordFailed,
-  }) {
-    return passwordMismatch(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SignUpStateInitial value)? initial,
-    TResult? Function(SignUpStatePasswordChanged value)? passwordChanged,
-    TResult? Function(SignUpStateInvalidPassword value)? invalidPassword,
-    TResult? Function(SignUpStatePasswordMismatch value)? passwordMismatch,
-    TResult? Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult? Function(SignUpStatePasswordSavedAndAuthorized value)?
-        savedAndAuthorized,
-    TResult? Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
-  }) {
-    return passwordMismatch?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SignUpStateInitial value)? initial,
-    TResult Function(SignUpStatePasswordChanged value)? passwordChanged,
-    TResult Function(SignUpStateInvalidPassword value)? invalidPassword,
-    TResult Function(SignUpStatePasswordMismatch value)? passwordMismatch,
-    TResult Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult Function(SignUpStatePasswordSavedAndAuthorized value)?
-        savedAndAuthorized,
-    TResult Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
-    required TResult orElse(),
-  }) {
-    if (passwordMismatch != null) {
-      return passwordMismatch(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SignUpStatePasswordMismatch implements SignUpState {
@@ -1153,120 +606,6 @@ class _$SignUpStateSavingPasswordImpl
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        initial,
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        passwordChanged,
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        invalidPassword,
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        passwordMismatch,
-    required TResult Function() savingPassword,
-    required TResult Function() savedAndAuthorized,
-    required TResult Function(Password password, RepeatPassword repeatPassword,
-            Object? error, StackTrace? stackTrace)
-        savePasswordFailed,
-  }) {
-    return savingPassword();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        initial,
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        passwordChanged,
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        invalidPassword,
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        passwordMismatch,
-    TResult? Function()? savingPassword,
-    TResult? Function()? savedAndAuthorized,
-    TResult? Function(Password password, RepeatPassword repeatPassword,
-            Object? error, StackTrace? stackTrace)?
-        savePasswordFailed,
-  }) {
-    return savingPassword?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Password password, RepeatPassword repeatPassword)? initial,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
-        passwordChanged,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
-        invalidPassword,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
-        passwordMismatch,
-    TResult Function()? savingPassword,
-    TResult Function()? savedAndAuthorized,
-    TResult Function(Password password, RepeatPassword repeatPassword,
-            Object? error, StackTrace? stackTrace)?
-        savePasswordFailed,
-    required TResult orElse(),
-  }) {
-    if (savingPassword != null) {
-      return savingPassword();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SignUpStateInitial value) initial,
-    required TResult Function(SignUpStatePasswordChanged value) passwordChanged,
-    required TResult Function(SignUpStateInvalidPassword value) invalidPassword,
-    required TResult Function(SignUpStatePasswordMismatch value)
-        passwordMismatch,
-    required TResult Function(SignUpStateSavingPassword value) savingPassword,
-    required TResult Function(SignUpStatePasswordSavedAndAuthorized value)
-        savedAndAuthorized,
-    required TResult Function(SignUpStateSavePasswordFailed value)
-        savePasswordFailed,
-  }) {
-    return savingPassword(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SignUpStateInitial value)? initial,
-    TResult? Function(SignUpStatePasswordChanged value)? passwordChanged,
-    TResult? Function(SignUpStateInvalidPassword value)? invalidPassword,
-    TResult? Function(SignUpStatePasswordMismatch value)? passwordMismatch,
-    TResult? Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult? Function(SignUpStatePasswordSavedAndAuthorized value)?
-        savedAndAuthorized,
-    TResult? Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
-  }) {
-    return savingPassword?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SignUpStateInitial value)? initial,
-    TResult Function(SignUpStatePasswordChanged value)? passwordChanged,
-    TResult Function(SignUpStateInvalidPassword value)? invalidPassword,
-    TResult Function(SignUpStatePasswordMismatch value)? passwordMismatch,
-    TResult Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult Function(SignUpStatePasswordSavedAndAuthorized value)?
-        savedAndAuthorized,
-    TResult Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
-    required TResult orElse(),
-  }) {
-    if (savingPassword != null) {
-      return savingPassword(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SignUpStateSavingPassword implements SignUpState {
@@ -1274,21 +613,20 @@ abstract class SignUpStateSavingPassword implements SignUpState {
 }
 
 /// @nodoc
-abstract class _$$SignUpStatePasswordSavedAndAuthorizedImplCopyWith<$Res> {
-  factory _$$SignUpStatePasswordSavedAndAuthorizedImplCopyWith(
-          _$SignUpStatePasswordSavedAndAuthorizedImpl value,
-          $Res Function(_$SignUpStatePasswordSavedAndAuthorizedImpl) then) =
-      __$$SignUpStatePasswordSavedAndAuthorizedImplCopyWithImpl<$Res>;
+abstract class _$$SignUpStateSavedAndAuthorizedImplCopyWith<$Res> {
+  factory _$$SignUpStateSavedAndAuthorizedImplCopyWith(
+          _$SignUpStateSavedAndAuthorizedImpl value,
+          $Res Function(_$SignUpStateSavedAndAuthorizedImpl) then) =
+      __$$SignUpStateSavedAndAuthorizedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$SignUpStatePasswordSavedAndAuthorizedImplCopyWithImpl<$Res>
-    extends _$SignUpStateCopyWithImpl<$Res,
-        _$SignUpStatePasswordSavedAndAuthorizedImpl>
-    implements _$$SignUpStatePasswordSavedAndAuthorizedImplCopyWith<$Res> {
-  __$$SignUpStatePasswordSavedAndAuthorizedImplCopyWithImpl(
-      _$SignUpStatePasswordSavedAndAuthorizedImpl _value,
-      $Res Function(_$SignUpStatePasswordSavedAndAuthorizedImpl) _then)
+class __$$SignUpStateSavedAndAuthorizedImplCopyWithImpl<$Res>
+    extends _$SignUpStateCopyWithImpl<$Res, _$SignUpStateSavedAndAuthorizedImpl>
+    implements _$$SignUpStateSavedAndAuthorizedImplCopyWith<$Res> {
+  __$$SignUpStateSavedAndAuthorizedImplCopyWithImpl(
+      _$SignUpStateSavedAndAuthorizedImpl _value,
+      $Res Function(_$SignUpStateSavedAndAuthorizedImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of SignUpState
@@ -1297,10 +635,10 @@ class __$$SignUpStatePasswordSavedAndAuthorizedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SignUpStatePasswordSavedAndAuthorizedImpl
+class _$SignUpStateSavedAndAuthorizedImpl
     with DiagnosticableTreeMixin
-    implements SignUpStatePasswordSavedAndAuthorized {
-  const _$SignUpStatePasswordSavedAndAuthorizedImpl();
+    implements SignUpStateSavedAndAuthorized {
+  const _$SignUpStateSavedAndAuthorizedImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -1318,130 +656,16 @@ class _$SignUpStatePasswordSavedAndAuthorizedImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SignUpStatePasswordSavedAndAuthorizedImpl);
+            other is _$SignUpStateSavedAndAuthorizedImpl);
   }
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        initial,
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        passwordChanged,
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        invalidPassword,
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        passwordMismatch,
-    required TResult Function() savingPassword,
-    required TResult Function() savedAndAuthorized,
-    required TResult Function(Password password, RepeatPassword repeatPassword,
-            Object? error, StackTrace? stackTrace)
-        savePasswordFailed,
-  }) {
-    return savedAndAuthorized();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        initial,
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        passwordChanged,
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        invalidPassword,
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        passwordMismatch,
-    TResult? Function()? savingPassword,
-    TResult? Function()? savedAndAuthorized,
-    TResult? Function(Password password, RepeatPassword repeatPassword,
-            Object? error, StackTrace? stackTrace)?
-        savePasswordFailed,
-  }) {
-    return savedAndAuthorized?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Password password, RepeatPassword repeatPassword)? initial,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
-        passwordChanged,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
-        invalidPassword,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
-        passwordMismatch,
-    TResult Function()? savingPassword,
-    TResult Function()? savedAndAuthorized,
-    TResult Function(Password password, RepeatPassword repeatPassword,
-            Object? error, StackTrace? stackTrace)?
-        savePasswordFailed,
-    required TResult orElse(),
-  }) {
-    if (savedAndAuthorized != null) {
-      return savedAndAuthorized();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SignUpStateInitial value) initial,
-    required TResult Function(SignUpStatePasswordChanged value) passwordChanged,
-    required TResult Function(SignUpStateInvalidPassword value) invalidPassword,
-    required TResult Function(SignUpStatePasswordMismatch value)
-        passwordMismatch,
-    required TResult Function(SignUpStateSavingPassword value) savingPassword,
-    required TResult Function(SignUpStatePasswordSavedAndAuthorized value)
-        savedAndAuthorized,
-    required TResult Function(SignUpStateSavePasswordFailed value)
-        savePasswordFailed,
-  }) {
-    return savedAndAuthorized(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SignUpStateInitial value)? initial,
-    TResult? Function(SignUpStatePasswordChanged value)? passwordChanged,
-    TResult? Function(SignUpStateInvalidPassword value)? invalidPassword,
-    TResult? Function(SignUpStatePasswordMismatch value)? passwordMismatch,
-    TResult? Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult? Function(SignUpStatePasswordSavedAndAuthorized value)?
-        savedAndAuthorized,
-    TResult? Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
-  }) {
-    return savedAndAuthorized?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SignUpStateInitial value)? initial,
-    TResult Function(SignUpStatePasswordChanged value)? passwordChanged,
-    TResult Function(SignUpStateInvalidPassword value)? invalidPassword,
-    TResult Function(SignUpStatePasswordMismatch value)? passwordMismatch,
-    TResult Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult Function(SignUpStatePasswordSavedAndAuthorized value)?
-        savedAndAuthorized,
-    TResult Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
-    required TResult orElse(),
-  }) {
-    if (savedAndAuthorized != null) {
-      return savedAndAuthorized(this);
-    }
-    return orElse();
-  }
 }
 
-abstract class SignUpStatePasswordSavedAndAuthorized implements SignUpState {
-  const factory SignUpStatePasswordSavedAndAuthorized() =
-      _$SignUpStatePasswordSavedAndAuthorizedImpl;
+abstract class SignUpStateSavedAndAuthorized implements SignUpState {
+  const factory SignUpStateSavedAndAuthorized() =
+      _$SignUpStateSavedAndAuthorizedImpl;
 }
 
 /// @nodoc
@@ -1581,121 +805,6 @@ class _$SignUpStateSavePasswordFailedImpl
           _$SignUpStateSavePasswordFailedImpl>
       get copyWith => __$$SignUpStateSavePasswordFailedImplCopyWithImpl<
           _$SignUpStateSavePasswordFailedImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        initial,
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        passwordChanged,
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        invalidPassword,
-    required TResult Function(Password password, RepeatPassword repeatPassword)
-        passwordMismatch,
-    required TResult Function() savingPassword,
-    required TResult Function() savedAndAuthorized,
-    required TResult Function(Password password, RepeatPassword repeatPassword,
-            Object? error, StackTrace? stackTrace)
-        savePasswordFailed,
-  }) {
-    return savePasswordFailed(password, repeatPassword, error, stackTrace);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        initial,
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        passwordChanged,
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        invalidPassword,
-    TResult? Function(Password password, RepeatPassword repeatPassword)?
-        passwordMismatch,
-    TResult? Function()? savingPassword,
-    TResult? Function()? savedAndAuthorized,
-    TResult? Function(Password password, RepeatPassword repeatPassword,
-            Object? error, StackTrace? stackTrace)?
-        savePasswordFailed,
-  }) {
-    return savePasswordFailed?.call(
-        password, repeatPassword, error, stackTrace);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Password password, RepeatPassword repeatPassword)? initial,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
-        passwordChanged,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
-        invalidPassword,
-    TResult Function(Password password, RepeatPassword repeatPassword)?
-        passwordMismatch,
-    TResult Function()? savingPassword,
-    TResult Function()? savedAndAuthorized,
-    TResult Function(Password password, RepeatPassword repeatPassword,
-            Object? error, StackTrace? stackTrace)?
-        savePasswordFailed,
-    required TResult orElse(),
-  }) {
-    if (savePasswordFailed != null) {
-      return savePasswordFailed(password, repeatPassword, error, stackTrace);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SignUpStateInitial value) initial,
-    required TResult Function(SignUpStatePasswordChanged value) passwordChanged,
-    required TResult Function(SignUpStateInvalidPassword value) invalidPassword,
-    required TResult Function(SignUpStatePasswordMismatch value)
-        passwordMismatch,
-    required TResult Function(SignUpStateSavingPassword value) savingPassword,
-    required TResult Function(SignUpStatePasswordSavedAndAuthorized value)
-        savedAndAuthorized,
-    required TResult Function(SignUpStateSavePasswordFailed value)
-        savePasswordFailed,
-  }) {
-    return savePasswordFailed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SignUpStateInitial value)? initial,
-    TResult? Function(SignUpStatePasswordChanged value)? passwordChanged,
-    TResult? Function(SignUpStateInvalidPassword value)? invalidPassword,
-    TResult? Function(SignUpStatePasswordMismatch value)? passwordMismatch,
-    TResult? Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult? Function(SignUpStatePasswordSavedAndAuthorized value)?
-        savedAndAuthorized,
-    TResult? Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
-  }) {
-    return savePasswordFailed?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SignUpStateInitial value)? initial,
-    TResult Function(SignUpStatePasswordChanged value)? passwordChanged,
-    TResult Function(SignUpStateInvalidPassword value)? invalidPassword,
-    TResult Function(SignUpStatePasswordMismatch value)? passwordMismatch,
-    TResult Function(SignUpStateSavingPassword value)? savingPassword,
-    TResult Function(SignUpStatePasswordSavedAndAuthorized value)?
-        savedAndAuthorized,
-    TResult Function(SignUpStateSavePasswordFailed value)? savePasswordFailed,
-    required TResult orElse(),
-  }) {
-    if (savePasswordFailed != null) {
-      return savePasswordFailed(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SignUpStateSavePasswordFailed implements SignUpState {
@@ -2070,52 +1179,7 @@ abstract class _RepeatPassword implements RepeatPassword {
 }
 
 /// @nodoc
-mixin _$PasswordError {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() empty,
-    required TResult Function() tooShort,
-    required TResult Function() tooLong,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? empty,
-    TResult? Function()? tooShort,
-    TResult? Function()? tooLong,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? empty,
-    TResult Function()? tooShort,
-    TResult Function()? tooLong,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(PasswordErrorEmpty value) empty,
-    required TResult Function(PasswordErrorTooShort value) tooShort,
-    required TResult Function(PasswordErrorTooLong value) tooLong,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(PasswordErrorEmpty value)? empty,
-    TResult? Function(PasswordErrorTooShort value)? tooShort,
-    TResult? Function(PasswordErrorTooLong value)? tooLong,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(PasswordErrorEmpty value)? empty,
-    TResult Function(PasswordErrorTooShort value)? tooShort,
-    TResult Function(PasswordErrorTooLong value)? tooLong,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$PasswordError {}
 
 /// @nodoc
 abstract class $PasswordErrorCopyWith<$Res> {
@@ -2183,74 +1247,6 @@ class _$PasswordErrorEmptyImpl
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() empty,
-    required TResult Function() tooShort,
-    required TResult Function() tooLong,
-  }) {
-    return empty();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? empty,
-    TResult? Function()? tooShort,
-    TResult? Function()? tooLong,
-  }) {
-    return empty?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? empty,
-    TResult Function()? tooShort,
-    TResult Function()? tooLong,
-    required TResult orElse(),
-  }) {
-    if (empty != null) {
-      return empty();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(PasswordErrorEmpty value) empty,
-    required TResult Function(PasswordErrorTooShort value) tooShort,
-    required TResult Function(PasswordErrorTooLong value) tooLong,
-  }) {
-    return empty(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(PasswordErrorEmpty value)? empty,
-    TResult? Function(PasswordErrorTooShort value)? tooShort,
-    TResult? Function(PasswordErrorTooLong value)? tooLong,
-  }) {
-    return empty?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(PasswordErrorEmpty value)? empty,
-    TResult Function(PasswordErrorTooShort value)? tooShort,
-    TResult Function(PasswordErrorTooLong value)? tooLong,
-    required TResult orElse(),
-  }) {
-    if (empty != null) {
-      return empty(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class PasswordErrorEmpty implements PasswordError {
@@ -2304,74 +1300,6 @@ class _$PasswordErrorTooShortImpl
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() empty,
-    required TResult Function() tooShort,
-    required TResult Function() tooLong,
-  }) {
-    return tooShort();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? empty,
-    TResult? Function()? tooShort,
-    TResult? Function()? tooLong,
-  }) {
-    return tooShort?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? empty,
-    TResult Function()? tooShort,
-    TResult Function()? tooLong,
-    required TResult orElse(),
-  }) {
-    if (tooShort != null) {
-      return tooShort();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(PasswordErrorEmpty value) empty,
-    required TResult Function(PasswordErrorTooShort value) tooShort,
-    required TResult Function(PasswordErrorTooLong value) tooLong,
-  }) {
-    return tooShort(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(PasswordErrorEmpty value)? empty,
-    TResult? Function(PasswordErrorTooShort value)? tooShort,
-    TResult? Function(PasswordErrorTooLong value)? tooLong,
-  }) {
-    return tooShort?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(PasswordErrorEmpty value)? empty,
-    TResult Function(PasswordErrorTooShort value)? tooShort,
-    TResult Function(PasswordErrorTooLong value)? tooLong,
-    required TResult orElse(),
-  }) {
-    if (tooShort != null) {
-      return tooShort(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class PasswordErrorTooShort implements PasswordError {
@@ -2424,74 +1352,6 @@ class _$PasswordErrorTooLongImpl
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() empty,
-    required TResult Function() tooShort,
-    required TResult Function() tooLong,
-  }) {
-    return tooLong();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? empty,
-    TResult? Function()? tooShort,
-    TResult? Function()? tooLong,
-  }) {
-    return tooLong?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? empty,
-    TResult Function()? tooShort,
-    TResult Function()? tooLong,
-    required TResult orElse(),
-  }) {
-    if (tooLong != null) {
-      return tooLong();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(PasswordErrorEmpty value) empty,
-    required TResult Function(PasswordErrorTooShort value) tooShort,
-    required TResult Function(PasswordErrorTooLong value) tooLong,
-  }) {
-    return tooLong(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(PasswordErrorEmpty value)? empty,
-    TResult? Function(PasswordErrorTooShort value)? tooShort,
-    TResult? Function(PasswordErrorTooLong value)? tooLong,
-  }) {
-    return tooLong?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(PasswordErrorEmpty value)? empty,
-    TResult Function(PasswordErrorTooShort value)? tooShort,
-    TResult Function(PasswordErrorTooLong value)? tooLong,
-    required TResult orElse(),
-  }) {
-    if (tooLong != null) {
-      return tooLong(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class PasswordErrorTooLong implements PasswordError {
@@ -2499,46 +1359,7 @@ abstract class PasswordErrorTooLong implements PasswordError {
 }
 
 /// @nodoc
-mixin _$RepeatPasswordError {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() empty,
-    required TResult Function() mismatch,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? empty,
-    TResult? Function()? mismatch,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? empty,
-    TResult Function()? mismatch,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(RepeatPasswordErrorEmpty value) empty,
-    required TResult Function(RepeatPasswordErrorMismatch value) mismatch,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RepeatPasswordErrorEmpty value)? empty,
-    TResult? Function(RepeatPasswordErrorMismatch value)? mismatch,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(RepeatPasswordErrorEmpty value)? empty,
-    TResult Function(RepeatPasswordErrorMismatch value)? mismatch,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$RepeatPasswordError {}
 
 /// @nodoc
 abstract class $RepeatPasswordErrorCopyWith<$Res> {
@@ -2610,68 +1431,6 @@ class _$RepeatPasswordErrorEmptyImpl
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() empty,
-    required TResult Function() mismatch,
-  }) {
-    return empty();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? empty,
-    TResult? Function()? mismatch,
-  }) {
-    return empty?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? empty,
-    TResult Function()? mismatch,
-    required TResult orElse(),
-  }) {
-    if (empty != null) {
-      return empty();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(RepeatPasswordErrorEmpty value) empty,
-    required TResult Function(RepeatPasswordErrorMismatch value) mismatch,
-  }) {
-    return empty(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RepeatPasswordErrorEmpty value)? empty,
-    TResult? Function(RepeatPasswordErrorMismatch value)? mismatch,
-  }) {
-    return empty?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(RepeatPasswordErrorEmpty value)? empty,
-    TResult Function(RepeatPasswordErrorMismatch value)? mismatch,
-    required TResult orElse(),
-  }) {
-    if (empty != null) {
-      return empty(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class RepeatPasswordErrorEmpty implements RepeatPasswordError {
@@ -2727,68 +1486,6 @@ class _$RepeatPasswordErrorMismatchImpl
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() empty,
-    required TResult Function() mismatch,
-  }) {
-    return mismatch();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? empty,
-    TResult? Function()? mismatch,
-  }) {
-    return mismatch?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? empty,
-    TResult Function()? mismatch,
-    required TResult orElse(),
-  }) {
-    if (mismatch != null) {
-      return mismatch();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(RepeatPasswordErrorEmpty value) empty,
-    required TResult Function(RepeatPasswordErrorMismatch value) mismatch,
-  }) {
-    return mismatch(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RepeatPasswordErrorEmpty value)? empty,
-    TResult? Function(RepeatPasswordErrorMismatch value)? mismatch,
-  }) {
-    return mismatch?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(RepeatPasswordErrorEmpty value)? empty,
-    TResult Function(RepeatPasswordErrorMismatch value)? mismatch,
-    required TResult orElse(),
-  }) {
-    if (mismatch != null) {
-      return mismatch(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class RepeatPasswordErrorMismatch implements RepeatPasswordError {
@@ -2797,46 +1494,7 @@ abstract class RepeatPasswordErrorMismatch implements RepeatPasswordError {
 }
 
 /// @nodoc
-mixin _$PasswordValidateResult {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String password) success,
-    required TResult Function(PasswordError reason) error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String password)? success,
-    TResult? Function(PasswordError reason)? error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String password)? success,
-    TResult Function(PasswordError reason)? error,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(PasswordValidateResultSuccess value) success,
-    required TResult Function(PasswordValidateResultError value) error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(PasswordValidateResultSuccess value)? success,
-    TResult? Function(PasswordValidateResultError value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(PasswordValidateResultSuccess value)? success,
-    TResult Function(PasswordValidateResultError value)? error,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$PasswordValidateResult {}
 
 /// @nodoc
 abstract class $PasswordValidateResultCopyWith<$Res> {
@@ -2940,68 +1598,6 @@ class _$PasswordValidateResultSuccessImpl
           _$PasswordValidateResultSuccessImpl>
       get copyWith => __$$PasswordValidateResultSuccessImplCopyWithImpl<
           _$PasswordValidateResultSuccessImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String password) success,
-    required TResult Function(PasswordError reason) error,
-  }) {
-    return success(password);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String password)? success,
-    TResult? Function(PasswordError reason)? error,
-  }) {
-    return success?.call(password);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String password)? success,
-    TResult Function(PasswordError reason)? error,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(password);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(PasswordValidateResultSuccess value) success,
-    required TResult Function(PasswordValidateResultError value) error,
-  }) {
-    return success(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(PasswordValidateResultSuccess value)? success,
-    TResult? Function(PasswordValidateResultError value)? error,
-  }) {
-    return success?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(PasswordValidateResultSuccess value)? success,
-    TResult Function(PasswordValidateResultError value)? error,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class PasswordValidateResultSuccess implements PasswordValidateResult {
@@ -3108,68 +1704,6 @@ class _$PasswordValidateResultErrorImpl
   _$$PasswordValidateResultErrorImplCopyWith<_$PasswordValidateResultErrorImpl>
       get copyWith => __$$PasswordValidateResultErrorImplCopyWithImpl<
           _$PasswordValidateResultErrorImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String password) success,
-    required TResult Function(PasswordError reason) error,
-  }) {
-    return error(reason);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String password)? success,
-    TResult? Function(PasswordError reason)? error,
-  }) {
-    return error?.call(reason);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String password)? success,
-    TResult Function(PasswordError reason)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(reason);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(PasswordValidateResultSuccess value) success,
-    required TResult Function(PasswordValidateResultError value) error,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(PasswordValidateResultSuccess value)? success,
-    TResult? Function(PasswordValidateResultError value)? error,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(PasswordValidateResultSuccess value)? success,
-    TResult Function(PasswordValidateResultError value)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class PasswordValidateResultError implements PasswordValidateResult {
@@ -3187,47 +1721,7 @@ abstract class PasswordValidateResultError implements PasswordValidateResult {
 }
 
 /// @nodoc
-mixin _$RepeatPasswordValidateResult {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String password) success,
-    required TResult Function(RepeatPasswordError reason) error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String password)? success,
-    TResult? Function(RepeatPasswordError reason)? error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String password)? success,
-    TResult Function(RepeatPasswordError reason)? error,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(RepeatPasswordValidateResultSuccess value)
-        success,
-    required TResult Function(RepeatPasswordValidateResultError value) error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RepeatPasswordValidateResultSuccess value)? success,
-    TResult? Function(RepeatPasswordValidateResultError value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(RepeatPasswordValidateResultSuccess value)? success,
-    TResult Function(RepeatPasswordValidateResultError value)? error,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$RepeatPasswordValidateResult {}
 
 /// @nodoc
 abstract class $RepeatPasswordValidateResultCopyWith<$Res> {
@@ -3333,69 +1827,6 @@ class _$RepeatPasswordValidateResultSuccessImpl
           _$RepeatPasswordValidateResultSuccessImpl>
       get copyWith => __$$RepeatPasswordValidateResultSuccessImplCopyWithImpl<
           _$RepeatPasswordValidateResultSuccessImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String password) success,
-    required TResult Function(RepeatPasswordError reason) error,
-  }) {
-    return success(password);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String password)? success,
-    TResult? Function(RepeatPasswordError reason)? error,
-  }) {
-    return success?.call(password);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String password)? success,
-    TResult Function(RepeatPasswordError reason)? error,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(password);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(RepeatPasswordValidateResultSuccess value)
-        success,
-    required TResult Function(RepeatPasswordValidateResultError value) error,
-  }) {
-    return success(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RepeatPasswordValidateResultSuccess value)? success,
-    TResult? Function(RepeatPasswordValidateResultError value)? error,
-  }) {
-    return success?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(RepeatPasswordValidateResultSuccess value)? success,
-    TResult Function(RepeatPasswordValidateResultError value)? error,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class RepeatPasswordValidateResultSuccess
@@ -3505,69 +1936,6 @@ class _$RepeatPasswordValidateResultErrorImpl
           _$RepeatPasswordValidateResultErrorImpl>
       get copyWith => __$$RepeatPasswordValidateResultErrorImplCopyWithImpl<
           _$RepeatPasswordValidateResultErrorImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String password) success,
-    required TResult Function(RepeatPasswordError reason) error,
-  }) {
-    return error(reason);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String password)? success,
-    TResult? Function(RepeatPasswordError reason)? error,
-  }) {
-    return error?.call(reason);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String password)? success,
-    TResult Function(RepeatPasswordError reason)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(reason);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(RepeatPasswordValidateResultSuccess value)
-        success,
-    required TResult Function(RepeatPasswordValidateResultError value) error,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RepeatPasswordValidateResultSuccess value)? success,
-    TResult? Function(RepeatPasswordValidateResultError value)? error,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(RepeatPasswordValidateResultSuccess value)? success,
-    TResult Function(RepeatPasswordValidateResultError value)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class RepeatPasswordValidateResultError

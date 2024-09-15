@@ -57,11 +57,11 @@ class _AboutPageState extends State<AboutPage> {
   Widget build(BuildContext context) {
     return BlocBuilder<AboutCubit, AboutState>(
       builder: (context, state) {
-        return state.when(
-          initial: () => const CircularProgressIndicator(),
-          loading: () => const CircularProgressIndicator(),
-          loaded: (appName, appVersion) {
-            return _AboutDialog(
+        return switch (state) {
+          AboutStateInitial() ||
+          AboutStateLoading() =>
+            const CircularProgressIndicator(),
+          AboutStateLoaded(:final appName, :final appVersion) => _AboutDialog(
               appName: appName,
               appVersion: appVersion,
               appIcon: Image.asset(
@@ -69,9 +69,8 @@ class _AboutPageState extends State<AboutPage> {
                 width: 48.0,
                 height: 48.0,
               ),
-            );
-          },
-        );
+            ),
+        };
       },
     );
   }

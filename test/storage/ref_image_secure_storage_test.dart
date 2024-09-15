@@ -76,20 +76,20 @@ void main() {
       when(() => mockAppSecureKeyRepo.hasSecureKey()).thenReturn(false);
 
       final addRes = await secureStorage.add(info, file);
-      addRes.when(
-        (_) => throw 'Cannot return a successful result',
-        error: (e) {
-          expect(e is SecStorageErrorNoKey, isTrue);
-        },
-      );
+      switch (addRes) {
+        case SecStorageResultSuccess():
+          throw 'Cannot return a successful result';
+        case SecStorageResultError(:final error):
+          expect(error is SecStorageErrorNoKey, isTrue);
+      }
 
       final getRes = await secureStorage.get(info);
-      getRes.when(
-        (_) => throw 'Cannot return a successful result',
-        error: (e) {
-          expect(e is SecStorageErrorNoKey, isTrue);
-        },
-      );
+      switch (getRes) {
+        case SecStorageResultSuccess():
+          throw 'Cannot return a successful result';
+        case SecStorageResultError(:final error):
+          expect(error is SecStorageErrorNoKey, isTrue);
+      }
     });
 
     test('Add', () async {

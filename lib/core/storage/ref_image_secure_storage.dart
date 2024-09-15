@@ -77,26 +77,23 @@ class RefImageSecureStorageImpl implements RefImageSecureStorage {
     }
 
     final bytes = await _fs.read(info).then(
-          (res) => res.when(
-            (bytes) => bytes,
-            error: (e) => throw e,
-          ),
+          (res) => switch (res) {
+            FsResultSuccess(:final value) => value,
+            FsResultError(:final error) => throw error,
+          },
         );
     final module = _encryptProvider.getByKey(key);
     final res = await module?.decrypt(src: bytes, info: info);
     try {
-      return res == null
-          ? const SecStorageResult.error(SecStorageError.noKey())
-          : res.when(
-              success: (bytes) {
-                return SecStorageResult(
-                  RefImage(info: info, bytes: bytes),
-                );
-              },
-              fail: (error) => SecStorageResult.error(
-                SecStorageError.decrypt(error: error),
-              ),
-            );
+      return switch (res) {
+        null => const SecStorageResult.error(SecStorageError.noKey()),
+        DecryptResultSuccess(:final bytes) => SecStorageResult(
+            RefImage(info: info, bytes: bytes),
+          ),
+        DecryptResultFail(:final error) => SecStorageResult.error(
+            SecStorageError.decrypt(error: error),
+          ),
+      };
     } on FsError catch (e) {
       return SecStorageResult.error(
         SecStorageError.fs(error: e),
@@ -107,11 +104,10 @@ class RefImageSecureStorageImpl implements RefImageSecureStorage {
   @override
   Future<SecStorageResult<void>> delete(RefImageInfo info) async {
     final res = await _fs.delete(info);
-    return res.when(
-      (_) => SecStorageResult.empty,
-      error: (e) => SecStorageResult.error(
-        SecStorageError.fs(error: e),
-      ),
-    );
+    return switch (res) {
+      FsResultSuccess() => SecStorageResult.empty,
+      FsResultError(:final error) =>
+        SecStorageResult.error(SecStorageError.fs(error: error)),
+    };
   }
 }

@@ -15,47 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$StorageResult<T> {
-  Object? get value => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(T value) $default, {
-    required TResult Function(StorageError value) error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(T value)? $default, {
-    TResult? Function(StorageError value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(T value)? $default, {
-    TResult Function(StorageError value)? error,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(StorageResultValue<T> value) $default, {
-    required TResult Function(StorageResultError<T> value) error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(StorageResultValue<T> value)? $default, {
-    TResult? Function(StorageResultError<T> value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(StorageResultValue<T> value)? $default, {
-    TResult Function(StorageResultError<T> value)? error,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$StorageResult<T> {}
 
 /// @nodoc
 abstract class $StorageResultCopyWith<T, $Res> {
@@ -154,74 +114,11 @@ class _$StorageResultValueImpl<T>
   _$$StorageResultValueImplCopyWith<T, _$StorageResultValueImpl<T>>
       get copyWith => __$$StorageResultValueImplCopyWithImpl<T,
           _$StorageResultValueImpl<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(T value) $default, {
-    required TResult Function(StorageError value) error,
-  }) {
-    return $default(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(T value)? $default, {
-    TResult? Function(StorageError value)? error,
-  }) {
-    return $default?.call(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(T value)? $default, {
-    TResult Function(StorageError value)? error,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(StorageResultValue<T> value) $default, {
-    required TResult Function(StorageResultError<T> value) error,
-  }) {
-    return $default(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(StorageResultValue<T> value)? $default, {
-    TResult? Function(StorageResultError<T> value)? error,
-  }) {
-    return $default?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(StorageResultValue<T> value)? $default, {
-    TResult Function(StorageResultError<T> value)? error,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class StorageResultValue<T> implements StorageResult<T> {
   const factory StorageResultValue(final T value) = _$StorageResultValueImpl<T>;
 
-  @override
   T get value;
 
   /// Create a copy of StorageResult
@@ -237,9 +134,9 @@ abstract class _$$StorageResultErrorImplCopyWith<T, $Res> {
           $Res Function(_$StorageResultErrorImpl<T>) then) =
       __$$StorageResultErrorImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({StorageError value});
+  $Res call({StorageError error});
 
-  $StorageErrorCopyWith<$Res> get value;
+  $StorageErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
@@ -255,12 +152,12 @@ class __$$StorageResultErrorImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = null,
+    Object? error = null,
   }) {
     return _then(_$StorageResultErrorImpl<T>(
-      null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
               as StorageError,
     ));
   }
@@ -269,9 +166,9 @@ class __$$StorageResultErrorImplCopyWithImpl<T, $Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $StorageErrorCopyWith<$Res> get value {
-    return $StorageErrorCopyWith<$Res>(_value.value, (value) {
-      return _then(_value.copyWith(value: value));
+  $StorageErrorCopyWith<$Res> get error {
+    return $StorageErrorCopyWith<$Res>(_value.error, (value) {
+      return _then(_value.copyWith(error: value));
     });
   }
 }
@@ -281,14 +178,14 @@ class __$$StorageResultErrorImplCopyWithImpl<T, $Res>
 class _$StorageResultErrorImpl<T>
     with DiagnosticableTreeMixin
     implements StorageResultError<T> {
-  const _$StorageResultErrorImpl(this.value);
+  const _$StorageResultErrorImpl(this.error);
 
   @override
-  final StorageError value;
+  final StorageError error;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'StorageResult<$T>.error(value: $value)';
+    return 'StorageResult<$T>.error(error: $error)';
   }
 
   @override
@@ -296,7 +193,7 @@ class _$StorageResultErrorImpl<T>
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'StorageResult<$T>.error'))
-      ..add(DiagnosticsProperty('value', value));
+      ..add(DiagnosticsProperty('error', error));
   }
 
   @override
@@ -304,11 +201,11 @@ class _$StorageResultErrorImpl<T>
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StorageResultErrorImpl<T> &&
-            (identical(other.value, value) || other.value == value));
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value);
+  int get hashCode => Object.hash(runtimeType, error);
 
   /// Create a copy of StorageResult
   /// with the given fields replaced by the non-null parameter values.
@@ -318,76 +215,13 @@ class _$StorageResultErrorImpl<T>
   _$$StorageResultErrorImplCopyWith<T, _$StorageResultErrorImpl<T>>
       get copyWith => __$$StorageResultErrorImplCopyWithImpl<T,
           _$StorageResultErrorImpl<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(T value) $default, {
-    required TResult Function(StorageError value) error,
-  }) {
-    return error(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(T value)? $default, {
-    TResult? Function(StorageError value)? error,
-  }) {
-    return error?.call(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(T value)? $default, {
-    TResult Function(StorageError value)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(StorageResultValue<T> value) $default, {
-    required TResult Function(StorageResultError<T> value) error,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(StorageResultValue<T> value)? $default, {
-    TResult? Function(StorageResultError<T> value)? error,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(StorageResultValue<T> value)? $default, {
-    TResult Function(StorageResultError<T> value)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class StorageResultError<T> implements StorageResult<T> {
-  const factory StorageResultError(final StorageError value) =
+  const factory StorageResultError(final StorageError error) =
       _$StorageResultErrorImpl<T>;
 
-  @override
-  StorageError get value;
+  StorageError get error;
 
   /// Create a copy of StorageResult
   /// with the given fields replaced by the non-null parameter values.
@@ -397,47 +231,7 @@ abstract class StorageResultError<T> implements StorageResult<T> {
 }
 
 /// @nodoc
-mixin _$SecStorageResult<T> {
-  Object? get value => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(T value) $default, {
-    required TResult Function(SecStorageError value) error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(T value)? $default, {
-    TResult? Function(SecStorageError value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(T value)? $default, {
-    TResult Function(SecStorageError value)? error,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(SecStorageResultValue<T> value) $default, {
-    required TResult Function(SecStorageResultError<T> value) error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(SecStorageResultValue<T> value)? $default, {
-    TResult? Function(SecStorageResultError<T> value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(SecStorageResultValue<T> value)? $default, {
-    TResult Function(SecStorageResultError<T> value)? error,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$SecStorageResult<T> {}
 
 /// @nodoc
 abstract class $SecStorageResultCopyWith<T, $Res> {
@@ -461,23 +255,23 @@ class _$SecStorageResultCopyWithImpl<T, $Res, $Val extends SecStorageResult<T>>
 }
 
 /// @nodoc
-abstract class _$$SecStorageResultValueImplCopyWith<T, $Res> {
-  factory _$$SecStorageResultValueImplCopyWith(
-          _$SecStorageResultValueImpl<T> value,
-          $Res Function(_$SecStorageResultValueImpl<T>) then) =
-      __$$SecStorageResultValueImplCopyWithImpl<T, $Res>;
+abstract class _$$SecStorageResultSuccessImplCopyWith<T, $Res> {
+  factory _$$SecStorageResultSuccessImplCopyWith(
+          _$SecStorageResultSuccessImpl<T> value,
+          $Res Function(_$SecStorageResultSuccessImpl<T>) then) =
+      __$$SecStorageResultSuccessImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({T value});
 }
 
 /// @nodoc
-class __$$SecStorageResultValueImplCopyWithImpl<T, $Res>
+class __$$SecStorageResultSuccessImplCopyWithImpl<T, $Res>
     extends _$SecStorageResultCopyWithImpl<T, $Res,
-        _$SecStorageResultValueImpl<T>>
-    implements _$$SecStorageResultValueImplCopyWith<T, $Res> {
-  __$$SecStorageResultValueImplCopyWithImpl(
-      _$SecStorageResultValueImpl<T> _value,
-      $Res Function(_$SecStorageResultValueImpl<T>) _then)
+        _$SecStorageResultSuccessImpl<T>>
+    implements _$$SecStorageResultSuccessImplCopyWith<T, $Res> {
+  __$$SecStorageResultSuccessImplCopyWithImpl(
+      _$SecStorageResultSuccessImpl<T> _value,
+      $Res Function(_$SecStorageResultSuccessImpl<T>) _then)
       : super(_value, _then);
 
   /// Create a copy of SecStorageResult
@@ -487,7 +281,7 @@ class __$$SecStorageResultValueImplCopyWithImpl<T, $Res>
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_$SecStorageResultValueImpl<T>(
+    return _then(_$SecStorageResultSuccessImpl<T>(
       freezed == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -498,10 +292,10 @@ class __$$SecStorageResultValueImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$SecStorageResultValueImpl<T>
+class _$SecStorageResultSuccessImpl<T>
     with DiagnosticableTreeMixin
-    implements SecStorageResultValue<T> {
-  const _$SecStorageResultValueImpl(this.value);
+    implements SecStorageResultSuccess<T> {
+  const _$SecStorageResultSuccessImpl(this.value);
 
   @override
   final T value;
@@ -523,7 +317,7 @@ class _$SecStorageResultValueImpl<T>
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SecStorageResultValueImpl<T> &&
+            other is _$SecStorageResultSuccessImpl<T> &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -536,84 +330,21 @@ class _$SecStorageResultValueImpl<T>
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$SecStorageResultValueImplCopyWith<T, _$SecStorageResultValueImpl<T>>
-      get copyWith => __$$SecStorageResultValueImplCopyWithImpl<T,
-          _$SecStorageResultValueImpl<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(T value) $default, {
-    required TResult Function(SecStorageError value) error,
-  }) {
-    return $default(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(T value)? $default, {
-    TResult? Function(SecStorageError value)? error,
-  }) {
-    return $default?.call(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(T value)? $default, {
-    TResult Function(SecStorageError value)? error,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(SecStorageResultValue<T> value) $default, {
-    required TResult Function(SecStorageResultError<T> value) error,
-  }) {
-    return $default(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(SecStorageResultValue<T> value)? $default, {
-    TResult? Function(SecStorageResultError<T> value)? error,
-  }) {
-    return $default?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(SecStorageResultValue<T> value)? $default, {
-    TResult Function(SecStorageResultError<T> value)? error,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(this);
-    }
-    return orElse();
-  }
+  _$$SecStorageResultSuccessImplCopyWith<T, _$SecStorageResultSuccessImpl<T>>
+      get copyWith => __$$SecStorageResultSuccessImplCopyWithImpl<T,
+          _$SecStorageResultSuccessImpl<T>>(this, _$identity);
 }
 
-abstract class SecStorageResultValue<T> implements SecStorageResult<T> {
-  const factory SecStorageResultValue(final T value) =
-      _$SecStorageResultValueImpl<T>;
+abstract class SecStorageResultSuccess<T> implements SecStorageResult<T> {
+  const factory SecStorageResultSuccess(final T value) =
+      _$SecStorageResultSuccessImpl<T>;
 
-  @override
   T get value;
 
   /// Create a copy of SecStorageResult
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SecStorageResultValueImplCopyWith<T, _$SecStorageResultValueImpl<T>>
+  _$$SecStorageResultSuccessImplCopyWith<T, _$SecStorageResultSuccessImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -624,9 +355,9 @@ abstract class _$$SecStorageResultErrorImplCopyWith<T, $Res> {
           $Res Function(_$SecStorageResultErrorImpl<T>) then) =
       __$$SecStorageResultErrorImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({SecStorageError value});
+  $Res call({SecStorageError error});
 
-  $SecStorageErrorCopyWith<$Res> get value;
+  $SecStorageErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
@@ -644,12 +375,12 @@ class __$$SecStorageResultErrorImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = null,
+    Object? error = null,
   }) {
     return _then(_$SecStorageResultErrorImpl<T>(
-      null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
               as SecStorageError,
     ));
   }
@@ -658,9 +389,9 @@ class __$$SecStorageResultErrorImplCopyWithImpl<T, $Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $SecStorageErrorCopyWith<$Res> get value {
-    return $SecStorageErrorCopyWith<$Res>(_value.value, (value) {
-      return _then(_value.copyWith(value: value));
+  $SecStorageErrorCopyWith<$Res> get error {
+    return $SecStorageErrorCopyWith<$Res>(_value.error, (value) {
+      return _then(_value.copyWith(error: value));
     });
   }
 }
@@ -670,14 +401,14 @@ class __$$SecStorageResultErrorImplCopyWithImpl<T, $Res>
 class _$SecStorageResultErrorImpl<T>
     with DiagnosticableTreeMixin
     implements SecStorageResultError<T> {
-  const _$SecStorageResultErrorImpl(this.value);
+  const _$SecStorageResultErrorImpl(this.error);
 
   @override
-  final SecStorageError value;
+  final SecStorageError error;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SecStorageResult<$T>.error(value: $value)';
+    return 'SecStorageResult<$T>.error(error: $error)';
   }
 
   @override
@@ -685,7 +416,7 @@ class _$SecStorageResultErrorImpl<T>
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'SecStorageResult<$T>.error'))
-      ..add(DiagnosticsProperty('value', value));
+      ..add(DiagnosticsProperty('error', error));
   }
 
   @override
@@ -693,11 +424,11 @@ class _$SecStorageResultErrorImpl<T>
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SecStorageResultErrorImpl<T> &&
-            (identical(other.value, value) || other.value == value));
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value);
+  int get hashCode => Object.hash(runtimeType, error);
 
   /// Create a copy of SecStorageResult
   /// with the given fields replaced by the non-null parameter values.
@@ -707,76 +438,13 @@ class _$SecStorageResultErrorImpl<T>
   _$$SecStorageResultErrorImplCopyWith<T, _$SecStorageResultErrorImpl<T>>
       get copyWith => __$$SecStorageResultErrorImplCopyWithImpl<T,
           _$SecStorageResultErrorImpl<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(T value) $default, {
-    required TResult Function(SecStorageError value) error,
-  }) {
-    return error(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(T value)? $default, {
-    TResult? Function(SecStorageError value)? error,
-  }) {
-    return error?.call(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(T value)? $default, {
-    TResult Function(SecStorageError value)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(SecStorageResultValue<T> value) $default, {
-    required TResult Function(SecStorageResultError<T> value) error,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(SecStorageResultValue<T> value)? $default, {
-    TResult? Function(SecStorageResultError<T> value)? error,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(SecStorageResultValue<T> value)? $default, {
-    TResult Function(SecStorageResultError<T> value)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SecStorageResultError<T> implements SecStorageResult<T> {
-  const factory SecStorageResultError(final SecStorageError value) =
+  const factory SecStorageResultError(final SecStorageError error) =
       _$SecStorageResultErrorImpl<T>;
 
-  @override
-  SecStorageError get value;
+  SecStorageError get error;
 
   /// Create a copy of SecStorageResult
   /// with the given fields replaced by the non-null parameter values.
@@ -786,47 +454,7 @@ abstract class SecStorageResultError<T> implements SecStorageResult<T> {
 }
 
 /// @nodoc
-mixin _$StorageError {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Exception? exception, StackTrace? stackTrace)
-        database,
-    required TResult Function(FsError error) fs,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Exception? exception, StackTrace? stackTrace)? database,
-    TResult? Function(FsError error)? fs,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Exception? exception, StackTrace? stackTrace)? database,
-    TResult Function(FsError error)? fs,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(StorageErrorDatabase value) database,
-    required TResult Function(StorageErrorFs value) fs,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(StorageErrorDatabase value)? database,
-    TResult? Function(StorageErrorFs value)? fs,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(StorageErrorDatabase value)? database,
-    TResult Function(StorageErrorFs value)? fs,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$StorageError {}
 
 /// @nodoc
 abstract class $StorageErrorCopyWith<$Res> {
@@ -936,69 +564,6 @@ class _$StorageErrorDatabaseImpl
       get copyWith =>
           __$$StorageErrorDatabaseImplCopyWithImpl<_$StorageErrorDatabaseImpl>(
               this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Exception? exception, StackTrace? stackTrace)
-        database,
-    required TResult Function(FsError error) fs,
-  }) {
-    return database(exception, stackTrace);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Exception? exception, StackTrace? stackTrace)? database,
-    TResult? Function(FsError error)? fs,
-  }) {
-    return database?.call(exception, stackTrace);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Exception? exception, StackTrace? stackTrace)? database,
-    TResult Function(FsError error)? fs,
-    required TResult orElse(),
-  }) {
-    if (database != null) {
-      return database(exception, stackTrace);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(StorageErrorDatabase value) database,
-    required TResult Function(StorageErrorFs value) fs,
-  }) {
-    return database(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(StorageErrorDatabase value)? database,
-    TResult? Function(StorageErrorFs value)? fs,
-  }) {
-    return database?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(StorageErrorDatabase value)? database,
-    TResult Function(StorageErrorFs value)? fs,
-    required TResult orElse(),
-  }) {
-    if (database != null) {
-      return database(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class StorageErrorDatabase implements StorageError {
@@ -1103,69 +668,6 @@ class _$StorageErrorFsImpl
   _$$StorageErrorFsImplCopyWith<_$StorageErrorFsImpl> get copyWith =>
       __$$StorageErrorFsImplCopyWithImpl<_$StorageErrorFsImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Exception? exception, StackTrace? stackTrace)
-        database,
-    required TResult Function(FsError error) fs,
-  }) {
-    return fs(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Exception? exception, StackTrace? stackTrace)? database,
-    TResult? Function(FsError error)? fs,
-  }) {
-    return fs?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Exception? exception, StackTrace? stackTrace)? database,
-    TResult Function(FsError error)? fs,
-    required TResult orElse(),
-  }) {
-    if (fs != null) {
-      return fs(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(StorageErrorDatabase value) database,
-    required TResult Function(StorageErrorFs value) fs,
-  }) {
-    return fs(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(StorageErrorDatabase value)? database,
-    TResult? Function(StorageErrorFs value)? fs,
-  }) {
-    return fs?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(StorageErrorDatabase value)? database,
-    TResult Function(StorageErrorFs value)? fs,
-    required TResult orElse(),
-  }) {
-    if (fs != null) {
-      return fs(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class StorageErrorFs implements StorageError {
@@ -1182,65 +684,7 @@ abstract class StorageErrorFs implements StorageError {
 }
 
 /// @nodoc
-mixin _$SecStorageError {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Exception? exception, StackTrace? stackTrace)
-        database,
-    required TResult Function(FsError error) fs,
-    required TResult Function() noKey,
-    required TResult Function(EncryptError error) encrypt,
-    required TResult Function(DecryptError error) decrypt,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Exception? exception, StackTrace? stackTrace)? database,
-    TResult? Function(FsError error)? fs,
-    TResult? Function()? noKey,
-    TResult? Function(EncryptError error)? encrypt,
-    TResult? Function(DecryptError error)? decrypt,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Exception? exception, StackTrace? stackTrace)? database,
-    TResult Function(FsError error)? fs,
-    TResult Function()? noKey,
-    TResult Function(EncryptError error)? encrypt,
-    TResult Function(DecryptError error)? decrypt,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SecStorageErrorDatabase value) database,
-    required TResult Function(SecStorageErrorFs value) fs,
-    required TResult Function(SecStorageErrorNoKey value) noKey,
-    required TResult Function(SecStorageErrorEncrypt value) encrypt,
-    required TResult Function(SecStorageErrorDecrypt value) decrypt,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SecStorageErrorDatabase value)? database,
-    TResult? Function(SecStorageErrorFs value)? fs,
-    TResult? Function(SecStorageErrorNoKey value)? noKey,
-    TResult? Function(SecStorageErrorEncrypt value)? encrypt,
-    TResult? Function(SecStorageErrorDecrypt value)? decrypt,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SecStorageErrorDatabase value)? database,
-    TResult Function(SecStorageErrorFs value)? fs,
-    TResult Function(SecStorageErrorNoKey value)? noKey,
-    TResult Function(SecStorageErrorEncrypt value)? encrypt,
-    TResult Function(SecStorageErrorDecrypt value)? decrypt,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$SecStorageError {}
 
 /// @nodoc
 abstract class $SecStorageErrorCopyWith<$Res> {
@@ -1351,87 +795,6 @@ class _$SecStorageErrorDatabaseImpl
   _$$SecStorageErrorDatabaseImplCopyWith<_$SecStorageErrorDatabaseImpl>
       get copyWith => __$$SecStorageErrorDatabaseImplCopyWithImpl<
           _$SecStorageErrorDatabaseImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Exception? exception, StackTrace? stackTrace)
-        database,
-    required TResult Function(FsError error) fs,
-    required TResult Function() noKey,
-    required TResult Function(EncryptError error) encrypt,
-    required TResult Function(DecryptError error) decrypt,
-  }) {
-    return database(exception, stackTrace);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Exception? exception, StackTrace? stackTrace)? database,
-    TResult? Function(FsError error)? fs,
-    TResult? Function()? noKey,
-    TResult? Function(EncryptError error)? encrypt,
-    TResult? Function(DecryptError error)? decrypt,
-  }) {
-    return database?.call(exception, stackTrace);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Exception? exception, StackTrace? stackTrace)? database,
-    TResult Function(FsError error)? fs,
-    TResult Function()? noKey,
-    TResult Function(EncryptError error)? encrypt,
-    TResult Function(DecryptError error)? decrypt,
-    required TResult orElse(),
-  }) {
-    if (database != null) {
-      return database(exception, stackTrace);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SecStorageErrorDatabase value) database,
-    required TResult Function(SecStorageErrorFs value) fs,
-    required TResult Function(SecStorageErrorNoKey value) noKey,
-    required TResult Function(SecStorageErrorEncrypt value) encrypt,
-    required TResult Function(SecStorageErrorDecrypt value) decrypt,
-  }) {
-    return database(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SecStorageErrorDatabase value)? database,
-    TResult? Function(SecStorageErrorFs value)? fs,
-    TResult? Function(SecStorageErrorNoKey value)? noKey,
-    TResult? Function(SecStorageErrorEncrypt value)? encrypt,
-    TResult? Function(SecStorageErrorDecrypt value)? decrypt,
-  }) {
-    return database?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SecStorageErrorDatabase value)? database,
-    TResult Function(SecStorageErrorFs value)? fs,
-    TResult Function(SecStorageErrorNoKey value)? noKey,
-    TResult Function(SecStorageErrorEncrypt value)? encrypt,
-    TResult Function(SecStorageErrorDecrypt value)? decrypt,
-    required TResult orElse(),
-  }) {
-    if (database != null) {
-      return database(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SecStorageErrorDatabase implements SecStorageError {
@@ -1536,87 +899,6 @@ class _$SecStorageErrorFsImpl
   _$$SecStorageErrorFsImplCopyWith<_$SecStorageErrorFsImpl> get copyWith =>
       __$$SecStorageErrorFsImplCopyWithImpl<_$SecStorageErrorFsImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Exception? exception, StackTrace? stackTrace)
-        database,
-    required TResult Function(FsError error) fs,
-    required TResult Function() noKey,
-    required TResult Function(EncryptError error) encrypt,
-    required TResult Function(DecryptError error) decrypt,
-  }) {
-    return fs(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Exception? exception, StackTrace? stackTrace)? database,
-    TResult? Function(FsError error)? fs,
-    TResult? Function()? noKey,
-    TResult? Function(EncryptError error)? encrypt,
-    TResult? Function(DecryptError error)? decrypt,
-  }) {
-    return fs?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Exception? exception, StackTrace? stackTrace)? database,
-    TResult Function(FsError error)? fs,
-    TResult Function()? noKey,
-    TResult Function(EncryptError error)? encrypt,
-    TResult Function(DecryptError error)? decrypt,
-    required TResult orElse(),
-  }) {
-    if (fs != null) {
-      return fs(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SecStorageErrorDatabase value) database,
-    required TResult Function(SecStorageErrorFs value) fs,
-    required TResult Function(SecStorageErrorNoKey value) noKey,
-    required TResult Function(SecStorageErrorEncrypt value) encrypt,
-    required TResult Function(SecStorageErrorDecrypt value) decrypt,
-  }) {
-    return fs(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SecStorageErrorDatabase value)? database,
-    TResult? Function(SecStorageErrorFs value)? fs,
-    TResult? Function(SecStorageErrorNoKey value)? noKey,
-    TResult? Function(SecStorageErrorEncrypt value)? encrypt,
-    TResult? Function(SecStorageErrorDecrypt value)? decrypt,
-  }) {
-    return fs?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SecStorageErrorDatabase value)? database,
-    TResult Function(SecStorageErrorFs value)? fs,
-    TResult Function(SecStorageErrorNoKey value)? noKey,
-    TResult Function(SecStorageErrorEncrypt value)? encrypt,
-    TResult Function(SecStorageErrorDecrypt value)? decrypt,
-    required TResult orElse(),
-  }) {
-    if (fs != null) {
-      return fs(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SecStorageErrorFs implements SecStorageError {
@@ -1678,87 +960,6 @@ class _$SecStorageErrorNoKeyImpl
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Exception? exception, StackTrace? stackTrace)
-        database,
-    required TResult Function(FsError error) fs,
-    required TResult Function() noKey,
-    required TResult Function(EncryptError error) encrypt,
-    required TResult Function(DecryptError error) decrypt,
-  }) {
-    return noKey();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Exception? exception, StackTrace? stackTrace)? database,
-    TResult? Function(FsError error)? fs,
-    TResult? Function()? noKey,
-    TResult? Function(EncryptError error)? encrypt,
-    TResult? Function(DecryptError error)? decrypt,
-  }) {
-    return noKey?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Exception? exception, StackTrace? stackTrace)? database,
-    TResult Function(FsError error)? fs,
-    TResult Function()? noKey,
-    TResult Function(EncryptError error)? encrypt,
-    TResult Function(DecryptError error)? decrypt,
-    required TResult orElse(),
-  }) {
-    if (noKey != null) {
-      return noKey();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SecStorageErrorDatabase value) database,
-    required TResult Function(SecStorageErrorFs value) fs,
-    required TResult Function(SecStorageErrorNoKey value) noKey,
-    required TResult Function(SecStorageErrorEncrypt value) encrypt,
-    required TResult Function(SecStorageErrorDecrypt value) decrypt,
-  }) {
-    return noKey(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SecStorageErrorDatabase value)? database,
-    TResult? Function(SecStorageErrorFs value)? fs,
-    TResult? Function(SecStorageErrorNoKey value)? noKey,
-    TResult? Function(SecStorageErrorEncrypt value)? encrypt,
-    TResult? Function(SecStorageErrorDecrypt value)? decrypt,
-  }) {
-    return noKey?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SecStorageErrorDatabase value)? database,
-    TResult Function(SecStorageErrorFs value)? fs,
-    TResult Function(SecStorageErrorNoKey value)? noKey,
-    TResult Function(SecStorageErrorEncrypt value)? encrypt,
-    TResult Function(SecStorageErrorDecrypt value)? decrypt,
-    required TResult orElse(),
-  }) {
-    if (noKey != null) {
-      return noKey(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SecStorageErrorNoKey implements SecStorageError {
@@ -1854,87 +1055,6 @@ class _$SecStorageErrorEncryptImpl
   _$$SecStorageErrorEncryptImplCopyWith<_$SecStorageErrorEncryptImpl>
       get copyWith => __$$SecStorageErrorEncryptImplCopyWithImpl<
           _$SecStorageErrorEncryptImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Exception? exception, StackTrace? stackTrace)
-        database,
-    required TResult Function(FsError error) fs,
-    required TResult Function() noKey,
-    required TResult Function(EncryptError error) encrypt,
-    required TResult Function(DecryptError error) decrypt,
-  }) {
-    return encrypt(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Exception? exception, StackTrace? stackTrace)? database,
-    TResult? Function(FsError error)? fs,
-    TResult? Function()? noKey,
-    TResult? Function(EncryptError error)? encrypt,
-    TResult? Function(DecryptError error)? decrypt,
-  }) {
-    return encrypt?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Exception? exception, StackTrace? stackTrace)? database,
-    TResult Function(FsError error)? fs,
-    TResult Function()? noKey,
-    TResult Function(EncryptError error)? encrypt,
-    TResult Function(DecryptError error)? decrypt,
-    required TResult orElse(),
-  }) {
-    if (encrypt != null) {
-      return encrypt(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SecStorageErrorDatabase value) database,
-    required TResult Function(SecStorageErrorFs value) fs,
-    required TResult Function(SecStorageErrorNoKey value) noKey,
-    required TResult Function(SecStorageErrorEncrypt value) encrypt,
-    required TResult Function(SecStorageErrorDecrypt value) decrypt,
-  }) {
-    return encrypt(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SecStorageErrorDatabase value)? database,
-    TResult? Function(SecStorageErrorFs value)? fs,
-    TResult? Function(SecStorageErrorNoKey value)? noKey,
-    TResult? Function(SecStorageErrorEncrypt value)? encrypt,
-    TResult? Function(SecStorageErrorDecrypt value)? decrypt,
-  }) {
-    return encrypt?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SecStorageErrorDatabase value)? database,
-    TResult Function(SecStorageErrorFs value)? fs,
-    TResult Function(SecStorageErrorNoKey value)? noKey,
-    TResult Function(SecStorageErrorEncrypt value)? encrypt,
-    TResult Function(SecStorageErrorDecrypt value)? decrypt,
-    required TResult orElse(),
-  }) {
-    if (encrypt != null) {
-      return encrypt(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SecStorageErrorEncrypt implements SecStorageError {
@@ -2039,87 +1159,6 @@ class _$SecStorageErrorDecryptImpl
   _$$SecStorageErrorDecryptImplCopyWith<_$SecStorageErrorDecryptImpl>
       get copyWith => __$$SecStorageErrorDecryptImplCopyWithImpl<
           _$SecStorageErrorDecryptImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Exception? exception, StackTrace? stackTrace)
-        database,
-    required TResult Function(FsError error) fs,
-    required TResult Function() noKey,
-    required TResult Function(EncryptError error) encrypt,
-    required TResult Function(DecryptError error) decrypt,
-  }) {
-    return decrypt(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Exception? exception, StackTrace? stackTrace)? database,
-    TResult? Function(FsError error)? fs,
-    TResult? Function()? noKey,
-    TResult? Function(EncryptError error)? encrypt,
-    TResult? Function(DecryptError error)? decrypt,
-  }) {
-    return decrypt?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Exception? exception, StackTrace? stackTrace)? database,
-    TResult Function(FsError error)? fs,
-    TResult Function()? noKey,
-    TResult Function(EncryptError error)? encrypt,
-    TResult Function(DecryptError error)? decrypt,
-    required TResult orElse(),
-  }) {
-    if (decrypt != null) {
-      return decrypt(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SecStorageErrorDatabase value) database,
-    required TResult Function(SecStorageErrorFs value) fs,
-    required TResult Function(SecStorageErrorNoKey value) noKey,
-    required TResult Function(SecStorageErrorEncrypt value) encrypt,
-    required TResult Function(SecStorageErrorDecrypt value) decrypt,
-  }) {
-    return decrypt(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SecStorageErrorDatabase value)? database,
-    TResult? Function(SecStorageErrorFs value)? fs,
-    TResult? Function(SecStorageErrorNoKey value)? noKey,
-    TResult? Function(SecStorageErrorEncrypt value)? encrypt,
-    TResult? Function(SecStorageErrorDecrypt value)? decrypt,
-  }) {
-    return decrypt?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SecStorageErrorDatabase value)? database,
-    TResult Function(SecStorageErrorFs value)? fs,
-    TResult Function(SecStorageErrorNoKey value)? noKey,
-    TResult Function(SecStorageErrorEncrypt value)? encrypt,
-    TResult Function(SecStorageErrorDecrypt value)? decrypt,
-    required TResult orElse(),
-  }) {
-    if (decrypt != null) {
-      return decrypt(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SecStorageErrorDecrypt implements SecStorageError {

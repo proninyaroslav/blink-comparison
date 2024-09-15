@@ -15,52 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$RefImagesState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(List<RefImageEntry> entries) loaded,
-    required TResult Function(StorageError? error) loadingFailed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(List<RefImageEntry> entries)? loaded,
-    TResult? Function(StorageError? error)? loadingFailed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(List<RefImageEntry> entries)? loaded,
-    TResult Function(StorageError? error)? loadingFailed,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(RefImagesStateInitial value) initial,
-    required TResult Function(RefImagesStateLoaded value) loaded,
-    required TResult Function(RefImagesStateLoadingFailed value) loadingFailed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RefImagesStateInitial value)? initial,
-    TResult? Function(RefImagesStateLoaded value)? loaded,
-    TResult? Function(RefImagesStateLoadingFailed value)? loadingFailed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(RefImagesStateInitial value)? initial,
-    TResult Function(RefImagesStateLoaded value)? loaded,
-    TResult Function(RefImagesStateLoadingFailed value)? loadingFailed,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$RefImagesState {}
 
 /// @nodoc
 abstract class $RefImagesStateCopyWith<$Res> {
@@ -130,74 +85,6 @@ class _$RefImagesStateInitialImpl
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(List<RefImageEntry> entries) loaded,
-    required TResult Function(StorageError? error) loadingFailed,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(List<RefImageEntry> entries)? loaded,
-    TResult? Function(StorageError? error)? loadingFailed,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(List<RefImageEntry> entries)? loaded,
-    TResult Function(StorageError? error)? loadingFailed,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(RefImagesStateInitial value) initial,
-    required TResult Function(RefImagesStateLoaded value) loaded,
-    required TResult Function(RefImagesStateLoadingFailed value) loadingFailed,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RefImagesStateInitial value)? initial,
-    TResult? Function(RefImagesStateLoaded value)? loaded,
-    TResult? Function(RefImagesStateLoadingFailed value)? loadingFailed,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(RefImagesStateInitial value)? initial,
-    TResult Function(RefImagesStateLoaded value)? loaded,
-    TResult Function(RefImagesStateLoadingFailed value)? loadingFailed,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class RefImagesStateInitial implements RefImagesState {
@@ -287,74 +174,6 @@ class _$RefImagesStateLoadedImpl
       get copyWith =>
           __$$RefImagesStateLoadedImplCopyWithImpl<_$RefImagesStateLoadedImpl>(
               this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(List<RefImageEntry> entries) loaded,
-    required TResult Function(StorageError? error) loadingFailed,
-  }) {
-    return loaded(entries);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(List<RefImageEntry> entries)? loaded,
-    TResult? Function(StorageError? error)? loadingFailed,
-  }) {
-    return loaded?.call(entries);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(List<RefImageEntry> entries)? loaded,
-    TResult Function(StorageError? error)? loadingFailed,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(entries);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(RefImagesStateInitial value) initial,
-    required TResult Function(RefImagesStateLoaded value) loaded,
-    required TResult Function(RefImagesStateLoadingFailed value) loadingFailed,
-  }) {
-    return loaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RefImagesStateInitial value)? initial,
-    TResult? Function(RefImagesStateLoaded value)? loaded,
-    TResult? Function(RefImagesStateLoadingFailed value)? loadingFailed,
-  }) {
-    return loaded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(RefImagesStateInitial value)? initial,
-    TResult Function(RefImagesStateLoaded value)? loaded,
-    TResult Function(RefImagesStateLoadingFailed value)? loadingFailed,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class RefImagesStateLoaded implements RefImagesState {
@@ -465,74 +284,6 @@ class _$RefImagesStateLoadingFailedImpl
   _$$RefImagesStateLoadingFailedImplCopyWith<_$RefImagesStateLoadingFailedImpl>
       get copyWith => __$$RefImagesStateLoadingFailedImplCopyWithImpl<
           _$RefImagesStateLoadingFailedImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(List<RefImageEntry> entries) loaded,
-    required TResult Function(StorageError? error) loadingFailed,
-  }) {
-    return loadingFailed(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(List<RefImageEntry> entries)? loaded,
-    TResult? Function(StorageError? error)? loadingFailed,
-  }) {
-    return loadingFailed?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(List<RefImageEntry> entries)? loaded,
-    TResult Function(StorageError? error)? loadingFailed,
-    required TResult orElse(),
-  }) {
-    if (loadingFailed != null) {
-      return loadingFailed(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(RefImagesStateInitial value) initial,
-    required TResult Function(RefImagesStateLoaded value) loaded,
-    required TResult Function(RefImagesStateLoadingFailed value) loadingFailed,
-  }) {
-    return loadingFailed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RefImagesStateInitial value)? initial,
-    TResult? Function(RefImagesStateLoaded value)? loaded,
-    TResult? Function(RefImagesStateLoadingFailed value)? loadingFailed,
-  }) {
-    return loadingFailed?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(RefImagesStateInitial value)? initial,
-    TResult Function(RefImagesStateLoaded value)? loaded,
-    TResult Function(RefImagesStateLoadingFailed value)? loadingFailed,
-    required TResult orElse(),
-  }) {
-    if (loadingFailed != null) {
-      return loadingFailed(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class RefImagesStateLoadingFailed implements RefImagesState {

@@ -222,40 +222,7 @@ abstract class _PasswordInfo implements PasswordInfo {
 }
 
 /// @nodoc
-mixin _$PasswordType {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() encryptKey,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? encryptKey,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? encryptKey,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(PasswordTypeEncryptKey value) encryptKey,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(PasswordTypeEncryptKey value)? encryptKey,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(PasswordTypeEncryptKey value)? encryptKey,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$PasswordType {}
 
 /// @nodoc
 abstract class $PasswordTypeCopyWith<$Res> {
@@ -326,62 +293,6 @@ class _$PasswordTypeEncryptKeyImpl
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() encryptKey,
-  }) {
-    return encryptKey();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? encryptKey,
-  }) {
-    return encryptKey?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? encryptKey,
-    required TResult orElse(),
-  }) {
-    if (encryptKey != null) {
-      return encryptKey();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(PasswordTypeEncryptKey value) encryptKey,
-  }) {
-    return encryptKey(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(PasswordTypeEncryptKey value)? encryptKey,
-  }) {
-    return encryptKey?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(PasswordTypeEncryptKey value)? encryptKey,
-    required TResult orElse(),
-  }) {
-    if (encryptKey != null) {
-      return encryptKey(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class PasswordTypeEncryptKey implements PasswordType {

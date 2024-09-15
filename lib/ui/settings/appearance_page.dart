@@ -130,13 +130,11 @@ class AppearanceSettingsPage extends StatelessWidget {
       subtitle: BlocBuilder<AppearanceSettingsCubit, AppearanceState>(
         buildWhen: (prev, current) => current is AppearanceStateLocaleChanged,
         builder: (context, state) {
-          return Text(
-            state.info!.locale.when(
-              system: () => S.of(context).settingsSystemLanguageOption,
-              inner: (locale) =>
-                  UiUtils.localeToLocalizedStr(locale.toString()),
-            ),
-          );
+          return Text(switch (state.info!.locale) {
+            AppLocaleTypeSystem() => S.of(context).settingsSystemLanguageOption,
+            AppLocaleTypeInner(:final locale) =>
+              UiUtils.localeToLocalizedStr(locale.toString()),
+          });
         },
       ),
       leading: const Icon(Icons.language),

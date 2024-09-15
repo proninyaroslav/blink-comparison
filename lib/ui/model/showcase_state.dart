@@ -24,7 +24,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'showcase_state.freezed.dart';
 
 @freezed
-class ShowcaseState with _$ShowcaseState {
+sealed class ShowcaseState with _$ShowcaseState {
   const factory ShowcaseState.initial({
     @Default(null) Set<ShowcaseType>? completed,
   }) = ShowcaseStateInitial;

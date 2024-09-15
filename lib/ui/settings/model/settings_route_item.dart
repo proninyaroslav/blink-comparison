@@ -20,7 +20,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'settings_route_item.freezed.dart';
 
 @freezed
-class SettingsRouteItem with _$SettingsRouteItem {
+sealed class SettingsRouteItem with _$SettingsRouteItem {
   const factory SettingsRouteItem.appearance() = SettingsRouteItemAppearance;
 
   const factory SettingsRouteItem.camera() = SettingsRouteItemCamera;

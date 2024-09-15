@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -34,7 +34,7 @@ abstract class SaveThumbnailJob {
 }
 
 @freezed
-class SaveThumbnailResult with _$SaveThumbnailResult {
+sealed class SaveThumbnailResult with _$SaveThumbnailResult {
   const factory SaveThumbnailResult.success() = SaveThumbnailResultSuccess;
 
   const factory SaveThumbnailResult.fail(
@@ -43,7 +43,7 @@ class SaveThumbnailResult with _$SaveThumbnailResult {
 }
 
 @freezed
-class SaveThumbnailError with _$SaveThumbnailError {
+sealed class SaveThumbnailError with _$SaveThumbnailError {
   const factory SaveThumbnailError.fs(FsError error) = SaveThumbnailErrorFs;
 
   factory SaveThumbnailError.fromJson(Map<String, dynamic> json) =>
@@ -62,9 +62,10 @@ class SaveThumbnailJobImpl implements SaveThumbnailJob {
     required Uint8List thumbnail,
   }) async {
     final res = await _thumbnailFs.save(info, thumbnail);
-    return res.when(
-      (_) => const SaveThumbnailResult.success(),
-      error: (e) => SaveThumbnailResult.fail(SaveThumbnailError.fs(e)),
-    );
+    return switch (res) {
+      FsResultSuccess() => const SaveThumbnailResult.success(),
+      FsResultError(:final error) =>
+        SaveThumbnailResult.fail(SaveThumbnailError.fs(error)),
+    };
   }
 }

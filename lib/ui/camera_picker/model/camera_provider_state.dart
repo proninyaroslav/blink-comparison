@@ -23,7 +23,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'camera_provider_state.freezed.dart';
 
 @freezed
-class CameraProviderState with _$CameraProviderState {
+sealed class CameraProviderState with _$CameraProviderState {
   const factory CameraProviderState.initial() = CameraProviderStateInitial;
 
   const factory CameraProviderState.loading() = CameraProviderStateLoading;

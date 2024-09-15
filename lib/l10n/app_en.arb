@@ -89,5 +89,6 @@
   "blinkComparisonCaseTooltip": "Pressing anywhere on the screen toggles between the reference image and the image you just took. Fast switching helps you see differences in images",
   "aboutApp": "About",
   "changelog": "Changelog",
-  "settingsCameraFullscreenMode": "Fullscreen mode"
+  "settingsCameraFullscreenMode": "Fullscreen mode",
+  "authorizeFailedException": "Exception during authorization"
 }

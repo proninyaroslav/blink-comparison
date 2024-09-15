@@ -15,47 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$FsResult<T> {
-  Object? get value => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(T value) $default, {
-    required TResult Function(FsError value) error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(T value)? $default, {
-    TResult? Function(FsError value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(T value)? $default, {
-    TResult Function(FsError value)? error,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(FsResultValue<T> value) $default, {
-    required TResult Function(FsResultError<T> value) error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(FsResultValue<T> value)? $default, {
-    TResult? Function(FsResultError<T> value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(FsResultValue<T> value)? $default, {
-    TResult Function(FsResultError<T> value)? error,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$FsResult<T> {}
 
 /// @nodoc
 abstract class $FsResultCopyWith<T, $Res> {
@@ -79,20 +39,20 @@ class _$FsResultCopyWithImpl<T, $Res, $Val extends FsResult<T>>
 }
 
 /// @nodoc
-abstract class _$$FsResultValueImplCopyWith<T, $Res> {
-  factory _$$FsResultValueImplCopyWith(_$FsResultValueImpl<T> value,
-          $Res Function(_$FsResultValueImpl<T>) then) =
-      __$$FsResultValueImplCopyWithImpl<T, $Res>;
+abstract class _$$FsResultSuccessImplCopyWith<T, $Res> {
+  factory _$$FsResultSuccessImplCopyWith(_$FsResultSuccessImpl<T> value,
+          $Res Function(_$FsResultSuccessImpl<T>) then) =
+      __$$FsResultSuccessImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({T value});
 }
 
 /// @nodoc
-class __$$FsResultValueImplCopyWithImpl<T, $Res>
-    extends _$FsResultCopyWithImpl<T, $Res, _$FsResultValueImpl<T>>
-    implements _$$FsResultValueImplCopyWith<T, $Res> {
-  __$$FsResultValueImplCopyWithImpl(_$FsResultValueImpl<T> _value,
-      $Res Function(_$FsResultValueImpl<T>) _then)
+class __$$FsResultSuccessImplCopyWithImpl<T, $Res>
+    extends _$FsResultCopyWithImpl<T, $Res, _$FsResultSuccessImpl<T>>
+    implements _$$FsResultSuccessImplCopyWith<T, $Res> {
+  __$$FsResultSuccessImplCopyWithImpl(_$FsResultSuccessImpl<T> _value,
+      $Res Function(_$FsResultSuccessImpl<T>) _then)
       : super(_value, _then);
 
   /// Create a copy of FsResult
@@ -102,7 +62,7 @@ class __$$FsResultValueImplCopyWithImpl<T, $Res>
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_$FsResultValueImpl<T>(
+    return _then(_$FsResultSuccessImpl<T>(
       freezed == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -113,10 +73,10 @@ class __$$FsResultValueImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$FsResultValueImpl<T>
+class _$FsResultSuccessImpl<T>
     with DiagnosticableTreeMixin
-    implements FsResultValue<T> {
-  const _$FsResultValueImpl(this.value);
+    implements FsResultSuccess<T> {
+  const _$FsResultSuccessImpl(this.value);
 
   @override
   final T value;
@@ -138,7 +98,7 @@ class _$FsResultValueImpl<T>
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FsResultValueImpl<T> &&
+            other is _$FsResultSuccessImpl<T> &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -151,83 +111,20 @@ class _$FsResultValueImpl<T>
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$FsResultValueImplCopyWith<T, _$FsResultValueImpl<T>> get copyWith =>
-      __$$FsResultValueImplCopyWithImpl<T, _$FsResultValueImpl<T>>(
+  _$$FsResultSuccessImplCopyWith<T, _$FsResultSuccessImpl<T>> get copyWith =>
+      __$$FsResultSuccessImplCopyWithImpl<T, _$FsResultSuccessImpl<T>>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(T value) $default, {
-    required TResult Function(FsError value) error,
-  }) {
-    return $default(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(T value)? $default, {
-    TResult? Function(FsError value)? error,
-  }) {
-    return $default?.call(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(T value)? $default, {
-    TResult Function(FsError value)? error,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(FsResultValue<T> value) $default, {
-    required TResult Function(FsResultError<T> value) error,
-  }) {
-    return $default(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(FsResultValue<T> value)? $default, {
-    TResult? Function(FsResultError<T> value)? error,
-  }) {
-    return $default?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(FsResultValue<T> value)? $default, {
-    TResult Function(FsResultError<T> value)? error,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(this);
-    }
-    return orElse();
-  }
 }
 
-abstract class FsResultValue<T> implements FsResult<T> {
-  const factory FsResultValue(final T value) = _$FsResultValueImpl<T>;
+abstract class FsResultSuccess<T> implements FsResult<T> {
+  const factory FsResultSuccess(final T value) = _$FsResultSuccessImpl<T>;
 
-  @override
   T get value;
 
   /// Create a copy of FsResult
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FsResultValueImplCopyWith<T, _$FsResultValueImpl<T>> get copyWith =>
+  _$$FsResultSuccessImplCopyWith<T, _$FsResultSuccessImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -237,9 +134,9 @@ abstract class _$$FsResultErrorImplCopyWith<T, $Res> {
           $Res Function(_$FsResultErrorImpl<T>) then) =
       __$$FsResultErrorImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({FsError value});
+  $Res call({FsError error});
 
-  $FsErrorCopyWith<$Res> get value;
+  $FsErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
@@ -255,12 +152,12 @@ class __$$FsResultErrorImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = null,
+    Object? error = null,
   }) {
     return _then(_$FsResultErrorImpl<T>(
-      null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
               as FsError,
     ));
   }
@@ -269,9 +166,9 @@ class __$$FsResultErrorImplCopyWithImpl<T, $Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $FsErrorCopyWith<$Res> get value {
-    return $FsErrorCopyWith<$Res>(_value.value, (value) {
-      return _then(_value.copyWith(value: value));
+  $FsErrorCopyWith<$Res> get error {
+    return $FsErrorCopyWith<$Res>(_value.error, (value) {
+      return _then(_value.copyWith(error: value));
     });
   }
 }
@@ -281,14 +178,14 @@ class __$$FsResultErrorImplCopyWithImpl<T, $Res>
 class _$FsResultErrorImpl<T>
     with DiagnosticableTreeMixin
     implements FsResultError<T> {
-  const _$FsResultErrorImpl(this.value);
+  const _$FsResultErrorImpl(this.error);
 
   @override
-  final FsError value;
+  final FsError error;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'FsResult<$T>.error(value: $value)';
+    return 'FsResult<$T>.error(error: $error)';
   }
 
   @override
@@ -296,7 +193,7 @@ class _$FsResultErrorImpl<T>
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'FsResult<$T>.error'))
-      ..add(DiagnosticsProperty('value', value));
+      ..add(DiagnosticsProperty('error', error));
   }
 
   @override
@@ -304,11 +201,11 @@ class _$FsResultErrorImpl<T>
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FsResultErrorImpl<T> &&
-            (identical(other.value, value) || other.value == value));
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value);
+  int get hashCode => Object.hash(runtimeType, error);
 
   /// Create a copy of FsResult
   /// with the given fields replaced by the non-null parameter values.
@@ -318,75 +215,12 @@ class _$FsResultErrorImpl<T>
   _$$FsResultErrorImplCopyWith<T, _$FsResultErrorImpl<T>> get copyWith =>
       __$$FsResultErrorImplCopyWithImpl<T, _$FsResultErrorImpl<T>>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(T value) $default, {
-    required TResult Function(FsError value) error,
-  }) {
-    return error(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(T value)? $default, {
-    TResult? Function(FsError value)? error,
-  }) {
-    return error?.call(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(T value)? $default, {
-    TResult Function(FsError value)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(FsResultValue<T> value) $default, {
-    required TResult Function(FsResultError<T> value) error,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(FsResultValue<T> value)? $default, {
-    TResult? Function(FsResultError<T> value)? error,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(FsResultValue<T> value)? $default, {
-    TResult Function(FsResultError<T> value)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class FsResultError<T> implements FsResult<T> {
-  const factory FsResultError(final FsError value) = _$FsResultErrorImpl<T>;
+  const factory FsResultError(final FsError error) = _$FsResultErrorImpl<T>;
 
-  @override
-  FsError get value;
+  FsError get error;
 
   /// Create a copy of FsResult
   /// with the given fields replaced by the non-null parameter values.
@@ -405,44 +239,6 @@ mixin _$FsError {
   Exception? get exception => throw _privateConstructorUsedError;
   @StackTraceConverter()
   StackTrace? get stackTrace => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(@ExceptionConverter() Exception? exception,
-            @StackTraceConverter() StackTrace? stackTrace)
-        io,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(@ExceptionConverter() Exception? exception,
-            @StackTraceConverter() StackTrace? stackTrace)?
-        io,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(@ExceptionConverter() Exception? exception,
-            @StackTraceConverter() StackTrace? stackTrace)?
-        io,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FsErrorIO value) io,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FsErrorIO value)? io,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FsErrorIO value)? io,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   /// Serializes this FsError to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -589,68 +385,6 @@ class _$FsErrorIOImpl with DiagnosticableTreeMixin implements FsErrorIO {
   @pragma('vm:prefer-inline')
   _$$FsErrorIOImplCopyWith<_$FsErrorIOImpl> get copyWith =>
       __$$FsErrorIOImplCopyWithImpl<_$FsErrorIOImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(@ExceptionConverter() Exception? exception,
-            @StackTraceConverter() StackTrace? stackTrace)
-        io,
-  }) {
-    return io(exception, stackTrace);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(@ExceptionConverter() Exception? exception,
-            @StackTraceConverter() StackTrace? stackTrace)?
-        io,
-  }) {
-    return io?.call(exception, stackTrace);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(@ExceptionConverter() Exception? exception,
-            @StackTraceConverter() StackTrace? stackTrace)?
-        io,
-    required TResult orElse(),
-  }) {
-    if (io != null) {
-      return io(exception, stackTrace);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FsErrorIO value) io,
-  }) {
-    return io(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FsErrorIO value)? io,
-  }) {
-    return io?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FsErrorIO value)? io,
-    required TResult orElse(),
-  }) {
-    if (io != null) {
-      return io(this);
-    }
-    return orElse();
-  }
 
   @override
   Map<String, dynamic> toJson() {

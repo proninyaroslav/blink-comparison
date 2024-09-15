@@ -15,50 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$CameraInitializationError {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() accessDenied,
-    required TResult Function(Exception exception, StackTrace? stackTrace)
-        exception,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? accessDenied,
-    TResult? Function(Exception exception, StackTrace? stackTrace)? exception,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? accessDenied,
-    TResult Function(Exception exception, StackTrace? stackTrace)? exception,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(CameraInitializationErrorAccessDenied value)
-        accessDenied,
-    required TResult Function(CameraInitializationErrorException value)
-        exception,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CameraInitializationErrorAccessDenied value)?
-        accessDenied,
-    TResult? Function(CameraInitializationErrorException value)? exception,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(CameraInitializationErrorAccessDenied value)? accessDenied,
-    TResult Function(CameraInitializationErrorException value)? exception,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$CameraInitializationError {}
 
 /// @nodoc
 abstract class $CameraInitializationErrorCopyWith<$Res> {
@@ -124,72 +81,6 @@ class _$CameraInitializationErrorAccessDeniedImpl
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() accessDenied,
-    required TResult Function(Exception exception, StackTrace? stackTrace)
-        exception,
-  }) {
-    return accessDenied();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? accessDenied,
-    TResult? Function(Exception exception, StackTrace? stackTrace)? exception,
-  }) {
-    return accessDenied?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? accessDenied,
-    TResult Function(Exception exception, StackTrace? stackTrace)? exception,
-    required TResult orElse(),
-  }) {
-    if (accessDenied != null) {
-      return accessDenied();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(CameraInitializationErrorAccessDenied value)
-        accessDenied,
-    required TResult Function(CameraInitializationErrorException value)
-        exception,
-  }) {
-    return accessDenied(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CameraInitializationErrorAccessDenied value)?
-        accessDenied,
-    TResult? Function(CameraInitializationErrorException value)? exception,
-  }) {
-    return accessDenied?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(CameraInitializationErrorAccessDenied value)? accessDenied,
-    TResult Function(CameraInitializationErrorException value)? exception,
-    required TResult orElse(),
-  }) {
-    if (accessDenied != null) {
-      return accessDenied(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class CameraInitializationErrorAccessDenied
@@ -279,72 +170,6 @@ class _$CameraInitializationErrorExceptionImpl
           _$CameraInitializationErrorExceptionImpl>
       get copyWith => __$$CameraInitializationErrorExceptionImplCopyWithImpl<
           _$CameraInitializationErrorExceptionImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() accessDenied,
-    required TResult Function(Exception exception, StackTrace? stackTrace)
-        exception,
-  }) {
-    return exception(this.exception, stackTrace);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? accessDenied,
-    TResult? Function(Exception exception, StackTrace? stackTrace)? exception,
-  }) {
-    return exception?.call(this.exception, stackTrace);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? accessDenied,
-    TResult Function(Exception exception, StackTrace? stackTrace)? exception,
-    required TResult orElse(),
-  }) {
-    if (exception != null) {
-      return exception(this.exception, stackTrace);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(CameraInitializationErrorAccessDenied value)
-        accessDenied,
-    required TResult Function(CameraInitializationErrorException value)
-        exception,
-  }) {
-    return exception(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CameraInitializationErrorAccessDenied value)?
-        accessDenied,
-    TResult? Function(CameraInitializationErrorException value)? exception,
-  }) {
-    return exception?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(CameraInitializationErrorAccessDenied value)? accessDenied,
-    TResult Function(CameraInitializationErrorException value)? exception,
-    required TResult orElse(),
-  }) {
-    if (exception != null) {
-      return exception(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class CameraInitializationErrorException

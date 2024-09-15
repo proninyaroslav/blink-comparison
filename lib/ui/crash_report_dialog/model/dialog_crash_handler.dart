@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -72,22 +72,24 @@ class DialogCrashHandler implements CrashHandler {
     if (context == null) {
       return true;
     }
-    return res.maybeWhen(
-      emailUnsupported: () {
+    switch (res) {
+      case CrashReportSendResultSuccess():
+        return true;
+      case CrashReportSendResultEmailUnsupported():
         final context = _getContext();
         if (context == null) {
           return true;
         }
-        showDialog(
-          context: context,
-          useRootNavigator: false,
-          barrierDismissible: false,
-          builder: (context) => const SendReportErrorDialog(),
-        );
+        if (context.mounted) {
+          showDialog(
+            context: context,
+            useRootNavigator: false,
+            barrierDismissible: false,
+            builder: (context) => const SendReportErrorDialog(),
+          );
+        }
         return false;
-      },
-      orElse: () => true,
-    );
+    }
   }
 
   BuildContext? _getContext() => navigatorKey.currentState?.overlay?.context;

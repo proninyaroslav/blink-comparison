@@ -20,7 +20,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'blink_comparison_state.freezed.dart';
 
 @freezed
-class BlinkComparisonState with _$BlinkComparisonState {
+sealed class BlinkComparisonState with _$BlinkComparisonState {
   const factory BlinkComparisonState.initial() = BlinkComparisonStateInitial;
 
   const factory BlinkComparisonState.showRefImage() =

@@ -16,6 +16,7 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:blink_comparison/core/storage/ref_image_repository.dart';
+import 'package:blink_comparison/core/storage/storage_result.dart';
 import 'package:blink_comparison/ui/preview/model/ref_image_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,8 +28,8 @@ class RefImageCubit extends Cubit<RefImageState> {
   Future<void> load(String imageId) async {
     emit(const RefImageState.loading());
     final res = await _imageRepo.getInfoById(imageId);
-    await res.when(
-      (info) async {
+    switch (res) {
+      case StorageResultValue(value: final info):
         if (info == null) {
           emit(const RefImageState.loadFailed(
             LoadRefImageError.notFound(),
@@ -36,39 +37,34 @@ class RefImageCubit extends Cubit<RefImageState> {
           return;
         }
         final res = await _imageRepo.getImage(info);
-        res.when(
-          (image) => emit(RefImageState.loaded(image)),
-          error: (e) {
-            emit(
-              RefImageState.loadFailed(
-                e.when(
-                  database: (e, stackTrace) => LoadRefImageError.database(
-                    exception: e,
-                    stackTrace: stackTrace,
-                  ),
-                  fs: (e) => LoadRefImageError.fs(e),
-                  noKey: () => const LoadRefImageError.noSecureKey(),
-                  encrypt: (_) => throw 'Unknown error state',
-                  decrypt: (e) => LoadRefImageError.decrypt(e),
+        switch (res) {
+          case SecStorageResultSuccess(:final value):
+            emit(RefImageState.loaded(value));
+          case SecStorageResultError(:final error):
+            final errorState = switch (error) {
+              SecStorageErrorDatabase(:final exception, :final stackTrace) =>
+                LoadRefImageError.database(
+                  exception: exception,
+                  stackTrace: stackTrace,
                 ),
-              ),
-            );
-          },
-        );
-      },
-      error: (e) {
-        emit(
-          RefImageState.loadFailed(
-            e.when(
-              database: (e, stackTrace) => LoadRefImageError.database(
-                exception: e,
-                stackTrace: stackTrace,
-              ),
-              fs: (e) => LoadRefImageError.fs(e),
+              SecStorageErrorFs(:final error) => LoadRefImageError.fs(error),
+              SecStorageErrorNoKey() => const LoadRefImageError.noSecureKey(),
+              SecStorageErrorEncrypt() => throw 'Unknown error state',
+              SecStorageErrorDecrypt(:final error) =>
+                LoadRefImageError.decrypt(error),
+            };
+            emit(RefImageState.loadFailed(errorState));
+        }
+      case StorageResultError(:final error):
+        final errorState = switch (error) {
+          StorageErrorDatabase(:final exception, :final stackTrace) =>
+            LoadRefImageError.database(
+              exception: exception,
+              stackTrace: stackTrace,
             ),
-          ),
-        );
-      },
-    );
+          StorageErrorFs(:final error) => LoadRefImageError.fs(error),
+        };
+        emit(RefImageState.loadFailed(errorState));
+    }
   }
 }

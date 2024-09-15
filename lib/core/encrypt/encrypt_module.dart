@@ -42,18 +42,18 @@ abstract class EncryptModule {
 }
 
 @freezed
-class EncryptResult with _$EncryptResult {
+sealed class EncryptResult with _$EncryptResult {
   const factory EncryptResult.success({
     required Uint8List bytes,
-  }) = _EncryptResultSuccess;
+  }) = EncryptResultSuccess;
 
   const factory EncryptResult.fail(
     EncryptError error,
-  ) = _EncryptResultFail;
+  ) = EncryptResultFail;
 }
 
 @freezed
-class EncryptError with _$EncryptError {
+sealed class EncryptError with _$EncryptError {
   const factory EncryptError.exception({
     @ExceptionConverter() Exception? error,
     @StackTraceConverter() StackTrace? stackTrace,
@@ -66,18 +66,18 @@ class EncryptError with _$EncryptError {
 }
 
 @freezed
-class DecryptResult with _$DecryptResult {
+sealed class DecryptResult with _$DecryptResult {
   const factory DecryptResult.success({
     required Uint8List bytes,
-  }) = _DecryptResulttSuccess;
+  }) = DecryptResultSuccess;
 
   const factory DecryptResult.fail(
     DecryptError error,
-  ) = _DecryptResultFail;
+  ) = DecryptResultFail;
 }
 
 @freezed
-class DecryptError with _$DecryptError {
+sealed class DecryptError with _$DecryptError {
   const factory DecryptError.exception({
     Exception? error,
     StackTrace? stackTrace,

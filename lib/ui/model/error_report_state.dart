@@ -22,7 +22,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'error_report_state.freezed.dart';
 
 @freezed
-class ErrorReportState with _$ErrorReportState {
+sealed class ErrorReportState with _$ErrorReportState {
   const factory ErrorReportState.initial() = ErrorReportStateInitial;
 
   const factory ErrorReportState.inProgress() = ErrorReportStateInProgress;

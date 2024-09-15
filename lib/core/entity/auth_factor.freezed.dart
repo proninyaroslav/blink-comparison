@@ -30,44 +30,6 @@ mixin _$MutableAuthFactor {
   @JsonKeyIgnore()
   @protected
   set isDisposed(bool value) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(@SecureKeyConverter() SecureKey value,
-            @JsonKeyIgnore() @protected bool isDisposed)
-        password,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(@SecureKeyConverter() SecureKey value,
-            @JsonKeyIgnore() @protected bool isDisposed)?
-        password,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(@SecureKeyConverter() SecureKey value,
-            @JsonKeyIgnore() @protected bool isDisposed)?
-        password,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(MutableAuthFactorPassword value) password,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(MutableAuthFactorPassword value)? password,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(MutableAuthFactorPassword value)? password,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   /// Serializes this MutableAuthFactor to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -105,68 +67,6 @@ class _$MutableAuthFactorPasswordImpl extends MutableAuthFactorPassword {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, value, isDisposed);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(@SecureKeyConverter() SecureKey value,
-            @JsonKeyIgnore() @protected bool isDisposed)
-        password,
-  }) {
-    return password(value, isDisposed);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(@SecureKeyConverter() SecureKey value,
-            @JsonKeyIgnore() @protected bool isDisposed)?
-        password,
-  }) {
-    return password?.call(value, isDisposed);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(@SecureKeyConverter() SecureKey value,
-            @JsonKeyIgnore() @protected bool isDisposed)?
-        password,
-    required TResult orElse(),
-  }) {
-    if (password != null) {
-      return password(value, isDisposed);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(MutableAuthFactorPassword value) password,
-  }) {
-    return password(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(MutableAuthFactorPassword value)? password,
-  }) {
-    return password?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(MutableAuthFactorPassword value)? password,
-    required TResult orElse(),
-  }) {
-    if (password != null) {
-      return password(this);
-    }
-    return orElse();
-  }
 
   @override
   Map<String, dynamic> toJson() {

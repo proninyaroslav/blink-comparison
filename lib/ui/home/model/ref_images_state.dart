@@ -24,7 +24,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'ref_images_state.freezed.dart';
 
 @freezed
-class RefImagesState with _$RefImagesState {
+sealed class RefImagesState with _$RefImagesState {
   const factory RefImagesState.initial() = RefImagesStateInitial;
 
   const factory RefImagesState.loaded({

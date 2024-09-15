@@ -25,7 +25,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'ref_image_state.freezed.dart';
 
 @freezed
-class RefImageState with _$RefImageState {
+sealed class RefImageState with _$RefImageState {
   const factory RefImageState.initial() = RefImageStateInitial;
 
   const factory RefImageState.loading() = RefImageStateLoading;
@@ -38,7 +38,7 @@ class RefImageState with _$RefImageState {
 }
 
 @freezed
-class LoadRefImageError with _$LoadRefImageError {
+sealed class LoadRefImageError with _$LoadRefImageError {
   const factory LoadRefImageError.notFound() = LoadRefImageErrorNotFound;
 
   const factory LoadRefImageError.database({

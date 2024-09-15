@@ -15,46 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$EncryptResult {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Uint8List bytes) success,
-    required TResult Function(EncryptError error) fail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Uint8List bytes)? success,
-    TResult? Function(EncryptError error)? fail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Uint8List bytes)? success,
-    TResult Function(EncryptError error)? fail,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_EncryptResultSuccess value) success,
-    required TResult Function(_EncryptResultFail value) fail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_EncryptResultSuccess value)? success,
-    TResult? Function(_EncryptResultFail value)? fail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_EncryptResultSuccess value)? success,
-    TResult Function(_EncryptResultFail value)? fail,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$EncryptResult {}
 
 /// @nodoc
 abstract class $EncryptResultCopyWith<$Res> {
@@ -114,7 +75,7 @@ class __$$EncryptResultSuccessImplCopyWithImpl<$Res>
 
 class _$EncryptResultSuccessImpl
     with DiagnosticableTreeMixin
-    implements _EncryptResultSuccess {
+    implements EncryptResultSuccess {
   const _$EncryptResultSuccessImpl({required this.bytes});
 
   @override
@@ -154,72 +115,10 @@ class _$EncryptResultSuccessImpl
       get copyWith =>
           __$$EncryptResultSuccessImplCopyWithImpl<_$EncryptResultSuccessImpl>(
               this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Uint8List bytes) success,
-    required TResult Function(EncryptError error) fail,
-  }) {
-    return success(bytes);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Uint8List bytes)? success,
-    TResult? Function(EncryptError error)? fail,
-  }) {
-    return success?.call(bytes);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Uint8List bytes)? success,
-    TResult Function(EncryptError error)? fail,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(bytes);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_EncryptResultSuccess value) success,
-    required TResult Function(_EncryptResultFail value) fail,
-  }) {
-    return success(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_EncryptResultSuccess value)? success,
-    TResult? Function(_EncryptResultFail value)? fail,
-  }) {
-    return success?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_EncryptResultSuccess value)? success,
-    TResult Function(_EncryptResultFail value)? fail,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(this);
-    }
-    return orElse();
-  }
 }
 
-abstract class _EncryptResultSuccess implements EncryptResult {
-  const factory _EncryptResultSuccess({required final Uint8List bytes}) =
+abstract class EncryptResultSuccess implements EncryptResult {
+  const factory EncryptResultSuccess({required final Uint8List bytes}) =
       _$EncryptResultSuccessImpl;
 
   Uint8List get bytes;
@@ -280,7 +179,7 @@ class __$$EncryptResultFailImplCopyWithImpl<$Res>
 
 class _$EncryptResultFailImpl
     with DiagnosticableTreeMixin
-    implements _EncryptResultFail {
+    implements EncryptResultFail {
   const _$EncryptResultFailImpl(this.error);
 
   @override
@@ -318,72 +217,10 @@ class _$EncryptResultFailImpl
   _$$EncryptResultFailImplCopyWith<_$EncryptResultFailImpl> get copyWith =>
       __$$EncryptResultFailImplCopyWithImpl<_$EncryptResultFailImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Uint8List bytes) success,
-    required TResult Function(EncryptError error) fail,
-  }) {
-    return fail(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Uint8List bytes)? success,
-    TResult? Function(EncryptError error)? fail,
-  }) {
-    return fail?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Uint8List bytes)? success,
-    TResult Function(EncryptError error)? fail,
-    required TResult orElse(),
-  }) {
-    if (fail != null) {
-      return fail(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_EncryptResultSuccess value) success,
-    required TResult Function(_EncryptResultFail value) fail,
-  }) {
-    return fail(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_EncryptResultSuccess value)? success,
-    TResult? Function(_EncryptResultFail value)? fail,
-  }) {
-    return fail?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_EncryptResultSuccess value)? success,
-    TResult Function(_EncryptResultFail value)? fail,
-    required TResult orElse(),
-  }) {
-    if (fail != null) {
-      return fail(this);
-    }
-    return orElse();
-  }
 }
 
-abstract class _EncryptResultFail implements EncryptResult {
-  const factory _EncryptResultFail(final EncryptError error) =
+abstract class EncryptResultFail implements EncryptResult {
+  const factory EncryptResultFail(final EncryptError error) =
       _$EncryptResultFailImpl;
 
   EncryptError get error;
@@ -410,51 +247,6 @@ EncryptError _$EncryptErrorFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EncryptError {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(@ExceptionConverter() Exception? error,
-            @StackTraceConverter() StackTrace? stackTrace)
-        exception,
-    required TResult Function() noSecureKey,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(@ExceptionConverter() Exception? error,
-            @StackTraceConverter() StackTrace? stackTrace)?
-        exception,
-    TResult? Function()? noSecureKey,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(@ExceptionConverter() Exception? error,
-            @StackTraceConverter() StackTrace? stackTrace)?
-        exception,
-    TResult Function()? noSecureKey,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(EncryptErrorException value) exception,
-    required TResult Function(EncryptErrorNoSecureKey value) noSecureKey,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(EncryptErrorException value)? exception,
-    TResult? Function(EncryptErrorNoSecureKey value)? noSecureKey,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(EncryptErrorException value)? exception,
-    TResult Function(EncryptErrorNoSecureKey value)? noSecureKey,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-
   /// Serializes this EncryptError to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
@@ -583,74 +375,6 @@ class _$EncryptErrorExceptionImpl
           _$EncryptErrorExceptionImpl>(this, _$identity);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(@ExceptionConverter() Exception? error,
-            @StackTraceConverter() StackTrace? stackTrace)
-        exception,
-    required TResult Function() noSecureKey,
-  }) {
-    return exception(error, stackTrace);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(@ExceptionConverter() Exception? error,
-            @StackTraceConverter() StackTrace? stackTrace)?
-        exception,
-    TResult? Function()? noSecureKey,
-  }) {
-    return exception?.call(error, stackTrace);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(@ExceptionConverter() Exception? error,
-            @StackTraceConverter() StackTrace? stackTrace)?
-        exception,
-    TResult Function()? noSecureKey,
-    required TResult orElse(),
-  }) {
-    if (exception != null) {
-      return exception(error, stackTrace);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(EncryptErrorException value) exception,
-    required TResult Function(EncryptErrorNoSecureKey value) noSecureKey,
-  }) {
-    return exception(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(EncryptErrorException value)? exception,
-    TResult? Function(EncryptErrorNoSecureKey value)? noSecureKey,
-  }) {
-    return exception?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(EncryptErrorException value)? exception,
-    TResult Function(EncryptErrorNoSecureKey value)? noSecureKey,
-    required TResult orElse(),
-  }) {
-    if (exception != null) {
-      return exception(this);
-    }
-    return orElse();
-  }
-
-  @override
   Map<String, dynamic> toJson() {
     return _$$EncryptErrorExceptionImplToJson(
       this,
@@ -737,74 +461,6 @@ class _$EncryptErrorNoSecureKeyImpl
   int get hashCode => runtimeType.hashCode;
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(@ExceptionConverter() Exception? error,
-            @StackTraceConverter() StackTrace? stackTrace)
-        exception,
-    required TResult Function() noSecureKey,
-  }) {
-    return noSecureKey();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(@ExceptionConverter() Exception? error,
-            @StackTraceConverter() StackTrace? stackTrace)?
-        exception,
-    TResult? Function()? noSecureKey,
-  }) {
-    return noSecureKey?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(@ExceptionConverter() Exception? error,
-            @StackTraceConverter() StackTrace? stackTrace)?
-        exception,
-    TResult Function()? noSecureKey,
-    required TResult orElse(),
-  }) {
-    if (noSecureKey != null) {
-      return noSecureKey();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(EncryptErrorException value) exception,
-    required TResult Function(EncryptErrorNoSecureKey value) noSecureKey,
-  }) {
-    return noSecureKey(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(EncryptErrorException value)? exception,
-    TResult? Function(EncryptErrorNoSecureKey value)? noSecureKey,
-  }) {
-    return noSecureKey?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(EncryptErrorException value)? exception,
-    TResult Function(EncryptErrorNoSecureKey value)? noSecureKey,
-    required TResult orElse(),
-  }) {
-    if (noSecureKey != null) {
-      return noSecureKey(this);
-    }
-    return orElse();
-  }
-
-  @override
   Map<String, dynamic> toJson() {
     return _$$EncryptErrorNoSecureKeyImplToJson(
       this,
@@ -820,46 +476,7 @@ abstract class EncryptErrorNoSecureKey implements EncryptError {
 }
 
 /// @nodoc
-mixin _$DecryptResult {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Uint8List bytes) success,
-    required TResult Function(DecryptError error) fail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Uint8List bytes)? success,
-    TResult? Function(DecryptError error)? fail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Uint8List bytes)? success,
-    TResult Function(DecryptError error)? fail,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_DecryptResulttSuccess value) success,
-    required TResult Function(_DecryptResultFail value) fail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_DecryptResulttSuccess value)? success,
-    TResult? Function(_DecryptResultFail value)? fail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_DecryptResulttSuccess value)? success,
-    TResult Function(_DecryptResultFail value)? fail,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$DecryptResult {}
 
 /// @nodoc
 abstract class $DecryptResultCopyWith<$Res> {
@@ -883,21 +500,20 @@ class _$DecryptResultCopyWithImpl<$Res, $Val extends DecryptResult>
 }
 
 /// @nodoc
-abstract class _$$DecryptResulttSuccessImplCopyWith<$Res> {
-  factory _$$DecryptResulttSuccessImplCopyWith(
-          _$DecryptResulttSuccessImpl value,
-          $Res Function(_$DecryptResulttSuccessImpl) then) =
-      __$$DecryptResulttSuccessImplCopyWithImpl<$Res>;
+abstract class _$$DecryptResultSuccessImplCopyWith<$Res> {
+  factory _$$DecryptResultSuccessImplCopyWith(_$DecryptResultSuccessImpl value,
+          $Res Function(_$DecryptResultSuccessImpl) then) =
+      __$$DecryptResultSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Uint8List bytes});
 }
 
 /// @nodoc
-class __$$DecryptResulttSuccessImplCopyWithImpl<$Res>
-    extends _$DecryptResultCopyWithImpl<$Res, _$DecryptResulttSuccessImpl>
-    implements _$$DecryptResulttSuccessImplCopyWith<$Res> {
-  __$$DecryptResulttSuccessImplCopyWithImpl(_$DecryptResulttSuccessImpl _value,
-      $Res Function(_$DecryptResulttSuccessImpl) _then)
+class __$$DecryptResultSuccessImplCopyWithImpl<$Res>
+    extends _$DecryptResultCopyWithImpl<$Res, _$DecryptResultSuccessImpl>
+    implements _$$DecryptResultSuccessImplCopyWith<$Res> {
+  __$$DecryptResultSuccessImplCopyWithImpl(_$DecryptResultSuccessImpl _value,
+      $Res Function(_$DecryptResultSuccessImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of DecryptResult
@@ -907,7 +523,7 @@ class __$$DecryptResulttSuccessImplCopyWithImpl<$Res>
   $Res call({
     Object? bytes = null,
   }) {
-    return _then(_$DecryptResulttSuccessImpl(
+    return _then(_$DecryptResultSuccessImpl(
       bytes: null == bytes
           ? _value.bytes
           : bytes // ignore: cast_nullable_to_non_nullable
@@ -918,10 +534,10 @@ class __$$DecryptResulttSuccessImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DecryptResulttSuccessImpl
+class _$DecryptResultSuccessImpl
     with DiagnosticableTreeMixin
-    implements _DecryptResulttSuccess {
-  const _$DecryptResulttSuccessImpl({required this.bytes});
+    implements DecryptResultSuccess {
+  const _$DecryptResultSuccessImpl({required this.bytes});
 
   @override
   final Uint8List bytes;
@@ -943,7 +559,7 @@ class _$DecryptResulttSuccessImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DecryptResulttSuccessImpl &&
+            other is _$DecryptResultSuccessImpl &&
             const DeepCollectionEquality().equals(other.bytes, bytes));
   }
 
@@ -956,83 +572,22 @@ class _$DecryptResulttSuccessImpl
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$DecryptResulttSuccessImplCopyWith<_$DecryptResulttSuccessImpl>
-      get copyWith => __$$DecryptResulttSuccessImplCopyWithImpl<
-          _$DecryptResulttSuccessImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Uint8List bytes) success,
-    required TResult Function(DecryptError error) fail,
-  }) {
-    return success(bytes);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Uint8List bytes)? success,
-    TResult? Function(DecryptError error)? fail,
-  }) {
-    return success?.call(bytes);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Uint8List bytes)? success,
-    TResult Function(DecryptError error)? fail,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(bytes);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_DecryptResulttSuccess value) success,
-    required TResult Function(_DecryptResultFail value) fail,
-  }) {
-    return success(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_DecryptResulttSuccess value)? success,
-    TResult? Function(_DecryptResultFail value)? fail,
-  }) {
-    return success?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_DecryptResulttSuccess value)? success,
-    TResult Function(_DecryptResultFail value)? fail,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(this);
-    }
-    return orElse();
-  }
+  _$$DecryptResultSuccessImplCopyWith<_$DecryptResultSuccessImpl>
+      get copyWith =>
+          __$$DecryptResultSuccessImplCopyWithImpl<_$DecryptResultSuccessImpl>(
+              this, _$identity);
 }
 
-abstract class _DecryptResulttSuccess implements DecryptResult {
-  const factory _DecryptResulttSuccess({required final Uint8List bytes}) =
-      _$DecryptResulttSuccessImpl;
+abstract class DecryptResultSuccess implements DecryptResult {
+  const factory DecryptResultSuccess({required final Uint8List bytes}) =
+      _$DecryptResultSuccessImpl;
 
   Uint8List get bytes;
 
   /// Create a copy of DecryptResult
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DecryptResulttSuccessImplCopyWith<_$DecryptResulttSuccessImpl>
+  _$$DecryptResultSuccessImplCopyWith<_$DecryptResultSuccessImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -1085,7 +640,7 @@ class __$$DecryptResultFailImplCopyWithImpl<$Res>
 
 class _$DecryptResultFailImpl
     with DiagnosticableTreeMixin
-    implements _DecryptResultFail {
+    implements DecryptResultFail {
   const _$DecryptResultFailImpl(this.error);
 
   @override
@@ -1123,72 +678,10 @@ class _$DecryptResultFailImpl
   _$$DecryptResultFailImplCopyWith<_$DecryptResultFailImpl> get copyWith =>
       __$$DecryptResultFailImplCopyWithImpl<_$DecryptResultFailImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Uint8List bytes) success,
-    required TResult Function(DecryptError error) fail,
-  }) {
-    return fail(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Uint8List bytes)? success,
-    TResult? Function(DecryptError error)? fail,
-  }) {
-    return fail?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Uint8List bytes)? success,
-    TResult Function(DecryptError error)? fail,
-    required TResult orElse(),
-  }) {
-    if (fail != null) {
-      return fail(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_DecryptResulttSuccess value) success,
-    required TResult Function(_DecryptResultFail value) fail,
-  }) {
-    return fail(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_DecryptResulttSuccess value)? success,
-    TResult? Function(_DecryptResultFail value)? fail,
-  }) {
-    return fail?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_DecryptResulttSuccess value)? success,
-    TResult Function(_DecryptResultFail value)? fail,
-    required TResult orElse(),
-  }) {
-    if (fail != null) {
-      return fail(this);
-    }
-    return orElse();
-  }
 }
 
-abstract class _DecryptResultFail implements DecryptResult {
-  const factory _DecryptResultFail(final DecryptError error) =
+abstract class DecryptResultFail implements DecryptResult {
+  const factory DecryptResultFail(final DecryptError error) =
       _$DecryptResultFailImpl;
 
   DecryptError get error;
@@ -1201,47 +694,7 @@ abstract class _DecryptResultFail implements DecryptResult {
 }
 
 /// @nodoc
-mixin _$DecryptError {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Exception? error, StackTrace? stackTrace)
-        exception,
-    required TResult Function() noSecureKey,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Exception? error, StackTrace? stackTrace)? exception,
-    TResult? Function()? noSecureKey,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Exception? error, StackTrace? stackTrace)? exception,
-    TResult Function()? noSecureKey,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(DecryptErrorException value) exception,
-    required TResult Function(DecryptErrorNoSecureKey value) noSecureKey,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(DecryptErrorException value)? exception,
-    TResult? Function(DecryptErrorNoSecureKey value)? noSecureKey,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(DecryptErrorException value)? exception,
-    TResult Function(DecryptErrorNoSecureKey value)? noSecureKey,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$DecryptError {}
 
 /// @nodoc
 abstract class $DecryptErrorCopyWith<$Res> {
@@ -1350,69 +803,6 @@ class _$DecryptErrorExceptionImpl
   _$$DecryptErrorExceptionImplCopyWith<_$DecryptErrorExceptionImpl>
       get copyWith => __$$DecryptErrorExceptionImplCopyWithImpl<
           _$DecryptErrorExceptionImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Exception? error, StackTrace? stackTrace)
-        exception,
-    required TResult Function() noSecureKey,
-  }) {
-    return exception(error, stackTrace);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Exception? error, StackTrace? stackTrace)? exception,
-    TResult? Function()? noSecureKey,
-  }) {
-    return exception?.call(error, stackTrace);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Exception? error, StackTrace? stackTrace)? exception,
-    TResult Function()? noSecureKey,
-    required TResult orElse(),
-  }) {
-    if (exception != null) {
-      return exception(error, stackTrace);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(DecryptErrorException value) exception,
-    required TResult Function(DecryptErrorNoSecureKey value) noSecureKey,
-  }) {
-    return exception(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(DecryptErrorException value)? exception,
-    TResult? Function(DecryptErrorNoSecureKey value)? noSecureKey,
-  }) {
-    return exception?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(DecryptErrorException value)? exception,
-    TResult Function(DecryptErrorNoSecureKey value)? noSecureKey,
-    required TResult orElse(),
-  }) {
-    if (exception != null) {
-      return exception(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class DecryptErrorException implements DecryptError {
@@ -1478,69 +868,6 @@ class _$DecryptErrorNoSecureKeyImpl
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Exception? error, StackTrace? stackTrace)
-        exception,
-    required TResult Function() noSecureKey,
-  }) {
-    return noSecureKey();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Exception? error, StackTrace? stackTrace)? exception,
-    TResult? Function()? noSecureKey,
-  }) {
-    return noSecureKey?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Exception? error, StackTrace? stackTrace)? exception,
-    TResult Function()? noSecureKey,
-    required TResult orElse(),
-  }) {
-    if (noSecureKey != null) {
-      return noSecureKey();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(DecryptErrorException value) exception,
-    required TResult Function(DecryptErrorNoSecureKey value) noSecureKey,
-  }) {
-    return noSecureKey(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(DecryptErrorException value)? exception,
-    TResult? Function(DecryptErrorNoSecureKey value)? noSecureKey,
-  }) {
-    return noSecureKey?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(DecryptErrorException value)? exception,
-    TResult Function(DecryptErrorNoSecureKey value)? noSecureKey,
-    required TResult orElse(),
-  }) {
-    if (noSecureKey != null) {
-      return noSecureKey(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class DecryptErrorNoSecureKey implements DecryptError {

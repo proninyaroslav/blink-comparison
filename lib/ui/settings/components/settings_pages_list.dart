@@ -43,20 +43,20 @@ class SettingsPagesList extends StatelessWidget {
           itemCount: SettingsRouteItem.all.length,
           itemBuilder: (context, position) {
             final route = SettingsRouteItem.all[position];
-            return route.when(
-              appearance: () => _buildItem(
-                context,
-                route,
-                icon: Icons.palette_outlined,
-                title: S.of(context).settingsAppearance,
-              ),
-              camera: () => _buildItem(
-                context,
-                route,
-                icon: Icons.camera_alt_outlined,
-                title: S.of(context).settingsCamera,
-              ),
-            );
+            return switch (route) {
+              SettingsRouteItemAppearance() => _buildItem(
+                  context,
+                  route,
+                  icon: Icons.palette_outlined,
+                  title: S.of(context).settingsAppearance,
+                ),
+              SettingsRouteItemCamera() => _buildItem(
+                  context,
+                  route,
+                  icon: Icons.camera_alt_outlined,
+                  title: S.of(context).settingsCamera,
+                ),
+            };
           },
           separatorBuilder: (context, position) {
             return const SizedBox(height: 8.0);

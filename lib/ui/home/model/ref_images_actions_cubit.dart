@@ -32,12 +32,9 @@ class RefImagesActionsCubit extends Cubit<RefImagesActionsState> {
     final res = await _imageRepo.deleteList(infoList);
     final errors = <RefImageInfo, SecStorageError>{};
     for (final entry in res.entries) {
-      entry.value.when(
-        (_) {},
-        error: (e) {
-          errors[entry.key] = e;
-        },
-      );
+      if (entry.value case SecStorageResultError(:final error)) {
+        errors[entry.key] = error;
+      }
     }
     emit(RefImagesActionsState.deleted(
       count: infoList.length,

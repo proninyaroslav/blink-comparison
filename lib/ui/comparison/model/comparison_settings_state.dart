@@ -22,7 +22,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'comparison_settings_state.freezed.dart';
 
 @freezed
-class ComparisonSettingsState with _$ComparisonSettingsState {
+sealed class ComparisonSettingsState with _$ComparisonSettingsState {
   const factory ComparisonSettingsState.initial({
     @Default(null) int? refImageBorderColor,
   }) = ComparisonSettingsStateInitial;

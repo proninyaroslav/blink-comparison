@@ -118,20 +118,23 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
     yield await getCurrentStatus();
     yield* _jobController.observeResult().asyncMap((result) async {
       final list = await getCurrentStatus();
-      final status = result.when(
-        success: (request) => SaveRefImageStatus.completed(
-          imageId: request.info.id,
-        ),
-        fail: (request, error) => SaveRefImageStatus.completed(
-          imageId: request.info.id,
-          error: error.when(
-            saveImage: (e) => SaveRefImageStatusError.saveImage(e),
-            generateThumbnail: (e) =>
-                SaveRefImageStatusError.generateThumbnail(e),
-            saveThumbnail: (e) => SaveRefImageStatusError.saveThumbnail(e),
+      final status = switch (result) {
+        ServiceResultSuccess(:final request) => SaveRefImageStatus.completed(
+            imageId: request.info.id,
           ),
-        ),
-      );
+        ServiceResultFail(:final request, :final error) =>
+          SaveRefImageStatus.completed(
+            imageId: request.info.id,
+            error: switch (error) {
+              ServiceErrorSaveImage(:final error) =>
+                SaveRefImageStatusError.saveImage(error),
+              ServiceErrorGenerateThumbnail(:final error) =>
+                SaveRefImageStatusError.generateThumbnail(error),
+              ServiceErrorSaveThumbnail(:final error) =>
+                SaveRefImageStatusError.saveThumbnail(error),
+            },
+          ),
+      };
       list.add(status);
       return list;
     });
@@ -160,20 +163,19 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
             file: request.srcFile,
             key: factor.toImmutable(),
           );
-          await saveResult.when(
-            success: () async {
+          switch (saveResult) {
+            case SaveRefImageResultSuccess():
               log().d('[Save image] Image saved: ${request.info.id}');
               await _generateThumbnail(request);
-            },
-            error: (e) async {
+
+            case SaveRefImageResultError(:final error):
               await _serviceController.sendResult(
                 ServiceResult.fail(
                   request: request,
-                  error: ServiceError.saveImage(e),
+                  error: ServiceError.saveImage(error),
                 ),
               );
-            },
-          );
+          }
         } catch (e, stackTrace) {
           _stop(completer, error: e, stackTrace: stackTrace);
         } finally {
@@ -218,18 +220,18 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
 
   Future<void> _generateThumbnail(ServiceRequest request) async {
     final genThumbnailRes = await _generateThumbnailJob.run(request.srcFile);
-    await genThumbnailRes.when(
-      success: (thumbnail) => _saveThumbnail(thumbnail, request),
-      fail: (e) async {
-        log().e('[Save image] Generate thumbnail failed: $e');
+    switch (genThumbnailRes) {
+      case GenerateThumbnailResultSuccess(:final thumbnail):
+        _saveThumbnail(thumbnail, request);
+      case GenerateThumbnailResultFail(:final error):
+        log().e('[Save image] Generate thumbnail failed: $error');
         await _serviceController.sendResult(
           ServiceResult.fail(
             request: request,
-            error: ServiceError.generateThumbnail(e),
+            error: ServiceError.generateThumbnail(error),
           ),
         );
-      },
-    );
+    }
   }
 
   Future<void> _saveThumbnail(
@@ -240,21 +242,20 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
       info: request.info,
       thumbnail: thumbnail,
     );
-    await _serviceController.sendResult(
-      saveThumbnailRes.when(
-        success: () {
-          log().d('[Save image] Thumbnail saved: ${request.info.id}');
-          return ServiceResult.success(request: request);
-        },
-        fail: (e) {
-          log().e('[Save image] Generate thumbnail failed: $e');
-          return ServiceResult.fail(
+    switch (saveThumbnailRes) {
+      case SaveThumbnailResultSuccess():
+        log().d('[Save image] Thumbnail saved: ${request.info.id}');
+        await _serviceController
+            .sendResult(ServiceResult.success(request: request));
+      case SaveThumbnailResultFail(:final error):
+        log().e('[Save image] Generate thumbnail failed: $error');
+        await _serviceController.sendResult(
+          ServiceResult.fail(
             request: request,
-            error: ServiceError.saveThumbnail(e),
-          );
-        },
-      ),
-    );
+            error: ServiceError.saveThumbnail(error),
+          ),
+        );
+    }
   }
 }
 
@@ -300,18 +301,20 @@ StreamSubscription _listenSaveRefImageStatus(
 ) {
   return repo.observeAllSaveStatus().listen((statusList) {
     for (final status in statusList) {
-      status.maybeWhen(
-        completed: (imageId, error) {
-          error?.maybeWhen(
-            saveImage: (error) => notifyManager.saveRefImageError(
-              imageId: imageId,
-              error: error,
-            ),
-            orElse: () {},
-          );
-        },
-        orElse: () {},
-      );
+      switch (status) {
+        case SaveRefImageStatusProgress():
+          continue;
+        case SaveRefImageStatusCompleted(:final imageId, :final error):
+          switch (error) {
+            case SaveRefImageStatusErrorSaveImage(:final error):
+              notifyManager.saveRefImageError(
+                imageId: imageId,
+                error: error,
+              );
+            case _:
+              continue;
+          }
+      }
     }
   });
 }
@@ -338,7 +341,7 @@ class XFileConverter implements JsonConverter<XFile, String> {
 }
 
 @freezed
-class ServiceResult with _$ServiceResult {
+sealed class ServiceResult with _$ServiceResult {
   const factory ServiceResult.success({
     required ServiceRequest request,
   }) = ServiceResultSuccess;
@@ -353,7 +356,7 @@ class ServiceResult with _$ServiceResult {
 }
 
 @freezed
-class ServiceError with _$ServiceError {
+sealed class ServiceError with _$ServiceError {
   const factory ServiceError.saveImage(
     SaveRefImageError error,
   ) = ServiceErrorSaveImage;

@@ -56,43 +56,74 @@ abstract class CrashReportBuilderImpl implements CrashReportBuilder {
   }
 
   ReportableInfo _toReportableInfo(DeviceInfo info) {
-    return info.map(
-      unknown: (_) => const ReportableInfo.unknown(),
-      android: (value) => ReportableInfo.android(
-        systemVersion: value.systemVersion,
-        supportedAbis: value.supportedAbis,
-        brand: value.brand,
-        device: value.device,
-        model: value.model,
-        hardware: value.hardware,
-        product: value.product,
-      ),
-      iOS: (value) => ReportableInfo.iOS(
-        deviceName: value.deviceName,
-        deviceModel: value.deviceModel,
-        systemName: value.systemName,
-        systemVersion: value.systemVersion,
-      ),
-      linux: (value) => ReportableInfo.linux(
-        osName: value.osName,
-        kernelVersion: value.kernelVersion,
-        osVersion: value.osVersion,
-      ),
-      windows: (value) => ReportableInfo.windows(
-        osVersion: value.osVersion,
-      ),
-      macOS: (value) => ReportableInfo.macOS(
-        arch: value.arch,
-        kernelVersion: value.kernelVersion,
-        osVersion: value.osVersion,
-        model: value.model,
-      ),
-      web: (value) => ReportableInfo.web(
-        browserName: value.browserName,
-        platform: value.platform,
-        vendor: value.vendor,
-      ),
-    );
+    return switch (info) {
+      DeviceInfoUnknown() => const ReportableInfo.unknown(),
+      DeviceInfoAndroid(
+        :final systemVersion,
+        :final supportedAbis,
+        :final brand,
+        :final device,
+        :final model,
+        :final hardware,
+        :final product,
+      ) =>
+        ReportableInfo.android(
+          systemVersion: systemVersion,
+          supportedAbis: supportedAbis,
+          brand: brand,
+          device: device,
+          model: model,
+          hardware: hardware,
+          product: product,
+        ),
+      DeviceInfoIOS(
+        :final deviceName,
+        :final deviceModel,
+        :final systemName,
+        :final systemVersion,
+      ) =>
+        ReportableInfo.iOS(
+          deviceName: deviceName,
+          deviceModel: deviceModel,
+          systemName: systemName,
+          systemVersion: systemVersion,
+        ),
+      DeviceInfoLinux(
+        :final osName,
+        :final kernelVersion,
+        :final osVersion,
+      ) =>
+        ReportableInfo.linux(
+          osName: osName,
+          kernelVersion: kernelVersion,
+          osVersion: osVersion,
+        ),
+      DeviceInfoWindows(:final osVersion) => ReportableInfo.windows(
+          osVersion: osVersion,
+        ),
+      DeviceInfoMacOS(
+        :final arch,
+        :final kernelVersion,
+        :final osVersion,
+        :final model,
+      ) =>
+        ReportableInfo.macOS(
+          arch: arch,
+          kernelVersion: kernelVersion,
+          osVersion: osVersion,
+          model: model,
+        ),
+      DeviceInfoWeb(
+        :final browserName,
+        :final platform,
+        :final vendor,
+      ) =>
+        ReportableInfo.web(
+          browserName: browserName,
+          platform: platform,
+          vendor: vendor,
+        ),
+    };
   }
 }
 

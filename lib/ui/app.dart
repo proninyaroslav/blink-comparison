@@ -81,12 +81,15 @@ class _AppState extends State<App> {
 
     notifyManager.listenOnSelectNotification().listen(
       (action) {
-        action.when(
-          reportCrash: _onReport,
-          openRefImageList: () {
-            context.replaceRoute(const RefImageListRoute());
-          },
-        );
+        switch (action) {
+          case NotificationActionReportCrash(:final info):
+            _onReport(info);
+          case NotificationActionOpenRefImageList():
+            if (context.mounted) {
+              // ignore: use_build_context_synchronously
+              context.replaceRoute(const RefImageListRoute());
+            }
+        }
       },
       onError: (e, StackTrace stackTrace) {
         log().e('Unable to handle notification action',
@@ -98,15 +101,17 @@ class _AppState extends State<App> {
     if (platform.isAndroid || platform.isIOS) {
       notifyManager.getAppLaunchDetails().then(
         (action) {
-          if (action == null) {
-            return;
+          switch (action) {
+            case null:
+              return;
+            case NotificationActionReportCrash(:final info):
+              _onReport(info);
+            case NotificationActionOpenRefImageList():
+              if (context.mounted) {
+                // ignore: use_build_context_synchronously
+                context.replaceRoute(const RefImageListRoute());
+              }
           }
-          action.when(
-            reportCrash: _onReport,
-            openRefImageList: () {
-              context.replaceRoute(const RefImageListRoute());
-            },
-          );
         },
         onError: (e, StackTrace stackTrace) {
           log().e(
@@ -121,11 +126,9 @@ class _AppState extends State<App> {
 
   Future<void> _onReport(CrashInfo info) async {
     final res = await getIt<CrashReportManager>().sendReport(info);
-    await res.maybeWhen(
-      emailUnsupported: () =>
-          getIt<NotificationManager>().sendReportErrorNotify(info),
-      orElse: () {},
-    );
+    if (res case CrashReportSendResultEmailUnsupported()) {
+      await getIt<NotificationManager>().sendReportErrorNotify(info);
+    }
   }
 
   @override
@@ -194,23 +197,17 @@ class _AppState extends State<App> {
     );
   }
 
-  ThemeMode _mapThemeMode(AppThemeType theme) {
-    return theme.when(
-      light: () => ThemeMode.light,
-      dark: () => ThemeMode.dark,
-      system: () => ThemeMode.system,
-    );
-  }
+  ThemeMode _mapThemeMode(AppThemeType theme) => switch (theme) {
+        AppThemeTypeLight() => ThemeMode.light,
+        AppThemeTypeDark() => ThemeMode.dark,
+        AppThemeTypeSystem() => ThemeMode.system,
+      };
 
-  Locale? _mapLocale(AppLocaleType locale) {
-    return locale.when(
-      system: () => null,
-      inner: (locale) => Locale(
-        locale.languageCode,
-        locale.countryCode,
-      ),
-    );
-  }
+  Locale? _mapLocale(AppLocaleType locale) => switch (locale) {
+        AppLocaleTypeSystem() => null,
+        AppLocaleTypeInner(:final locale) =>
+          Locale(locale.languageCode, locale.countryCode),
+      };
 }
 
 class _Loading extends StatelessWidget {

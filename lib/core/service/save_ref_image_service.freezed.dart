@@ -228,44 +228,6 @@ ServiceResult _$ServiceResultFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ServiceResult {
   ServiceRequest get request => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ServiceRequest request) success,
-    required TResult Function(ServiceRequest request, ServiceError error) fail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ServiceRequest request)? success,
-    TResult? Function(ServiceRequest request, ServiceError error)? fail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ServiceRequest request)? success,
-    TResult Function(ServiceRequest request, ServiceError error)? fail,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ServiceResultSuccess value) success,
-    required TResult Function(ServiceResultFail value) fail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ServiceResultSuccess value)? success,
-    TResult? Function(ServiceResultFail value)? fail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServiceResultSuccess value)? success,
-    TResult Function(ServiceResultFail value)? fail,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   /// Serializes this ServiceResult to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -415,68 +377,6 @@ class _$ServiceResultSuccessImpl
               this, _$identity);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ServiceRequest request) success,
-    required TResult Function(ServiceRequest request, ServiceError error) fail,
-  }) {
-    return success(request);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ServiceRequest request)? success,
-    TResult? Function(ServiceRequest request, ServiceError error)? fail,
-  }) {
-    return success?.call(request);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ServiceRequest request)? success,
-    TResult Function(ServiceRequest request, ServiceError error)? fail,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(request);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ServiceResultSuccess value) success,
-    required TResult Function(ServiceResultFail value) fail,
-  }) {
-    return success(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ServiceResultSuccess value)? success,
-    TResult? Function(ServiceResultFail value)? fail,
-  }) {
-    return success?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServiceResultSuccess value)? success,
-    TResult Function(ServiceResultFail value)? fail,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(this);
-    }
-    return orElse();
-  }
-
-  @override
   Map<String, dynamic> toJson() {
     return _$$ServiceResultSuccessImplToJson(
       this,
@@ -613,68 +513,6 @@ class _$ServiceResultFailImpl
           this, _$identity);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ServiceRequest request) success,
-    required TResult Function(ServiceRequest request, ServiceError error) fail,
-  }) {
-    return fail(request, error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ServiceRequest request)? success,
-    TResult? Function(ServiceRequest request, ServiceError error)? fail,
-  }) {
-    return fail?.call(request, error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ServiceRequest request)? success,
-    TResult Function(ServiceRequest request, ServiceError error)? fail,
-    required TResult orElse(),
-  }) {
-    if (fail != null) {
-      return fail(request, error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ServiceResultSuccess value) success,
-    required TResult Function(ServiceResultFail value) fail,
-  }) {
-    return fail(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ServiceResultSuccess value)? success,
-    TResult? Function(ServiceResultFail value)? fail,
-  }) {
-    return fail?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServiceResultSuccess value)? success,
-    TResult Function(ServiceResultFail value)? fail,
-    required TResult orElse(),
-  }) {
-    if (fail != null) {
-      return fail(this);
-    }
-    return orElse();
-  }
-
-  @override
   Map<String, dynamic> toJson() {
     return _$$ServiceResultFailImplToJson(
       this,
@@ -720,51 +558,6 @@ ServiceError _$ServiceErrorFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ServiceError {
   Object get error => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(SaveRefImageError error) saveImage,
-    required TResult Function(GenerateThumbnailError error) generateThumbnail,
-    required TResult Function(SaveThumbnailError error) saveThumbnail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SaveRefImageError error)? saveImage,
-    TResult? Function(GenerateThumbnailError error)? generateThumbnail,
-    TResult? Function(SaveThumbnailError error)? saveThumbnail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SaveRefImageError error)? saveImage,
-    TResult Function(GenerateThumbnailError error)? generateThumbnail,
-    TResult Function(SaveThumbnailError error)? saveThumbnail,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ServiceErrorSaveImage value) saveImage,
-    required TResult Function(ServiceErrorGenerateThumbnail value)
-        generateThumbnail,
-    required TResult Function(ServiceErrorSaveThumbnail value) saveThumbnail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ServiceErrorSaveImage value)? saveImage,
-    TResult? Function(ServiceErrorGenerateThumbnail value)? generateThumbnail,
-    TResult? Function(ServiceErrorSaveThumbnail value)? saveThumbnail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServiceErrorSaveImage value)? saveImage,
-    TResult Function(ServiceErrorGenerateThumbnail value)? generateThumbnail,
-    TResult Function(ServiceErrorSaveThumbnail value)? saveThumbnail,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   /// Serializes this ServiceError to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -887,75 +680,6 @@ class _$ServiceErrorSaveImageImpl
   _$$ServiceErrorSaveImageImplCopyWith<_$ServiceErrorSaveImageImpl>
       get copyWith => __$$ServiceErrorSaveImageImplCopyWithImpl<
           _$ServiceErrorSaveImageImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(SaveRefImageError error) saveImage,
-    required TResult Function(GenerateThumbnailError error) generateThumbnail,
-    required TResult Function(SaveThumbnailError error) saveThumbnail,
-  }) {
-    return saveImage(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SaveRefImageError error)? saveImage,
-    TResult? Function(GenerateThumbnailError error)? generateThumbnail,
-    TResult? Function(SaveThumbnailError error)? saveThumbnail,
-  }) {
-    return saveImage?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SaveRefImageError error)? saveImage,
-    TResult Function(GenerateThumbnailError error)? generateThumbnail,
-    TResult Function(SaveThumbnailError error)? saveThumbnail,
-    required TResult orElse(),
-  }) {
-    if (saveImage != null) {
-      return saveImage(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ServiceErrorSaveImage value) saveImage,
-    required TResult Function(ServiceErrorGenerateThumbnail value)
-        generateThumbnail,
-    required TResult Function(ServiceErrorSaveThumbnail value) saveThumbnail,
-  }) {
-    return saveImage(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ServiceErrorSaveImage value)? saveImage,
-    TResult? Function(ServiceErrorGenerateThumbnail value)? generateThumbnail,
-    TResult? Function(ServiceErrorSaveThumbnail value)? saveThumbnail,
-  }) {
-    return saveImage?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServiceErrorSaveImage value)? saveImage,
-    TResult Function(ServiceErrorGenerateThumbnail value)? generateThumbnail,
-    TResult Function(ServiceErrorSaveThumbnail value)? saveThumbnail,
-    required TResult orElse(),
-  }) {
-    if (saveImage != null) {
-      return saveImage(this);
-    }
-    return orElse();
-  }
 
   @override
   Map<String, dynamic> toJson() {
@@ -1084,75 +808,6 @@ class _$ServiceErrorGenerateThumbnailImpl
           _$ServiceErrorGenerateThumbnailImpl>(this, _$identity);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(SaveRefImageError error) saveImage,
-    required TResult Function(GenerateThumbnailError error) generateThumbnail,
-    required TResult Function(SaveThumbnailError error) saveThumbnail,
-  }) {
-    return generateThumbnail(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SaveRefImageError error)? saveImage,
-    TResult? Function(GenerateThumbnailError error)? generateThumbnail,
-    TResult? Function(SaveThumbnailError error)? saveThumbnail,
-  }) {
-    return generateThumbnail?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SaveRefImageError error)? saveImage,
-    TResult Function(GenerateThumbnailError error)? generateThumbnail,
-    TResult Function(SaveThumbnailError error)? saveThumbnail,
-    required TResult orElse(),
-  }) {
-    if (generateThumbnail != null) {
-      return generateThumbnail(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ServiceErrorSaveImage value) saveImage,
-    required TResult Function(ServiceErrorGenerateThumbnail value)
-        generateThumbnail,
-    required TResult Function(ServiceErrorSaveThumbnail value) saveThumbnail,
-  }) {
-    return generateThumbnail(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ServiceErrorSaveImage value)? saveImage,
-    TResult? Function(ServiceErrorGenerateThumbnail value)? generateThumbnail,
-    TResult? Function(ServiceErrorSaveThumbnail value)? saveThumbnail,
-  }) {
-    return generateThumbnail?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServiceErrorSaveImage value)? saveImage,
-    TResult Function(ServiceErrorGenerateThumbnail value)? generateThumbnail,
-    TResult Function(ServiceErrorSaveThumbnail value)? saveThumbnail,
-    required TResult orElse(),
-  }) {
-    if (generateThumbnail != null) {
-      return generateThumbnail(this);
-    }
-    return orElse();
-  }
-
-  @override
   Map<String, dynamic> toJson() {
     return _$$ServiceErrorGenerateThumbnailImplToJson(
       this,
@@ -1275,75 +930,6 @@ class _$ServiceErrorSaveThumbnailImpl
   _$$ServiceErrorSaveThumbnailImplCopyWith<_$ServiceErrorSaveThumbnailImpl>
       get copyWith => __$$ServiceErrorSaveThumbnailImplCopyWithImpl<
           _$ServiceErrorSaveThumbnailImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(SaveRefImageError error) saveImage,
-    required TResult Function(GenerateThumbnailError error) generateThumbnail,
-    required TResult Function(SaveThumbnailError error) saveThumbnail,
-  }) {
-    return saveThumbnail(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SaveRefImageError error)? saveImage,
-    TResult? Function(GenerateThumbnailError error)? generateThumbnail,
-    TResult? Function(SaveThumbnailError error)? saveThumbnail,
-  }) {
-    return saveThumbnail?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SaveRefImageError error)? saveImage,
-    TResult Function(GenerateThumbnailError error)? generateThumbnail,
-    TResult Function(SaveThumbnailError error)? saveThumbnail,
-    required TResult orElse(),
-  }) {
-    if (saveThumbnail != null) {
-      return saveThumbnail(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ServiceErrorSaveImage value) saveImage,
-    required TResult Function(ServiceErrorGenerateThumbnail value)
-        generateThumbnail,
-    required TResult Function(ServiceErrorSaveThumbnail value) saveThumbnail,
-  }) {
-    return saveThumbnail(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ServiceErrorSaveImage value)? saveImage,
-    TResult? Function(ServiceErrorGenerateThumbnail value)? generateThumbnail,
-    TResult? Function(ServiceErrorSaveThumbnail value)? saveThumbnail,
-  }) {
-    return saveThumbnail?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServiceErrorSaveImage value)? saveImage,
-    TResult Function(ServiceErrorGenerateThumbnail value)? generateThumbnail,
-    TResult Function(ServiceErrorSaveThumbnail value)? saveThumbnail,
-    required TResult orElse(),
-  }) {
-    if (saveThumbnail != null) {
-      return saveThumbnail(this);
-    }
-    return orElse();
-  }
 
   @override
   Map<String, dynamic> toJson() {

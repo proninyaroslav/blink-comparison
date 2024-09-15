@@ -21,7 +21,7 @@ import 'package:image_picker/image_picker.dart';
 part 'system_picker_state.freezed.dart';
 
 @freezed
-class SystemPickerState with _$SystemPickerState {
+sealed class SystemPickerState with _$SystemPickerState {
   const factory SystemPickerState.initial() = SystemPickerStateInitial;
 
   const factory SystemPickerState.selectingImages() =

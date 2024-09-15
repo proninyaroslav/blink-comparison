@@ -23,7 +23,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'auth_state.freezed.dart';
 
 @freezed
-class AuthState with _$AuthState {
+sealed class AuthState with _$AuthState {
   const factory AuthState.initial() = AuthStateInitial;
 
   const factory AuthState.noPassword() = AuthStateNoPassword;
@@ -54,13 +54,13 @@ class AuthState with _$AuthState {
 }
 
 @freezed
-class AuthError with _$AuthError {
-  const factory AuthError.emptyPassword() = _AuthErrorEmptyPassword;
+sealed class AuthError with _$AuthError {
+  const factory AuthError.emptyPassword() = AuthErrorEmptyPassword;
 
-  const factory AuthError.wrongPassword() = _AuthErrorWrongPassword;
+  const factory AuthError.wrongPassword() = AuthErrorWrongPassword;
 
   const factory AuthError.exception({
     required Object error,
     required StackTrace stackTrace,
-  }) = _AuthErrorException;
+  }) = AuthErrorException;
 }

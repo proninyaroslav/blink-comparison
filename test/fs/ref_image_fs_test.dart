@@ -72,11 +72,11 @@ void main() {
 
       when(() => mockFile.exists()).thenAnswer((_) async => false);
       var res = await imageFs.save(info, Uint8List.fromList(bytes));
-      expect(res is FsResultValue, isTrue);
+      expect(res is FsResultSuccess, isTrue);
 
       when(() => mockFile.exists()).thenAnswer((_) async => true);
       res = await imageFs.save(info, Uint8List.fromList(bytes));
-      expect(res is FsResultValue, isTrue);
+      expect(res is FsResultSuccess, isTrue);
 
       verify(() => mockFile.writeAsBytes(bytes)).called(2);
     });
@@ -97,10 +97,12 @@ void main() {
       ).thenAnswer((_) async => Uint8List.fromList(bytes));
 
       final res = await imageFs.read(info);
-      res.when(
-        (value) => expect(value, bytes),
-        error: (e) => throw e,
-      );
+      switch (res) {
+        case FsResultSuccess(:final value):
+          expect(value, bytes);
+        case FsResultError(:final error):
+          throw error;
+      }
     });
 
     test('Read non existen file', () async {
@@ -118,10 +120,12 @@ void main() {
       ).thenAnswer((_) async => Uint8List(0));
 
       final res = await imageFs.read(info);
-      res.when(
-        (value) => expect(value, Uint8List(0)),
-        error: (e) => throw e,
-      );
+      switch (res) {
+        case FsResultSuccess(:final value):
+          expect(value, Uint8List(0));
+        case FsResultError(:final error):
+          throw error;
+      }
     });
 
     test('Delete', () async {
@@ -139,7 +143,7 @@ void main() {
       ).thenAnswer((_) async => mockFile);
 
       final res = await imageFs.delete(info);
-      expect(res is FsResultValue, isTrue);
+      expect(res is FsResultSuccess, isTrue);
     });
 
     test('Exists', () async {
@@ -157,10 +161,12 @@ void main() {
       ).thenAnswer((_) async => true);
 
       final res = await imageFs.exists(info);
-      res.when(
-        (value) => expect(value, isTrue),
-        error: (e) => throw e,
-      );
+      switch (res) {
+        case FsResultSuccess(:final value):
+          expect(value, isTrue);
+        case FsResultError(:final error):
+          throw error;
+      }
     });
   });
 }

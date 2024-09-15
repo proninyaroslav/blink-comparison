@@ -15,46 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$SettingsRouteItem {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() appearance,
-    required TResult Function() camera,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? appearance,
-    TResult? Function()? camera,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? appearance,
-    TResult Function()? camera,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SettingsRouteItemAppearance value) appearance,
-    required TResult Function(SettingsRouteItemCamera value) camera,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SettingsRouteItemAppearance value)? appearance,
-    TResult? Function(SettingsRouteItemCamera value)? camera,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SettingsRouteItemAppearance value)? appearance,
-    TResult Function(SettingsRouteItemCamera value)? camera,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$SettingsRouteItem {}
 
 /// @nodoc
 abstract class $SettingsRouteItemCopyWith<$Res> {
@@ -118,68 +79,6 @@ class _$SettingsRouteItemAppearanceImpl implements SettingsRouteItemAppearance {
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() appearance,
-    required TResult Function() camera,
-  }) {
-    return appearance();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? appearance,
-    TResult? Function()? camera,
-  }) {
-    return appearance?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? appearance,
-    TResult Function()? camera,
-    required TResult orElse(),
-  }) {
-    if (appearance != null) {
-      return appearance();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SettingsRouteItemAppearance value) appearance,
-    required TResult Function(SettingsRouteItemCamera value) camera,
-  }) {
-    return appearance(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SettingsRouteItemAppearance value)? appearance,
-    TResult? Function(SettingsRouteItemCamera value)? camera,
-  }) {
-    return appearance?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SettingsRouteItemAppearance value)? appearance,
-    TResult Function(SettingsRouteItemCamera value)? camera,
-    required TResult orElse(),
-  }) {
-    if (appearance != null) {
-      return appearance(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SettingsRouteItemAppearance implements SettingsRouteItem {
@@ -227,68 +126,6 @@ class _$SettingsRouteItemCameraImpl implements SettingsRouteItemCamera {
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() appearance,
-    required TResult Function() camera,
-  }) {
-    return camera();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? appearance,
-    TResult? Function()? camera,
-  }) {
-    return camera?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? appearance,
-    TResult Function()? camera,
-    required TResult orElse(),
-  }) {
-    if (camera != null) {
-      return camera();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SettingsRouteItemAppearance value) appearance,
-    required TResult Function(SettingsRouteItemCamera value) camera,
-  }) {
-    return camera(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SettingsRouteItemAppearance value)? appearance,
-    TResult? Function(SettingsRouteItemCamera value)? camera,
-  }) {
-    return camera?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SettingsRouteItemAppearance value)? appearance,
-    TResult Function(SettingsRouteItemCamera value)? camera,
-    required TResult orElse(),
-  }) {
-    if (camera != null) {
-      return camera(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SettingsRouteItemCamera implements SettingsRouteItem {

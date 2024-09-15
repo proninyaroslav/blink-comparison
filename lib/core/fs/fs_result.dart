@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -23,10 +23,10 @@ part 'fs_result.freezed.dart';
 part 'fs_result.g.dart';
 
 @freezed
-class FsResult<T> with _$FsResult<T> {
-  const factory FsResult(T value) = FsResultValue;
+sealed class FsResult<T> with _$FsResult<T> {
+  const factory FsResult(T value) = FsResultSuccess;
   const factory FsResult.error(
-    FsError value,
+    FsError error,
   ) = FsResultError;
 
   // ignore: void_checks
@@ -34,7 +34,7 @@ class FsResult<T> with _$FsResult<T> {
 }
 
 @freezed
-class FsError with _$FsError {
+sealed class FsError with _$FsError {
   const factory FsError.io({
     @ExceptionConverter() Exception? exception,
     @StackTraceConverter() StackTrace? stackTrace,

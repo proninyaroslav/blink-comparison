@@ -101,44 +101,42 @@ class _AuthPageState extends State<AuthPage> {
         listeners: [
           BlocListener<AuthCubit, AuthState>(
             listener: (context, state) {
-              state.maybeWhen(
-                authSuccess: (info) => widget.onAuthSuccess?.call(),
-                orElse: () {},
-              );
+              if (state case AuthStateAuthSuccess()) {
+                widget.onAuthSuccess?.call();
+              }
             },
           ),
           BlocListener<SignUpCubit, SignUpState>(
             listener: (context, state) {
-              state.maybeWhen(
-                savedAndAuthorized: () => widget.onAuthSuccess?.call(),
-                orElse: () {},
-              );
+              if (state case SignUpStateSavedAndAuthorized()) {
+                widget.onAuthSuccess?.call();
+              }
             },
           ),
         ],
         child: BlocBuilder<AuthCubit, AuthState>(
           builder: (context, state) => _Body(
-            child: state.maybeWhen(
-              initial: () => const CircularProgressIndicator(),
-              authSuccess: (_) => const CircularProgressIndicator(),
-              noPassword: () => const SignUpPage(),
-              orElse: () => SignInPage(
-                passwordFieldController: _passwordFieldController,
-              ),
-            ),
+            child: switch (state) {
+              AuthStateInitial() ||
+              AuthStateAuthSuccess() =>
+                const CircularProgressIndicator(),
+              AuthStateNoPassword() => const SignUpPage(),
+              _ =>
+                SignInPage(passwordFieldController: _passwordFieldController),
+            },
           ),
         ),
       ),
       floatingActionButton: BlocBuilder<AuthCubit, AuthState>(
         builder: (context, state) => _AdaptiveFab(
-          child: state.maybeWhen(
-            initial: () => const SizedBox.shrink(),
-            authSuccess: (_) => const SizedBox.shrink(),
-            noPassword: () => const SignUpButton(),
-            orElse: () => SignInButton(
-              passwordFieldController: _passwordFieldController,
-            ),
-          ),
+          child: switch (state) {
+            AuthStateInitial() ||
+            AuthStateAuthSuccess() =>
+              const SizedBox.shrink(),
+            AuthStateNoPassword() => const SignUpButton(),
+            _ =>
+              SignInButton(passwordFieldController: _passwordFieldController),
+          },
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

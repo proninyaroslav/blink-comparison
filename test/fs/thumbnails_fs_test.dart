@@ -72,11 +72,11 @@ void main() {
 
       when(() => mockFile.exists()).thenAnswer((_) async => false);
       var res = await thumbnailsFs.save(info, Uint8List.fromList(bytes));
-      expect(res is FsResultValue, isTrue);
+      expect(res is FsResultSuccess, isTrue);
 
       when(() => mockFile.exists()).thenAnswer((_) async => true);
       res = await thumbnailsFs.save(info, Uint8List.fromList(bytes));
-      expect(res is FsResultValue, isTrue);
+      expect(res is FsResultSuccess, isTrue);
 
       verify(() => mockFile.writeAsBytes(bytes)).called(2);
     });
@@ -90,10 +90,12 @@ void main() {
       final expectedPath = path.join(imagesDir, info.id);
 
       final res = await thumbnailsFs.get(info);
-      res.when(
-        (value) => expect(value.path, expectedPath),
-        error: (e) => throw e,
-      );
+      switch (res) {
+        case FsResultSuccess(:final value):
+          expect(value.path, expectedPath);
+        case FsResultError(:final error):
+          throw error;
+      }
     });
 
     test('Delete', () async {
@@ -111,7 +113,7 @@ void main() {
       ).thenAnswer((_) async => mockFile);
 
       final res = await thumbnailsFs.delete(info);
-      expect(res is FsResultValue, isTrue);
+      expect(res is FsResultSuccess, isTrue);
     });
 
     test('Exists', () async {
@@ -129,10 +131,12 @@ void main() {
       ).thenAnswer((_) async => true);
 
       final res = await thumbnailsFs.exists(info);
-      res.when(
-        (value) => expect(value, isTrue),
-        error: (e) => throw e,
-      );
+      switch (res) {
+        case FsResultSuccess(:final value):
+          expect(value, isTrue);
+        case FsResultError(:final error):
+          throw error;
+      }
     });
   });
 }

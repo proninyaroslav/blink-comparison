@@ -15,46 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$SaveThumbnailResult {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() success,
-    required TResult Function(SaveThumbnailError error) fail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? success,
-    TResult? Function(SaveThumbnailError error)? fail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? success,
-    TResult Function(SaveThumbnailError error)? fail,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SaveThumbnailResultSuccess value) success,
-    required TResult Function(SaveThumbnailResultFail value) fail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SaveThumbnailResultSuccess value)? success,
-    TResult? Function(SaveThumbnailResultFail value)? fail,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SaveThumbnailResultSuccess value)? success,
-    TResult Function(SaveThumbnailResultFail value)? fail,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$SaveThumbnailResult {}
 
 /// @nodoc
 abstract class $SaveThumbnailResultCopyWith<$Res> {
@@ -118,68 +79,6 @@ class _$SaveThumbnailResultSuccessImpl implements SaveThumbnailResultSuccess {
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() success,
-    required TResult Function(SaveThumbnailError error) fail,
-  }) {
-    return success();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? success,
-    TResult? Function(SaveThumbnailError error)? fail,
-  }) {
-    return success?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? success,
-    TResult Function(SaveThumbnailError error)? fail,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SaveThumbnailResultSuccess value) success,
-    required TResult Function(SaveThumbnailResultFail value) fail,
-  }) {
-    return success(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SaveThumbnailResultSuccess value)? success,
-    TResult? Function(SaveThumbnailResultFail value)? fail,
-  }) {
-    return success?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SaveThumbnailResultSuccess value)? success,
-    TResult Function(SaveThumbnailResultFail value)? fail,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SaveThumbnailResultSuccess implements SaveThumbnailResult {
@@ -266,68 +165,6 @@ class _$SaveThumbnailResultFailImpl implements SaveThumbnailResultFail {
   _$$SaveThumbnailResultFailImplCopyWith<_$SaveThumbnailResultFailImpl>
       get copyWith => __$$SaveThumbnailResultFailImplCopyWithImpl<
           _$SaveThumbnailResultFailImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() success,
-    required TResult Function(SaveThumbnailError error) fail,
-  }) {
-    return fail(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? success,
-    TResult? Function(SaveThumbnailError error)? fail,
-  }) {
-    return fail?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? success,
-    TResult Function(SaveThumbnailError error)? fail,
-    required TResult orElse(),
-  }) {
-    if (fail != null) {
-      return fail(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SaveThumbnailResultSuccess value) success,
-    required TResult Function(SaveThumbnailResultFail value) fail,
-  }) {
-    return fail(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SaveThumbnailResultSuccess value)? success,
-    TResult? Function(SaveThumbnailResultFail value)? fail,
-  }) {
-    return fail?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SaveThumbnailResultSuccess value)? success,
-    TResult Function(SaveThumbnailResultFail value)? fail,
-    required TResult orElse(),
-  }) {
-    if (fail != null) {
-      return fail(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SaveThumbnailResultFail implements SaveThumbnailResult {
@@ -350,38 +187,6 @@ SaveThumbnailError _$SaveThumbnailErrorFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SaveThumbnailError {
   FsError get error => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(FsError error) fs,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(FsError error)? fs,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(FsError error)? fs,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SaveThumbnailErrorFs value) fs,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SaveThumbnailErrorFs value)? fs,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SaveThumbnailErrorFs value)? fs,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   /// Serializes this SaveThumbnailError to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -515,62 +320,6 @@ class _$SaveThumbnailErrorFsImpl implements SaveThumbnailErrorFs {
       get copyWith =>
           __$$SaveThumbnailErrorFsImplCopyWithImpl<_$SaveThumbnailErrorFsImpl>(
               this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(FsError error) fs,
-  }) {
-    return fs(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(FsError error)? fs,
-  }) {
-    return fs?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(FsError error)? fs,
-    required TResult orElse(),
-  }) {
-    if (fs != null) {
-      return fs(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SaveThumbnailErrorFs value) fs,
-  }) {
-    return fs(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SaveThumbnailErrorFs value)? fs,
-  }) {
-    return fs?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SaveThumbnailErrorFs value)? fs,
-    required TResult orElse(),
-  }) {
-    if (fs != null) {
-      return fs(this);
-    }
-    return orElse();
-  }
 
   @override
   Map<String, dynamic> toJson() {

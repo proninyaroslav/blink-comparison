@@ -22,7 +22,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'sign_up_state.freezed.dart';
 
 @freezed
-class SignUpState with _$SignUpState {
+sealed class SignUpState with _$SignUpState {
   const factory SignUpState.initial({
     @Default(Password()) Password password,
     @Default(RepeatPassword()) RepeatPassword repeatPassword,
@@ -46,7 +46,7 @@ class SignUpState with _$SignUpState {
   const factory SignUpState.savingPassword() = SignUpStateSavingPassword;
 
   const factory SignUpState.savedAndAuthorized() =
-      SignUpStatePasswordSavedAndAuthorized;
+      SignUpStateSavedAndAuthorized;
 
   const factory SignUpState.savePasswordFailed({
     required Password password,
@@ -77,7 +77,7 @@ class RepeatPassword with _$RepeatPassword {
 }
 
 @freezed
-class PasswordError with _$PasswordError {
+sealed class PasswordError with _$PasswordError {
   const factory PasswordError.empty() = PasswordErrorEmpty;
 
   const factory PasswordError.tooShort() = PasswordErrorTooShort;
@@ -86,14 +86,14 @@ class PasswordError with _$PasswordError {
 }
 
 @freezed
-class RepeatPasswordError with _$RepeatPasswordError {
+sealed class RepeatPasswordError with _$RepeatPasswordError {
   const factory RepeatPasswordError.empty() = RepeatPasswordErrorEmpty;
 
   const factory RepeatPasswordError.mismatch() = RepeatPasswordErrorMismatch;
 }
 
 @freezed
-class PasswordValidateResult with _$PasswordValidateResult {
+sealed class PasswordValidateResult with _$PasswordValidateResult {
   const factory PasswordValidateResult.success({
     required String password,
   }) = PasswordValidateResultSuccess;
@@ -134,7 +134,7 @@ class PasswordValidator {
 }
 
 @freezed
-class RepeatPasswordValidateResult with _$RepeatPasswordValidateResult {
+sealed class RepeatPasswordValidateResult with _$RepeatPasswordValidateResult {
   const factory RepeatPasswordValidateResult.success({
     required String password,
   }) = RepeatPasswordValidateResultSuccess;

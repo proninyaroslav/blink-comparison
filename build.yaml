@@ -2,6 +2,13 @@ targets:
   $default:
     builders:
       freezed:freezed:
+        options:
+          # Disable legacy (Dart 2 and older) utilites
+          map: false
+          when:
+            when: false
+            maybe_when: false
+            when_or_null: false
         generate_for:
           - lib/**.dart
       json_serializable:json_serializable:

@@ -18,6 +18,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:blink_comparison/locale.dart';
 import 'package:blink_comparison/ui/settings/components/settings_pages_list.dart';
+import 'package:blink_comparison/ui/settings/model/settings_route_item.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -42,12 +43,10 @@ class SettingsPagesListPage extends StatelessWidget {
         ),
         body: SettingsPagesList(
           onSelected: (route) {
-            context.navigateTo(
-              route.when(
-                appearance: () => const AppearanceSettingsRoute(),
-                camera: () => const CameraSettingsRoute(),
-              ),
-            );
+            context.navigateTo(switch (route) {
+              SettingsRouteItemAppearance() => const AppearanceSettingsRoute(),
+              SettingsRouteItemCamera() => const CameraSettingsRoute(),
+            });
           },
         ),
       ),

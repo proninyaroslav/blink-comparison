@@ -23,7 +23,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'selectable_ref_image_item.freezed.dart';
 
 @freezed
-class SelectableRefImageItem with _$SelectableRefImageItem {
+sealed class SelectableRefImageItem with _$SelectableRefImageItem {
   const factory SelectableRefImageItem({
     required RefImageInfo info,
   }) = _SelectableRefImageItem;

@@ -48,11 +48,9 @@ class UiUtils {
 }
 
 extension AppThemeTypeExtension on AppThemeType {
-  String toLocalizedString(BuildContext context) {
-    return when(
-      light: () => S.of(context).settingsThemeLight,
-      dark: () => S.of(context).settingsThemeDark,
-      system: () => S.of(context).settingsThemeSystem,
-    );
-  }
+  String toLocalizedString(BuildContext context) => switch (this) {
+        AppThemeTypeLight() => S.of(context).settingsThemeLight,
+        AppThemeTypeDark() => S.of(context).settingsThemeDark,
+        AppThemeTypeSystem() => S.of(context).settingsThemeSystem,
+      };
 }

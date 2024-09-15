@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -39,7 +39,7 @@ abstract class SaveRefImageJob {
 }
 
 @freezed
-class SaveRefImageResult with _$SaveRefImageResult {
+sealed class SaveRefImageResult with _$SaveRefImageResult {
   const factory SaveRefImageResult.success() = SaveRefImageResultSuccess;
 
   const factory SaveRefImageResult.error(
@@ -48,7 +48,7 @@ class SaveRefImageResult with _$SaveRefImageResult {
 }
 
 @freezed
-class SaveRefImageError with _$SaveRefImageError {
+sealed class SaveRefImageError with _$SaveRefImageError {
   const factory SaveRefImageError.fs({
     required String path,
     required FsError error,
@@ -92,24 +92,32 @@ class SaveRefImageJobImpl implements SaveRefImageJob {
 
     final module = _encryptProvider.getByKey(key);
     final res = await module?.encrypt(src: bytes, info: info);
-    final error = res == null
-        ? const SaveRefImageError.encrypt(error: EncryptError.noSecureKey())
-        : await res.when(
-            success: (bytes) async {
-              final res = await _imageFs.save(info, bytes);
-              return res.when(
-                (_) => null,
-                error: (e) => SaveRefImageError.fs(
-                  path: file.path,
-                  error: e,
-                ),
-              );
-            },
-            fail: (e) async => SaveRefImageError.encrypt(error: e),
-          );
+    final error = switch (res) {
+      null => const SaveRefImageError.encrypt(
+          error: EncryptError.noSecureKey(),
+        ),
+      EncryptResultSuccess(:final bytes) => await _save(file, info, bytes),
+      EncryptResultFail(:final error) =>
+        SaveRefImageError.encrypt(error: error),
+    };
 
     return error != null
         ? SaveRefImageResult.error(error)
         : const SaveRefImageResult.success();
+  }
+
+  Future<SaveRefImageError?> _save(
+    XFile file,
+    RefImageInfo info,
+    Uint8List bytes,
+  ) async {
+    final res = await _imageFs.save(info, bytes);
+    return switch (res) {
+      FsResultSuccess() => null,
+      FsResultError(:final error) => SaveRefImageError.fs(
+          path: file.path,
+          error: error,
+        ),
+    };
   }
 }

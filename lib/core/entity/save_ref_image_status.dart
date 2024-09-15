@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -25,7 +25,7 @@ part 'save_ref_image_status.freezed.dart';
 part 'save_ref_image_status.g.dart';
 
 @freezed
-class SaveRefImageStatus with _$SaveRefImageStatus {
+sealed class SaveRefImageStatus with _$SaveRefImageStatus {
   const factory SaveRefImageStatus.inProgress({
     required String imageId,
   }) = SaveRefImageStatusProgress;
@@ -40,7 +40,7 @@ class SaveRefImageStatus with _$SaveRefImageStatus {
 }
 
 @freezed
-class SaveRefImageStatusError with _$SaveRefImageStatusError {
+sealed class SaveRefImageStatusError with _$SaveRefImageStatusError {
   const factory SaveRefImageStatusError.saveImage(
     SaveRefImageError error,
   ) = SaveRefImageStatusErrorSaveImage;

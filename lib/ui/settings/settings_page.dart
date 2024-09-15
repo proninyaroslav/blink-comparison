@@ -106,10 +106,10 @@ class _TwoPaneBodyState extends State<_TwoPaneBody> {
   late SettingsRouteItem _currentRoute;
   final List<PageRouteInfo> _routes = SettingsRouteItem.all
       .map(
-        (r) => r.when(
-          appearance: () => const AppearanceSettingsRoute(),
-          camera: () => const CameraSettingsRoute(),
-        ),
+        (r) => switch (r) {
+          SettingsRouteItemAppearance() => const AppearanceSettingsRoute(),
+          SettingsRouteItemCamera() => const CameraSettingsRoute(),
+        },
       )
       .toList();
 

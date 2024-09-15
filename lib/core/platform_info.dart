@@ -64,8 +64,8 @@ class AppInfo with _$AppInfo {
 }
 
 @freezed
-class DeviceInfo with _$DeviceInfo {
-  const factory DeviceInfo.unknown() = UnknownDeviceInfo;
+sealed class DeviceInfo with _$DeviceInfo {
+  const factory DeviceInfo.unknown() = DeviceInfoUnknown;
 
   const factory DeviceInfo.android({
     String? systemVersion,
@@ -88,31 +88,31 @@ class DeviceInfo with _$DeviceInfo {
 
     /// The name of the overall product.
     String? product,
-  }) = AndroidDeviceInfo;
+  }) = DeviceInfoAndroid;
 
   const factory DeviceInfo.iOS({
     String? deviceName,
     String? deviceModel,
     String? systemName,
     String? systemVersion,
-  }) = IOSDeviceInfo;
+  }) = DeviceInfoIOS;
 
   const factory DeviceInfo.linux({
     required String osName,
     required String kernelVersion,
     String? osVersion,
-  }) = LinuxDeviceInfo;
+  }) = DeviceInfoLinux;
 
   const factory DeviceInfo.windows({
     required String osVersion,
-  }) = WindowsDeviceInfo;
+  }) = DeviceInfoWindows;
 
   const factory DeviceInfo.macOS({
     required String arch,
     required String kernelVersion,
     required String osVersion,
     required String model,
-  }) = MacOSDeviceInfo;
+  }) = DeviceInfoMacOS;
 
   const factory DeviceInfo.web({
     required String browserName,
@@ -122,7 +122,7 @@ class DeviceInfo with _$DeviceInfo {
 
     /// The vendor name of the current browser
     String? vendor,
-  }) = WebDeviceInfo;
+  }) = DeviceInfoWeb;
 }
 
 @Injectable(as: PlatformInfo)

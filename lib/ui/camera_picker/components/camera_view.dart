@@ -73,29 +73,29 @@ class _CameraViewState extends State<CameraView> {
   Widget build(BuildContext context) {
     return BlocBuilder<CameraProviderCubit, CameraProviderState>(
       builder: (context, state) {
-        return state.maybeWhen(
-          loaded: (primaryCamera, otherCameras, enableFlashByDefault) {
-            return _Preview(
+        return switch (state) {
+          CameraProviderStateLoaded(
+            :final primaryCamera,
+            :final otherCameras,
+            :final enableFlashByDefault
+          ) =>
+            _Preview(
               camera: primaryCamera,
               otherCameras: otherCameras,
               overlayChild: widget.overlayChild,
               onTakePhoto: widget.onTakePhoto,
               enableFlashByDefault: enableFlashByDefault,
               showConfirmationDialog: widget.showConfirmationDialog,
-            );
-          },
-          loadFailed: (e, stackTrace) {
-            return _OpenCameraError(
+            ),
+          CameraProviderStateLoadFailed(:final error, :final stackTrace) =>
+            _OpenCameraError(
               error: CameraInitializationError.exception(
-                exception: e,
+                exception: error,
                 stackTrace: stackTrace,
               ),
-            );
-          },
-          orElse: () => const Center(
-            child: CircularProgressIndicator(),
-          ),
-        );
+            ),
+          _ => const CircularProgressIndicator(),
+        };
       },
     );
   }
@@ -614,10 +614,12 @@ class _OpenCameraError extends StatelessWidget {
             ),
             const SizedBox(height: 8.0),
             Text(
-              error.when(
-                accessDenied: () => S.of(context).cameraAccessDenied,
-                exception: (e, stackTrace) => S.of(context).openCameraError,
-              ),
+              switch (error) {
+                CameraInitializationErrorAccessDenied() =>
+                  S.of(context).cameraAccessDenied,
+                CameraInitializationErrorException() =>
+                  S.of(context).openCameraError,
+              },
               style: theme.textTheme.titleLarge!.copyWith(
                 color: theme.colorScheme.error,
               ),
@@ -626,20 +628,27 @@ class _OpenCameraError extends StatelessWidget {
             const SizedBox(height: 16.0),
             OutlinedButton(
               onPressed: () {
-                error.when(
-                  accessDenied: () => onOpenAppPermissions?.call(),
-                  exception: (e, stackTrace) => _errorDialog(
-                    context,
-                    reportMsg: 'Unable to initialize the camera',
-                    exception: e,
-                    stackTrace: stackTrace,
-                  ),
-                );
+                switch (error) {
+                  case CameraInitializationErrorAccessDenied():
+                    onOpenAppPermissions?.call();
+                  case CameraInitializationErrorException(
+                      :final exception,
+                      :final stackTrace
+                    ):
+                    _errorDialog(
+                      context,
+                      reportMsg: 'Unable to initialize the camera',
+                      exception: exception,
+                      stackTrace: stackTrace,
+                    );
+                }
               },
-              child: error.when(
-                accessDenied: () => Text(S.of(context).openAppSettings),
-                exception: (e, stackTrace) => Text(S.of(context).showError),
-              ),
+              child: switch (error) {
+                CameraInitializationErrorAccessDenied() =>
+                  Text(S.of(context).openAppSettings),
+                CameraInitializationErrorException() =>
+                  Text(S.of(context).showError),
+              },
             ),
           ],
         ),

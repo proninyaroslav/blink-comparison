@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -87,7 +87,7 @@ class CrashReportIdConverter implements JsonConverter<CrashReportId, String> {
 }
 
 @freezed
-class CrashReportSendResult with _$CrashReportSendResult {
+sealed class CrashReportSendResult with _$CrashReportSendResult {
   const factory CrashReportSendResult.success() = CrashReportSendResultSuccess;
 
   const factory CrashReportSendResult.emailUnsupported() =
@@ -95,7 +95,7 @@ class CrashReportSendResult with _$CrashReportSendResult {
 }
 
 @freezed
-class ReportableInfo with _$ReportableInfo {
+sealed class ReportableInfo with _$ReportableInfo {
   const factory ReportableInfo.unknown() = UnknownReportableInfo;
 
   const factory ReportableInfo.android({

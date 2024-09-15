@@ -58,10 +58,6 @@ import 'package:blink_comparison/platform/save_ref_image_native_service.dart'
     as _i188;
 import 'package:blink_comparison/ui/camera_picker/model/camera_provider.dart'
     as _i1041;
-import 'package:blink_comparison/ui/comparison/model/blink_comparison_cubit.dart'
-    as _i202;
-import 'package:blink_comparison/ui/home/model/selectable_ref_image_cubit.dart'
-    as _i904;
 import 'package:file/file.dart' as _i303;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:image_picker/image_picker.dart' as _i183;
@@ -91,9 +87,6 @@ extension GetItInjectableX on _i174.GetIt {
     final sembastModule = _$SembastModule();
     gh.factory<_i303.FileSystem>(() => fileSystemModule.fs);
     gh.factory<_i183.ImagePicker>(() => imagePickerModule.imagePicker);
-    gh.factory<_i904.SelectableRefImageCubit>(
-        () => _i904.SelectableRefImageCubit());
-    gh.factory<_i202.BlinkComparisonCubit>(() => _i202.BlinkComparisonCubit());
     await gh.singletonAsync<_i460.SharedPreferences>(
       () => sharedPreferencesModule.prefOld,
       preResolve: true,

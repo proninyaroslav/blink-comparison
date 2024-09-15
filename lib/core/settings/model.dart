@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -24,7 +24,7 @@ part 'model.freezed.dart';
 part 'model.g.dart';
 
 @freezed
-class AppThemeType with _$AppThemeType {
+sealed class AppThemeType with _$AppThemeType {
   const factory AppThemeType.light() = AppThemeTypeLight;
   const factory AppThemeType.dark() = AppThemeTypeDark;
   const factory AppThemeType.system() = AppThemeTypeSystem;
@@ -34,7 +34,7 @@ class AppThemeType with _$AppThemeType {
 }
 
 @freezed
-class AppLocaleType with _$AppLocaleType {
+sealed class AppLocaleType with _$AppLocaleType {
   const factory AppLocaleType.system() = AppLocaleTypeSystem;
   const factory AppLocaleType.inner({
     @LocaleConverter() required Locale locale,
@@ -66,7 +66,7 @@ class LocaleConverter implements JsonConverter<Locale, String> {
 }
 
 @freezed
-class ShowcaseType with _$ShowcaseType {
+sealed class ShowcaseType with _$ShowcaseType {
   const factory ShowcaseType.opacity() = ShowcaseTypeOpacity;
   const factory ShowcaseType.refImageBorder() = ShowcaseTypeRefImageBorder;
   const factory ShowcaseType.blinkComparison() = ShowcaseTypeBlinkComparison;

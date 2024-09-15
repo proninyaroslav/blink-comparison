@@ -92,10 +92,9 @@ class _BlinkComparisonPageState extends State<BlinkComparisonPage> {
         final c = context;
         if (c.mounted) {
           final cubit = c.read<BlinkComparisonCubit>();
-          cubit.state.maybeWhen(
-            initial: () => cubit.switchImage(),
-            orElse: () {},
-          );
+          if (cubit.state case BlinkComparisonStateInitial()) {
+            cubit.switchImage();
+          }
         }
       },
     );
@@ -189,11 +188,14 @@ class _BodyState extends State<_Body> {
               child: Center(
                 child: BlocBuilder<BlinkComparisonCubit, BlinkComparisonState>(
                   builder: (context, state) {
-                    return state.when(
-                      initial: () => const CircularProgressIndicator(),
-                      showRefImage: () => widget.refImageWidget,
-                      showTakenPhoto: () => widget.takenPhotoWidget,
-                    );
+                    return switch (state) {
+                      BlinkComparisonStateInitial() =>
+                        const CircularProgressIndicator(),
+                      BlinkComparisonStateShowRefImage() =>
+                        widget.refImageWidget,
+                      BlinkComparisonStateShowTakenPhoto() =>
+                        widget.takenPhotoWidget,
+                    };
                   },
                 ),
               ),
@@ -222,10 +224,9 @@ class _BodyState extends State<_Body> {
 
   void _onSwitchImage(BuildContext context) {
     final cubit = context.read<BlinkComparisonCubit>();
-    cubit.state.maybeWhen(
-      initial: () => null,
-      orElse: () => cubit.switchImage(),
-    );
+    if (cubit.state is! BlinkComparisonStateInitial) {
+      cubit.switchImage();
+    }
   }
 }
 

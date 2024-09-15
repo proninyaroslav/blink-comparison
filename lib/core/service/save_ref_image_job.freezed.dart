@@ -15,46 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$SaveRefImageResult {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() success,
-    required TResult Function(SaveRefImageError error) error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? success,
-    TResult? Function(SaveRefImageError error)? error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? success,
-    TResult Function(SaveRefImageError error)? error,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SaveRefImageResultSuccess value) success,
-    required TResult Function(SaveRefImageResultError value) error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SaveRefImageResultSuccess value)? success,
-    TResult? Function(SaveRefImageResultError value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SaveRefImageResultSuccess value)? success,
-    TResult Function(SaveRefImageResultError value)? error,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$SaveRefImageResult {}
 
 /// @nodoc
 abstract class $SaveRefImageResultCopyWith<$Res> {
@@ -118,68 +79,6 @@ class _$SaveRefImageResultSuccessImpl implements SaveRefImageResultSuccess {
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() success,
-    required TResult Function(SaveRefImageError error) error,
-  }) {
-    return success();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? success,
-    TResult? Function(SaveRefImageError error)? error,
-  }) {
-    return success?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? success,
-    TResult Function(SaveRefImageError error)? error,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SaveRefImageResultSuccess value) success,
-    required TResult Function(SaveRefImageResultError value) error,
-  }) {
-    return success(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SaveRefImageResultSuccess value)? success,
-    TResult? Function(SaveRefImageResultError value)? error,
-  }) {
-    return success?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SaveRefImageResultSuccess value)? success,
-    TResult Function(SaveRefImageResultError value)? error,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SaveRefImageResultSuccess implements SaveRefImageResult {
@@ -266,68 +165,6 @@ class _$SaveRefImageResultErrorImpl implements SaveRefImageResultError {
   _$$SaveRefImageResultErrorImplCopyWith<_$SaveRefImageResultErrorImpl>
       get copyWith => __$$SaveRefImageResultErrorImplCopyWithImpl<
           _$SaveRefImageResultErrorImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() success,
-    required TResult Function(SaveRefImageError error) error,
-  }) {
-    return error(this.error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? success,
-    TResult? Function(SaveRefImageError error)? error,
-  }) {
-    return error?.call(this.error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? success,
-    TResult Function(SaveRefImageError error)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this.error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SaveRefImageResultSuccess value) success,
-    required TResult Function(SaveRefImageResultError value) error,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SaveRefImageResultSuccess value)? success,
-    TResult? Function(SaveRefImageResultError value)? error,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SaveRefImageResultSuccess value)? success,
-    TResult Function(SaveRefImageResultError value)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SaveRefImageResultError implements SaveRefImageResult {
@@ -359,44 +196,6 @@ SaveRefImageError _$SaveRefImageErrorFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SaveRefImageError {
   Object get error => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String path, FsError error) fs,
-    required TResult Function(EncryptError error) encrypt,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String path, FsError error)? fs,
-    TResult? Function(EncryptError error)? encrypt,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String path, FsError error)? fs,
-    TResult Function(EncryptError error)? encrypt,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SaveRefImageErrorFs value) fs,
-    required TResult Function(SaveRefImageErrorEncrypt value) encrypt,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SaveRefImageErrorFs value)? fs,
-    TResult? Function(SaveRefImageErrorEncrypt value)? encrypt,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SaveRefImageErrorFs value)? fs,
-    TResult Function(SaveRefImageErrorEncrypt value)? encrypt,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   /// Serializes this SaveRefImageError to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -519,68 +318,6 @@ class _$SaveRefImageErrorFsImpl implements SaveRefImageErrorFs {
           this, _$identity);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String path, FsError error) fs,
-    required TResult Function(EncryptError error) encrypt,
-  }) {
-    return fs(path, error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String path, FsError error)? fs,
-    TResult? Function(EncryptError error)? encrypt,
-  }) {
-    return fs?.call(path, error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String path, FsError error)? fs,
-    TResult Function(EncryptError error)? encrypt,
-    required TResult orElse(),
-  }) {
-    if (fs != null) {
-      return fs(path, error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SaveRefImageErrorFs value) fs,
-    required TResult Function(SaveRefImageErrorEncrypt value) encrypt,
-  }) {
-    return fs(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SaveRefImageErrorFs value)? fs,
-    TResult? Function(SaveRefImageErrorEncrypt value)? encrypt,
-  }) {
-    return fs?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SaveRefImageErrorFs value)? fs,
-    TResult Function(SaveRefImageErrorEncrypt value)? encrypt,
-    required TResult orElse(),
-  }) {
-    if (fs != null) {
-      return fs(this);
-    }
-    return orElse();
-  }
-
-  @override
   Map<String, dynamic> toJson() {
     return _$$SaveRefImageErrorFsImplToJson(
       this,
@@ -696,68 +433,6 @@ class _$SaveRefImageErrorEncryptImpl implements SaveRefImageErrorEncrypt {
   _$$SaveRefImageErrorEncryptImplCopyWith<_$SaveRefImageErrorEncryptImpl>
       get copyWith => __$$SaveRefImageErrorEncryptImplCopyWithImpl<
           _$SaveRefImageErrorEncryptImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String path, FsError error) fs,
-    required TResult Function(EncryptError error) encrypt,
-  }) {
-    return encrypt(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String path, FsError error)? fs,
-    TResult? Function(EncryptError error)? encrypt,
-  }) {
-    return encrypt?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String path, FsError error)? fs,
-    TResult Function(EncryptError error)? encrypt,
-    required TResult orElse(),
-  }) {
-    if (encrypt != null) {
-      return encrypt(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SaveRefImageErrorFs value) fs,
-    required TResult Function(SaveRefImageErrorEncrypt value) encrypt,
-  }) {
-    return encrypt(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SaveRefImageErrorFs value)? fs,
-    TResult? Function(SaveRefImageErrorEncrypt value)? encrypt,
-  }) {
-    return encrypt?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SaveRefImageErrorFs value)? fs,
-    TResult Function(SaveRefImageErrorEncrypt value)? encrypt,
-    required TResult orElse(),
-  }) {
-    if (encrypt != null) {
-      return encrypt(this);
-    }
-    return orElse();
-  }
 
   @override
   Map<String, dynamic> toJson() {

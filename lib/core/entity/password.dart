@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -22,7 +22,7 @@ part 'password.freezed.dart';
 part 'password.g.dart';
 
 @freezed
-class PasswordInfo with _$PasswordInfo {
+sealed class PasswordInfo with _$PasswordInfo {
   const factory PasswordInfo({
     required String id,
 
@@ -38,6 +38,6 @@ class PasswordInfo with _$PasswordInfo {
 }
 
 @freezed
-class PasswordType with _$PasswordType {
+sealed class PasswordType with _$PasswordType {
   const factory PasswordType.encryptKey() = PasswordTypeEncryptKey;
 }

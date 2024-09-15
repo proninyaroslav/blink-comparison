@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -25,11 +25,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'storage_result.freezed.dart';
 
 @freezed
-class StorageResult<T> with _$StorageResult<T> {
+sealed class StorageResult<T> with _$StorageResult<T> {
   const factory StorageResult(T value) = StorageResultValue;
 
   const factory StorageResult.error(
-    StorageError value,
+    StorageError error,
   ) = StorageResultError;
 
   // ignore: void_checks
@@ -37,11 +37,11 @@ class StorageResult<T> with _$StorageResult<T> {
 }
 
 @freezed
-class SecStorageResult<T> with _$SecStorageResult<T> {
-  const factory SecStorageResult(T value) = SecStorageResultValue;
+sealed class SecStorageResult<T> with _$SecStorageResult<T> {
+  const factory SecStorageResult(T value) = SecStorageResultSuccess;
 
   const factory SecStorageResult.error(
-    SecStorageError value,
+    SecStorageError error,
   ) = SecStorageResultError;
 
   // ignore: void_checks
@@ -49,7 +49,7 @@ class SecStorageResult<T> with _$SecStorageResult<T> {
 }
 
 @freezed
-class StorageError with _$StorageError {
+sealed class StorageError with _$StorageError {
   const factory StorageError.database({
     Exception? exception,
     StackTrace? stackTrace,
@@ -61,7 +61,7 @@ class StorageError with _$StorageError {
 }
 
 @freezed
-class SecStorageError with _$SecStorageError {
+sealed class SecStorageError with _$SecStorageError {
   const factory SecStorageError.database({
     Exception? exception,
     StackTrace? stackTrace,

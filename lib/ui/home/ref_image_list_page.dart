@@ -18,7 +18,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:blink_comparison/core/crash_report/crash_report_manager.dart';
 import 'package:blink_comparison/core/entity/entity.dart';
+import 'package:blink_comparison/core/fs/fs_result.dart';
 import 'package:blink_comparison/core/platform_info.dart';
+import 'package:blink_comparison/core/service/save_ref_image_job.dart';
 import 'package:blink_comparison/core/storage/ref_image_repository.dart';
 import 'package:blink_comparison/core/storage/ref_image_status_repository.dart';
 import 'package:blink_comparison/injector.dart';
@@ -140,9 +142,10 @@ class _Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<RefImagesCubit, RefImagesState>(
       builder: (context, state) {
-        return state.when(
-          initial: () => const Center(child: CircularProgressIndicator()),
-          loaded: (entriesUnsorted) {
+        switch (state) {
+          case RefImagesStateInitial():
+            return const Center(child: CircularProgressIndicator());
+          case RefImagesStateLoaded(entries: final entriesUnsorted):
             if (entriesUnsorted.isEmpty) {
               return const _EmptyPage();
             }
@@ -172,11 +175,12 @@ class _Body extends StatelessWidget {
                 );
               },
             );
-          },
-          loadingFailed: (error) => LoadingPageError(
-            onRefresh: () => context.read<RefImagesCubit>().observeRefImages(),
-          ),
-        );
+          case RefImagesStateLoadingFailed():
+            return LoadingPageError(
+              onRefresh: () =>
+                  context.read<RefImagesCubit>().observeRefImages(),
+            );
+        }
       },
     );
   }
@@ -241,16 +245,13 @@ class _ImagesListState extends State<_ImagesList> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SelectableRefImageCubit, SelectableState>(
-      listener: (context, state) {
-        state.maybeWhen(
-          noSelection: () async {
-            if (_controller.value.isSelecting) {
-              await Navigator.of(context).maybePop();
-              _controller.clear();
-            }
-          },
-          orElse: () {},
-        );
+      listener: (context, state) async {
+        if (state case SelectableStateNoSelection()) {
+          if (_controller.value.isSelecting) {
+            await Navigator.of(context).maybePop();
+            _controller.clear();
+          }
+        }
       },
       builder: (context, state) {
         return AnimationLimiter(
@@ -278,14 +279,12 @@ class _ImagesListState extends State<_ImagesList> {
                   child: FadeInAnimation(
                     child: _ImageItem(
                       entry: entry,
-                      isSelected: state.maybeWhen(
-                        selected: (items) => items.contains(selectableItem),
-                        orElse: () => false,
-                      ),
-                      selectableMode: state.maybeWhen(
-                        selected: (_) => true,
-                        orElse: () => false,
-                      ),
+                      isSelected: switch (state) {
+                        SelectableStateSelected(:final items) =>
+                          items.contains(selectableItem),
+                        _ => false,
+                      },
+                      selectableMode: state is SelectableStateSelected,
                       onTap: () => context.pushRoute(
                         RefImagePreviewRoute(
                           imageId: entry.info.id,
@@ -318,26 +317,21 @@ class _ImageItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final child = entry.status?.when(
-          inProgress: (id) => _LoadImageProgress(onTap: onTap),
-          completed: (id, error) {
-            if (error == null || error is! SaveRefImageStatusErrorSaveImage) {
-              return _Image(
-                thumbnail: entry.thumbnail,
-                onTap: onTap,
-              );
-            } else {
-              return _SaveImageError(
-                error: error,
-                onTap: selectableMode ? onTap : null,
-              );
-            }
-          },
-        ) ??
-        _Image(
+    final child = switch (entry.status) {
+      null => _Image(thumbnail: entry.thumbnail, onTap: onTap),
+      SaveRefImageStatusProgress() => _LoadImageProgress(onTap: onTap),
+      SaveRefImageStatusCompleted(
+        :final SaveRefImageStatusErrorSaveImage error?
+      ) =>
+        _SaveImageError(
+          error: error,
+          onTap: selectableMode ? onTap : null,
+        ),
+      SaveRefImageStatusCompleted() => _Image(
           thumbnail: entry.thumbnail,
           onTap: onTap,
-        );
+        )
+    };
     return Card(
       clipBehavior: Clip.antiAlias,
       shape: RoundedRectangleBorder(
@@ -497,20 +491,19 @@ class _SaveImageError extends StatelessWidget {
   }
 
   void _onTap(BuildContext context) {
+    final (reportMsg, dialogMsg) = switch (error.error) {
+      SaveRefImageErrorFs(:final error) => switch (error) {
+          FsErrorIO() => ('I/O error', S.of(context).ioError),
+        },
+      SaveRefImageErrorEncrypt() => (
+          'Encryption error',
+          S.of(context).encryptionError
+        ),
+    };
     _errorDialog(
       context,
-      reportMsg: error.error.map(
-        fs: (value) => value.error.map(
-          io: (_) => 'I/O error',
-        ),
-        encrypt: (_) => 'Encryption error',
-      ),
-      dialogMsg: error.error.map(
-        fs: (value) => value.error.map(
-          io: (_) => S.of(context).ioError,
-        ),
-        encrypt: (_) => S.of(context).encryptionError,
-      ),
+      reportMsg: reportMsg,
+      dialogMsg: dialogMsg,
       exception: error,
     );
   }
@@ -634,40 +627,43 @@ class _AddRefImageButton extends StatelessWidget {
       listeners: [
         BlocListener<AddRefImageCubit, AddRefImageState>(
           listener: (context, state) {
-            state.maybeWhen(
-              addingImages: () {
+            switch (state) {
+              case AddRefImageStateAddingImage():
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(S.of(context).savingImageMessage),
                   ),
                 );
-              },
-              noSecureKey: () {
+              case AddRefImageStateNoSecureKey():
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(S.of(context).saveImageInvalidKey),
                   ),
                 );
-              },
-              orElse: () {},
-            );
+              case _:
+                break;
+            }
           },
         ),
         BlocListener<SystemPickerCubit, SystemPickerState>(
           listener: (context, state) {
-            state.maybeWhen(
-              selectImagesFailed: (e, stackTrace) => _errorDialog(
-                context,
-                reportMsg: 'Unable to select images',
-                dialogMsg: S.of(context).selectImagesFailed,
-                exception: e,
-                stackTrace: stackTrace,
-              ),
-              imagesSelected: (files) {
+            switch (state) {
+              case SystemPickerStateSelectImagesFailed(
+                  :final exception,
+                  :final stackTrace
+                ):
+                _errorDialog(
+                  context,
+                  reportMsg: 'Unable to select images',
+                  dialogMsg: S.of(context).selectImagesFailed,
+                  exception: exception,
+                  stackTrace: stackTrace,
+                );
+              case SystemPickerStateImagesSelected(:final files):
                 context.read<AddRefImageCubit>().addImages(files);
-              },
-              orElse: () {},
-            );
+              case _:
+                break;
+            }
           },
         ),
       ],

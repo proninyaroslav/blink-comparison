@@ -15,46 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$BuildResult {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(List<RefImageEntry> entries) $default, {
-    required TResult Function(StorageError error) failed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(List<RefImageEntry> entries)? $default, {
-    TResult? Function(StorageError error)? failed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<RefImageEntry> entries)? $default, {
-    TResult Function(StorageError error)? failed,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_BuildResultData value) $default, {
-    required TResult Function(_BuildResultFailed value) failed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_BuildResultData value)? $default, {
-    TResult? Function(_BuildResultFailed value)? failed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_BuildResultData value)? $default, {
-    TResult Function(_BuildResultFailed value)? failed,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$BuildResult {}
 
 /// @nodoc
 abstract class _$BuildResultCopyWith<$Res> {
@@ -159,68 +120,6 @@ class _$BuildResultDataImpl
   _$$BuildResultDataImplCopyWith<_$BuildResultDataImpl> get copyWith =>
       __$$BuildResultDataImplCopyWithImpl<_$BuildResultDataImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(List<RefImageEntry> entries) $default, {
-    required TResult Function(StorageError error) failed,
-  }) {
-    return $default(entries);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(List<RefImageEntry> entries)? $default, {
-    TResult? Function(StorageError error)? failed,
-  }) {
-    return $default?.call(entries);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<RefImageEntry> entries)? $default, {
-    TResult Function(StorageError error)? failed,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(entries);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_BuildResultData value) $default, {
-    required TResult Function(_BuildResultFailed value) failed,
-  }) {
-    return $default(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_BuildResultData value)? $default, {
-    TResult? Function(_BuildResultFailed value)? failed,
-  }) {
-    return $default?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_BuildResultData value)? $default, {
-    TResult Function(_BuildResultFailed value)? failed,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class _BuildResultData implements _BuildResult {
@@ -323,68 +222,6 @@ class _$BuildResultFailedImpl
   _$$BuildResultFailedImplCopyWith<_$BuildResultFailedImpl> get copyWith =>
       __$$BuildResultFailedImplCopyWithImpl<_$BuildResultFailedImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(List<RefImageEntry> entries) $default, {
-    required TResult Function(StorageError error) failed,
-  }) {
-    return failed(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(List<RefImageEntry> entries)? $default, {
-    TResult? Function(StorageError error)? failed,
-  }) {
-    return failed?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<RefImageEntry> entries)? $default, {
-    TResult Function(StorageError error)? failed,
-    required TResult orElse(),
-  }) {
-    if (failed != null) {
-      return failed(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_BuildResultData value) $default, {
-    required TResult Function(_BuildResultFailed value) failed,
-  }) {
-    return failed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_BuildResultData value)? $default, {
-    TResult? Function(_BuildResultFailed value)? failed,
-  }) {
-    return failed?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_BuildResultData value)? $default, {
-    TResult Function(_BuildResultFailed value)? failed,
-    required TResult orElse(),
-  }) {
-    if (failed != null) {
-      return failed(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class _BuildResultFailed implements _BuildResult {

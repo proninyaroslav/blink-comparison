@@ -17,7 +17,5 @@
 
 import 'package:blink_comparison/ui/home/model/selectable_ref_image_item.dart';
 import 'package:blink_comparison/ui/model/selectable_cubit.dart';
-import 'package:injectable/injectable.dart';
 
-@injectable
 class SelectableRefImageCubit extends SelectableCubit<SelectableRefImageItem> {}

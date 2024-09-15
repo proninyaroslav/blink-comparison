@@ -25,7 +25,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'add_ref_image_state.freezed.dart';
 
 @freezed
-class AddRefImageState with _$AddRefImageState {
+sealed class AddRefImageState with _$AddRefImageState {
   const factory AddRefImageState.initial() = AddRefImageStateInitial;
 
   const factory AddRefImageState.addingImages() = AddRefImageStateAddingImage;
@@ -46,7 +46,7 @@ class AddRefImageResult with _$AddRefImageResult {
 }
 
 @freezed
-class AddRefImageError with _$AddRefImageError {
+sealed class AddRefImageError with _$AddRefImageError {
   const factory AddRefImageError({
     required String path,
     Exception? exception,

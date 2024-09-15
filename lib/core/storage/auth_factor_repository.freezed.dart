@@ -15,46 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$AuthFactorModifyResult {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() success,
-    required TResult Function(Object error, StackTrace stackTrace) failed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? success,
-    TResult? Function(Object error, StackTrace stackTrace)? failed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? success,
-    TResult Function(Object error, StackTrace stackTrace)? failed,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AuthFactorModifyResultSuccess value) success,
-    required TResult Function(AuthFactorModifyResultFailed value) failed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AuthFactorModifyResultSuccess value)? success,
-    TResult? Function(AuthFactorModifyResultFailed value)? failed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AuthFactorModifyResultSuccess value)? success,
-    TResult Function(AuthFactorModifyResultFailed value)? failed,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$AuthFactorModifyResult {}
 
 /// @nodoc
 abstract class $AuthFactorModifyResultCopyWith<$Res> {
@@ -120,68 +81,6 @@ class _$AuthFactorModifyResultSuccessImpl
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() success,
-    required TResult Function(Object error, StackTrace stackTrace) failed,
-  }) {
-    return success();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? success,
-    TResult? Function(Object error, StackTrace stackTrace)? failed,
-  }) {
-    return success?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? success,
-    TResult Function(Object error, StackTrace stackTrace)? failed,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AuthFactorModifyResultSuccess value) success,
-    required TResult Function(AuthFactorModifyResultFailed value) failed,
-  }) {
-    return success(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AuthFactorModifyResultSuccess value)? success,
-    TResult? Function(AuthFactorModifyResultFailed value)? failed,
-  }) {
-    return success?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AuthFactorModifyResultSuccess value)? success,
-    TResult Function(AuthFactorModifyResultFailed value)? failed,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class AuthFactorModifyResultSuccess implements AuthFactorModifyResult {
@@ -266,68 +165,6 @@ class _$AuthFactorModifyResultFailedImpl
           _$AuthFactorModifyResultFailedImpl>
       get copyWith => __$$AuthFactorModifyResultFailedImplCopyWithImpl<
           _$AuthFactorModifyResultFailedImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() success,
-    required TResult Function(Object error, StackTrace stackTrace) failed,
-  }) {
-    return failed(error, stackTrace);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? success,
-    TResult? Function(Object error, StackTrace stackTrace)? failed,
-  }) {
-    return failed?.call(error, stackTrace);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? success,
-    TResult Function(Object error, StackTrace stackTrace)? failed,
-    required TResult orElse(),
-  }) {
-    if (failed != null) {
-      return failed(error, stackTrace);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AuthFactorModifyResultSuccess value) success,
-    required TResult Function(AuthFactorModifyResultFailed value) failed,
-  }) {
-    return failed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AuthFactorModifyResultSuccess value)? success,
-    TResult? Function(AuthFactorModifyResultFailed value)? failed,
-  }) {
-    return failed?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AuthFactorModifyResultSuccess value)? success,
-    TResult Function(AuthFactorModifyResultFailed value)? failed,
-    required TResult orElse(),
-  }) {
-    if (failed != null) {
-      return failed(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class AuthFactorModifyResultFailed implements AuthFactorModifyResult {

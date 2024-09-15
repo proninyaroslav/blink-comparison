@@ -46,10 +46,10 @@ class SignInButton extends StatelessWidget {
             state,
             passwordFieldController,
           ),
-          label: state.maybeWhen(
-            authInProgress: (info) => const ProgressFab(),
-            orElse: () => Text(S.of(context).signIn),
-          ),
+          label: switch (state) {
+            AuthStateAuthInProgress() => const ProgressFab(),
+            _ => Text(S.of(context).signIn),
+          },
         );
       },
     );
@@ -61,11 +61,12 @@ VoidCallback? _handleSubmitCallbackState(
   AuthState state,
   TextEditingController passwordFieldController,
 ) {
-  return state.maybeWhen(
-    passwordLoaded: (info) => _auth(context, passwordFieldController),
-    authFailed: (info, reason) => _auth(context, passwordFieldController),
-    orElse: () => null,
-  );
+  return switch (state) {
+    AuthStatePasswordLoaded() ||
+    AuthStateAuthFailed() =>
+      _auth(context, passwordFieldController),
+    _ => null,
+  };
 }
 
 VoidCallback _auth(
@@ -119,34 +120,47 @@ class _PasswordField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
-        state.maybeWhen(
-          passwordNotLoaded: () {
+        switch (state) {
+          case AuthStatePasswordNotLoaded():
             context.read<AuthCubit>().loadPassword();
-          },
-          loadPasswordFailed: (e, stackTrace) {
-            _loadPasswordFailedMsg(context, e, stackTrace);
-          },
-          authFailed: (info, reason) => passwordFieldController.clear(),
-          orElse: () {},
-        );
+          case AuthStateLoadPasswordFailed(:final exception, :final stackTrace):
+            _crashReportMsg(
+              context,
+              exception,
+              stackTrace,
+              label: S.of(context).loadPasswordFailed,
+              reportMessage: 'Failed to load storage password',
+            );
+          case AuthStateAuthFailed(:final reason):
+            passwordFieldController.clear();
+            if (reason
+                case AuthErrorException(:final error, :final stackTrace)) {
+              _crashReportMsg(
+                context,
+                error,
+                stackTrace,
+                label: S.of(context).authorizeFailedException,
+                reportMessage: 'Exception during authorization',
+              );
+            }
+          case _:
+            break;
+        }
       },
       builder: (context, state) {
         return TextField(
           controller: passwordFieldController,
           decoration: InputDecoration(
             hintText: S.of(context).enterPassword,
-            errorText: state.maybeWhen(
-              authFailed: (info, reason) => reason.when(
-                  emptyPassword: () => S.of(context).emptyPasswordError,
-                  wrongPassword: () => S.of(context).wrongPassword,
-                  exception: (error, stackTrace) {
-                    log().e('Unable to sign in',
-                        error: error, stackTrace: stackTrace);
-                    // TODO
-                    return '';
-                  }),
-              orElse: () => null,
-            ),
+            errorText: switch (state) {
+              AuthStateAuthFailed(:final reason) => switch (reason) {
+                  AuthErrorEmptyPassword() => S.of(context).emptyPasswordError,
+                  AuthErrorWrongPassword() => S.of(context).wrongPassword,
+                  AuthErrorException() =>
+                    S.of(context).authorizeFailedException,
+                },
+              _ => null,
+            },
           ),
           enableSuggestions: false,
           autocorrect: false,
@@ -162,13 +176,14 @@ class _PasswordField extends StatelessWidget {
   }
 }
 
-void _loadPasswordFailedMsg(
+void _crashReportMsg(
   BuildContext context,
-  Exception? exception,
-  StackTrace? stackTrace,
-) {
-  const msg = 'Failed to load storage password';
-  log().e(msg, error: exception, stackTrace: stackTrace);
+  Object? exception,
+  StackTrace? stackTrace, {
+  required String label,
+  required String reportMessage,
+}) {
+  log().e(reportMessage, error: exception, stackTrace: stackTrace);
 
   final reportCubit = context.read<ErrorReportCubit>();
   showDialog(
@@ -176,7 +191,7 @@ void _loadPasswordFailedMsg(
     builder: (context) {
       return AlertDialog(
         title: Text(S.of(context).error),
-        content: Text(S.of(context).loadPasswordFailed),
+        content: Text(label),
         actions: [
           TextButton(
             onPressed: () {
@@ -193,7 +208,7 @@ void _loadPasswordFailedMsg(
                 reportCubit.sendReport(
                   error: exception,
                   stackTrace: stackTrace,
-                  message: msg,
+                  message: reportMessage,
                 );
               },
               child: Text(
