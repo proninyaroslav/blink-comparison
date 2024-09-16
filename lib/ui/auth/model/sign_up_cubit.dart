@@ -160,7 +160,6 @@ class SignUpCubit extends Cubit<SignUpState> {
       }
     } finally {
       pwBytes.zeroing();
-      pwKey.dispose();
     }
   }
 

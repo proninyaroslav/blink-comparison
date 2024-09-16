@@ -40,8 +40,10 @@ sealed class MutableAuthFactor with _$MutableAuthFactor {
   }) = MutableAuthFactorPassword;
 
   void dispose() {
-    isDisposed = true;
-    value.dispose();
+    if (!isDisposed) {
+      isDisposed = true;
+      value.dispose();
+    }
   }
 
   MutableAuthFactor? copy() => switch (this) {
