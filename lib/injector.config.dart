@@ -27,6 +27,7 @@ import 'package:blink_comparison/core/encrypt/salt_generator.dart' as _i187;
 import 'package:blink_comparison/core/encrypt/secure_key_factory.dart' as _i479;
 import 'package:blink_comparison/core/fs/ref_image_fs.dart' as _i325;
 import 'package:blink_comparison/core/fs/thumbnail_fs.dart' as _i966;
+import 'package:blink_comparison/core/fs/thumbnails_migrator.dart' as _i598;
 import 'package:blink_comparison/core/notification_manager.dart' as _i671;
 import 'package:blink_comparison/core/platform_info.dart' as _i1009;
 import 'package:blink_comparison/core/ref_image_id_generator.dart' as _i332;
@@ -49,6 +50,11 @@ import 'package:blink_comparison/core/storage/ref_image_secure_storage.dart'
 import 'package:blink_comparison/core/storage/ref_image_status_repository.dart'
     as _i1016;
 import 'package:blink_comparison/core/thumbnailer.dart' as _i705;
+import 'package:blink_comparison/core/workmanager/registered_workers.dart'
+    as _i949;
+import 'package:blink_comparison/core/workmanager/thumbnails_migrator_worker.dart'
+    as _i811;
+import 'package:blink_comparison/core/workmanager/workmanager.dart' as _i318;
 import 'package:blink_comparison/di/file_system_module.dart' as _i361;
 import 'package:blink_comparison/di/image_picker_module.dart' as _i1057;
 import 'package:blink_comparison/di/sembast_module.dart' as _i417;
@@ -106,6 +112,7 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i1041.CameraProvider>(() => _i1041.CameraProviderImpl());
     gh.factory<_i41.PasswordHasher>(
         () => _i41.PasswordHasherImpl(gh<_i539.SodiumSumo>()));
+    gh.factory<_i949.WorkersProvider>(() => _i949.WorkersProviderImpl());
     gh.factory<_i129.CrashReportSender>(
         () => _i129.CrashReportSenderImpl(gh<_i1009.PlatformInfo>()));
     gh.factory<_i673.DateTimeProvider>(() => _i673.DateTimeProviderImpl());
@@ -131,6 +138,14 @@ extension GetItInjectableX on _i174.GetIt {
             gh<_i188.SaveRefImageNativeService>()));
     gh.singleton<_i671.NotificationManager>(
         () => _i671.NotificationManagerImpl(gh<_i1009.PlatformInfo>()));
+    gh.singleton<_i318.WorkManager>(
+      () => _i318.DebugWorkManagerImpl(
+        gh<_i1009.PlatformInfo>(),
+        gh<_i673.DateTimeProvider>(),
+        gh<_i949.WorkersProvider>(),
+      ),
+      registerFor: {_dev},
+    );
     gh.factory<_i966.ThumbnailFS>(() => _i966.ThumbnailFSImpl(
           gh<_i1009.PlatformInfo>(),
           gh<_i303.FileSystem>(),
@@ -162,6 +177,20 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i1009.PlatformInfo>(),
           gh<_i303.FileSystem>(),
         ));
+    gh.singleton<_i318.WorkManager>(
+      () => _i318.WorkManagerImpl(
+        gh<_i1009.PlatformInfo>(),
+        gh<_i949.WorkersProvider>(),
+        gh<_i673.DateTimeProvider>(),
+      ),
+      registerFor: {_prod},
+    );
+    gh.factory<_i598.ThumbnailsMigrator>(() => _i598.ThumbnailsMigrator(
+          gh<_i1009.PlatformInfo>(),
+          gh<_i303.FileSystem>(),
+          gh<_i705.Thumbnailer>(),
+          gh<_i460.SharedPreferencesAsync>(),
+        ));
     gh.factory<_i496.CrashReportManager>(() => _i496.CrashReportManagerImpl(
           gh<_i970.CrashReportBuilder>(),
           gh<_i129.CrashReportSender>(),
@@ -191,6 +220,8 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i63.SaveThumbnailJob>(
         () => _i63.SaveThumbnailJobImpl(gh<_i966.ThumbnailFS>()));
+    gh.factory<_i811.ThumbnailsMigratorWorker>(
+        () => _i811.ThumbnailsMigratorWorker(gh<_i598.ThumbnailsMigrator>()));
     gh.singleton<_i1003.SaveRefImageService>(
         () => _i1003.SaveRefImageServiceImpl(
               gh<_i923.SaveRefImageJob>(),

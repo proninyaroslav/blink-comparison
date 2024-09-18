@@ -6,14 +6,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../logger.dart';
 
+const _prefKey = 'shared_preferences_v1_2_0_did_migrate';
+
 class SharedPreferencesMigrator {
   final SharedPreferences oldPrefs;
   final SharedPreferencesAsync newPrefs;
 
   SharedPreferencesMigrator({required this.oldPrefs, required this.newPrefs});
 
-  bool? get didMigrate =>
-      oldPrefs.getBool("shared_preferences_package_did_migrate");
+  bool? get didMigrate => oldPrefs.getBool(_prefKey);
 
   /// Reads all the values from [oldPrefs] and saves them to [newPrefs].
   Future<void> migrate() async {
@@ -38,6 +39,6 @@ class SharedPreferencesMigrator {
     if (keys.isNotEmpty) {
       log().i('[SharedPreferences] Migration completed');
     }
-    oldPrefs.setBool("shared_preferences_package_did_migrate", true);
+    oldPrefs.setBool(_prefKey, true);
   }
 }

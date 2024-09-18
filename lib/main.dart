@@ -17,6 +17,8 @@
 
 import 'package:blink_comparison/core/crash_catcher/handler/notification_crash_handler.dart';
 import 'package:blink_comparison/core/settings/app_settings.dart';
+import 'package:blink_comparison/core/workmanager/thumbnails_migrator_worker.dart';
+import 'package:blink_comparison/core/workmanager/workmanager.dart';
 import 'package:blink_comparison/ui/model/app_cubit.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
@@ -41,6 +43,10 @@ Future<void> _main() async {
   final notificationManager = getIt<NotificationManager>();
   await notificationManager.init();
   notificationManager.requestPermissions();
+
+  await getIt<WorkManager>().init();
+
+  await ThumbnailsMigratorWorker.schedule();
 
   runApp(
     BlocProvider(

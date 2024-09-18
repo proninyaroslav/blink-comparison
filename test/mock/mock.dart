@@ -40,6 +40,7 @@ export 'service/mock_save_ref_image_job.dart';
 export 'service/mock_save_ref_image_service.dart';
 export 'service/mock_save_thumbnail_job.dart';
 export 'settings/mock_settings.dart';
+export 'settings/mock_shared_preferences.dart';
 export 'storage/mock_app_secure_key_repository.dart';
 export 'storage/mock_auth_factor_repository.dart';
 export 'storage/mock_password_repository.dart';

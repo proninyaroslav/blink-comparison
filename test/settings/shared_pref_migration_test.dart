@@ -24,6 +24,8 @@ import 'package:shared_preferences_platform_interface/in_memory_shared_preferenc
 // ignore: depend_on_referenced_packages
 import 'package:shared_preferences_platform_interface/shared_preferences_async_platform_interface.dart';
 
+import '../mock/mock.dart';
+
 void main() {
   group('SharedPreferences migration |', () {
     late SharedPreferencesAsync sharedPref;
@@ -37,7 +39,7 @@ void main() {
 
       sharedPref = SharedPreferencesAsync();
       sharedPrefOld = await SharedPreferences.getInstance();
-      mockSharedPrefOld = _MockSharedPreferences();
+      mockSharedPrefOld = MockSharedPreferences();
     });
 
     tearDownAll(() {
@@ -115,5 +117,3 @@ void main() {
     });
   });
 }
-
-class _MockSharedPreferences extends Mock implements SharedPreferences {}

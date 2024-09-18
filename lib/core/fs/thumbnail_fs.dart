@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -36,6 +36,8 @@ abstract class ThumbnailFS {
   Future<FsResult<bool>> exists(RefImageInfo info);
 }
 
+const _dirName = "thumbnails";
+
 @Injectable(as: ThumbnailFS)
 class ThumbnailFSImpl implements ThumbnailFS {
   final PlatformInfo _platform;
@@ -44,10 +46,7 @@ class ThumbnailFSImpl implements ThumbnailFS {
   ThumbnailFSImpl(this._platform, this.fs);
 
   Future<String> _buildFilePath(RefImageInfo info) async => path.join(
-        await _platform.getApplicationDocumentsDirectory(),
-        "thumbnails",
-        info.id,
-      );
+      await _platform.getApplicationDocumentsDirectory(), _dirName, info.id);
 
   @override
   Future<FsResult<void>> delete(RefImageInfo info) async {

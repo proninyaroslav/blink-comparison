@@ -85,6 +85,7 @@ dependencies:
   convert: ^3.1.1
   typed_data: ^1.3.2
   collection: ^1.18.0
+  workmanager: ^0.5.2
 
 dev_dependencies:
   analyzer: ^6.7.0
