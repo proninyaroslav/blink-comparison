@@ -26,6 +26,8 @@ import 'package:shared_preferences_platform_interface/shared_preferences_async_p
 
 import '../mock/mock.dart';
 
+const _prefKey = 'shared_preferences_v1_2_0_did_migrate';
+
 void main() {
   group('SharedPreferences migration |', () {
     late SharedPreferencesAsync sharedPref;
@@ -67,7 +69,7 @@ void main() {
       await migrator.migrate();
       expect(migrator.didMigrate, isTrue);
       expect(
-        sharedPrefOld.getBool('shared_preferences_package_did_migrate'),
+        sharedPrefOld.getBool(_prefKey),
         isTrue,
       );
 
@@ -89,13 +91,11 @@ void main() {
         newPrefs: sharedPref,
       );
       expect(
-        sharedPrefOld.getBool('shared_preferences_package_did_migrate'),
+        sharedPrefOld.getBool(_prefKey),
         isTrue,
       );
 
-      when(() => mockSharedPrefOld.getBool(
-            'shared_preferences_package_did_migrate',
-          )).thenReturn(true);
+      when(() => mockSharedPrefOld.getBool(_prefKey)).thenReturn(true);
       when(() => mockSharedPrefOld.setBool(any(), any()))
           .thenAnswer((_) async => true);
       when(() => mockSharedPrefOld.setDouble(any(), any()))
