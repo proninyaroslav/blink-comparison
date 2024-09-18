@@ -30,8 +30,8 @@ abstract class SelectableCubit<T> extends Cubit<SelectableState<T>> {
   }
 
   void selectSet(Set<T> items) {
-    if (state case SelectableStateSelected(:final items)) {
-      emit(SelectableState<T>.selected({...items, ...items}));
+    if (state case SelectableStateSelected(items: final selectedItems)) {
+      emit(SelectableState<T>.selected({...items, ...selectedItems}));
     } else {
       emit(SelectableState<T>.selected(items));
     }
