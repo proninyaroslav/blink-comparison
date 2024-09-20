@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -131,12 +131,16 @@ void main() {
         when(
           () => mockSecureStorage.add(image, file),
         ).thenAnswer((_) async => SecStorageResult.empty);
+
         await repo.addFromFile(file);
       }
 
       when(
         () => mockSecureStorage.delete(expectedImages.first),
       ).thenAnswer((_) async => SecStorageResult.empty);
+      when(
+        () => mockThumbnailFs.delete(expectedImages.first),
+      ).thenAnswer((_) async => FsResult.empty);
 
       expect(await repo.delete(expectedImages.first), SecStorageResult.empty);
       expect(
@@ -147,8 +151,12 @@ void main() {
         await repo.getInfoById(expectedImages.last.id),
         StorageResult<RefImageInfo?>(expectedImages.last),
       );
+
       verify(
         () => mockSecureStorage.delete(expectedImages.first),
+      ).called(1);
+      verify(
+        () => mockThumbnailFs.delete(expectedImages.first),
       ).called(1);
     });
 
@@ -356,6 +364,7 @@ void main() {
         when(
           () => mockSecureStorage.add(image, file),
         ).thenAnswer((_) async => SecStorageResult.empty);
+
         await repo.addFromFile(file);
       }
 
@@ -371,6 +380,13 @@ void main() {
           encryptSalt: salt,
         ),
       ];
+
+      for (final image in deleteList) {
+        when(
+          () => mockThumbnailFs.delete(image),
+        ).thenAnswer((_) async => FsResult.empty);
+      }
+
       expect(
         await repo.deleteList(deleteList),
         {
@@ -390,8 +406,12 @@ void main() {
         await repo.getInfoById(expectedImages[0].id),
         StorageResult<RefImageInfo?>(expectedImages[0]),
       );
+
       verify(
         () => mockSecureStorage.delete(any()),
+      ).called(deleteList.length);
+      verify(
+        () => mockThumbnailFs.delete(any()),
       ).called(deleteList.length);
     });
   });

@@ -52,7 +52,7 @@ class ThumbnailFSImpl implements ThumbnailFS {
   Future<FsResult<void>> delete(RefImageInfo info) async {
     final filePath = await _buildFilePath(info);
     try {
-      fs.file(filePath).delete();
+      await fs.file(filePath).delete();
       return FsResult.empty;
     } on Exception catch (e, stackTrace) {
       return FsResult.error(

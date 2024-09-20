@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -118,6 +118,7 @@ class RefImageRepositoryImpl implements RefImageRepository {
   Future<SecStorageResult<void>> delete(RefImageInfo info) async {
     try {
       await _db.referenceImageDao.delete(info);
+      await _thumbnailFs.delete(info);
     } on Exception catch (e, stackTrace) {
       return SecStorageResult.error(
         SecStorageError.database(
@@ -137,6 +138,7 @@ class RefImageRepositoryImpl implements RefImageRepository {
       await _db.referenceImageDao.deleteList(infoList);
       final resMap = <RefImageInfo, SecStorageResult<void>>{};
       for (final info in infoList) {
+        await _thumbnailFs.delete(info);
         final res = await _secureStorage.delete(info);
         resMap[info] = switch (res) {
           SecStorageResultSuccess() => (SecStorageResult.empty),
