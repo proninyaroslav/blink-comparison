@@ -29,6 +29,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:multi_border/multi_border.dart';
 import 'package:open_settings_plus/open_settings_plus.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
@@ -572,13 +573,19 @@ class _TakePhotoButton extends StatelessWidget {
             child: Container(
               width: 50.0,
               height: 50.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30.0),
+              decoration: MultiBorderDecoration(
+                borderSides: [
+                  BorderSide(
+                    color: Theme.of(context).colorScheme.surface,
+                    width: 3.0,
+                  ),
+                  BorderSide(
+                    color: Theme.of(context).colorScheme.primary,
+                    width: 4.0,
+                  ),
+                ],
+                innerRadius: BorderRadius.circular(30.0),
                 color: Colors.white,
-                border: Border.all(
-                  color: Theme.of(context).primaryColor,
-                  width: 4.0,
-                ),
               ),
             ),
           ),

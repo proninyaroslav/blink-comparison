@@ -101,7 +101,9 @@ class _RefImageListPageState extends State<RefImageListPage> {
   void initState() {
     super.initState();
 
-    context.read<RefImagesCubit>().observeRefImages();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await context.read<RefImagesCubit>().observeRefImages();
+    });
   }
 
   @override
@@ -319,7 +321,7 @@ class _ImageItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final child = switch (entry.status) {
       null => _Image(thumbnail: entry.thumbnail, onTap: onTap),
-      SaveRefImageStatusProgress() => _LoadImageProgress(onTap: onTap),
+      SaveRefImageStatusProgress() => const _LoadImageProgress(),
       SaveRefImageStatusCompleted(
         :final SaveRefImageStatusErrorSaveImage error?
       ) =>
@@ -332,12 +334,9 @@ class _ImageItem extends StatelessWidget {
           onTap: onTap,
         )
     };
-    return Card(
+    return Card.outlined(
       clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12.0),
-      ),
-      elevation: isSelected ? 0.0 : 2.0,
+      elevation: isSelected ? 2.0 : null,
       child: Stack(
         children: [
           child,
@@ -377,8 +376,9 @@ class _Image extends StatelessWidget {
               errorBuilder: (context, e, stackTrace) {
                 log().e('Unable to load thumbnail',
                     error: e, stackTrace: stackTrace);
-                return SizedBox(
+                return Container(
                   height: constraints.biggest.width,
+                  color: Theme.of(context).colorScheme.surfaceContainerLow,
                   child: const _NoTnumbnailStub(),
                 );
               },
@@ -422,23 +422,17 @@ class _NoTnumbnailStub extends StatelessWidget {
 }
 
 class _LoadImageProgress extends StatelessWidget {
-  final VoidCallback? onTap;
-
-  const _LoadImageProgress({
-    this.onTap,
-  });
+  const _LoadImageProgress();
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        return SizedBox(
+        return Container(
+          color: Theme.of(context).colorScheme.surfaceContainerLow,
           height: constraints.maxWidth,
-          child: InkWell(
-            onTap: onTap,
-            child: const Center(
-              child: CircularProgressIndicator(),
-            ),
+          child: const Center(
+            child: CircularProgressIndicator(),
           ),
         );
       },
@@ -570,12 +564,16 @@ class _ImageItemSelectionControlState extends State<_ImageItemSelectionControl>
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return ScaleTransition(
       scale: _showAnimation,
       child: RoundCheckBox(
         isSelected: widget.isSelected,
         onSelected: widget.onSelected,
         animate: !_controller.isAnimating,
+        fillColor: WidgetStateProperty.all(theme.colorScheme.tertiaryContainer),
+        checkColor: theme.colorScheme.onTertiaryContainer,
       ),
     );
   }

@@ -86,47 +86,44 @@ class _HomeAppBarState extends State<HomeAppBar> {
           };
         });
       },
-      child: Material(
-        elevation: _elevated ? 4.0 : 0.0,
-        child: AnimatedCrossFade(
-          firstCurve: Curves.easeIn,
-          secondCurve: Curves.easeIn,
-          firstChild: AppBar(
-            key: const ValueKey('app_bar'),
-            title: const Text('Blink Comparison'),
-            actions: [
-              CustomActionsRow(
-                availableWidth: size.width,
-                actionWidth: size.width / 2,
-                actions: [
-                  CustomAction(
-                    visibleWidget: IconButton(
-                      icon: const Icon(Icons.settings_outlined),
-                      tooltip: S.of(context).settings,
-                      onPressed: () => context.pushRoute(const SettingsRoute()),
-                    ),
-                    overflowWidget: Text(S.of(context).settings),
+      child: AnimatedCrossFade(
+        firstCurve: Curves.easeIn,
+        secondCurve: Curves.easeIn,
+        firstChild: AppBar(
+          key: const ValueKey('app_bar'),
+          title: const Text('Blink Comparison'),
+          actions: [
+            CustomActionsRow(
+              availableWidth: size.width,
+              actionWidth: size.width / 2,
+              actions: [
+                CustomAction(
+                  visibleWidget: IconButton(
+                    icon: const Icon(Icons.settings_outlined),
+                    tooltip: S.of(context).settings,
                     onPressed: () => context.pushRoute(const SettingsRoute()),
-                    showAsAction: ShowAsAction.ifRoom,
                   ),
-                  CustomAction(
-                    overflowWidget: Text(S.of(context).aboutApp),
-                    showAsAction: ShowAsAction.never,
-                    onPressed: () => showDialog(
-                      context: context,
-                      builder: (context) {
-                        return const AboutPage().wrappedRoute(context);
-                      },
-                    ),
+                  overflowWidget: Text(S.of(context).settings),
+                  onPressed: () => context.pushRoute(const SettingsRoute()),
+                  showAsAction: ShowAsAction.ifRoom,
+                ),
+                CustomAction(
+                  overflowWidget: Text(S.of(context).aboutApp),
+                  showAsAction: ShowAsAction.never,
+                  onPressed: () => showDialog(
+                    context: context,
+                    builder: (context) {
+                      return const AboutPage().wrappedRoute(context);
+                    },
                   ),
-                ],
-              ),
-            ],
-          ),
-          secondChild: const _ContextualAppBar(),
-          crossFadeState: _currentAppBar,
-          duration: const Duration(milliseconds: 200),
+                ),
+              ],
+            ),
+          ],
         ),
+        secondChild: const _ContextualAppBar(),
+        crossFadeState: _currentAppBar,
+        duration: const Duration(milliseconds: 200),
       ),
     );
   }

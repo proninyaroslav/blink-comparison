@@ -141,25 +141,16 @@ class _ButtonBar extends StatelessWidget {
               onPressed: onRetry,
               icon: const Icon(Icons.refresh),
               label: Text(S.of(context).retry),
-              style: _buildButtonTheme(context),
             ),
             OutlinedButton.icon(
               onPressed: onAccept,
               icon: const Icon(Icons.done),
               label: Text(S.of(context).accept),
-              style: _buildButtonTheme(context),
             ),
           ],
         ),
       );
     });
-  }
-
-  ButtonStyle _buildButtonTheme(BuildContext context) {
-    return OutlinedButton.styleFrom(
-      foregroundColor: Colors.white,
-      backgroundColor: Colors.black38,
-    );
   }
 
   double? _getAdaptiveWidth({

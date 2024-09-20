@@ -177,48 +177,53 @@ class _BodyState extends State<_Body> {
 
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: AppTheme.blackTheme(),
-      child: Scaffold(
-        body: Stack(
-          children: [
-            GestureDetector(
-              behavior: HitTestBehavior.translucent,
-              onTap: () => _onSwitchImage(context),
-              child: Center(
-                child: BlocBuilder<BlinkComparisonCubit, BlinkComparisonState>(
-                  builder: (context, state) {
-                    return switch (state) {
-                      BlinkComparisonStateInitial() =>
-                        const CircularProgressIndicator(),
-                      BlinkComparisonStateShowRefImage() =>
-                        widget.refImageWidget,
-                      BlinkComparisonStateShowTakenPhoto() =>
-                        widget.takenPhotoWidget,
-                    };
-                  },
+    return AppThemeBuilder(
+      builder: (light, dark, black) {
+        return Theme(
+          data: black,
+          child: Scaffold(
+            body: Stack(
+              children: [
+                GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  onTap: () => _onSwitchImage(context),
+                  child: Center(
+                    child:
+                        BlocBuilder<BlinkComparisonCubit, BlinkComparisonState>(
+                      builder: (context, state) {
+                        return switch (state) {
+                          BlinkComparisonStateInitial() =>
+                            const CircularProgressIndicator(),
+                          BlinkComparisonStateShowRefImage() =>
+                            widget.refImageWidget,
+                          BlinkComparisonStateShowTakenPhoto() =>
+                            widget.takenPhotoWidget,
+                        };
+                      },
+                    ),
+                  ),
                 ),
-              ),
+                const Positioned(
+                  top: 0.0,
+                  left: 0.0,
+                  right: 0.0,
+                  child: SlideAppBar(
+                    showFirstTime: false,
+                  ),
+                ),
+                Center(
+                  child: CustomShowcase(
+                    showcaseKey: _blinkComparisonShowcaseKey,
+                    description: S.of(context).blinkComparisonCaseTooltip,
+                    targetShapeBorder: const CircleBorder(),
+                    child: const SizedBox(width: 64.0, height: 64.0),
+                  ),
+                ),
+              ],
             ),
-            const Positioned(
-              top: 0.0,
-              left: 0.0,
-              right: 0.0,
-              child: SlideAppBar(
-                showFirstTime: false,
-              ),
-            ),
-            Center(
-              child: CustomShowcase(
-                showcaseKey: _blinkComparisonShowcaseKey,
-                description: S.of(context).blinkComparisonCaseTooltip,
-                targetShapeBorder: const CircleBorder(),
-                child: const SizedBox(width: 64.0, height: 64.0),
-              ),
-            ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 

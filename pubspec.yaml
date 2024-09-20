@@ -86,6 +86,8 @@ dependencies:
   typed_data: ^1.3.2
   collection: ^1.18.0
   workmanager: ^0.5.2
+  multi_border: ^1.0.0
+  dynamic_color: ^1.7.0
 
 dev_dependencies:
   analyzer: ^6.7.0

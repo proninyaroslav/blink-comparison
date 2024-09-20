@@ -24,6 +24,8 @@ class RoundCheckBox extends StatefulWidget {
   final VoidCallback? onSelected;
   final bool animate;
   final BorderSide? side;
+  final WidgetStateProperty<Color?>? fillColor;
+  final Color? checkColor;
 
   const RoundCheckBox({
     super.key,
@@ -31,6 +33,8 @@ class RoundCheckBox extends StatefulWidget {
     this.onSelected,
     this.animate = true,
     this.side,
+    this.fillColor,
+    this.checkColor,
   });
 
   @override
@@ -101,10 +105,8 @@ class _RoundCheckBoxState extends State<RoundCheckBox>
           scale: _pressAnimation.value,
           child: Checkbox(
             value: widget.isSelected,
-            fillColor: WidgetStateProperty.all(
-              Theme.of(context).colorScheme.secondary,
-            ),
-            checkColor: Theme.of(context).colorScheme.onSecondary,
+            fillColor: widget.fillColor,
+            checkColor: widget.checkColor,
             side: widget.side,
             onChanged: widget.onSelected == null
                 ? null

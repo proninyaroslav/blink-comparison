@@ -144,7 +144,6 @@ class _AppState extends State<App> {
       builder: (context) => _buildApp(
         context,
         locale: DevicePreview.locale(context),
-        useInheritedMediaQuery: true,
         themeMode: MediaQuery.of(context).platformBrightness == Brightness.dark
             ? ThemeMode.dark
             : ThemeMode.light,
@@ -155,14 +154,15 @@ class _AppState extends State<App> {
   Widget _buildApp(
     BuildContext context, {
     Locale? locale,
-    bool useInheritedMediaQuery = false,
     ThemeMode? themeMode,
   }) {
+    final appTheme = AppTheme(Theme.of(context).textTheme);
+
     return BlocBuilder<AppCubit, AppState>(
       builder: (context, state) {
         switch (state) {
           case AppStateInitial():
-            return const _Loading();
+            return _Loading(theme: appTheme);
           case AppStateLoaded(
                   locale: var sLocale,
                   :final theme,
@@ -173,24 +173,29 @@ class _AppState extends State<App> {
                   :final theme,
                   :final cameraFullscreenMode
                 ):
-            return MaterialApp.router(
-              title: 'Blink Comparison',
-              themeMode: themeMode ?? _mapThemeMode(theme),
-              theme: AppTheme.getThemeData(),
-              darkTheme: AppTheme.getThemeData(dark: true),
-              localizationsDelegates: AppLocalizations.localizationsDelegates,
-              supportedLocales: AppLocalizations.supportedLocales,
-              locale: locale ?? _mapLocale(sLocale),
-              routerDelegate: AutoRouterDelegate(
-                _appRouter,
-                navigatorObservers: () => [
-                  SystemUIModeObserver(
-                    fullscreenMode: cameraFullscreenMode,
+            return AppThemeBuilder(
+              builder: (light, dark, black) {
+                return MaterialApp.router(
+                  title: 'Blink Comparison',
+                  themeMode: themeMode ?? _mapThemeMode(theme),
+                  theme: light,
+                  darkTheme: dark,
+                  localizationsDelegates:
+                      AppLocalizations.localizationsDelegates,
+                  supportedLocales: AppLocalizations.supportedLocales,
+                  locale: locale ?? _mapLocale(sLocale),
+                  routerDelegate: AutoRouterDelegate(
+                    _appRouter,
+                    navigatorObservers: () => [
+                      SystemUIModeObserver(
+                        fullscreenMode: cameraFullscreenMode,
+                      ),
+                    ],
                   ),
-                ],
-              ),
-              builder: (context, child) => InltLocaleBridge(child: child),
-              routeInformationParser: _appRouter.defaultRouteParser(),
+                  builder: (context, child) => InltLocaleBridge(child: child),
+                  routeInformationParser: _appRouter.defaultRouteParser(),
+                );
+              },
             );
         }
       },
@@ -211,15 +216,22 @@ class _AppState extends State<App> {
 }
 
 class _Loading extends StatelessWidget {
-  const _Loading();
+  final AppTheme theme;
+
+  const _Loading({required this.theme});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      color: AppTheme.paletteLight.background,
-      child: CircularProgressIndicator(
-        color: AppTheme.paletteLight.primary,
+    return Theme(
+      data: switch (MediaQuery.of(context).platformBrightness) {
+        Brightness.dark => theme.dark(),
+        Brightness.light => theme.light(),
+      },
+      child: const Material(
+        child: Align(
+          alignment: Alignment.center,
+          child: CircularProgressIndicator(),
+        ),
       ),
     );
   }

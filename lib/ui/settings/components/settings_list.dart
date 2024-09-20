@@ -19,7 +19,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 import '../../model/utils.dart';
-import '../../theme.dart';
 
 class SettingsList extends StatelessWidget {
   final List<SettingsListGroup> groups;
@@ -81,7 +80,6 @@ class SettingsListGroup extends StatelessWidget {
               style: Theme.of(context).textTheme.labelSmall!.copyWith(
                     fontSize: 14.0,
                     fontWeight: FontWeight.w400,
-                    color: AppTheme.textPrimaryColorLight(context),
                   ),
             ),
           ),
@@ -92,7 +90,11 @@ class SettingsListGroup extends StatelessWidget {
             shrinkWrap: true,
             itemCount: items.length,
             itemBuilder: (context, position) => Material(
-              shape: Theme.of(context).cardTheme.shape,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(12.0),
+                ),
+              ),
               clipBehavior: Clip.antiAlias,
               color: Colors.transparent,
               child: items[position],

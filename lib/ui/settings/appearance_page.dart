@@ -257,7 +257,7 @@ class _ColorView extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       alignment: AlignmentDirectional.centerStart,
       child: CircleAvatar(
-        backgroundColor: Theme.of(context).dividerColor,
+        backgroundColor: Theme.of(context).colorScheme.outline,
         radius: 12.0,
         child: CircleAvatar(
           backgroundColor: color,

@@ -30,7 +30,7 @@ export 'measure_size.dart';
 export 'page_icon.dart';
 export 'page_not_found.dart';
 export 'portrait_only_widget.dart';
-export 'progress_fab.dart';
+export 'progress_button.dart';
 export 'round_check_box.dart';
 export 'slide_app_bar.dart';
 export 'unfocus.dart';

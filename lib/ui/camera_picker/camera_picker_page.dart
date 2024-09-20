@@ -66,26 +66,30 @@ class CameraPickerPage extends StatefulWidget implements AutoRouteWrapper {
 class _CameraPickerPageState extends State<CameraPickerPage> {
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: AppTheme.blackTheme(),
-      child: Scaffold(
-        body: Stack(
-          children: [
-            CameraView(
-              onTakePhoto: (file) {
-                widget.onTakePhoto?.call(file);
-                Navigator.of(context).pop();
-              },
+    return AppThemeBuilder(
+      builder: (light, dark, black) {
+        return Theme(
+          data: black,
+          child: Scaffold(
+            body: Stack(
+              children: [
+                CameraView(
+                  onTakePhoto: (file) {
+                    widget.onTakePhoto?.call(file);
+                    Navigator.of(context).pop();
+                  },
+                ),
+                const Positioned(
+                  top: 0.0,
+                  left: 0.0,
+                  right: 0.0,
+                  child: SlideAppBar(),
+                ),
+              ],
             ),
-            const Positioned(
-              top: 0.0,
-              left: 0.0,
-              right: 0.0,
-              child: SlideAppBar(),
-            ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }

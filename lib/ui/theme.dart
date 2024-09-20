@@ -15,310 +15,381 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import "package:dynamic_color/dynamic_color.dart";
+import "package:flutter/foundation.dart";
+import "package:flutter/material.dart";
 
-// ignore: avoid_classes_with_only_static_members
+const kDynamicThemeColor = !kDebugMode;
+
 class AppTheme {
-  static final _lightThemeData = ThemeData(
-    visualDensity: VisualDensity.adaptivePlatformDensity,
-    brightness: Brightness.light,
-    primaryColor: paletteLight.primary,
-    primaryColorDark: paletteLight.primaryDark,
-    primaryColorLight: paletteLight.primaryLight,
-    inputDecorationTheme: inputTheme,
-    cardTheme: cardThemeLight,
-    snackBarTheme: snackBarTheme,
-    outlinedButtonTheme: OutlinedButtonThemeData(
-      style: OutlinedButton.styleFrom(
-        foregroundColor: paletteLight.primaryDark,
-        shape: outlinedButtonShape,
-      ),
-    ),
-    elevatedButtonTheme: elevatedButtonThemeData,
-    textButtonTheme: TextButtonThemeData(
-      style: TextButton.styleFrom(
-        foregroundColor: paletteLight.primaryDark,
-      ),
-    ),
-    appBarTheme: appBarThemeLight,
-    scaffoldBackgroundColor: paletteLight.background,
-    dialogBackgroundColor: paletteLight.foregound,
-    dialogTheme: dialogTheme,
-    floatingActionButtonTheme: floatingActionButtonThemeLight,
-    bottomSheetTheme: bottomSheetThemeLight,
-    checkboxTheme: CheckboxThemeData(
-      fillColor:
-          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
-        if (states.contains(WidgetState.disabled)) {
-          return null;
-        }
-        if (states.contains(WidgetState.selected)) {
-          return paletteLight.secondary;
-        }
-        return null;
-      }),
-    ),
-    radioTheme: RadioThemeData(
-      fillColor:
-          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
-        if (states.contains(WidgetState.disabled)) {
-          return null;
-        }
-        if (states.contains(WidgetState.selected)) {
-          return paletteLight.secondary;
-        }
-        return null;
-      }),
-    ),
-    switchTheme: SwitchThemeData(
-      thumbColor:
-          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
-        if (states.contains(WidgetState.disabled)) {
-          return null;
-        }
-        if (states.contains(WidgetState.selected)) {
-          return paletteLight.secondary;
-        }
-        return null;
-      }),
-      trackColor:
-          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
-        if (states.contains(WidgetState.disabled)) {
-          return null;
-        }
-        if (states.contains(WidgetState.selected)) {
-          return paletteLight.secondary;
-        }
-        return null;
-      }),
-    ),
-    colorScheme:
-        ColorScheme.fromSwatch(primarySwatch: paletteLight.primarySwatch)
-            .copyWith(surface: paletteLight.background)
-            .copyWith(error: paletteLight.error),
-  );
+  final TextTheme textTheme;
 
-  static final _darkThemeData = ThemeData(
-    visualDensity: VisualDensity.adaptivePlatformDensity,
-    brightness: Brightness.dark,
-    applyElevationOverlayColor: true,
-    primaryColor: paletteDark.primary,
-    primaryColorDark: paletteDark.primaryDark,
-    primaryColorLight: paletteDark.primaryLight,
-    inputDecorationTheme: inputTheme,
-    cardTheme: cardThemeDark,
-    snackBarTheme: snackBarTheme,
-    outlinedButtonTheme: OutlinedButtonThemeData(
-      style: OutlinedButton.styleFrom(
-        shape: outlinedButtonShape,
-      ),
-    ),
-    elevatedButtonTheme: elevatedButtonThemeData,
-    appBarTheme: appBarThemeDark,
-    scaffoldBackgroundColor: paletteDark.background,
-    dialogBackgroundColor: paletteDark.foregound,
-    dialogTheme: dialogTheme,
-    floatingActionButtonTheme: floatingActionButtonThemeDark,
-    bottomSheetTheme: bottomSheetThemeDark,
-    checkboxTheme: CheckboxThemeData(
-      fillColor:
-          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
-        if (states.contains(WidgetState.disabled)) {
-          return null;
-        }
-        if (states.contains(WidgetState.selected)) {
-          return paletteDark.secondary;
-        }
-        return null;
-      }),
-    ),
-    radioTheme: RadioThemeData(
-      fillColor:
-          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
-        if (states.contains(WidgetState.disabled)) {
-          return null;
-        }
-        if (states.contains(WidgetState.selected)) {
-          return paletteDark.secondary;
-        }
-        return null;
-      }),
-    ),
-    switchTheme: SwitchThemeData(
-      thumbColor:
-          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
-        if (states.contains(WidgetState.disabled)) {
-          return null;
-        }
-        if (states.contains(WidgetState.selected)) {
-          return paletteDark.secondary;
-        }
-        return null;
-      }),
-      trackColor:
-          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
-        if (states.contains(WidgetState.disabled)) {
-          return null;
-        }
-        if (states.contains(WidgetState.selected)) {
-          return paletteDark.secondary;
-        }
-        return null;
-      }),
-    ),
-    colorScheme: ColorScheme.fromSwatch(
-            primarySwatch: paletteDark.primarySwatch,
-            brightness: Brightness.dark)
-        .copyWith(surface: paletteDark.background)
-        .copyWith(error: paletteDark.error),
-  );
+  const AppTheme(this.textTheme);
 
-  static const inputTheme = InputDecorationTheme(
-    border: OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(16.0)),
-    ),
-  );
-
-  static final cardThemeLight = CardTheme(
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(25.0),
-    ),
-    color: paletteLight.foregound,
-  );
-
-  static final dialogTheme = DialogTheme(
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(25.0),
-    ),
-  );
-
-  static final cardThemeDark = CardTheme(
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(25.0),
-    ),
-    color: paletteDark.foregound,
-  );
-
-  static const snackBarTheme = SnackBarThemeData(
-    behavior: SnackBarBehavior.floating,
-  );
-
-  static final _onSecondaryLight =
-      ThemeData.estimateBrightnessForColor(paletteLight.secondary) ==
-              Brightness.dark
-          ? Colors.white
-          : Colors.black;
-
-  static final _onSecondaryDark =
-      ThemeData.estimateBrightnessForColor(paletteDark.secondary) ==
-              Brightness.dark
-          ? Colors.white
-          : Colors.black;
-
-  static ThemeData getThemeData({bool dark = false}) {
-    if (dark) {
-      return _darkThemeData.copyWith(
-        colorScheme: _darkThemeData.colorScheme.copyWith(
-          secondary: paletteDark.secondary,
-          secondaryContainer: paletteDark.secondaryDark,
-          onSecondary: _onSecondaryDark,
-        ),
-        textTheme: _darkThemeData.textTheme.apply(
-          bodyColor: paletteDark.textColor,
-        ),
-      );
-    } else {
-      return _lightThemeData.copyWith(
-        colorScheme: _lightThemeData.colorScheme.copyWith(
-          secondary: paletteLight.secondary,
-          secondaryContainer: paletteLight.secondaryDark,
-          onSecondary: _onSecondaryLight,
-        ),
-        textTheme: _lightThemeData.textTheme.apply(
-          bodyColor: paletteLight.textColor,
-        ),
-      );
-    }
-  }
-
-  static ThemeData blackTheme() {
-    final darkTheme = AppTheme.getThemeData(dark: true);
-    return darkTheme.copyWith(
-      scaffoldBackgroundColor: Colors.black,
-      appBarTheme: darkTheme.appBarTheme.copyWith(
-        backgroundColor: Colors.black,
-      ),
-      colorScheme: const ColorScheme.dark(
-        surface: Colors.black,
-        primary: Colors.black,
-        secondary: Colors.black,
-      ),
+  static ColorScheme lightScheme() {
+    return const ColorScheme(
+      brightness: Brightness.light,
+      primary: Color(0xff5d631c),
+      surfaceTint: Color(0xff5d631c),
+      onPrimary: Color(0xffffffff),
+      primaryContainer: Color(0xffe2e893),
+      onPrimaryContainer: Color(0xff1b1d00),
+      secondary: Color(0xff5f6044),
+      onSecondary: Color(0xffffffff),
+      secondaryContainer: Color(0xffe4e5c1),
+      onSecondaryContainer: Color(0xff1b1d07),
+      tertiary: Color(0xff3c6659),
+      onTertiary: Color(0xffffffff),
+      tertiaryContainer: Color(0xffbeecdb),
+      onTertiaryContainer: Color(0xff002018),
+      error: Color(0xffba1a1a),
+      onError: Color(0xffffffff),
+      errorContainer: Color(0xffffdad6),
+      onErrorContainer: Color(0xff410002),
+      surface: Color(0xfffcfaec),
+      onSurface: Color(0xff1c1c14),
+      onSurfaceVariant: Color(0xff47483b),
+      outline: Color(0xff787869),
+      outlineVariant: Color(0xffc9c7b6),
+      shadow: Color(0xff000000),
+      scrim: Color(0xff000000),
+      inverseSurface: Color(0xff313128),
+      inversePrimary: Color(0xffc6cc79),
+      primaryFixed: Color(0xffe2e893),
+      onPrimaryFixed: Color(0xff1b1d00),
+      primaryFixedDim: Color(0xffc6cc79),
+      onPrimaryFixedVariant: Color(0xff464a03),
+      secondaryFixed: Color(0xffe4e5c1),
+      onSecondaryFixed: Color(0xff1b1d07),
+      secondaryFixedDim: Color(0xffc8c9a6),
+      onSecondaryFixedVariant: Color(0xff47492e),
+      tertiaryFixed: Color(0xffbeecdb),
+      onTertiaryFixed: Color(0xff002018),
+      tertiaryFixedDim: Color(0xffa3d0c0),
+      onTertiaryFixedVariant: Color(0xff234e42),
+      surfaceDim: Color(0xffdcdace),
+      surfaceBright: Color(0xfffcfaec),
+      surfaceContainerLowest: Color(0xffffffff),
+      surfaceContainerLow: Color(0xfff6f4e7),
+      surfaceContainer: Color(0xfff1eee1),
+      surfaceContainerHigh: Color(0xffebe8db),
+      surfaceContainerHighest: Color(0xffe5e3d6),
     );
   }
 
-  static final outlinedButtonShape = RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(16.0),
-  );
+  ThemeData light() {
+    return theme(lightScheme());
+  }
 
-  static final elevatedButtonThemeData = ElevatedButtonThemeData(
-    style: ButtonStyle(
-      shape: WidgetStateProperty.all(
-        RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16.0),
+  static ColorScheme lightMediumContrastScheme() {
+    return const ColorScheme(
+      brightness: Brightness.light,
+      primary: Color(0xff424600),
+      surfaceTint: Color(0xff5d631c),
+      onPrimary: Color(0xffffffff),
+      primaryContainer: Color(0xff747930),
+      onPrimaryContainer: Color(0xffffffff),
+      secondary: Color(0xff43452a),
+      onSecondary: Color(0xffffffff),
+      secondaryContainer: Color(0xff757758),
+      onSecondaryContainer: Color(0xffffffff),
+      tertiary: Color(0xff1f4a3e),
+      onTertiary: Color(0xffffffff),
+      tertiaryContainer: Color(0xff527d6f),
+      onTertiaryContainer: Color(0xffffffff),
+      error: Color(0xff8c0009),
+      onError: Color(0xffffffff),
+      errorContainer: Color(0xffda342e),
+      onErrorContainer: Color(0xffffffff),
+      surface: Color(0xfffcfaec),
+      onSurface: Color(0xff1c1c14),
+      onSurfaceVariant: Color(0xff434437),
+      outline: Color(0xff606052),
+      outlineVariant: Color(0xff7c7b6d),
+      shadow: Color(0xff000000),
+      scrim: Color(0xff000000),
+      inverseSurface: Color(0xff313128),
+      inversePrimary: Color(0xffc6cc79),
+      primaryFixed: Color(0xff747930),
+      onPrimaryFixed: Color(0xffffffff),
+      primaryFixedDim: Color(0xff5b6019),
+      onPrimaryFixedVariant: Color(0xffffffff),
+      secondaryFixed: Color(0xff757758),
+      onSecondaryFixed: Color(0xffffffff),
+      secondaryFixedDim: Color(0xff5c5e42),
+      onSecondaryFixedVariant: Color(0xffffffff),
+      tertiaryFixed: Color(0xff527d6f),
+      onTertiaryFixed: Color(0xffffffff),
+      tertiaryFixedDim: Color(0xff396457),
+      onTertiaryFixedVariant: Color(0xffffffff),
+      surfaceDim: Color(0xffdcdace),
+      surfaceBright: Color(0xfffcfaec),
+      surfaceContainerLowest: Color(0xffffffff),
+      surfaceContainerLow: Color(0xfff6f4e7),
+      surfaceContainer: Color(0xfff1eee1),
+      surfaceContainerHigh: Color(0xffebe8db),
+      surfaceContainerHighest: Color(0xffe5e3d6),
+    );
+  }
+
+  ThemeData lightMediumContrast() {
+    return theme(lightMediumContrastScheme());
+  }
+
+  static ColorScheme lightHighContrastScheme() {
+    return const ColorScheme(
+      brightness: Brightness.light,
+      primary: Color(0xff212400),
+      surfaceTint: Color(0xff5d631c),
+      onPrimary: Color(0xffffffff),
+      primaryContainer: Color(0xff424600),
+      onPrimaryContainer: Color(0xffffffff),
+      secondary: Color(0xff22240c),
+      onSecondary: Color(0xffffffff),
+      secondaryContainer: Color(0xff43452a),
+      onSecondaryContainer: Color(0xffffffff),
+      tertiary: Color(0xff00281f),
+      onTertiary: Color(0xffffffff),
+      tertiaryContainer: Color(0xff1f4a3e),
+      onTertiaryContainer: Color(0xffffffff),
+      error: Color(0xff4e0002),
+      onError: Color(0xffffffff),
+      errorContainer: Color(0xff8c0009),
+      onErrorContainer: Color(0xffffffff),
+      surface: Color(0xfffcfaec),
+      onSurface: Color(0xff000000),
+      onSurfaceVariant: Color(0xff24251a),
+      outline: Color(0xff434437),
+      outlineVariant: Color(0xff434437),
+      shadow: Color(0xff000000),
+      scrim: Color(0xff000000),
+      inverseSurface: Color(0xff313128),
+      inversePrimary: Color(0xffecf29b),
+      primaryFixed: Color(0xff424600),
+      onPrimaryFixed: Color(0xffffffff),
+      primaryFixedDim: Color(0xff2c2f00),
+      onPrimaryFixedVariant: Color(0xffffffff),
+      secondaryFixed: Color(0xff43452a),
+      onSecondaryFixed: Color(0xffffffff),
+      secondaryFixedDim: Color(0xff2d2e16),
+      onSecondaryFixedVariant: Color(0xffffffff),
+      tertiaryFixed: Color(0xff1f4a3e),
+      onTertiaryFixed: Color(0xffffffff),
+      tertiaryFixedDim: Color(0xff033328),
+      onTertiaryFixedVariant: Color(0xffffffff),
+      surfaceDim: Color(0xffdcdace),
+      surfaceBright: Color(0xfffcfaec),
+      surfaceContainerLowest: Color(0xffffffff),
+      surfaceContainerLow: Color(0xfff6f4e7),
+      surfaceContainer: Color(0xfff1eee1),
+      surfaceContainerHigh: Color(0xffebe8db),
+      surfaceContainerHighest: Color(0xffe5e3d6),
+    );
+  }
+
+  ThemeData lightHighContrast() {
+    return theme(lightHighContrastScheme());
+  }
+
+  static ColorScheme darkScheme() {
+    return const ColorScheme(
+      brightness: Brightness.dark,
+      primary: Color(0xffc6cc79),
+      surfaceTint: Color(0xffc6cc79),
+      onPrimary: Color(0xff2f3300),
+      primaryContainer: Color(0xff464a03),
+      onPrimaryContainer: Color(0xffe2e893),
+      secondary: Color(0xffc8c9a6),
+      onSecondary: Color(0xff303219),
+      secondaryContainer: Color(0xff47492e),
+      onSecondaryContainer: Color(0xffe4e5c1),
+      tertiary: Color(0xffa3d0c0),
+      onTertiary: Color(0xff08372c),
+      tertiaryContainer: Color(0xff234e42),
+      onTertiaryContainer: Color(0xffbeecdb),
+      error: Color(0xffffb4ab),
+      onError: Color(0xff690005),
+      errorContainer: Color(0xff93000a),
+      onErrorContainer: Color(0xffffdad6),
+      surface: Color(0xff13140c),
+      onSurface: Color(0xffe5e3d6),
+      onSurfaceVariant: Color(0xffc9c7b6),
+      outline: Color(0xff929182),
+      outlineVariant: Color(0xff47483b),
+      shadow: Color(0xff000000),
+      scrim: Color(0xff000000),
+      inverseSurface: Color(0xffe5e3d6),
+      inversePrimary: Color(0xff5d631c),
+      primaryFixed: Color(0xffe2e893),
+      onPrimaryFixed: Color(0xff1b1d00),
+      primaryFixedDim: Color(0xffc6cc79),
+      onPrimaryFixedVariant: Color(0xff464a03),
+      secondaryFixed: Color(0xffe4e5c1),
+      onSecondaryFixed: Color(0xff1b1d07),
+      secondaryFixedDim: Color(0xffc8c9a6),
+      onSecondaryFixedVariant: Color(0xff47492e),
+      tertiaryFixed: Color(0xffbeecdb),
+      onTertiaryFixed: Color(0xff002018),
+      tertiaryFixedDim: Color(0xffa3d0c0),
+      onTertiaryFixedVariant: Color(0xff234e42),
+      surfaceDim: Color(0xff13140c),
+      surfaceBright: Color(0xff3a3a31),
+      surfaceContainerLowest: Color(0xff0e0f08),
+      surfaceContainerLow: Color(0xff1c1c14),
+      surfaceContainer: Color(0xff202018),
+      surfaceContainerHigh: Color(0xff2a2a22),
+      surfaceContainerHighest: Color(0xff35352c),
+    );
+  }
+
+  ThemeData dark() {
+    return theme(darkScheme());
+  }
+
+  static ColorScheme darkMediumContrastScheme() {
+    return const ColorScheme(
+      brightness: Brightness.dark,
+      primary: Color(0xffcad07d),
+      surfaceTint: Color(0xffc6cc79),
+      onPrimary: Color(0xff161800),
+      primaryContainer: Color(0xff909649),
+      onPrimaryContainer: Color(0xff000000),
+      secondary: Color(0xffcccdaa),
+      onSecondary: Color(0xff161803),
+      secondaryContainer: Color(0xff929373),
+      onSecondaryContainer: Color(0xff000000),
+      tertiary: Color(0xffa7d4c4),
+      onTertiary: Color(0xff001b14),
+      tertiaryContainer: Color(0xff6e9a8b),
+      onTertiaryContainer: Color(0xff000000),
+      error: Color(0xffffbab1),
+      onError: Color(0xff370001),
+      errorContainer: Color(0xffff5449),
+      onErrorContainer: Color(0xff000000),
+      surface: Color(0xff13140c),
+      onSurface: Color(0xfffefbee),
+      onSurfaceVariant: Color(0xffcdcbbb),
+      outline: Color(0xffa4a494),
+      outlineVariant: Color(0xff848475),
+      shadow: Color(0xff000000),
+      scrim: Color(0xff000000),
+      inverseSurface: Color(0xffe5e3d6),
+      inversePrimary: Color(0xff474c04),
+      primaryFixed: Color(0xffe2e893),
+      onPrimaryFixed: Color(0xff111200),
+      primaryFixedDim: Color(0xffc6cc79),
+      onPrimaryFixedVariant: Color(0xff353900),
+      secondaryFixed: Color(0xffe4e5c1),
+      onSecondaryFixed: Color(0xff111201),
+      secondaryFixedDim: Color(0xffc8c9a6),
+      onSecondaryFixedVariant: Color(0xff36381f),
+      tertiaryFixed: Color(0xffbeecdb),
+      onTertiaryFixed: Color(0xff00150f),
+      tertiaryFixedDim: Color(0xffa3d0c0),
+      onTertiaryFixedVariant: Color(0xff103d32),
+      surfaceDim: Color(0xff13140c),
+      surfaceBright: Color(0xff3a3a31),
+      surfaceContainerLowest: Color(0xff0e0f08),
+      surfaceContainerLow: Color(0xff1c1c14),
+      surfaceContainer: Color(0xff202018),
+      surfaceContainerHigh: Color(0xff2a2a22),
+      surfaceContainerHighest: Color(0xff35352c),
+    );
+  }
+
+  ThemeData darkMediumContrast() {
+    return theme(darkMediumContrastScheme());
+  }
+
+  static ColorScheme darkHighContrastScheme() {
+    return const ColorScheme(
+      brightness: Brightness.dark,
+      primary: Color(0xfffcffc2),
+      surfaceTint: Color(0xffc6cc79),
+      onPrimary: Color(0xff000000),
+      primaryContainer: Color(0xffcad07d),
+      onPrimaryContainer: Color(0xff000000),
+      secondary: Color(0xfffdfdd8),
+      onSecondary: Color(0xff000000),
+      secondaryContainer: Color(0xffcccdaa),
+      onSecondaryContainer: Color(0xff000000),
+      tertiary: Color(0xffecfff6),
+      onTertiary: Color(0xff000000),
+      tertiaryContainer: Color(0xffa7d4c4),
+      onTertiaryContainer: Color(0xff000000),
+      error: Color(0xfffff9f9),
+      onError: Color(0xff000000),
+      errorContainer: Color(0xffffbab1),
+      onErrorContainer: Color(0xff000000),
+      surface: Color(0xff13140c),
+      onSurface: Color(0xffffffff),
+      onSurfaceVariant: Color(0xfffdfbe9),
+      outline: Color(0xffcdcbbb),
+      outlineVariant: Color(0xffcdcbbb),
+      shadow: Color(0xff000000),
+      scrim: Color(0xff000000),
+      inverseSurface: Color(0xffe5e3d6),
+      inversePrimary: Color(0xff292c00),
+      primaryFixed: Color(0xffe7ed96),
+      onPrimaryFixed: Color(0xff000000),
+      primaryFixedDim: Color(0xffcad07d),
+      onPrimaryFixedVariant: Color(0xff161800),
+      secondaryFixed: Color(0xffe9e9c5),
+      onSecondaryFixed: Color(0xff000000),
+      secondaryFixedDim: Color(0xffcccdaa),
+      onSecondaryFixedVariant: Color(0xff161803),
+      tertiaryFixed: Color(0xffc2f1e0),
+      onTertiaryFixed: Color(0xff000000),
+      tertiaryFixedDim: Color(0xffa7d4c4),
+      onTertiaryFixedVariant: Color(0xff001b14),
+      surfaceDim: Color(0xff13140c),
+      surfaceBright: Color(0xff3a3a31),
+      surfaceContainerLowest: Color(0xff0e0f08),
+      surfaceContainerLow: Color(0xff1c1c14),
+      surfaceContainer: Color(0xff202018),
+      surfaceContainerHigh: Color(0xff2a2a22),
+      surfaceContainerHighest: Color(0xff35352c),
+    );
+  }
+
+  static ColorScheme blackScheme() => darkScheme().copyWith(
+        surface: Colors.black,
+      );
+
+  ThemeData darkHighContrast() {
+    return theme(darkHighContrastScheme());
+  }
+
+  ThemeData black() {
+    return theme(blackScheme());
+  }
+
+  ThemeData theme(ColorScheme colorScheme) => ThemeData(
+        useMaterial3: true,
+        brightness: colorScheme.brightness,
+        colorScheme: colorScheme,
+        textTheme: textTheme.apply(
+          bodyColor: colorScheme.onSurface,
+          displayColor: colorScheme.onSurface,
         ),
-      ),
-    ),
-  );
-
-  static final appBarThemeLight = AppBarTheme(
-    color: paletteLight.background,
-    elevation: 0.0,
-    systemOverlayStyle: SystemUiOverlayStyle.light,
-  );
-
-  static final appBarThemeDark = AppBarTheme(
-    color: paletteDark.background,
-    elevation: 0.0,
-    systemOverlayStyle: SystemUiOverlayStyle.light,
-  );
-
-  static final floatingActionButtonThemeLight = FloatingActionButtonThemeData(
-    backgroundColor: paletteLight.primary,
-  );
-
-  static final floatingActionButtonThemeDark = FloatingActionButtonThemeData(
-    backgroundColor: paletteDark.primary,
-  );
-
-  static const bottomSheetShape = RoundedRectangleBorder(
-    borderRadius: BorderRadius.vertical(
-      top: Radius.circular(16.0),
-    ),
-  );
-
-  static final bottomSheetThemeLight = BottomSheetThemeData(
-      backgroundColor: paletteLight.foregound, shape: bottomSheetShape);
-
-  static final bottomSheetThemeDark = BottomSheetThemeData(
-    backgroundColor: paletteDark.foregound,
-    shape: bottomSheetShape,
-  );
+        scaffoldBackgroundColor: colorScheme.surface,
+        canvasColor: colorScheme.surface,
+        inputDecorationTheme: const InputDecorationTheme(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(16.0)),
+          ),
+        ),
+        snackBarTheme: const SnackBarThemeData(
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
 
   static bool isDark(BuildContext context) {
     return Theme.of(context).brightness == Brightness.dark;
   }
 
-  static Color textPrimaryColorLight(BuildContext context) {
-    if (isDark(context)) {
-      return Theme.of(context).primaryColor;
-    } else {
-      return Theme.of(context).primaryColorDark;
-    }
-  }
-
   static Color itemSelectableColor(BuildContext context) =>
-      Theme.of(context).colorScheme.secondaryContainer.withOpacity(0.14);
+      Theme.of(context).focusColor;
 
   static TextStyle pageHeadlineText(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -326,159 +397,47 @@ class AppTheme {
       color: textTheme.displayLarge!.color,
     );
   }
+}
 
-  static AppPalette palette(BuildContext context) {
-    if (isDark(context)) {
-      return paletteDark;
-    } else {
-      return paletteLight;
-    }
+class AppThemeBuilder extends StatelessWidget {
+  final bool dynamicThemeColor;
+  final Widget Function(
+    ThemeData light,
+    ThemeData dark,
+    ThemeData black,
+  ) builder;
+
+  const AppThemeBuilder({
+    super.key,
+    required this.builder,
+    this.dynamicThemeColor = kDynamicThemeColor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final appTheme = AppTheme(Theme.of(context).textTheme);
+
+    return DynamicColorBuilder(
+      builder: (lightDynamic, darkDynamic) {
+        return builder(
+          switch (lightDynamic) {
+            ColorScheme() when dynamicThemeColor =>
+              appTheme.theme(lightDynamic.harmonized()),
+            _ => appTheme.light()
+          },
+          switch (darkDynamic) {
+            ColorScheme() when dynamicThemeColor =>
+              appTheme.theme(darkDynamic.harmonized()),
+            _ => appTheme.dark()
+          },
+          switch (darkDynamic) {
+            ColorScheme() when dynamicThemeColor => appTheme.theme(
+                darkDynamic.harmonized().copyWith(surface: Colors.black),
+              ),
+            _ => appTheme.black()
+          },
+        );
+      },
+    );
   }
-
-  static AppPalette paletteLight = AppPaletteLight();
-
-  static AppPalette paletteDark = AppPaletteDark();
-}
-
-abstract class AppPalette {
-  MaterialColor get primarySwatch;
-
-  Color get primary;
-
-  Color get primaryLight;
-
-  Color get primaryDark;
-
-  Color get secondary;
-
-  Color get secondaryLight;
-
-  Color get secondaryDark;
-
-  Color get error;
-
-  Color get ok;
-
-  Color get appLogoColor;
-
-  Color get background;
-
-  Color get foregound;
-
-  Color get textColor;
-}
-
-const MaterialColor _primaryPalette = MaterialColor(
-  _primaryMainValue,
-  <int, Color>{
-    50: Color(0xFFFFFFC9),
-    100: Color(0xFFEFFA66),
-    200: Color(_primaryMainValue),
-    300: Color(0xFFC4CF3F),
-    400: Color(0xFFA9B323),
-    500: Color(0xFF8F9800),
-    600: Color(0xFF757D00),
-    700: Color(0xFF5B6300),
-    800: Color(0xFF454B00),
-    900: Color(0xFF2E3300),
-  },
-);
-const int _primaryMainValue = 0xFFE0EB59;
-const MaterialColor _secondaryPalette = MaterialColor(
-  _secondaryMainValue,
-  <int, Color>{
-    50: Color(0xFFF2FFF9),
-    100: Color(0xFFCCFBEA),
-    200: Color(_secondaryMainValue),
-    300: Color(0xFFA3D0C0),
-    400: Color(0xFF88B5A5),
-    500: Color(0xFF6E9A8B),
-    600: Color(0xFF547F71),
-    700: Color(0xFF3C6659),
-    800: Color(0xFF244E42),
-    900: Color(0xFF08372C),
-  },
-);
-const int _secondaryMainValue = 0xFFBEECDB;
-
-class AppPaletteLight implements AppPalette {
-  @override
-  MaterialColor get primarySwatch => _primaryPalette;
-
-  @override
-  Color get primary => const Color(_primaryMainValue);
-
-  @override
-  Color get primaryLight => _primaryPalette.shade50;
-
-  @override
-  Color get primaryDark => _primaryPalette.shade700;
-
-  @override
-  Color get secondary => const Color(_secondaryMainValue);
-
-  @override
-  Color get secondaryLight => _secondaryPalette.shade50;
-
-  @override
-  Color get secondaryDark => _secondaryPalette.shade700;
-
-  @override
-  Color get error => Colors.red.shade300;
-
-  @override
-  Color get ok => Colors.green.shade300;
-
-  @override
-  Color get appLogoColor => const Color(0xff019bd8);
-
-  @override
-  Color get background => const Color(0xFFF4F1E8);
-
-  @override
-  Color get foregound => const Color(0xFFFCF9F0);
-
-  @override
-  Color get textColor => const Color(0xFF1C1C17);
-}
-
-class AppPaletteDark implements AppPalette {
-  @override
-  MaterialColor get primarySwatch => _primaryPalette;
-
-  @override
-  Color get primary => const Color(_primaryMainValue);
-
-  @override
-  Color get primaryLight => _primaryPalette.shade50;
-
-  @override
-  Color get primaryDark => _primaryPalette.shade400;
-
-  @override
-  Color get secondary => const Color(_secondaryMainValue);
-
-  @override
-  Color get secondaryLight => _secondaryPalette.shade50;
-
-  @override
-  Color get secondaryDark => _secondaryPalette.shade400;
-
-  @override
-  Color get error => Colors.red.shade300;
-
-  @override
-  Color get ok => Colors.green.shade300;
-
-  @override
-  Color get appLogoColor => const Color(0xff019bd8);
-
-  @override
-  Color get background => const Color(0xFF1C1C17);
-
-  @override
-  Color get foregound => const Color(0xFF31312B);
-
-  @override
-  Color get textColor => const Color(0xFFF4F1E8);
 }

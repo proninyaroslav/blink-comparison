@@ -29,14 +29,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import '../../injector.dart';
-import '../model/utils.dart';
 import 'model/auth_cubit.dart';
 import 'model/sign_up_cubit.dart';
 import 'sign_in_page.dart';
 import 'sign_up_page.dart';
 
-const _pagePadding =
-    EdgeInsets.fromLTRB(16.0, 16.0, 16.0, UiUtils.fabBottomMargin);
+const _pagePadding = EdgeInsets.all(16.0);
 
 @RoutePage()
 class AuthPage extends StatefulWidget implements AutoRouteWrapper {
@@ -127,19 +125,6 @@ class _AuthPageState extends State<AuthPage> {
           ),
         ),
       ),
-      floatingActionButton: BlocBuilder<AuthCubit, AuthState>(
-        builder: (context, state) => _AdaptiveFab(
-          child: switch (state) {
-            AuthStateInitial() ||
-            AuthStateAuthSuccess() =>
-              const SizedBox.shrink(),
-            AuthStateNoPassword() => const SignUpButton(),
-            _ =>
-              SignInButton(passwordFieldController: _passwordFieldController),
-          },
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
@@ -166,66 +151,35 @@ class _Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
-    final padding = mediaQuery.padding;
-
     return SafeArea(
       child: Unfocus(
-        child: Scrollbar(
-          child: SingleChildScrollView(
-            reverse: true,
-            child: ConstrainedBox(
-              constraints: BoxConstraints(
-                minHeight:
-                    mediaQuery.size.height - padding.top - padding.bottom,
-              ),
-              child: Center(
-                child: ResponsiveBuilder(
-                  builder: (context, sizingInfo) {
-                    final orientation = MediaQuery.of(context).orientation;
-                    final width = _getAdaptiveWidth(
-                      orientation: orientation,
-                      sizingInfo: sizingInfo,
-                    );
-                    return Container(
-                      constraints: BoxConstraints(maxWidth: width),
-                      padding: _pagePadding,
-                      child: child,
-                    );
-                  },
+        child: Column(
+          children: [
+            Expanded(
+              child: Scrollbar(
+                child: Center(
+                  child: SingleChildScrollView(
+                    child: ResponsiveBuilder(
+                      builder: (context, sizingInfo) {
+                        final orientation = MediaQuery.of(context).orientation;
+                        final width = _getAdaptiveWidth(
+                          orientation: orientation,
+                          sizingInfo: sizingInfo,
+                        );
+                        return Container(
+                          constraints: BoxConstraints(maxWidth: width),
+                          padding: _pagePadding,
+                          child: child,
+                        );
+                      },
+                    ),
+                  ),
                 ),
               ),
             ),
-          ),
+          ],
         ),
       ),
-    );
-  }
-}
-
-class _AdaptiveFab extends StatelessWidget {
-  final Widget child;
-
-  const _AdaptiveFab({
-    required this.child,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ResponsiveBuilder(
-      builder: (context, sizingInfo) {
-        final orientation = MediaQuery.of(context).orientation;
-        return Container(
-          width: _getAdaptiveWidth(
-            orientation: orientation,
-            sizingInfo: sizingInfo,
-          ),
-          padding: orientation == Orientation.portrait && sizingInfo.isMobile
-              ? const EdgeInsets.symmetric(horizontal: 16.0)
-              : EdgeInsets.zero,
-          child: child,
-        );
-      },
     );
   }
 }

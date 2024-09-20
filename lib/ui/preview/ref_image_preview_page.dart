@@ -86,21 +86,25 @@ class RefImagePreviewPage extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<ShowcaseCubit>();
-    return Theme(
-      data: AppTheme.blackTheme(),
-      child: Scaffold(
-        body: ShowCaseWidget(
-          builder: (context) {
-            return _Body(imageId: imageId);
-          },
-          onComplete: (i, key) async {
-            if (key == _opacityShowcaseKey) {
-              await cubit.completed(const ShowcaseType.opacity());
-            }
-          },
-        ),
-        endDrawerEnableOpenDragGesture: true,
-      ),
+    return AppThemeBuilder(
+      builder: (light, dark, black) {
+        return Theme(
+          data: black,
+          child: Scaffold(
+            body: ShowCaseWidget(
+              builder: (context) {
+                return _Body(imageId: imageId);
+              },
+              onComplete: (i, key) async {
+                if (key == _opacityShowcaseKey) {
+                  await cubit.completed(const ShowcaseType.opacity());
+                }
+              },
+            ),
+            endDrawerEnableOpenDragGesture: true,
+          ),
+        );
+      },
     );
   }
 }

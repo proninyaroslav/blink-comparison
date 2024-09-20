@@ -223,8 +223,8 @@ class _AnimatedMenuState extends State<_AnimatedMenu> {
     final theme = Theme.of(context);
     final fabTheme = theme.floatingActionButtonTheme;
     _colorAnimation = ColorTween(
-      begin: fabTheme.backgroundColor,
-      end: theme.cardTheme.color,
+      begin: fabTheme.backgroundColor ?? theme.colorScheme.primaryContainer,
+      end: theme.colorScheme.surfaceContainerLow,
     ).animate(
       CurvedAnimation(
         curve: Curves.ease,
@@ -239,9 +239,10 @@ class _AnimatedMenuState extends State<_AnimatedMenu> {
           child: Material(
             color: _colorAnimation.value,
             clipBehavior: Clip.antiAlias,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(25.0),
-            ),
+            shape: fabTheme.shape ??
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16.0),
+                ),
             elevation: fabTheme.elevation ?? 6,
             child: ConstrainedBox(
               constraints: BoxConstraints(
@@ -254,11 +255,16 @@ class _AnimatedMenuState extends State<_AnimatedMenu> {
                 widthFactor: _sizeAnimation!.value,
                 child: SizedBox(
                   width: widget.revealedWidth,
-                  child: ListView(
-                    shrinkWrap: true,
+                  child: Column(
                     children: [
-                      const SizedBox(height: 8.0),
+                      SizedBox(
+                        height: fabTheme.extendedIconLabelSpacing ?? 8.0,
+                      ),
                       ...widget.children,
+                      Divider(
+                        height: 0,
+                        color: Theme.of(context).colorScheme.outline,
+                      ),
                       _CloseButton(
                         onPressed: () => collapse(),
                       ),
@@ -295,15 +301,20 @@ class _CloseButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final fabTheme = theme.floatingActionButtonTheme;
-    final foregroundColor = theme.colorScheme.onSecondary;
+    final foregroundColor =
+        fabTheme.foregroundColor ?? theme.colorScheme.onPrimaryContainer;
+    final backgroundColor =
+        fabTheme.backgroundColor ?? theme.colorScheme.primaryContainer;
+
     return ListTileTheme(
       iconColor: foregroundColor,
+      textColor: foregroundColor,
       child: ListTile(
         leading: const Icon(Icons.close),
-        tileColor: fabTheme.backgroundColor,
+        tileColor: backgroundColor,
         title: Text(
           S.of(context).close,
-          style: theme.textTheme.labelLarge?.copyWith(color: foregroundColor),
+          style: theme.textTheme.labelLarge,
         ),
         onTap: onPressed,
       ),

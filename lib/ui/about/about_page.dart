@@ -19,6 +19,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:blink_comparison/core/platform_info.dart';
 import 'package:blink_comparison/ui/about/model/about_state.dart';
 import 'package:blink_comparison/ui/components/widget.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -60,7 +61,7 @@ class _AboutPageState extends State<AboutPage> {
         return switch (state) {
           AboutStateInitial() ||
           AboutStateLoading() =>
-            const CircularProgressIndicator(),
+            const _AboutDialog.loading(),
           AboutStateLoaded(:final appName, :final appVersion) => _AboutDialog(
               appName: appName,
               appVersion: appVersion,
@@ -77,15 +78,19 @@ class _AboutPageState extends State<AboutPage> {
 }
 
 class _AboutDialog extends StatelessWidget {
-  final String appName;
-  final String appVersion;
-  final Widget appIcon;
+  final _AboutDialogProps? _props;
 
-  const _AboutDialog({
-    required this.appName,
-    required this.appVersion,
-    required this.appIcon,
-  });
+  _AboutDialog({
+    required String appName,
+    required String appVersion,
+    required Widget appIcon,
+  }) : _props = _AboutDialogProps(
+          appName: appName,
+          appVersion: appVersion,
+          appIcon: appIcon,
+        );
+
+  const _AboutDialog.loading() : _props = null;
 
   @override
   Widget build(BuildContext context) {
@@ -97,14 +102,27 @@ class _AboutDialog extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            _Header(
-              appName: appName,
-              appVersion: appVersion,
-              appIcon: appIcon,
-            ),
-            LinkText(text: S.of(context).appDescription),
-            const SizedBox(height: 8.0),
-            LinkText(text: S.of(context).appLicense),
+            if (_props
+                case _AboutDialogProps(
+                  :final appName,
+                  :final appVersion,
+                  :final appIcon
+                )) ...[
+              _Header(
+                appName: appName,
+                appVersion: appVersion,
+                appIcon: appIcon,
+              ),
+              LinkText(text: S.of(context).appDescription),
+              const SizedBox(height: 8.0),
+              LinkText(text: S.of(context).appLicense),
+            ] else
+              const SizedBox(
+                height: 300,
+                child: Center(
+                  child: CircularProgressIndicator(),
+                ),
+              )
           ],
         ),
       ),
@@ -122,6 +140,24 @@ class _AboutDialog extends StatelessWidget {
       ],
     );
   }
+}
+
+class _AboutDialogProps implements Equatable {
+  final String appName;
+  final String appVersion;
+  final Widget appIcon;
+
+  const _AboutDialogProps({
+    required this.appName,
+    required this.appVersion,
+    required this.appIcon,
+  });
+
+  @override
+  List<Object?> get props => [appName, appVersion, appIcon];
+
+  @override
+  bool? get stringify => true;
 }
 
 class _Header extends StatelessWidget {

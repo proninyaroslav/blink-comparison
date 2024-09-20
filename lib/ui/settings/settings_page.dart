@@ -152,7 +152,7 @@ class _TwoPaneBodyState extends State<_TwoPaneBody> {
                 decoration: BoxDecoration(
                   border: BorderDirectional(
                     end: BorderSide(
-                      color: Theme.of(context).dividerColor,
+                      color: Theme.of(context).colorScheme.outline,
                     ),
                   ),
                 ),

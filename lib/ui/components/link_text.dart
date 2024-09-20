@@ -15,7 +15,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'package:blink_comparison/ui/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
@@ -40,9 +39,8 @@ class LinkText extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final linkStyle = TextStyle(
-      color: AppTheme.isDark(context)
-          ? colorScheme.primary
-          : colorScheme.secondaryContainer,
+      color: colorScheme.tertiary,
+      decorationColor: colorScheme.tertiary,
     );
     Future<void> onOpen(LinkableElement link) async {
       try {

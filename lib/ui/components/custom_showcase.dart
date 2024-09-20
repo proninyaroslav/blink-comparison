@@ -39,7 +39,7 @@ class CustomShowcase extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = AppTheme.getThemeData();
+    final theme = AppTheme(Theme.of(context).textTheme).light();
     return Showcase(
       key: showcaseKey,
       title: title,
@@ -48,7 +48,7 @@ class CustomShowcase extends StatelessWidget {
         fontSize: 18,
         color: theme.colorScheme.onSurface,
       ),
-      tooltipBackgroundColor: theme.colorScheme.surface,
+      tooltipBackgroundColor: theme.colorScheme.surfaceContainerHighest,
       textColor: theme.colorScheme.onSurface,
       tooltipPadding: const EdgeInsets.all(12.0),
       onToolTipClick: () => ShowCaseWidget.of(context).completed(showcaseKey),

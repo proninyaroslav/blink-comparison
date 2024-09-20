@@ -17,17 +17,20 @@
 
 import 'package:flutter/material.dart';
 
-class ProgressFab extends StatelessWidget {
-  const ProgressFab({super.key});
+class ProgressButton extends StatelessWidget {
+  final Color color;
+
+  const ProgressButton({super.key, required this.color});
 
   @override
   Widget build(BuildContext context) {
-    const size = kFloatingActionButtonMargin * 1.5;
+    final buttonHeight = Theme.of(context).buttonTheme.height;
     return SizedBox(
-      width: size,
-      height: size,
+      width: buttonHeight / 2,
+      height: buttonHeight / 2,
       child: CircularProgressIndicator(
-        color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.26),
+        strokeWidth: 2.0,
+        color: color,
       ),
     );
   }
