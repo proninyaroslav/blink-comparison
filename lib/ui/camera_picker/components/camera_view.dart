@@ -567,12 +567,12 @@ class _TakePhotoButton extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: SizedBox(
-          width: 80.0,
-          height: 80.0,
+          width: 90.0,
+          height: 90.0,
           child: Center(
             child: Container(
-              width: 50.0,
-              height: 50.0,
+              width: 65.0,
+              height: 65.0,
               decoration: MultiBorderDecoration(
                 borderSides: [
                   BorderSide(
