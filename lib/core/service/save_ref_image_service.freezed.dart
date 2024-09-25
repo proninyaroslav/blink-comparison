@@ -1083,7 +1083,7 @@ class __$$ServiceQueueItemImplCopyWithImpl<$Res>
 class _$ServiceQueueItemImpl
     with DiagnosticableTreeMixin
     implements _ServiceQueueItem {
-  _$ServiceQueueItemImpl(
+  const _$ServiceQueueItemImpl(
       {@JsonKey(name: 'request') required this.request,
       @JsonKey(name: 'factor') required this.factor});
 
@@ -1144,7 +1144,7 @@ class _$ServiceQueueItemImpl
 }
 
 abstract class _ServiceQueueItem implements ServiceQueueItem {
-  factory _ServiceQueueItem(
+  const factory _ServiceQueueItem(
           {@JsonKey(name: 'request') required final ServiceRequest request,
           @JsonKey(name: 'factor') required final MutableAuthFactor? factor}) =
       _$ServiceQueueItemImpl;

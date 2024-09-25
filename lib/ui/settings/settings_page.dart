@@ -17,10 +17,12 @@
 
 import 'package:auto_route/auto_route.dart';
 import 'package:blink_comparison/core/settings/app_settings.dart';
+import 'package:blink_comparison/core/storage/auth_factor_repository.dart';
+import 'package:blink_comparison/core/storage/password_repository.dart';
 import 'package:blink_comparison/injector.dart';
-import 'package:blink_comparison/ui/model/app_cubit.dart';
 import 'package:blink_comparison/ui/settings/components/settings_pages_list.dart';
 import 'package:blink_comparison/ui/settings/model/appearance_cubit.dart';
+import 'package:blink_comparison/ui/settings/model/behavior_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -44,13 +46,18 @@ class SettingsPage extends StatefulWidget implements AutoRouteWrapper {
         BlocProvider(
           create: (context) => AppearanceSettingsCubit(
             getIt<AppSettings>(),
-            context.read<AppCubit>(),
           ),
         ),
         BlocProvider(
           create: (context) => CameraSettingsCubit(
             getIt<AppSettings>(),
-            context.read<AppCubit>(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => BehaviorSettingsCubit(
+            getIt<AppSettings>(),
+            getIt<AuthFactorRepository>(),
+            getIt<PasswordRepository>(),
           ),
         ),
       ],
@@ -71,6 +78,7 @@ class _SettingsPageState extends State<SettingsPage> {
       await Future.wait([
         context.read<AppearanceSettingsCubit>().load(),
         context.read<CameraSettingsCubit>().load(),
+        context.read<BehaviorSettingsCubit>().load(),
       ]);
     });
   }
@@ -109,6 +117,7 @@ class _TwoPaneBodyState extends State<_TwoPaneBody> {
         (r) => switch (r) {
           SettingsRouteItemAppearance() => const AppearanceSettingsRoute(),
           SettingsRouteItemCamera() => const CameraSettingsRoute(),
+          SettingsRouteItemBehavior() => const BehaviorSettingsRoute()
         },
       )
       .toList();

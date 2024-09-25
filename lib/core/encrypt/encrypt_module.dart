@@ -99,29 +99,34 @@ class PBEModule implements EncryptModule {
     required Uint8List src,
     required RefImageInfo info,
   }) async {
-    final password = _key.value;
-    if (password == null) {
-      return const DecryptResult.fail(DecryptError.noSecureKey());
-    }
-    final derivedKey = await _deriveKey(
-      derivation: _derivation,
-      password: password,
-      salt: info.encryptSalt,
-    );
+    switch (info.encryption) {
+      case RefImageEncryptionNone():
+        return DecryptResult.success(bytes: src);
+      case RefImageEncryptionPassword(:final encryptSalt):
+        final password = _key.value;
+        if (password == null) {
+          return const DecryptResult.fail(DecryptError.noSecureKey());
+        }
+        final derivedKey = await _deriveKey(
+          derivation: _derivation,
+          password: password,
+          salt: encryptSalt,
+        );
 
-    final pbeInfo = _PBEInfo(src: src, key: derivedKey);
-    try {
-      final decryptBytes = await _decrypt(pbeInfo);
-      return DecryptResult.success(bytes: decryptBytes);
-    } on Exception catch (e, stackTrace) {
-      return DecryptResult.fail(
-        DecryptError.exception(
-          error: e,
-          stackTrace: stackTrace,
-        ),
-      );
-    } finally {
-      pbeInfo.disposeKey();
+        final pbeInfo = _PBEInfo(src: src, key: derivedKey);
+        try {
+          final decryptBytes = await _decrypt(pbeInfo);
+          return DecryptResult.success(bytes: decryptBytes);
+        } on Exception catch (e, stackTrace) {
+          return DecryptResult.fail(
+            DecryptError.exception(
+              error: e,
+              stackTrace: stackTrace,
+            ),
+          );
+        } finally {
+          pbeInfo.disposeKey();
+        }
     }
   }
 
@@ -130,29 +135,34 @@ class PBEModule implements EncryptModule {
     required Uint8List src,
     required RefImageInfo info,
   }) async {
-    final password = _key.value;
-    if (password == null) {
-      return const EncryptResult.fail(EncryptError.noSecureKey());
-    }
-    final derivedKey = await _deriveKey(
-      derivation: _derivation,
-      password: password,
-      salt: info.encryptSalt,
-    );
+    switch (info.encryption) {
+      case RefImageEncryptionNone():
+        return EncryptResult.success(bytes: src);
+      case RefImageEncryptionPassword(:final encryptSalt):
+        final password = _key.value;
+        if (password == null) {
+          return const EncryptResult.fail(EncryptError.noSecureKey());
+        }
+        final derivedKey = await _deriveKey(
+          derivation: _derivation,
+          password: password,
+          salt: encryptSalt,
+        );
 
-    final pbeInfo = _PBEInfo(src: src, key: derivedKey);
-    try {
-      final encryptBytes = await _encrypt(pbeInfo);
-      return EncryptResult.success(bytes: encryptBytes);
-    } on Exception catch (e, stackTrace) {
-      return EncryptResult.fail(
-        EncryptError.exception(
-          error: e,
-          stackTrace: stackTrace,
-        ),
-      );
-    } finally {
-      pbeInfo.disposeKey();
+        final pbeInfo = _PBEInfo(src: src, key: derivedKey);
+        try {
+          final encryptBytes = await _encrypt(pbeInfo);
+          return EncryptResult.success(bytes: encryptBytes);
+        } on Exception catch (e, stackTrace) {
+          return EncryptResult.fail(
+            EncryptError.exception(
+              error: e,
+              stackTrace: stackTrace,
+            ),
+          );
+        } finally {
+          pbeInfo.disposeKey();
+        }
     }
   }
 

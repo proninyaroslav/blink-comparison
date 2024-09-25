@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -16,6 +16,7 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:blink_comparison/core/entity/entity.dart';
+import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/core/storage/storage_result.dart';
 import 'package:blink_comparison/ui/home/model/add_ref_image_cubit.dart';
 import 'package:blink_comparison/ui/home/model/add_ref_image_state.dart';
@@ -30,14 +31,16 @@ import '../../mock/mock.dart';
 void main() {
   group('AddRefImageCubit |', () {
     late final MockRefImageRepository mockImageRepo;
+    late final AppSettings mockPref;
     late AddRefImageCubit cubit;
 
     setUpAll(() {
       mockImageRepo = MockRefImageRepository();
+      mockPref = MockAppSettings();
     });
 
     setUp(() {
-      cubit = AddRefImageCubit(mockImageRepo);
+      cubit = AddRefImageCubit(mockImageRepo, mockPref);
     });
 
     blocTest(
@@ -55,15 +58,20 @@ void main() {
           XFile(path.join('foo', 'bar2')),
         ];
         var id = 0;
+        when(() => mockPref.encryptionPreferenceSync)
+            .thenReturn(const EncryptionPreference.none());
         for (final f in files) {
           when(
-            () => mockImageRepo.addFromFile(f),
+            () => mockImageRepo.addFromFile(
+              f,
+              encryption: const EncryptionPreference.none(),
+            ),
           ).thenAnswer(
             (_) async => SecStorageResult(
               RefImageInfo(
                 id: '${++id}',
                 dateAdded: DateTime(2021),
-                encryptSalt: 'salt',
+                encryption: const RefImageEncryption.none(),
               ),
             ),
           );
@@ -78,12 +86,12 @@ void main() {
               RefImageInfo(
                 id: '1',
                 dateAdded: DateTime(2021),
-                encryptSalt: 'salt',
+                encryption: const RefImageEncryption.none(),
               ),
               RefImageInfo(
                 id: '2',
                 dateAdded: DateTime(2021),
-                encryptSalt: 'salt',
+                encryption: const RefImageEncryption.none(),
               ),
             ],
             failedList: [],
@@ -100,19 +108,27 @@ void main() {
           XFile(path.join('foo', 'bar1')),
           XFile(path.join('foo', 'bar2')),
         ];
-        when(() => mockImageRepo.addFromFile(files[0])).thenAnswer(
+        when(() => mockPref.encryptionPreferenceSync)
+            .thenReturn(const EncryptionPreference.none());
+        when(() => mockImageRepo.addFromFile(
+              files[0],
+              encryption: const EncryptionPreference.none(),
+            )).thenAnswer(
           (_) async => const SecStorageResult.error(
             SecStorageError.database(),
           ),
         );
         when(
-          () => mockImageRepo.addFromFile(files[1]),
+          () => mockImageRepo.addFromFile(
+            files[1],
+            encryption: const EncryptionPreference.none(),
+          ),
         ).thenAnswer(
           (_) async => SecStorageResult(
             RefImageInfo(
               id: '1',
               dateAdded: DateTime(2021),
-              encryptSalt: 'salt',
+              encryption: const RefImageEncryption.none(),
             ),
           ),
         );
@@ -126,7 +142,7 @@ void main() {
               RefImageInfo(
                 id: '1',
                 dateAdded: DateTime(2021),
-                encryptSalt: 'salt',
+                encryption: const RefImageEncryption.none(),
               ),
             ],
             failedList: [
@@ -147,8 +163,13 @@ void main() {
           XFile(path.join('foo', 'bar1')),
           XFile(path.join('foo', 'bar2'))
         ];
+        when(() => mockPref.encryptionPreferenceSync)
+            .thenReturn(const EncryptionPreference.none());
         when(
-          () => mockImageRepo.addFromFile(files[0]),
+          () => mockImageRepo.addFromFile(
+            files[0],
+            encryption: const EncryptionPreference.none(),
+          ),
         ).thenAnswer(
           (_) async => const SecStorageResult.error(SecStorageError.noKey()),
         );

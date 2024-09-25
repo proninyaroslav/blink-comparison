@@ -18,7 +18,6 @@
 import 'dart:ui';
 
 import 'package:blink_comparison/core/settings/app_settings.dart';
-import 'package:blink_comparison/ui/model/app_cubit.dart';
 import 'package:blink_comparison/ui/settings/model/appearance_cubit.dart';
 import 'package:blink_comparison/ui/settings/model/appearance_state.dart';
 import 'package:bloc_test/bloc_test.dart';
@@ -31,11 +30,9 @@ void main() {
   group('AppearanceSettingsCubit |', () {
     late AppearanceSettingsCubit cubit;
     late AppSettings mockPref;
-    late AppCubit mockAppCubit;
 
     setUpAll(() {
       mockPref = MockAppSettings();
-      mockAppCubit = MockAppCubit();
       registerFallbackValue(const AppThemeType.system());
       registerFallbackValue(const AppLocaleType.system());
     });
@@ -50,10 +47,7 @@ void main() {
       when(() => mockPref.refImageBorderColor).thenAnswer(
         (_) async => 0xffffffff,
       );
-      cubit = AppearanceSettingsCubit(
-        mockPref,
-        mockAppCubit,
-      );
+      cubit = AppearanceSettingsCubit(mockPref);
       await cubit.load();
     });
 
@@ -73,24 +67,15 @@ void main() {
 
         await cubit.setTheme(const AppThemeType.dark());
         verify(
-          () => mockAppCubit.setTheme(const AppThemeType.dark()),
-        ).called(1);
-        verify(
           () => mockPref.setTheme(const AppThemeType.dark()),
         ).called(1);
 
         await cubit.setTheme(const AppThemeType.light());
         verify(
-          () => mockAppCubit.setTheme(const AppThemeType.light()),
-        ).called(1);
-        verify(
           () => mockPref.setTheme(const AppThemeType.light()),
         ).called(1);
 
         await cubit.setTheme(const AppThemeType.system());
-        verify(
-          () => mockAppCubit.setTheme(const AppThemeType.system()),
-        ).called(1);
         verify(
           () => mockPref.setTheme(const AppThemeType.system()),
         ).called(1);
@@ -133,13 +118,7 @@ void main() {
             locale: Locale('ru', 'RU'),
           ),
         );
-        verify(
-          () => mockAppCubit.setLocale(
-            const AppLocaleType.inner(
-              locale: Locale('ru', 'RU'),
-            ),
-          ),
-        ).called(1);
+
         verify(
           () => mockPref.setLocale(const AppLocaleType.inner(
             locale: Locale('ru', 'RU'),
@@ -147,11 +126,6 @@ void main() {
         ).called(1);
 
         await cubit.setLocale(const AppLocaleType.system());
-        verify(
-          () => mockAppCubit.setLocale(
-            const AppLocaleType.system(),
-          ),
-        ).called(1);
         verify(
           () => mockPref.setLocale(const AppLocaleType.system()),
         ).called(1);

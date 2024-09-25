@@ -131,3 +131,50 @@ class _$SettingsRouteItemCameraImpl implements SettingsRouteItemCamera {
 abstract class SettingsRouteItemCamera implements SettingsRouteItem {
   const factory SettingsRouteItemCamera() = _$SettingsRouteItemCameraImpl;
 }
+
+/// @nodoc
+abstract class _$$SettingsRouteItemBehaviorImplCopyWith<$Res> {
+  factory _$$SettingsRouteItemBehaviorImplCopyWith(
+          _$SettingsRouteItemBehaviorImpl value,
+          $Res Function(_$SettingsRouteItemBehaviorImpl) then) =
+      __$$SettingsRouteItemBehaviorImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SettingsRouteItemBehaviorImplCopyWithImpl<$Res>
+    extends _$SettingsRouteItemCopyWithImpl<$Res,
+        _$SettingsRouteItemBehaviorImpl>
+    implements _$$SettingsRouteItemBehaviorImplCopyWith<$Res> {
+  __$$SettingsRouteItemBehaviorImplCopyWithImpl(
+      _$SettingsRouteItemBehaviorImpl _value,
+      $Res Function(_$SettingsRouteItemBehaviorImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SettingsRouteItem
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$SettingsRouteItemBehaviorImpl implements SettingsRouteItemBehavior {
+  const _$SettingsRouteItemBehaviorImpl();
+
+  @override
+  String toString() {
+    return 'SettingsRouteItem.behavior()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SettingsRouteItemBehaviorImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+}
+
+abstract class SettingsRouteItemBehavior implements SettingsRouteItem {
+  const factory SettingsRouteItemBehavior() = _$SettingsRouteItemBehaviorImpl;
+}

@@ -28,9 +28,7 @@ class RefImageInfo with _$RefImageInfo {
   const factory RefImageInfo({
     required String id,
     @DateTimeEpochConverter() required DateTime dateAdded,
-
-    /// HEX-encoded salt.
-    required String encryptSalt,
+    required RefImageEncryption encryption,
   }) = _RefImageInfo;
 
   factory RefImageInfo.fromJson(Map<String, dynamic> json) =>
@@ -43,4 +41,17 @@ class RefImage with _$RefImage {
     required RefImageInfo info,
     required Uint8List bytes,
   }) = _RefImage;
+}
+
+@freezed
+sealed class RefImageEncryption with _$RefImageEncryption {
+  const factory RefImageEncryption.none() = RefImageEncryptionNone;
+
+  const factory RefImageEncryption.password({
+    /// HEX-encoded salt.
+    required String encryptSalt,
+  }) = RefImageEncryptionPassword;
+
+  factory RefImageEncryption.fromJson(Map<String, dynamic> json) =>
+      _$RefImageEncryptionFromJson(json);
 }

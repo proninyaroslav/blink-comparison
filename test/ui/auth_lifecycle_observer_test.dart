@@ -22,7 +22,7 @@ void main() {
     setUp(() {
       mockFactorRepo = MockAuthFactorRepository();
       when(() => mockFactorRepo.remove())
-          .thenAnswer((_) => AuthFactorModifyResult.success());
+          .thenAnswer((_) => const AuthFactorModifyResult.success());
 
       onReevaluateGuardsCompleter = Completer();
       observer = AuthLifecycleObserver(

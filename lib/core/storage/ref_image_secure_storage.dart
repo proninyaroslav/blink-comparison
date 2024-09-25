@@ -15,6 +15,8 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'dart:typed_data';
+
 import 'package:blink_comparison/core/encrypt/encrypt.dart';
 import 'package:blink_comparison/core/entity/entity.dart';
 import 'package:blink_comparison/core/fs/fs_result.dart';
@@ -53,12 +55,12 @@ class RefImageSecureStorageImpl implements RefImageSecureStorage {
     RefImageInfo info,
     XFile srcImage,
   ) async {
-    if (!_keyRepo.hasSecureKey()) {
+    if (info.encryption is! RefImageEncryptionNone &&
+        !_keyRepo.hasSecureKey()) {
       return const SecStorageResult.error(
         SecStorageError.noKey(),
       );
     }
-
     await _saveService.save(
       info: info,
       srcImage: srcImage,
@@ -69,6 +71,30 @@ class RefImageSecureStorageImpl implements RefImageSecureStorage {
 
   @override
   Future<SecStorageResult<RefImage>> get(RefImageInfo info) async {
+    try {
+      final bytes = await _fs.read(info).then(
+            (res) => switch (res) {
+              FsResultSuccess(:final value) => value,
+              FsResultError(:final error) => throw error,
+            },
+          );
+      return switch (info.encryption) {
+        RefImageEncryptionNone() => SecStorageResult(
+            RefImage(info: info, bytes: bytes),
+          ),
+        _ => _decrypt(info, bytes),
+      };
+    } on FsError catch (e) {
+      return SecStorageResult.error(
+        SecStorageError.fs(error: e),
+      );
+    }
+  }
+
+  Future<SecStorageResult<RefImage>> _decrypt(
+    RefImageInfo info,
+    Uint8List bytes,
+  ) async {
     final key = _keyRepo.get();
     if (key == null) {
       return const SecStorageResult.error(
@@ -76,29 +102,17 @@ class RefImageSecureStorageImpl implements RefImageSecureStorage {
       );
     }
 
-    final bytes = await _fs.read(info).then(
-          (res) => switch (res) {
-            FsResultSuccess(:final value) => value,
-            FsResultError(:final error) => throw error,
-          },
-        );
     final module = _encryptProvider.getByKey(key);
     final res = await module?.decrypt(src: bytes, info: info);
-    try {
-      return switch (res) {
-        null => const SecStorageResult.error(SecStorageError.noKey()),
-        DecryptResultSuccess(:final bytes) => SecStorageResult(
-            RefImage(info: info, bytes: bytes),
-          ),
-        DecryptResultFail(:final error) => SecStorageResult.error(
-            SecStorageError.decrypt(error: error),
-          ),
-      };
-    } on FsError catch (e) {
-      return SecStorageResult.error(
-        SecStorageError.fs(error: e),
-      );
-    }
+    return switch (res) {
+      null => const SecStorageResult.error(SecStorageError.noKey()),
+      DecryptResultSuccess(:final bytes) => SecStorageResult(
+          RefImage(info: info, bytes: bytes),
+        ),
+      DecryptResultFail(:final error) => SecStorageResult.error(
+          SecStorageError.decrypt(error: error),
+        ),
+    };
   }
 
   @override

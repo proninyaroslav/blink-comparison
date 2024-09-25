@@ -15,6 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'dart:async';
 import 'dart:ui';
 
 import 'package:blink_comparison/core/settings/app_settings.dart';
@@ -30,6 +31,15 @@ void main() {
   group('AppCubit |', () {
     late AppCubit cubit;
     late AppSettings mockPref;
+    late StreamController<String> streamController;
+
+    setUpAll(() {
+      streamController = StreamController.broadcast();
+    });
+
+    tearDownAll(() {
+      streamController.close();
+    });
 
     setUp(() async {
       mockPref = MockAppSettings();
@@ -40,6 +50,8 @@ void main() {
         (_) async => const AppLocaleType.system(),
       );
       when(() => mockPref.cameraFullscreenMode).thenAnswer((_) async => true);
+      when(() => mockPref.changePrefStream())
+          .thenAnswer((_) => streamController.stream);
       cubit = AppCubit(mockPref);
       await cubit.load();
     });
@@ -76,6 +88,24 @@ void main() {
         ),
       ],
     );
+
+    blocTest(
+      'Listen theme change',
+      build: () => cubit,
+      act: (AppCubit cubit) {
+        when(() => mockPref.theme)
+            .thenAnswer((_) async => const AppThemeType.light());
+        streamController.add(AppSettingsKey.theme);
+      },
+      expect: () => [
+        const AppState.changed(
+          theme: AppThemeType.light(),
+          locale: AppLocaleType.system(),
+          cameraFullscreenMode: true,
+        ),
+      ],
+    );
+
     blocTest(
       'Change locale',
       build: () => cubit,
@@ -106,6 +136,28 @@ void main() {
     );
 
     blocTest(
+      'Listen locale change',
+      build: () => cubit,
+      act: (AppCubit cubit) {
+        when(() => mockPref.locale).thenAnswer(
+          (_) async => const AppLocaleType.inner(
+            locale: Locale('ru', 'RU'),
+          ),
+        );
+        streamController.add(AppSettingsKey.locale);
+      },
+      expect: () => [
+        const AppState.changed(
+          theme: AppThemeType.system(),
+          locale: AppLocaleType.inner(
+            locale: Locale('ru', 'RU'),
+          ),
+          cameraFullscreenMode: true,
+        ),
+      ],
+    );
+
+    blocTest(
       'Change fullscreen mode',
       build: () => cubit,
       act: (AppCubit cubit) {
@@ -122,6 +174,23 @@ void main() {
           theme: AppThemeType.system(),
           locale: AppLocaleType.system(),
           cameraFullscreenMode: true,
+        ),
+      ],
+    );
+
+    blocTest(
+      'Listen fullscreen mode change',
+      build: () => cubit,
+      act: (AppCubit cubit) {
+        when(() => mockPref.cameraFullscreenMode)
+            .thenAnswer((_) async => false);
+        streamController.add(AppSettingsKey.cameraFullscreenMode);
+      },
+      expect: () => [
+        const AppState.changed(
+          theme: AppThemeType.system(),
+          locale: AppLocaleType.system(),
+          cameraFullscreenMode: false,
         ),
       ],
     );

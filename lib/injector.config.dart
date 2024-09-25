@@ -38,6 +38,8 @@ import 'package:blink_comparison/core/service/save_ref_image_service.dart'
     as _i1003;
 import 'package:blink_comparison/core/service/save_thumbnail_job.dart' as _i63;
 import 'package:blink_comparison/core/settings/app_settings.dart' as _i49;
+import 'package:blink_comparison/core/settings/shared_pref_listenable.dart'
+    as _i252;
 import 'package:blink_comparison/core/storage/app_database.dart' as _i266;
 import 'package:blink_comparison/core/storage/auth_factor_repository.dart'
     as _i105;
@@ -97,6 +99,10 @@ extension GetItInjectableX on _i174.GetIt {
       () => sharedPreferencesModule.prefOld,
       preResolve: true,
     );
+    await gh.singletonAsync<_i252.SharedPreferencesWithCacheListenable>(
+      () => sharedPreferencesModule.prefWithCache,
+      preResolve: true,
+    );
     await gh.singletonAsync<_i539.SodiumSumo>(
       () => sodiumModule.sodiumSumo(),
       preResolve: true,
@@ -118,7 +124,7 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i673.DateTimeProvider>(() => _i673.DateTimeProviderImpl());
     gh.factory<_i496.EncryptKeyDerivation>(
         () => _i496.EncryptKeyDerivationImpl(gh<_i539.SodiumSumo>()));
-    await gh.singletonAsync<_i460.SharedPreferencesAsync>(
+    await gh.singletonAsync<_i252.SharedPreferencesAsyncListenable>(
       () => sharedPreferencesModule.pref(gh<_i460.SharedPreferences>()),
       preResolve: true,
     );
@@ -150,6 +156,10 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i1009.PlatformInfo>(),
           gh<_i303.FileSystem>(),
         ));
+    gh.singleton<_i49.AppSettings>(() => _i49.AppSettingsImpl(
+          gh<_i252.SharedPreferencesAsyncListenable>(),
+          gh<_i252.SharedPreferencesWithCacheListenable>(),
+        ));
     gh.factory<_i970.CrashReportBuilder>(
       () => _i970.DevCrashReportBuilder(
         gh<_i1009.PlatformInfo>(),
@@ -161,13 +171,12 @@ extension GetItInjectableX on _i174.GetIt {
       () => sembastModule.db(gh<_i1009.PlatformInfo>()),
       preResolve: true,
     );
-    gh.singleton<_i49.AppSettings>(
-      () => _i49.AppSettingsImpl(gh<_i460.SharedPreferencesAsync>()),
-      registerFor: {
-        _dev,
-        _prod,
-      },
-    );
+    gh.factory<_i598.ThumbnailsMigrator>(() => _i598.ThumbnailsMigrator(
+          gh<_i1009.PlatformInfo>(),
+          gh<_i303.FileSystem>(),
+          gh<_i705.Thumbnailer>(),
+          gh<_i252.SharedPreferencesAsyncListenable>(),
+        ));
     gh.singleton<_i670.EncryptModuleProvider>(
         () => _i670.EncryptModuleProviderImpl(
               gh<_i539.SodiumSumo>(),
@@ -185,12 +194,6 @@ extension GetItInjectableX on _i174.GetIt {
       ),
       registerFor: {_prod},
     );
-    gh.factory<_i598.ThumbnailsMigrator>(() => _i598.ThumbnailsMigrator(
-          gh<_i1009.PlatformInfo>(),
-          gh<_i303.FileSystem>(),
-          gh<_i705.Thumbnailer>(),
-          gh<_i460.SharedPreferencesAsync>(),
-        ));
     gh.factory<_i496.CrashReportManager>(() => _i496.CrashReportManagerImpl(
           gh<_i970.CrashReportBuilder>(),
           gh<_i129.CrashReportSender>(),

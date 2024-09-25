@@ -35,7 +35,24 @@ class AppRouter extends RootStackRouter {
       initial: true,
       guards: [AuthGuard()],
     ),
-    AutoRoute(page: AuthRoute.page, path: '/auth'),
+    AutoRoute(
+      page: AuthRoute.page,
+      path: '/auth',
+      children: [
+        AutoRoute(
+          page: EncryptionPreferenceRoute.page,
+          path: 'encryption_preference',
+        ),
+        AutoRoute(
+          page: SignUpRoute.page,
+          path: 'sign_up',
+        ),
+        AutoRoute(
+          page: SignInRoute.page,
+          path: 'sign_in',
+        ),
+      ],
+    ),
     AutoRoute(
       page: RefImagePreviewRoute.page,
       path: '/photo-preview',
@@ -65,6 +82,10 @@ class AppRouter extends RootStackRouter {
         AutoRoute(
           path: 'camera',
           page: CameraSettingsRoute.page,
+        ),
+        AutoRoute(
+          path: 'behavior',
+          page: BehaviorSettingsRoute.page,
         ),
       ],
     ),

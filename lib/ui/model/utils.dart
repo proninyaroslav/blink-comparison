@@ -54,3 +54,15 @@ extension AppThemeTypeExtension on AppThemeType {
         AppThemeTypeSystem() => S.of(context).settingsThemeSystem,
       };
 }
+
+extension EncryptionPreferenceExtension on EncryptionPreference {
+  String toLocalizedString(BuildContext context) => switch (this) {
+        EncryptionPreferenceNone() => S.of(context).encryptionPreferenceNone,
+        EncryptionPreferencePassword() =>
+          S.of(context).encryptionPreferencePassword,
+      };
+}
+
+Never neverCase(Object type) {
+  throw ArgumentError('Unexpected case: $type');
+}

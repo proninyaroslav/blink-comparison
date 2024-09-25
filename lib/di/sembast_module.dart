@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -16,6 +16,7 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:blink_comparison/core/platform_info.dart';
+import 'package:blink_comparison/core/storage/app_database.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path/path.dart' as path;
 import 'package:sembast/sembast.dart';
@@ -44,6 +45,8 @@ abstract class SembastModule {
     }
     return getDatabaseFactorySqflite(factory).openDatabase(
       path.join(dir.path, _dbName),
+      version: 2,
+      onVersionChanged: appDatabaseMigration,
     );
   }
 }

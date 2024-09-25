@@ -16,25 +16,15 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:auto_route/auto_route.dart';
-import 'package:blink_comparison/core/date_time_provider.dart';
-import 'package:blink_comparison/core/encrypt/password_hasher.dart';
-import 'package:blink_comparison/core/encrypt/secure_key_factory.dart';
-import 'package:blink_comparison/core/storage/auth_factor_repository.dart';
+import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/core/storage/password_repository.dart';
 import 'package:blink_comparison/ui/auth/model/auth_state.dart';
-import 'package:blink_comparison/ui/auth/model/sign_up_state.dart';
-import 'package:blink_comparison/ui/components/widget.dart';
+import 'package:blink_comparison/ui/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:responsive_builder/responsive_builder.dart';
 
 import '../../injector.dart';
 import 'model/auth_cubit.dart';
-import 'model/sign_up_cubit.dart';
-import 'sign_in_page.dart';
-import 'sign_up_page.dart';
-
-const _pagePadding = EdgeInsets.all(16.0);
 
 @RoutePage()
 class AuthPage extends StatefulWidget implements AutoRouteWrapper {
@@ -47,25 +37,11 @@ class AuthPage extends StatefulWidget implements AutoRouteWrapper {
 
   @override
   Widget wrappedRoute(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => AuthCubit(
-            getIt<PasswordRepository>(),
-            getIt<PasswordHasher>(),
-            getIt<DateTimeProvider>(),
-            getIt<AuthFactorRepository>(),
-            getIt<SecureKeyFactory>(),
-          ),
-        ),
-        BlocProvider(
-          create: (context) => SignUpCubit(
-            getIt<PasswordRepository>(),
-            getIt<AuthFactorRepository>(),
-            getIt<SecureKeyFactory>(),
-          ),
-        ),
-      ],
+    return BlocProvider(
+      create: (context) => AuthCubit(
+        getIt<PasswordRepository>(),
+        getIt<AppSettings>(),
+      ),
       child: this,
     );
   }
@@ -75,111 +51,53 @@ class AuthPage extends StatefulWidget implements AutoRouteWrapper {
 }
 
 class _AuthPageState extends State<AuthPage> {
-  late final TextEditingController _passwordFieldController;
-
   @override
   void initState() {
     super.initState();
 
-    _passwordFieldController = TextEditingController();
-    context.read<AuthCubit>().loadPassword();
-  }
-
-  @override
-  void dispose() {
-    _passwordFieldController.dispose();
-
-    super.dispose();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await context.read<AuthCubit>().load();
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: MultiBlocListener(
-        listeners: [
-          BlocListener<AuthCubit, AuthState>(
-            listener: (context, state) {
-              if (state case AuthStateAuthSuccess()) {
-                widget.onAuthSuccess?.call();
-              }
-            },
-          ),
-          BlocListener<SignUpCubit, SignUpState>(
-            listener: (context, state) {
-              if (state case SignUpStateSavedAndAuthorized()) {
-                widget.onAuthSuccess?.call();
-              }
-            },
-          ),
-        ],
-        child: BlocBuilder<AuthCubit, AuthState>(
-          builder: (context, state) => _Body(
-            child: switch (state) {
-              AuthStateInitial() ||
-              AuthStateAuthSuccess() =>
-                const CircularProgressIndicator(),
-              AuthStateNoPassword() => const SignUpPage(),
-              _ =>
-                SignInPage(passwordFieldController: _passwordFieldController),
-            },
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-double _getAdaptiveWidth({
-  required SizingInformation sizingInfo,
-  required Orientation orientation,
-}) {
-  if (sizingInfo.isMobile) {
-    if (orientation == Orientation.landscape) {
-      return sizingInfo.screenSize.width / 2;
-    } else {
-      return double.infinity;
-    }
-  } else {
-    return sizingInfo.screenSize.width / 3;
-  }
-}
-
-class _Body extends StatelessWidget {
-  final Widget child;
-
-  const _Body({required this.child});
-
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: Unfocus(
-        child: Column(
-          children: [
-            Expanded(
-              child: Scrollbar(
-                child: Center(
-                  child: SingleChildScrollView(
-                    child: ResponsiveBuilder(
-                      builder: (context, sizingInfo) {
-                        final orientation = MediaQuery.of(context).orientation;
-                        final width = _getAdaptiveWidth(
-                          orientation: orientation,
-                          sizingInfo: sizingInfo,
-                        );
-                        return Container(
-                          constraints: BoxConstraints(maxWidth: width),
-                          padding: _pagePadding,
-                          child: child,
-                        );
-                      },
-                    ),
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<AuthCubit, AuthState>(
+          listener: (context, state) async {
+            switch (state) {
+              case AuthStateSignUpRequired():
+                context.replaceRoute(
+                  SignUpRoute(
+                    onAuthSuccess: () => widget.onAuthSuccess?.call(),
                   ),
-                ),
-              ),
-            ),
-          ],
+                );
+              case AuthStateNoAuthRequired():
+                widget.onAuthSuccess?.call();
+              case AuthStateSignInRequired():
+                context.pushRoute(
+                  SignInRoute(
+                    onAuthSuccess: () => widget.onAuthSuccess?.call(),
+                  ),
+                );
+              case AuthStateNoEncryptPreferences():
+                context.pushRoute(
+                  EncryptionPreferenceRoute(
+                    onClick: (preference) async {
+                      await context
+                          .read<AuthCubit>()
+                          .setEncryptionPreference(preference);
+                    },
+                  ),
+                );
+              case _:
+                break;
+            }
+          },
         ),
-      ),
+      ],
+      child: const AutoRouter(),
     );
   }
 }

@@ -103,3 +103,27 @@ Map<String, dynamic> _$$ShowcaseTypeBlinkComparisonImplToJson(
     <String, dynamic>{
       'runtimeType': instance.$type,
     };
+
+_$EncryptionPreferenceNoneImpl _$$EncryptionPreferenceNoneImplFromJson(
+        Map<String, dynamic> json) =>
+    _$EncryptionPreferenceNoneImpl(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$EncryptionPreferenceNoneImplToJson(
+        _$EncryptionPreferenceNoneImpl instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
+    };
+
+_$EncryptionPreferencePasswordImpl _$$EncryptionPreferencePasswordImplFromJson(
+        Map<String, dynamic> json) =>
+    _$EncryptionPreferencePasswordImpl(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$EncryptionPreferencePasswordImplToJson(
+        _$EncryptionPreferencePasswordImpl instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
+    };

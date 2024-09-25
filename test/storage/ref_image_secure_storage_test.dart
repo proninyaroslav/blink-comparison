@@ -70,7 +70,7 @@ void main() {
       final info = RefImageInfo(
         id: '1',
         dateAdded: DateTime.now(),
-        encryptSalt: 'salt',
+        encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
       );
 
       when(() => mockAppSecureKeyRepo.hasSecureKey()).thenReturn(false);
@@ -82,6 +82,11 @@ void main() {
         case SecStorageResultError(:final error):
           expect(error is SecStorageErrorNoKey, isTrue);
       }
+
+      final srcBytes = Uint8List(0);
+      when(
+        () => mockFs.read(info),
+      ).thenAnswer((_) async => FsResult(srcBytes));
 
       final getRes = await secureStorage.get(info);
       switch (getRes) {
@@ -97,11 +102,33 @@ void main() {
       final info = RefImageInfo(
         id: '1',
         dateAdded: DateTime(2021),
-        encryptSalt: 'salt',
+        encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
       );
 
       when(() => mockAppSecureKeyRepo.hasSecureKey()).thenReturn(true);
       when(() => mockAppSecureKeyRepo.get()).thenReturn(keyImmutable);
+      when(
+        () => mockService.save(info: info, srcImage: file),
+      ).thenAnswer((_) async => {});
+
+      expect(
+        await secureStorage.add(info, file),
+        SecStorageResult.empty,
+      );
+      verify(
+        () => mockService.save(info: info, srcImage: file),
+      ).called(1);
+    });
+
+    test('Add without encryption', () async {
+      final file = XFile(path.join('foo', 'bar'));
+      final info = RefImageInfo(
+          id: '1',
+          dateAdded: DateTime(2021),
+          encryption: const RefImageEncryption.none());
+
+      when(() => mockAppSecureKeyRepo.hasSecureKey()).thenReturn(false);
+      when(() => mockAppSecureKeyRepo.get()).thenReturn(null);
       when(
         () => mockService.save(info: info, srcImage: file),
       ).thenAnswer((_) async => {});
@@ -121,7 +148,7 @@ void main() {
       final info = RefImageInfo(
         id: '1',
         dateAdded: DateTime(2021),
-        encryptSalt: 'salt',
+        encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
       );
       final expectedImage = RefImage(info: info, bytes: decBytes);
 
@@ -145,11 +172,38 @@ void main() {
       verify(() => mockFs.read(info)).called(1);
     });
 
+    test('Get without decruption', () async {
+      final srcBytes = Uint8List.fromList(List.generate(256, (index) => index));
+      final info = RefImageInfo(
+        id: '1',
+        dateAdded: DateTime(2021),
+        encryption: const RefImageEncryption.none(),
+      );
+      final expectedImage = RefImage(info: info, bytes: srcBytes);
+
+      when(() => mockAppSecureKeyRepo.hasSecureKey()).thenReturn(false);
+      when(() => mockAppSecureKeyRepo.get()).thenReturn(null);
+      when(
+        () => mockModule.decrypt(src: any(named: 'src'), info: info),
+      ).thenAnswer(
+        (_) async => DecryptResult.success(bytes: srcBytes),
+      );
+      when(
+        () => mockFs.read(info),
+      ).thenAnswer((_) async => FsResult(srcBytes));
+
+      expect(
+        await secureStorage.get(info),
+        SecStorageResult(expectedImage),
+      );
+      verify(() => mockFs.read(info)).called(1);
+    });
+
     test('Delete', () async {
       final info = RefImageInfo(
         id: '1',
         dateAdded: DateTime(2021),
-        encryptSalt: 'salt',
+        encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
       );
       when(
         () => mockFs.delete(info),

@@ -15,6 +15,8 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'package:blink_comparison/core/settings/app_settings.dart';
+import 'package:blink_comparison/core/settings/shared_pref_listenable.dart';
 import 'package:blink_comparison/core/settings/shared_pref_migrator.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -28,8 +30,9 @@ abstract class SharedPreferencesModule {
 
   @singleton
   @preResolve
-  Future<SharedPreferencesAsync> pref(SharedPreferences prefOld) async {
-    final pref = SharedPreferencesAsync();
+  Future<SharedPreferencesAsyncListenable> pref(
+      SharedPreferences prefOld) async {
+    final pref = SharedPreferencesAsyncListenable();
     final migrator = SharedPreferencesMigrator(
       oldPrefs: prefOld,
       newPrefs: pref,
@@ -38,4 +41,13 @@ abstract class SharedPreferencesModule {
 
     return pref;
   }
+
+  @singleton
+  @preResolve
+  Future<SharedPreferencesWithCacheListenable> get prefWithCache async =>
+      SharedPreferencesWithCacheListenable.create(
+        cacheOptions: const SharedPreferencesWithCacheOptions(
+          allowList: {AppSettingsKey.encryptionPreference},
+        ),
+      );
 }

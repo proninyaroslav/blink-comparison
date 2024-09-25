@@ -15,6 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'package:blink_comparison/core/entity/ref_image.dart';
 import 'package:blink_comparison/core/storage/dao/password_dao.dart';
 import 'package:blink_comparison/env.dart';
 import 'package:injectable/injectable.dart';
@@ -39,4 +40,35 @@ class AppDatabaseImpl implements AppDatabase {
 
   @override
   PasswordDao get passwordDao => PasswordDao(_db);
+}
+
+Future<void> appDatabaseMigration(
+  Database db,
+  int oldVersion,
+  int newVersion,
+) async {
+  if (oldVersion < 2) {
+    await migration1To2(db);
+  }
+}
+
+Future<void> migration1To2(
+  Database db,
+) async {
+  final store = stringMapStoreFactory.store('RefImageInfo');
+  final snapshots = await store.find(db);
+
+  for (final RecordSnapshot(:key, value: image) in snapshots) {
+    if (image case {'encryptSalt': String encryptSalt}) {
+      final encryption = RefImageEncryption.password(
+        encryptSalt: encryptSalt,
+      );
+      final newValue = {
+        'encryption': encryption.toJson(),
+        for (final key in image.keys)
+          if (key != 'encryptSalt') key: image[key]
+      };
+      await store.record(key).update(db, newValue);
+    }
+  }
 }

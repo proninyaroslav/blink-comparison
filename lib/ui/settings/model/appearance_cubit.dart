@@ -16,18 +16,13 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:blink_comparison/core/settings/app_settings.dart';
-import 'package:blink_comparison/ui/model/app_cubit.dart';
 import 'package:blink_comparison/ui/settings/model/appearance_state.dart';
 import 'package:bloc/bloc.dart';
 
 class AppearanceSettingsCubit extends Cubit<AppearanceState> {
   final AppSettings _pref;
-  final AppCubit _appCubit;
 
-  AppearanceSettingsCubit(
-    this._pref,
-    this._appCubit,
-  ) : super(const AppearanceState.initial());
+  AppearanceSettingsCubit(this._pref) : super(const AppearanceState.initial());
 
   Future<void> load() async {
     emit(AppearanceState.loaded(
@@ -42,7 +37,6 @@ class AppearanceSettingsCubit extends Cubit<AppearanceState> {
   Future<void> setTheme(AppThemeType theme) async {
     if (state case AppearanceState(:final info?)) {
       await _pref.setTheme(theme);
-      _appCubit.setTheme(theme);
       emit(AppearanceState.themeChanged(
         info.copyWith(theme: theme),
       ));
@@ -52,7 +46,6 @@ class AppearanceSettingsCubit extends Cubit<AppearanceState> {
   Future<void> setLocale(AppLocaleType locale) async {
     if (state case AppearanceState(:final info?)) {
       await _pref.setLocale(locale);
-      _appCubit.setLocale(locale);
       emit(AppearanceState.localeChanged(
         info.copyWith(locale: locale),
       ));

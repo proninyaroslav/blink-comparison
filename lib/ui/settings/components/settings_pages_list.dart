@@ -56,6 +56,12 @@ class SettingsPagesList extends StatelessWidget {
                   icon: Icons.camera_alt_outlined,
                   title: S.of(context).settingsCamera,
                 ),
+              SettingsRouteItemBehavior() => _buildItem(
+                  context,
+                  route,
+                  icon: Icons.tune_rounded,
+                  title: S.of(context).settingsBehavior,
+                ),
             };
           },
           separatorBuilder: (context, position) {

@@ -27,6 +27,7 @@ import 'package:blink_comparison/core/storage/app_database.dart';
 import 'package:blink_comparison/core/storage/ref_image_repository.dart';
 import 'package:blink_comparison/core/storage/ref_image_secure_storage.dart';
 import 'package:blink_comparison/core/storage/storage_result.dart';
+import 'package:blink_comparison/ui/model/showcase_cubit.dart';
 import 'package:convert/convert.dart';
 import 'package:cross_file/cross_file.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -53,7 +54,11 @@ void main() {
 
     setUpAll(() {
       registerFallbackValue(
-        RefImageInfo(id: '1', dateAdded: DateTime.now(), encryptSalt: salt),
+        RefImageInfo(
+          id: '1',
+          dateAdded: DateTime.now(),
+          encryption: const RefImageEncryption.password(encryptSalt: salt),
+        ),
       );
       registerFallbackValue(XFile('/foo/bar'));
     });
@@ -85,7 +90,7 @@ void main() {
       final expectedImage = RefImageInfo(
         id: '1',
         dateAdded: DateTime(2021),
-        encryptSalt: salt,
+        encryption: const RefImageEncryption.password(encryptSalt: salt),
       );
 
       when(() => mockIdGenerator.randomUnique()).thenReturn(expectedImage.id);
@@ -96,7 +101,13 @@ void main() {
         () => mockSecureStorage.add(expectedImage, file),
       ).thenAnswer((_) async => SecStorageResult.empty);
 
-      expect(await repo.addFromFile(file), SecStorageResult(expectedImage));
+      expect(
+        await repo.addFromFile(
+          file,
+          encryption: const EncryptionPreference.password(),
+        ),
+        SecStorageResult(expectedImage),
+      );
       expect(
         await repo.getInfoById(expectedImage.id),
         StorageResult<RefImageInfo?>(expectedImage),
@@ -106,18 +117,51 @@ void main() {
       ).called(1);
     });
 
+    test('Add without encryption', () async {
+      final file = XFile(path.join('foo', 'bar'));
+      final expectedImage = RefImageInfo(
+        id: '1',
+        dateAdded: DateTime(2021),
+        encryption: const RefImageEncryption.none(),
+      );
+
+      when(() => mockIdGenerator.randomUnique()).thenReturn(expectedImage.id);
+      when(
+        () => mockDateTimeProvider.now(),
+      ).thenReturn(expectedImage.dateAdded);
+      when(
+        () => mockSecureStorage.add(expectedImage, file),
+      ).thenAnswer((_) async => SecStorageResult.empty);
+
+      expect(
+        await repo.addFromFile(
+          file,
+          encryption: const EncryptionPreference.none(),
+        ),
+        SecStorageResult(expectedImage),
+      );
+      expect(
+        await repo.getInfoById(expectedImage.id),
+        StorageResult<RefImageInfo?>(expectedImage),
+      );
+      verify(
+        () => mockSecureStorage.add(expectedImage, file),
+      ).called(1);
+      verifyNever(() => mockSaltGenerator.randomBytes());
+    });
+
     test('Delete', () async {
       final file = XFile(path.join('foo', 'bar'));
       final expectedImages = [
         RefImageInfo(
           id: '1',
           dateAdded: DateTime(2021),
-          encryptSalt: salt,
+          encryption: const RefImageEncryption.password(encryptSalt: salt),
         ),
         RefImageInfo(
           id: '2',
           dateAdded: DateTime(2021),
-          encryptSalt: salt,
+          encryption: const RefImageEncryption.password(encryptSalt: salt),
         ),
       ];
 
@@ -132,7 +176,10 @@ void main() {
           () => mockSecureStorage.add(image, file),
         ).thenAnswer((_) async => SecStorageResult.empty);
 
-        await repo.addFromFile(file);
+        await repo.addFromFile(
+          file,
+          encryption: const EncryptionPreference.password(),
+        );
       }
 
       when(
@@ -167,7 +214,7 @@ void main() {
             (file) => RefImageInfo(
               id: file.path,
               dateAdded: DateTime(2021),
-              encryptSalt: salt,
+              encryption: const RefImageEncryption.password(encryptSalt: salt),
             ),
           )
           .toList();
@@ -187,7 +234,10 @@ void main() {
       }
 
       for (final file in files) {
-        await repo.addFromFile(file);
+        await repo.addFromFile(
+          file,
+          encryption: const EncryptionPreference.password(),
+        );
       }
       expect(await repo.getAllInfo(), StorageResult(expectedImages));
     });
@@ -199,7 +249,7 @@ void main() {
             (file) => RefImageInfo(
               id: file.path,
               dateAdded: DateTime(2021),
-              encryptSalt: salt,
+              encryption: const RefImageEncryption.password(encryptSalt: salt),
             ),
           )
           .toList();
@@ -219,7 +269,10 @@ void main() {
       }
 
       for (final file in files) {
-        await repo.addFromFile(file);
+        await repo.addFromFile(
+          file,
+          encryption: const EncryptionPreference.password(),
+        );
       }
       expect(await repo.observeAllInfo().first, StorageResult(expectedImages));
     });
@@ -230,7 +283,7 @@ void main() {
       final expectedInfo = RefImageInfo(
         id: '1',
         dateAdded: DateTime(2021),
-        encryptSalt: salt,
+        encryption: const RefImageEncryption.password(encryptSalt: salt),
       );
       final expectedImage = RefImage(info: expectedInfo, bytes: bytes);
 
@@ -245,7 +298,10 @@ void main() {
         () => mockSecureStorage.get(expectedInfo),
       ).thenAnswer((_) async => SecStorageResult(expectedImage));
 
-      repo.addFromFile(file);
+      repo.addFromFile(
+        file,
+        encryption: const EncryptionPreference.password(),
+      );
       expect(
         await repo.getImage(expectedInfo),
         SecStorageResult<RefImage>(expectedImage),
@@ -260,7 +316,7 @@ void main() {
       final expectedImage = RefImageInfo(
         id: '1',
         dateAdded: DateTime(2021),
-        encryptSalt: salt,
+        encryption: const RefImageEncryption.password(encryptSalt: salt),
       );
 
       when(() => mockIdGenerator.randomUnique()).thenReturn(expectedImage.id);
@@ -271,7 +327,10 @@ void main() {
         () => mockSecureStorage.add(expectedImage, file),
       ).thenAnswer((_) async => SecStorageResult.empty);
 
-      await repo.addFromFile(file);
+      await repo.addFromFile(
+        file,
+        encryption: const EncryptionPreference.password(),
+      );
       expect(
         await repo.existsById(expectedImage.id),
         const StorageResult(true),
@@ -283,7 +342,7 @@ void main() {
       final expectedImage = RefImageInfo(
         id: '1',
         dateAdded: DateTime(2021),
-        encryptSalt: salt,
+        encryption: const RefImageEncryption.password(encryptSalt: salt),
       );
 
       when(() => mockIdGenerator.randomUnique()).thenReturn(expectedImage.id);
@@ -294,9 +353,15 @@ void main() {
         () => mockSecureStorage.add(expectedImage, file),
       ).thenAnswer((_) async => SecStorageResult.empty);
 
-      await repo.addFromFile(file);
+      await repo.addFromFile(
+        file,
+        encryption: const EncryptionPreference.password(),
+      );
       expect(
-        () => repo.addFromFile(file),
+        () => repo.addFromFile(
+          file,
+          encryption: const EncryptionPreference.password(),
+        ),
         throwsA(isA<GenerateIdException>()),
       );
     });
@@ -306,7 +371,7 @@ void main() {
       final expectedInfo = RefImageInfo(
         id: '1',
         dateAdded: DateTime(2021),
-        encryptSalt: salt,
+        encryption: const RefImageEncryption.password(encryptSalt: salt),
       );
       final expectedThumbnail = Thumbnail(
         refImageId: expectedInfo.id,
@@ -324,7 +389,10 @@ void main() {
         () => mockThumbnailFs.get(expectedInfo),
       ).thenAnswer((_) async => FsResult(file));
 
-      repo.addFromFile(file);
+      repo.addFromFile(
+        file,
+        encryption: const EncryptionPreference.password(),
+      );
       expect(
         await repo.getThumbnail(expectedInfo),
         StorageResult(expectedThumbnail),
@@ -340,17 +408,17 @@ void main() {
         RefImageInfo(
           id: '1',
           dateAdded: DateTime(2021),
-          encryptSalt: salt,
+          encryption: const RefImageEncryption.password(encryptSalt: salt),
         ),
         RefImageInfo(
           id: '2',
           dateAdded: DateTime(2021),
-          encryptSalt: salt,
+          encryption: const RefImageEncryption.password(encryptSalt: salt),
         ),
         RefImageInfo(
           id: '3',
           dateAdded: DateTime(2021),
-          encryptSalt: salt,
+          encryption: const RefImageEncryption.password(encryptSalt: salt),
         ),
       ];
 
@@ -365,7 +433,10 @@ void main() {
           () => mockSecureStorage.add(image, file),
         ).thenAnswer((_) async => SecStorageResult.empty);
 
-        await repo.addFromFile(file);
+        await repo.addFromFile(
+          file,
+          encryption: const EncryptionPreference.password(),
+        );
       }
 
       when(
@@ -377,7 +448,7 @@ void main() {
         RefImageInfo(
           id: '3',
           dateAdded: DateTime(2021),
-          encryptSalt: salt,
+          encryption: const RefImageEncryption.password(encryptSalt: salt),
         ),
       ];
 

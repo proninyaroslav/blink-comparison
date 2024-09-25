@@ -25,6 +25,7 @@ import 'package:blink_comparison/ui/auth_lifecycle_observer.dart';
 import 'package:blink_comparison/ui/components/intl_locale_bridge.dart';
 import 'package:blink_comparison/ui/model/app_cubit.dart';
 import 'package:blink_comparison/ui/model/app_state.dart';
+import 'package:blink_comparison/ui/model/utils.dart';
 import 'package:blink_comparison/ui/system_ui_mode_observer.dart';
 // ignore: depend_on_referenced_packages
 import 'package:device_preview/device_preview.dart';
@@ -158,7 +159,14 @@ class _AppState extends State<App> {
   }) {
     final appTheme = AppTheme(Theme.of(context).textTheme);
 
-    return BlocBuilder<AppCubit, AppState>(
+    return BlocConsumer<AppCubit, AppState>(
+      listener: (context, state) async {
+        if (state case AppStateEncryptPreferenceChanged(:final encrypt)
+            when encrypt is! EncryptionPreferenceNone) {
+          await _appRouter.reevaluateGuards();
+        }
+      },
+      buildWhen: (prev, next) => next is! AppStateEncryptPreferenceChanged,
       builder: (context, state) {
         switch (state) {
           case AppStateInitial():
@@ -197,6 +205,8 @@ class _AppState extends State<App> {
                 );
               },
             );
+          case AppStateEncryptPreferenceChanged():
+            neverCase(state);
         }
       },
     );

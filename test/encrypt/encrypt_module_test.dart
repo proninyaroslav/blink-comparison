@@ -55,15 +55,18 @@ void main() {
           password.toImmutable() as AuthFactorPassword,
           mockDerivation,
         );
+        const encryption = RefImageEncryptionPassword(
+          encryptSalt: '01234567890abcdf',
+        );
         final info = RefImageInfo(
           id: '1',
           dateAdded: DateTime(2021),
-          encryptSalt: '01234567890abcdf',
+          encryption: encryption,
         );
         when(
           () => mockDerivation.derive(
             password: password.value.toImmutable(),
-            salt: Uint8List.fromList(hex.decode(info.encryptSalt)),
+            salt: Uint8List.fromList(hex.decode(encryption.encryptSalt)),
             keyLength: keyLength,
           ),
         ).thenAnswer(
@@ -108,17 +111,20 @@ void main() {
           password.toImmutable() as AuthFactorPassword,
           mockDerivation,
         );
+        const encryption = RefImageEncryptionPassword(
+          encryptSalt: '01234567890abcdf',
+        );
         final info = RefImageInfo(
           id: '1',
           dateAdded: DateTime(2021),
-          encryptSalt: '01234567890abcdf',
+          encryption: encryption,
         );
         final keys = [key, wrongKey];
         final iter = keys.iterator;
         when(
           () => mockDerivation.derive(
             password: password.value.toImmutable(),
-            salt: Uint8List.fromList(hex.decode(info.encryptSalt)),
+            salt: Uint8List.fromList(hex.decode(encryption.encryptSalt)),
             keyLength: keyLength,
           ),
         ).thenAnswer((_) async {
@@ -149,15 +155,18 @@ void main() {
           password.toImmutable() as AuthFactorPassword,
           mockDerivation,
         );
+        const encryption = RefImageEncryptionPassword(
+          encryptSalt: '01234567890abcdf',
+        );
         final info = RefImageInfo(
           id: '1',
           dateAdded: DateTime(2021),
-          encryptSalt: '01234567890abcdf',
+          encryption: encryption,
         );
         when(
           () => mockDerivation.derive(
             password: password.value.toImmutable(),
-            salt: Uint8List.fromList(hex.decode(info.encryptSalt)),
+            salt: Uint8List.fromList(hex.decode(encryption.encryptSalt)),
             keyLength: keyLength,
           ),
         ).thenAnswer(
@@ -170,6 +179,37 @@ void main() {
         final res = await pbe.decrypt(src: bytes, info: info);
         if (res case DecryptResultSuccess()) {
           fail('Decryption should not succeed');
+        }
+      });
+    });
+
+    group('No encryption method |', () {
+      test('Encrypt and decrypt', () async {
+        final bytes = Uint8List.fromList([1, 2, 3]);
+        final pwValue = SecureKey.fromList(sodium, utf8.encode('password'));
+        final password = MutableAuthFactor.password(value: pwValue);
+        final pbe = PBEModule(
+          sodium,
+          password.toImmutable() as AuthFactorPassword,
+          mockDerivation,
+        );
+        final info = RefImageInfo(
+          id: '1',
+          dateAdded: DateTime(2021),
+          encryption: const RefImageEncryption.none(),
+        );
+        final res = await pbe.encrypt(src: bytes, info: info);
+        switch (res) {
+          case EncryptResultSuccess(bytes: final encBytes):
+            final res = await pbe.decrypt(src: encBytes, info: info);
+            switch (res) {
+              case DecryptResultSuccess(bytes: final decBytes):
+                expect(decBytes, bytes);
+              case DecryptResultFail(:final error):
+                throw error;
+            }
+          case EncryptResultFail(:final error):
+            throw error;
         }
       });
     });

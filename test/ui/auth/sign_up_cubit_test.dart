@@ -211,7 +211,7 @@ void main() {
           ),
         );
         when(() => mockAppSecureKeyRepo.set(any()))
-            .thenReturn(AuthFactorModifyResult.success());
+            .thenReturn(const AuthFactorModifyResult.success());
         cubit.passwordChanged(password);
         cubit.repeatPasswordChanged(password);
         await cubit.submit();
@@ -285,7 +285,7 @@ void main() {
       act: (SignUpCubit cubit) async {
         const password = '12345';
         when(() => mockAppSecureKeyRepo.set(any()))
-            .thenReturn(AuthFactorModifyResult.success());
+            .thenReturn(const AuthFactorModifyResult.success());
         when(
           () => mockPasswordRepo.insert(
             type: const PasswordType.encryptKey(),
@@ -355,7 +355,7 @@ void main() {
           ),
         );
         when(() => mockAppSecureKeyRepo.set(any()))
-            .thenReturn(AuthFactorModifyResult.success());
+            .thenReturn(const AuthFactorModifyResult.success());
         cubit.passwordChanged(password);
         cubit.repeatPasswordChanged(password);
         await cubit.submit();

@@ -532,3 +532,187 @@ abstract class AppStateChanged implements AppState {
   _$$AppStateChangedImplCopyWith<_$AppStateChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+abstract class _$$AppStateEncryptPreferenceChangedImplCopyWith<$Res>
+    implements $AppStateCopyWith<$Res> {
+  factory _$$AppStateEncryptPreferenceChangedImplCopyWith(
+          _$AppStateEncryptPreferenceChangedImpl value,
+          $Res Function(_$AppStateEncryptPreferenceChangedImpl) then) =
+      __$$AppStateEncryptPreferenceChangedImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {AppThemeType theme,
+      AppLocaleType locale,
+      bool cameraFullscreenMode,
+      EncryptionPreference? encrypt});
+
+  @override
+  $AppThemeTypeCopyWith<$Res> get theme;
+  @override
+  $AppLocaleTypeCopyWith<$Res> get locale;
+  $EncryptionPreferenceCopyWith<$Res>? get encrypt;
+}
+
+/// @nodoc
+class __$$AppStateEncryptPreferenceChangedImplCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$AppStateEncryptPreferenceChangedImpl>
+    implements _$$AppStateEncryptPreferenceChangedImplCopyWith<$Res> {
+  __$$AppStateEncryptPreferenceChangedImplCopyWithImpl(
+      _$AppStateEncryptPreferenceChangedImpl _value,
+      $Res Function(_$AppStateEncryptPreferenceChangedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? theme = null,
+    Object? locale = null,
+    Object? cameraFullscreenMode = null,
+    Object? encrypt = freezed,
+  }) {
+    return _then(_$AppStateEncryptPreferenceChangedImpl(
+      theme: null == theme
+          ? _value.theme
+          : theme // ignore: cast_nullable_to_non_nullable
+              as AppThemeType,
+      locale: null == locale
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as AppLocaleType,
+      cameraFullscreenMode: null == cameraFullscreenMode
+          ? _value.cameraFullscreenMode
+          : cameraFullscreenMode // ignore: cast_nullable_to_non_nullable
+              as bool,
+      encrypt: freezed == encrypt
+          ? _value.encrypt
+          : encrypt // ignore: cast_nullable_to_non_nullable
+              as EncryptionPreference?,
+    ));
+  }
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AppThemeTypeCopyWith<$Res> get theme {
+    return $AppThemeTypeCopyWith<$Res>(_value.theme, (value) {
+      return _then(_value.copyWith(theme: value));
+    });
+  }
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AppLocaleTypeCopyWith<$Res> get locale {
+    return $AppLocaleTypeCopyWith<$Res>(_value.locale, (value) {
+      return _then(_value.copyWith(locale: value));
+    });
+  }
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $EncryptionPreferenceCopyWith<$Res>? get encrypt {
+    if (_value.encrypt == null) {
+      return null;
+    }
+
+    return $EncryptionPreferenceCopyWith<$Res>(_value.encrypt!, (value) {
+      return _then(_value.copyWith(encrypt: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$AppStateEncryptPreferenceChangedImpl
+    with DiagnosticableTreeMixin
+    implements AppStateEncryptPreferenceChanged {
+  const _$AppStateEncryptPreferenceChangedImpl(
+      {required this.theme,
+      required this.locale,
+      required this.cameraFullscreenMode,
+      required this.encrypt});
+
+  @override
+  final AppThemeType theme;
+  @override
+  final AppLocaleType locale;
+  @override
+  final bool cameraFullscreenMode;
+  @override
+  final EncryptionPreference? encrypt;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AppState.encryptPreferenceChanged(theme: $theme, locale: $locale, cameraFullscreenMode: $cameraFullscreenMode, encrypt: $encrypt)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AppState.encryptPreferenceChanged'))
+      ..add(DiagnosticsProperty('theme', theme))
+      ..add(DiagnosticsProperty('locale', locale))
+      ..add(DiagnosticsProperty('cameraFullscreenMode', cameraFullscreenMode))
+      ..add(DiagnosticsProperty('encrypt', encrypt));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AppStateEncryptPreferenceChangedImpl &&
+            (identical(other.theme, theme) || other.theme == theme) &&
+            (identical(other.locale, locale) || other.locale == locale) &&
+            (identical(other.cameraFullscreenMode, cameraFullscreenMode) ||
+                other.cameraFullscreenMode == cameraFullscreenMode) &&
+            (identical(other.encrypt, encrypt) || other.encrypt == encrypt));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, theme, locale, cameraFullscreenMode, encrypt);
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AppStateEncryptPreferenceChangedImplCopyWith<
+          _$AppStateEncryptPreferenceChangedImpl>
+      get copyWith => __$$AppStateEncryptPreferenceChangedImplCopyWithImpl<
+          _$AppStateEncryptPreferenceChangedImpl>(this, _$identity);
+}
+
+abstract class AppStateEncryptPreferenceChanged implements AppState {
+  const factory AppStateEncryptPreferenceChanged(
+          {required final AppThemeType theme,
+          required final AppLocaleType locale,
+          required final bool cameraFullscreenMode,
+          required final EncryptionPreference? encrypt}) =
+      _$AppStateEncryptPreferenceChangedImpl;
+
+  @override
+  AppThemeType get theme;
+  @override
+  AppLocaleType get locale;
+  @override
+  bool get cameraFullscreenMode;
+  EncryptionPreference? get encrypt;
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AppStateEncryptPreferenceChangedImplCopyWith<
+          _$AppStateEncryptPreferenceChangedImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}

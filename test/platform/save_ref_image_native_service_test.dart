@@ -44,7 +44,7 @@ Future<void> main() async {
       info: RefImageInfo(
         id: '1',
         dateAdded: DateTime(2021),
-        encryptSalt: 'salt',
+        encryption: const RefImageEncryption.none(),
       ),
       srcFile: XFile(path.join('foo', 'bar')),
     );

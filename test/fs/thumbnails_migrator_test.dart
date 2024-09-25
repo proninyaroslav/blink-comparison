@@ -17,6 +17,7 @@
 
 import 'package:blink_comparison/core/fs/thumbnails_migrator.dart';
 import 'package:blink_comparison/core/platform_info.dart';
+import 'package:blink_comparison/core/settings/shared_pref_listenable.dart';
 import 'package:blink_comparison/core/thumbnailer.dart';
 import 'package:file/file.dart';
 import 'package:file/memory.dart';
@@ -24,7 +25,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:path/path.dart' as path;
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../mock/mock.dart';
 
@@ -37,14 +37,14 @@ void main() {
     late PlatformInfo mockPlatform;
     late FileSystem fs;
     late Thumbnailer mockThumbnailer;
-    late SharedPreferencesAsync mockPref;
+    late SharedPreferencesAsyncListenable mockPref;
     late ThumbnailsMigrator migrator;
 
     setUp(() {
       mockPlatform = MockPlatformInfo();
       fs = MemoryFileSystem();
       mockThumbnailer = MockThumbnailer();
-      mockPref = MockSharedPreferencesAsync();
+      mockPref = MockSharedPreferencesAsyncListenable();
       migrator = ThumbnailsMigrator(
         mockPlatform,
         fs,
@@ -71,7 +71,7 @@ void main() {
           .thenAnswer((_) async => bytesAfter);
 
       expect(await migrator.didMigrate, isNull);
-      expect(await migrator.migrate(), ThumbnailsMigratorResult.success());
+      expect(await migrator.migrate(), const ThumbnailsMigratorResult.success());
 
       when(() => mockPref.getBool(_prefKey)).thenAnswer((_) async => true);
       expect(await migrator.didMigrate, true);
@@ -108,7 +108,7 @@ void main() {
 
     test('Already migrated', () async {
       when(() => mockPref.getBool(_prefKey)).thenAnswer((_) async => true);
-      expect(await migrator.migrate(), ThumbnailsMigratorResult.success());
+      expect(await migrator.migrate(), const ThumbnailsMigratorResult.success());
     });
   });
 }

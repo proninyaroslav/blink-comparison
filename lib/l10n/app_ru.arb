@@ -89,5 +89,11 @@
   "changelog": "История изменений",
   "settingsCameraFullscreenMode": "Полноэкранный режим",
   "cameraAccessDenied": "Доступ к камере запрещён. Пожалуйста, предоставьте разрешение в настройках системы",
-  "openAppSettings": "Открыть настройки"
+  "openAppSettings": "Открыть настройки",
+  "enableEncryptPromt": "Хотите ли вы шифровать ваши изображения? Для этого требуется установить пароль для дополнительной защиты",
+  "enableEncryptPositiveAnswer": "Да, установить пароль",
+  "settingsBehavior": "Поведение",
+  "encryptionPreferenceTitle": "Шифрование изображений",
+  "encryptionPreferenceNone": "Нет",
+  "encryptionPreferencePassword": "Пароль"
 }

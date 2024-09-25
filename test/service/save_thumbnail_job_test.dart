@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -40,7 +40,7 @@ void main() {
       final info = RefImageInfo(
         id: '1',
         dateAdded: DateTime(2021),
-        encryptSalt: 'salt',
+        encryption: const RefImageEncryption.none(),
       );
       final expectedBytes = Uint8List.fromList([1, 2, 3]);
       when(
@@ -60,7 +60,7 @@ void main() {
       final info = RefImageInfo(
         id: '1',
         dateAdded: DateTime(2021),
-        encryptSalt: 'salt',
+        encryption: const RefImageEncryption.none(),
       );
       final expectedBytes = Uint8List.fromList([1, 2, 3]);
       when(

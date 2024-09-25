@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -51,9 +51,18 @@ void main() {
       build: () => cubit,
       act: (RefImagesActionsCubit cubit) async {
         final infoList = [
-          RefImageInfo(id: '1', dateAdded: DateTime(2021), encryptSalt: 'salt'),
-          RefImageInfo(id: '2', dateAdded: DateTime(2021), encryptSalt: 'salt'),
-          RefImageInfo(id: '3', dateAdded: DateTime(2021), encryptSalt: 'salt'),
+          RefImageInfo(
+              id: '1',
+              dateAdded: DateTime(2021),
+              encryption: const RefImageEncryption.none()),
+          RefImageInfo(
+              id: '2',
+              dateAdded: DateTime(2021),
+              encryption: const RefImageEncryption.none()),
+          RefImageInfo(
+              id: '3',
+              dateAdded: DateTime(2021),
+              encryption: const RefImageEncryption.none()),
         ];
         when(
           () => mockImageRepo.deleteList(infoList),
@@ -78,7 +87,7 @@ void main() {
             RefImageInfo(
               id: '2',
               dateAdded: DateTime(2021),
-              encryptSalt: 'salt',
+              encryption: const RefImageEncryption.none(),
             ): const SecStorageError.fs(
               error: FsError.io(),
             ),

@@ -57,7 +57,7 @@ void main() {
       final info = RefImageInfo(
         id: '1',
         dateAdded: DateTime.now(),
-        encryptSalt: 'salt',
+        encryption: const RefImageEncryption.none(),
       );
 
       when(
@@ -85,7 +85,7 @@ void main() {
       final info = RefImageInfo(
         id: '1',
         dateAdded: DateTime.now(),
-        encryptSalt: 'salt',
+        encryption: const RefImageEncryption.none(),
       );
       final expectedPath = path.join(imagesDir, info.id);
 
@@ -102,7 +102,7 @@ void main() {
       final info = RefImageInfo(
         id: '1',
         dateAdded: DateTime.now(),
-        encryptSalt: 'salt',
+        encryption: const RefImageEncryption.none(),
       );
 
       when(
@@ -120,7 +120,7 @@ void main() {
       final info = RefImageInfo(
         id: '1',
         dateAdded: DateTime.now(),
-        encryptSalt: 'salt',
+        encryption: const RefImageEncryption.none(),
       );
 
       when(

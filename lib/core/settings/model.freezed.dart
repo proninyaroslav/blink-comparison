@@ -676,3 +676,180 @@ abstract class ShowcaseTypeBlinkComparison implements ShowcaseType {
   factory ShowcaseTypeBlinkComparison.fromJson(Map<String, dynamic> json) =
       _$ShowcaseTypeBlinkComparisonImpl.fromJson;
 }
+
+EncryptionPreference _$EncryptionPreferenceFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType']) {
+    case 'none':
+      return EncryptionPreferenceNone.fromJson(json);
+    case 'password':
+      return EncryptionPreferencePassword.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(
+          json,
+          'runtimeType',
+          'EncryptionPreference',
+          'Invalid union type "${json['runtimeType']}"!');
+  }
+}
+
+/// @nodoc
+mixin _$EncryptionPreference {
+  /// Serializes this EncryptionPreference to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $EncryptionPreferenceCopyWith<$Res> {
+  factory $EncryptionPreferenceCopyWith(EncryptionPreference value,
+          $Res Function(EncryptionPreference) then) =
+      _$EncryptionPreferenceCopyWithImpl<$Res, EncryptionPreference>;
+}
+
+/// @nodoc
+class _$EncryptionPreferenceCopyWithImpl<$Res,
+        $Val extends EncryptionPreference>
+    implements $EncryptionPreferenceCopyWith<$Res> {
+  _$EncryptionPreferenceCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of EncryptionPreference
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+abstract class _$$EncryptionPreferenceNoneImplCopyWith<$Res> {
+  factory _$$EncryptionPreferenceNoneImplCopyWith(
+          _$EncryptionPreferenceNoneImpl value,
+          $Res Function(_$EncryptionPreferenceNoneImpl) then) =
+      __$$EncryptionPreferenceNoneImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$EncryptionPreferenceNoneImplCopyWithImpl<$Res>
+    extends _$EncryptionPreferenceCopyWithImpl<$Res,
+        _$EncryptionPreferenceNoneImpl>
+    implements _$$EncryptionPreferenceNoneImplCopyWith<$Res> {
+  __$$EncryptionPreferenceNoneImplCopyWithImpl(
+      _$EncryptionPreferenceNoneImpl _value,
+      $Res Function(_$EncryptionPreferenceNoneImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of EncryptionPreference
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$EncryptionPreferenceNoneImpl implements EncryptionPreferenceNone {
+  const _$EncryptionPreferenceNoneImpl({final String? $type})
+      : $type = $type ?? 'none';
+
+  factory _$EncryptionPreferenceNoneImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EncryptionPreferenceNoneImplFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'EncryptionPreference.none()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$EncryptionPreferenceNoneImpl);
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$EncryptionPreferenceNoneImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class EncryptionPreferenceNone implements EncryptionPreference {
+  const factory EncryptionPreferenceNone() = _$EncryptionPreferenceNoneImpl;
+
+  factory EncryptionPreferenceNone.fromJson(Map<String, dynamic> json) =
+      _$EncryptionPreferenceNoneImpl.fromJson;
+}
+
+/// @nodoc
+abstract class _$$EncryptionPreferencePasswordImplCopyWith<$Res> {
+  factory _$$EncryptionPreferencePasswordImplCopyWith(
+          _$EncryptionPreferencePasswordImpl value,
+          $Res Function(_$EncryptionPreferencePasswordImpl) then) =
+      __$$EncryptionPreferencePasswordImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$EncryptionPreferencePasswordImplCopyWithImpl<$Res>
+    extends _$EncryptionPreferenceCopyWithImpl<$Res,
+        _$EncryptionPreferencePasswordImpl>
+    implements _$$EncryptionPreferencePasswordImplCopyWith<$Res> {
+  __$$EncryptionPreferencePasswordImplCopyWithImpl(
+      _$EncryptionPreferencePasswordImpl _value,
+      $Res Function(_$EncryptionPreferencePasswordImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of EncryptionPreference
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$EncryptionPreferencePasswordImpl
+    implements EncryptionPreferencePassword {
+  const _$EncryptionPreferencePasswordImpl({final String? $type})
+      : $type = $type ?? 'password';
+
+  factory _$EncryptionPreferencePasswordImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$EncryptionPreferencePasswordImplFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'EncryptionPreference.password()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$EncryptionPreferencePasswordImpl);
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$EncryptionPreferencePasswordImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class EncryptionPreferencePassword implements EncryptionPreference {
+  const factory EncryptionPreferencePassword() =
+      _$EncryptionPreferencePasswordImpl;
+
+  factory EncryptionPreferencePassword.fromJson(Map<String, dynamic> json) =
+      _$EncryptionPreferencePasswordImpl.fromJson;
+}

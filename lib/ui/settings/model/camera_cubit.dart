@@ -19,14 +19,10 @@ import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/ui/settings/model/camera_state.dart';
 import 'package:bloc/bloc.dart';
 
-import '../../model/app_cubit.dart';
-
 class CameraSettingsCubit extends Cubit<CameraState> {
   final AppSettings _pref;
-  final AppCubit _appCubit;
 
-  CameraSettingsCubit(this._pref, this._appCubit)
-      : super(const CameraState.initial());
+  CameraSettingsCubit(this._pref) : super(const CameraState.initial());
 
   Future<void> load() async {
     emit(CameraState.loaded(
@@ -49,7 +45,6 @@ class CameraSettingsCubit extends Cubit<CameraState> {
   Future<void> setFullscreenMode(bool enable) async {
     if (state case CameraState(:final info?)) {
       await _pref.setCameraFullscreenMode(enable);
-      _appCubit.setCameraFullscreenMode(enable);
       emit(CameraState.fullscreenModeChanged(
         info.copyWith(fullscreenMode: enable),
       ));

@@ -25,8 +25,11 @@ sealed class SettingsRouteItem with _$SettingsRouteItem {
 
   const factory SettingsRouteItem.camera() = SettingsRouteItemCamera;
 
+  const factory SettingsRouteItem.behavior() = SettingsRouteItemBehavior;
+
   static const List<SettingsRouteItem> all = [
     SettingsRouteItem.appearance(),
+    SettingsRouteItem.behavior(),
     SettingsRouteItem.camera(),
   ];
 }

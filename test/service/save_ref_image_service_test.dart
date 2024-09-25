@@ -89,7 +89,7 @@ void main() {
         info: RefImageInfo(
           id: '1',
           dateAdded: DateTime(2021),
-          encryptSalt: 'salt',
+          encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
         ),
         srcFile: XFile(srcFile.path),
       );
@@ -106,11 +106,46 @@ void main() {
       verify(() => mockKey.dispose()).called(1);
     });
 
+    test('Save without auth factor', () async {
+      final request = ServiceRequest(
+        info: RefImageInfo(
+          id: '1',
+          dateAdded: DateTime(2021),
+          encryption: const RefImageEncryption.none(),
+        ),
+        srcFile: XFile(srcFile.path),
+      );
+      when(() => mockAppSecureKeyRepository.get()).thenReturn(null);
+      when(
+        () => mockJobController.pushQueue(request, factor: null),
+      ).thenAnswer((_) async => {});
+
+      await service.save(
+        info: request.info,
+        srcImage: request.srcFile,
+      );
+      verify(() => mockJobController.pushQueue(request, factor: null))
+          .called(1);
+      verifyNever(() => mockKey.dispose());
+    });
+
     test('Get current status', () async {
       final infoList = [
-        RefImageInfo(id: '1', dateAdded: DateTime(2021), encryptSalt: 'salt'),
-        RefImageInfo(id: '2', dateAdded: DateTime(2021), encryptSalt: 'salt'),
-        RefImageInfo(id: '3', dateAdded: DateTime(2021), encryptSalt: 'salt'),
+        RefImageInfo(
+          id: '1',
+          dateAdded: DateTime(2021),
+          encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
+        ),
+        RefImageInfo(
+          id: '2',
+          dateAdded: DateTime(2021),
+          encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
+        ),
+        RefImageInfo(
+          id: '3',
+          dateAdded: DateTime(2021),
+          encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
+        ),
       ];
       final expectedStatusList = infoList.map(
         (info) => SaveRefImageStatus.inProgress(imageId: info.id),
@@ -124,9 +159,21 @@ void main() {
 
     test('Observe status', () async {
       final infoList = [
-        RefImageInfo(id: '1', dateAdded: DateTime(2021), encryptSalt: 'salt'),
-        RefImageInfo(id: '2', dateAdded: DateTime(2021), encryptSalt: 'salt'),
-        RefImageInfo(id: '3', dateAdded: DateTime(2021), encryptSalt: 'salt'),
+        RefImageInfo(
+          id: '1',
+          dateAdded: DateTime(2021),
+          encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
+        ),
+        RefImageInfo(
+          id: '2',
+          dateAdded: DateTime(2021),
+          encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
+        ),
+        RefImageInfo(
+          id: '3',
+          dateAdded: DateTime(2021),
+          encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
+        ),
       ];
       final inProgress = infoList
           .map(
@@ -203,7 +250,8 @@ void main() {
               info: RefImageInfo(
                 id: '1',
                 dateAdded: DateTime(2021),
-                encryptSalt: 'salt',
+                encryption:
+                    const RefImageEncryption.password(encryptSalt: 'salt'),
               ),
               srcFile: XFile(srcFile.path),
             ),
@@ -214,7 +262,8 @@ void main() {
               info: RefImageInfo(
                 id: '2',
                 dateAdded: DateTime(2021),
-                encryptSalt: 'salt',
+                encryption:
+                    const RefImageEncryption.password(encryptSalt: 'salt'),
               ),
               srcFile: XFile(srcFile.path),
             ),
@@ -225,7 +274,8 @@ void main() {
               info: RefImageInfo(
                 id: '2',
                 dateAdded: DateTime(2021),
-                encryptSalt: 'salt',
+                encryption:
+                    const RefImageEncryption.password(encryptSalt: 'salt'),
               ),
               srcFile: XFile(srcFile.path),
             ),
@@ -241,7 +291,7 @@ void main() {
             () => mockSaveJob.run(
               info: request.info,
               file: request.srcFile,
-              key: mockKeyImmutable,
+              factor: mockKeyImmutable,
             ),
           ).thenAnswer((_) async => const SaveRefImageResult.success());
           when(
@@ -283,7 +333,7 @@ void main() {
           info: RefImageInfo(
             id: '1',
             dateAdded: DateTime(2021),
-            encryptSalt: 'salt',
+            encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
           ),
           srcFile: XFile(srcFile.path),
         );
@@ -307,7 +357,7 @@ void main() {
           () => mockSaveJob.run(
             info: request.info,
             file: request.srcFile,
-            key: mockKeyImmutable,
+            factor: mockKeyImmutable,
           ),
         ).thenAnswer(
           (_) async => SaveRefImageResult.error(
@@ -336,7 +386,7 @@ void main() {
           info: RefImageInfo(
             id: '1',
             dateAdded: DateTime(2021),
-            encryptSalt: 'salt',
+            encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
           ),
           srcFile: XFile(srcFile.path),
         );
@@ -357,7 +407,7 @@ void main() {
           () => mockSaveJob.run(
             info: request.info,
             file: request.srcFile,
-            key: mockKeyImmutable,
+            factor: mockKeyImmutable,
           ),
         ).thenAnswer((_) async => const SaveRefImageResult.success());
         when(
@@ -388,7 +438,7 @@ void main() {
           info: RefImageInfo(
             id: '1',
             dateAdded: DateTime(2021),
-            encryptSalt: 'salt',
+            encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
           ),
           srcFile: XFile(srcFile.path),
         );
@@ -410,7 +460,7 @@ void main() {
           () => mockSaveJob.run(
             info: request.info,
             file: request.srcFile,
-            key: mockKeyImmutable,
+            factor: mockKeyImmutable,
           ),
         ).thenAnswer((_) async => const SaveRefImageResult.success());
         when(
@@ -476,7 +526,8 @@ void main() {
             info: RefImageInfo(
               id: '1',
               dateAdded: DateTime(2021),
-              encryptSalt: 'salt',
+              encryption:
+                  const RefImageEncryption.password(encryptSalt: 'salt'),
             ),
             srcFile: XFile(srcFile.path),
           ),
@@ -505,7 +556,7 @@ void main() {
           info: RefImageInfo(
             id: '1',
             dateAdded: DateTime(2021),
-            encryptSalt: 'salt',
+            encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
           ),
           srcFile: XFile(srcFile.path),
         );
@@ -542,7 +593,7 @@ void main() {
           info: RefImageInfo(
             id: '1',
             dateAdded: DateTime(2021),
-            encryptSalt: 'salt',
+            encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
           ),
           srcFile: XFile(srcFile.path),
         );
@@ -564,7 +615,7 @@ void main() {
           info: RefImageInfo(
             id: '1',
             dateAdded: DateTime(2021),
-            encryptSalt: 'salt',
+            encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
           ),
           srcFile: XFile(srcFile.path),
         );

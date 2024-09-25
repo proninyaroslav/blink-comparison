@@ -16,12 +16,12 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:blink_comparison/core/platform_info.dart';
+import 'package:blink_comparison/core/settings/shared_pref_listenable.dart';
 import 'package:blink_comparison/core/thumbnailer.dart';
 import 'package:file/file.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path/path.dart' as path;
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../logger.dart';
 
@@ -31,8 +31,9 @@ const _dirName = "thumbnails";
 
 @freezed
 sealed class ThumbnailsMigratorResult with _$ThumbnailsMigratorResult {
-  factory ThumbnailsMigratorResult.success() = ThumbnailsMigratorResultSuccess;
-  factory ThumbnailsMigratorResult.someFailed(
+  const factory ThumbnailsMigratorResult.success() =
+      ThumbnailsMigratorResultSuccess;
+  const factory ThumbnailsMigratorResult.someFailed(
     List<(Exception, StackTrace)> errors,
   ) = ThumbnailsMigratorResultSomeFailed;
 }
@@ -44,7 +45,7 @@ class ThumbnailsMigrator {
   final PlatformInfo _platform;
   final FileSystem _fs;
   final Thumbnailer _thumbnailer;
-  final SharedPreferencesAsync _pref;
+  final SharedPreferencesAsyncListenable _pref;
 
   ThumbnailsMigrator(this._platform, this._fs, this._thumbnailer, this._pref);
 
@@ -52,7 +53,7 @@ class ThumbnailsMigrator {
 
   Future<ThumbnailsMigratorResult> migrate() async {
     if (await didMigrate ?? false) {
-      return ThumbnailsMigratorResult.success();
+      return const ThumbnailsMigratorResult.success();
     }
     List<(Exception, StackTrace)> errors = [];
     int migrateCount = 0;
@@ -76,7 +77,7 @@ class ThumbnailsMigrator {
       log().i('[ThumbnailMigrator] Migration completed');
     }
     if (errors.isEmpty) {
-      return ThumbnailsMigratorResult.success();
+      return const ThumbnailsMigratorResult.success();
     } else {
       return ThumbnailsMigratorResult.someFailed(errors);
     }

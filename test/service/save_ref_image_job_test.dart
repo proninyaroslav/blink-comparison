@@ -55,7 +55,7 @@ void main() {
       final info = RefImageInfo(
         id: '1',
         dateAdded: DateTime(2021),
-        encryptSalt: 'salt',
+        encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
       );
 
       when(() => mockEncryptProvider.getByKey(factorImmutable))
@@ -68,10 +68,49 @@ void main() {
       ).thenAnswer((_) async => FsResult.empty);
 
       expect(
-        await job.run(info: info, file: srcFile, key: factorImmutable),
+        await job.run(info: info, file: srcFile, factor: factorImmutable),
         const SaveRefImageResult.success(),
       );
       verify(() => mockImageFs.save(info, encBytes)).called(1);
+    });
+
+    test('Save withot encryption', () async {
+      final srcBytes = Uint8List.fromList(List.generate(256, (index) => index));
+      final srcFile = XFile.fromData(srcBytes);
+      final info = RefImageInfo(
+        id: '1',
+        dateAdded: DateTime(2021),
+        encryption: const RefImageEncryption.none(),
+      );
+
+      when(
+        () => mockImageFs.save(info, srcBytes),
+      ).thenAnswer((_) async => FsResult.empty);
+
+      expect(
+        await job.run(info: info, file: srcFile, factor: null),
+        const SaveRefImageResult.success(),
+      );
+      verify(() => mockImageFs.save(info, srcBytes)).called(1);
+    });
+
+    test('No secure key error', () async {
+      final srcBytes = Uint8List.fromList(List.generate(256, (index) => index));
+      final srcFile = XFile.fromData(srcBytes);
+      final info = RefImageInfo(
+        id: '1',
+        dateAdded: DateTime(2021),
+        encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
+      );
+
+      expect(
+        await job.run(info: info, file: srcFile, factor: null),
+        const SaveRefImageResult.error(
+          SaveRefImageError.encrypt(
+            error: EncryptError.noSecureKey(),
+          ),
+        ),
+      );
     });
 
     test('Encrypt error', () async {
@@ -80,7 +119,7 @@ void main() {
       final info = RefImageInfo(
         id: '1',
         dateAdded: DateTime(2021),
-        encryptSalt: 'salt',
+        encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
       );
 
       when(() => mockEncryptProvider.getByKey(factorImmutable))
@@ -91,7 +130,7 @@ void main() {
           (_) async => const EncryptResult.fail(EncryptError.exception()));
 
       expect(
-        await job.run(info: info, file: srcFile, key: factorImmutable),
+        await job.run(info: info, file: srcFile, factor: factorImmutable),
         const SaveRefImageResult.error(
           SaveRefImageError.encrypt(
             error: EncryptError.exception(),
@@ -107,7 +146,7 @@ void main() {
       final info = RefImageInfo(
         id: '1',
         dateAdded: DateTime(2021),
-        encryptSalt: 'salt',
+        encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
       );
 
       when(() => mockEncryptProvider.getByKey(factorImmutable))
@@ -122,7 +161,7 @@ void main() {
       );
 
       expect(
-        await job.run(info: info, file: srcFile, key: factorImmutable),
+        await job.run(info: info, file: srcFile, factor: factorImmutable),
         SaveRefImageResult.error(
           SaveRefImageError.fs(
             path: srcFile.path,

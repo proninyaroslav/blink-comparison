@@ -90,5 +90,11 @@
   "aboutApp": "About",
   "changelog": "Changelog",
   "settingsCameraFullscreenMode": "Fullscreen mode",
-  "authorizeFailedException": "Exception during authorization"
+  "authorizeFailedException": "Exception during authorization",
+  "enableEncryptPromt": "Do you want to encrypt your images? This requires setting a password for extra security",
+  "enableEncryptPositiveAnswer": "Yes, set a password",
+  "settingsBehavior": "Behavior",
+  "encryptionPreferenceTitle": "Image encryption",
+  "encryptionPreferenceNone": "None",
+  "encryptionPreferencePassword": "Password"
 }

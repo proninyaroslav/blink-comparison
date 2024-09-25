@@ -65,7 +65,7 @@ class __$$ThumbnailsMigratorResultSuccessImplCopyWithImpl<$Res>
 
 class _$ThumbnailsMigratorResultSuccessImpl
     implements ThumbnailsMigratorResultSuccess {
-  _$ThumbnailsMigratorResultSuccessImpl();
+  const _$ThumbnailsMigratorResultSuccessImpl();
 
   @override
   String toString() {
@@ -85,7 +85,7 @@ class _$ThumbnailsMigratorResultSuccessImpl
 
 abstract class ThumbnailsMigratorResultSuccess
     implements ThumbnailsMigratorResult {
-  factory ThumbnailsMigratorResultSuccess() =
+  const factory ThumbnailsMigratorResultSuccess() =
       _$ThumbnailsMigratorResultSuccessImpl;
 }
 
@@ -129,7 +129,7 @@ class __$$ThumbnailsMigratorResultSomeFailedImplCopyWithImpl<$Res>
 
 class _$ThumbnailsMigratorResultSomeFailedImpl
     implements ThumbnailsMigratorResultSomeFailed {
-  _$ThumbnailsMigratorResultSomeFailedImpl(
+  const _$ThumbnailsMigratorResultSomeFailedImpl(
       final List<(Exception, StackTrace)> errors)
       : _errors = errors;
 
@@ -171,7 +171,7 @@ class _$ThumbnailsMigratorResultSomeFailedImpl
 
 abstract class ThumbnailsMigratorResultSomeFailed
     implements ThumbnailsMigratorResult {
-  factory ThumbnailsMigratorResultSomeFailed(
+  const factory ThumbnailsMigratorResultSomeFailed(
           final List<(Exception, StackTrace)> errors) =
       _$ThumbnailsMigratorResultSomeFailedImpl;
 

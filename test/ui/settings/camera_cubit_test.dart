@@ -16,7 +16,6 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:blink_comparison/core/settings/app_settings.dart';
-import 'package:blink_comparison/ui/model/app_cubit.dart';
 import 'package:blink_comparison/ui/settings/model/camera_cubit.dart';
 import 'package:blink_comparison/ui/settings/model/camera_state.dart';
 import 'package:bloc_test/bloc_test.dart';
@@ -24,23 +23,20 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../mock/settings/mock_settings.dart';
-import '../../mock/ui/mock_app_cubit.dart';
 
 void main() {
   group('CameraSettingsCubit |', () {
     late CameraSettingsCubit cubit;
     late AppSettings mockPref;
-    late AppCubit mockAppCubit;
 
     setUpAll(() {
       mockPref = MockAppSettings();
-      mockAppCubit = MockAppCubit();
     });
 
     setUp(() async {
       when(() => mockPref.enableFlashByDefault).thenAnswer((_) async => true);
       when(() => mockPref.cameraFullscreenMode).thenAnswer((_) async => true);
-      cubit = CameraSettingsCubit(mockPref, mockAppCubit);
+      cubit = CameraSettingsCubit(mockPref);
       await cubit.load();
     });
 
@@ -88,11 +84,9 @@ void main() {
 
         await cubit.setFullscreenMode(false);
         verify(() => mockPref.setCameraFullscreenMode(false)).called(1);
-        verify(() => mockAppCubit.setCameraFullscreenMode(false)).called(1);
 
         await cubit.setFullscreenMode(true);
         verify(() => mockPref.setCameraFullscreenMode(true)).called(1);
-        verify(() => mockAppCubit.setCameraFullscreenMode(true)).called(1);
       },
       expect: () => [
         const CameraState.fullscreenModeChanged(

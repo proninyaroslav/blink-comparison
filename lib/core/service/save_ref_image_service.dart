@@ -81,14 +81,7 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
     required RefImageInfo info,
     required XFile srcImage,
   }) async {
-    final factor = _factorRepo.get();
-    if (factor == null) {
-      throw Exception('Authorization factor not found');
-    }
-    final mutableFactor = factor.copy();
-    if (mutableFactor == null) {
-      throw Exception('Authorization factor not found');
-    }
+    final mutableFactor = _factorRepo.get()?.copy();
     try {
       final saveInfo = ServiceRequest(
         info: info,
@@ -97,7 +90,7 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
       await _jobController.pushQueue(saveInfo, factor: mutableFactor);
     } finally {
       try {
-        mutableFactor.dispose();
+        mutableFactor?.dispose();
       } catch (e, stackTrace) {
         log().e('Unable to clear key', error: e, stackTrace: stackTrace);
       }
@@ -150,9 +143,6 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
         final ServiceQueueItem(:request, :factor) = item;
         try {
           ++jobsCount;
-          if (factor == null) {
-            throw Exception('Authorization factor not found');
-          }
           final file = _fs.file(request.srcFile.path);
           if (!file.existsSync()) {
             log().d('[Save image] ${file.path} not found');
@@ -161,7 +151,7 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
           final saveResult = await _saveJob.run(
             info: request.info,
             file: request.srcFile,
-            key: factor.toImmutable(),
+            factor: factor?.toImmutable(),
           );
           switch (saveResult) {
             case SaveRefImageResultSuccess():
@@ -375,7 +365,7 @@ sealed class ServiceError with _$ServiceError {
 
 @freezed
 class ServiceQueueItem with _$ServiceQueueItem {
-  factory ServiceQueueItem({
+  const factory ServiceQueueItem({
     // ignore: invalid_annotation_target
     @JsonKey(name: 'request') required ServiceRequest request,
     // ignore: invalid_annotation_target

@@ -16,11 +16,12 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:blink_comparison/locale.dart';
-import 'package:blink_comparison/ui/auth/model/auth_cubit.dart';
-import 'package:blink_comparison/ui/auth/model/auth_state.dart';
+import 'package:blink_comparison/ui/auth/model/sign_in_cubit.dart';
 import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../model/sign_in_state.dart';
 
 class SignInButton extends StatelessWidget {
   final TextEditingController passwordFieldController;
@@ -32,7 +33,7 @@ class SignInButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AuthCubit, AuthState>(
+    return BlocBuilder<SignInCubit, SignInState>(
       builder: (context, state) {
         return FilledButton(
           key: const ValueKey('sign_in_button'),
@@ -42,7 +43,9 @@ class SignInButton extends StatelessWidget {
             passwordFieldController,
           ),
           child: switch (state) {
-            AuthStateAuthInProgress() => ProgressButton(
+            SignInStateAuthInProgress() ||
+            SignInStateAuthSuccess() =>
+              ProgressButton(
                 color: Theme.of(context).colorScheme.onPrimaryContainer,
               ),
             _ => Text(S.of(context).signIn),
@@ -55,12 +58,12 @@ class SignInButton extends StatelessWidget {
 
 VoidCallback? _handleSubmitCallbackState(
   BuildContext context,
-  AuthState state,
+  SignInState state,
   TextEditingController passwordFieldController,
 ) {
   return switch (state) {
-    AuthStatePasswordLoaded() ||
-    AuthStateAuthFailed() =>
+    SignInStatePasswordLoaded() ||
+    SignInStateAuthFailed() =>
       _auth(context, passwordFieldController),
     _ => null,
   };
@@ -72,7 +75,7 @@ VoidCallback _auth(
 ) {
   void doAuth() {
     FocusScope.of(context).unfocus();
-    context.read<AuthCubit>().auth(passwordFieldController.text);
+    context.read<SignInCubit>().auth(passwordFieldController.text);
   }
 
   return doAuth;

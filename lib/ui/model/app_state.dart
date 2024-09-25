@@ -41,4 +41,11 @@ sealed class AppState with _$AppState {
     required AppLocaleType locale,
     required bool cameraFullscreenMode,
   }) = AppStateChanged;
+
+  const factory AppState.encryptPreferenceChanged({
+    required AppThemeType theme,
+    required AppLocaleType locale,
+    required bool cameraFullscreenMode,
+    required EncryptionPreference? encrypt,
+  }) = AppStateEncryptPreferenceChanged;
 }

@@ -18,6 +18,7 @@
 import 'dart:ui';
 
 import 'package:blink_comparison/core/settings/app_settings.dart';
+import 'package:blink_comparison/core/settings/shared_pref_listenable.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 // ignore: depend_on_referenced_packages
@@ -29,19 +30,30 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('Application settings |', () {
-    late SharedPreferencesAsync sharedPref;
+    late SharedPreferencesAsyncListenable sharedPref;
+    late SharedPreferencesWithCacheListenable sharedPrefWithCache;
     late AppSettings pref;
 
     setUpAll(() async {
       SharedPreferencesAsyncPlatform.instance =
           InMemorySharedPreferencesAsync.empty();
 
-      sharedPref = SharedPreferencesAsync();
-      pref = AppSettingsImpl(sharedPref);
+      sharedPref = SharedPreferencesAsyncListenable();
+      sharedPrefWithCache = await SharedPreferencesWithCacheListenable.create(
+        cacheOptions: const SharedPreferencesWithCacheOptions(
+          allowList: {AppSettingsKey.encryptionPreference},
+        ),
+      );
+      pref = AppSettingsImpl(sharedPref, sharedPrefWithCache);
     });
 
     tearDown(() {
       sharedPref.clear();
+    });
+
+    test('Listen key changed', () async {
+      expectLater(pref.changePrefStream(), emits(AppSettingsKey.theme));
+      await pref.setTheme(const AppThemeType.light());
     });
 
     test('Opacity of the reference image overlay', () async {

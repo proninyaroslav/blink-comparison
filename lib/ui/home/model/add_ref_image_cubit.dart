@@ -16,6 +16,7 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:blink_comparison/core/entity/entity.dart';
+import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/core/storage/ref_image_repository.dart';
 import 'package:blink_comparison/core/storage/storage_result.dart';
 import 'package:blink_comparison/ui/home/model/add_ref_image_state.dart';
@@ -24,15 +25,22 @@ import 'package:image_picker/image_picker.dart';
 
 class AddRefImageCubit extends Cubit<AddRefImageState> {
   final RefImageRepository _refRepo;
+  final AppSettings _pref;
 
-  AddRefImageCubit(this._refRepo) : super(const AddRefImageState.initial());
+  AddRefImageCubit(
+    this._refRepo,
+    this._pref,
+  ) : super(const AddRefImageState.initial());
 
   Future<void> addImages(List<XFile> files) async {
     emit(const AddRefImageState.addingImages());
     final successList = <RefImageInfo>[];
     final failedList = <AddRefImageError>[];
     for (final file in files) {
-      final res = await _refRepo.addFromFile(file);
+      final res = await _refRepo.addFromFile(
+        file,
+        encryption: _pref.encryptionPreferenceSync,
+      );
       switch (res) {
         case SecStorageResultSuccess(:final value):
           successList.add(value);

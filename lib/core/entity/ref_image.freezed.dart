@@ -23,9 +23,7 @@ mixin _$RefImageInfo {
   String get id => throw _privateConstructorUsedError;
   @DateTimeEpochConverter()
   DateTime get dateAdded => throw _privateConstructorUsedError;
-
-  /// HEX-encoded salt.
-  String get encryptSalt => throw _privateConstructorUsedError;
+  RefImageEncryption get encryption => throw _privateConstructorUsedError;
 
   /// Serializes this RefImageInfo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,7 +44,9 @@ abstract class $RefImageInfoCopyWith<$Res> {
   $Res call(
       {String id,
       @DateTimeEpochConverter() DateTime dateAdded,
-      String encryptSalt});
+      RefImageEncryption encryption});
+
+  $RefImageEncryptionCopyWith<$Res> get encryption;
 }
 
 /// @nodoc
@@ -66,7 +66,7 @@ class _$RefImageInfoCopyWithImpl<$Res, $Val extends RefImageInfo>
   $Res call({
     Object? id = null,
     Object? dateAdded = null,
-    Object? encryptSalt = null,
+    Object? encryption = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -77,11 +77,21 @@ class _$RefImageInfoCopyWithImpl<$Res, $Val extends RefImageInfo>
           ? _value.dateAdded
           : dateAdded // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      encryptSalt: null == encryptSalt
-          ? _value.encryptSalt
-          : encryptSalt // ignore: cast_nullable_to_non_nullable
-              as String,
+      encryption: null == encryption
+          ? _value.encryption
+          : encryption // ignore: cast_nullable_to_non_nullable
+              as RefImageEncryption,
     ) as $Val);
+  }
+
+  /// Create a copy of RefImageInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $RefImageEncryptionCopyWith<$Res> get encryption {
+    return $RefImageEncryptionCopyWith<$Res>(_value.encryption, (value) {
+      return _then(_value.copyWith(encryption: value) as $Val);
+    });
   }
 }
 
@@ -96,7 +106,10 @@ abstract class _$$RefImageInfoImplCopyWith<$Res>
   $Res call(
       {String id,
       @DateTimeEpochConverter() DateTime dateAdded,
-      String encryptSalt});
+      RefImageEncryption encryption});
+
+  @override
+  $RefImageEncryptionCopyWith<$Res> get encryption;
 }
 
 /// @nodoc
@@ -114,7 +127,7 @@ class __$$RefImageInfoImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? dateAdded = null,
-    Object? encryptSalt = null,
+    Object? encryption = null,
   }) {
     return _then(_$RefImageInfoImpl(
       id: null == id
@@ -125,10 +138,10 @@ class __$$RefImageInfoImplCopyWithImpl<$Res>
           ? _value.dateAdded
           : dateAdded // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      encryptSalt: null == encryptSalt
-          ? _value.encryptSalt
-          : encryptSalt // ignore: cast_nullable_to_non_nullable
-              as String,
+      encryption: null == encryption
+          ? _value.encryption
+          : encryption // ignore: cast_nullable_to_non_nullable
+              as RefImageEncryption,
     ));
   }
 }
@@ -139,7 +152,7 @@ class _$RefImageInfoImpl implements _RefImageInfo {
   const _$RefImageInfoImpl(
       {required this.id,
       @DateTimeEpochConverter() required this.dateAdded,
-      required this.encryptSalt});
+      required this.encryption});
 
   factory _$RefImageInfoImpl.fromJson(Map<String, dynamic> json) =>
       _$$RefImageInfoImplFromJson(json);
@@ -149,14 +162,12 @@ class _$RefImageInfoImpl implements _RefImageInfo {
   @override
   @DateTimeEpochConverter()
   final DateTime dateAdded;
-
-  /// HEX-encoded salt.
   @override
-  final String encryptSalt;
+  final RefImageEncryption encryption;
 
   @override
   String toString() {
-    return 'RefImageInfo(id: $id, dateAdded: $dateAdded, encryptSalt: $encryptSalt)';
+    return 'RefImageInfo(id: $id, dateAdded: $dateAdded, encryption: $encryption)';
   }
 
   @override
@@ -167,13 +178,13 @@ class _$RefImageInfoImpl implements _RefImageInfo {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.dateAdded, dateAdded) ||
                 other.dateAdded == dateAdded) &&
-            (identical(other.encryptSalt, encryptSalt) ||
-                other.encryptSalt == encryptSalt));
+            (identical(other.encryption, encryption) ||
+                other.encryption == encryption));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, dateAdded, encryptSalt);
+  int get hashCode => Object.hash(runtimeType, id, dateAdded, encryption);
 
   /// Create a copy of RefImageInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -195,7 +206,7 @@ abstract class _RefImageInfo implements RefImageInfo {
   const factory _RefImageInfo(
       {required final String id,
       @DateTimeEpochConverter() required final DateTime dateAdded,
-      required final String encryptSalt}) = _$RefImageInfoImpl;
+      required final RefImageEncryption encryption}) = _$RefImageInfoImpl;
 
   factory _RefImageInfo.fromJson(Map<String, dynamic> json) =
       _$RefImageInfoImpl.fromJson;
@@ -205,10 +216,8 @@ abstract class _RefImageInfo implements RefImageInfo {
   @override
   @DateTimeEpochConverter()
   DateTime get dateAdded;
-
-  /// HEX-encoded salt.
   @override
-  String get encryptSalt;
+  RefImageEncryption get encryption;
 
   /// Create a copy of RefImageInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -377,4 +386,214 @@ abstract class _RefImage implements RefImage {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RefImageImplCopyWith<_$RefImageImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+RefImageEncryption _$RefImageEncryptionFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType']) {
+    case 'none':
+      return RefImageEncryptionNone.fromJson(json);
+    case 'password':
+      return RefImageEncryptionPassword.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(json, 'runtimeType', 'RefImageEncryption',
+          'Invalid union type "${json['runtimeType']}"!');
+  }
+}
+
+/// @nodoc
+mixin _$RefImageEncryption {
+  /// Serializes this RefImageEncryption to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $RefImageEncryptionCopyWith<$Res> {
+  factory $RefImageEncryptionCopyWith(
+          RefImageEncryption value, $Res Function(RefImageEncryption) then) =
+      _$RefImageEncryptionCopyWithImpl<$Res, RefImageEncryption>;
+}
+
+/// @nodoc
+class _$RefImageEncryptionCopyWithImpl<$Res, $Val extends RefImageEncryption>
+    implements $RefImageEncryptionCopyWith<$Res> {
+  _$RefImageEncryptionCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of RefImageEncryption
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+abstract class _$$RefImageEncryptionNoneImplCopyWith<$Res> {
+  factory _$$RefImageEncryptionNoneImplCopyWith(
+          _$RefImageEncryptionNoneImpl value,
+          $Res Function(_$RefImageEncryptionNoneImpl) then) =
+      __$$RefImageEncryptionNoneImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RefImageEncryptionNoneImplCopyWithImpl<$Res>
+    extends _$RefImageEncryptionCopyWithImpl<$Res, _$RefImageEncryptionNoneImpl>
+    implements _$$RefImageEncryptionNoneImplCopyWith<$Res> {
+  __$$RefImageEncryptionNoneImplCopyWithImpl(
+      _$RefImageEncryptionNoneImpl _value,
+      $Res Function(_$RefImageEncryptionNoneImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of RefImageEncryption
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$RefImageEncryptionNoneImpl implements RefImageEncryptionNone {
+  const _$RefImageEncryptionNoneImpl({final String? $type})
+      : $type = $type ?? 'none';
+
+  factory _$RefImageEncryptionNoneImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RefImageEncryptionNoneImplFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'RefImageEncryption.none()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RefImageEncryptionNoneImpl);
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$RefImageEncryptionNoneImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class RefImageEncryptionNone implements RefImageEncryption {
+  const factory RefImageEncryptionNone() = _$RefImageEncryptionNoneImpl;
+
+  factory RefImageEncryptionNone.fromJson(Map<String, dynamic> json) =
+      _$RefImageEncryptionNoneImpl.fromJson;
+}
+
+/// @nodoc
+abstract class _$$RefImageEncryptionPasswordImplCopyWith<$Res> {
+  factory _$$RefImageEncryptionPasswordImplCopyWith(
+          _$RefImageEncryptionPasswordImpl value,
+          $Res Function(_$RefImageEncryptionPasswordImpl) then) =
+      __$$RefImageEncryptionPasswordImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String encryptSalt});
+}
+
+/// @nodoc
+class __$$RefImageEncryptionPasswordImplCopyWithImpl<$Res>
+    extends _$RefImageEncryptionCopyWithImpl<$Res,
+        _$RefImageEncryptionPasswordImpl>
+    implements _$$RefImageEncryptionPasswordImplCopyWith<$Res> {
+  __$$RefImageEncryptionPasswordImplCopyWithImpl(
+      _$RefImageEncryptionPasswordImpl _value,
+      $Res Function(_$RefImageEncryptionPasswordImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of RefImageEncryption
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? encryptSalt = null,
+  }) {
+    return _then(_$RefImageEncryptionPasswordImpl(
+      encryptSalt: null == encryptSalt
+          ? _value.encryptSalt
+          : encryptSalt // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$RefImageEncryptionPasswordImpl implements RefImageEncryptionPassword {
+  const _$RefImageEncryptionPasswordImpl(
+      {required this.encryptSalt, final String? $type})
+      : $type = $type ?? 'password';
+
+  factory _$RefImageEncryptionPasswordImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$RefImageEncryptionPasswordImplFromJson(json);
+
+  /// HEX-encoded salt.
+  @override
+  final String encryptSalt;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'RefImageEncryption.password(encryptSalt: $encryptSalt)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RefImageEncryptionPasswordImpl &&
+            (identical(other.encryptSalt, encryptSalt) ||
+                other.encryptSalt == encryptSalt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, encryptSalt);
+
+  /// Create a copy of RefImageEncryption
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RefImageEncryptionPasswordImplCopyWith<_$RefImageEncryptionPasswordImpl>
+      get copyWith => __$$RefImageEncryptionPasswordImplCopyWithImpl<
+          _$RefImageEncryptionPasswordImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$RefImageEncryptionPasswordImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class RefImageEncryptionPassword implements RefImageEncryption {
+  const factory RefImageEncryptionPassword(
+      {required final String encryptSalt}) = _$RefImageEncryptionPasswordImpl;
+
+  factory RefImageEncryptionPassword.fromJson(Map<String, dynamic> json) =
+      _$RefImageEncryptionPasswordImpl.fromJson;
+
+  /// HEX-encoded salt.
+  String get encryptSalt;
+
+  /// Create a copy of RefImageEncryption
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RefImageEncryptionPasswordImplCopyWith<_$RefImageEncryptionPasswordImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -74,3 +74,12 @@ sealed class ShowcaseType with _$ShowcaseType {
   factory ShowcaseType.fromJson(Map<String, dynamic> json) =>
       _$ShowcaseTypeFromJson(json);
 }
+
+@freezed
+sealed class EncryptionPreference with _$EncryptionPreference {
+  const factory EncryptionPreference.none() = EncryptionPreferenceNone;
+  const factory EncryptionPreference.password() = EncryptionPreferencePassword;
+
+  factory EncryptionPreference.fromJson(Map<String, dynamic> json) =>
+      _$EncryptionPreferenceFromJson(json);
+}

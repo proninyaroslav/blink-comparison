@@ -56,7 +56,7 @@ void main() {
         final info = RefImageInfo(
           id: '1',
           dateAdded: DateTime(2021),
-          encryptSalt: 'salt',
+          encryption: const RefImageEncryption.none(),
         );
         final image = RefImage(
           info: info,
@@ -77,7 +77,7 @@ void main() {
             info: RefImageInfo(
               id: '1',
               dateAdded: DateTime(2021),
-              encryptSalt: 'salt',
+              encryption: const RefImageEncryption.none(),
             ),
             bytes: bytes,
           ),
@@ -92,7 +92,7 @@ void main() {
         final info = RefImageInfo(
           id: '1',
           dateAdded: DateTime(2021),
-          encryptSalt: 'salt',
+          encryption: const RefImageEncryption.none(),
         );
         when(
           () => mockImageRepo.getInfoById(info.id),
@@ -118,7 +118,7 @@ void main() {
         final info = RefImageInfo(
           id: '1',
           dateAdded: DateTime(2021),
-          encryptSalt: 'salt',
+          encryption: const RefImageEncryption.none(),
         );
         when(
           () => mockImageRepo.getInfoById(info.id),
@@ -149,7 +149,7 @@ void main() {
         final info = RefImageInfo(
           id: '1',
           dateAdded: DateTime(2021),
-          encryptSalt: 'salt',
+          encryption: const RefImageEncryption.none(),
         );
         when(
           () => mockImageRepo.getInfoById(info.id),

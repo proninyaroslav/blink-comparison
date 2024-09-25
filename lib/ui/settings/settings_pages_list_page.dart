@@ -46,6 +46,7 @@ class SettingsPagesListPage extends StatelessWidget {
             context.navigateTo(switch (route) {
               SettingsRouteItemAppearance() => const AppearanceSettingsRoute(),
               SettingsRouteItemCamera() => const CameraSettingsRoute(),
+              SettingsRouteItemBehavior() => const BehaviorSettingsRoute(),
             });
           },
         ),

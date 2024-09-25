@@ -57,7 +57,7 @@ void main() {
       final info = RefImageInfo(
         id: '1',
         dateAdded: DateTime.now(),
-        encryptSalt: 'salt',
+        encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
       );
 
       when(
@@ -86,7 +86,7 @@ void main() {
       final info = RefImageInfo(
         id: '1',
         dateAdded: DateTime.now(),
-        encryptSalt: 'salt',
+        encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
       );
 
       when(
@@ -109,7 +109,7 @@ void main() {
       final info = RefImageInfo(
         id: '1',
         dateAdded: DateTime.now(),
-        encryptSalt: 'salt',
+        encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
       );
 
       when(
@@ -132,7 +132,7 @@ void main() {
       final info = RefImageInfo(
         id: '1',
         dateAdded: DateTime.now(),
-        encryptSalt: 'salt',
+        encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
       );
 
       when(
@@ -150,7 +150,7 @@ void main() {
       final info = RefImageInfo(
         id: '1',
         dateAdded: DateTime.now(),
-        encryptSalt: 'salt',
+        encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
       );
 
       when(

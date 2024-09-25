@@ -33,9 +33,10 @@ abstract class AuthFactorRepository {
 
 @freezed
 sealed class AuthFactorModifyResult with _$AuthFactorModifyResult {
-  factory AuthFactorModifyResult.success() = AuthFactorModifyResultSuccess;
+  const factory AuthFactorModifyResult.success() =
+      AuthFactorModifyResultSuccess;
 
-  factory AuthFactorModifyResult.failed({
+  const factory AuthFactorModifyResult.failed({
     required Object error,
     required StackTrace stackTrace,
   }) = AuthFactorModifyResultFailed;
@@ -50,7 +51,7 @@ class AuthFactorRepositoryImpl implements AuthFactorRepository {
     try {
       _key?.dispose();
       _key = key;
-      return AuthFactorModifyResult.success();
+      return const AuthFactorModifyResult.success();
     } catch (e, stackTrace) {
       return AuthFactorModifyResult.failed(error: e, stackTrace: stackTrace);
     }
@@ -61,7 +62,7 @@ class AuthFactorRepositoryImpl implements AuthFactorRepository {
     try {
       _key?.dispose();
       _key = null;
-      return AuthFactorModifyResult.success();
+      return const AuthFactorModifyResult.success();
     } catch (e, stackTrace) {
       return AuthFactorModifyResult.failed(error: e, stackTrace: stackTrace);
     }

@@ -55,7 +55,6 @@ final class AuthLifecycleObserver {
     _pushToQueue(state);
 
     if (_isOnStop()) {
-      log().d('App stopped; removing auth factor');
       final res = _factorRepo.remove();
       _handleRemoveResult(res);
     } else if (_isOnStart()) {
@@ -86,6 +85,8 @@ final class AuthLifecycleObserver {
         error: error,
         stackTrace: stackTrace,
       );
+    } else {
+      log().d('App stopped; auth factor removed');
     }
   }
 

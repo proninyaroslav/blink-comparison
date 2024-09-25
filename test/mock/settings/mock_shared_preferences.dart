@@ -15,10 +15,11 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'package:blink_comparison/core/settings/shared_pref_listenable.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MockSharedPreferences extends Mock implements SharedPreferences {}
 
-class MockSharedPreferencesAsync extends Mock
-    implements SharedPreferencesAsync {}
+class MockSharedPreferencesAsyncListenable extends Mock
+    implements SharedPreferencesAsyncListenable {}

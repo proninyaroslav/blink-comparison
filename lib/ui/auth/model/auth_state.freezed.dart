@@ -89,18 +89,20 @@ abstract class AuthStateInitial implements AuthState {
 }
 
 /// @nodoc
-abstract class _$$AuthStateNoPasswordImplCopyWith<$Res> {
-  factory _$$AuthStateNoPasswordImplCopyWith(_$AuthStateNoPasswordImpl value,
-          $Res Function(_$AuthStateNoPasswordImpl) then) =
-      __$$AuthStateNoPasswordImplCopyWithImpl<$Res>;
+abstract class _$$AuthStateSignUpRequiredImplCopyWith<$Res> {
+  factory _$$AuthStateSignUpRequiredImplCopyWith(
+          _$AuthStateSignUpRequiredImpl value,
+          $Res Function(_$AuthStateSignUpRequiredImpl) then) =
+      __$$AuthStateSignUpRequiredImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$AuthStateNoPasswordImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateNoPasswordImpl>
-    implements _$$AuthStateNoPasswordImplCopyWith<$Res> {
-  __$$AuthStateNoPasswordImplCopyWithImpl(_$AuthStateNoPasswordImpl _value,
-      $Res Function(_$AuthStateNoPasswordImpl) _then)
+class __$$AuthStateSignUpRequiredImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateSignUpRequiredImpl>
+    implements _$$AuthStateSignUpRequiredImplCopyWith<$Res> {
+  __$$AuthStateSignUpRequiredImplCopyWithImpl(
+      _$AuthStateSignUpRequiredImpl _value,
+      $Res Function(_$AuthStateSignUpRequiredImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of AuthState
@@ -109,52 +111,52 @@ class __$$AuthStateNoPasswordImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AuthStateNoPasswordImpl
+class _$AuthStateSignUpRequiredImpl
     with DiagnosticableTreeMixin
-    implements AuthStateNoPassword {
-  const _$AuthStateNoPasswordImpl();
+    implements AuthStateSignUpRequired {
+  const _$AuthStateSignUpRequiredImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState.noPassword()';
+    return 'AuthState.signUpRequired()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AuthState.noPassword'));
+    properties.add(DiagnosticsProperty('type', 'AuthState.signUpRequired'));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AuthStateNoPasswordImpl);
+            other is _$AuthStateSignUpRequiredImpl);
   }
 
   @override
   int get hashCode => runtimeType.hashCode;
 }
 
-abstract class AuthStateNoPassword implements AuthState {
-  const factory AuthStateNoPassword() = _$AuthStateNoPasswordImpl;
+abstract class AuthStateSignUpRequired implements AuthState {
+  const factory AuthStateSignUpRequired() = _$AuthStateSignUpRequiredImpl;
 }
 
 /// @nodoc
-abstract class _$$AuthStatePasswordNotLoadedImplCopyWith<$Res> {
-  factory _$$AuthStatePasswordNotLoadedImplCopyWith(
-          _$AuthStatePasswordNotLoadedImpl value,
-          $Res Function(_$AuthStatePasswordNotLoadedImpl) then) =
-      __$$AuthStatePasswordNotLoadedImplCopyWithImpl<$Res>;
+abstract class _$$AuthStateSignInRequiredImplCopyWith<$Res> {
+  factory _$$AuthStateSignInRequiredImplCopyWith(
+          _$AuthStateSignInRequiredImpl value,
+          $Res Function(_$AuthStateSignInRequiredImpl) then) =
+      __$$AuthStateSignInRequiredImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$AuthStatePasswordNotLoadedImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$AuthStatePasswordNotLoadedImpl>
-    implements _$$AuthStatePasswordNotLoadedImplCopyWith<$Res> {
-  __$$AuthStatePasswordNotLoadedImplCopyWithImpl(
-      _$AuthStatePasswordNotLoadedImpl _value,
-      $Res Function(_$AuthStatePasswordNotLoadedImpl) _then)
+class __$$AuthStateSignInRequiredImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateSignInRequiredImpl>
+    implements _$$AuthStateSignInRequiredImplCopyWith<$Res> {
+  __$$AuthStateSignInRequiredImplCopyWithImpl(
+      _$AuthStateSignInRequiredImpl _value,
+      $Res Function(_$AuthStateSignInRequiredImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of AuthState
@@ -163,158 +165,162 @@ class __$$AuthStatePasswordNotLoadedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AuthStatePasswordNotLoadedImpl
+class _$AuthStateSignInRequiredImpl
     with DiagnosticableTreeMixin
-    implements AuthStatePasswordNotLoaded {
-  const _$AuthStatePasswordNotLoadedImpl();
+    implements AuthStateSignInRequired {
+  const _$AuthStateSignInRequiredImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState.passwordNotLoaded()';
+    return 'AuthState.signInRequired()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AuthState.passwordNotLoaded'));
+    properties.add(DiagnosticsProperty('type', 'AuthState.signInRequired'));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AuthStatePasswordNotLoadedImpl);
+            other is _$AuthStateSignInRequiredImpl);
   }
 
   @override
   int get hashCode => runtimeType.hashCode;
 }
 
-abstract class AuthStatePasswordNotLoaded implements AuthState {
-  const factory AuthStatePasswordNotLoaded() = _$AuthStatePasswordNotLoadedImpl;
+abstract class AuthStateSignInRequired implements AuthState {
+  const factory AuthStateSignInRequired() = _$AuthStateSignInRequiredImpl;
 }
 
 /// @nodoc
-abstract class _$$AuthStatePasswordLoadedImplCopyWith<$Res> {
-  factory _$$AuthStatePasswordLoadedImplCopyWith(
-          _$AuthStatePasswordLoadedImpl value,
-          $Res Function(_$AuthStatePasswordLoadedImpl) then) =
-      __$$AuthStatePasswordLoadedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({PasswordInfo info});
-
-  $PasswordInfoCopyWith<$Res> get info;
+abstract class _$$AuthStateNoAuthRequiredImplCopyWith<$Res> {
+  factory _$$AuthStateNoAuthRequiredImplCopyWith(
+          _$AuthStateNoAuthRequiredImpl value,
+          $Res Function(_$AuthStateNoAuthRequiredImpl) then) =
+      __$$AuthStateNoAuthRequiredImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$AuthStatePasswordLoadedImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$AuthStatePasswordLoadedImpl>
-    implements _$$AuthStatePasswordLoadedImplCopyWith<$Res> {
-  __$$AuthStatePasswordLoadedImplCopyWithImpl(
-      _$AuthStatePasswordLoadedImpl _value,
-      $Res Function(_$AuthStatePasswordLoadedImpl) _then)
+class __$$AuthStateNoAuthRequiredImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateNoAuthRequiredImpl>
+    implements _$$AuthStateNoAuthRequiredImplCopyWith<$Res> {
+  __$$AuthStateNoAuthRequiredImplCopyWithImpl(
+      _$AuthStateNoAuthRequiredImpl _value,
+      $Res Function(_$AuthStateNoAuthRequiredImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? info = null,
-  }) {
-    return _then(_$AuthStatePasswordLoadedImpl(
-      info: null == info
-          ? _value.info
-          : info // ignore: cast_nullable_to_non_nullable
-              as PasswordInfo,
-    ));
-  }
-
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PasswordInfoCopyWith<$Res> get info {
-    return $PasswordInfoCopyWith<$Res>(_value.info, (value) {
-      return _then(_value.copyWith(info: value));
-    });
-  }
 }
 
 /// @nodoc
 
-class _$AuthStatePasswordLoadedImpl
+class _$AuthStateNoAuthRequiredImpl
     with DiagnosticableTreeMixin
-    implements AuthStatePasswordLoaded {
-  const _$AuthStatePasswordLoadedImpl({required this.info});
-
-  @override
-  final PasswordInfo info;
+    implements AuthStateNoAuthRequired {
+  const _$AuthStateNoAuthRequiredImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState.passwordLoaded(info: $info)';
+    return 'AuthState.noAuthRequired()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'AuthState.noAuthRequired'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AuthStateNoAuthRequiredImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+}
+
+abstract class AuthStateNoAuthRequired implements AuthState {
+  const factory AuthStateNoAuthRequired() = _$AuthStateNoAuthRequiredImpl;
+}
+
+/// @nodoc
+abstract class _$$AuthStateNoEncryptPreferencesImplCopyWith<$Res> {
+  factory _$$AuthStateNoEncryptPreferencesImplCopyWith(
+          _$AuthStateNoEncryptPreferencesImpl value,
+          $Res Function(_$AuthStateNoEncryptPreferencesImpl) then) =
+      __$$AuthStateNoEncryptPreferencesImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AuthStateNoEncryptPreferencesImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateNoEncryptPreferencesImpl>
+    implements _$$AuthStateNoEncryptPreferencesImplCopyWith<$Res> {
+  __$$AuthStateNoEncryptPreferencesImplCopyWithImpl(
+      _$AuthStateNoEncryptPreferencesImpl _value,
+      $Res Function(_$AuthStateNoEncryptPreferencesImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$AuthStateNoEncryptPreferencesImpl
+    with DiagnosticableTreeMixin
+    implements AuthStateNoEncryptPreferences {
+  const _$AuthStateNoEncryptPreferencesImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AuthState.noEncryptPreferences()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'AuthState.passwordLoaded'))
-      ..add(DiagnosticsProperty('info', info));
+        .add(DiagnosticsProperty('type', 'AuthState.noEncryptPreferences'));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AuthStatePasswordLoadedImpl &&
-            (identical(other.info, info) || other.info == info));
+            other is _$AuthStateNoEncryptPreferencesImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, info);
-
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AuthStatePasswordLoadedImplCopyWith<_$AuthStatePasswordLoadedImpl>
-      get copyWith => __$$AuthStatePasswordLoadedImplCopyWithImpl<
-          _$AuthStatePasswordLoadedImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 }
 
-abstract class AuthStatePasswordLoaded implements AuthState {
-  const factory AuthStatePasswordLoaded({required final PasswordInfo info}) =
-      _$AuthStatePasswordLoadedImpl;
-
-  PasswordInfo get info;
-
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AuthStatePasswordLoadedImplCopyWith<_$AuthStatePasswordLoadedImpl>
-      get copyWith => throw _privateConstructorUsedError;
+abstract class AuthStateNoEncryptPreferences implements AuthState {
+  const factory AuthStateNoEncryptPreferences() =
+      _$AuthStateNoEncryptPreferencesImpl;
 }
 
 /// @nodoc
-abstract class _$$AuthStateLoadPasswordFailedImplCopyWith<$Res> {
-  factory _$$AuthStateLoadPasswordFailedImplCopyWith(
-          _$AuthStateLoadPasswordFailedImpl value,
-          $Res Function(_$AuthStateLoadPasswordFailedImpl) then) =
-      __$$AuthStateLoadPasswordFailedImplCopyWithImpl<$Res>;
+abstract class _$$AuthStateErrorImplCopyWith<$Res> {
+  factory _$$AuthStateErrorImplCopyWith(_$AuthStateErrorImpl value,
+          $Res Function(_$AuthStateErrorImpl) then) =
+      __$$AuthStateErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Exception? exception, StackTrace? stackTrace});
 }
 
 /// @nodoc
-class __$$AuthStateLoadPasswordFailedImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateLoadPasswordFailedImpl>
-    implements _$$AuthStateLoadPasswordFailedImplCopyWith<$Res> {
-  __$$AuthStateLoadPasswordFailedImplCopyWithImpl(
-      _$AuthStateLoadPasswordFailedImpl _value,
-      $Res Function(_$AuthStateLoadPasswordFailedImpl) _then)
+class __$$AuthStateErrorImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateErrorImpl>
+    implements _$$AuthStateErrorImplCopyWith<$Res> {
+  __$$AuthStateErrorImplCopyWithImpl(
+      _$AuthStateErrorImpl _value, $Res Function(_$AuthStateErrorImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of AuthState
@@ -325,7 +331,7 @@ class __$$AuthStateLoadPasswordFailedImplCopyWithImpl<$Res>
     Object? exception = freezed,
     Object? stackTrace = freezed,
   }) {
-    return _then(_$AuthStateLoadPasswordFailedImpl(
+    return _then(_$AuthStateErrorImpl(
       exception: freezed == exception
           ? _value.exception
           : exception // ignore: cast_nullable_to_non_nullable
@@ -340,10 +346,10 @@ class __$$AuthStateLoadPasswordFailedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AuthStateLoadPasswordFailedImpl
+class _$AuthStateErrorImpl
     with DiagnosticableTreeMixin
-    implements AuthStateLoadPasswordFailed {
-  const _$AuthStateLoadPasswordFailedImpl({this.exception, this.stackTrace});
+    implements AuthStateError {
+  const _$AuthStateErrorImpl({this.exception, this.stackTrace});
 
   @override
   final Exception? exception;
@@ -352,14 +358,14 @@ class _$AuthStateLoadPasswordFailedImpl
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState.loadPasswordFailed(exception: $exception, stackTrace: $stackTrace)';
+    return 'AuthState.error(exception: $exception, stackTrace: $stackTrace)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'AuthState.loadPasswordFailed'))
+      ..add(DiagnosticsProperty('type', 'AuthState.error'))
       ..add(DiagnosticsProperty('exception', exception))
       ..add(DiagnosticsProperty('stackTrace', stackTrace));
   }
@@ -368,7 +374,7 @@ class _$AuthStateLoadPasswordFailedImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AuthStateLoadPasswordFailedImpl &&
+            other is _$AuthStateErrorImpl &&
             (identical(other.exception, exception) ||
                 other.exception == exception) &&
             (identical(other.stackTrace, stackTrace) ||
@@ -383,15 +389,15 @@ class _$AuthStateLoadPasswordFailedImpl
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$AuthStateLoadPasswordFailedImplCopyWith<_$AuthStateLoadPasswordFailedImpl>
-      get copyWith => __$$AuthStateLoadPasswordFailedImplCopyWithImpl<
-          _$AuthStateLoadPasswordFailedImpl>(this, _$identity);
+  _$$AuthStateErrorImplCopyWith<_$AuthStateErrorImpl> get copyWith =>
+      __$$AuthStateErrorImplCopyWithImpl<_$AuthStateErrorImpl>(
+          this, _$identity);
 }
 
-abstract class AuthStateLoadPasswordFailed implements AuthState {
-  const factory AuthStateLoadPasswordFailed(
+abstract class AuthStateError implements AuthState {
+  const factory AuthStateError(
       {final Exception? exception,
-      final StackTrace? stackTrace}) = _$AuthStateLoadPasswordFailedImpl;
+      final StackTrace? stackTrace}) = _$AuthStateErrorImpl;
 
   Exception? get exception;
   StackTrace? get stackTrace;
@@ -399,569 +405,6 @@ abstract class AuthStateLoadPasswordFailed implements AuthState {
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AuthStateLoadPasswordFailedImplCopyWith<_$AuthStateLoadPasswordFailedImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$AuthStateAuthInProgressImplCopyWith<$Res> {
-  factory _$$AuthStateAuthInProgressImplCopyWith(
-          _$AuthStateAuthInProgressImpl value,
-          $Res Function(_$AuthStateAuthInProgressImpl) then) =
-      __$$AuthStateAuthInProgressImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({PasswordInfo info});
-
-  $PasswordInfoCopyWith<$Res> get info;
-}
-
-/// @nodoc
-class __$$AuthStateAuthInProgressImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateAuthInProgressImpl>
-    implements _$$AuthStateAuthInProgressImplCopyWith<$Res> {
-  __$$AuthStateAuthInProgressImplCopyWithImpl(
-      _$AuthStateAuthInProgressImpl _value,
-      $Res Function(_$AuthStateAuthInProgressImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? info = null,
-  }) {
-    return _then(_$AuthStateAuthInProgressImpl(
-      info: null == info
-          ? _value.info
-          : info // ignore: cast_nullable_to_non_nullable
-              as PasswordInfo,
-    ));
-  }
-
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PasswordInfoCopyWith<$Res> get info {
-    return $PasswordInfoCopyWith<$Res>(_value.info, (value) {
-      return _then(_value.copyWith(info: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$AuthStateAuthInProgressImpl
-    with DiagnosticableTreeMixin
-    implements AuthStateAuthInProgress {
-  const _$AuthStateAuthInProgressImpl({required this.info});
-
-  @override
-  final PasswordInfo info;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState.authInProgress(info: $info)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AuthState.authInProgress'))
-      ..add(DiagnosticsProperty('info', info));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AuthStateAuthInProgressImpl &&
-            (identical(other.info, info) || other.info == info));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, info);
-
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AuthStateAuthInProgressImplCopyWith<_$AuthStateAuthInProgressImpl>
-      get copyWith => __$$AuthStateAuthInProgressImplCopyWithImpl<
-          _$AuthStateAuthInProgressImpl>(this, _$identity);
-}
-
-abstract class AuthStateAuthInProgress implements AuthState {
-  const factory AuthStateAuthInProgress({required final PasswordInfo info}) =
-      _$AuthStateAuthInProgressImpl;
-
-  PasswordInfo get info;
-
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AuthStateAuthInProgressImplCopyWith<_$AuthStateAuthInProgressImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$AuthStateAuthSuccessImplCopyWith<$Res> {
-  factory _$$AuthStateAuthSuccessImplCopyWith(_$AuthStateAuthSuccessImpl value,
-          $Res Function(_$AuthStateAuthSuccessImpl) then) =
-      __$$AuthStateAuthSuccessImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({PasswordInfo info});
-
-  $PasswordInfoCopyWith<$Res> get info;
-}
-
-/// @nodoc
-class __$$AuthStateAuthSuccessImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateAuthSuccessImpl>
-    implements _$$AuthStateAuthSuccessImplCopyWith<$Res> {
-  __$$AuthStateAuthSuccessImplCopyWithImpl(_$AuthStateAuthSuccessImpl _value,
-      $Res Function(_$AuthStateAuthSuccessImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? info = null,
-  }) {
-    return _then(_$AuthStateAuthSuccessImpl(
-      info: null == info
-          ? _value.info
-          : info // ignore: cast_nullable_to_non_nullable
-              as PasswordInfo,
-    ));
-  }
-
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PasswordInfoCopyWith<$Res> get info {
-    return $PasswordInfoCopyWith<$Res>(_value.info, (value) {
-      return _then(_value.copyWith(info: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$AuthStateAuthSuccessImpl
-    with DiagnosticableTreeMixin
-    implements AuthStateAuthSuccess {
-  const _$AuthStateAuthSuccessImpl({required this.info});
-
-  @override
-  final PasswordInfo info;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState.authSuccess(info: $info)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AuthState.authSuccess'))
-      ..add(DiagnosticsProperty('info', info));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AuthStateAuthSuccessImpl &&
-            (identical(other.info, info) || other.info == info));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, info);
-
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AuthStateAuthSuccessImplCopyWith<_$AuthStateAuthSuccessImpl>
-      get copyWith =>
-          __$$AuthStateAuthSuccessImplCopyWithImpl<_$AuthStateAuthSuccessImpl>(
-              this, _$identity);
-}
-
-abstract class AuthStateAuthSuccess implements AuthState {
-  const factory AuthStateAuthSuccess({required final PasswordInfo info}) =
-      _$AuthStateAuthSuccessImpl;
-
-  PasswordInfo get info;
-
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AuthStateAuthSuccessImplCopyWith<_$AuthStateAuthSuccessImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$AuthStateAuthFailedImplCopyWith<$Res> {
-  factory _$$AuthStateAuthFailedImplCopyWith(_$AuthStateAuthFailedImpl value,
-          $Res Function(_$AuthStateAuthFailedImpl) then) =
-      __$$AuthStateAuthFailedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({PasswordInfo info, AuthError reason});
-
-  $PasswordInfoCopyWith<$Res> get info;
-  $AuthErrorCopyWith<$Res> get reason;
-}
-
-/// @nodoc
-class __$$AuthStateAuthFailedImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateAuthFailedImpl>
-    implements _$$AuthStateAuthFailedImplCopyWith<$Res> {
-  __$$AuthStateAuthFailedImplCopyWithImpl(_$AuthStateAuthFailedImpl _value,
-      $Res Function(_$AuthStateAuthFailedImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? info = null,
-    Object? reason = null,
-  }) {
-    return _then(_$AuthStateAuthFailedImpl(
-      info: null == info
-          ? _value.info
-          : info // ignore: cast_nullable_to_non_nullable
-              as PasswordInfo,
-      reason: null == reason
-          ? _value.reason
-          : reason // ignore: cast_nullable_to_non_nullable
-              as AuthError,
-    ));
-  }
-
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PasswordInfoCopyWith<$Res> get info {
-    return $PasswordInfoCopyWith<$Res>(_value.info, (value) {
-      return _then(_value.copyWith(info: value));
-    });
-  }
-
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AuthErrorCopyWith<$Res> get reason {
-    return $AuthErrorCopyWith<$Res>(_value.reason, (value) {
-      return _then(_value.copyWith(reason: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$AuthStateAuthFailedImpl
-    with DiagnosticableTreeMixin
-    implements AuthStateAuthFailed {
-  const _$AuthStateAuthFailedImpl({required this.info, required this.reason});
-
-  @override
-  final PasswordInfo info;
-  @override
-  final AuthError reason;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState.authFailed(info: $info, reason: $reason)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AuthState.authFailed'))
-      ..add(DiagnosticsProperty('info', info))
-      ..add(DiagnosticsProperty('reason', reason));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AuthStateAuthFailedImpl &&
-            (identical(other.info, info) || other.info == info) &&
-            (identical(other.reason, reason) || other.reason == reason));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, info, reason);
-
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AuthStateAuthFailedImplCopyWith<_$AuthStateAuthFailedImpl> get copyWith =>
-      __$$AuthStateAuthFailedImplCopyWithImpl<_$AuthStateAuthFailedImpl>(
-          this, _$identity);
-}
-
-abstract class AuthStateAuthFailed implements AuthState {
-  const factory AuthStateAuthFailed(
-      {required final PasswordInfo info,
-      required final AuthError reason}) = _$AuthStateAuthFailedImpl;
-
-  PasswordInfo get info;
-  AuthError get reason;
-
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AuthStateAuthFailedImplCopyWith<_$AuthStateAuthFailedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-mixin _$AuthError {}
-
-/// @nodoc
-abstract class $AuthErrorCopyWith<$Res> {
-  factory $AuthErrorCopyWith(AuthError value, $Res Function(AuthError) then) =
-      _$AuthErrorCopyWithImpl<$Res, AuthError>;
-}
-
-/// @nodoc
-class _$AuthErrorCopyWithImpl<$Res, $Val extends AuthError>
-    implements $AuthErrorCopyWith<$Res> {
-  _$AuthErrorCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of AuthError
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$AuthErrorEmptyPasswordImplCopyWith<$Res> {
-  factory _$$AuthErrorEmptyPasswordImplCopyWith(
-          _$AuthErrorEmptyPasswordImpl value,
-          $Res Function(_$AuthErrorEmptyPasswordImpl) then) =
-      __$$AuthErrorEmptyPasswordImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$AuthErrorEmptyPasswordImplCopyWithImpl<$Res>
-    extends _$AuthErrorCopyWithImpl<$Res, _$AuthErrorEmptyPasswordImpl>
-    implements _$$AuthErrorEmptyPasswordImplCopyWith<$Res> {
-  __$$AuthErrorEmptyPasswordImplCopyWithImpl(
-      _$AuthErrorEmptyPasswordImpl _value,
-      $Res Function(_$AuthErrorEmptyPasswordImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AuthError
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$AuthErrorEmptyPasswordImpl
-    with DiagnosticableTreeMixin
-    implements AuthErrorEmptyPassword {
-  const _$AuthErrorEmptyPasswordImpl();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthError.emptyPassword()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AuthError.emptyPassword'));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AuthErrorEmptyPasswordImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-}
-
-abstract class AuthErrorEmptyPassword implements AuthError {
-  const factory AuthErrorEmptyPassword() = _$AuthErrorEmptyPasswordImpl;
-}
-
-/// @nodoc
-abstract class _$$AuthErrorWrongPasswordImplCopyWith<$Res> {
-  factory _$$AuthErrorWrongPasswordImplCopyWith(
-          _$AuthErrorWrongPasswordImpl value,
-          $Res Function(_$AuthErrorWrongPasswordImpl) then) =
-      __$$AuthErrorWrongPasswordImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$AuthErrorWrongPasswordImplCopyWithImpl<$Res>
-    extends _$AuthErrorCopyWithImpl<$Res, _$AuthErrorWrongPasswordImpl>
-    implements _$$AuthErrorWrongPasswordImplCopyWith<$Res> {
-  __$$AuthErrorWrongPasswordImplCopyWithImpl(
-      _$AuthErrorWrongPasswordImpl _value,
-      $Res Function(_$AuthErrorWrongPasswordImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AuthError
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$AuthErrorWrongPasswordImpl
-    with DiagnosticableTreeMixin
-    implements AuthErrorWrongPassword {
-  const _$AuthErrorWrongPasswordImpl();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthError.wrongPassword()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AuthError.wrongPassword'));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AuthErrorWrongPasswordImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-}
-
-abstract class AuthErrorWrongPassword implements AuthError {
-  const factory AuthErrorWrongPassword() = _$AuthErrorWrongPasswordImpl;
-}
-
-/// @nodoc
-abstract class _$$AuthErrorExceptionImplCopyWith<$Res> {
-  factory _$$AuthErrorExceptionImplCopyWith(_$AuthErrorExceptionImpl value,
-          $Res Function(_$AuthErrorExceptionImpl) then) =
-      __$$AuthErrorExceptionImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Object error, StackTrace stackTrace});
-}
-
-/// @nodoc
-class __$$AuthErrorExceptionImplCopyWithImpl<$Res>
-    extends _$AuthErrorCopyWithImpl<$Res, _$AuthErrorExceptionImpl>
-    implements _$$AuthErrorExceptionImplCopyWith<$Res> {
-  __$$AuthErrorExceptionImplCopyWithImpl(_$AuthErrorExceptionImpl _value,
-      $Res Function(_$AuthErrorExceptionImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AuthError
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? error = null,
-    Object? stackTrace = null,
-  }) {
-    return _then(_$AuthErrorExceptionImpl(
-      error: null == error ? _value.error : error,
-      stackTrace: null == stackTrace
-          ? _value.stackTrace
-          : stackTrace // ignore: cast_nullable_to_non_nullable
-              as StackTrace,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$AuthErrorExceptionImpl
-    with DiagnosticableTreeMixin
-    implements AuthErrorException {
-  const _$AuthErrorExceptionImpl(
-      {required this.error, required this.stackTrace});
-
-  @override
-  final Object error;
-  @override
-  final StackTrace stackTrace;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthError.exception(error: $error, stackTrace: $stackTrace)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AuthError.exception'))
-      ..add(DiagnosticsProperty('error', error))
-      ..add(DiagnosticsProperty('stackTrace', stackTrace));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AuthErrorExceptionImpl &&
-            const DeepCollectionEquality().equals(other.error, error) &&
-            (identical(other.stackTrace, stackTrace) ||
-                other.stackTrace == stackTrace));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(error), stackTrace);
-
-  /// Create a copy of AuthError
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AuthErrorExceptionImplCopyWith<_$AuthErrorExceptionImpl> get copyWith =>
-      __$$AuthErrorExceptionImplCopyWithImpl<_$AuthErrorExceptionImpl>(
-          this, _$identity);
-}
-
-abstract class AuthErrorException implements AuthError {
-  const factory AuthErrorException(
-      {required final Object error,
-      required final StackTrace stackTrace}) = _$AuthErrorExceptionImpl;
-
-  Object get error;
-  StackTrace get stackTrace;
-
-  /// Create a copy of AuthError
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AuthErrorExceptionImplCopyWith<_$AuthErrorExceptionImpl> get copyWith =>
+  _$$AuthStateErrorImplCopyWith<_$AuthStateErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

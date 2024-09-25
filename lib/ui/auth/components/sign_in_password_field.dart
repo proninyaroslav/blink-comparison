@@ -17,11 +17,12 @@
 
 import 'package:blink_comparison/locale.dart';
 import 'package:blink_comparison/logger.dart';
-import 'package:blink_comparison/ui/auth/model/auth_cubit.dart';
-import 'package:blink_comparison/ui/auth/model/auth_state.dart';
+import 'package:blink_comparison/ui/auth/model/sign_in_cubit.dart';
 import 'package:blink_comparison/ui/model/error_report_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../model/sign_in_state.dart';
 
 class SignInPasswordField extends StatelessWidget {
   final TextEditingController passwordFieldController;
@@ -33,12 +34,15 @@ class SignInPasswordField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AuthCubit, AuthState>(
+    return BlocConsumer<SignInCubit, SignInState>(
       listener: (context, state) {
         switch (state) {
-          case AuthStatePasswordNotLoaded():
-            context.read<AuthCubit>().loadPassword();
-          case AuthStateLoadPasswordFailed(:final exception, :final stackTrace):
+          case SignInStatePasswordNotLoaded():
+            context.read<SignInCubit>().load();
+          case SignInStateLoadPasswordFailed(
+              :final exception,
+              :final stackTrace
+            ):
             _crashReportMsg(
               context,
               exception,
@@ -46,10 +50,10 @@ class SignInPasswordField extends StatelessWidget {
               label: S.of(context).loadPasswordFailed,
               reportMessage: 'Failed to load storage password',
             );
-          case AuthStateAuthFailed(:final reason):
+          case SignInStateAuthFailed(:final reason):
             passwordFieldController.clear();
             if (reason
-                case AuthErrorException(:final error, :final stackTrace)) {
+                case SignInErrorException(:final error, :final stackTrace)) {
               _crashReportMsg(
                 context,
                 error,
@@ -68,10 +72,13 @@ class SignInPasswordField extends StatelessWidget {
           decoration: InputDecoration(
             hintText: S.of(context).enterPassword,
             errorText: switch (state) {
-              AuthStateAuthFailed(:final reason) => switch (reason) {
-                  AuthErrorEmptyPassword() => S.of(context).emptyPasswordError,
-                  AuthErrorWrongPassword() => S.of(context).wrongPassword,
-                  AuthErrorException() =>
+              // TODO
+              SignInStateNoPasswordError() => 'No password',
+              SignInStateAuthFailed(:final reason) => switch (reason) {
+                  SignInErrorEmptyPassword() =>
+                    S.of(context).emptyPasswordError,
+                  SignInErrorWrongPassword() => S.of(context).wrongPassword,
+                  SignInErrorException() =>
                     S.of(context).authorizeFailedException,
                 },
               _ => null,
@@ -93,12 +100,12 @@ class SignInPasswordField extends StatelessWidget {
 
 VoidCallback? _handleSubmitCallbackState(
   BuildContext context,
-  AuthState state,
+  SignInState state,
   TextEditingController passwordFieldController,
 ) {
   return switch (state) {
-    AuthStatePasswordLoaded() ||
-    AuthStateAuthFailed() =>
+    SignInStatePasswordLoaded() ||
+    SignInStateAuthFailed() =>
       _auth(context, passwordFieldController),
     _ => null,
   };
@@ -110,7 +117,7 @@ VoidCallback _auth(
 ) {
   void doAuth() {
     FocusScope.of(context).unfocus();
-    context.read<AuthCubit>().auth(passwordFieldController.text);
+    context.read<SignInCubit>().auth(passwordFieldController.text);
   }
 
   return doAuth;

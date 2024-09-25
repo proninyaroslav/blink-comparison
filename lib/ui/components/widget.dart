@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -24,6 +24,7 @@ export 'drag_select_staggered_grid/drag_select_staggered_grid.dart';
 export 'drag_select_staggered_grid/drag_select_staggered_grid_controller.dart';
 export 'dropdown_fab.dart';
 export 'extended_image_double_click_mixin.dart';
+export 'fill_parent_width.dart';
 export 'link_text.dart';
 export 'loading_page_error.dart';
 export 'measure_size.dart';

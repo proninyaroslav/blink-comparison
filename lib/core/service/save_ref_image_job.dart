@@ -34,7 +34,7 @@ abstract class SaveRefImageJob {
   Future<SaveRefImageResult> run({
     required RefImageInfo info,
     required XFile file,
-    required AuthFactor key,
+    required AuthFactor? factor,
   });
 }
 
@@ -76,7 +76,7 @@ class SaveRefImageJobImpl implements SaveRefImageJob {
   Future<SaveRefImageResult> run({
     required RefImageInfo info,
     required XFile file,
-    required AuthFactor key,
+    required AuthFactor? factor,
   }) async {
     late final Uint8List bytes;
     try {
@@ -90,16 +90,26 @@ class SaveRefImageJobImpl implements SaveRefImageJob {
       );
     }
 
-    final module = _encryptProvider.getByKey(key);
-    final res = await module?.encrypt(src: bytes, info: info);
-    final error = switch (res) {
-      null => const SaveRefImageError.encrypt(
+    SaveRefImageError? error;
+    switch (info.encryption) {
+      case RefImageEncryptionNone():
+        error = await _save(file, info, bytes);
+      case _ when factor == null:
+        error = const SaveRefImageError.encrypt(
           error: EncryptError.noSecureKey(),
-        ),
-      EncryptResultSuccess(:final bytes) => await _save(file, info, bytes),
-      EncryptResultFail(:final error) =>
-        SaveRefImageError.encrypt(error: error),
-    };
+        );
+      case _:
+        final module = _encryptProvider.getByKey(factor);
+        final res = await module?.encrypt(src: bytes, info: info);
+        error = switch (res) {
+          null => const SaveRefImageError.encrypt(
+              error: EncryptError.noSecureKey(),
+            ),
+          EncryptResultSuccess(:final bytes) => await _save(file, info, bytes),
+          EncryptResultFail(:final error) =>
+            SaveRefImageError.encrypt(error: error),
+        };
+    }
 
     return error != null
         ? SaveRefImageResult.error(error)

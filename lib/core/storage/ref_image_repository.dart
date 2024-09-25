@@ -24,6 +24,7 @@ import 'package:blink_comparison/core/fs/fs_result.dart';
 import 'package:blink_comparison/core/fs/thumbnail_fs.dart';
 import 'package:blink_comparison/core/ref_image_id_generator.dart';
 import 'package:blink_comparison/core/storage/app_database.dart';
+import 'package:blink_comparison/ui/model/showcase_cubit.dart';
 import 'package:convert/convert.dart';
 import 'package:cross_file/cross_file.dart';
 import 'package:injectable/injectable.dart';
@@ -32,7 +33,10 @@ import 'ref_image_secure_storage.dart';
 import 'storage_result.dart';
 
 abstract class RefImageRepository {
-  Future<SecStorageResult<RefImageInfo>> addFromFile(XFile srcImage);
+  Future<SecStorageResult<RefImageInfo>> addFromFile(
+    XFile srcImage, {
+    required EncryptionPreference? encryption,
+  });
 
   Future<SecStorageResult<void>> delete(RefImageInfo info);
 
@@ -72,15 +76,22 @@ class RefImageRepositoryImpl implements RefImageRepository {
   );
 
   @override
-  Future<SecStorageResult<RefImageInfo>> addFromFile(XFile srcImage) async {
+  Future<SecStorageResult<RefImageInfo>> addFromFile(
+    XFile srcImage, {
+    required EncryptionPreference? encryption,
+  }) async {
     late final RefImageInfo info;
     try {
       final id = await _randomUniqueId();
-      final salt = _saltGenerator.randomBytes();
       info = RefImageInfo(
         id: id,
         dateAdded: _dateTimeProvider.now(),
-        encryptSalt: hex.encode(salt),
+        encryption: switch (encryption) {
+          null || EncryptionPreferenceNone() => const RefImageEncryption.none(),
+          EncryptionPreferencePassword() => RefImageEncryption.password(
+              encryptSalt: hex.encode(_saltGenerator.randomBytes()),
+            ),
+        },
       );
       await _db.referenceImageDao.add(info);
     } on Exception catch (e, stackTrace) {

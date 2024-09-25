@@ -21,6 +21,7 @@ import 'package:blink_comparison/core/entity/entity.dart';
 import 'package:blink_comparison/core/fs/fs_result.dart';
 import 'package:blink_comparison/core/platform_info.dart';
 import 'package:blink_comparison/core/service/save_ref_image_job.dart';
+import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/core/storage/ref_image_repository.dart';
 import 'package:blink_comparison/core/storage/ref_image_status_repository.dart';
 import 'package:blink_comparison/injector.dart';
@@ -60,7 +61,10 @@ class RefImageListPage extends StatefulWidget implements AutoRouteWrapper {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => AddRefImageCubit(getIt<RefImageRepository>()),
+          create: (context) => AddRefImageCubit(
+            getIt<RefImageRepository>(),
+            getIt<AppSettings>(),
+          ),
         ),
         BlocProvider(
           create: (context) => SystemPickerCubit(

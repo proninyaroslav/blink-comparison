@@ -65,7 +65,7 @@ class __$$AuthFactorModifyResultSuccessImplCopyWithImpl<$Res>
 
 class _$AuthFactorModifyResultSuccessImpl
     implements AuthFactorModifyResultSuccess {
-  _$AuthFactorModifyResultSuccessImpl();
+  const _$AuthFactorModifyResultSuccessImpl();
 
   @override
   String toString() {
@@ -84,7 +84,8 @@ class _$AuthFactorModifyResultSuccessImpl
 }
 
 abstract class AuthFactorModifyResultSuccess implements AuthFactorModifyResult {
-  factory AuthFactorModifyResultSuccess() = _$AuthFactorModifyResultSuccessImpl;
+  const factory AuthFactorModifyResultSuccess() =
+      _$AuthFactorModifyResultSuccessImpl;
 }
 
 /// @nodoc
@@ -129,7 +130,7 @@ class __$$AuthFactorModifyResultFailedImplCopyWithImpl<$Res>
 
 class _$AuthFactorModifyResultFailedImpl
     implements AuthFactorModifyResultFailed {
-  _$AuthFactorModifyResultFailedImpl(
+  const _$AuthFactorModifyResultFailedImpl(
       {required this.error, required this.stackTrace});
 
   @override
@@ -168,7 +169,7 @@ class _$AuthFactorModifyResultFailedImpl
 }
 
 abstract class AuthFactorModifyResultFailed implements AuthFactorModifyResult {
-  factory AuthFactorModifyResultFailed(
+  const factory AuthFactorModifyResultFailed(
           {required final Object error, required final StackTrace stackTrace}) =
       _$AuthFactorModifyResultFailedImpl;
 
