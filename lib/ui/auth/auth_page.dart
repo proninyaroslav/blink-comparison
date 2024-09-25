@@ -17,7 +17,7 @@
 
 import 'package:auto_route/auto_route.dart';
 import 'package:blink_comparison/core/settings/app_settings.dart';
-import 'package:blink_comparison/core/storage/password_repository.dart';
+import 'package:blink_comparison/core/storage/persistent_auth_factor_repository.dart';
 import 'package:blink_comparison/ui/auth/model/auth_state.dart';
 import 'package:blink_comparison/ui/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +39,7 @@ class AuthPage extends StatefulWidget implements AutoRouteWrapper {
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider(
       create: (context) => AuthCubit(
-        getIt<PasswordRepository>(),
+        getIt<PersistentAuthFactorRepository>(),
         getIt<AppSettings>(),
       ),
       child: this,

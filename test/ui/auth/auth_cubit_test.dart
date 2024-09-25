@@ -17,7 +17,7 @@
 
 import 'package:blink_comparison/core/entity/entity.dart';
 import 'package:blink_comparison/core/settings/app_settings.dart';
-import 'package:blink_comparison/core/storage/password_repository.dart';
+import 'package:blink_comparison/core/storage/persistent_auth_factor_repository.dart';
 import 'package:blink_comparison/core/storage/storage_result.dart';
 import 'package:blink_comparison/ui/auth/model/auth_cubit.dart';
 import 'package:blink_comparison/ui/auth/model/auth_state.dart';
@@ -30,7 +30,7 @@ import '../../mocktail_extensions.dart';
 
 void main() {
   group('AuthCubit |', () {
-    late PasswordRepository mockPasswordRepo;
+    late PersistentAuthFactorRepository mockPasswordRepo;
     late AppSettings mockPref;
     late AuthCubit cubit;
 
@@ -61,7 +61,7 @@ void main() {
       act: (AuthCubit cubit) async {
         when(() => mockPref.encryptionPreferenceSync).thenReturn(null);
         when(
-          () => mockPasswordRepo.getByType(const PasswordType.encryptKey()),
+          () => mockPasswordRepo.getById(PersistentAuthFactorId.password),
         ).thenAnswer((_) async => const StorageResult(null));
         await cubit.load();
       },
@@ -77,9 +77,9 @@ void main() {
         when(() => mockPref.encryptionPreferenceSync)
             .thenReturnInOrder([null, const EncryptionPreference.password()]);
         when(
-          () => mockPasswordRepo.getByType(const PasswordType.encryptKey()),
+          () => mockPasswordRepo.getById(PersistentAuthFactorId.password),
         ).thenAnswer((_) async => const StorageResult(
-            PasswordInfo(id: 'id', hash: 'hash', salt: 'salt')));
+            PersistentAuthFactor.password(hash: 'hash', salt: 'salt')));
         await cubit.load();
         verify(() => mockPref.setEncryptionPreference(
             const EncryptionPreference.password())).called(1);
@@ -96,7 +96,7 @@ void main() {
         when(() => mockPref.encryptionPreferenceSync)
             .thenReturn(const EncryptionPreference.none());
         when(
-          () => mockPasswordRepo.getByType(const PasswordType.encryptKey()),
+          () => mockPasswordRepo.getById(PersistentAuthFactorId.password),
         ).thenAnswer((_) async => const StorageResult(null));
         await cubit.load();
       },
@@ -112,7 +112,7 @@ void main() {
         when(() => mockPref.encryptionPreferenceSync)
             .thenReturn(const EncryptionPreference.password());
         when(
-          () => mockPasswordRepo.getByType(const PasswordType.encryptKey()),
+          () => mockPasswordRepo.getById(PersistentAuthFactorId.password),
         ).thenAnswer((_) async => const StorageResult(null));
         await cubit.load();
       },
@@ -128,9 +128,9 @@ void main() {
         when(() => mockPref.encryptionPreferenceSync)
             .thenReturn(const EncryptionPreference.password());
         when(
-          () => mockPasswordRepo.getByType(const PasswordType.encryptKey()),
+          () => mockPasswordRepo.getById(PersistentAuthFactorId.password),
         ).thenAnswer((_) async => const StorageResult(
-            PasswordInfo(id: 'id', hash: 'hash', salt: 'salt')));
+            PersistentAuthFactor.password(hash: 'hash', salt: 'salt')));
         await cubit.load();
       },
       expect: () => [
@@ -145,7 +145,7 @@ void main() {
         when(() => mockPref.encryptionPreferenceSync)
             .thenReturn(const EncryptionPreference.password());
         when(
-          () => mockPasswordRepo.getByType(const PasswordType.encryptKey()),
+          () => mockPasswordRepo.getById(PersistentAuthFactorId.password),
         ).thenAnswer(
           (_) async => StorageResult.error(
             StorageError.database(

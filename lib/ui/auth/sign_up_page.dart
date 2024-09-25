@@ -18,7 +18,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:blink_comparison/core/encrypt/secure_key_factory.dart';
 import 'package:blink_comparison/core/storage/auth_factor_repository.dart';
-import 'package:blink_comparison/core/storage/password_repository.dart';
+import 'package:blink_comparison/core/storage/persistent_auth_factor_repository.dart';
 import 'package:blink_comparison/injector.dart';
 import 'package:blink_comparison/ui/auth/components/auth_scaffold.dart';
 import 'package:blink_comparison/ui/auth/components/sign_up_fields.dart';
@@ -46,7 +46,7 @@ class SignUpPage extends StatefulWidget implements AutoRouteWrapper {
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider(
       create: (context) => SignUpCubit(
-        getIt<PasswordRepository>(),
+        getIt<PersistentAuthFactorRepository>(),
         getIt<AuthFactorRepository>(),
         getIt<SecureKeyFactory>(),
       ),

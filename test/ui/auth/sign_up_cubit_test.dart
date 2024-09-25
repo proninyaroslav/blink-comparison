@@ -18,7 +18,7 @@
 import 'package:blink_comparison/core/encrypt/secure_key_factory.dart';
 import 'package:blink_comparison/core/entity/entity.dart';
 import 'package:blink_comparison/core/storage/auth_factor_repository.dart';
-import 'package:blink_comparison/core/storage/password_repository.dart';
+import 'package:blink_comparison/core/storage/persistent_auth_factor_repository.dart';
 import 'package:blink_comparison/core/storage/storage_result.dart';
 import 'package:blink_comparison/ui/auth/model/sign_up_cubit.dart';
 import 'package:blink_comparison/ui/auth/model/sign_up_state.dart';
@@ -30,7 +30,7 @@ import '../../mock/mock.dart';
 
 void main() {
   group('SignUpCubit |', () {
-    late final PasswordRepository mockPasswordRepo;
+    late final PersistentAuthFactorRepository mockPasswordRepo;
     late final AuthFactorRepository mockAppSecureKeyRepo;
     late final SecureKeyFactory testKeyFactory;
     late SignUpCubit cubit;
@@ -42,6 +42,13 @@ void main() {
       registerFallbackValue(ImmutableSecureKey(TestSecureKey(0)));
       registerFallbackValue(
         MutableAuthFactor.password(value: TestSecureKey(0)),
+      );
+      registerFallbackValue(
+        AuthFactorPassword(
+          MutableAuthFactorPassword(
+            value: TestSecureKey(0),
+          ),
+        ),
       );
     });
 
@@ -197,14 +204,10 @@ void main() {
       act: (SignUpCubit cubit) async {
         const password = '12345';
         when(
-          () => mockPasswordRepo.insert(
-            type: const PasswordType.encryptKey(),
-            password: any(named: 'password'),
-          ),
+          () => mockPasswordRepo.insert(any()),
         ).thenAnswer(
           (_) async => const StorageResult(
-            PasswordInfo(
-              id: 'test',
+            PersistentAuthFactor.password(
               hash: 'hash',
               salt: 'salt',
             ),
@@ -216,10 +219,7 @@ void main() {
         cubit.repeatPasswordChanged(password);
         await cubit.submit();
         verify(
-          () => mockPasswordRepo.insert(
-            type: const PasswordType.encryptKey(),
-            password: any(named: 'password'),
-          ),
+          () => mockPasswordRepo.insert(any()),
         ).called(1);
         verify(() => mockAppSecureKeyRepo.set(any())).called(1);
       },
@@ -243,14 +243,10 @@ void main() {
       act: (SignUpCubit cubit) async {
         const password = '12345';
         when(
-          () => mockPasswordRepo.insert(
-            type: const PasswordType.encryptKey(),
-            password: any(named: 'password'),
-          ),
+          () => mockPasswordRepo.insert(any()),
         ).thenAnswer(
           (_) async => const StorageResult(
-            PasswordInfo(
-              id: 'test',
+            PersistentAuthFactor.password(
               hash: 'hash',
               salt: 'salt',
             ),
@@ -287,10 +283,7 @@ void main() {
         when(() => mockAppSecureKeyRepo.set(any()))
             .thenReturn(const AuthFactorModifyResult.success());
         when(
-          () => mockPasswordRepo.insert(
-            type: const PasswordType.encryptKey(),
-            password: any(named: 'password'),
-          ),
+          () => mockPasswordRepo.insert(any()),
         ).thenAnswer(
           (_) async => StorageResult.error(
             StorageError.database(
@@ -303,14 +296,10 @@ void main() {
         await cubit.submit();
 
         when(
-          () => mockPasswordRepo.insert(
-            type: const PasswordType.encryptKey(),
-            password: any(named: 'password'),
-          ),
+          () => mockPasswordRepo.insert(any()),
         ).thenAnswer(
           (_) async => const StorageResult(
-            PasswordInfo(
-              id: 'test',
+            PersistentAuthFactor.password(
               hash: 'hash',
               salt: 'salt',
             ),
@@ -341,14 +330,10 @@ void main() {
       act: (SignUpCubit cubit) async {
         const password = '12345';
         when(
-          () => mockPasswordRepo.insert(
-            type: const PasswordType.encryptKey(),
-            password: any(named: 'password'),
-          ),
+          () => mockPasswordRepo.insert(any()),
         ).thenAnswer(
           (_) async => const StorageResult(
-            PasswordInfo(
-              id: 'test',
+            PersistentAuthFactor.password(
               hash: 'hash',
               salt: 'salt',
             ),

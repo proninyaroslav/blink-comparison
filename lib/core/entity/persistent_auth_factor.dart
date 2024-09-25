@@ -15,29 +15,32 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'password.freezed.dart';
-part 'password.g.dart';
+part 'persistent_auth_factor.freezed.dart';
+part 'persistent_auth_factor.g.dart';
 
 @freezed
-sealed class PasswordInfo with _$PasswordInfo {
-  const factory PasswordInfo({
-    required String id,
+sealed class PersistentAuthFactor with _$PersistentAuthFactor {
+  const factory PersistentAuthFactor.password({
+    @Default(PersistentAuthFactorId.password) PersistentAuthFactorId id,
 
     /// Currently used Argon2id hash
     required String hash,
 
     /// HEX-encoded salt.
     required String salt,
-  }) = _PasswordInfo;
+  }) = PersistentAuthFactorPassword;
 
-  factory PasswordInfo.fromJson(Map<String, dynamic> json) =>
-      _$PasswordInfoFromJson(json);
+  factory PersistentAuthFactor.fromJson(Map<String, dynamic> json) =>
+      _$PersistentAuthFactorFromJson(json);
 }
 
-@freezed
-sealed class PasswordType with _$PasswordType {
-  const factory PasswordType.encryptKey() = PasswordTypeEncryptKey;
+enum PersistentAuthFactorId {
+  @JsonValue('encrypt_key')
+  password._('encrypt_key');
+
+  final String value;
+
+  const PersistentAuthFactorId._(this.value);
 }

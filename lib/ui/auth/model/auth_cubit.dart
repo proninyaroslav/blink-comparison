@@ -20,20 +20,20 @@ import 'dart:async';
 import 'package:blink_comparison/core/entity/entity.dart';
 import 'package:blink_comparison/core/fs/fs_result.dart';
 import 'package:blink_comparison/core/settings/app_settings.dart';
-import 'package:blink_comparison/core/storage/password_repository.dart';
+import 'package:blink_comparison/core/storage/persistent_auth_factor_repository.dart';
 import 'package:blink_comparison/core/storage/storage_result.dart';
 import 'package:blink_comparison/ui/auth/model/auth_state.dart';
 import 'package:bloc/bloc.dart';
 
 class AuthCubit extends Cubit<AuthState> {
-  final PasswordRepository _passwordRepo;
+  final PersistentAuthFactorRepository _passwordRepo;
   final AppSettings _pref;
 
   AuthCubit(this._passwordRepo, this._pref) : super(const AuthState.initial());
 
   Future<void> load() async {
-    final res = await _passwordRepo.getByType(
-      const PasswordType.encryptKey(),
+    final res = await _passwordRepo.getById(
+      PersistentAuthFactorId.password,
     );
     switch (_pref.encryptionPreferenceSync) {
       case null:

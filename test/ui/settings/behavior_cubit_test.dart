@@ -18,7 +18,7 @@
 import 'package:blink_comparison/core/entity/entity.dart';
 import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/core/storage/auth_factor_repository.dart';
-import 'package:blink_comparison/core/storage/password_repository.dart';
+import 'package:blink_comparison/core/storage/persistent_auth_factor_repository.dart';
 import 'package:blink_comparison/core/storage/storage_result.dart';
 import 'package:blink_comparison/ui/settings/model/behavior_cubit.dart';
 import 'package:blink_comparison/ui/settings/model/behavior_state.dart';
@@ -32,7 +32,7 @@ void main() {
   group('BehaviorSettingsCubit |', () {
     late BehaviorSettingsCubit cubit;
     late AuthFactorRepository mockFactorRepo;
-    late PasswordRepository mockPasswordRepo;
+    late PersistentAuthFactorRepository mockPasswordRepo;
     late AppSettings mockPref;
 
     setUpAll(() {
@@ -75,16 +75,15 @@ void main() {
               .setEncryptionPreference(const EncryptionPreference.password()),
         ).called(1);
 
-        const passwordInfo = PasswordInfo(
-          id: 'id',
+        const factor = PersistentAuthFactor.password(
           hash: 'hash',
           salt: 'salt',
         );
         when(() => mockFactorRepo.remove())
             .thenAnswer((_) => const AuthFactorModifyResult.success());
-        when(() => mockPasswordRepo.getByType(const PasswordType.encryptKey()))
-            .thenAnswer((_) async => const StorageResult(passwordInfo));
-        when(() => mockPasswordRepo.delete(passwordInfo))
+        when(() => mockPasswordRepo.getById(PersistentAuthFactorId.password))
+            .thenAnswer((_) async => const StorageResult(factor));
+        when(() => mockPasswordRepo.delete(factor))
             .thenAnswer((_) async => StorageResult.empty);
 
         await cubit.setEncryptionPreference(const EncryptionPreference.none());
@@ -94,10 +93,9 @@ void main() {
         ).called(1);
 
         verify(() => mockFactorRepo.remove()).called(1);
-        verify(() =>
-                mockPasswordRepo.getByType(const PasswordType.encryptKey()))
+        verify(() => mockPasswordRepo.getById(PersistentAuthFactorId.password))
             .called(1);
-        verify(() => mockPasswordRepo.delete(passwordInfo)).called(1);
+        verify(() => mockPasswordRepo.delete(factor)).called(1);
       },
       expect: () => [
         const BehaviorState.encryptionChanged(

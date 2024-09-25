@@ -25,7 +25,7 @@ import 'package:blink_comparison/core/encrypt/secure_key_factory.dart';
 import 'package:blink_comparison/core/entity/entity.dart';
 import 'package:blink_comparison/core/fs/fs_result.dart';
 import 'package:blink_comparison/core/storage/auth_factor_repository.dart';
-import 'package:blink_comparison/core/storage/password_repository.dart';
+import 'package:blink_comparison/core/storage/persistent_auth_factor_repository.dart';
 import 'package:blink_comparison/core/storage/storage_result.dart';
 import 'package:blink_comparison/core/utils.dart';
 import 'package:bloc/bloc.dart';
@@ -36,7 +36,7 @@ import 'sign_in_state.dart';
 class SignInCubit extends Cubit<SignInState> {
   static const _authFailedDelay = Duration(seconds: 3);
 
-  final PasswordRepository _passwordRepo;
+  final PersistentAuthFactorRepository _passwordRepo;
   final PasswordHasher _hasher;
   final DateTimeProvider _dateTimeProvider;
   final AuthFactorRepository _factorRepo;
@@ -51,7 +51,9 @@ class SignInCubit extends Cubit<SignInState> {
   ) : super(const SignInState.initial());
 
   Future<void> load() async {
-    final res = await _passwordRepo.getByType(const PasswordType.encryptKey());
+    final res = await _passwordRepo.getById(
+      PersistentAuthFactorId.password,
+    );
     final newState = switch (res) {
       StorageResultValue(:final value?) =>
         SignInState.passwordLoaded(info: value),
@@ -86,7 +88,7 @@ class SignInCubit extends Cubit<SignInState> {
     }
   }
 
-  Future<void> _auth(String password, PasswordInfo info) async {
+  Future<void> _auth(String password, PersistentAuthFactor info) async {
     emit(SignInState.authInProgress(info: info));
     if (password.isEmpty) {
       emit(SignInState.authFailed(

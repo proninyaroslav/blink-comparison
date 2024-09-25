@@ -17,57 +17,56 @@
 
 import 'package:blink_comparison/core/encrypt/encrypt.dart';
 import 'package:blink_comparison/core/encrypt/password_hasher.dart';
-import 'package:blink_comparison/core/entity/password.dart';
-import 'package:blink_comparison/core/entity/secure_key.dart';
 import 'package:blink_comparison/core/storage/app_database.dart';
 import 'package:convert/convert.dart';
 import 'package:injectable/injectable.dart';
 
+import '../entity/entity.dart';
 import 'storage_result.dart';
 
-const _encryptKeyId = 'encrypt_key';
+abstract class PersistentAuthFactorRepository {
+  Future<StorageResult<PersistentAuthFactor>> insert(AuthFactor factor);
 
-abstract class PasswordRepository {
-  Future<StorageResult<PasswordInfo>> insert({
-    required PasswordType type,
-    required ImmutableSecureKey password,
-  });
+  Future<StorageResult<void>> delete(PersistentAuthFactor info);
 
-  Future<StorageResult<void>> delete(PasswordInfo info);
-
-  Future<StorageResult<PasswordInfo?>> getByType(PasswordType type);
+  Future<StorageResult<PersistentAuthFactor?>> getById(
+    PersistentAuthFactorId id,
+  );
 }
 
-@Singleton(as: PasswordRepository)
-class PasswordRepositoryImpl implements PasswordRepository {
+@Singleton(as: PersistentAuthFactorRepository)
+class PersistentAuthFactorRepositoryImpl
+    implements PersistentAuthFactorRepository {
   final AppDatabase _db;
   final SaltGenerator _saltGenerator;
   final PasswordHasher _hasher;
 
-  PasswordRepositoryImpl(
+  PersistentAuthFactorRepositoryImpl(
     this._db,
     this._saltGenerator,
     this._hasher,
   );
 
   @override
-  Future<StorageResult<PasswordInfo>> insert({
-    required PasswordType type,
-    required ImmutableSecureKey password,
-  }) async {
-    final salt = _saltGenerator.randomBytes();
-    final key = await _hasher.calculate(
-      password: password,
-      salt: salt,
-    );
+  Future<StorageResult<PersistentAuthFactor>> insert(AuthFactor factor) async {
+    late final PersistentAuthFactor persistentFactor;
     try {
-      final info = PasswordInfo(
-        id: type.getId(),
-        hash: hex.encode(key.extractBytes()),
-        salt: hex.encode(salt),
-      );
-      await _db.passwordDao.insert(info);
-      return StorageResult(info);
+      switch (factor) {
+        case AuthFactorPassword(:final value?):
+          final salt = _saltGenerator.randomBytes();
+          final key = await _hasher.calculate(
+            password: value,
+            salt: salt,
+          );
+          persistentFactor = PersistentAuthFactor.password(
+            hash: hex.encode(key.extractBytes()),
+            salt: hex.encode(salt),
+          );
+        case AuthFactorPassword():
+          throw Exception('Auth factor is disposed');
+      }
+      await _db.persistentAuthFactorDao.insert(persistentFactor);
+      return StorageResult(persistentFactor);
     } on Exception catch (e, stackTrace) {
       return StorageResult.error(
         StorageError.database(
@@ -75,15 +74,13 @@ class PasswordRepositoryImpl implements PasswordRepository {
           stackTrace: stackTrace,
         ),
       );
-    } finally {
-      key.dispose();
     }
   }
 
   @override
-  Future<StorageResult<void>> delete(PasswordInfo info) async {
+  Future<StorageResult<void>> delete(PersistentAuthFactor info) async {
     try {
-      await _db.passwordDao.delete(info);
+      await _db.persistentAuthFactorDao.delete(info);
       return StorageResult.empty;
     } on Exception catch (e, stackTrace) {
       return StorageResult.error(
@@ -96,10 +93,12 @@ class PasswordRepositoryImpl implements PasswordRepository {
   }
 
   @override
-  Future<StorageResult<PasswordInfo?>> getByType(PasswordType type) async {
+  Future<StorageResult<PersistentAuthFactor?>> getById(
+    PersistentAuthFactorId id,
+  ) async {
     try {
       return StorageResult(
-        await _db.passwordDao.getById(type.getId()),
+        await _db.persistentAuthFactorDao.getById(id),
       );
     } on Exception catch (e, stackTrace) {
       return StorageResult.error(
@@ -110,8 +109,4 @@ class PasswordRepositoryImpl implements PasswordRepository {
       );
     }
   }
-}
-
-extension PasswordTypeExtension on PasswordType {
-  String getId() => switch (this) { PasswordTypeEncryptKey() => _encryptKeyId };
 }

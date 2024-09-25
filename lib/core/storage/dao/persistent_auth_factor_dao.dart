@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -15,28 +15,28 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'package:blink_comparison/core/entity/password.dart';
+import 'package:blink_comparison/core/entity/persistent_auth_factor.dart';
 import 'package:sembast/sembast.dart';
 
 const _storeName = 'PasswordInfo';
 
-class PasswordDao {
+class PersistentAuthFactorDao {
   final Database _db;
   final _store = stringMapStoreFactory.store(_storeName);
 
-  PasswordDao(this._db);
+  PersistentAuthFactorDao(this._db);
 
-  Future<void> insert(PasswordInfo info) async {
-    await _store.record(info.id).put(_db, info.toJson());
+  Future<void> insert(PersistentAuthFactor factor) async {
+    await _store.record(factor.id.value).put(_db, factor.toJson());
   }
 
-  Future<void> delete(PasswordInfo info) async {
-    final finder = Finder(filter: Filter.byKey(info.id));
+  Future<void> delete(PersistentAuthFactor factor) async {
+    final finder = Finder(filter: Filter.byKey(factor.id.value));
     await _store.delete(_db, finder: finder);
   }
 
-  Future<PasswordInfo?> getById(String id) async {
-    final snapshot = await _store.record(id).get(_db);
-    return snapshot == null ? null : PasswordInfo.fromJson(snapshot);
+  Future<PersistentAuthFactor?> getById(PersistentAuthFactorId id) async {
+    final snapshot = await _store.record(id.value).get(_db);
+    return snapshot == null ? null : PersistentAuthFactor.fromJson(snapshot);
   }
 }

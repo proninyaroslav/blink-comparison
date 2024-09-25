@@ -15,7 +15,8 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'package:blink_comparison/core/storage/password_repository.dart';
+import 'package:blink_comparison/core/storage/persistent_auth_factor_repository.dart';
 import 'package:mocktail/mocktail.dart';
 
-class MockPasswordRepository extends Mock implements PasswordRepository {}
+class MockPasswordRepository extends Mock
+    implements PersistentAuthFactorRepository {}

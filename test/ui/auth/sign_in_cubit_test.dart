@@ -23,7 +23,7 @@ import 'package:blink_comparison/core/encrypt/password_hasher.dart';
 import 'package:blink_comparison/core/encrypt/secure_key_factory.dart';
 import 'package:blink_comparison/core/entity/entity.dart';
 import 'package:blink_comparison/core/storage/auth_factor_repository.dart';
-import 'package:blink_comparison/core/storage/password_repository.dart';
+import 'package:blink_comparison/core/storage/persistent_auth_factor_repository.dart';
 import 'package:blink_comparison/core/storage/storage_result.dart';
 import 'package:blink_comparison/ui/auth/model/sign_in_cubit.dart';
 import 'package:blink_comparison/ui/auth/model/sign_in_state.dart';
@@ -36,7 +36,7 @@ import '../../mock/mock.dart';
 
 void main() {
   group('SignInCubit |', () {
-    late PasswordRepository mockPasswordRepo;
+    late PersistentAuthFactorRepository mockPasswordRepo;
     late PasswordHasher mockHasher;
     late DateTimeProvider mockDateTimeProvider;
     late AuthFactorRepository mockFactorRepo;
@@ -75,11 +75,10 @@ void main() {
       build: () => cubit,
       act: (SignInCubit cubit) async {
         when(
-          () => mockPasswordRepo.getByType(const PasswordType.encryptKey()),
+          () => mockPasswordRepo.getById(PersistentAuthFactorId.password),
         ).thenAnswer(
           (_) async => const StorageResult(
-            PasswordInfo(
-              id: 'test',
+            PersistentAuthFactor.password(
               hash: 'hash',
               salt: 'salt',
             ),
@@ -89,8 +88,7 @@ void main() {
       },
       expect: () => [
         const SignInState.passwordLoaded(
-          info: PasswordInfo(
-            id: 'test',
+          info: PersistentAuthFactor.password(
             hash: 'hash',
             salt: 'salt',
           ),
@@ -103,7 +101,7 @@ void main() {
       build: () => cubit,
       act: (SignInCubit cubit) async {
         when(
-          () => mockPasswordRepo.getByType(const PasswordType.encryptKey()),
+          () => mockPasswordRepo.getById(PersistentAuthFactorId.password),
         ).thenAnswer(
           (_) async => StorageResult.error(
             StorageError.database(
@@ -123,9 +121,9 @@ void main() {
       build: () => cubit,
       act: (SignInCubit cubit) async {
         when(
-          () => mockPasswordRepo.getByType(const PasswordType.encryptKey()),
+          () => mockPasswordRepo.getById(PersistentAuthFactorId.password),
         ).thenAnswer(
-          (_) async => const StorageResult<PasswordInfo?>(null),
+          (_) async => const StorageResult<PersistentAuthFactor?>(null),
         );
         await cubit.load();
       },
@@ -150,8 +148,7 @@ void main() {
         final salt = Uint8List.fromList([1, 2, 3]);
         const passwordStr = 'password';
         final password = TestSecureKey.fromList(utf8.encode(passwordStr));
-        final info = PasswordInfo(
-          id: 'test',
+        final info = PersistentAuthFactor.password(
           hash: hex.encode(utf8.encode('another_password')),
           salt: hex.encode(salt),
         );
@@ -159,7 +156,7 @@ void main() {
         when(() => mockHashKey.extractBytes()).thenReturn(password.list);
         when(() => mockHashKey.dispose()).thenAnswer((_) {});
         when(
-          () => mockPasswordRepo.getByType(const PasswordType.encryptKey()),
+          () => mockPasswordRepo.getById(PersistentAuthFactorId.password),
         ).thenAnswer(
           (_) async => StorageResult(info),
         );
@@ -184,22 +181,19 @@ void main() {
       },
       expect: () => [
         SignInState.passwordLoaded(
-          info: PasswordInfo(
-            id: 'test',
+          info: PersistentAuthFactor.password(
             hash: hex.encode(utf8.encode('another_password')),
             salt: hex.encode(Uint8List.fromList([1, 2, 3])),
           ),
         ),
         SignInState.authInProgress(
-          info: PasswordInfo(
-            id: 'test',
+          info: PersistentAuthFactor.password(
             hash: hex.encode(utf8.encode('another_password')),
             salt: hex.encode(Uint8List.fromList([1, 2, 3])),
           ),
         ),
         SignInState.authFailed(
-            info: PasswordInfo(
-              id: 'test',
+            info: PersistentAuthFactor.password(
               hash: hex.encode(utf8.encode('another_password')),
               salt: hex.encode(Uint8List.fromList([1, 2, 3])),
             ),
@@ -214,8 +208,7 @@ void main() {
         final salt = Uint8List.fromList([1, 2, 3]);
         const passwordStr = 'password';
         final password = TestSecureKey.fromList(utf8.encode(passwordStr));
-        final info = PasswordInfo(
-          id: 'test',
+        final info = PersistentAuthFactor.password(
           hash: hex.encode(password.list),
           salt: hex.encode(salt),
         );
@@ -223,7 +216,7 @@ void main() {
         when(() => mockHashKey.extractBytes()).thenReturn(password.list);
         when(() => mockHashKey.dispose()).thenAnswer((_) {});
         when(
-          () => mockPasswordRepo.getByType(const PasswordType.encryptKey()),
+          () => mockPasswordRepo.getById(PersistentAuthFactorId.password),
         ).thenAnswer(
           (_) async => StorageResult(info),
         );
@@ -248,22 +241,19 @@ void main() {
       },
       expect: () => [
         SignInState.passwordLoaded(
-          info: PasswordInfo(
-            id: 'test',
+          info: PersistentAuthFactor.password(
             hash: hex.encode(utf8.encode('password')),
             salt: hex.encode(Uint8List.fromList([1, 2, 3])),
           ),
         ),
         SignInState.authInProgress(
-          info: PasswordInfo(
-            id: 'test',
+          info: PersistentAuthFactor.password(
             hash: hex.encode(utf8.encode('password')),
             salt: hex.encode(Uint8List.fromList([1, 2, 3])),
           ),
         ),
         SignInState.authSuccess(
-          info: PasswordInfo(
-            id: 'test',
+          info: PersistentAuthFactor.password(
             hash: hex.encode(utf8.encode('password')),
             salt: hex.encode(Uint8List.fromList([1, 2, 3])),
           ),
@@ -278,15 +268,14 @@ void main() {
         final salt = Uint8List.fromList([1, 2, 3]);
         const passwordStr = 'password';
         final password = TestSecureKey.fromList(utf8.encode(passwordStr));
-        final info = PasswordInfo(
-          id: 'test',
+        final info = PersistentAuthFactor.password(
           hash: hex.encode(password.list),
           salt: hex.encode(salt),
         );
         final mockHashKey = MockSecureKey();
         when(() => mockHashKey.dispose()).thenAnswer((_) {});
         when(
-          () => mockPasswordRepo.getByType(const PasswordType.encryptKey()),
+          () => mockPasswordRepo.getById(PersistentAuthFactorId.password),
         ).thenAnswer(
           (_) async => StorageResult(info),
         );
@@ -322,37 +311,32 @@ void main() {
       },
       expect: () => [
         SignInState.passwordLoaded(
-          info: PasswordInfo(
-            id: 'test',
+          info: PersistentAuthFactor.password(
             hash: hex.encode(utf8.encode('password')),
             salt: hex.encode(Uint8List.fromList([1, 2, 3])),
           ),
         ),
         SignInState.authInProgress(
-          info: PasswordInfo(
-            id: 'test',
+          info: PersistentAuthFactor.password(
             hash: hex.encode(utf8.encode('password')),
             salt: hex.encode(Uint8List.fromList([1, 2, 3])),
           ),
         ),
         SignInState.authFailed(
-          info: PasswordInfo(
-            id: 'test',
+          info: PersistentAuthFactor.password(
             hash: hex.encode(utf8.encode('password')),
             salt: hex.encode(Uint8List.fromList([1, 2, 3])),
           ),
           reason: const SignInError.wrongPassword(),
         ),
         SignInState.authInProgress(
-          info: PasswordInfo(
-            id: 'test',
+          info: PersistentAuthFactor.password(
             hash: hex.encode(utf8.encode('password')),
             salt: hex.encode(Uint8List.fromList([1, 2, 3])),
           ),
         ),
         SignInState.authSuccess(
-          info: PasswordInfo(
-            id: 'test',
+          info: PersistentAuthFactor.password(
             hash: hex.encode(utf8.encode('password')),
             salt: hex.encode(Uint8List.fromList([1, 2, 3])),
           ),
@@ -365,11 +349,10 @@ void main() {
       build: () => cubit,
       act: (SignInCubit cubit) async {
         when(
-          () => mockPasswordRepo.getByType(const PasswordType.encryptKey()),
+          () => mockPasswordRepo.getById(PersistentAuthFactorId.password),
         ).thenAnswer(
           (_) async => const StorageResult(
-            PasswordInfo(
-              id: 'test',
+            PersistentAuthFactor.password(
               hash: 'hash',
               salt: 'salt',
             ),
@@ -380,22 +363,19 @@ void main() {
       },
       expect: () => [
         const SignInState.passwordLoaded(
-          info: PasswordInfo(
-            id: 'test',
+          info: PersistentAuthFactor.password(
             hash: 'hash',
             salt: 'salt',
           ),
         ),
         const SignInState.authInProgress(
-          info: PasswordInfo(
-            id: 'test',
+          info: PersistentAuthFactor.password(
             hash: 'hash',
             salt: 'salt',
           ),
         ),
         const SignInState.authFailed(
-          info: PasswordInfo(
-            id: 'test',
+          info: PersistentAuthFactor.password(
             hash: 'hash',
             salt: 'salt',
           ),

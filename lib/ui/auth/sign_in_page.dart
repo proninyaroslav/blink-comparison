@@ -20,7 +20,7 @@ import 'package:blink_comparison/core/date_time_provider.dart';
 import 'package:blink_comparison/core/encrypt/password_hasher.dart';
 import 'package:blink_comparison/core/encrypt/secure_key_factory.dart';
 import 'package:blink_comparison/core/storage/auth_factor_repository.dart';
-import 'package:blink_comparison/core/storage/password_repository.dart';
+import 'package:blink_comparison/core/storage/persistent_auth_factor_repository.dart';
 import 'package:blink_comparison/injector.dart';
 import 'package:blink_comparison/ui/auth/components/auth_scaffold.dart';
 import 'package:blink_comparison/ui/auth/components/sign_in_button.dart';
@@ -47,7 +47,7 @@ class SignInPage extends StatefulWidget implements AutoRouteWrapper {
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider(
       create: (context) => SignInCubit(
-        getIt<PasswordRepository>(),
+        getIt<PersistentAuthFactorRepository>(),
         getIt<PasswordHasher>(),
         getIt<DateTimeProvider>(),
         getIt<AuthFactorRepository>(),

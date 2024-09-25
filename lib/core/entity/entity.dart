@@ -16,7 +16,7 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 export 'auth_factor.dart';
-export 'password.dart';
+export 'persistent_auth_factor.dart';
 export 'ref_image.dart';
 export 'save_ref_image_status.dart';
 export 'secure_key.dart';

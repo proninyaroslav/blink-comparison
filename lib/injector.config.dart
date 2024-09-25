@@ -43,8 +43,8 @@ import 'package:blink_comparison/core/settings/shared_pref_listenable.dart'
 import 'package:blink_comparison/core/storage/app_database.dart' as _i266;
 import 'package:blink_comparison/core/storage/auth_factor_repository.dart'
     as _i105;
-import 'package:blink_comparison/core/storage/password_repository.dart'
-    as _i231;
+import 'package:blink_comparison/core/storage/persistent_auth_factor_repository.dart'
+    as _i326;
 import 'package:blink_comparison/core/storage/ref_image_repository.dart'
     as _i443;
 import 'package:blink_comparison/core/storage/ref_image_secure_storage.dart'
@@ -205,11 +205,6 @@ extension GetItInjectableX on _i174.GetIt {
         _prod,
       },
     );
-    gh.singleton<_i231.PasswordRepository>(() => _i231.PasswordRepositoryImpl(
-          gh<_i266.AppDatabase>(),
-          gh<_i498.SaltGenerator>(),
-          gh<_i41.PasswordHasher>(),
-        ));
     gh.factory<_i923.SaveRefImageJob>(() => _i923.SaveRefImageJobImpl(
           gh<_i498.EncryptModuleProvider>(),
           gh<_i325.RefImageFS>(),
@@ -223,6 +218,12 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i63.SaveThumbnailJob>(
         () => _i63.SaveThumbnailJobImpl(gh<_i966.ThumbnailFS>()));
+    gh.singleton<_i326.PersistentAuthFactorRepository>(
+        () => _i326.PersistentAuthFactorRepositoryImpl(
+              gh<_i266.AppDatabase>(),
+              gh<_i498.SaltGenerator>(),
+              gh<_i41.PasswordHasher>(),
+            ));
     gh.factory<_i811.ThumbnailsMigratorWorker>(
         () => _i811.ThumbnailsMigratorWorker(gh<_i598.ThumbnailsMigrator>()));
     gh.singleton<_i1003.SaveRefImageService>(

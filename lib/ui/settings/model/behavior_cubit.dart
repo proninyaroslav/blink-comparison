@@ -16,9 +16,10 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:blink_comparison/core/entity/entity.dart';
+import 'package:blink_comparison/core/entity/persistent_auth_factor.dart';
 import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/core/storage/auth_factor_repository.dart';
-import 'package:blink_comparison/core/storage/password_repository.dart';
+import 'package:blink_comparison/core/storage/persistent_auth_factor_repository.dart';
 import 'package:blink_comparison/core/storage/storage_result.dart';
 import 'package:blink_comparison/ui/settings/model/behavior_state.dart';
 import 'package:bloc/bloc.dart';
@@ -28,12 +29,12 @@ import '../../../logger.dart';
 class BehaviorSettingsCubit extends Cubit<BehaviorState> {
   final AppSettings _pref;
   final AuthFactorRepository _factorRepo;
-  final PasswordRepository _passwordRepo;
+  final PersistentAuthFactorRepository _persistentFactorRepo;
 
   BehaviorSettingsCubit(
     this._pref,
     this._factorRepo,
-    this._passwordRepo,
+    this._persistentFactorRepo,
   ) : super(const BehaviorState.initial());
 
   Future<void> load() async {
@@ -52,17 +53,19 @@ class BehaviorSettingsCubit extends Cubit<BehaviorState> {
       ));
 
       if (value case EncryptionPreferenceNone()) {
-        await _removePassword();
+        await _removeAuthFactor();
       }
     }
   }
 
-  Future<void> _removePassword() async {
+  Future<void> _removeAuthFactor() async {
     _factorRepo.remove();
-    final res = await _passwordRepo.getByType(const PasswordType.encryptKey());
+    final res = await _persistentFactorRepo.getById(
+      PersistentAuthFactorId.password,
+    );
     switch (res) {
       case StorageResultValue(:final value?):
-        final res = await _passwordRepo.delete(value);
+        final res = await _persistentFactorRepo.delete(value);
         if (res case StorageResultError(:final error)) {
           log().e('Unable to delete password', error: error);
         }

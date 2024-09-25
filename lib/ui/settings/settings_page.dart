@@ -18,7 +18,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/core/storage/auth_factor_repository.dart';
-import 'package:blink_comparison/core/storage/password_repository.dart';
+import 'package:blink_comparison/core/storage/persistent_auth_factor_repository.dart';
 import 'package:blink_comparison/injector.dart';
 import 'package:blink_comparison/ui/settings/components/settings_pages_list.dart';
 import 'package:blink_comparison/ui/settings/model/appearance_cubit.dart';
@@ -57,7 +57,7 @@ class SettingsPage extends StatefulWidget implements AutoRouteWrapper {
           create: (context) => BehaviorSettingsCubit(
             getIt<AppSettings>(),
             getIt<AuthFactorRepository>(),
-            getIt<PasswordRepository>(),
+            getIt<PersistentAuthFactorRepository>(),
           ),
         ),
       ],

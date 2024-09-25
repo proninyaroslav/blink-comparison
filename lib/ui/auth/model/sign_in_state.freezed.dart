@@ -152,9 +152,9 @@ abstract class _$$SignInStatePasswordLoadedImplCopyWith<$Res> {
           $Res Function(_$SignInStatePasswordLoadedImpl) then) =
       __$$SignInStatePasswordLoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({PasswordInfo info});
+  $Res call({PersistentAuthFactor info});
 
-  $PasswordInfoCopyWith<$Res> get info;
+  $PersistentAuthFactorCopyWith<$Res> get info;
 }
 
 /// @nodoc
@@ -177,7 +177,7 @@ class __$$SignInStatePasswordLoadedImplCopyWithImpl<$Res>
       info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
-              as PasswordInfo,
+              as PersistentAuthFactor,
     ));
   }
 
@@ -185,8 +185,8 @@ class __$$SignInStatePasswordLoadedImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PasswordInfoCopyWith<$Res> get info {
-    return $PasswordInfoCopyWith<$Res>(_value.info, (value) {
+  $PersistentAuthFactorCopyWith<$Res> get info {
+    return $PersistentAuthFactorCopyWith<$Res>(_value.info, (value) {
       return _then(_value.copyWith(info: value));
     });
   }
@@ -200,7 +200,7 @@ class _$SignInStatePasswordLoadedImpl
   const _$SignInStatePasswordLoadedImpl({required this.info});
 
   @override
-  final PasswordInfo info;
+  final PersistentAuthFactor info;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -237,10 +237,11 @@ class _$SignInStatePasswordLoadedImpl
 }
 
 abstract class SignInStatePasswordLoaded implements SignInState {
-  const factory SignInStatePasswordLoaded({required final PasswordInfo info}) =
+  const factory SignInStatePasswordLoaded(
+          {required final PersistentAuthFactor info}) =
       _$SignInStatePasswordLoadedImpl;
 
-  PasswordInfo get info;
+  PersistentAuthFactor get info;
 
   /// Create a copy of SignInState
   /// with the given fields replaced by the non-null parameter values.
@@ -417,9 +418,9 @@ abstract class _$$SignInStateAuthInProgressImplCopyWith<$Res> {
           $Res Function(_$SignInStateAuthInProgressImpl) then) =
       __$$SignInStateAuthInProgressImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({PasswordInfo info});
+  $Res call({PersistentAuthFactor info});
 
-  $PasswordInfoCopyWith<$Res> get info;
+  $PersistentAuthFactorCopyWith<$Res> get info;
 }
 
 /// @nodoc
@@ -442,7 +443,7 @@ class __$$SignInStateAuthInProgressImplCopyWithImpl<$Res>
       info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
-              as PasswordInfo,
+              as PersistentAuthFactor,
     ));
   }
 
@@ -450,8 +451,8 @@ class __$$SignInStateAuthInProgressImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PasswordInfoCopyWith<$Res> get info {
-    return $PasswordInfoCopyWith<$Res>(_value.info, (value) {
+  $PersistentAuthFactorCopyWith<$Res> get info {
+    return $PersistentAuthFactorCopyWith<$Res>(_value.info, (value) {
       return _then(_value.copyWith(info: value));
     });
   }
@@ -465,7 +466,7 @@ class _$SignInStateAuthInProgressImpl
   const _$SignInStateAuthInProgressImpl({required this.info});
 
   @override
-  final PasswordInfo info;
+  final PersistentAuthFactor info;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -502,10 +503,11 @@ class _$SignInStateAuthInProgressImpl
 }
 
 abstract class SignInStateAuthInProgress implements SignInState {
-  const factory SignInStateAuthInProgress({required final PasswordInfo info}) =
+  const factory SignInStateAuthInProgress(
+          {required final PersistentAuthFactor info}) =
       _$SignInStateAuthInProgressImpl;
 
-  PasswordInfo get info;
+  PersistentAuthFactor get info;
 
   /// Create a copy of SignInState
   /// with the given fields replaced by the non-null parameter values.
@@ -521,9 +523,9 @@ abstract class _$$SignInStateAuthSuccessImplCopyWith<$Res> {
           $Res Function(_$SignInStateAuthSuccessImpl) then) =
       __$$SignInStateAuthSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({PasswordInfo info});
+  $Res call({PersistentAuthFactor info});
 
-  $PasswordInfoCopyWith<$Res> get info;
+  $PersistentAuthFactorCopyWith<$Res> get info;
 }
 
 /// @nodoc
@@ -546,7 +548,7 @@ class __$$SignInStateAuthSuccessImplCopyWithImpl<$Res>
       info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
-              as PasswordInfo,
+              as PersistentAuthFactor,
     ));
   }
 
@@ -554,8 +556,8 @@ class __$$SignInStateAuthSuccessImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PasswordInfoCopyWith<$Res> get info {
-    return $PasswordInfoCopyWith<$Res>(_value.info, (value) {
+  $PersistentAuthFactorCopyWith<$Res> get info {
+    return $PersistentAuthFactorCopyWith<$Res>(_value.info, (value) {
       return _then(_value.copyWith(info: value));
     });
   }
@@ -569,7 +571,7 @@ class _$SignInStateAuthSuccessImpl
   const _$SignInStateAuthSuccessImpl({required this.info});
 
   @override
-  final PasswordInfo info;
+  final PersistentAuthFactor info;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -606,10 +608,11 @@ class _$SignInStateAuthSuccessImpl
 }
 
 abstract class SignInStateAuthSuccess implements SignInState {
-  const factory SignInStateAuthSuccess({required final PasswordInfo info}) =
+  const factory SignInStateAuthSuccess(
+          {required final PersistentAuthFactor info}) =
       _$SignInStateAuthSuccessImpl;
 
-  PasswordInfo get info;
+  PersistentAuthFactor get info;
 
   /// Create a copy of SignInState
   /// with the given fields replaced by the non-null parameter values.
@@ -625,9 +628,9 @@ abstract class _$$SignInStateAuthFailedImplCopyWith<$Res> {
           $Res Function(_$SignInStateAuthFailedImpl) then) =
       __$$SignInStateAuthFailedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({PasswordInfo info, SignInError reason});
+  $Res call({PersistentAuthFactor info, SignInError reason});
 
-  $PasswordInfoCopyWith<$Res> get info;
+  $PersistentAuthFactorCopyWith<$Res> get info;
   $SignInErrorCopyWith<$Res> get reason;
 }
 
@@ -651,7 +654,7 @@ class __$$SignInStateAuthFailedImplCopyWithImpl<$Res>
       info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
-              as PasswordInfo,
+              as PersistentAuthFactor,
       reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
@@ -663,8 +666,8 @@ class __$$SignInStateAuthFailedImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PasswordInfoCopyWith<$Res> get info {
-    return $PasswordInfoCopyWith<$Res>(_value.info, (value) {
+  $PersistentAuthFactorCopyWith<$Res> get info {
+    return $PersistentAuthFactorCopyWith<$Res>(_value.info, (value) {
       return _then(_value.copyWith(info: value));
     });
   }
@@ -688,7 +691,7 @@ class _$SignInStateAuthFailedImpl
   const _$SignInStateAuthFailedImpl({required this.info, required this.reason});
 
   @override
-  final PasswordInfo info;
+  final PersistentAuthFactor info;
   @override
   final SignInError reason;
 
@@ -730,10 +733,10 @@ class _$SignInStateAuthFailedImpl
 
 abstract class SignInStateAuthFailed implements SignInState {
   const factory SignInStateAuthFailed(
-      {required final PasswordInfo info,
+      {required final PersistentAuthFactor info,
       required final SignInError reason}) = _$SignInStateAuthFailedImpl;
 
-  PasswordInfo get info;
+  PersistentAuthFactor get info;
   SignInError get reason;
 
   /// Create a copy of SignInState

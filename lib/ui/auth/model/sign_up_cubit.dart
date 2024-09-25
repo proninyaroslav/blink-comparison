@@ -21,14 +21,14 @@ import 'package:blink_comparison/core/encrypt/secure_key_factory.dart';
 import 'package:blink_comparison/core/entity/entity.dart';
 import 'package:blink_comparison/core/fs/fs_result.dart';
 import 'package:blink_comparison/core/storage/auth_factor_repository.dart';
-import 'package:blink_comparison/core/storage/password_repository.dart';
+import 'package:blink_comparison/core/storage/persistent_auth_factor_repository.dart';
 import 'package:blink_comparison/core/storage/storage_result.dart';
 import 'package:blink_comparison/core/utils.dart';
 import 'package:blink_comparison/ui/auth/model/sign_up_state.dart';
 import 'package:bloc/bloc.dart';
 
 class SignUpCubit extends Cubit<SignUpState> {
-  final PasswordRepository _passwordRepo;
+  final PersistentAuthFactorRepository _passwordRepo;
   final AuthFactorRepository _factorRepo;
   final SecureKeyFactory _keyFactory;
 
@@ -115,16 +115,14 @@ class SignUpCubit extends Cubit<SignUpState> {
 
     emit(const SignUpState.savingPassword());
     final pwBytes = utf8.encode(passwordStr);
-    late final SecureKey pwKey;
     try {
-      pwKey = _keyFactory.fromList(pwBytes);
-      final res = await _passwordRepo.insert(
-        type: const PasswordType.encryptKey(),
-        password: pwKey.toImmutable(),
+      final factor = MutableAuthFactor.password(
+        value: _keyFactory.fromList(pwBytes),
       );
+      final res = await _passwordRepo.insert(factor.toImmutable());
       switch (res) {
         case StorageResultValue():
-          final res = _factorRepo.set(MutableAuthFactor.password(value: pwKey));
+          final res = _factorRepo.set(factor);
           final newState = switch (res) {
             AuthFactorModifyResultSuccess() =>
               const SignUpState.savedAndAuthorized(),

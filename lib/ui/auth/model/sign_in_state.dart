@@ -29,7 +29,7 @@ sealed class SignInState with _$SignInState {
   const factory SignInState.passwordNotLoaded() = SignInStatePasswordNotLoaded;
 
   const factory SignInState.passwordLoaded({
-    required PasswordInfo info,
+    required PersistentAuthFactor info,
   }) = SignInStatePasswordLoaded;
 
   const factory SignInState.noPasswordError() = SignInStateNoPasswordError;
@@ -40,15 +40,15 @@ sealed class SignInState with _$SignInState {
   }) = SignInStateLoadPasswordFailed;
 
   const factory SignInState.authInProgress({
-    required PasswordInfo info,
+    required PersistentAuthFactor info,
   }) = SignInStateAuthInProgress;
 
   const factory SignInState.authSuccess({
-    required PasswordInfo info,
+    required PersistentAuthFactor info,
   }) = SignInStateAuthSuccess;
 
   const factory SignInState.authFailed({
-    required PasswordInfo info,
+    required PersistentAuthFactor info,
     required SignInError reason,
   }) = SignInStateAuthFailed;
 }

@@ -22,7 +22,7 @@ import 'package:blink_comparison/core/encrypt/encrypt.dart';
 import 'package:blink_comparison/core/encrypt/password_hasher.dart';
 import 'package:blink_comparison/core/entity/entity.dart';
 import 'package:blink_comparison/core/storage/app_database.dart';
-import 'package:blink_comparison/core/storage/password_repository.dart';
+import 'package:blink_comparison/core/storage/persistent_auth_factor_repository.dart';
 import 'package:blink_comparison/core/storage/storage_result.dart';
 import 'package:convert/convert.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -37,13 +37,13 @@ void main() {
     late Database db;
     late SaltGenerator mockSaltGenerator;
     late PasswordHasher mockHasher;
-    late PasswordRepository repo;
+    late PersistentAuthFactorRepository repo;
 
     setUp(() async {
       db = await newDatabaseFactoryMemory().openDatabase('test.db');
       mockSaltGenerator = MockSaltGenerator();
       mockHasher = MockPasswordHasher();
-      repo = PasswordRepositoryImpl(
+      repo = PersistentAuthFactorRepositoryImpl(
         AppDatabaseImpl(db),
         mockSaltGenerator,
         mockHasher,
@@ -56,10 +56,10 @@ void main() {
 
     test('Insert encrypt key', () async {
       final password = TestSecureKey.fromList(utf8.encode('test'));
-      final pwImmutable = password.toImmutable();
+      final mutableFactor = MutableAuthFactor.password(value: password);
+      final factor = mutableFactor.toImmutable();
       final salt = Uint8List.fromList([1, 2, 3]);
-      final expectedInfo = PasswordInfo(
-        id: 'encrypt_key',
+      final expectedInfo = PersistentAuthFactor.password(
         hash: hex.encode(password.list),
         salt: hex.encode(salt),
       );
@@ -69,35 +69,35 @@ void main() {
         () => mockSaltGenerator.randomBytes(),
       ).thenReturn(salt);
       when(
-        () => mockHasher.calculate(password: pwImmutable, salt: salt),
+        () => mockHasher.calculate(
+          password: mutableFactor.value.toImmutable(),
+          salt: salt,
+        ),
       ).thenAnswer((_) async => expectedKey);
 
       expect(
-        await repo.insert(
-          type: const PasswordType.encryptKey(),
-          password: pwImmutable,
-        ),
+        await repo.insert(factor),
         StorageResult(expectedInfo),
       );
       expect(
-        await repo.getByType(const PasswordType.encryptKey()),
-        StorageResult<PasswordInfo?>(expectedInfo),
+        await repo.getById(PersistentAuthFactorId.password),
+        StorageResult<PersistentAuthFactor?>(expectedInfo),
       );
     });
 
     test('Replace existing encrypt key', () async {
       final password1 = TestSecureKey.fromList(utf8.encode('test1'));
       final password2 = TestSecureKey.fromList(utf8.encode('test2'));
-      final pw1Immutable = password1.toImmutable();
-      final pw2Immutable = password2.toImmutable();
+      final mutableFactor1 = MutableAuthFactor.password(value: password1);
+      final mutableFactor2 = MutableAuthFactor.password(value: password2);
+      final factor1 = mutableFactor1.toImmutable();
+      final factor2 = mutableFactor2.toImmutable();
       final salt = Uint8List.fromList([1, 2, 3]);
-      final expectedInfo1 = PasswordInfo(
-        id: 'encrypt_key',
+      final expectedInfo1 = PersistentAuthFactor.password(
         hash: hex.encode(password1.list),
         salt: hex.encode(salt),
       );
-      final expectedInfo2 = PasswordInfo(
-        id: 'encrypt_key',
+      final expectedInfo2 = PersistentAuthFactor.password(
         hash: hex.encode(password2.list),
         salt: hex.encode(salt),
       );
@@ -109,44 +109,44 @@ void main() {
         () => mockSaltGenerator.randomBytes(),
       ).thenReturn(salt);
       when(
-        () => mockHasher.calculate(password: pw1Immutable, salt: salt),
+        () => mockHasher.calculate(
+          password: mutableFactor1.value.toImmutable(),
+          salt: salt,
+        ),
       ).thenAnswer((_) async => expectedKey1);
 
       expect(
-        await repo.insert(
-          type: const PasswordType.encryptKey(),
-          password: pw1Immutable,
-        ),
+        await repo.insert(factor1),
         StorageResult(expectedInfo1),
       );
       expect(
-        await repo.getByType(const PasswordType.encryptKey()),
-        StorageResult<PasswordInfo?>(expectedInfo1),
+        await repo.getById(PersistentAuthFactorId.password),
+        StorageResult<PersistentAuthFactor?>(expectedInfo1),
       );
 
       when(
-        () => mockHasher.calculate(password: pw2Immutable, salt: salt),
+        () => mockHasher.calculate(
+          password: mutableFactor2.value.toImmutable(),
+          salt: salt,
+        ),
       ).thenAnswer((_) async => expectedKey2);
 
       expect(
-        await repo.insert(
-          type: const PasswordType.encryptKey(),
-          password: pw2Immutable,
-        ),
+        await repo.insert(factor2),
         StorageResult(expectedInfo2),
       );
       expect(
-        await repo.getByType(const PasswordType.encryptKey()),
-        StorageResult<PasswordInfo?>(expectedInfo2),
+        await repo.getById(PersistentAuthFactorId.password),
+        StorageResult<PersistentAuthFactor?>(expectedInfo2),
       );
     });
 
     test('Delete', () async {
       final password = TestSecureKey.fromList(utf8.encode('test'));
-      final pwImmutable = password.toImmutable();
+      final mutableFactor = MutableAuthFactor.password(value: password);
+      final factor = mutableFactor.toImmutable();
       final salt = Uint8List.fromList([1, 2, 3]);
-      final expectedInfo = PasswordInfo(
-        id: 'encrypt_key',
+      final expectedInfo = PersistentAuthFactor.password(
         hash: hex.encode(password.list),
         salt: hex.encode(salt),
       );
@@ -156,25 +156,25 @@ void main() {
         () => mockSaltGenerator.randomBytes(),
       ).thenReturn(salt);
       when(
-        () => mockHasher.calculate(password: pwImmutable, salt: salt),
+        () => mockHasher.calculate(
+          password: mutableFactor.value.toImmutable(),
+          salt: salt,
+        ),
       ).thenAnswer((_) async => expectedKey);
 
       expect(
-        await repo.insert(
-          type: const PasswordType.encryptKey(),
-          password: pwImmutable,
-        ),
+        await repo.insert(factor),
         StorageResult(expectedInfo),
       );
       expect(
-        await repo.getByType(const PasswordType.encryptKey()),
-        StorageResult<PasswordInfo?>(expectedInfo),
+        await repo.getById(PersistentAuthFactorId.password),
+        StorageResult<PersistentAuthFactor?>(expectedInfo),
       );
 
       expect(await repo.delete(expectedInfo), StorageResult.empty);
       expect(
-        await repo.getByType(const PasswordType.encryptKey()),
-        const StorageResult<PasswordInfo?>(null),
+        await repo.getById(PersistentAuthFactorId.password),
+        const StorageResult<PersistentAuthFactor?>(null),
       );
     });
   });
