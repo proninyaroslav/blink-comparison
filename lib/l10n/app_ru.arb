@@ -55,7 +55,7 @@
   "imagesDeleted": "{howMany, plural, one {Изображение удалено} other {Изображения удалены}}",
   "deleteImagesFailed": "{howMany, plural, one {Не удалось удалить изображение} other {Не удалось удалить некоторые изображения}}",
   "selectAll": "Выбрать все",
-  "loadingReferenceImage": "Загрузка и расшифровка, пожалуйста подождите...",
+  "loadingReferenceImage": "Загрузка/расшифровка, пожалуйста подождите...",
   "openCameraError": "Не удалось открыть камеру",
   "cameraErrorReason": "Ошибка: {reason}",
   "noSelectedCameraError": "Ошибка: камера не выбрана или недоступна",

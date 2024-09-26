@@ -55,7 +55,7 @@
   "imagesDeleted": "{howMany, plural, one {Imagen eliminada} other {Imágenes eliminadas}}",
   "deleteImagesFailed": "{howMany, plural, one {Error al eliminar la imagen} other {Error al eliminar algunas imágenes}}",
   "selectAll": "Seleccionar todo",
-  "loadingReferenceImage": "Cargando y descifrando, por favor espere...",
+  "loadingReferenceImage": "Cargando/descifrando, por favor espere...",
   "openCameraError": "No se puede abrir la cámara",
   "cameraErrorReason": "Error: {reason}",
   "noSelectedCameraError": "Error: ninguna cámara seleccionada o no disponible",
