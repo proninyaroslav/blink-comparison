@@ -396,7 +396,7 @@ class AppTheme {
   }
 
   static Color itemSelectableColor(BuildContext context) =>
-      Theme.of(context).focusColor;
+      Theme.of(context).colorScheme.secondaryContainer;
 
   static TextStyle pageHeadlineText(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;

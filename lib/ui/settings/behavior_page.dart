@@ -82,7 +82,7 @@ class BehaviorSettingsPage extends StatelessWidget {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text(S.of(context).settingsTheme),
+          title: Text(S.of(context).encryptionPreferenceTitle),
           contentPadding: const EdgeInsets.only(top: 16.0),
           content: DialogScrollableContent(
             child: BlocBuilder<BehaviorSettingsCubit, BehaviorState>(

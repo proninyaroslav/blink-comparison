@@ -156,15 +156,8 @@ class _TwoPaneBodyState extends State<_TwoPaneBody> {
 
           return Row(
             children: [
-              Container(
+              SizedBox(
                 width: pagesListWidth,
-                decoration: BoxDecoration(
-                  border: BorderDirectional(
-                    end: BorderSide(
-                      color: Theme.of(context).colorScheme.outline,
-                    ),
-                  ),
-                ),
                 child: SettingsPagesList(
                   selectedRoute: _currentRoute,
                   onSelected: (route) {
