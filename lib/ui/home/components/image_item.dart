@@ -20,8 +20,10 @@ import 'package:blink_comparison/ui/home/components/save_image_error.dart';
 import 'package:blink_comparison/ui/home/model/ref_images_actions_state.dart';
 import 'package:blink_comparison/ui/model/xfile_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../logger.dart';
+import '../../components/widget.dart';
 import 'image_item_selection_control.dart';
 
 class ImageItem extends StatelessWidget {
@@ -61,6 +63,15 @@ class ImageItem extends StatelessWidget {
       child: Stack(
         children: [
           child,
+          if (entry.info.encryption is! RefImageEncryptionNone)
+            Align(
+              alignment: AlignmentDirectional.topEnd,
+              child: AnimatedOpacity(
+                opacity: selectableMode ? 0.0 : 1.0,
+                duration: RoundCheckBox.animationDuration,
+                child: const _EncryptedImageIcon(),
+              ),
+            ),
           Align(
             alignment: AlignmentDirectional.topEnd,
             child: ImageItemSelectionControl(
@@ -157,6 +168,30 @@ class _LoadImageProgress extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+}
+
+class _EncryptedImageIcon extends StatelessWidget {
+  const _EncryptedImageIcon();
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Material(
+        color: colorScheme.surfaceContainerHighest,
+        shape: const CircleBorder(),
+        child: Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: Icon(
+            size: 16.0,
+            MdiIcons.lock,
+            color: colorScheme.tertiary,
+          ),
+        ),
+      ),
     );
   }
 }
