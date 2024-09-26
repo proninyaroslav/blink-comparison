@@ -24,6 +24,7 @@ import 'package:blink_comparison/ui/settings/model/appearance_state.dart';
 import 'package:flutter/material.dart' hide Locale;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 import 'components/settings_list.dart';
 import 'components/settings_scaffold.dart';
@@ -77,7 +78,7 @@ class AppearanceSettingsPage extends StatelessWidget {
           );
         },
       ),
-      leading: const Icon(Icons.palette_outlined),
+      leading: const Icon(Symbols.palette),
       onTap: () => _showThemeDialog(context),
     );
   }
@@ -137,7 +138,7 @@ class AppearanceSettingsPage extends StatelessWidget {
           });
         },
       ),
-      leading: const Icon(Icons.language),
+      leading: const Icon(Symbols.language),
       onTap: () => _showLanguageDialog(context),
     );
   }
@@ -198,7 +199,7 @@ class AppearanceSettingsPage extends StatelessWidget {
           color: Color(state.info!.refImageBorderColor),
         ),
       ),
-      leading: const Icon(Icons.image_outlined),
+      leading: const Icon(Symbols.image),
       onTap: () => _showColorPickerDialog(context),
     );
   }

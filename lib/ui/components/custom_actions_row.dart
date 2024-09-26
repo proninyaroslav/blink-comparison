@@ -2,6 +2,7 @@
 
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 class CustomActionsRow extends StatelessWidget {
   final double availableWidth;
@@ -76,6 +77,10 @@ class CustomActionsRow extends StatelessWidget {
         ),
         if (overflow.isNotEmpty)
           PopupMenuButton<CustomAction>(
+            icon: const Icon(
+              Symbols.more_vert,
+              grade: 200,
+            ),
             itemBuilder: (context) => overflow.map(
               (customAction) {
                 assert(customAction.overflowWidget != null);

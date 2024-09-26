@@ -17,6 +17,7 @@
 
 import 'package:blink_comparison/ui/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 import '../../locale.dart';
 
@@ -42,7 +43,7 @@ class LoadingPageError extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(
-                  Icons.error_outline,
+                  Symbols.error,
                   size: 64,
                   color: pageHeadlineText.color,
                 ),
@@ -57,7 +58,7 @@ class LoadingPageError extends StatelessWidget {
             ),
             OutlinedButton.icon(
               onPressed: onRefresh,
-              icon: const Icon(Icons.refresh),
+              icon: const Icon(Symbols.refresh),
               label: Text(S.of(context).refresh),
             ),
           ],

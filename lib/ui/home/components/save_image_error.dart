@@ -21,6 +21,7 @@ import 'package:blink_comparison/core/service/save_ref_image_job.dart';
 import 'package:blink_comparison/locale.dart';
 import 'package:blink_comparison/ui/home/components/error_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 class SaveImageError extends StatelessWidget {
   final SaveRefImageStatusErrorSaveImage error;
@@ -44,7 +45,7 @@ class SaveImageError extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Icon(
-              Icons.error_outline_rounded,
+              Symbols.error,
               color: theme.colorScheme.error,
               size: 48,
             ),

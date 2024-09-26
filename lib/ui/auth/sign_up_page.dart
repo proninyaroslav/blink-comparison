@@ -26,7 +26,7 @@ import 'package:blink_comparison/ui/auth/model/sign_up_cubit.dart';
 import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 import '../../locale.dart';
 import '../theme.dart';
@@ -67,7 +67,7 @@ class _SignUpPageState extends State<SignUpPage> {
       child: AuthScaffold(
         child: Column(
           children: [
-            PageIcon(icon: MdiIcons.lockPlusOutline),
+            const PageIcon(icon: Symbols.key),
             const SizedBox(height: 32.0),
             Text(
               S.of(context).setPasswordDescription,

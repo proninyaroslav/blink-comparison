@@ -29,6 +29,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:multi_border/multi_border.dart';
 import 'package:open_settings_plus/open_settings_plus.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -501,8 +502,9 @@ class _FlashButtonState extends State<_FlashButton> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Icon(
-              _enabled ? Icons.flash_on : Icons.flash_off,
+              _enabled ? Symbols.flash_on_rounded : Symbols.flash_off_rounded,
               color: Colors.white,
+              fill: 1.0,
             ),
           ),
         ),
@@ -540,8 +542,8 @@ class _FlipCameraButton extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Icon(
               getIt<PlatformInfo>().isAndroid
-                  ? Icons.flip_camera_android
-                  : Icons.flip_camera_ios,
+                  ? Symbols.flip_camera_android
+                  : Symbols.flip_camera_ios,
               color: Colors.white,
             ),
           ),
@@ -615,7 +617,7 @@ class _OpenCameraError extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Icon(
-              Icons.error_outline_rounded,
+              Symbols.error,
               color: theme.colorScheme.error,
               size: 64,
             ),

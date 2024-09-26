@@ -26,6 +26,7 @@ import 'package:blink_comparison/ui/home/model/selectable_ref_image_item.dart';
 import 'package:blink_comparison/ui/model/selectable_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 import '../../../locale.dart';
 import '../../routes/routes.dart';
@@ -99,7 +100,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
               actions: [
                 CustomAction(
                   visibleWidget: IconButton(
-                    icon: const Icon(Icons.settings_outlined),
+                    icon: const Icon(Symbols.settings),
                     tooltip: S.of(context).settings,
                     onPressed: () => context.pushRoute(const SettingsRoute()),
                   ),
@@ -168,7 +169,7 @@ class _ContextualAppBar extends StatelessWidget {
             leading: const BackButton(),
             actions: [
               IconButton(
-                icon: const Icon(Icons.delete_outline_rounded),
+                icon: const Icon(Symbols.delete),
                 tooltip: S.of(context).delete,
                 onPressed: () {
                   if (cubit.state case SelectableStateSelected(:final items)) {
@@ -181,7 +182,7 @@ class _ContextualAppBar extends StatelessWidget {
                 },
               ),
               IconButton(
-                icon: const Icon(Icons.select_all_rounded),
+                icon: const Icon(Symbols.select_all_rounded),
                 tooltip: S.of(context).selectAll,
                 onPressed: () => _selectAll(context),
               ),

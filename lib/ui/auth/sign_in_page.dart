@@ -28,6 +28,7 @@ import 'package:blink_comparison/ui/auth/components/sign_in_password_field.dart'
 import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 import '../../locale.dart';
 import '../theme.dart';
@@ -89,7 +90,7 @@ class _SignInPageState extends State<SignInPage> {
       child: AuthScaffold(
         child: Column(
           children: [
-            const PageIcon(icon: Icons.lock_outline_rounded),
+            const PageIcon(icon: Symbols.lock),
             const SizedBox(height: 32.0),
             Text(
               S.of(context).signInDescription,

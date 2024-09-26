@@ -22,6 +22,7 @@ import 'package:blink_comparison/ui/model/showcase_cubit.dart';
 import 'package:blink_comparison/ui/model/utils.dart';
 import 'package:flutter/material.dart' hide Locale;
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 import 'components/settings_list.dart';
 import 'components/settings_scaffold.dart';
@@ -70,7 +71,7 @@ class BehaviorSettingsPage extends StatelessWidget {
           );
         },
       ),
-      leading: const Icon(Icons.shield_outlined),
+      leading: const Icon(Symbols.shield),
       onTap: () => _showEncryptionDialog(context),
     );
   }

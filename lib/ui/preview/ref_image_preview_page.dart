@@ -36,6 +36,7 @@ import 'package:cross_file/cross_file.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:showcaseview/showcaseview.dart';
 
 import '../../locale.dart';
@@ -264,7 +265,7 @@ class _OpenOpacityBarButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final cubit = context.read<RefImageOptionsCubit>();
     return IconButton(
-      icon: const Icon(Icons.opacity_outlined),
+      icon: const Icon(Symbols.opacity),
       tooltip: S.of(context).imageOverlayOpacity,
       onPressed: () {
         showModalBottomSheet(
@@ -444,7 +445,7 @@ class _LoadRefImageError extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Icon(
-              Icons.error_outline_rounded,
+              Symbols.error,
               color: theme.colorScheme.error,
               size: 64,
             ),

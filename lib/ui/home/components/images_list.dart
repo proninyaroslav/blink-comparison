@@ -28,6 +28,7 @@ import 'package:blink_comparison/ui/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import '../../components/widget.dart';
@@ -164,7 +165,7 @@ class ImagesListEmptyPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   PageIcon(
-                    icon: Icons.add_photo_alternate_outlined,
+                    icon: Symbols.add_photo_alternate_rounded,
                     ratio: type == DeviceScreenType.mobile ? 2.2 : 4.2,
                   ),
                   const SizedBox(height: 32.0),

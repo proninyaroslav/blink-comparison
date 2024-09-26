@@ -21,6 +21,7 @@ import 'package:blink_comparison/locale.dart';
 import 'package:blink_comparison/ui/auth/components/auth_scaffold.dart';
 import 'package:blink_comparison/ui/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 import '../components/widget.dart';
 
@@ -35,7 +36,7 @@ class EncryptionPreferencePage extends StatelessWidget {
     return AuthScaffold(
       child: Column(
         children: [
-          const PageIcon(icon: Icons.add_moderator_outlined),
+          const PageIcon(icon: Symbols.add_moderator),
           const SizedBox(height: 32.0),
           Text(
             S.of(context).enableEncryptPromt,

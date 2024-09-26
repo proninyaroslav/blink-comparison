@@ -19,6 +19,7 @@ import 'dart:async';
 
 import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 import '../../locale.dart';
 
@@ -310,7 +311,7 @@ class _CloseButton extends StatelessWidget {
       iconColor: foregroundColor,
       textColor: foregroundColor,
       child: ListTile(
-        leading: const Icon(Icons.close),
+        leading: const Icon(Symbols.close),
         tileColor: backgroundColor,
         title: Text(
           S.of(context).close,

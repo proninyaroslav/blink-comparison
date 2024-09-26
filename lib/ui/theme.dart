@@ -18,6 +18,7 @@
 import "package:dynamic_color/dynamic_color.dart";
 import "package:flutter/foundation.dart";
 import "package:flutter/material.dart";
+import "package:material_symbols_icons/symbols.dart";
 
 const kDynamicThemeColor = !kDebugMode;
 
@@ -382,6 +383,12 @@ class AppTheme {
         snackBarTheme: const SnackBarThemeData(
           behavior: SnackBarBehavior.floating,
         ),
+        actionIconTheme: ActionIconThemeData(
+          backButtonIconBuilder: (context) => Icon(_getBackButtonIcon(context)),
+          closeButtonIconBuilder: (context) => const Icon(Symbols.close),
+          drawerButtonIconBuilder: (context) => const Icon(Symbols.menu),
+          endDrawerButtonIconBuilder: (context) => const Icon(Symbols.menu),
+        ),
       );
 
   static bool isDark(BuildContext context) {
@@ -396,6 +403,23 @@ class AppTheme {
     return textTheme.titleLarge!.copyWith(
       color: textTheme.displayLarge!.color,
     );
+  }
+
+  IconData _getBackButtonIcon(BuildContext context) {
+    if (kIsWeb) {
+      // Always use 'Symbols.arrow_back' as a back_button icon in web.
+      return Symbols.arrow_back;
+    }
+    return switch (Theme.of(context).platform) {
+      TargetPlatform.android ||
+      TargetPlatform.fuchsia ||
+      TargetPlatform.linux ||
+      TargetPlatform.windows =>
+        Symbols.arrow_back,
+      TargetPlatform.iOS ||
+      TargetPlatform.macOS =>
+        Symbols.arrow_back_ios_new_rounded,
+    };
   }
 }
 

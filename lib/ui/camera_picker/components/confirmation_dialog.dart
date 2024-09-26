@@ -20,6 +20,7 @@ import 'package:blink_comparison/ui/model/xfile_provider.dart';
 import 'package:cross_file/cross_file.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import '../../../locale.dart';
@@ -139,12 +140,12 @@ class _ButtonBar extends StatelessWidget {
           children: [
             OutlinedButton.icon(
               onPressed: onRetry,
-              icon: const Icon(Icons.refresh),
+              icon: const Icon(Symbols.refresh),
               label: Text(S.of(context).retry),
             ),
             OutlinedButton.icon(
               onPressed: onAccept,
-              icon: const Icon(Icons.done),
+              icon: const Icon(Symbols.done),
               label: Text(S.of(context).accept),
             ),
           ],
@@ -183,7 +184,7 @@ class _OpenImageError extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Icon(
-              Icons.error_outline_rounded,
+              Symbols.error,
               color: theme.colorScheme.error,
               size: 64,
             ),

@@ -20,7 +20,7 @@ import 'package:blink_comparison/ui/home/components/save_image_error.dart';
 import 'package:blink_comparison/ui/home/model/ref_images_actions_state.dart';
 import 'package:blink_comparison/ui/model/xfile_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 import '../../../logger.dart';
 import '../../components/widget.dart';
@@ -145,7 +145,7 @@ class _NoTnumbnailStub extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Icon(
-        Icons.image,
+        Symbols.image,
         color: Theme.of(context).iconTheme.color!.withOpacity(0.25),
         size: 48,
       ),
@@ -187,7 +187,8 @@ class _EncryptedImageIcon extends StatelessWidget {
           padding: const EdgeInsets.all(4.0),
           child: Icon(
             size: 16.0,
-            MdiIcons.lock,
+            Symbols.lock,
+            fill: 1.0,
             color: colorScheme.tertiary,
           ),
         ),

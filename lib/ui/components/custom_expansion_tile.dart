@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 const Duration _kExpand = Duration(milliseconds: 200);
 
@@ -216,7 +217,7 @@ class _CustomExpansionTileState extends State<CustomExpansionTile>
       trailing: widget.trailing ??
           RotationTransition(
             turns: _iconTurns,
-            child: const Icon(Icons.expand_more),
+            child: const Icon(Symbols.expand_more),
           ),
     );
     return Container(

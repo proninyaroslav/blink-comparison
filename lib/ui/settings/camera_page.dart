@@ -21,6 +21,7 @@ import 'package:blink_comparison/ui/settings/model/camera_cubit.dart';
 import 'package:blink_comparison/ui/settings/model/camera_state.dart';
 import 'package:flutter/material.dart' hide Locale;
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 import 'components/settings_list.dart';
 import 'components/settings_scaffold.dart';
@@ -65,7 +66,7 @@ class CameraSettingsPage extends StatelessWidget {
         return SwitchListTile(
           title: Text(S.of(context).settingsFlashByDefault),
           value: state.info!.enableFlashByDefault,
-          secondary: const Icon(Icons.flash_on_outlined),
+          secondary: const Icon(Symbols.flash_on_rounded),
           onChanged: (value) async {
             await cubit.setEnableFlashByDefault(value);
           },
@@ -83,7 +84,7 @@ class CameraSettingsPage extends StatelessWidget {
         return SwitchListTile(
           title: Text(S.of(context).settingsCameraFullscreenMode),
           value: state.info!.fullscreenMode,
-          secondary: const Icon(Icons.fullscreen_outlined),
+          secondary: const Icon(Symbols.fullscreen_rounded),
           onChanged: (value) async {
             await cubit.setFullscreenMode(value);
           },

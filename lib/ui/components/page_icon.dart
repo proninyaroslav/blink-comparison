@@ -49,6 +49,7 @@ class PageIcon extends StatelessWidget {
             child: Icon(
               icon,
               color: Theme.of(context).iconTheme.color!.withOpacity(0.1),
+              grade: 200,
             ),
           ),
         );

@@ -27,6 +27,7 @@ import 'package:blink_comparison/ui/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 class AddRefImageButton extends StatelessWidget {
   const AddRefImageButton({super.key});
@@ -78,19 +79,19 @@ class AddRefImageButton extends StatelessWidget {
         ),
       ],
       child: DropdownFab(
-        icon: const Icon(Icons.add),
+        icon: const Icon(Symbols.add),
         label: Text(S.of(context).add),
         menuWidth: 250,
         menuChildren: [
           DropdownFabMenuItem(
-            leading: const Icon(Icons.photo_outlined),
+            leading: const Icon(Symbols.photo),
             title: Text(S.of(context).selectImage),
             onTap: () => context
                 .read<SystemPickerCubit>()
                 .pickImages(ImageSource.gallery),
           ),
           DropdownFabMenuItem(
-            leading: const Icon(Icons.camera_alt_outlined),
+            leading: const Icon(Symbols.camera_alt),
             title: Text(S.of(context).takePhoto),
             onTap: () {
               // TODO: add system/built-in camera picker option

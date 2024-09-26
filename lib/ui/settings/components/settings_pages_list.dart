@@ -16,6 +16,7 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 import '../../../locale.dart';
 import '../../theme.dart';
@@ -47,19 +48,19 @@ class SettingsPagesList extends StatelessWidget {
               SettingsRouteItemAppearance() => _buildItem(
                   context,
                   route,
-                  icon: Icons.palette_outlined,
+                  icon: Symbols.palette,
                   title: S.of(context).settingsAppearance,
                 ),
               SettingsRouteItemCamera() => _buildItem(
                   context,
                   route,
-                  icon: Icons.camera_alt_outlined,
+                  icon: Symbols.camera_alt,
                   title: S.of(context).settingsCamera,
                 ),
               SettingsRouteItemBehavior() => _buildItem(
                   context,
                   route,
-                  icon: Icons.tune_rounded,
+                  icon: Symbols.tune_rounded,
                   title: S.of(context).settingsBehavior,
                 ),
             };
@@ -117,10 +118,15 @@ class _SettingsItem extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
-        leading: Icon(icon),
+        leading: Icon(
+          icon,
+          grade: isSelected ? 200 : 0,
+        ),
         title: Text(
           title,
-          style: Theme.of(context).textTheme.titleMedium,
+          style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                fontWeight: isSelected ? FontWeight.w500 : FontWeight.normal,
+              ),
           textAlign: TextAlign.start,
         ),
         onTap: onTap,
