@@ -33,7 +33,7 @@ import 'package:sembast/sembast_memory.dart';
 import '../mock/mock.dart';
 
 void main() {
-  group('Password repository |', () {
+  group('Persistent auth factor repository |', () {
     late Database db;
     late SaltGenerator mockSaltGenerator;
     late PasswordHasher mockHasher;
