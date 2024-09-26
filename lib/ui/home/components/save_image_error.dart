@@ -1,0 +1,87 @@
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
+//
+// This file is part of Blink Comparison.
+//
+// Blink Comparison is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Blink Comparison is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
+
+import 'package:blink_comparison/core/entity/entity.dart';
+import 'package:blink_comparison/core/fs/fs_result.dart';
+import 'package:blink_comparison/core/service/save_ref_image_job.dart';
+import 'package:blink_comparison/locale.dart';
+import 'package:blink_comparison/ui/home/components/error_dialog.dart';
+import 'package:flutter/material.dart';
+
+class SaveImageError extends StatelessWidget {
+  final SaveRefImageStatusErrorSaveImage error;
+  final VoidCallback? onTap;
+
+  const SaveImageError({
+    super.key,
+    required this.error,
+    this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return InkWell(
+      onTap: onTap ?? () => _onTap(context),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.error_outline_rounded,
+              color: theme.colorScheme.error,
+              size: 48,
+            ),
+            const SizedBox(height: 8.0),
+            Text(
+              S.of(context).saveImageError,
+              style: theme.textTheme.bodyLarge!.copyWith(
+                color: theme.colorScheme.error,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 8.0),
+            OutlinedButton(
+              onPressed: onTap == null ? () => _onTap(context) : null,
+              child: Text(S.of(context).show),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _onTap(BuildContext context) {
+    final (reportMsg, dialogMsg) = switch (error.error) {
+      SaveRefImageErrorFs(:final error) => switch (error) {
+          FsErrorIO() => ('I/O error', S.of(context).ioError),
+        },
+      SaveRefImageErrorEncrypt() => (
+          'Encryption error',
+          S.of(context).encryptionError
+        ),
+    };
+    refImageErrorDialog(
+      context,
+      reportMsg: reportMsg,
+      dialogMsg: dialogMsg,
+      exception: error,
+    );
+  }
+}
