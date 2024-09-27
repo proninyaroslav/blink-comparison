@@ -104,12 +104,9 @@ class _ConfirmationDialogState extends State<ConfirmationDialog>
         ),
         Align(
           alignment: Alignment.bottomCenter,
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 16.0),
-            child: _ButtonBar(
-              onRetry: widget.onRetry,
-              onAccept: widget.onAccept,
-            ),
+          child: _ButtonBar(
+            onRetry: widget.onRetry,
+            onAccept: widget.onAccept,
           ),
         ),
       ],
@@ -130,25 +127,34 @@ class _ButtonBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveBuilder(builder: (context, sizingInfo) {
       final orientation = MediaQuery.of(context).orientation;
-      return SizedBox(
+      return Container(
         width: _getAdaptiveWidth(
           sizingInfo: sizingInfo,
           orientation: orientation,
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            OutlinedButton.icon(
-              onPressed: onRetry,
-              icon: const Icon(Symbols.refresh),
-              label: Text(S.of(context).retry),
+        padding: const EdgeInsets.symmetric(vertical: 16.0),
+        color: Colors.black54,
+        child: OutlinedButtonTheme(
+          data: OutlinedButtonThemeData(
+            style: OutlinedButton.styleFrom(
+              textStyle: const TextStyle(fontWeight: FontWeight.bold),
             ),
-            OutlinedButton.icon(
-              onPressed: onAccept,
-              icon: const Icon(Symbols.done),
-              label: Text(S.of(context).accept),
-            ),
-          ],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              OutlinedButton.icon(
+                onPressed: onRetry,
+                icon: const Icon(Symbols.refresh),
+                label: Text(S.of(context).retry),
+              ),
+              OutlinedButton.icon(
+                onPressed: onAccept,
+                icon: const Icon(Symbols.done),
+                label: Text(S.of(context).accept),
+              ),
+            ],
+          ),
         ),
       );
     });
