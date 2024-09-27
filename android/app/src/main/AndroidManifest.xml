@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <!-- Removed permissions requested by third party plugins -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" tools:node="remove" />

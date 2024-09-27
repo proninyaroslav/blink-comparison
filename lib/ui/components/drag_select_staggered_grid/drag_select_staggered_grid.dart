@@ -237,6 +237,7 @@ class DragSelectStaggeredGridState extends State<DragSelectStaggeredGrid>
   }
 
   void _handleLongPressStart(LongPressStartDetails details) {
+    Feedback.forLongPress(context);
     final pressIndex = _findIndexOfSelectable(details.localPosition);
 
     if (pressIndex != -1) {
