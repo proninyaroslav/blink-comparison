@@ -16,6 +16,7 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:blink_comparison/core/settings/model.dart';
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 
 import '../../locale.dart';
@@ -65,4 +66,13 @@ extension EncryptionPreferenceExtension on EncryptionPreference {
 
 Never neverCase(Object type) {
   throw ArgumentError('Unexpected case: $type');
+}
+
+extension CubitExt<T> on Cubit<T> {
+  void safeEmit(T state) {
+    if (!isClosed) {
+      // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
+      emit(state);
+    }
+  }
 }

@@ -22,6 +22,7 @@ import 'package:blink_comparison/core/storage/ref_image_status_repository.dart';
 import 'package:blink_comparison/core/storage/storage_result.dart';
 import 'package:blink_comparison/ui/home/model/ref_images_actions_state.dart';
 import 'package:blink_comparison/ui/home/model/ref_images_state.dart';
+import 'package:blink_comparison/ui/model/utils.dart';
 import 'package:bloc/bloc.dart';
 // ignore: unnecessary_import
 import 'package:flutter/foundation.dart';
@@ -53,12 +54,13 @@ class RefImagesCubit extends Cubit<RefImagesState> {
           ),
     ]);
     await for (final res in group) {
-      switch (res) {
-        case _BuildResultData(:final entries):
-          emit(RefImagesState.loaded(entries: entries));
-        case _BuildResultFailed(:final error):
-          emit(RefImagesState.loadingFailed(error: error));
-      }
+      final newState = switch (res) {
+        _BuildResultData(:final entries) =>
+          RefImagesState.loaded(entries: entries),
+        _BuildResultFailed(:final error) =>
+          RefImagesState.loadingFailed(error: error),
+      };
+      safeEmit(newState);
 
       if (res is _BuildResultFailed) {
         break;
