@@ -41,8 +41,7 @@ class _SlideAppBarState extends State<SlideAppBar> {
 
   @override
   Widget build(BuildContext context) {
-    final color =
-        Theme.of(context).appBarTheme.backgroundColor?.withOpacity(0.54);
+    final color = Theme.of(context).colorScheme.surface.withOpacity(0.54);
     final appBar = AppBar(
       backgroundColor: color,
       actions: widget.actions,

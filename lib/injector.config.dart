@@ -64,8 +64,8 @@ import 'package:blink_comparison/di/shared_preferences_module.dart' as _i980;
 import 'package:blink_comparison/di/sodium_module.dart' as _i298;
 import 'package:blink_comparison/platform/save_ref_image_native_service.dart'
     as _i188;
-import 'package:blink_comparison/ui/camera_picker/model/camera_provider.dart'
-    as _i1041;
+import 'package:blink_comparison/ui/components/camera/model/camera_provider.dart'
+    as _i728;
 import 'package:file/file.dart' as _i303;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:image_picker/image_picker.dart' as _i183;
@@ -115,12 +115,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i187.SaltGenerator>(
         () => _i187.SaltGeneratorImpl(gh<_i539.SodiumSumo>()));
     gh.factory<_i705.Thumbnailer>(() => _i705.ThumbnailerImpl());
-    gh.factory<_i1041.CameraProvider>(() => _i1041.CameraProviderImpl());
     gh.factory<_i41.PasswordHasher>(
         () => _i41.PasswordHasherImpl(gh<_i539.SodiumSumo>()));
     gh.factory<_i949.WorkersProvider>(() => _i949.WorkersProviderImpl());
     gh.factory<_i129.CrashReportSender>(
         () => _i129.CrashReportSenderImpl(gh<_i1009.PlatformInfo>()));
+    gh.factory<_i728.CameraProvider>(() => _i728.CameraProviderImpl());
     gh.factory<_i673.DateTimeProvider>(() => _i673.DateTimeProviderImpl());
     gh.factory<_i496.EncryptKeyDerivation>(
         () => _i496.EncryptKeyDerivationImpl(gh<_i539.SodiumSumo>()));

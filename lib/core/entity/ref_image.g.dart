@@ -13,6 +13,7 @@ _$RefImageInfoImpl _$$RefImageInfoImplFromJson(Map<String, dynamic> json) =>
           .fromJson((json['dateAdded'] as num).toInt()),
       encryption: RefImageEncryption.fromJson(
           json['encryption'] as Map<String, dynamic>),
+      label: json['label'] as String?,
     );
 
 Map<String, dynamic> _$$RefImageInfoImplToJson(_$RefImageInfoImpl instance) =>
@@ -20,6 +21,7 @@ Map<String, dynamic> _$$RefImageInfoImplToJson(_$RefImageInfoImpl instance) =>
       'id': instance.id,
       'dateAdded': const DateTimeEpochConverter().toJson(instance.dateAdded),
       'encryption': instance.encryption.toJson(),
+      'label': instance.label,
     };
 
 _$RefImageEncryptionNoneImpl _$$RefImageEncryptionNoneImplFromJson(

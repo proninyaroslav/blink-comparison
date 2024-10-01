@@ -32,7 +32,10 @@ class AddRefImageCubit extends Cubit<AddRefImageState> {
     this._pref,
   ) : super(const AddRefImageState.initial());
 
-  Future<void> addImages(List<XFile> files) async {
+  Future<void> addImages(
+    List<XFile> files, {
+    bool removeSourceFiles = false,
+  }) async {
     emit(const AddRefImageState.addingImages());
     final successList = <RefImageInfo>[];
     final failedList = <AddRefImageError>[];
@@ -40,6 +43,7 @@ class AddRefImageCubit extends Cubit<AddRefImageState> {
       final res = await _refRepo.addFromFile(
         file,
         encryption: _pref.encryptionPreferenceSync,
+        removeSourceFile: removeSourceFiles,
       );
       switch (res) {
         case SecStorageResultSuccess(:final value):
@@ -69,14 +73,14 @@ class AddRefImageCubit extends Cubit<AddRefImageState> {
               throw 'Unknown error state';
           }
       }
-    }
-    emit(
-      AddRefImageState.imagesAdded(
-        AddRefImageResult(
-          successList: successList,
-          failedList: failedList,
+      emit(
+        AddRefImageState.imagesAdded(
+          AddRefImageResult(
+            successList: successList,
+            failedList: failedList,
+          ),
         ),
-      ),
-    );
+      );
+    }
   }
 }

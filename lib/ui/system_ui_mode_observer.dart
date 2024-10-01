@@ -31,7 +31,8 @@ class SystemUIModeObserver extends AutoRouterObserver {
     if (fullscreenMode &&
         (name == RefImagePreviewRoute.name ||
             name == CameraPickerRoute.name ||
-            name == BlinkComparisonRoute.name)) {
+            name == BlinkComparisonRoute.name ||
+            name == CameraConfirmationRoute.name)) {
       SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
     } else if (route.settings.name != null) {
       SystemChrome.setEnabledSystemUIMode(

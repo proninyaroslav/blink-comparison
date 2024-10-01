@@ -8,34 +8,37 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i15;
-import 'package:blink_comparison/core/settings/model.dart' as _i18;
+import 'package:auto_route/auto_route.dart' as _i16;
+import 'package:blink_comparison/core/settings/model.dart' as _i20;
 import 'package:blink_comparison/ui/auth/auth_page.dart' as _i2;
 import 'package:blink_comparison/ui/auth/encryption_preference_page.dart'
-    as _i7;
-import 'package:blink_comparison/ui/auth/sign_in_page.dart' as _i13;
-import 'package:blink_comparison/ui/auth/sign_up_page.dart' as _i14;
-import 'package:blink_comparison/ui/camera_picker/camera_picker_page.dart'
+    as _i8;
+import 'package:blink_comparison/ui/auth/sign_in_page.dart' as _i14;
+import 'package:blink_comparison/ui/auth/sign_up_page.dart' as _i15;
+import 'package:blink_comparison/ui/camera_picker/camera_confirmation_page.dart'
     as _i5;
+import 'package:blink_comparison/ui/camera_picker/camera_picker_page.dart'
+    as _i6;
 import 'package:blink_comparison/ui/comparison/blink_comparison_page.dart'
     as _i4;
-import 'package:blink_comparison/ui/components/page_not_found.dart' as _i8;
-import 'package:blink_comparison/ui/home/ref_image_list_page.dart' as _i9;
+import 'package:blink_comparison/ui/components/page_not_found.dart' as _i9;
+import 'package:blink_comparison/ui/home/ref_image_list_page.dart' as _i10;
+import 'package:blink_comparison/ui/model/xfile_provider.dart' as _i18;
 import 'package:blink_comparison/ui/preview/ref_image_preview_page.dart'
-    as _i10;
+    as _i11;
 import 'package:blink_comparison/ui/settings/appearance_page.dart' as _i1;
 import 'package:blink_comparison/ui/settings/behavior_page.dart' as _i3;
-import 'package:blink_comparison/ui/settings/camera_page.dart' as _i6;
-import 'package:blink_comparison/ui/settings/settings_page.dart' as _i11;
+import 'package:blink_comparison/ui/settings/camera_page.dart' as _i7;
+import 'package:blink_comparison/ui/settings/settings_page.dart' as _i12;
 import 'package:blink_comparison/ui/settings/settings_pages_list_page.dart'
-    as _i12;
-import 'package:cross_file/cross_file.dart' as _i17;
-import 'package:flutter/material.dart' as _i16;
+    as _i13;
+import 'package:cross_file/cross_file.dart' as _i19;
+import 'package:flutter/material.dart' as _i17;
 
 /// generated route for
 /// [_i1.AppearanceSettingsPage]
-class AppearanceSettingsRoute extends _i15.PageRouteInfo<void> {
-  const AppearanceSettingsRoute({List<_i15.PageRouteInfo>? children})
+class AppearanceSettingsRoute extends _i16.PageRouteInfo<void> {
+  const AppearanceSettingsRoute({List<_i16.PageRouteInfo>? children})
       : super(
           AppearanceSettingsRoute.name,
           initialChildren: children,
@@ -43,7 +46,7 @@ class AppearanceSettingsRoute extends _i15.PageRouteInfo<void> {
 
   static const String name = 'AppearanceSettingsRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
       return const _i1.AppearanceSettingsPage();
@@ -53,11 +56,11 @@ class AppearanceSettingsRoute extends _i15.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.AuthPage]
-class AuthRoute extends _i15.PageRouteInfo<AuthRouteArgs> {
+class AuthRoute extends _i16.PageRouteInfo<AuthRouteArgs> {
   AuthRoute({
-    _i16.Key? key,
-    _i16.VoidCallback? onAuthSuccess,
-    List<_i15.PageRouteInfo>? children,
+    _i17.Key? key,
+    _i17.VoidCallback? onAuthSuccess,
+    List<_i16.PageRouteInfo>? children,
   }) : super(
           AuthRoute.name,
           args: AuthRouteArgs(
@@ -69,12 +72,12 @@ class AuthRoute extends _i15.PageRouteInfo<AuthRouteArgs> {
 
   static const String name = 'AuthRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
       final args =
           data.argsAs<AuthRouteArgs>(orElse: () => const AuthRouteArgs());
-      return _i15.WrappedRoute(
+      return _i16.WrappedRoute(
           child: _i2.AuthPage(
         key: args.key,
         onAuthSuccess: args.onAuthSuccess,
@@ -89,9 +92,9 @@ class AuthRouteArgs {
     this.onAuthSuccess,
   });
 
-  final _i16.Key? key;
+  final _i17.Key? key;
 
-  final _i16.VoidCallback? onAuthSuccess;
+  final _i17.VoidCallback? onAuthSuccess;
 
   @override
   String toString() {
@@ -101,8 +104,8 @@ class AuthRouteArgs {
 
 /// generated route for
 /// [_i3.BehaviorSettingsPage]
-class BehaviorSettingsRoute extends _i15.PageRouteInfo<void> {
-  const BehaviorSettingsRoute({List<_i15.PageRouteInfo>? children})
+class BehaviorSettingsRoute extends _i16.PageRouteInfo<void> {
+  const BehaviorSettingsRoute({List<_i16.PageRouteInfo>? children})
       : super(
           BehaviorSettingsRoute.name,
           initialChildren: children,
@@ -110,7 +113,7 @@ class BehaviorSettingsRoute extends _i15.PageRouteInfo<void> {
 
   static const String name = 'BehaviorSettingsRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
       return const _i3.BehaviorSettingsPage();
@@ -121,13 +124,13 @@ class BehaviorSettingsRoute extends _i15.PageRouteInfo<void> {
 /// generated route for
 /// [_i4.BlinkComparisonPage]
 class BlinkComparisonRoute
-    extends _i15.PageRouteInfo<BlinkComparisonRouteArgs> {
+    extends _i16.PageRouteInfo<BlinkComparisonRouteArgs> {
   BlinkComparisonRoute({
-    _i16.Key? key,
-    required _i16.ImageProvider<Object> refImage,
-    required _i16.ImageProvider<Object> takenPhoto,
+    _i17.Key? key,
+    required _i17.ImageProvider<Object> refImage,
+    required _i17.ImageProvider<Object> takenPhoto,
     required double aspectRatio,
-    List<_i15.PageRouteInfo>? children,
+    List<_i16.PageRouteInfo>? children,
   }) : super(
           BlinkComparisonRoute.name,
           args: BlinkComparisonRouteArgs(
@@ -141,11 +144,11 @@ class BlinkComparisonRoute
 
   static const String name = 'BlinkComparisonRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<BlinkComparisonRouteArgs>();
-      return _i15.WrappedRoute(
+      return _i16.WrappedRoute(
           child: _i4.BlinkComparisonPage(
         key: args.key,
         refImage: args.refImage,
@@ -164,11 +167,11 @@ class BlinkComparisonRouteArgs {
     required this.aspectRatio,
   });
 
-  final _i16.Key? key;
+  final _i17.Key? key;
 
-  final _i16.ImageProvider<Object> refImage;
+  final _i17.ImageProvider<Object> refImage;
 
-  final _i16.ImageProvider<Object> takenPhoto;
+  final _i17.ImageProvider<Object> takenPhoto;
 
   final double aspectRatio;
 
@@ -179,12 +182,71 @@ class BlinkComparisonRouteArgs {
 }
 
 /// generated route for
-/// [_i5.CameraPickerPage]
-class CameraPickerRoute extends _i15.PageRouteInfo<CameraPickerRouteArgs> {
+/// [_i5.CameraConfirmationPage]
+class CameraConfirmationRoute
+    extends _i16.PageRouteInfo<CameraConfirmationRouteArgs> {
+  CameraConfirmationRoute({
+    _i17.Key? key,
+    required _i18.XFileImage image,
+    _i17.VoidCallback? onRetry,
+    _i17.VoidCallback? onAccept,
+    List<_i16.PageRouteInfo>? children,
+  }) : super(
+          CameraConfirmationRoute.name,
+          args: CameraConfirmationRouteArgs(
+            key: key,
+            image: image,
+            onRetry: onRetry,
+            onAccept: onAccept,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'CameraConfirmationRoute';
+
+  static _i16.PageInfo page = _i16.PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<CameraConfirmationRouteArgs>();
+      return _i5.CameraConfirmationPage(
+        key: args.key,
+        image: args.image,
+        onRetry: args.onRetry,
+        onAccept: args.onAccept,
+      );
+    },
+  );
+}
+
+class CameraConfirmationRouteArgs {
+  const CameraConfirmationRouteArgs({
+    this.key,
+    required this.image,
+    this.onRetry,
+    this.onAccept,
+  });
+
+  final _i17.Key? key;
+
+  final _i18.XFileImage image;
+
+  final _i17.VoidCallback? onRetry;
+
+  final _i17.VoidCallback? onAccept;
+
+  @override
+  String toString() {
+    return 'CameraConfirmationRouteArgs{key: $key, image: $image, onRetry: $onRetry, onAccept: $onAccept}';
+  }
+}
+
+/// generated route for
+/// [_i6.CameraPickerPage]
+class CameraPickerRoute extends _i16.PageRouteInfo<CameraPickerRouteArgs> {
   CameraPickerRoute({
-    _i16.Key? key,
-    _i16.ValueChanged<_i17.XFile>? onTakePhoto,
-    List<_i15.PageRouteInfo>? children,
+    _i17.Key? key,
+    _i17.ValueChanged<_i19.XFile>? onTakePhoto,
+    List<_i16.PageRouteInfo>? children,
   }) : super(
           CameraPickerRoute.name,
           args: CameraPickerRouteArgs(
@@ -196,13 +258,13 @@ class CameraPickerRoute extends _i15.PageRouteInfo<CameraPickerRouteArgs> {
 
   static const String name = 'CameraPickerRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<CameraPickerRouteArgs>(
           orElse: () => const CameraPickerRouteArgs());
-      return _i15.WrappedRoute(
-          child: _i5.CameraPickerPage(
+      return _i16.WrappedRoute(
+          child: _i6.CameraPickerPage(
         key: args.key,
         onTakePhoto: args.onTakePhoto,
       ));
@@ -216,9 +278,9 @@ class CameraPickerRouteArgs {
     this.onTakePhoto,
   });
 
-  final _i16.Key? key;
+  final _i17.Key? key;
 
-  final _i16.ValueChanged<_i17.XFile>? onTakePhoto;
+  final _i17.ValueChanged<_i19.XFile>? onTakePhoto;
 
   @override
   String toString() {
@@ -227,9 +289,9 @@ class CameraPickerRouteArgs {
 }
 
 /// generated route for
-/// [_i6.CameraSettingsPage]
-class CameraSettingsRoute extends _i15.PageRouteInfo<void> {
-  const CameraSettingsRoute({List<_i15.PageRouteInfo>? children})
+/// [_i7.CameraSettingsPage]
+class CameraSettingsRoute extends _i16.PageRouteInfo<void> {
+  const CameraSettingsRoute({List<_i16.PageRouteInfo>? children})
       : super(
           CameraSettingsRoute.name,
           initialChildren: children,
@@ -237,22 +299,22 @@ class CameraSettingsRoute extends _i15.PageRouteInfo<void> {
 
   static const String name = 'CameraSettingsRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
-      return const _i6.CameraSettingsPage();
+      return const _i7.CameraSettingsPage();
     },
   );
 }
 
 /// generated route for
-/// [_i7.EncryptionPreferencePage]
+/// [_i8.EncryptionPreferencePage]
 class EncryptionPreferenceRoute
-    extends _i15.PageRouteInfo<EncryptionPreferenceRouteArgs> {
+    extends _i16.PageRouteInfo<EncryptionPreferenceRouteArgs> {
   EncryptionPreferenceRoute({
-    _i16.Key? key,
-    required _i16.ValueChanged<_i18.EncryptionPreference> onClick,
-    List<_i15.PageRouteInfo>? children,
+    _i17.Key? key,
+    required _i17.ValueChanged<_i20.EncryptionPreference> onClick,
+    List<_i16.PageRouteInfo>? children,
   }) : super(
           EncryptionPreferenceRoute.name,
           args: EncryptionPreferenceRouteArgs(
@@ -264,11 +326,11 @@ class EncryptionPreferenceRoute
 
   static const String name = 'EncryptionPreferenceRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<EncryptionPreferenceRouteArgs>();
-      return _i7.EncryptionPreferencePage(
+      return _i8.EncryptionPreferencePage(
         key: args.key,
         onClick: args.onClick,
       );
@@ -282,9 +344,9 @@ class EncryptionPreferenceRouteArgs {
     required this.onClick,
   });
 
-  final _i16.Key? key;
+  final _i17.Key? key;
 
-  final _i16.ValueChanged<_i18.EncryptionPreference> onClick;
+  final _i17.ValueChanged<_i20.EncryptionPreference> onClick;
 
   @override
   String toString() {
@@ -293,9 +355,9 @@ class EncryptionPreferenceRouteArgs {
 }
 
 /// generated route for
-/// [_i8.PageNotFound]
-class PageNotFountRoute extends _i15.PageRouteInfo<void> {
-  const PageNotFountRoute({List<_i15.PageRouteInfo>? children})
+/// [_i9.PageNotFound]
+class PageNotFountRoute extends _i16.PageRouteInfo<void> {
+  const PageNotFountRoute({List<_i16.PageRouteInfo>? children})
       : super(
           PageNotFountRoute.name,
           initialChildren: children,
@@ -303,18 +365,18 @@ class PageNotFountRoute extends _i15.PageRouteInfo<void> {
 
   static const String name = 'PageNotFountRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
-      return const _i8.PageNotFound();
+      return const _i9.PageNotFound();
     },
   );
 }
 
 /// generated route for
-/// [_i9.RefImageListPage]
-class RefImageListRoute extends _i15.PageRouteInfo<void> {
-  const RefImageListRoute({List<_i15.PageRouteInfo>? children})
+/// [_i10.RefImageListPage]
+class RefImageListRoute extends _i16.PageRouteInfo<void> {
+  const RefImageListRoute({List<_i16.PageRouteInfo>? children})
       : super(
           RefImageListRoute.name,
           initialChildren: children,
@@ -322,22 +384,22 @@ class RefImageListRoute extends _i15.PageRouteInfo<void> {
 
   static const String name = 'RefImageListRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
-      return _i15.WrappedRoute(child: const _i9.RefImageListPage());
+      return _i16.WrappedRoute(child: const _i10.RefImageListPage());
     },
   );
 }
 
 /// generated route for
-/// [_i10.RefImagePreviewPage]
+/// [_i11.RefImagePreviewPage]
 class RefImagePreviewRoute
-    extends _i15.PageRouteInfo<RefImagePreviewRouteArgs> {
+    extends _i16.PageRouteInfo<RefImagePreviewRouteArgs> {
   RefImagePreviewRoute({
-    _i16.Key? key,
+    _i17.Key? key,
     required String imageId,
-    List<_i15.PageRouteInfo>? children,
+    List<_i16.PageRouteInfo>? children,
   }) : super(
           RefImagePreviewRoute.name,
           args: RefImagePreviewRouteArgs(
@@ -349,12 +411,12 @@ class RefImagePreviewRoute
 
   static const String name = 'RefImagePreviewRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<RefImagePreviewRouteArgs>();
-      return _i15.WrappedRoute(
-          child: _i10.RefImagePreviewPage(
+      return _i16.WrappedRoute(
+          child: _i11.RefImagePreviewPage(
         key: args.key,
         imageId: args.imageId,
       ));
@@ -368,7 +430,7 @@ class RefImagePreviewRouteArgs {
     required this.imageId,
   });
 
-  final _i16.Key? key;
+  final _i17.Key? key;
 
   final String imageId;
 
@@ -379,9 +441,9 @@ class RefImagePreviewRouteArgs {
 }
 
 /// generated route for
-/// [_i11.SettingsPage]
-class SettingsRoute extends _i15.PageRouteInfo<void> {
-  const SettingsRoute({List<_i15.PageRouteInfo>? children})
+/// [_i12.SettingsPage]
+class SettingsRoute extends _i16.PageRouteInfo<void> {
+  const SettingsRoute({List<_i16.PageRouteInfo>? children})
       : super(
           SettingsRoute.name,
           initialChildren: children,
@@ -389,18 +451,18 @@ class SettingsRoute extends _i15.PageRouteInfo<void> {
 
   static const String name = 'SettingsRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
-      return _i15.WrappedRoute(child: const _i11.SettingsPage());
+      return _i16.WrappedRoute(child: const _i12.SettingsPage());
     },
   );
 }
 
 /// generated route for
-/// [_i12.SettingsPagesListPage]
-class SettingsRoutesListRoute extends _i15.PageRouteInfo<void> {
-  const SettingsRoutesListRoute({List<_i15.PageRouteInfo>? children})
+/// [_i13.SettingsPagesListPage]
+class SettingsRoutesListRoute extends _i16.PageRouteInfo<void> {
+  const SettingsRoutesListRoute({List<_i16.PageRouteInfo>? children})
       : super(
           SettingsRoutesListRoute.name,
           initialChildren: children,
@@ -408,21 +470,21 @@ class SettingsRoutesListRoute extends _i15.PageRouteInfo<void> {
 
   static const String name = 'SettingsRoutesListRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
-      return const _i12.SettingsPagesListPage();
+      return const _i13.SettingsPagesListPage();
     },
   );
 }
 
 /// generated route for
-/// [_i13.SignInPage]
-class SignInRoute extends _i15.PageRouteInfo<SignInRouteArgs> {
+/// [_i14.SignInPage]
+class SignInRoute extends _i16.PageRouteInfo<SignInRouteArgs> {
   SignInRoute({
-    _i16.Key? key,
-    required _i16.VoidCallback onAuthSuccess,
-    List<_i15.PageRouteInfo>? children,
+    _i17.Key? key,
+    required _i17.VoidCallback onAuthSuccess,
+    List<_i16.PageRouteInfo>? children,
   }) : super(
           SignInRoute.name,
           args: SignInRouteArgs(
@@ -434,12 +496,12 @@ class SignInRoute extends _i15.PageRouteInfo<SignInRouteArgs> {
 
   static const String name = 'SignInRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<SignInRouteArgs>();
-      return _i15.WrappedRoute(
-          child: _i13.SignInPage(
+      return _i16.WrappedRoute(
+          child: _i14.SignInPage(
         key: args.key,
         onAuthSuccess: args.onAuthSuccess,
       ));
@@ -453,9 +515,9 @@ class SignInRouteArgs {
     required this.onAuthSuccess,
   });
 
-  final _i16.Key? key;
+  final _i17.Key? key;
 
-  final _i16.VoidCallback onAuthSuccess;
+  final _i17.VoidCallback onAuthSuccess;
 
   @override
   String toString() {
@@ -464,12 +526,12 @@ class SignInRouteArgs {
 }
 
 /// generated route for
-/// [_i14.SignUpPage]
-class SignUpRoute extends _i15.PageRouteInfo<SignUpRouteArgs> {
+/// [_i15.SignUpPage]
+class SignUpRoute extends _i16.PageRouteInfo<SignUpRouteArgs> {
   SignUpRoute({
-    _i16.Key? key,
-    required _i16.VoidCallback onAuthSuccess,
-    List<_i15.PageRouteInfo>? children,
+    _i17.Key? key,
+    required _i17.VoidCallback onAuthSuccess,
+    List<_i16.PageRouteInfo>? children,
   }) : super(
           SignUpRoute.name,
           args: SignUpRouteArgs(
@@ -481,12 +543,12 @@ class SignUpRoute extends _i15.PageRouteInfo<SignUpRouteArgs> {
 
   static const String name = 'SignUpRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<SignUpRouteArgs>();
-      return _i15.WrappedRoute(
-          child: _i14.SignUpPage(
+      return _i16.WrappedRoute(
+          child: _i15.SignUpPage(
         key: args.key,
         onAuthSuccess: args.onAuthSuccess,
       ));
@@ -500,9 +562,9 @@ class SignUpRouteArgs {
     required this.onAuthSuccess,
   });
 
-  final _i16.Key? key;
+  final _i17.Key? key;
 
-  final _i16.VoidCallback onAuthSuccess;
+  final _i17.VoidCallback onAuthSuccess;
 
   @override
   String toString() {

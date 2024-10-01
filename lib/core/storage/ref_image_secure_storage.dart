@@ -29,7 +29,11 @@ import '../service/save_ref_image_service.dart';
 import 'storage_result.dart';
 
 abstract class RefImageSecureStorage {
-  Future<SecStorageResult<void>> add(RefImageInfo info, XFile srcImage);
+  Future<SecStorageResult<void>> add(
+    RefImageInfo info,
+    XFile srcImage, {
+    bool removeSourceFile = false,
+  });
 
   Future<SecStorageResult<RefImage>> get(RefImageInfo info);
 
@@ -53,8 +57,9 @@ class RefImageSecureStorageImpl implements RefImageSecureStorage {
   @override
   Future<SecStorageResult<void>> add(
     RefImageInfo info,
-    XFile srcImage,
-  ) async {
+    XFile srcImage, {
+    bool removeSourceFile = false,
+  }) async {
     if (info.encryption is! RefImageEncryptionNone &&
         !_keyRepo.hasSecureKey()) {
       return const SecStorageResult.error(
@@ -64,6 +69,7 @@ class RefImageSecureStorageImpl implements RefImageSecureStorage {
     await _saveService.save(
       info: info,
       srcImage: srcImage,
+      removeSourceFile: removeSourceFile,
     );
 
     return SecStorageResult.empty;

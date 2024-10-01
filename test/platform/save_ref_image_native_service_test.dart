@@ -47,6 +47,7 @@ Future<void> main() async {
         encryption: const RefImageEncryption.none(),
       ),
       srcFile: XFile(path.join('foo', 'bar')),
+      removeSourceFile: true,
     );
     final expectedResult = ServiceResult.success(
       request: expectedRequest,

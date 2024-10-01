@@ -46,6 +46,7 @@ abstract class SaveRefImageService {
   Future<void> save({
     required RefImageInfo info,
     required XFile srcImage,
+    bool removeSourceFile = false,
   });
 
   Future<List<SaveRefImageStatus>> getCurrentStatus();
@@ -80,12 +81,14 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
   Future<void> save({
     required RefImageInfo info,
     required XFile srcImage,
+    bool removeSourceFile = false,
   }) async {
     final mutableFactor = _factorRepo.get()?.copy();
     try {
       final saveInfo = ServiceRequest(
         info: info,
         srcFile: srcImage,
+        removeSourceFile: removeSourceFile,
       );
       await _jobController.pushQueue(saveInfo, factor: mutableFactor);
     } finally {
@@ -174,6 +177,9 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
           } catch (e, stackTrace) {
             log().e('Unable to clear key', error: e, stackTrace: stackTrace);
           }
+          if (request.removeSourceFile) {
+            _removeFile(request.srcFile);
+          }
           --jobsCount;
         }
       },
@@ -247,6 +253,14 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
         );
     }
   }
+
+  Future<void> _removeFile(XFile file) async {
+    try {
+      await _fs.file(file.path).delete();
+    } on Exception catch (e, stackTrace) {
+      log().e('Unable to delete file', error: e, stackTrace: stackTrace);
+    }
+  }
 }
 
 @pragma('vm:entry-point')
@@ -314,6 +328,7 @@ class ServiceRequest with _$ServiceRequest {
   const factory ServiceRequest({
     required RefImageInfo info,
     @XFileConverter() required XFile srcFile,
+    required bool removeSourceFile,
   }) = _ServiceRequest;
 
   factory ServiceRequest.fromJson(Map<String, dynamic> json) =>

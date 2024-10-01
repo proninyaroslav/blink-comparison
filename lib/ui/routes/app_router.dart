@@ -62,6 +62,12 @@ class AppRouter extends RootStackRouter {
       page: CameraPickerRoute.page,
       path: '/camera-picker',
     ),
+    CustomRoute(
+      page: CameraConfirmationRoute.page,
+      path: '/camera-confirmation',
+      transitionsBuilder: TransitionsBuilders.fadeIn,
+      durationInMilliseconds: 200,
+    ),
     AutoRoute(
       page: BlinkComparisonRoute.page,
       path: '/blink-comparison',

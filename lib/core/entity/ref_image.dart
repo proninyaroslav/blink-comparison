@@ -29,6 +29,7 @@ class RefImageInfo with _$RefImageInfo {
     required String id,
     @DateTimeEpochConverter() required DateTime dateAdded,
     required RefImageEncryption encryption,
+    String? label,
   }) = _RefImageInfo;
 
   factory RefImageInfo.fromJson(Map<String, dynamic> json) =>

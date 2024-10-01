@@ -96,5 +96,6 @@
   "settingsBehavior": "Behavior",
   "encryptionPreferenceTitle": "Image encryption",
   "encryptionPreferenceNone": "None",
-  "encryptionPreferencePassword": "Password"
+  "encryptionPreferencePassword": "Password",
+  "changeCameraZoomError": "Unable to change zoom level"
 }

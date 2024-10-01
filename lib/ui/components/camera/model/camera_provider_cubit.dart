@@ -16,8 +16,8 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:blink_comparison/core/settings/app_settings.dart';
-import 'package:blink_comparison/ui/camera_picker/model/camera_provider.dart';
-import 'package:blink_comparison/ui/camera_picker/model/camera_provider_state.dart';
+import 'package:blink_comparison/ui/components/camera/model/camera_provider.dart';
+import 'package:blink_comparison/ui/components/camera/model/camera_provider_state.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

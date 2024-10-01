@@ -10,6 +10,7 @@ _$ServiceRequestImpl _$$ServiceRequestImplFromJson(Map<String, dynamic> json) =>
     _$ServiceRequestImpl(
       info: RefImageInfo.fromJson(json['info'] as Map<String, dynamic>),
       srcFile: const XFileConverter().fromJson(json['srcFile'] as String),
+      removeSourceFile: json['removeSourceFile'] as bool,
     );
 
 Map<String, dynamic> _$$ServiceRequestImplToJson(
@@ -17,6 +18,7 @@ Map<String, dynamic> _$$ServiceRequestImplToJson(
     <String, dynamic>{
       'info': instance.info.toJson(),
       'srcFile': const XFileConverter().toJson(instance.srcFile),
+      'removeSourceFile': instance.removeSourceFile,
     };
 
 _$ServiceResultSuccessImpl _$$ServiceResultSuccessImplFromJson(

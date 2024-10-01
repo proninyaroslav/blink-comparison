@@ -23,6 +23,7 @@ mixin _$ServiceRequest {
   RefImageInfo get info => throw _privateConstructorUsedError;
   @XFileConverter()
   XFile get srcFile => throw _privateConstructorUsedError;
+  bool get removeSourceFile => throw _privateConstructorUsedError;
 
   /// Serializes this ServiceRequest to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,7 +41,10 @@ abstract class $ServiceRequestCopyWith<$Res> {
           ServiceRequest value, $Res Function(ServiceRequest) then) =
       _$ServiceRequestCopyWithImpl<$Res, ServiceRequest>;
   @useResult
-  $Res call({RefImageInfo info, @XFileConverter() XFile srcFile});
+  $Res call(
+      {RefImageInfo info,
+      @XFileConverter() XFile srcFile,
+      bool removeSourceFile});
 
   $RefImageInfoCopyWith<$Res> get info;
 }
@@ -62,6 +66,7 @@ class _$ServiceRequestCopyWithImpl<$Res, $Val extends ServiceRequest>
   $Res call({
     Object? info = null,
     Object? srcFile = null,
+    Object? removeSourceFile = null,
   }) {
     return _then(_value.copyWith(
       info: null == info
@@ -72,6 +77,10 @@ class _$ServiceRequestCopyWithImpl<$Res, $Val extends ServiceRequest>
           ? _value.srcFile
           : srcFile // ignore: cast_nullable_to_non_nullable
               as XFile,
+      removeSourceFile: null == removeSourceFile
+          ? _value.removeSourceFile
+          : removeSourceFile // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -94,7 +103,10 @@ abstract class _$$ServiceRequestImplCopyWith<$Res>
       __$$ServiceRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({RefImageInfo info, @XFileConverter() XFile srcFile});
+  $Res call(
+      {RefImageInfo info,
+      @XFileConverter() XFile srcFile,
+      bool removeSourceFile});
 
   @override
   $RefImageInfoCopyWith<$Res> get info;
@@ -115,6 +127,7 @@ class __$$ServiceRequestImplCopyWithImpl<$Res>
   $Res call({
     Object? info = null,
     Object? srcFile = null,
+    Object? removeSourceFile = null,
   }) {
     return _then(_$ServiceRequestImpl(
       info: null == info
@@ -125,6 +138,10 @@ class __$$ServiceRequestImplCopyWithImpl<$Res>
           ? _value.srcFile
           : srcFile // ignore: cast_nullable_to_non_nullable
               as XFile,
+      removeSourceFile: null == removeSourceFile
+          ? _value.removeSourceFile
+          : removeSourceFile // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -135,7 +152,9 @@ class _$ServiceRequestImpl
     with DiagnosticableTreeMixin
     implements _ServiceRequest {
   const _$ServiceRequestImpl(
-      {required this.info, @XFileConverter() required this.srcFile});
+      {required this.info,
+      @XFileConverter() required this.srcFile,
+      required this.removeSourceFile});
 
   factory _$ServiceRequestImpl.fromJson(Map<String, dynamic> json) =>
       _$$ServiceRequestImplFromJson(json);
@@ -145,10 +164,12 @@ class _$ServiceRequestImpl
   @override
   @XFileConverter()
   final XFile srcFile;
+  @override
+  final bool removeSourceFile;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ServiceRequest(info: $info, srcFile: $srcFile)';
+    return 'ServiceRequest(info: $info, srcFile: $srcFile, removeSourceFile: $removeSourceFile)';
   }
 
   @override
@@ -157,7 +178,8 @@ class _$ServiceRequestImpl
     properties
       ..add(DiagnosticsProperty('type', 'ServiceRequest'))
       ..add(DiagnosticsProperty('info', info))
-      ..add(DiagnosticsProperty('srcFile', srcFile));
+      ..add(DiagnosticsProperty('srcFile', srcFile))
+      ..add(DiagnosticsProperty('removeSourceFile', removeSourceFile));
   }
 
   @override
@@ -166,12 +188,14 @@ class _$ServiceRequestImpl
         (other.runtimeType == runtimeType &&
             other is _$ServiceRequestImpl &&
             (identical(other.info, info) || other.info == info) &&
-            (identical(other.srcFile, srcFile) || other.srcFile == srcFile));
+            (identical(other.srcFile, srcFile) || other.srcFile == srcFile) &&
+            (identical(other.removeSourceFile, removeSourceFile) ||
+                other.removeSourceFile == removeSourceFile));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, info, srcFile);
+  int get hashCode => Object.hash(runtimeType, info, srcFile, removeSourceFile);
 
   /// Create a copy of ServiceRequest
   /// with the given fields replaced by the non-null parameter values.
@@ -193,7 +217,8 @@ class _$ServiceRequestImpl
 abstract class _ServiceRequest implements ServiceRequest {
   const factory _ServiceRequest(
       {required final RefImageInfo info,
-      @XFileConverter() required final XFile srcFile}) = _$ServiceRequestImpl;
+      @XFileConverter() required final XFile srcFile,
+      required final bool removeSourceFile}) = _$ServiceRequestImpl;
 
   factory _ServiceRequest.fromJson(Map<String, dynamic> json) =
       _$ServiceRequestImpl.fromJson;
@@ -203,6 +228,8 @@ abstract class _ServiceRequest implements ServiceRequest {
   @override
   @XFileConverter()
   XFile get srcFile;
+  @override
+  bool get removeSourceFile;
 
   /// Create a copy of ServiceRequest
   /// with the given fields replaced by the non-null parameter values.

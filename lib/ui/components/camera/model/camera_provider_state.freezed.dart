@@ -62,20 +62,12 @@ class __$$CameraProviderStateInitialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CameraProviderStateInitialImpl
-    with DiagnosticableTreeMixin
-    implements CameraProviderStateInitial {
+class _$CameraProviderStateInitialImpl implements CameraProviderStateInitial {
   const _$CameraProviderStateInitialImpl();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CameraProviderState.initial()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'CameraProviderState.initial'));
   }
 
   @override
@@ -117,20 +109,12 @@ class __$$CameraProviderStateLoadingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CameraProviderStateLoadingImpl
-    with DiagnosticableTreeMixin
-    implements CameraProviderStateLoading {
+class _$CameraProviderStateLoadingImpl implements CameraProviderStateLoading {
   const _$CameraProviderStateLoadingImpl();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CameraProviderState.loading()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'CameraProviderState.loading'));
   }
 
   @override
@@ -199,9 +183,7 @@ class __$$CameraProviderStateLoadedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CameraProviderStateLoadedImpl
-    with DiagnosticableTreeMixin
-    implements CameraProviderStateLoaded {
+class _$CameraProviderStateLoadedImpl implements CameraProviderStateLoaded {
   const _$CameraProviderStateLoadedImpl(
       {required this.primaryCamera,
       required final List<CameraDescription> otherCameras,
@@ -222,18 +204,8 @@ class _$CameraProviderStateLoadedImpl
   final bool enableFlashByDefault;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CameraProviderState.loaded(primaryCamera: $primaryCamera, otherCameras: $otherCameras, enableFlashByDefault: $enableFlashByDefault)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'CameraProviderState.loaded'))
-      ..add(DiagnosticsProperty('primaryCamera', primaryCamera))
-      ..add(DiagnosticsProperty('otherCameras', otherCameras))
-      ..add(DiagnosticsProperty('enableFlashByDefault', enableFlashByDefault));
   }
 
   @override
@@ -325,7 +297,6 @@ class __$$CameraProviderStateLoadFailedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CameraProviderStateLoadFailedImpl
-    with DiagnosticableTreeMixin
     implements CameraProviderStateLoadFailed {
   const _$CameraProviderStateLoadFailedImpl(
       {required this.error, this.stackTrace});
@@ -336,17 +307,8 @@ class _$CameraProviderStateLoadFailedImpl
   final StackTrace? stackTrace;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CameraProviderState.loadFailed(error: $error, stackTrace: $stackTrace)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'CameraProviderState.loadFailed'))
-      ..add(DiagnosticsProperty('error', error))
-      ..add(DiagnosticsProperty('stackTrace', stackTrace));
   }
 
   @override

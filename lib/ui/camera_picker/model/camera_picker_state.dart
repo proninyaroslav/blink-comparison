@@ -15,39 +15,21 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'package:camera/camera.dart';
+import 'package:blink_comparison/ui/model/xfile_provider.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../logger.dart';
+part 'camera_picker_state.freezed.dart';
 
-class CameraControllerWrapper extends CameraController {
-  bool _disposed = true;
+@freezed
+sealed class CameraPickerState with _$CameraPickerState {
+  factory CameraPickerState.initial() = CameraPickerStateInitial;
 
-  CameraControllerWrapper(
-    super.description,
-    super.resolutionPreset, {
-    super.enableAudio,
-    super.fps,
-    super.videoBitrate,
-    super.audioBitrate,
-    super.imageFormatGroup,
-  });
+  factory CameraPickerState.loaded({required XFileImage image}) =
+      CameraPickerStateLoaded;
 
-  bool get disposed => _disposed;
+  factory CameraPickerState.accepted({required XFileImage image}) =
+      CameraPickerStateAccepted;
 
-  @override
-  Future<void> initialize() {
-    _disposed = false;
-    return super.initialize();
-  }
-
-  @override
-  Future<void> dispose() async {
-    _disposed = true;
-    try {
-      await setFlashMode(FlashMode.off);
-    } catch (e, stackTrace) {
-      log().e('Unable to reset flash mode', error: e, stackTrace: stackTrace);
-    }
-    return super.dispose();
-  }
+  factory CameraPickerState.rejected({required XFileImage image}) =
+      CameraPickerStateRejected;
 }

@@ -98,7 +98,9 @@ class AddRefImageButton extends StatelessWidget {
               context.pushRoute(
                 CameraPickerRoute(
                   onTakePhoto: (file) {
-                    context.read<AddRefImageCubit>().addImages([file]);
+                    context
+                        .read<AddRefImageCubit>()
+                        .addImages([file], removeSourceFiles: true);
                   },
                 ),
               );

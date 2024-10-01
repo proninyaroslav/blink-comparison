@@ -22,11 +22,13 @@ import 'package:flutter/material.dart';
 class PageIcon extends StatelessWidget {
   final IconData icon;
   final double ratio;
+  final double opacity;
 
   const PageIcon({
     super.key,
     required this.icon,
     this.ratio = 2.0,
+    this.opacity = 0.1,
   });
 
   @override
@@ -48,7 +50,7 @@ class PageIcon extends StatelessWidget {
           child: FittedBox(
             child: Icon(
               icon,
-              color: Theme.of(context).iconTheme.color!.withOpacity(0.1),
+              color: Theme.of(context).iconTheme.color!.withOpacity(opacity),
               grade: 200,
             ),
           ),

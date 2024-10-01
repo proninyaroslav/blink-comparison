@@ -22,9 +22,9 @@ import 'package:blink_comparison/core/fs/fs_result.dart';
 import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/core/storage/ref_image_repository.dart';
 import 'package:blink_comparison/injector.dart';
-import 'package:blink_comparison/ui/camera_picker/components/camera_view.dart';
-import 'package:blink_comparison/ui/camera_picker/model/camera_provider.dart';
-import 'package:blink_comparison/ui/camera_picker/model/camera_provider_cubit.dart';
+import 'package:blink_comparison/ui/components/camera/camera_view.dart';
+import 'package:blink_comparison/ui/components/camera/model/camera_provider.dart';
+import 'package:blink_comparison/ui/components/camera/model/camera_provider_cubit.dart';
 import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:blink_comparison/ui/model/error_report_cubit.dart';
 import 'package:blink_comparison/ui/model/showcase_cubit.dart';
@@ -178,7 +178,6 @@ class _BodyState extends State<_Body> {
                       _refImageSize = getImageSize(info);
                     },
                   ),
-                  showConfirmationDialog: false,
                   onTakePhoto: _onTakePhoto,
                 ),
               RefImageStateLoadFailed(:final error) =>
@@ -271,7 +270,6 @@ class _OpenOpacityBarButton extends StatelessWidget {
         showModalBottomSheet(
           context: context,
           barrierColor: Colors.transparent,
-          constraints: const BoxConstraints(maxWidth: 480),
           builder: (context) {
             return BlocProvider.value(
               value: cubit,

@@ -16,8 +16,6 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:camera/camera.dart';
-// ignore: unnecessary_import
-import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'camera_provider_state.freezed.dart';

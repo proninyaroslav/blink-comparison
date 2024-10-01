@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -15,7 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'package:blink_comparison/ui/components/camera/model/camera_provider.dart';
+import 'package:blink_comparison/ui/model/xfile_provider.dart';
 import 'package:mocktail/mocktail.dart';
 
-class MockCameraProvider extends Mock implements CameraProvider {}
+class MockXFileImage extends Mock implements XFileImage {}

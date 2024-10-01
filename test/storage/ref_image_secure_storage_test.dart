@@ -108,15 +108,27 @@ void main() {
       when(() => mockAppSecureKeyRepo.hasSecureKey()).thenReturn(true);
       when(() => mockAppSecureKeyRepo.get()).thenReturn(keyImmutable);
       when(
-        () => mockService.save(info: info, srcImage: file),
+        () => mockService.save(
+          info: info,
+          srcImage: file,
+          removeSourceFile: true,
+        ),
       ).thenAnswer((_) async => {});
 
       expect(
-        await secureStorage.add(info, file),
+        await secureStorage.add(
+          info,
+          file,
+          removeSourceFile: true,
+        ),
         SecStorageResult.empty,
       );
       verify(
-        () => mockService.save(info: info, srcImage: file),
+        () => mockService.save(
+          info: info,
+          srcImage: file,
+          removeSourceFile: true,
+        ),
       ).called(1);
     });
 

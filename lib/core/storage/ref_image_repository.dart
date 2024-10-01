@@ -36,6 +36,7 @@ abstract class RefImageRepository {
   Future<SecStorageResult<RefImageInfo>> addFromFile(
     XFile srcImage, {
     required EncryptionPreference? encryption,
+    bool removeSourceFile = false,
   });
 
   Future<SecStorageResult<void>> delete(RefImageInfo info);
@@ -79,6 +80,7 @@ class RefImageRepositoryImpl implements RefImageRepository {
   Future<SecStorageResult<RefImageInfo>> addFromFile(
     XFile srcImage, {
     required EncryptionPreference? encryption,
+    bool removeSourceFile = false,
   }) async {
     late final RefImageInfo info;
     try {
@@ -106,7 +108,11 @@ class RefImageRepositoryImpl implements RefImageRepository {
       );
     }
 
-    final res = await _secureStorage.add(info, srcImage);
+    final res = await _secureStorage.add(
+      info,
+      srcImage,
+      removeSourceFile: removeSourceFile,
+    );
     return switch (res) {
       SecStorageResultSuccess() => SecStorageResult(info),
       SecStorageResultError(:final error) => SecStorageResult.error(error),

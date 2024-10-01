@@ -51,3 +51,4 @@ export 'ui/mock_app_cubit.dart';
 export 'ui/mock_camera_provider.dart';
 export 'ui/mock_comparison_settings_cubit.dart';
 export 'ui/mock_image_picker.dart';
+export 'ui/mock_image_provider.dart';

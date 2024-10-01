@@ -15,7 +15,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'package:async/async.dart';
 import 'package:blink_comparison/ui/preview/model/ref_image_options_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,34 +29,13 @@ class OpacityBar extends StatefulWidget {
   State<OpacityBar> createState() => _OpacityBarState();
 }
 
-class _OpacityBarState extends State<OpacityBar> {
-  late final RestartableTimer _closeTimer;
-  bool _readyToClose = true;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _closeTimer = RestartableTimer(
-      const Duration(seconds: 3),
-      () {
-        if (mounted && _readyToClose) {
-          Navigator.of(context).maybePop();
-        }
-      },
-    );
-  }
-
-  @override
-  void dispose() {
-    _closeTimer.cancel();
-    super.dispose();
-  }
-
+class _OpacityBarState extends State<OpacityBar> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<RefImageOptionsCubit>();
     return BottomSheet(
+      showDragHandle: true,
+      animationController: BottomSheet.createAnimationController(this),
       builder: (context) {
         return SafeArea(
           child: Padding(
@@ -67,38 +45,26 @@ class _OpacityBarState extends State<OpacityBar> {
                   next is RefImageOptionsStateOpacityChanged,
               builder: (context, state) {
                 final opacity = state.options!.opacity;
-                return Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Flexible(
-                      child: Padding(
-                        padding:
-                            const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
-                        child: Text(
-                          S.of(context).imageOverlayOpacity,
-                          style: Theme.of(context).textTheme.titleLarge,
-                        ),
+                return SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const _Title(),
+                      Slider(
+                        value: opacity,
+                        divisions: 100,
+                        label: _formatLabel(opacity),
+                        semanticFormatterCallback: _formatLabel,
+                        onChanged: (value) async {
+                          await cubit.setOpacity(value, saveInSettings: false);
+                        },
+                        onChangeEnd: (value) async {
+                          await cubit.setOpacity(value);
+                        },
                       ),
-                    ),
-                    Slider(
-                      value: opacity,
-                      divisions: 100,
-                      label: _formatLabel(opacity),
-                      semanticFormatterCallback: _formatLabel,
-                      onChangeStart: (value) {
-                        _readyToClose = false;
-                      },
-                      onChanged: (value) async {
-                        await cubit.setOpacity(value, saveInSettings: false);
-                      },
-                      onChangeEnd: (value) async {
-                        await cubit.setOpacity(value);
-                        _readyToClose = true;
-                        _closeTimer.reset();
-                      },
-                    ),
-                  ],
+                    ],
+                  ),
                 );
               },
             ),
@@ -106,11 +72,27 @@ class _OpacityBarState extends State<OpacityBar> {
         );
       },
       onClosing: () {
-        _readyToClose = true;
-        _closeTimer.cancel();
+        Navigator.of(context).maybePop();
       },
     );
   }
 
   String _formatLabel(double opacity) => '${(opacity * 100).toInt()} %';
+}
+
+class _Title extends StatelessWidget {
+  const _Title();
+
+  @override
+  Widget build(BuildContext context) {
+    return Flexible(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
+        child: Text(
+          S.of(context).imageOverlayOpacity,
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+      ),
+    );
+  }
 }

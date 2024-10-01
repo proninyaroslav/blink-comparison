@@ -22,3 +22,5 @@ import 'package:mocktail/mocktail.dart';
 class MockFile extends Mock implements File {}
 
 class MockXFile extends Mock implements XFile {}
+
+class MockFileSystemEntity extends Mock implements FileSystemEntity {}

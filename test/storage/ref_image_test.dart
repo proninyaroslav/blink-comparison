@@ -98,13 +98,18 @@ void main() {
         () => mockDateTimeProvider.now(),
       ).thenReturn(expectedImage.dateAdded);
       when(
-        () => mockSecureStorage.add(expectedImage, file),
+        () => mockSecureStorage.add(
+          expectedImage,
+          file,
+          removeSourceFile: true,
+        ),
       ).thenAnswer((_) async => SecStorageResult.empty);
 
       expect(
         await repo.addFromFile(
           file,
           encryption: const EncryptionPreference.password(),
+          removeSourceFile: true,
         ),
         SecStorageResult(expectedImage),
       );
@@ -113,7 +118,11 @@ void main() {
         StorageResult<RefImageInfo?>(expectedImage),
       );
       verify(
-        () => mockSecureStorage.add(expectedImage, file),
+        () => mockSecureStorage.add(
+          expectedImage,
+          file,
+          removeSourceFile: true,
+        ),
       ).called(1);
     });
 

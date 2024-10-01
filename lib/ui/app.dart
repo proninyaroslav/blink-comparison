@@ -86,8 +86,7 @@ class _AppState extends State<App> {
           case NotificationActionReportCrash(:final info):
             _onReport(info);
           case NotificationActionOpenRefImageList():
-            if (context.mounted) {
-              // ignore: use_build_context_synchronously
+            if (mounted) {
               context.replaceRoute(const RefImageListRoute());
             }
         }
@@ -108,8 +107,7 @@ class _AppState extends State<App> {
             case NotificationActionReportCrash(:final info):
               _onReport(info);
             case NotificationActionOpenRefImageList():
-              if (context.mounted) {
-                // ignore: use_build_context_synchronously
+              if (mounted) {
                 context.replaceRoute(const RefImageListRoute());
               }
           }

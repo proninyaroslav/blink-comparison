@@ -24,6 +24,7 @@ mixin _$RefImageInfo {
   @DateTimeEpochConverter()
   DateTime get dateAdded => throw _privateConstructorUsedError;
   RefImageEncryption get encryption => throw _privateConstructorUsedError;
+  String? get label => throw _privateConstructorUsedError;
 
   /// Serializes this RefImageInfo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,7 +45,8 @@ abstract class $RefImageInfoCopyWith<$Res> {
   $Res call(
       {String id,
       @DateTimeEpochConverter() DateTime dateAdded,
-      RefImageEncryption encryption});
+      RefImageEncryption encryption,
+      String? label});
 
   $RefImageEncryptionCopyWith<$Res> get encryption;
 }
@@ -67,6 +69,7 @@ class _$RefImageInfoCopyWithImpl<$Res, $Val extends RefImageInfo>
     Object? id = null,
     Object? dateAdded = null,
     Object? encryption = null,
+    Object? label = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -81,6 +84,10 @@ class _$RefImageInfoCopyWithImpl<$Res, $Val extends RefImageInfo>
           ? _value.encryption
           : encryption // ignore: cast_nullable_to_non_nullable
               as RefImageEncryption,
+      label: freezed == label
+          ? _value.label
+          : label // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -106,7 +113,8 @@ abstract class _$$RefImageInfoImplCopyWith<$Res>
   $Res call(
       {String id,
       @DateTimeEpochConverter() DateTime dateAdded,
-      RefImageEncryption encryption});
+      RefImageEncryption encryption,
+      String? label});
 
   @override
   $RefImageEncryptionCopyWith<$Res> get encryption;
@@ -128,6 +136,7 @@ class __$$RefImageInfoImplCopyWithImpl<$Res>
     Object? id = null,
     Object? dateAdded = null,
     Object? encryption = null,
+    Object? label = freezed,
   }) {
     return _then(_$RefImageInfoImpl(
       id: null == id
@@ -142,6 +151,10 @@ class __$$RefImageInfoImplCopyWithImpl<$Res>
           ? _value.encryption
           : encryption // ignore: cast_nullable_to_non_nullable
               as RefImageEncryption,
+      label: freezed == label
+          ? _value.label
+          : label // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -152,7 +165,8 @@ class _$RefImageInfoImpl implements _RefImageInfo {
   const _$RefImageInfoImpl(
       {required this.id,
       @DateTimeEpochConverter() required this.dateAdded,
-      required this.encryption});
+      required this.encryption,
+      this.label});
 
   factory _$RefImageInfoImpl.fromJson(Map<String, dynamic> json) =>
       _$$RefImageInfoImplFromJson(json);
@@ -164,10 +178,12 @@ class _$RefImageInfoImpl implements _RefImageInfo {
   final DateTime dateAdded;
   @override
   final RefImageEncryption encryption;
+  @override
+  final String? label;
 
   @override
   String toString() {
-    return 'RefImageInfo(id: $id, dateAdded: $dateAdded, encryption: $encryption)';
+    return 'RefImageInfo(id: $id, dateAdded: $dateAdded, encryption: $encryption, label: $label)';
   }
 
   @override
@@ -179,12 +195,14 @@ class _$RefImageInfoImpl implements _RefImageInfo {
             (identical(other.dateAdded, dateAdded) ||
                 other.dateAdded == dateAdded) &&
             (identical(other.encryption, encryption) ||
-                other.encryption == encryption));
+                other.encryption == encryption) &&
+            (identical(other.label, label) || other.label == label));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, dateAdded, encryption);
+  int get hashCode =>
+      Object.hash(runtimeType, id, dateAdded, encryption, label);
 
   /// Create a copy of RefImageInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -206,7 +224,8 @@ abstract class _RefImageInfo implements RefImageInfo {
   const factory _RefImageInfo(
       {required final String id,
       @DateTimeEpochConverter() required final DateTime dateAdded,
-      required final RefImageEncryption encryption}) = _$RefImageInfoImpl;
+      required final RefImageEncryption encryption,
+      final String? label}) = _$RefImageInfoImpl;
 
   factory _RefImageInfo.fromJson(Map<String, dynamic> json) =
       _$RefImageInfoImpl.fromJson;
@@ -218,6 +237,8 @@ abstract class _RefImageInfo implements RefImageInfo {
   DateTime get dateAdded;
   @override
   RefImageEncryption get encryption;
+  @override
+  String? get label;
 
   /// Create a copy of RefImageInfo
   /// with the given fields replaced by the non-null parameter values.

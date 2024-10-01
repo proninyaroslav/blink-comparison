@@ -95,5 +95,6 @@
   "settingsBehavior": "Поведение",
   "encryptionPreferenceTitle": "Шифрование изображений",
   "encryptionPreferenceNone": "Нет",
-  "encryptionPreferencePassword": "Пароль"
+  "encryptionPreferencePassword": "Пароль",
+  "changeCameraZoomError": "Не удалось изменить уровень зума"
 }

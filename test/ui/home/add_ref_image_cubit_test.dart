@@ -65,6 +65,7 @@ void main() {
             () => mockImageRepo.addFromFile(
               f,
               encryption: const EncryptionPreference.none(),
+              removeSourceFile: true,
             ),
           ).thenAnswer(
             (_) async => SecStorageResult(
@@ -76,7 +77,7 @@ void main() {
             ),
           );
         }
-        await cubit.addImages(files);
+        await cubit.addImages(files, removeSourceFiles: true);
       },
       expect: () => [
         const AddRefImageState.addingImages(),
@@ -110,19 +111,15 @@ void main() {
         ];
         when(() => mockPref.encryptionPreferenceSync)
             .thenReturn(const EncryptionPreference.none());
-        when(() => mockImageRepo.addFromFile(
-              files[0],
-              encryption: const EncryptionPreference.none(),
-            )).thenAnswer(
+        when(() => mockImageRepo.addFromFile(files[0],
+            encryption: const EncryptionPreference.none())).thenAnswer(
           (_) async => const SecStorageResult.error(
             SecStorageError.database(),
           ),
         );
         when(
-          () => mockImageRepo.addFromFile(
-            files[1],
-            encryption: const EncryptionPreference.none(),
-          ),
+          () => mockImageRepo.addFromFile(files[1],
+              encryption: const EncryptionPreference.none()),
         ).thenAnswer(
           (_) async => SecStorageResult(
             RefImageInfo(

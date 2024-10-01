@@ -92,6 +92,7 @@ void main() {
           encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
         ),
         srcFile: XFile(srcFile.path),
+        removeSourceFile: false,
       );
       when(
         () => mockJobController.pushQueue(request, factor: mockKey),
@@ -114,6 +115,7 @@ void main() {
           encryption: const RefImageEncryption.none(),
         ),
         srcFile: XFile(srcFile.path),
+        removeSourceFile: false,
       );
       when(() => mockAppSecureKeyRepository.get()).thenReturn(null);
       when(
@@ -186,6 +188,7 @@ void main() {
           request: ServiceRequest(
             info: infoList[0],
             srcFile: XFile(srcFile.path),
+            removeSourceFile: false,
           ),
           error: ServiceError.saveImage(
             SaveRefImageError.fs(
@@ -202,6 +205,7 @@ void main() {
             request: ServiceRequest(
               info: info,
               srcFile: XFile(srcFile.path),
+              removeSourceFile: false,
             ),
           ),
         );
@@ -254,6 +258,7 @@ void main() {
                     const RefImageEncryption.password(encryptSalt: 'salt'),
               ),
               srcFile: XFile(srcFile.path),
+              removeSourceFile: false,
             ),
             factor: mockKey,
           ),
@@ -266,18 +271,20 @@ void main() {
                     const RefImageEncryption.password(encryptSalt: 'salt'),
               ),
               srcFile: XFile(srcFile.path),
+              removeSourceFile: false,
             ),
             factor: mockKey,
           ),
           ServiceQueueItem(
             request: ServiceRequest(
               info: RefImageInfo(
-                id: '2',
+                id: '3',
                 dateAdded: DateTime(2021),
                 encryption:
                     const RefImageEncryption.password(encryptSalt: 'salt'),
               ),
               srcFile: XFile(srcFile.path),
+              removeSourceFile: true,
             ),
             factor: mockKey,
           ),
@@ -326,6 +333,7 @@ void main() {
           ).called(1);
         }
         verify(() => mockKey.dispose()).called(items.length);
+        expect(fs.file(srcFile.path).existsSync(), false);
       });
 
       test('Save image error', () async {
@@ -336,6 +344,7 @@ void main() {
             encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
           ),
           srcFile: XFile(srcFile.path),
+          removeSourceFile: false,
         );
         final item = ServiceQueueItem(
           request: request,
@@ -389,6 +398,7 @@ void main() {
             encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
           ),
           srcFile: XFile(srcFile.path),
+          removeSourceFile: false,
         );
         final item = ServiceQueueItem(
           request: request,
@@ -441,6 +451,7 @@ void main() {
             encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
           ),
           srcFile: XFile(srcFile.path),
+          removeSourceFile: false,
         );
         final item = ServiceQueueItem(
           request: request,
@@ -530,6 +541,7 @@ void main() {
                   const RefImageEncryption.password(encryptSalt: 'salt'),
             ),
             srcFile: XFile(srcFile.path),
+            removeSourceFile: false,
           ),
         );
         when(
@@ -559,6 +571,7 @@ void main() {
             encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
           ),
           srcFile: XFile(srcFile.path),
+          removeSourceFile: false,
         );
         when(
           () => mockNativeService.getAllInProgress(),
@@ -596,6 +609,7 @@ void main() {
             encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
           ),
           srcFile: XFile(srcFile.path),
+          removeSourceFile: false,
         );
         when(
           () => mockNativeService.pushQueue(request, factor: mockKey),
@@ -618,6 +632,7 @@ void main() {
             encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
           ),
           srcFile: XFile(srcFile.path),
+          removeSourceFile: false,
         );
         when(
           () => mockNativeService.pushQueue(request, factor: mockKey),

@@ -15,101 +15,102 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'package:auto_route/auto_route.dart';
 import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:blink_comparison/ui/model/xfile_provider.dart';
-import 'package:cross_file/cross_file.dart';
+import 'package:blink_comparison/ui/theme.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-import '../../../locale.dart';
+import '../../locale.dart';
 
-class ConfirmationDialog extends StatefulWidget {
-  final XFile photoFile;
+@RoutePage()
+class CameraConfirmationPage extends StatefulWidget {
+  final XFileImage image;
   final VoidCallback? onRetry;
   final VoidCallback? onAccept;
 
-  const ConfirmationDialog({
+  const CameraConfirmationPage({
     super.key,
-    required this.photoFile,
+    required this.image,
     this.onRetry,
     this.onAccept,
   });
 
   @override
-  State<ConfirmationDialog> createState() => _ConfirmationDialogState();
+  State<CameraConfirmationPage> createState() => _CameraConfirmationPageState();
 }
 
-class _ConfirmationDialogState extends State<ConfirmationDialog>
+class _CameraConfirmationPageState extends State<CameraConfirmationPage>
     with TickerProviderStateMixin, ExtendedImageDoubleClickMixin {
   static const _minScale = 1.0;
   static const _maxScale = 5.0;
   static const _doubleClickScale = (_maxScale - _minScale) / 2;
-
-  late final _controller = AnimationController(
-    duration: const Duration(milliseconds: 500),
-    vsync: this,
-  );
-
-  late final _fadeImageAnimation = CurvedAnimation(
-    parent: _controller,
-    curve: Curves.easeIn,
-  );
-
-  @override
-  void dispose() {
-    _controller.dispose();
-
-    super.dispose();
-  }
+  bool _closed = false;
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Positioned.fill(
-          child: ExtendedImage(
-            image: XFileImage(widget.photoFile),
-            enableLoadState: true,
-            opacity: _fadeImageAnimation,
-            mode: ExtendedImageMode.gesture,
-            fit: BoxFit.contain,
-            initGestureConfigHandler: (state) {
-              return GestureConfig(
-                minScale: _minScale,
-                maxScale: _maxScale,
-              );
-            },
-            onDoubleTap: (state) => onDoubleTap(
-              scaleDown: _minScale,
-              scaleUp: _doubleClickScale,
-              state: state,
-            ),
-            loadStateChanged: (state) {
-              switch (state.extendedImageLoadState) {
-                case LoadState.loading:
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                case LoadState.completed:
-                  _controller.forward();
-                  break;
-                case LoadState.failed:
-                  return const _OpenImageError();
+    return AppThemeBuilder(
+      builder: (light, dark, black) {
+        return Theme(
+          data: black,
+          child: PopScope(
+            onPopInvokedWithResult: (didPop, result) {
+              if (!_closed) {
+                widget.onRetry?.call();
               }
-              return null;
+              _closed = true;
             },
+            child: Scaffold(
+              extendBody: true,
+              body: SizedBox.expand(
+                child: ExtendedImage(
+                  image: widget.image,
+                  mode: ExtendedImageMode.gesture,
+                  fit: BoxFit.contain,
+                  initGestureConfigHandler: (state) {
+                    return GestureConfig(
+                      minScale: _minScale,
+                      maxScale: _maxScale,
+                    );
+                  },
+                  onDoubleTap: (state) => onDoubleTap(
+                    scaleDown: _minScale,
+                    scaleUp: _doubleClickScale,
+                    state: state,
+                  ),
+                  loadStateChanged: (state) {
+                    return switch (state.extendedImageLoadState) {
+                      LoadState.loading || LoadState.completed => null,
+                      LoadState.failed => const _OpenImageError(),
+                    };
+                  },
+                ),
+              ),
+              bottomNavigationBar: _ButtonBar(
+                onRetry: () {
+                  if (!_closed) {
+                    widget.onRetry?.call();
+                    _closed = true;
+                    context.maybePop();
+                  }
+                },
+                onAccept: () {
+                  if (!_closed) {
+                    widget.onAccept?.call();
+                    _closed = true;
+                    context.maybePop();
+                  }
+                },
+              ),
+              floatingActionButtonLocation:
+                  FloatingActionButtonLocation.miniEndFloat,
+            ),
           ),
-        ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: _ButtonBar(
-            onRetry: widget.onRetry,
-            onAccept: widget.onAccept,
-          ),
-        ),
-      ],
+        );
+      },
     );
   }
 }
@@ -132,8 +133,8 @@ class _ButtonBar extends StatelessWidget {
           sizingInfo: sizingInfo,
           orientation: orientation,
         ),
-        padding: const EdgeInsets.symmetric(vertical: 16.0),
-        color: Colors.black54,
+        padding: const EdgeInsets.symmetric(vertical: 12.0),
+        color: Theme.of(context).colorScheme.surface.withOpacity(0.7),
         child: OutlinedButtonTheme(
           data: OutlinedButtonThemeData(
             style: OutlinedButton.styleFrom(
@@ -148,7 +149,7 @@ class _ButtonBar extends StatelessWidget {
                 icon: const Icon(Symbols.refresh),
                 label: Text(S.of(context).retry),
               ),
-              OutlinedButton.icon(
+              FilledButton.tonalIcon(
                 onPressed: onAccept,
                 icon: const Icon(Symbols.done),
                 label: Text(S.of(context).accept),
