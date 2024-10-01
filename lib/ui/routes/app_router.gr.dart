@@ -23,7 +23,7 @@ import 'package:blink_comparison/ui/comparison/blink_comparison_page.dart'
     as _i4;
 import 'package:blink_comparison/ui/components/page_not_found.dart' as _i9;
 import 'package:blink_comparison/ui/home/ref_image_list_page.dart' as _i10;
-import 'package:blink_comparison/ui/model/xfile_provider.dart' as _i18;
+import 'package:blink_comparison/ui/model/xfile_image.dart' as _i18;
 import 'package:blink_comparison/ui/preview/ref_image_preview_page.dart'
     as _i11;
 import 'package:blink_comparison/ui/settings/appearance_page.dart' as _i1;

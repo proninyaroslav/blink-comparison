@@ -28,7 +28,7 @@ import 'package:blink_comparison/ui/components/camera/model/camera_provider_cubi
 import 'package:blink_comparison/ui/components/camera/model/camera_view_controller.dart';
 import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:blink_comparison/ui/model/error_report_cubit.dart';
-import 'package:blink_comparison/ui/model/xfile_provider.dart';
+import 'package:blink_comparison/ui/model/xfile_image.dart';
 import 'package:blink_comparison/ui/routes/app_router.gr.dart';
 import 'package:cross_file/cross_file.dart';
 import 'package:file/file.dart';

@@ -17,7 +17,7 @@
 
 import 'package:blink_comparison/ui/camera_picker/model/camera_picker_cubit.dart';
 import 'package:blink_comparison/ui/camera_picker/model/camera_picker_state.dart';
-import 'package:blink_comparison/ui/model/xfile_provider.dart';
+import 'package:blink_comparison/ui/model/xfile_image.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:camera/camera.dart';
 import 'package:file/file.dart';

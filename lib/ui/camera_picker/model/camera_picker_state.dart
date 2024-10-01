@@ -15,7 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'package:blink_comparison/ui/model/xfile_provider.dart';
+import 'package:blink_comparison/ui/model/xfile_image.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'camera_picker_state.freezed.dart';

@@ -17,7 +17,7 @@
 
 import 'package:auto_route/auto_route.dart';
 import 'package:blink_comparison/ui/components/widget.dart';
-import 'package:blink_comparison/ui/model/xfile_provider.dart';
+import 'package:blink_comparison/ui/model/xfile_image.dart';
 import 'package:blink_comparison/ui/theme.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
