@@ -25,6 +25,7 @@ import 'package:material_symbols_icons/symbols.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import '../../locale.dart';
+import 'components/edit_image_metadata_sheet.dart';
 
 @RoutePage()
 class CameraConfirmationPage extends StatefulWidget {
@@ -107,8 +108,28 @@ class _CameraConfirmationPageState extends State<CameraConfirmationPage>
               ),
               floatingActionButtonLocation:
                   FloatingActionButtonLocation.miniEndFloat,
+              floatingActionButton: FloatingActionButton.small(
+                onPressed: () => _showEditPropertiesSheet(context),
+                tooltip: 'Edit properties',
+                child: const Icon(Symbols.edit),
+              ),
             ),
           ),
+        );
+      },
+    );
+  }
+
+  void _showEditPropertiesSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (context) {
+        return Padding(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+          ),
+          child: const EditImagePropertiesSheet(),
         );
       },
     );

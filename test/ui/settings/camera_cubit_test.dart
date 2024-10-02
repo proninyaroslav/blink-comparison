@@ -36,6 +36,7 @@ void main() {
     setUp(() async {
       when(() => mockPref.enableFlashByDefault).thenAnswer((_) async => true);
       when(() => mockPref.cameraFullscreenMode).thenAnswer((_) async => true);
+      when(() => mockPref.cameraAutofocus).thenAnswer((_) async => true);
       cubit = CameraSettingsCubit(mockPref);
       await cubit.load();
     });
@@ -64,12 +65,14 @@ void main() {
           CameraInfo(
             enableFlashByDefault: false,
             fullscreenMode: true,
+            autofocus: true,
           ),
         ),
         const CameraState.enableFlashChanged(
           CameraInfo(
             enableFlashByDefault: true,
             fullscreenMode: true,
+            autofocus: true,
           ),
         ),
       ],
@@ -93,12 +96,45 @@ void main() {
           CameraInfo(
             enableFlashByDefault: true,
             fullscreenMode: false,
+            autofocus: true,
           ),
         ),
         const CameraState.fullscreenModeChanged(
           CameraInfo(
             enableFlashByDefault: true,
             fullscreenMode: true,
+            autofocus: true,
+          ),
+        ),
+      ],
+    );
+
+    blocTest(
+      'Autofocus',
+      build: () => cubit,
+      act: (CameraSettingsCubit cubit) async {
+        when(() => mockPref.setCameraAutofocus(any()))
+            .thenAnswer((_) => Future.value());
+
+        await cubit.setAutofocus(false);
+        verify(() => mockPref.setCameraAutofocus(false)).called(1);
+
+        await cubit.setAutofocus(true);
+        verify(() => mockPref.setCameraAutofocus(true)).called(1);
+      },
+      expect: () => [
+        const CameraState.autofocusChanged(
+          CameraInfo(
+            enableFlashByDefault: true,
+            fullscreenMode: true,
+            autofocus: false,
+          ),
+        ),
+        const CameraState.autofocusChanged(
+          CameraInfo(
+            enableFlashByDefault: true,
+            fullscreenMode: true,
+            autofocus: true,
           ),
         ),
       ],

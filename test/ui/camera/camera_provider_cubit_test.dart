@@ -62,6 +62,7 @@ void main() {
         when(() => mockProvider.availableCameras())
             .thenAnswer((_) async => expectedCameras);
         when(() => mockPref.enableFlashByDefault).thenAnswer((_) async => true);
+        when(() => mockPref.cameraAutofocus).thenAnswer((_) async => true);
         await cubit.loadAvailableCameras();
       },
       expect: () => [
@@ -80,6 +81,7 @@ void main() {
             ),
           ],
           enableFlashByDefault: true,
+          autofocus: true,
         ),
       ],
     );
@@ -103,6 +105,7 @@ void main() {
         when(() => mockProvider.availableCameras())
             .thenAnswer((_) async => expectedCameras);
         when(() => mockPref.enableFlashByDefault).thenAnswer((_) async => true);
+        when(() => mockPref.cameraAutofocus).thenAnswer((_) async => true);
         await cubit.loadAvailableCameras();
         await cubit.loadAvailableCameras();
         verify(() => mockProvider.availableCameras()).called(1);
@@ -123,6 +126,7 @@ void main() {
             ),
           ],
           enableFlashByDefault: true,
+          autofocus: true,
         ),
         const CameraProviderState.loading(),
         const CameraProviderState.loaded(
@@ -139,6 +143,7 @@ void main() {
             ),
           ],
           enableFlashByDefault: true,
+          autofocus: true,
         ),
       ],
     );
@@ -177,6 +182,7 @@ void main() {
         when(() => mockProvider.availableCameras())
             .thenAnswer((_) async => expectedCameras);
         when(() => mockPref.enableFlashByDefault).thenAnswer((_) async => true);
+        when(() => mockPref.cameraAutofocus).thenAnswer((_) async => true);
         await cubit.loadAvailableCameras();
         await cubit.switchCamera(expectedCameras.last);
       },
@@ -196,6 +202,7 @@ void main() {
             ),
           ],
           enableFlashByDefault: true,
+          autofocus: true,
         ),
         const CameraProviderState.loading(),
         const CameraProviderState.loaded(
@@ -212,6 +219,7 @@ void main() {
             ),
           ],
           enableFlashByDefault: true,
+          autofocus: true,
         ),
       ],
     );

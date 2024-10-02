@@ -137,5 +137,18 @@ void main() {
         isTrue,
       );
     });
+
+    test('Camera autofocus', () async {
+      expect(
+        await pref.cameraAutofocus,
+        AppSettingsDefault.cameraAutofocus,
+      );
+      await pref.setCameraAutofocus(false);
+      expect(await pref.cameraAutofocus, false);
+      expect(
+        await sharedPref.containsKey('pref_key_camera_autofocus'),
+        isTrue,
+      );
+    });
   });
 }
