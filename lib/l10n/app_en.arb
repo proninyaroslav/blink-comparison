@@ -97,5 +97,8 @@
   "encryptionPreferenceTitle": "Image encryption",
   "encryptionPreferenceNone": "None",
   "encryptionPreferencePassword": "Password",
-  "changeCameraZoomError": "Unable to change zoom level"
+  "changeCameraZoomError": "Unable to change zoom level",
+  "settingsCameraAutofocus": "Autofocus",
+  "noSavedPassword": "No saved password",
+  "changeCameraAutofocusError": "Unable to change autofocus mode"
 }

@@ -142,7 +142,8 @@ abstract class _$$CameraProviderStateLoadedImplCopyWith<$Res> {
   $Res call(
       {CameraDescription primaryCamera,
       List<CameraDescription> otherCameras,
-      bool enableFlashByDefault});
+      bool enableFlashByDefault,
+      bool autofocus});
 }
 
 /// @nodoc
@@ -163,6 +164,7 @@ class __$$CameraProviderStateLoadedImplCopyWithImpl<$Res>
     Object? primaryCamera = null,
     Object? otherCameras = null,
     Object? enableFlashByDefault = null,
+    Object? autofocus = null,
   }) {
     return _then(_$CameraProviderStateLoadedImpl(
       primaryCamera: null == primaryCamera
@@ -177,6 +179,10 @@ class __$$CameraProviderStateLoadedImplCopyWithImpl<$Res>
           ? _value.enableFlashByDefault
           : enableFlashByDefault // ignore: cast_nullable_to_non_nullable
               as bool,
+      autofocus: null == autofocus
+          ? _value.autofocus
+          : autofocus // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -187,7 +193,8 @@ class _$CameraProviderStateLoadedImpl implements CameraProviderStateLoaded {
   const _$CameraProviderStateLoadedImpl(
       {required this.primaryCamera,
       required final List<CameraDescription> otherCameras,
-      required this.enableFlashByDefault})
+      required this.enableFlashByDefault,
+      required this.autofocus})
       : _otherCameras = otherCameras;
 
   @override
@@ -202,10 +209,12 @@ class _$CameraProviderStateLoadedImpl implements CameraProviderStateLoaded {
 
   @override
   final bool enableFlashByDefault;
+  @override
+  final bool autofocus;
 
   @override
   String toString() {
-    return 'CameraProviderState.loaded(primaryCamera: $primaryCamera, otherCameras: $otherCameras, enableFlashByDefault: $enableFlashByDefault)';
+    return 'CameraProviderState.loaded(primaryCamera: $primaryCamera, otherCameras: $otherCameras, enableFlashByDefault: $enableFlashByDefault, autofocus: $autofocus)';
   }
 
   @override
@@ -218,12 +227,18 @@ class _$CameraProviderStateLoadedImpl implements CameraProviderStateLoaded {
             const DeepCollectionEquality()
                 .equals(other._otherCameras, _otherCameras) &&
             (identical(other.enableFlashByDefault, enableFlashByDefault) ||
-                other.enableFlashByDefault == enableFlashByDefault));
+                other.enableFlashByDefault == enableFlashByDefault) &&
+            (identical(other.autofocus, autofocus) ||
+                other.autofocus == autofocus));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, primaryCamera,
-      const DeepCollectionEquality().hash(_otherCameras), enableFlashByDefault);
+  int get hashCode => Object.hash(
+      runtimeType,
+      primaryCamera,
+      const DeepCollectionEquality().hash(_otherCameras),
+      enableFlashByDefault,
+      autofocus);
 
   /// Create a copy of CameraProviderState
   /// with the given fields replaced by the non-null parameter values.
@@ -237,14 +252,15 @@ class _$CameraProviderStateLoadedImpl implements CameraProviderStateLoaded {
 
 abstract class CameraProviderStateLoaded implements CameraProviderState {
   const factory CameraProviderStateLoaded(
-          {required final CameraDescription primaryCamera,
-          required final List<CameraDescription> otherCameras,
-          required final bool enableFlashByDefault}) =
-      _$CameraProviderStateLoadedImpl;
+      {required final CameraDescription primaryCamera,
+      required final List<CameraDescription> otherCameras,
+      required final bool enableFlashByDefault,
+      required final bool autofocus}) = _$CameraProviderStateLoadedImpl;
 
   CameraDescription get primaryCamera;
   List<CameraDescription> get otherCameras;
   bool get enableFlashByDefault;
+  bool get autofocus;
 
   /// Create a copy of CameraProviderState
   /// with the given fields replaced by the non-null parameter values.

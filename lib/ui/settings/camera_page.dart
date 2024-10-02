@@ -48,6 +48,7 @@ class CameraSettingsPage extends StatelessWidget {
                   items: [
                     _buildEnableFlashByDefaultOption(context),
                     _buildFullscreenModeOption(context),
+                    _buildAutofocusOption(context),
                   ],
                 ),
               ],
@@ -87,6 +88,24 @@ class CameraSettingsPage extends StatelessWidget {
           secondary: const Icon(Symbols.fullscreen_rounded),
           onChanged: (value) async {
             await cubit.setFullscreenMode(value);
+          },
+        );
+      },
+    );
+  }
+
+  Widget _buildAutofocusOption(BuildContext context) {
+    final cubit = context.read<CameraSettingsCubit>();
+
+    return BlocBuilder<CameraSettingsCubit, CameraState>(
+      buildWhen: (prev, current) => current is CameraStateAutofocusChanged,
+      builder: (context, state) {
+        return SwitchListTile(
+          title: Text(S.of(context).settingsCameraAutofocus),
+          value: state.info!.autofocus,
+          secondary: const Icon(Symbols.filter_center_focus),
+          onChanged: (value) async {
+            await cubit.setAutofocus(value);
           },
         );
       },

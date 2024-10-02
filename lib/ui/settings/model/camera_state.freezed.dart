@@ -505,9 +505,119 @@ abstract class CameraStateFullscreenModeChanged implements CameraState {
 }
 
 /// @nodoc
+abstract class _$$CameraStateAutofocusChangedImplCopyWith<$Res>
+    implements $CameraStateCopyWith<$Res> {
+  factory _$$CameraStateAutofocusChangedImplCopyWith(
+          _$CameraStateAutofocusChangedImpl value,
+          $Res Function(_$CameraStateAutofocusChangedImpl) then) =
+      __$$CameraStateAutofocusChangedImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({CameraInfo info});
+
+  @override
+  $CameraInfoCopyWith<$Res> get info;
+}
+
+/// @nodoc
+class __$$CameraStateAutofocusChangedImplCopyWithImpl<$Res>
+    extends _$CameraStateCopyWithImpl<$Res, _$CameraStateAutofocusChangedImpl>
+    implements _$$CameraStateAutofocusChangedImplCopyWith<$Res> {
+  __$$CameraStateAutofocusChangedImplCopyWithImpl(
+      _$CameraStateAutofocusChangedImpl _value,
+      $Res Function(_$CameraStateAutofocusChangedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CameraState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? info = null,
+  }) {
+    return _then(_$CameraStateAutofocusChangedImpl(
+      null == info
+          ? _value.info
+          : info // ignore: cast_nullable_to_non_nullable
+              as CameraInfo,
+    ));
+  }
+
+  /// Create a copy of CameraState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CameraInfoCopyWith<$Res> get info {
+    return $CameraInfoCopyWith<$Res>(_value.info, (value) {
+      return _then(_value.copyWith(info: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$CameraStateAutofocusChangedImpl
+    with DiagnosticableTreeMixin
+    implements CameraStateAutofocusChanged {
+  const _$CameraStateAutofocusChangedImpl(this.info);
+
+  @override
+  final CameraInfo info;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CameraState.autofocusChanged(info: $info)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CameraState.autofocusChanged'))
+      ..add(DiagnosticsProperty('info', info));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CameraStateAutofocusChangedImpl &&
+            (identical(other.info, info) || other.info == info));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, info);
+
+  /// Create a copy of CameraState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CameraStateAutofocusChangedImplCopyWith<_$CameraStateAutofocusChangedImpl>
+      get copyWith => __$$CameraStateAutofocusChangedImplCopyWithImpl<
+          _$CameraStateAutofocusChangedImpl>(this, _$identity);
+}
+
+abstract class CameraStateAutofocusChanged implements CameraState {
+  const factory CameraStateAutofocusChanged(final CameraInfo info) =
+      _$CameraStateAutofocusChangedImpl;
+
+  @override
+  CameraInfo get info;
+
+  /// Create a copy of CameraState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CameraStateAutofocusChangedImplCopyWith<_$CameraStateAutofocusChangedImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$CameraInfo {
   bool get enableFlashByDefault => throw _privateConstructorUsedError;
   bool get fullscreenMode => throw _privateConstructorUsedError;
+  bool get autofocus => throw _privateConstructorUsedError;
 
   /// Create a copy of CameraInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -522,7 +632,7 @@ abstract class $CameraInfoCopyWith<$Res> {
           CameraInfo value, $Res Function(CameraInfo) then) =
       _$CameraInfoCopyWithImpl<$Res, CameraInfo>;
   @useResult
-  $Res call({bool enableFlashByDefault, bool fullscreenMode});
+  $Res call({bool enableFlashByDefault, bool fullscreenMode, bool autofocus});
 }
 
 /// @nodoc
@@ -542,6 +652,7 @@ class _$CameraInfoCopyWithImpl<$Res, $Val extends CameraInfo>
   $Res call({
     Object? enableFlashByDefault = null,
     Object? fullscreenMode = null,
+    Object? autofocus = null,
   }) {
     return _then(_value.copyWith(
       enableFlashByDefault: null == enableFlashByDefault
@@ -551,6 +662,10 @@ class _$CameraInfoCopyWithImpl<$Res, $Val extends CameraInfo>
       fullscreenMode: null == fullscreenMode
           ? _value.fullscreenMode
           : fullscreenMode // ignore: cast_nullable_to_non_nullable
+              as bool,
+      autofocus: null == autofocus
+          ? _value.autofocus
+          : autofocus // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -564,7 +679,7 @@ abstract class _$$CameraInfoImplCopyWith<$Res>
       __$$CameraInfoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool enableFlashByDefault, bool fullscreenMode});
+  $Res call({bool enableFlashByDefault, bool fullscreenMode, bool autofocus});
 }
 
 /// @nodoc
@@ -582,6 +697,7 @@ class __$$CameraInfoImplCopyWithImpl<$Res>
   $Res call({
     Object? enableFlashByDefault = null,
     Object? fullscreenMode = null,
+    Object? autofocus = null,
   }) {
     return _then(_$CameraInfoImpl(
       enableFlashByDefault: null == enableFlashByDefault
@@ -592,6 +708,10 @@ class __$$CameraInfoImplCopyWithImpl<$Res>
           ? _value.fullscreenMode
           : fullscreenMode // ignore: cast_nullable_to_non_nullable
               as bool,
+      autofocus: null == autofocus
+          ? _value.autofocus
+          : autofocus // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -600,16 +720,20 @@ class __$$CameraInfoImplCopyWithImpl<$Res>
 
 class _$CameraInfoImpl with DiagnosticableTreeMixin implements _CameraInfo {
   const _$CameraInfoImpl(
-      {required this.enableFlashByDefault, required this.fullscreenMode});
+      {required this.enableFlashByDefault,
+      required this.fullscreenMode,
+      required this.autofocus});
 
   @override
   final bool enableFlashByDefault;
   @override
   final bool fullscreenMode;
+  @override
+  final bool autofocus;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CameraInfo(enableFlashByDefault: $enableFlashByDefault, fullscreenMode: $fullscreenMode)';
+    return 'CameraInfo(enableFlashByDefault: $enableFlashByDefault, fullscreenMode: $fullscreenMode, autofocus: $autofocus)';
   }
 
   @override
@@ -618,7 +742,8 @@ class _$CameraInfoImpl with DiagnosticableTreeMixin implements _CameraInfo {
     properties
       ..add(DiagnosticsProperty('type', 'CameraInfo'))
       ..add(DiagnosticsProperty('enableFlashByDefault', enableFlashByDefault))
-      ..add(DiagnosticsProperty('fullscreenMode', fullscreenMode));
+      ..add(DiagnosticsProperty('fullscreenMode', fullscreenMode))
+      ..add(DiagnosticsProperty('autofocus', autofocus));
   }
 
   @override
@@ -629,12 +754,14 @@ class _$CameraInfoImpl with DiagnosticableTreeMixin implements _CameraInfo {
             (identical(other.enableFlashByDefault, enableFlashByDefault) ||
                 other.enableFlashByDefault == enableFlashByDefault) &&
             (identical(other.fullscreenMode, fullscreenMode) ||
-                other.fullscreenMode == fullscreenMode));
+                other.fullscreenMode == fullscreenMode) &&
+            (identical(other.autofocus, autofocus) ||
+                other.autofocus == autofocus));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, enableFlashByDefault, fullscreenMode);
+      Object.hash(runtimeType, enableFlashByDefault, fullscreenMode, autofocus);
 
   /// Create a copy of CameraInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -648,12 +775,15 @@ class _$CameraInfoImpl with DiagnosticableTreeMixin implements _CameraInfo {
 abstract class _CameraInfo implements CameraInfo {
   const factory _CameraInfo(
       {required final bool enableFlashByDefault,
-      required final bool fullscreenMode}) = _$CameraInfoImpl;
+      required final bool fullscreenMode,
+      required final bool autofocus}) = _$CameraInfoImpl;
 
   @override
   bool get enableFlashByDefault;
   @override
   bool get fullscreenMode;
+  @override
+  bool get autofocus;
 
   /// Create a copy of CameraInfo
   /// with the given fields replaced by the non-null parameter values.

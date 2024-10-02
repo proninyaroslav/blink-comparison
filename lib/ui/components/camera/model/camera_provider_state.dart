@@ -30,6 +30,7 @@ sealed class CameraProviderState with _$CameraProviderState {
     required CameraDescription primaryCamera,
     required List<CameraDescription> otherCameras,
     required bool enableFlashByDefault,
+    required bool autofocus,
   }) = CameraProviderStateLoaded;
 
   const factory CameraProviderState.loadFailed({

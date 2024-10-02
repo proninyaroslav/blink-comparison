@@ -38,36 +38,34 @@ class _OpacityBarState extends State<OpacityBar> with TickerProviderStateMixin {
       animationController: BottomSheet.createAnimationController(this),
       builder: (context) {
         return SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
-            child: BlocBuilder<RefImageOptionsCubit, RefImageOptionsState>(
-              buildWhen: (prev, next) =>
-                  next is RefImageOptionsStateOpacityChanged,
-              builder: (context, state) {
-                final opacity = state.options!.opacity;
-                return SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const _Title(),
-                      Slider(
-                        value: opacity,
-                        divisions: 100,
-                        label: _formatLabel(opacity),
-                        semanticFormatterCallback: _formatLabel,
-                        onChanged: (value) async {
-                          await cubit.setOpacity(value, saveInSettings: false);
-                        },
-                        onChangeEnd: (value) async {
-                          await cubit.setOpacity(value);
-                        },
-                      ),
-                    ],
-                  ),
-                );
-              },
-            ),
+          child: BlocBuilder<RefImageOptionsCubit, RefImageOptionsState>(
+            buildWhen: (prev, next) =>
+                next is RefImageOptionsStateOpacityChanged,
+            builder: (context, state) {
+              final opacity = state.options!.opacity;
+              return SingleChildScrollView(
+                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const _Title(),
+                    Slider(
+                      value: opacity,
+                      divisions: 100,
+                      label: _formatLabel(opacity),
+                      semanticFormatterCallback: _formatLabel,
+                      onChanged: (value) async {
+                        await cubit.setOpacity(value, saveInSettings: false);
+                      },
+                      onChangeEnd: (value) async {
+                        await cubit.setOpacity(value);
+                      },
+                    ),
+                  ],
+                ),
+              );
+            },
           ),
         );
       },
@@ -87,7 +85,7 @@ class _Title extends StatelessWidget {
   Widget build(BuildContext context) {
     return Flexible(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
+        padding: const EdgeInsets.fromLTRB(24.0, 0.0, 24.0, 16.0),
         child: Text(
           S.of(context).imageOverlayOpacity,
           style: Theme.of(context).textTheme.titleLarge,

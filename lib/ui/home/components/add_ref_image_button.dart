@@ -94,7 +94,6 @@ class AddRefImageButton extends StatelessWidget {
             leading: const Icon(Symbols.camera_alt),
             title: Text(S.of(context).takePhoto),
             onTap: () {
-              // TODO: add system/built-in camera picker option
               context.pushRoute(
                 CameraPickerRoute(
                   onTakePhoto: (file) {

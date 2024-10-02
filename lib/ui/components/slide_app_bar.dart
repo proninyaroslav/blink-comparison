@@ -46,6 +46,7 @@ class _SlideAppBarState extends State<SlideAppBar> {
       backgroundColor: color,
       actions: widget.actions,
       leading: widget.leading,
+      actionsIconTheme: const IconThemeData(color: Colors.white),
     );
     return Swipe(
       behavior: HitTestBehavior.opaque,

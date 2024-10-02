@@ -26,7 +26,6 @@ import 'package:blink_comparison/ui/components/camera/camera_view.dart';
 import 'package:blink_comparison/ui/components/camera/model/camera_provider.dart';
 import 'package:blink_comparison/ui/components/camera/model/camera_provider_cubit.dart';
 import 'package:blink_comparison/ui/components/camera/model/camera_view_controller.dart';
-import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:blink_comparison/ui/model/error_report_cubit.dart';
 import 'package:blink_comparison/ui/model/xfile_image.dart';
 import 'package:blink_comparison/ui/routes/app_router.gr.dart';
@@ -110,35 +109,21 @@ class _CameraPickerPageState extends State<CameraPickerPage> {
       builder: (light, dark, black) {
         return Theme(
           data: black,
-          child: Scaffold(
-            resizeToAvoidBottomInset: false,
-            body: Stack(
-              children: [
-                BlocListener<CameraPickerCubit, CameraPickerState>(
-                  listener: (context, state) async {
-                    switch (state) {
-                      case CameraPickerStateInitial() ||
-                            CameraPickerStateLoaded():
-                        break;
-                      case CameraPickerStateAccepted(:final image):
-                        widget.onTakePhoto?.call(image.file);
-                        await context.maybePop();
-                      case CameraPickerStateRejected():
-                        _controller.resumeCamera();
-                    }
-                  },
-                  child: CameraView(
-                    controller: _controller,
-                    onTakePhoto: _onTakePhoto,
-                  ),
-                ),
-                const Positioned(
-                  top: 0.0,
-                  left: 0.0,
-                  right: 0.0,
-                  child: SlideAppBar(),
-                ),
-              ],
+          child: BlocListener<CameraPickerCubit, CameraPickerState>(
+            listener: (context, state) async {
+              switch (state) {
+                case CameraPickerStateInitial() || CameraPickerStateLoaded():
+                  break;
+                case CameraPickerStateAccepted(:final image):
+                  widget.onTakePhoto?.call(image.file);
+                  await context.maybePop();
+                case CameraPickerStateRejected():
+                  _controller.resumeCamera();
+              }
+            },
+            child: CameraView(
+              controller: _controller,
+              onTakePhoto: _onTakePhoto,
             ),
           ),
         );

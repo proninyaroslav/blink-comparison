@@ -18,8 +18,11 @@
 import 'dart:async';
 
 import 'package:blink_comparison/ui/components/camera/buttons_bar.dart';
+import 'package:blink_comparison/ui/components/camera/camera_app_bar.dart';
 import 'package:blink_comparison/ui/components/camera/camera_pause_progress.dart';
 import 'package:blink_comparison/ui/components/camera/camera_preview_placeholder.dart';
+import 'package:blink_comparison/ui/components/camera/camera_settings_button.dart';
+import 'package:blink_comparison/ui/components/camera/camera_settings_sheet.dart';
 import 'package:blink_comparison/ui/components/camera/flash_button.dart';
 import 'package:blink_comparison/ui/components/camera/flip_camera_button.dart';
 import 'package:blink_comparison/ui/components/camera/model/camera_controller_wrapper.dart';
@@ -42,6 +45,7 @@ import '../../../locale.dart';
 import '../../../logger.dart';
 
 class CameraView extends StatefulWidget {
+  final List<Widget>? appBarActions;
   final Widget? overlayChild;
   final ValueChanged<XFile>? onTakePhoto;
   late final CameraViewController _controller;
@@ -49,6 +53,7 @@ class CameraView extends StatefulWidget {
   CameraView({
     CameraViewController? controller,
     super.key,
+    this.appBarActions,
     this.overlayChild,
     this.onTakePhoto,
   }) {
@@ -64,6 +69,7 @@ class _CameraViewState extends State<CameraView> with WidgetsBindingObserver {
 
   CameraControllerWrapper? _cameraController;
   bool? _flashEnabled;
+  FocusMode? _focusMode;
   CameraInitializationError? _initializeError;
   double _currentScale = 1.0;
   double _baseScale = 1.0;
@@ -115,10 +121,16 @@ class _CameraViewState extends State<CameraView> with WidgetsBindingObserver {
     _audioPlayer.dispose();
   }
 
+  bool get _initialized =>
+      _cameraController != null &&
+      !_cameraController!.disposed &&
+      _cameraController!.value.isInitialized;
+
   Future<void> _initController({required CameraDescription camera}) async {
     if (_cameraController != null) {
       return;
     }
+
     _initializeError = null;
     _cameraController = CameraControllerWrapper(
       camera,
@@ -126,22 +138,6 @@ class _CameraViewState extends State<CameraView> with WidgetsBindingObserver {
       enableAudio: false,
     );
     CameraControllerWrapper cameraController = _cameraController!;
-    cameraController.addListener(() {
-      if (cameraController.value.hasError) {
-        final errorDescription = cameraController.value.errorDescription;
-        if (errorDescription != null) {
-          _errorSnackbar(
-            context,
-            msg: S.of(context).cameraErrorReason(errorDescription),
-            report: true,
-            error: errorDescription,
-          );
-        }
-      }
-      if (mounted) {
-        setState(() {});
-      }
-    });
     try {
       await cameraController.initialize();
     } on CameraException catch (e, stackTrace) {
@@ -185,9 +181,31 @@ class _CameraViewState extends State<CameraView> with WidgetsBindingObserver {
             .then((double value) => _minAvailableZoom = value),
       ]);
       await cameraController.setZoomLevel(_currentScale);
+      await _setFocusMode(_focusMode!);
     } on CameraException catch (e, stackTrace) {
       log().e('Unable to initialize the camera',
           error: e, stackTrace: stackTrace);
+    }
+
+    cameraController.addListener(() {
+      if (cameraController.value.hasError) {
+        final errorDescription = cameraController.value.errorDescription;
+        if (errorDescription != null) {
+          _errorSnackbar(
+            context,
+            msg: S.of(context).cameraErrorReason(errorDescription),
+            report: true,
+            error: errorDescription,
+          );
+        }
+      }
+      if (mounted) {
+        setState(() {});
+      }
+    });
+
+    if (mounted) {
+      setState(() {});
     }
   }
 
@@ -206,39 +224,52 @@ class _CameraViewState extends State<CameraView> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return Listener(
-      onPointerDown: (_) => _pointers++,
-      onPointerUp: (_) => _pointers--,
-      child: Stack(
-        children: [
-          if (_initializeError == null)
-            const Align(
-              alignment: Alignment.center,
-              child: CameraPreviewPlaceholder(),
-            ),
-          Align(
-            alignment: Alignment.center,
-            child: BlocConsumer<CameraProviderCubit, CameraProviderState>(
-              listener: _listener,
-              builder: _builder,
-            ),
-          ),
-          ListenableBuilder(
-            listenable: widget._controller,
-            builder: (context, child) {
-              return Align(
-                alignment: Alignment.center,
-                child: CameraPauseProgress(
-                  visible: widget._controller.paused,
-                ),
-              );
-            },
-          ),
-          ListenableBuilder(
-            listenable: widget._controller,
-            builder: _buttonsBarBuilder,
+    return Scaffold(
+      appBar: CameraAppBar(
+        actions: [
+          ...?widget.appBarActions,
+          CameraSettingsButton(
+            onPressed: () => _showCameraSettingsSheet(context),
           ),
         ],
+      ),
+      extendBody: true,
+      extendBodyBehindAppBar: true,
+      resizeToAvoidBottomInset: false,
+      body: Listener(
+        onPointerDown: (_) => _pointers++,
+        onPointerUp: (_) => _pointers--,
+        child: Stack(
+          children: [
+            if (_initializeError == null)
+              const Align(
+                alignment: Alignment.center,
+                child: CameraPreviewPlaceholder(),
+              ),
+            Align(
+              alignment: Alignment.center,
+              child: BlocConsumer<CameraProviderCubit, CameraProviderState>(
+                listener: _listener,
+                builder: _builder,
+              ),
+            ),
+            ListenableBuilder(
+              listenable: widget._controller,
+              builder: (context, child) {
+                return Align(
+                  alignment: Alignment.center,
+                  child: CameraPauseProgress(
+                    visible: widget._controller.paused,
+                  ),
+                );
+              },
+            ),
+            ListenableBuilder(
+              listenable: widget._controller,
+              builder: _buttonsBarBuilder,
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -247,9 +278,11 @@ class _CameraViewState extends State<CameraView> with WidgetsBindingObserver {
     switch (state) {
       case CameraProviderStateLoaded(
           :final primaryCamera,
-          :final enableFlashByDefault
+          :final enableFlashByDefault,
+          :final autofocus,
         ):
         _flashEnabled ??= enableFlashByDefault;
+        _focusMode ??= autofocus ? FocusMode.auto : FocusMode.locked;
         await _disposeController();
         await _initController(camera: primaryCamera);
       case _:
@@ -483,8 +516,44 @@ class _CameraViewState extends State<CameraView> with WidgetsBindingObserver {
     }
   }
 
-  bool get _initialized =>
-      _cameraController != null &&
-      !_cameraController!.disposed &&
-      _cameraController!.value.isInitialized;
+  Future<void> _onFocusModeChanged(FocusMode mode) async {
+    _focusMode = mode;
+    _setFocusMode(mode);
+  }
+
+  Future<void> _setFocusMode(FocusMode mode) async {
+    try {
+      await _cameraController?.setFocusMode(mode);
+    } on CameraException catch (e, stackTrace) {
+      if (mounted) {
+        _errorSnackbar(
+          context,
+          msg: S.of(context).changeCameraAutofocusError,
+          report: true,
+          reportMsg: 'Unable to change autofocus mode',
+          error: e,
+          stackTrace: stackTrace,
+        );
+      }
+    }
+  }
+
+  void _showCameraSettingsSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      barrierColor: Colors.transparent,
+      builder: (context) {
+        return Padding(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+          ),
+          child: CameraSettingsSheet(
+            onFocusModeChanged: _onFocusModeChanged,
+            focusMode: _focusMode ?? FocusMode.auto,
+          ),
+        );
+      },
+    );
+  }
 }

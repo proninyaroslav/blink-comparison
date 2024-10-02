@@ -61,6 +61,10 @@ abstract class AppSettings {
   EncryptionPreference? get encryptionPreferenceSync;
 
   Future<void> setEncryptionPreference(EncryptionPreference? value);
+
+  Future<bool> get cameraAutofocus;
+
+  Future<void> setCameraAutofocus(bool value);
 }
 
 abstract final class AppSettingsDefault {
@@ -79,6 +83,8 @@ abstract final class AppSettingsDefault {
   static const completedShowcases = <ShowcaseType>{};
 
   static bool cameraFullscreenMode = true;
+
+  static bool cameraAutofocus = true;
 }
 
 @Singleton(as: AppSettings)
@@ -146,12 +152,12 @@ class AppSettingsImpl implements AppSettings {
 
   @override
   Future<bool> get enableFlashByDefault async =>
-      await _pref.getBool(AppSettingsKey.enableFlashByDefault) ??
+      await _pref.getBool(AppSettingsKey.cameraEnableFlashByDefault) ??
       AppSettingsDefault.enableFlashByDefault;
 
   @override
   Future<void> setEnableFlashByDefault(bool value) async =>
-      await _pref.setBool(AppSettingsKey.enableFlashByDefault, value);
+      await _pref.setBool(AppSettingsKey.cameraEnableFlashByDefault, value);
 
   @override
   Future<Set<ShowcaseType>> get completedShowcases async =>
@@ -197,6 +203,16 @@ class AppSettingsImpl implements AppSettings {
       );
     }
   }
+
+  @override
+  Future<bool> get cameraAutofocus async =>
+      await _pref.getBool(AppSettingsKey.cameraAutofocus) ??
+      AppSettingsDefault.cameraAutofocus;
+
+  @override
+  Future<void> setCameraAutofocus(bool value) async {
+    await _pref.setBool(AppSettingsKey.cameraAutofocus, value);
+  }
 }
 
 abstract final class AppSettingsKey {
@@ -204,8 +220,9 @@ abstract final class AppSettingsKey {
   static const theme = 'pref_key_theme';
   static const locale = 'pref_key_locale';
   static const refImageBorderColor = 'pref_key_ref_image_border_color';
-  static const enableFlashByDefault = 'pref_key_enable_Flash_by_default';
+  static const cameraEnableFlashByDefault = 'pref_key_enable_Flash_by_default';
   static const completedShowcases = 'pref_key_completed_showcases';
   static const cameraFullscreenMode = 'pref_key_camera_fullscreen_mode';
   static const encryptionPreference = 'pref_key_encryption_preference';
+  static const cameraAutofocus = 'pref_key_camera_autofocus';
 }

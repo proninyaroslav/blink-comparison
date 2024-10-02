@@ -96,5 +96,8 @@
   "encryptionPreferenceTitle": "Шифрование изображений",
   "encryptionPreferenceNone": "Нет",
   "encryptionPreferencePassword": "Пароль",
-  "changeCameraZoomError": "Не удалось изменить уровень зума"
+  "changeCameraZoomError": "Не удалось изменить уровень зума",
+  "settingsCameraAutofocus": "Автофокус",
+  "noSavedPassword": "Нет сохранённого пароля",
+  "changeCameraAutofocusError": "Невозможно изменить режим автофокусировки"
 }

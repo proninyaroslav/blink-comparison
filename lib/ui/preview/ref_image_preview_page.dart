@@ -91,18 +91,13 @@ class RefImagePreviewPage extends StatelessWidget implements AutoRouteWrapper {
       builder: (light, dark, black) {
         return Theme(
           data: black,
-          child: Scaffold(
-            body: ShowCaseWidget(
-              builder: (context) {
-                return _Body(imageId: imageId);
-              },
-              onComplete: (i, key) async {
-                if (key == _opacityShowcaseKey) {
-                  await cubit.completed(const ShowcaseType.opacity());
-                }
-              },
-            ),
-            endDrawerEnableOpenDragGesture: true,
+          child: ShowCaseWidget(
+            builder: (context) => _Body(imageId: imageId),
+            onComplete: (i, key) async {
+              if (key == _opacityShowcaseKey) {
+                await cubit.completed(const ShowcaseType.opacity());
+              }
+            },
           ),
         );
       },
@@ -150,53 +145,41 @@ class _BodyState extends State<_Body> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        BlocConsumer<RefImageCubit, RefImageState>(
-          listenWhen: (prev, next) =>
-              next is RefImageStateLoaded || next is RefImageStateLoadFailed,
-          listener: (context, state) {
-            switch (state) {
-              case RefImageStateLoaded(:final image):
-                _refImage = ExtendedMemoryImageProvider(image.bytes);
-              case RefImageStateLoadFailed(:final error):
-                _printError(error);
-              case _:
-                break;
-            }
-          },
-          builder: (context, state) {
-            return switch (state) {
-              RefImageStateInitial() => const Center(
-                  child: CircularProgressIndicator(),
-                ),
-              RefImageStateLoading() => const _DecodeImageProgress(),
-              RefImageStateLoaded(:final image) => CameraView(
-                  overlayChild: _ImageView(
-                    image: ExtendedMemoryImageProvider(image.bytes),
-                    onImageLoaded: (info) {
-                      _refImageSize = getImageSize(info);
-                    },
-                  ),
-                  onTakePhoto: _onTakePhoto,
-                ),
-              RefImageStateLoadFailed(:final error) =>
-                _LoadRefImageError(error: error),
-            };
-          },
-        ),
-        const Positioned(
-          top: 0.0,
-          left: 0.0,
-          right: 0.0,
-          child: SlideAppBar(
-            leading: BackButton(),
-            actions: [
-              _OpenOpacityBarButton(),
-            ],
-          ),
-        ),
-      ],
+    return BlocConsumer<RefImageCubit, RefImageState>(
+      listenWhen: (prev, next) =>
+          next is RefImageStateLoaded || next is RefImageStateLoadFailed,
+      listener: (context, state) {
+        switch (state) {
+          case RefImageStateLoaded(:final image):
+            _refImage = ExtendedMemoryImageProvider(image.bytes);
+          case RefImageStateLoadFailed(:final error):
+            _printError(error);
+          case _:
+            break;
+        }
+      },
+      builder: (context, state) {
+        return switch (state) {
+          RefImageStateInitial() => const Center(
+              child: CircularProgressIndicator(),
+            ),
+          RefImageStateLoading() => const _DecodeImageProgress(),
+          RefImageStateLoaded(:final image) => CameraView(
+              appBarActions: const [
+                _OpenOpacityBarButton(),
+              ],
+              overlayChild: _ImageView(
+                image: ExtendedMemoryImageProvider(image.bytes),
+                onImageLoaded: (info) {
+                  _refImageSize = getImageSize(info);
+                },
+              ),
+              onTakePhoto: _onTakePhoto,
+            ),
+          RefImageStateLoadFailed(:final error) =>
+            _LoadRefImageError(error: error),
+        };
+      },
     );
   }
 

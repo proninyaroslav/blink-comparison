@@ -72,8 +72,7 @@ class SignInPasswordField extends StatelessWidget {
           decoration: InputDecoration(
             hintText: S.of(context).enterPassword,
             errorText: switch (state) {
-              // TODO
-              SignInStateNoPasswordError() => 'No password',
+              SignInStateNoPasswordError() => S.of(context).noSavedPassword,
               SignInStateAuthFailed(:final reason) => switch (reason) {
                   SignInErrorEmptyPassword() =>
                     S.of(context).emptyPasswordError,

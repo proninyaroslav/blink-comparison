@@ -29,6 +29,7 @@ class CameraSettingsCubit extends Cubit<CameraState> {
       CameraInfo(
         enableFlashByDefault: await _pref.enableFlashByDefault,
         fullscreenMode: await _pref.cameraFullscreenMode,
+        autofocus: await _pref.cameraAutofocus,
       ),
     ));
   }
@@ -47,6 +48,15 @@ class CameraSettingsCubit extends Cubit<CameraState> {
       await _pref.setCameraFullscreenMode(enable);
       emit(CameraState.fullscreenModeChanged(
         info.copyWith(fullscreenMode: enable),
+      ));
+    }
+  }
+
+  Future<void> setAutofocus(bool enable) async {
+    if (state case CameraState(:final info?)) {
+      await _pref.setCameraAutofocus(enable);
+      emit(CameraState.autofocusChanged(
+        info.copyWith(autofocus: enable),
       ));
     }
   }

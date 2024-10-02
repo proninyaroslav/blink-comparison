@@ -38,6 +38,7 @@ class CameraProviderCubit extends Cubit<CameraProviderState> {
           primaryCamera: _availableCameras.first,
           otherCameras: _availableCameras.sublist(1),
           enableFlashByDefault: await _pref.enableFlashByDefault,
+          autofocus: await _pref.cameraAutofocus,
         ),
       );
     } on CameraException catch (e, stackTrace) {
@@ -52,6 +53,7 @@ class CameraProviderCubit extends Cubit<CameraProviderState> {
         primaryCamera: camera,
         otherCameras: _availableCameras.where((c) => c != camera).toList(),
         enableFlashByDefault: await _pref.enableFlashByDefault,
+        autofocus: await _pref.cameraAutofocus,
       ),
     );
   }

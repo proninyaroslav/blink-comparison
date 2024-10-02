@@ -38,6 +38,10 @@ sealed class CameraState with _$CameraState {
   const factory CameraState.fullscreenModeChanged(
     CameraInfo info,
   ) = CameraStateFullscreenModeChanged;
+
+  const factory CameraState.autofocusChanged(
+    CameraInfo info,
+  ) = CameraStateAutofocusChanged;
 }
 
 @freezed
@@ -45,5 +49,6 @@ class CameraInfo with _$CameraInfo {
   const factory CameraInfo({
     required bool enableFlashByDefault,
     required bool fullscreenMode,
+    required bool autofocus,
   }) = _CameraInfo;
 }

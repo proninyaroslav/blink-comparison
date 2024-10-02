@@ -208,7 +208,7 @@ class _BodyState extends State<_Body> {
                   left: 0.0,
                   right: 0.0,
                   child: SlideAppBar(
-                    showFirstTime: false,
+                    showFirstTime: true,
                   ),
                 ),
                 Center(
