@@ -52,6 +52,7 @@ import 'package:blink_comparison/core/storage/ref_image_secure_storage.dart'
 import 'package:blink_comparison/core/storage/ref_image_status_repository.dart'
     as _i1016;
 import 'package:blink_comparison/core/thumbnailer.dart' as _i705;
+import 'package:blink_comparison/core/window_manager.dart' as _i320;
 import 'package:blink_comparison/core/workmanager/registered_workers.dart'
     as _i949;
 import 'package:blink_comparison/core/workmanager/thumbnails_migrator_worker.dart'
@@ -130,6 +131,7 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.singleton<_i105.AuthFactorRepository>(
         () => _i105.AuthFactorRepositoryImpl());
+    gh.singleton<_i320.WindowManager>(() => _i320.WindowManagerImpl());
     gh.factory<_i809.GenerateThumbnailJob>(
         () => _i809.GenerateThumbnailJobImpl(gh<_i705.Thumbnailer>()));
     gh.factory<_i479.SecureKeyFactory>(

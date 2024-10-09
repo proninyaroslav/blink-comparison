@@ -18,14 +18,19 @@
 import 'dart:async';
 
 import 'package:blink_comparison/core/settings/app_settings.dart';
+import 'package:blink_comparison/core/window_manager.dart';
 import 'package:blink_comparison/ui/model/app_state.dart';
 import 'package:bloc/bloc.dart';
 
 class AppCubit extends Cubit<AppState> {
   final AppSettings _pref;
+  final WindowManager _windowManager;
   late final StreamSubscription subscription;
 
-  AppCubit(this._pref) : super(const AppState.initial());
+  AppCubit(
+    this._pref,
+    this._windowManager,
+  ) : super(const AppState.initial());
 
   Future<void> load() async {
     emit(AppState.loaded(
@@ -43,7 +48,7 @@ class AppCubit extends Cubit<AppState> {
         case AppSettingsKey.cameraFullscreenMode:
           setCameraFullscreenMode(await _pref.cameraFullscreenMode);
         case AppSettingsKey.encryptionPreference:
-          setEncryptPreference(_pref.encryptionPreferenceSync);
+          await setEncryptPreference(_pref.encryptionPreferenceSync);
       }
     });
   }
@@ -93,7 +98,7 @@ class AppCubit extends Cubit<AppState> {
     }
   }
 
-  void setEncryptPreference(EncryptionPreference? value) {
+  Future<void> setEncryptPreference(EncryptionPreference? value) async {
     if (state
         case AppState(
           :final theme?,
@@ -106,6 +111,16 @@ class AppCubit extends Cubit<AppState> {
         cameraFullscreenMode: cameraFullscreenMode,
         encrypt: value,
       ));
+      await _switchWindowSecureFlag(value);
+    }
+  }
+
+  Future<void> _switchWindowSecureFlag(EncryptionPreference? preference) async {
+    switch (preference) {
+      case null || EncryptionPreferenceNone():
+        await _windowManager.setSecureFlag(false);
+      case EncryptionPreferencePassword():
+        await _windowManager.setSecureFlag(true);
     }
   }
 }

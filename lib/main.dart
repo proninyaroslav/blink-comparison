@@ -17,6 +17,7 @@
 
 import 'package:blink_comparison/core/crash_catcher/handler/notification_crash_handler.dart';
 import 'package:blink_comparison/core/settings/app_settings.dart';
+import 'package:blink_comparison/core/window_manager.dart';
 import 'package:blink_comparison/core/workmanager/thumbnails_migrator_worker.dart';
 import 'package:blink_comparison/core/workmanager/workmanager.dart';
 import 'package:blink_comparison/ui/model/app_cubit.dart';
@@ -50,7 +51,10 @@ Future<void> _main() async {
 
   runApp(
     BlocProvider(
-      create: (context) => AppCubit(getIt<AppSettings>()),
+      create: (context) => AppCubit(
+        getIt<AppSettings>(),
+        getIt<WindowManager>(),
+      ),
       child: App(
         enableDevicePreview: false,
         navigatorKey: _navigatorKey,

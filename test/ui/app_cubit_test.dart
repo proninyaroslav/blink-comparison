@@ -19,6 +19,7 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:blink_comparison/core/settings/app_settings.dart';
+import 'package:blink_comparison/core/window_manager.dart';
 import 'package:blink_comparison/ui/model/app_cubit.dart';
 import 'package:blink_comparison/ui/model/app_state.dart';
 import 'package:bloc_test/bloc_test.dart';
@@ -26,12 +27,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../mock/mock.dart';
+import '../mock/mock_window_manager.dart';
 
 void main() {
   group('AppCubit |', () {
     late AppCubit cubit;
     late AppSettings mockPref;
     late StreamController<String> streamController;
+    late WindowManager mockWindowManager;
 
     setUpAll(() {
       streamController = StreamController.broadcast();
@@ -43,6 +46,7 @@ void main() {
 
     setUp(() async {
       mockPref = MockAppSettings();
+      mockWindowManager = MockWindowManager();
       when(() => mockPref.theme).thenAnswer(
         (_) async => const AppThemeType.system(),
       );
@@ -50,9 +54,11 @@ void main() {
         (_) async => const AppLocaleType.system(),
       );
       when(() => mockPref.cameraFullscreenMode).thenAnswer((_) async => true);
+      when(() => mockPref.encryptionPreferenceSync)
+          .thenReturn(EncryptionPreference.none());
       when(() => mockPref.changePrefStream())
           .thenAnswer((_) => streamController.stream);
-      cubit = AppCubit(mockPref);
+      cubit = AppCubit(mockPref, mockWindowManager);
       await cubit.load();
     });
 
@@ -191,6 +197,53 @@ void main() {
           theme: AppThemeType.system(),
           locale: AppLocaleType.system(),
           cameraFullscreenMode: false,
+        ),
+      ],
+    );
+
+    blocTest(
+      'Change encryption preference',
+      build: () => cubit,
+      act: (AppCubit cubit) async {
+        when(() => mockWindowManager.setSecureFlag(any()))
+            .thenAnswer((_) async => true);
+        await cubit.setEncryptPreference(EncryptionPreference.password());
+        verify(() => mockWindowManager.setSecureFlag(true)).called(1);
+        await cubit.setEncryptPreference(EncryptionPreference.none());
+        verify(() => mockWindowManager.setSecureFlag(false)).called(1);
+      },
+      expect: () => [
+        const AppState.encryptPreferenceChanged(
+          theme: AppThemeType.system(),
+          locale: AppLocaleType.system(),
+          cameraFullscreenMode: true,
+          encrypt: EncryptionPreference.password(),
+        ),
+        const AppState.encryptPreferenceChanged(
+          theme: AppThemeType.system(),
+          locale: AppLocaleType.system(),
+          cameraFullscreenMode: true,
+          encrypt: EncryptionPreference.none(),
+        ),
+      ],
+    );
+
+    blocTest(
+      'Listen encryption preference change',
+      build: () => cubit,
+      act: (AppCubit cubit) {
+        when(() => mockPref.encryptionPreferenceSync)
+            .thenReturn(EncryptionPreference.none());
+        when(() => mockWindowManager.setSecureFlag(any()))
+            .thenAnswer((_) async => true);
+        streamController.add(AppSettingsKey.encryptionPreference);
+      },
+      expect: () => [
+        const AppState.encryptPreferenceChanged(
+          theme: AppThemeType.system(),
+          locale: AppLocaleType.system(),
+          cameraFullscreenMode: true,
+          encrypt: EncryptionPreference.none(),
         ),
       ],
     );

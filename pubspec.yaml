@@ -91,6 +91,7 @@ dependencies:
   dynamic_color: ^1.7.0
   material_symbols_icons: ^4.2785.1
   shimmer_animation: ^2.2.1
+  flutter_windowmanager_plus: ^1.0.1
 
 dev_dependencies:
   analyzer: ^6.7.0
