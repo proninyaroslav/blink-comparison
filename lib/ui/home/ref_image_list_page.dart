@@ -20,12 +20,11 @@ import 'package:blink_comparison/core/crash_report/crash_report_manager.dart';
 import 'package:blink_comparison/core/platform_info.dart';
 import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/core/storage/ref_image_repository.dart';
-import 'package:blink_comparison/core/storage/ref_image_status_repository.dart';
 import 'package:blink_comparison/injector.dart';
 import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:blink_comparison/ui/home/components/add_ref_image_button.dart';
 import 'package:blink_comparison/ui/home/components/images_list.dart';
-import 'package:blink_comparison/ui/home/model/ref_images_actions_state.dart';
+import 'package:blink_comparison/ui/home/model/ref_image_entry.dart';
 import 'package:blink_comparison/ui/home/model/ref_images_cubit.dart';
 import 'package:blink_comparison/ui/home/model/ref_images_state.dart';
 import 'package:blink_comparison/ui/model/error_report_cubit.dart';
@@ -63,7 +62,6 @@ class RefImageListPage extends StatefulWidget implements AutoRouteWrapper {
         BlocProvider(
           create: (context) => RefImagesCubit(
             getIt<RefImageRepository>(),
-            getIt<RefImageStatusRepository>(),
           ),
         ),
         BlocProvider(

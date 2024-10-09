@@ -174,7 +174,9 @@ abstract class _$$CameraPickerStateAcceptedImplCopyWith<$Res> {
           $Res Function(_$CameraPickerStateAcceptedImpl) then) =
       __$$CameraPickerStateAcceptedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({XFileImage image});
+  $Res call({XFileImage image, CameraPickerMetadata metadata});
+
+  $CameraPickerMetadataCopyWith<$Res> get metadata;
 }
 
 /// @nodoc
@@ -193,27 +195,45 @@ class __$$CameraPickerStateAcceptedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? image = null,
+    Object? metadata = null,
   }) {
     return _then(_$CameraPickerStateAcceptedImpl(
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as XFileImage,
+      metadata: null == metadata
+          ? _value.metadata
+          : metadata // ignore: cast_nullable_to_non_nullable
+              as CameraPickerMetadata,
     ));
+  }
+
+  /// Create a copy of CameraPickerState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CameraPickerMetadataCopyWith<$Res> get metadata {
+    return $CameraPickerMetadataCopyWith<$Res>(_value.metadata, (value) {
+      return _then(_value.copyWith(metadata: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$CameraPickerStateAcceptedImpl implements CameraPickerStateAccepted {
-  _$CameraPickerStateAcceptedImpl({required this.image});
+  _$CameraPickerStateAcceptedImpl(
+      {required this.image, required this.metadata});
 
   @override
   final XFileImage image;
+  @override
+  final CameraPickerMetadata metadata;
 
   @override
   String toString() {
-    return 'CameraPickerState.accepted(image: $image)';
+    return 'CameraPickerState.accepted(image: $image, metadata: $metadata)';
   }
 
   @override
@@ -221,11 +241,13 @@ class _$CameraPickerStateAcceptedImpl implements CameraPickerStateAccepted {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CameraPickerStateAcceptedImpl &&
-            (identical(other.image, image) || other.image == image));
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.metadata, metadata) ||
+                other.metadata == metadata));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, image);
+  int get hashCode => Object.hash(runtimeType, image, metadata);
 
   /// Create a copy of CameraPickerState
   /// with the given fields replaced by the non-null parameter values.
@@ -238,10 +260,13 @@ class _$CameraPickerStateAcceptedImpl implements CameraPickerStateAccepted {
 }
 
 abstract class CameraPickerStateAccepted implements CameraPickerState {
-  factory CameraPickerStateAccepted({required final XFileImage image}) =
+  factory CameraPickerStateAccepted(
+          {required final XFileImage image,
+          required final CameraPickerMetadata metadata}) =
       _$CameraPickerStateAcceptedImpl;
 
   XFileImage get image;
+  CameraPickerMetadata get metadata;
 
   /// Create a copy of CameraPickerState
   /// with the given fields replaced by the non-null parameter values.

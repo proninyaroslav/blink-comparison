@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -39,7 +39,7 @@ void main() {
         const SaveRefImageStatus.completed(imageId: '2'),
       ];
       when(
-        () => mockService.getCurrentStatus(),
+        () => mockService.getAllStatus(),
       ).thenAnswer((_) async => expectedStatusList);
       expect(await repo.getAllSaveStatus(), expectedStatusList);
     });
@@ -50,9 +50,25 @@ void main() {
         const SaveRefImageStatus.completed(imageId: '2'),
       ];
       when(
-        () => mockService.observeStatus(),
+        () => mockService.observeAllStatus(),
       ).thenAnswer((_) => Stream.value(expectedStatusList));
       expect(await repo.observeAllSaveStatus().first, expectedStatusList);
+    });
+
+    test('Get save status by id', () async {
+      const expectedStatus = SaveRefImageStatus.completed(imageId: '1');
+      when(
+        () => mockService.getCurrentStatusById('1'),
+      ).thenAnswer((_) async => expectedStatus);
+      expect(await repo.getSaveStatusById('1'), expectedStatus);
+    });
+
+    test('Observe save status by id', () async {
+      const expectedStatus = SaveRefImageStatus.completed(imageId: '1');
+      when(
+        () => mockService.observeStatusById('1'),
+      ).thenAnswer((_) => Stream.value(expectedStatus));
+      expect(await repo.observeSaveStatusById('1').first, expectedStatus);
     });
   });
 }

@@ -23,6 +23,7 @@ import 'package:blink_comparison/core/service/save_ref_image_job.dart';
 import 'package:blink_comparison/core/storage/auth_factor_repository.dart';
 import 'package:blink_comparison/core/storage/ref_image_status_repository.dart';
 import 'package:blink_comparison/platform/save_ref_image_native_service.dart';
+import 'package:collection/collection.dart';
 import 'package:cross_file/cross_file.dart';
 import 'package:file/file.dart';
 import 'package:flutter/foundation.dart';
@@ -49,9 +50,13 @@ abstract class SaveRefImageService {
     bool removeSourceFile = false,
   });
 
-  Future<List<SaveRefImageStatus>> getCurrentStatus();
+  Future<SaveRefImageStatus?> getCurrentStatusById(String imageId);
 
-  Stream<List<SaveRefImageStatus>> observeStatus();
+  Stream<SaveRefImageStatus?> observeStatusById(String imageId);
+
+  Future<List<SaveRefImageStatus>> getAllStatus();
+
+  Stream<List<SaveRefImageStatus>> observeAllStatus();
 }
 
 // TODO: Desktop/iOS support
@@ -101,7 +106,41 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
   }
 
   @override
-  Future<List<SaveRefImageStatus>> getCurrentStatus() {
+  Future<SaveRefImageStatus?> getCurrentStatusById(String imageId) async {
+    final list = await _serviceController.getAllInProgress();
+    final info = list.firstWhereOrNull((info) => info.id == imageId);
+    return info == null
+        ? null
+        : SaveRefImageStatus.inProgress(imageId: info.id);
+  }
+
+  @override
+  Stream<SaveRefImageStatus?> observeStatusById(String imageId) async* {
+    yield await getCurrentStatusById(imageId);
+    yield* _jobController.observeResult().asyncMap((result) async {
+      final status = switch (result) {
+        ServiceResultSuccess(:final request) => SaveRefImageStatus.completed(
+            imageId: request.info.id,
+          ),
+        ServiceResultFail(:final request, :final error) =>
+          SaveRefImageStatus.completed(
+            imageId: request.info.id,
+            error: switch (error) {
+              ServiceErrorSaveImage(:final error) =>
+                SaveRefImageStatusError.saveImage(error),
+              ServiceErrorGenerateThumbnail(:final error) =>
+                SaveRefImageStatusError.generateThumbnail(error),
+              ServiceErrorSaveThumbnail(:final error) =>
+                SaveRefImageStatusError.saveThumbnail(error),
+            },
+          ),
+      };
+      return status;
+    });
+  }
+
+  @override
+  Future<List<SaveRefImageStatus>> getAllStatus() {
     return _serviceController.getAllInProgress().then(
           (list) => list
               .map((info) => SaveRefImageStatus.inProgress(imageId: info.id))
@@ -110,10 +149,10 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
   }
 
   @override
-  Stream<List<SaveRefImageStatus>> observeStatus() async* {
-    yield await getCurrentStatus();
+  Stream<List<SaveRefImageStatus>> observeAllStatus() async* {
+    yield await getAllStatus();
     yield* _jobController.observeResult().asyncMap((result) async {
-      final list = await getCurrentStatus();
+      final list = await getAllStatus();
       final status = switch (result) {
         ServiceResultSuccess(:final request) => SaveRefImageStatus.completed(
             imageId: request.info.id,

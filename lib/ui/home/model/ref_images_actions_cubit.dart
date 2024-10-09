@@ -41,4 +41,15 @@ class RefImagesActionsCubit extends Cubit<RefImagesActionsState> {
       errors: errors,
     ));
   }
+
+  Future<void> change(RefImageInfo info) async {
+    emit(const RefImagesActionsState.changing());
+    final res = await _imageRepo.update(info);
+    emit(RefImagesActionsState.changed(
+      error: switch (res) {
+        SecStorageResultSuccess() => null,
+        SecStorageResultError(:final error) => error,
+      },
+    ));
+  }
 }

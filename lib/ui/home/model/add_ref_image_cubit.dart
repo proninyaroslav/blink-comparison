@@ -21,7 +21,6 @@ import 'package:blink_comparison/core/storage/ref_image_repository.dart';
 import 'package:blink_comparison/core/storage/storage_result.dart';
 import 'package:blink_comparison/ui/home/model/add_ref_image_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_picker/image_picker.dart';
 
 class AddRefImageCubit extends Cubit<AddRefImageState> {
   final RefImageRepository _refRepo;
@@ -33,18 +32,19 @@ class AddRefImageCubit extends Cubit<AddRefImageState> {
   ) : super(const AddRefImageState.initial());
 
   Future<void> addImages(
-    List<XFile> files, {
+    List<RefImageProps> images, {
     bool removeSourceFiles = false,
   }) async {
     emit(const AddRefImageState.addingImages());
     final successList = <RefImageInfo>[];
     final failedList = <AddRefImageError>[];
-    for (final file in files) {
-      final res = await _refRepo.addFromFile(
-        file,
+    for (final image in images) {
+      final res = await _refRepo.add(
+        image,
         encryption: _pref.encryptionPreferenceSync,
         removeSourceFile: removeSourceFiles,
       );
+      final RefImageProps(:file) = image;
       switch (res) {
         case SecStorageResultSuccess(:final value):
           successList.add(value);

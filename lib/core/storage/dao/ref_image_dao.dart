@@ -54,10 +54,19 @@ class RefImageDao {
         );
   }
 
+  Stream<RefImageInfo?> observeById(String id) {
+    return _store.record(id).onSnapshot(_db).map((snapshot) =>
+        snapshot == null ? null : RefImageInfo.fromJson(snapshot.value));
+  }
+
   Future<RefImageInfo?> getById(String id) async {
     final snapshot = await _store.record(id).get(_db);
     return snapshot == null ? null : RefImageInfo.fromJson(snapshot);
   }
 
   Future<bool> existsById(String id) => _store.record(id).exists(_db);
+
+  Future<void> update(RefImageInfo image) async {
+    await _store.record(image.id).update(_db, image.toJson());
+  }
 }

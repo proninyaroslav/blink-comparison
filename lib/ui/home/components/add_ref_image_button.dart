@@ -16,6 +16,7 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:auto_route/auto_route.dart';
+import 'package:blink_comparison/core/storage/ref_image_repository.dart';
 import 'package:blink_comparison/locale.dart';
 import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:blink_comparison/ui/home/components/error_dialog.dart';
@@ -71,7 +72,8 @@ class AddRefImageButton extends StatelessWidget {
                   stackTrace: stackTrace,
                 );
               case SystemPickerStateImagesSelected(:final files):
-                context.read<AddRefImageCubit>().addImages(files);
+                context.read<AddRefImageCubit>().addImages(
+                    files.map((file) => RefImageProps(file: file)).toList());
               case _:
                 break;
             }
@@ -96,10 +98,10 @@ class AddRefImageButton extends StatelessWidget {
             onTap: () {
               context.pushRoute(
                 CameraPickerRoute(
-                  onTakePhoto: (file) {
-                    context
-                        .read<AddRefImageCubit>()
-                        .addImages([file], removeSourceFiles: true);
+                  onTakePhoto: (file, metadata) {
+                    context.read<AddRefImageCubit>().addImages(
+                        [RefImageProps(file: file, label: metadata.label)],
+                        removeSourceFiles: true);
                   },
                 ),
               );

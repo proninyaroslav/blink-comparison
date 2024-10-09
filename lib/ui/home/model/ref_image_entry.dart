@@ -16,29 +16,16 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:blink_comparison/core/entity/entity.dart';
-import 'package:blink_comparison/core/storage/storage_result.dart';
 // ignore: unused_import
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'ref_images_actions_state.freezed.dart';
+part 'ref_image_entry.freezed.dart';
 
 @freezed
-sealed class RefImagesActionsState with _$RefImagesActionsState {
-  const factory RefImagesActionsState.initial() = RefImagesActionsStateInitial;
-
-  const factory RefImagesActionsState.deleting() =
-      RefImagesActionsStateDeleting;
-
-  const factory RefImagesActionsState.deleted({
-    required int count,
-    required Map<RefImageInfo, SecStorageError> errors,
-  }) = RefImagesActionsStateDeleted;
-
-  const factory RefImagesActionsState.changing() =
-      RefImagesActionsStateChanging;
-
-  const factory RefImagesActionsState.changed({
-    required SecStorageError? error,
-  }) = RefImagesActionsStateChanged;
+class RefImageEntry with _$RefImageEntry {
+  const factory RefImageEntry({
+    required RefImageInfo info,
+    required Thumbnail thumbnail,
+  }) = _RefImageEntry;
 }

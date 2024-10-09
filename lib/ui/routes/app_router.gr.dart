@@ -9,7 +9,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i16;
-import 'package:blink_comparison/core/settings/model.dart' as _i20;
+import 'package:blink_comparison/core/settings/model.dart' as _i21;
 import 'package:blink_comparison/ui/auth/auth_page.dart' as _i2;
 import 'package:blink_comparison/ui/auth/encryption_preference_page.dart'
     as _i8;
@@ -19,6 +19,8 @@ import 'package:blink_comparison/ui/camera_picker/camera_confirmation_page.dart'
     as _i5;
 import 'package:blink_comparison/ui/camera_picker/camera_picker_page.dart'
     as _i6;
+import 'package:blink_comparison/ui/camera_picker/model/camera_picker_metadata.dart'
+    as _i19;
 import 'package:blink_comparison/ui/comparison/blink_comparison_page.dart'
     as _i4;
 import 'package:blink_comparison/ui/components/page_not_found.dart' as _i9;
@@ -32,7 +34,7 @@ import 'package:blink_comparison/ui/settings/camera_page.dart' as _i7;
 import 'package:blink_comparison/ui/settings/settings_page.dart' as _i12;
 import 'package:blink_comparison/ui/settings/settings_pages_list_page.dart'
     as _i13;
-import 'package:cross_file/cross_file.dart' as _i19;
+import 'package:cross_file/cross_file.dart' as _i20;
 import 'package:flutter/material.dart' as _i17;
 
 /// generated route for
@@ -188,8 +190,8 @@ class CameraConfirmationRoute
   CameraConfirmationRoute({
     _i17.Key? key,
     required _i18.XFileImage image,
-    _i17.VoidCallback? onRetry,
-    _i17.VoidCallback? onAccept,
+    required _i17.VoidCallback onRetry,
+    required _i17.ValueChanged<_i19.CameraPickerMetadata> onAccept,
     List<_i16.PageRouteInfo>? children,
   }) : super(
           CameraConfirmationRoute.name,
@@ -222,17 +224,17 @@ class CameraConfirmationRouteArgs {
   const CameraConfirmationRouteArgs({
     this.key,
     required this.image,
-    this.onRetry,
-    this.onAccept,
+    required this.onRetry,
+    required this.onAccept,
   });
 
   final _i17.Key? key;
 
   final _i18.XFileImage image;
 
-  final _i17.VoidCallback? onRetry;
+  final _i17.VoidCallback onRetry;
 
-  final _i17.VoidCallback? onAccept;
+  final _i17.ValueChanged<_i19.CameraPickerMetadata> onAccept;
 
   @override
   String toString() {
@@ -245,7 +247,10 @@ class CameraConfirmationRouteArgs {
 class CameraPickerRoute extends _i16.PageRouteInfo<CameraPickerRouteArgs> {
   CameraPickerRoute({
     _i17.Key? key,
-    _i17.ValueChanged<_i19.XFile>? onTakePhoto,
+    void Function(
+      _i20.XFile,
+      _i19.CameraPickerMetadata,
+    )? onTakePhoto,
     List<_i16.PageRouteInfo>? children,
   }) : super(
           CameraPickerRoute.name,
@@ -280,7 +285,10 @@ class CameraPickerRouteArgs {
 
   final _i17.Key? key;
 
-  final _i17.ValueChanged<_i19.XFile>? onTakePhoto;
+  final void Function(
+    _i20.XFile,
+    _i19.CameraPickerMetadata,
+  )? onTakePhoto;
 
   @override
   String toString() {
@@ -313,7 +321,7 @@ class EncryptionPreferenceRoute
     extends _i16.PageRouteInfo<EncryptionPreferenceRouteArgs> {
   EncryptionPreferenceRoute({
     _i17.Key? key,
-    required _i17.ValueChanged<_i20.EncryptionPreference> onClick,
+    required _i17.ValueChanged<_i21.EncryptionPreference> onClick,
     List<_i16.PageRouteInfo>? children,
   }) : super(
           EncryptionPreferenceRoute.name,
@@ -346,7 +354,7 @@ class EncryptionPreferenceRouteArgs {
 
   final _i17.Key? key;
 
-  final _i17.ValueChanged<_i20.EncryptionPreference> onClick;
+  final _i17.ValueChanged<_i21.EncryptionPreference> onClick;
 
   @override
   String toString() {

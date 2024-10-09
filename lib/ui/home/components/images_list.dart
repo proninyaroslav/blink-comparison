@@ -16,9 +16,13 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:auto_route/auto_route.dart';
+import 'package:blink_comparison/core/storage/ref_image_repository.dart';
+import 'package:blink_comparison/core/storage/ref_image_status_repository.dart';
+import 'package:blink_comparison/injector.dart';
 import 'package:blink_comparison/locale.dart';
 import 'package:blink_comparison/ui/home/components/image_item.dart';
-import 'package:blink_comparison/ui/home/model/ref_images_actions_state.dart';
+import 'package:blink_comparison/ui/home/model/image_item_cubit.dart';
+import 'package:blink_comparison/ui/home/model/ref_image_entry.dart';
 import 'package:blink_comparison/ui/home/model/selectable_ref_image_cubit.dart';
 import 'package:blink_comparison/ui/home/model/selectable_ref_image_item.dart';
 import 'package:blink_comparison/ui/model/selectable_state.dart';
@@ -122,17 +126,23 @@ class _ImagesListState extends State<ImagesList> {
                 columnCount: widget.columnCount,
                 child: ScaleAnimation(
                   child: FadeInAnimation(
-                    child: ImageItem(
-                      entry: entry,
-                      isSelected: switch (state) {
-                        SelectableStateSelected(:final items) =>
-                          items.contains(selectableItem),
-                        _ => false,
-                      },
-                      selectableMode: state is SelectableStateSelected,
-                      onTap: () => context.pushRoute(
-                        RefImagePreviewRoute(
-                          imageId: entry.info.id,
+                    child: BlocProvider(
+                      create: (context) => ImageItemCubit(
+                        getIt<RefImageStatusRepository>(),
+                        getIt<RefImageRepository>(),
+                      ),
+                      child: ImageItem(
+                        entry: entry,
+                        isSelected: switch (state) {
+                          SelectableStateSelected(:final items) =>
+                            items.contains(selectableItem),
+                          _ => false,
+                        },
+                        selectableMode: state is SelectableStateSelected,
+                        onTap: () => context.pushRoute(
+                          RefImagePreviewRoute(
+                            imageId: entry.info.id,
+                          ),
                         ),
                       ),
                     ),

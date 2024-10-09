@@ -77,10 +77,7 @@ class CustomActionsRow extends StatelessWidget {
         ),
         if (overflow.isNotEmpty)
           PopupMenuButton<CustomAction>(
-            icon: const Icon(
-              Symbols.more_vert,
-              grade: 200,
-            ),
+            icon: const Icon(Symbols.more_vert, grade: 200),
             itemBuilder: (context) => overflow.map(
               (customAction) {
                 assert(customAction.overflowWidget != null);

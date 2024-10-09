@@ -1,5 +1,7 @@
 name: blink_comparison
-description: Simplifies comparing photos of tamper-evident seals and patterns using your eyes.
+description:
+  Simplifies comparing photos of tamper-evident seals and patterns using your
+  eyes.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -88,6 +90,7 @@ dependencies:
   multi_border: ^1.0.0
   dynamic_color: ^1.7.0
   material_symbols_icons: ^4.2785.1
+  shimmer_animation: ^2.2.1
 
 dev_dependencies:
   analyzer: ^6.7.0
@@ -105,7 +108,6 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter.
 flutter:
   generate: true
@@ -121,13 +123,10 @@ flutter:
   assets:
     - assets/audio/camera_shutter.mp3
     - assets/app_icon.png
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a

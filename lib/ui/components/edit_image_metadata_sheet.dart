@@ -19,7 +19,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 class EditImagePropertiesSheet extends StatefulWidget {
-  const EditImagePropertiesSheet({super.key});
+  final TextEditingController labelController;
+
+  const EditImagePropertiesSheet({
+    super.key,
+    required this.labelController,
+  });
 
   @override
   State<EditImagePropertiesSheet> createState() =>
@@ -34,19 +39,20 @@ class _EditImagePropertiesSheetState extends State<EditImagePropertiesSheet>
       showDragHandle: true,
       animationController: BottomSheet.createAnimationController(this),
       builder: (context) {
-        return const SafeArea(
+        return SafeArea(
           child: SingleChildScrollView(
-            padding: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 16.0),
+            padding: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 16.0),
             child: SizedBox(
               width: double.infinity,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _Title(),
-                  SizedBox(height: 16.0),
+                  const _Title(),
+                  const SizedBox(height: 16.0),
                   TextField(
-                    decoration: InputDecoration(hintText: 'Label'),
+                    decoration: const InputDecoration(hintText: 'Label'),
+                    controller: widget.labelController,
                   )
                 ],
               ),

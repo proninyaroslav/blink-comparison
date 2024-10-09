@@ -16,6 +16,7 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:blink_comparison/logger.dart';
+import 'package:blink_comparison/ui/camera_picker/model/camera_picker_metadata.dart';
 import 'package:blink_comparison/ui/camera_picker/model/camera_picker_state.dart';
 import 'package:blink_comparison/ui/model/xfile_image.dart';
 import 'package:file/file.dart';
@@ -38,10 +39,10 @@ class CameraPickerCubit extends Cubit<CameraPickerState> {
     }
   }
 
-  Future<void> accept() async {
+  Future<void> accept(CameraPickerMetadata metadata) async {
     if (state case CameraPickerStateLoaded(:final image)) {
       await image.evict();
-      emit(CameraPickerState.accepted(image: image));
+      emit(CameraPickerState.accepted(image: image, metadata: metadata));
     }
   }
 

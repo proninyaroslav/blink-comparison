@@ -383,6 +383,10 @@ class AppTheme {
         snackBarTheme: const SnackBarThemeData(
           behavior: SnackBarBehavior.floating,
         ),
+        iconTheme: (colorScheme.brightness == Brightness.dark
+                ? IconThemeData(color: kDefaultIconLightColor)
+                : IconThemeData(color: kDefaultIconDarkColor))
+            .copyWith(opticalSize: 24.0),
         actionIconTheme: ActionIconThemeData(
           backButtonIconBuilder: (context) => Icon(_getBackButtonIcon(context)),
           closeButtonIconBuilder: (context) => const Icon(Symbols.close),

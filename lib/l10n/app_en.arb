@@ -100,5 +100,8 @@
   "changeCameraZoomError": "Unable to change zoom level",
   "settingsCameraAutofocus": "Autofocus",
   "noSavedPassword": "No saved password",
-  "changeCameraAutofocusError": "Unable to change autofocus mode"
+  "changeCameraAutofocusError": "Unable to change autofocus mode",
+  "loadImageError": "Unable to load image",
+  "databaseError": "Database error",
+  "editImageProperties": "Edit image properties"
 }

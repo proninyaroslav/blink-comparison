@@ -27,14 +27,25 @@ import 'package:blink_comparison/core/storage/app_database.dart';
 import 'package:blink_comparison/ui/model/showcase_cubit.dart';
 import 'package:convert/convert.dart';
 import 'package:cross_file/cross_file.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import 'ref_image_secure_storage.dart';
 import 'storage_result.dart';
 
+part 'ref_image_repository.freezed.dart';
+
+@freezed
+class RefImageProps with _$RefImageProps {
+  const factory RefImageProps({
+    required XFile file,
+    String? label,
+  }) = _RefImageProps;
+}
+
 abstract class RefImageRepository {
-  Future<SecStorageResult<RefImageInfo>> addFromFile(
-    XFile srcImage, {
+  Future<SecStorageResult<RefImageInfo>> add(
+    RefImageProps image, {
     required EncryptionPreference? encryption,
     bool removeSourceFile = false,
   });
@@ -49,6 +60,8 @@ abstract class RefImageRepository {
 
   Stream<StorageResult<List<RefImageInfo>>> observeAllInfo();
 
+  Stream<StorageResult<RefImageInfo?>> observeInfoById(String id);
+
   Future<StorageResult<RefImageInfo?>> getInfoById(String id);
 
   Future<SecStorageResult<RefImage>> getImage(RefImageInfo info);
@@ -56,6 +69,8 @@ abstract class RefImageRepository {
   Future<StorageResult<bool>> existsById(String id);
 
   Future<StorageResult<Thumbnail>> getThumbnail(RefImageInfo info);
+
+  Future<SecStorageResult<void>> update(RefImageInfo info);
 }
 
 @Singleton(as: RefImageRepository)
@@ -77,11 +92,12 @@ class RefImageRepositoryImpl implements RefImageRepository {
   );
 
   @override
-  Future<SecStorageResult<RefImageInfo>> addFromFile(
-    XFile srcImage, {
+  Future<SecStorageResult<RefImageInfo>> add(
+    RefImageProps image, {
     required EncryptionPreference? encryption,
     bool removeSourceFile = false,
   }) async {
+    final RefImageProps(:file, :label) = image;
     late final RefImageInfo info;
     try {
       final id = await _randomUniqueId();
@@ -94,6 +110,7 @@ class RefImageRepositoryImpl implements RefImageRepository {
               encryptSalt: hex.encode(_saltGenerator.randomBytes()),
             ),
         },
+        label: label,
       );
       await _db.referenceImageDao.add(info);
     } on Exception catch (e, stackTrace) {
@@ -110,7 +127,7 @@ class RefImageRepositoryImpl implements RefImageRepository {
 
     final res = await _secureStorage.add(
       info,
-      srcImage,
+      file,
       removeSourceFile: removeSourceFile,
     );
     return switch (res) {
@@ -257,5 +274,35 @@ class RefImageRepositoryImpl implements RefImageRepository {
       FsResultError(:final error) =>
         StorageResult.error(StorageError.fs(error: error)),
     };
+  }
+
+  @override
+  Future<SecStorageResult<void>> update(RefImageInfo info) async {
+    try {
+      await _db.referenceImageDao.update(info);
+      return SecStorageResult.empty;
+    } on Exception catch (e, stackTrace) {
+      return SecStorageResult.error(
+        SecStorageError.database(
+          exception: e,
+          stackTrace: stackTrace,
+        ),
+      );
+    }
+  }
+
+  @override
+  Stream<StorageResult<RefImageInfo?>> observeInfoById(String id) {
+    final transformer = storageResultTransformer<RefImageInfo?>(
+      onException: (e, stackTrace) {
+        return StorageResult.error(
+          StorageError.database(
+            exception: e,
+            stackTrace: stackTrace,
+          ),
+        );
+      },
+    );
+    return _db.referenceImageDao.observeById(id).transform(transformer);
   }
 }

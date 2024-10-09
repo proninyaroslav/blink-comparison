@@ -156,7 +156,7 @@ void main() {
         () => mockServiceController.getAllInProgress(),
       ).thenAnswer((_) async => infoList);
 
-      expect(await service.getCurrentStatus(), expectedStatusList);
+      expect(await service.getAllStatus(), expectedStatusList);
     });
 
     test('Observe status', () async {
@@ -218,7 +218,7 @@ void main() {
       ).thenAnswer((_) async => infoList);
 
       expect(
-        await service.observeStatus().take(4).toList(),
+        await service.observeAllStatus().take(4).toList(),
         [
           inProgress,
           [
@@ -241,6 +241,82 @@ void main() {
             ...inProgress,
             SaveRefImageStatus.completed(imageId: infoList[2].id),
           ],
+        ],
+      );
+      controller.close();
+    });
+
+    test('Observe status by id', () async {
+      final infoList = [
+        RefImageInfo(
+          id: '1',
+          dateAdded: DateTime(2021),
+          encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
+        ),
+        RefImageInfo(
+          id: '2',
+          dateAdded: DateTime(2021),
+          encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
+        ),
+        RefImageInfo(
+          id: '3',
+          dateAdded: DateTime(2021),
+          encryption: const RefImageEncryption.password(encryptSalt: 'salt'),
+        ),
+      ];
+      final inProgress = infoList
+          .map(
+            (info) => SaveRefImageStatus.inProgress(imageId: info.id),
+          )
+          .toList();
+      final controller = StreamController<ServiceResult>();
+      controller.add(
+        ServiceResult.fail(
+          request: ServiceRequest(
+            info: infoList[0],
+            srcFile: XFile(srcFile.path),
+            removeSourceFile: false,
+          ),
+          error: ServiceError.saveImage(
+            SaveRefImageError.fs(
+              path: srcFile.path,
+              error: const FsError.io(),
+            ),
+          ),
+        ),
+      );
+
+      for (final info in infoList.sublist(1)) {
+        controller.add(
+          ServiceResult.success(
+            request: ServiceRequest(
+              info: info,
+              srcFile: XFile(srcFile.path),
+              removeSourceFile: false,
+            ),
+          ),
+        );
+      }
+      when(
+        () => mockJobController.observeResult(),
+      ).thenAnswer((_) => controller.stream);
+      when(
+        () => mockServiceController.getAllInProgress(),
+      ).thenAnswer((_) async => infoList);
+
+      expect(
+        await service.observeStatusById('1').take(2).toList(),
+        [
+          inProgress.first,
+          SaveRefImageStatus.completed(
+            imageId: infoList[0].id,
+            error: SaveRefImageStatusError.saveImage(
+              SaveRefImageError.fs(
+                path: srcFile.path,
+                error: const FsError.io(),
+              ),
+            ),
+          ),
         ],
       );
       controller.close();

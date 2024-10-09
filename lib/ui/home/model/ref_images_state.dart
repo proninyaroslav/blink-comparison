@@ -16,7 +16,7 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:blink_comparison/core/storage/storage_result.dart';
-import 'package:blink_comparison/ui/home/model/ref_images_actions_state.dart';
+import 'package:blink_comparison/ui/home/model/ref_image_entry.dart';
 // ignore: unused_import
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

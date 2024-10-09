@@ -16,6 +16,7 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:blink_comparison/ui/camera_picker/model/camera_picker_cubit.dart';
+import 'package:blink_comparison/ui/camera_picker/model/camera_picker_metadata.dart';
 import 'package:blink_comparison/ui/camera_picker/model/camera_picker_state.dart';
 import 'package:blink_comparison/ui/model/xfile_image.dart';
 import 'package:bloc_test/bloc_test.dart';
@@ -74,12 +75,15 @@ void main() {
         cubit.load(mockImage);
         when(() => mockImage.evict()).thenAnswer((_) async => true);
 
-        await cubit.accept();
+        await cubit.accept(CameraPickerMetadata(label: 'label'));
         verify(() => mockImage.evict()).called(1);
       },
       expect: () => [
         CameraPickerState.loaded(image: mockImage),
-        CameraPickerState.accepted(image: mockImage),
+        CameraPickerState.accepted(
+          image: mockImage,
+          metadata: CameraPickerMetadata(label: 'label'),
+        ),
       ],
     );
 

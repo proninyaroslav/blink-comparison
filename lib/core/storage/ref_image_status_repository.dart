@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+// Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
 //
 // This file is part of Blink Comparison.
 //
@@ -20,6 +20,10 @@ import 'package:blink_comparison/core/service/save_ref_image_service.dart';
 import 'package:injectable/injectable.dart';
 
 abstract class RefImageStatusRepository {
+  Future<SaveRefImageStatus?> getSaveStatusById(String imageId);
+
+  Stream<SaveRefImageStatus?> observeSaveStatusById(String imageId);
+
   Future<List<SaveRefImageStatus>> getAllSaveStatus();
 
   Stream<List<SaveRefImageStatus>> observeAllSaveStatus();
@@ -32,10 +36,18 @@ class RefImageStatusRepositoryImpl implements RefImageStatusRepository {
   RefImageStatusRepositoryImpl(this._service);
 
   @override
+  Future<SaveRefImageStatus?> getSaveStatusById(String imageId) =>
+      _service.getCurrentStatusById(imageId);
+
+  @override
+  Stream<SaveRefImageStatus?> observeSaveStatusById(String imageId) =>
+      _service.observeStatusById(imageId);
+
+  @override
   Future<List<SaveRefImageStatus>> getAllSaveStatus() =>
-      _service.getCurrentStatus();
+      _service.getAllStatus();
 
   @override
   Stream<List<SaveRefImageStatus>> observeAllSaveStatus() =>
-      _service.observeStatus();
+      _service.observeAllStatus();
 }

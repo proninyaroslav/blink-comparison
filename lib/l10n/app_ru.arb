@@ -99,5 +99,8 @@
   "changeCameraZoomError": "Не удалось изменить уровень зума",
   "settingsCameraAutofocus": "Автофокус",
   "noSavedPassword": "Нет сохранённого пароля",
-  "changeCameraAutofocusError": "Невозможно изменить режим автофокусировки"
+  "changeCameraAutofocusError": "Невозможно изменить режим автофокусировки",
+  "loadImageError": "Не удалось загрузить изображение",
+  "databaseError": "Ошибка базы данных",
+  "editImageProperties": "Редактировать свойства изображения"
 }

@@ -16,9 +16,11 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:auto_route/auto_route.dart';
+import 'package:blink_comparison/core/entity/ref_image.dart';
 import 'package:blink_comparison/logger.dart';
 import 'package:blink_comparison/ui/about/about_page.dart';
 import 'package:blink_comparison/ui/components/widget.dart';
+import 'package:blink_comparison/ui/home/components/edit_properties.dart';
 import 'package:blink_comparison/ui/home/model/ref_images_actions_state.dart';
 import 'package:blink_comparison/ui/home/model/ref_images_cubit.dart';
 import 'package:blink_comparison/ui/home/model/ref_images_state.dart';
@@ -181,6 +183,23 @@ class _ContextualAppBar extends StatelessWidget {
                   }
                 },
               ),
+              if (cubit.state case SelectableStateSelected(:final items)
+                  when items.length == 1)
+                IconButton(
+                  tooltip: S.of(context).editImageProperties,
+                  onPressed: () async {
+                    final actionCubit = context.read<RefImagesActionsCubit>();
+                    await _showEditPropertiesSheet(
+                      context: context,
+                      item: items.first,
+                      onDone: (info) async {
+                        await actionCubit.change(info);
+                        cubit.clearSelection();
+                      },
+                    );
+                  },
+                  icon: const Icon(Symbols.edit),
+                ),
               IconButton(
                 icon: const Icon(Symbols.select_all_rounded),
                 tooltip: S.of(context).selectAll,
@@ -242,4 +261,26 @@ class _ContextualAppBar extends StatelessWidget {
       );
     }
   }
+}
+
+Future<void> _showEditPropertiesSheet({
+  required BuildContext context,
+  required SelectableRefImageItem item,
+  required ValueChanged<RefImageInfo> onDone,
+}) async {
+  await showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    builder: (context) {
+      return Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
+        child: EditProperties(
+          info: item.info,
+          onDone: onDone,
+        ),
+      );
+    },
+  );
 }

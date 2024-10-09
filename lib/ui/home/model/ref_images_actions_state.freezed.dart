@@ -270,212 +270,170 @@ abstract class RefImagesActionsStateDeleted implements RefImagesActionsState {
 }
 
 /// @nodoc
-mixin _$RefImageEntry {
-  RefImageInfo get info => throw _privateConstructorUsedError;
-  Thumbnail get thumbnail => throw _privateConstructorUsedError;
-  SaveRefImageStatus? get status => throw _privateConstructorUsedError;
-
-  /// Create a copy of RefImageEntry
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $RefImageEntryCopyWith<RefImageEntry> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class _$$RefImagesActionsStateChangingImplCopyWith<$Res> {
+  factory _$$RefImagesActionsStateChangingImplCopyWith(
+          _$RefImagesActionsStateChangingImpl value,
+          $Res Function(_$RefImagesActionsStateChangingImpl) then) =
+      __$$RefImagesActionsStateChangingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-abstract class $RefImageEntryCopyWith<$Res> {
-  factory $RefImageEntryCopyWith(
-          RefImageEntry value, $Res Function(RefImageEntry) then) =
-      _$RefImageEntryCopyWithImpl<$Res, RefImageEntry>;
-  @useResult
-  $Res call(
-      {RefImageInfo info, Thumbnail thumbnail, SaveRefImageStatus? status});
-
-  $RefImageInfoCopyWith<$Res> get info;
-  $SaveRefImageStatusCopyWith<$Res>? get status;
-}
-
-/// @nodoc
-class _$RefImageEntryCopyWithImpl<$Res, $Val extends RefImageEntry>
-    implements $RefImageEntryCopyWith<$Res> {
-  _$RefImageEntryCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of RefImageEntry
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? info = null,
-    Object? thumbnail = null,
-    Object? status = freezed,
-  }) {
-    return _then(_value.copyWith(
-      info: null == info
-          ? _value.info
-          : info // ignore: cast_nullable_to_non_nullable
-              as RefImageInfo,
-      thumbnail: null == thumbnail
-          ? _value.thumbnail
-          : thumbnail // ignore: cast_nullable_to_non_nullable
-              as Thumbnail,
-      status: freezed == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as SaveRefImageStatus?,
-    ) as $Val);
-  }
-
-  /// Create a copy of RefImageEntry
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $RefImageInfoCopyWith<$Res> get info {
-    return $RefImageInfoCopyWith<$Res>(_value.info, (value) {
-      return _then(_value.copyWith(info: value) as $Val);
-    });
-  }
-
-  /// Create a copy of RefImageEntry
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $SaveRefImageStatusCopyWith<$Res>? get status {
-    if (_value.status == null) {
-      return null;
-    }
-
-    return $SaveRefImageStatusCopyWith<$Res>(_value.status!, (value) {
-      return _then(_value.copyWith(status: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$RefImageEntryImplCopyWith<$Res>
-    implements $RefImageEntryCopyWith<$Res> {
-  factory _$$RefImageEntryImplCopyWith(
-          _$RefImageEntryImpl value, $Res Function(_$RefImageEntryImpl) then) =
-      __$$RefImageEntryImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {RefImageInfo info, Thumbnail thumbnail, SaveRefImageStatus? status});
-
-  @override
-  $RefImageInfoCopyWith<$Res> get info;
-  @override
-  $SaveRefImageStatusCopyWith<$Res>? get status;
-}
-
-/// @nodoc
-class __$$RefImageEntryImplCopyWithImpl<$Res>
-    extends _$RefImageEntryCopyWithImpl<$Res, _$RefImageEntryImpl>
-    implements _$$RefImageEntryImplCopyWith<$Res> {
-  __$$RefImageEntryImplCopyWithImpl(
-      _$RefImageEntryImpl _value, $Res Function(_$RefImageEntryImpl) _then)
+class __$$RefImagesActionsStateChangingImplCopyWithImpl<$Res>
+    extends _$RefImagesActionsStateCopyWithImpl<$Res,
+        _$RefImagesActionsStateChangingImpl>
+    implements _$$RefImagesActionsStateChangingImplCopyWith<$Res> {
+  __$$RefImagesActionsStateChangingImplCopyWithImpl(
+      _$RefImagesActionsStateChangingImpl _value,
+      $Res Function(_$RefImagesActionsStateChangingImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of RefImageEntry
+  /// Create a copy of RefImagesActionsState
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? info = null,
-    Object? thumbnail = null,
-    Object? status = freezed,
-  }) {
-    return _then(_$RefImageEntryImpl(
-      info: null == info
-          ? _value.info
-          : info // ignore: cast_nullable_to_non_nullable
-              as RefImageInfo,
-      thumbnail: null == thumbnail
-          ? _value.thumbnail
-          : thumbnail // ignore: cast_nullable_to_non_nullable
-              as Thumbnail,
-      status: freezed == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as SaveRefImageStatus?,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$RefImageEntryImpl
+class _$RefImagesActionsStateChangingImpl
     with DiagnosticableTreeMixin
-    implements _RefImageEntry {
-  const _$RefImageEntryImpl(
-      {required this.info, required this.thumbnail, this.status});
-
-  @override
-  final RefImageInfo info;
-  @override
-  final Thumbnail thumbnail;
-  @override
-  final SaveRefImageStatus? status;
+    implements RefImagesActionsStateChanging {
+  const _$RefImagesActionsStateChangingImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RefImageEntry(info: $info, thumbnail: $thumbnail, status: $status)';
+    return 'RefImagesActionsState.changing()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'RefImageEntry'))
-      ..add(DiagnosticsProperty('info', info))
-      ..add(DiagnosticsProperty('thumbnail', thumbnail))
-      ..add(DiagnosticsProperty('status', status));
+        .add(DiagnosticsProperty('type', 'RefImagesActionsState.changing'));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RefImageEntryImpl &&
-            (identical(other.info, info) || other.info == info) &&
-            (identical(other.thumbnail, thumbnail) ||
-                other.thumbnail == thumbnail) &&
-            (identical(other.status, status) || other.status == status));
+            other is _$RefImagesActionsStateChangingImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, info, thumbnail, status);
+  int get hashCode => runtimeType.hashCode;
+}
 
-  /// Create a copy of RefImageEntry
+abstract class RefImagesActionsStateChanging implements RefImagesActionsState {
+  const factory RefImagesActionsStateChanging() =
+      _$RefImagesActionsStateChangingImpl;
+}
+
+/// @nodoc
+abstract class _$$RefImagesActionsStateChangedImplCopyWith<$Res> {
+  factory _$$RefImagesActionsStateChangedImplCopyWith(
+          _$RefImagesActionsStateChangedImpl value,
+          $Res Function(_$RefImagesActionsStateChangedImpl) then) =
+      __$$RefImagesActionsStateChangedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({SecStorageError? error});
+
+  $SecStorageErrorCopyWith<$Res>? get error;
+}
+
+/// @nodoc
+class __$$RefImagesActionsStateChangedImplCopyWithImpl<$Res>
+    extends _$RefImagesActionsStateCopyWithImpl<$Res,
+        _$RefImagesActionsStateChangedImpl>
+    implements _$$RefImagesActionsStateChangedImplCopyWith<$Res> {
+  __$$RefImagesActionsStateChangedImplCopyWithImpl(
+      _$RefImagesActionsStateChangedImpl _value,
+      $Res Function(_$RefImagesActionsStateChangedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of RefImagesActionsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = freezed,
+  }) {
+    return _then(_$RefImagesActionsStateChangedImpl(
+      error: freezed == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as SecStorageError?,
+    ));
+  }
+
+  /// Create a copy of RefImagesActionsState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $SecStorageErrorCopyWith<$Res>? get error {
+    if (_value.error == null) {
+      return null;
+    }
+
+    return $SecStorageErrorCopyWith<$Res>(_value.error!, (value) {
+      return _then(_value.copyWith(error: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$RefImagesActionsStateChangedImpl
+    with DiagnosticableTreeMixin
+    implements RefImagesActionsStateChanged {
+  const _$RefImagesActionsStateChangedImpl({required this.error});
+
+  @override
+  final SecStorageError? error;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'RefImagesActionsState.changed(error: $error)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'RefImagesActionsState.changed'))
+      ..add(DiagnosticsProperty('error', error));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RefImagesActionsStateChangedImpl &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  /// Create a copy of RefImagesActionsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$RefImageEntryImplCopyWith<_$RefImageEntryImpl> get copyWith =>
-      __$$RefImageEntryImplCopyWithImpl<_$RefImageEntryImpl>(this, _$identity);
+  _$$RefImagesActionsStateChangedImplCopyWith<
+          _$RefImagesActionsStateChangedImpl>
+      get copyWith => __$$RefImagesActionsStateChangedImplCopyWithImpl<
+          _$RefImagesActionsStateChangedImpl>(this, _$identity);
 }
 
-abstract class _RefImageEntry implements RefImageEntry {
-  const factory _RefImageEntry(
-      {required final RefImageInfo info,
-      required final Thumbnail thumbnail,
-      final SaveRefImageStatus? status}) = _$RefImageEntryImpl;
+abstract class RefImagesActionsStateChanged implements RefImagesActionsState {
+  const factory RefImagesActionsStateChanged(
+          {required final SecStorageError? error}) =
+      _$RefImagesActionsStateChangedImpl;
 
-  @override
-  RefImageInfo get info;
-  @override
-  Thumbnail get thumbnail;
-  @override
-  SaveRefImageStatus? get status;
+  SecStorageError? get error;
 
-  /// Create a copy of RefImageEntry
+  /// Create a copy of RefImagesActionsState
   /// with the given fields replaced by the non-null parameter values.
-  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RefImageEntryImplCopyWith<_$RefImageEntryImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$RefImagesActionsStateChangedImplCopyWith<
+          _$RefImagesActionsStateChangedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -21,6 +21,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:blink_comparison/core/crash_report/crash_report_manager.dart';
 import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/ui/camera_picker/model/camera_picker_cubit.dart';
+import 'package:blink_comparison/ui/camera_picker/model/camera_picker_metadata.dart';
 import 'package:blink_comparison/ui/camera_picker/model/camera_picker_state.dart';
 import 'package:blink_comparison/ui/components/camera/camera_view.dart';
 import 'package:blink_comparison/ui/components/camera/model/camera_provider.dart';
@@ -39,7 +40,7 @@ import '../theme.dart';
 
 @RoutePage()
 class CameraPickerPage extends StatefulWidget implements AutoRouteWrapper {
-  final ValueChanged<XFile>? onTakePhoto;
+  final void Function(XFile, CameraPickerMetadata)? onTakePhoto;
 
   const CameraPickerPage({
     super.key,
@@ -112,13 +113,13 @@ class _CameraPickerPageState extends State<CameraPickerPage> {
           child: BlocListener<CameraPickerCubit, CameraPickerState>(
             listener: (context, state) async {
               switch (state) {
-                case CameraPickerStateInitial() || CameraPickerStateLoaded():
-                  break;
-                case CameraPickerStateAccepted(:final image):
-                  widget.onTakePhoto?.call(image.file);
+                case CameraPickerStateAccepted(:final image, :final metadata):
+                  widget.onTakePhoto?.call(image.file, metadata);
                   await context.maybePop();
                 case CameraPickerStateRejected():
                   _controller.resumeCamera();
+                case _:
+                  break;
               }
             },
             child: CameraView(
@@ -146,8 +147,8 @@ class _CameraPickerPageState extends State<CameraPickerPage> {
           onRetry: () async {
             await cubit.reject();
           },
-          onAccept: () async {
-            await cubit.accept();
+          onAccept: (metadata) async {
+            await cubit.accept(metadata);
           },
         ),
       );

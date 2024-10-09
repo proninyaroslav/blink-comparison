@@ -17,6 +17,7 @@
 
 import 'package:blink_comparison/core/entity/entity.dart';
 import 'package:blink_comparison/core/settings/app_settings.dart';
+import 'package:blink_comparison/core/storage/ref_image_repository.dart';
 import 'package:blink_comparison/core/storage/storage_result.dart';
 import 'package:blink_comparison/ui/home/model/add_ref_image_cubit.dart';
 import 'package:blink_comparison/ui/home/model/add_ref_image_state.dart';
@@ -57,13 +58,15 @@ void main() {
           XFile(path.join('foo', 'bar1')),
           XFile(path.join('foo', 'bar2')),
         ];
+        final propsList =
+            files.map((file) => RefImageProps(file: file)).toList();
         var id = 0;
         when(() => mockPref.encryptionPreferenceSync)
             .thenReturn(const EncryptionPreference.none());
-        for (final f in files) {
+        for (final props in propsList) {
           when(
-            () => mockImageRepo.addFromFile(
-              f,
+            () => mockImageRepo.add(
+              props,
               encryption: const EncryptionPreference.none(),
               removeSourceFile: true,
             ),
@@ -77,7 +80,7 @@ void main() {
             ),
           );
         }
-        await cubit.addImages(files, removeSourceFiles: true);
+        await cubit.addImages(propsList, removeSourceFiles: true);
       },
       expect: () => [
         const AddRefImageState.addingImages(),
@@ -109,16 +112,18 @@ void main() {
           XFile(path.join('foo', 'bar1')),
           XFile(path.join('foo', 'bar2')),
         ];
+        final propsList =
+            files.map((file) => RefImageProps(file: file)).toList();
         when(() => mockPref.encryptionPreferenceSync)
             .thenReturn(const EncryptionPreference.none());
-        when(() => mockImageRepo.addFromFile(files[0],
+        when(() => mockImageRepo.add(propsList[0],
             encryption: const EncryptionPreference.none())).thenAnswer(
           (_) async => const SecStorageResult.error(
             SecStorageError.database(),
           ),
         );
         when(
-          () => mockImageRepo.addFromFile(files[1],
+          () => mockImageRepo.add(propsList[1],
               encryption: const EncryptionPreference.none()),
         ).thenAnswer(
           (_) async => SecStorageResult(
@@ -129,7 +134,7 @@ void main() {
             ),
           ),
         );
-        await cubit.addImages(files);
+        await cubit.addImages(propsList);
       },
       expect: () => [
         const AddRefImageState.addingImages(),
@@ -160,17 +165,19 @@ void main() {
           XFile(path.join('foo', 'bar1')),
           XFile(path.join('foo', 'bar2'))
         ];
+        final propsList =
+            files.map((file) => RefImageProps(file: file)).toList();
         when(() => mockPref.encryptionPreferenceSync)
             .thenReturn(const EncryptionPreference.none());
         when(
-          () => mockImageRepo.addFromFile(
-            files[0],
+          () => mockImageRepo.add(
+            propsList[0],
             encryption: const EncryptionPreference.none(),
           ),
         ).thenAnswer(
           (_) async => const SecStorageResult.error(SecStorageError.noKey()),
         );
-        await cubit.addImages(files);
+        await cubit.addImages(propsList);
       },
       expect: () => [
         const AddRefImageState.addingImages(),

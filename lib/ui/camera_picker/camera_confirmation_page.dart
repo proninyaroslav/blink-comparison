@@ -16,6 +16,7 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:auto_route/auto_route.dart';
+import 'package:blink_comparison/ui/camera_picker/model/camera_picker_metadata.dart';
 import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:blink_comparison/ui/model/xfile_image.dart';
 import 'package:blink_comparison/ui/theme.dart';
@@ -25,19 +26,19 @@ import 'package:material_symbols_icons/symbols.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import '../../locale.dart';
-import 'components/edit_image_metadata_sheet.dart';
+import '../components/edit_image_metadata_sheet.dart';
 
 @RoutePage()
 class CameraConfirmationPage extends StatefulWidget {
   final XFileImage image;
-  final VoidCallback? onRetry;
-  final VoidCallback? onAccept;
+  final VoidCallback onRetry;
+  final ValueChanged<CameraPickerMetadata> onAccept;
 
   const CameraConfirmationPage({
     super.key,
     required this.image,
-    this.onRetry,
-    this.onAccept,
+    required this.onRetry,
+    required this.onAccept,
   });
 
   @override
@@ -51,6 +52,22 @@ class _CameraConfirmationPageState extends State<CameraConfirmationPage>
   static const _doubleClickScale = (_maxScale - _minScale) / 2;
   bool _closed = false;
 
+  late final TextEditingController _labelController;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _labelController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _labelController.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return AppThemeBuilder(
@@ -60,7 +77,7 @@ class _CameraConfirmationPageState extends State<CameraConfirmationPage>
           child: PopScope(
             onPopInvokedWithResult: (didPop, result) {
               if (!_closed) {
-                widget.onRetry?.call();
+                widget.onRetry.call();
               }
               _closed = true;
             },
@@ -93,14 +110,19 @@ class _CameraConfirmationPageState extends State<CameraConfirmationPage>
               bottomNavigationBar: _ButtonBar(
                 onRetry: () {
                   if (!_closed) {
-                    widget.onRetry?.call();
+                    widget.onRetry();
                     _closed = true;
                     context.maybePop();
                   }
                 },
                 onAccept: () {
                   if (!_closed) {
-                    widget.onAccept?.call();
+                    final label = _labelController.text.trim();
+                    widget.onAccept(
+                      CameraPickerMetadata(
+                        label: label.isEmpty ? null : label,
+                      ),
+                    );
                     _closed = true;
                     context.maybePop();
                   }
@@ -109,7 +131,10 @@ class _CameraConfirmationPageState extends State<CameraConfirmationPage>
               floatingActionButtonLocation:
                   FloatingActionButtonLocation.miniEndFloat,
               floatingActionButton: FloatingActionButton.small(
-                onPressed: () => _showEditPropertiesSheet(context),
+                onPressed: () => _showEditPropertiesSheet(
+                  context,
+                  labelController: _labelController,
+                ),
                 tooltip: 'Edit properties',
                 child: const Icon(Symbols.edit),
               ),
@@ -120,16 +145,28 @@ class _CameraConfirmationPageState extends State<CameraConfirmationPage>
     );
   }
 
-  void _showEditPropertiesSheet(BuildContext context) {
+  void _showEditPropertiesSheet(
+    BuildContext context, {
+    required TextEditingController labelController,
+  }) {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       builder: (context) {
-        return Padding(
-          padding: EdgeInsets.only(
-            bottom: MediaQuery.of(context).viewInsets.bottom,
-          ),
-          child: const EditImagePropertiesSheet(),
+        return AppThemeBuilder(
+          builder: (light, dark, black) {
+            return Theme(
+              data: black,
+              child: Padding(
+                padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).viewInsets.bottom,
+                ),
+                child: EditImagePropertiesSheet(
+                  labelController: labelController,
+                ),
+              ),
+            );
+          },
         );
       },
     );
