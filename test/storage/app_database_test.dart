@@ -21,7 +21,6 @@ import 'package:blink_comparison/core/storage/app_database.dart';
 import 'package:file/file.dart';
 import 'package:file/local.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:sembast/sembast.dart';
 import 'package:sembast/sembast_io.dart';
 
 import '../test_utils.dart';
