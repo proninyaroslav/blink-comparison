@@ -83,7 +83,7 @@ class AddRefImageButton extends StatelessWidget {
       child: DropdownFab(
         icon: const Icon(Symbols.add),
         label: Text(S.of(context).add),
-        menuWidth: 250,
+        menuWidth: 220,
         menuChildren: [
           DropdownFabMenuItem(
             leading: const Icon(Symbols.photo),

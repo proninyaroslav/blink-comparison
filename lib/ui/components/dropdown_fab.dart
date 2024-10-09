@@ -262,10 +262,6 @@ class _AnimatedMenuState extends State<_AnimatedMenu> {
                         height: fabTheme.extendedIconLabelSpacing ?? 8.0,
                       ),
                       ...widget.children,
-                      Divider(
-                        height: 0,
-                        color: Theme.of(context).colorScheme.outline,
-                      ),
                       _CloseButton(
                         onPressed: () => collapse(),
                       ),
@@ -310,6 +306,10 @@ class _CloseButton extends StatelessWidget {
     return ListTileTheme(
       iconColor: foregroundColor,
       textColor: foregroundColor,
+      shape: fabTheme.shape ??
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16.0),
+          ),
       child: ListTile(
         leading: const Icon(Symbols.close),
         tileColor: backgroundColor,
