@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 Yaroslav Pronin <proninyaroslav@mail.ru>
+ * Copyright (C) 2022-2024 Yaroslav Pronin <proninyaroslav@mail.ru>
  *
  * This file is part of Blink Comparison.
  *
@@ -19,6 +19,9 @@
 
 package org.proninyaroslav.blink_comparison
 
+import android.os.Build
+import android.os.Bundle
+import androidx.core.view.WindowCompat
 import org.proninyaroslav.blink_comparison.channel.SaveRefImageServiceChannel
 import org.proninyaroslav.blink_comparison.channel.SaveRefImageServiceQueueChannel
 import org.proninyaroslav.blink_comparison.channel.SaveRefImageServiceResultChannel
@@ -31,6 +34,19 @@ class MainActivity : FlutterActivity() {
     private lateinit var saveRefImageServiceChannel: SaveRefImageServiceChannel
     private lateinit var saveRefImageServiceQueueChannel: SaveRefImageServiceQueueChannel
     private lateinit var saveRefImageServiceResultChannel: SaveRefImageServiceResultChannel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        // Aligns the Flutter view vertically with the window.
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            // Disable the Android splash screen fade out animation to avoid
+            // a flicker before the similar frame is drawn in Flutter.
+            splashScreen.setOnExitAnimationListener { splashScreenView -> splashScreenView.remove() }
+        }
+
+        super.onCreate(savedInstanceState)
+    }
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)

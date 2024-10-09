@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="surface">#fcfaec</color>
+    <dimen name="splash_screen_icon_size">96dp</dimen>
 </resources>
