@@ -8,21 +8,23 @@
       "name": "Flutter Debug",
       "request": "launch",
       "type": "dart",
-      "flutterMode": "debug"
+      "flutterMode": "debug",
       // TODO: https://github.com/flutter/flutter/issues/146890#issuecomment-2212409188
-      // "args": ["--enable-software-rendering"]
+      "args": ["--flavor", "base" /*"--enable-software-rendering"*/]
     },
     {
       "name": "Flutter Release",
       "request": "launch",
       "type": "dart",
-      "flutterMode": "release"
+      "flutterMode": "release",
+      "args": ["--flavor", "base"]
     },
     {
       "name": "Flutter Profile",
       "request": "launch",
       "type": "dart",
-      "flutterMode": "profile"
+      "flutterMode": "profile",
+      "args": ["--flavor", "base"]
     },
     {
       "name": "Flutter: Attach to Device",
