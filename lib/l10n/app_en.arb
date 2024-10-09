@@ -103,5 +103,7 @@
   "changeCameraAutofocusError": "Unable to change autofocus mode",
   "loadImageError": "Unable to load image",
   "databaseError": "Database error",
-  "editImageProperties": "Edit image properties"
+  "editImageProperties": "Edit image properties",
+  "imageProperties": "Properties",
+  "imageLabel": "Label"
 }

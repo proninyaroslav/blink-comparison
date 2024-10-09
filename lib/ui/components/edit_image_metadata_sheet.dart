@@ -16,6 +16,7 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:auto_route/auto_route.dart';
+import 'package:blink_comparison/locale.dart';
 import 'package:flutter/material.dart';
 
 class EditImagePropertiesSheet extends StatefulWidget {
@@ -51,7 +52,9 @@ class _EditImagePropertiesSheetState extends State<EditImagePropertiesSheet>
                   const _Title(),
                   const SizedBox(height: 16.0),
                   TextField(
-                    decoration: const InputDecoration(hintText: 'Label'),
+                    decoration: InputDecoration(
+                      hintText: S.of(context).imageLabel,
+                    ),
                     controller: widget.labelController,
                   )
                 ],
@@ -73,7 +76,7 @@ class _Title extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      'Properties',
+      S.of(context).imageProperties,
       style: Theme.of(context).textTheme.titleLarge,
     );
   }

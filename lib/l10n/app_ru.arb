@@ -102,5 +102,8 @@
   "changeCameraAutofocusError": "Невозможно изменить режим автофокусировки",
   "loadImageError": "Не удалось загрузить изображение",
   "databaseError": "Ошибка базы данных",
-  "editImageProperties": "Редактировать свойства изображения"
+  "editImageProperties": "Редактировать свойства изображения",
+  "imageProperties": "Свойства",
+  "imageLabel": "Метка",
+  "authorizeFailedException": "Исключение во время авторизации"
 }
