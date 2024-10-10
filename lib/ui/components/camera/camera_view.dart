@@ -454,7 +454,10 @@ class _CameraViewState extends State<CameraView> with WidgetsBindingObserver {
     );
   }
 
-  void _onViewFinderTap(TapDownDetails details, BoxConstraints constraints) {
+  void _onViewFinderTap(
+    TapDownDetails details,
+    BoxConstraints constraints,
+  ) async {
     if (!_initialized) {
       return;
     }
@@ -464,8 +467,8 @@ class _CameraViewState extends State<CameraView> with WidgetsBindingObserver {
       details.localPosition.dy / constraints.maxHeight,
     );
     try {
-      _cameraController?.setExposurePoint(offset);
-      _cameraController?.setFocusPoint(offset);
+      await _cameraController?.setExposurePoint(offset);
+      await _cameraController?.setFocusPoint(offset);
     } on CameraException catch (e, stackTrace) {
       log().e('Unable to change focus point', error: e, stackTrace: stackTrace);
     }
