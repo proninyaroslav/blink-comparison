@@ -41,8 +41,21 @@ class SaveRefImageNativeService {
   );
 
   final PlatformInfo _platform;
+  late final Stream<ServiceResult> _resultStream;
+  late final Stream<ServiceQueueItem> _queueStream;
 
-  SaveRefImageNativeService(this._platform);
+  SaveRefImageNativeService(this._platform) {
+    _resultStream = resultChannel.receiveBroadcastStream('observeResult').map(
+          (json) => ServiceResult.fromJson(
+            (json as Map<Object?, Object?>).deepCast(),
+          ),
+        );
+    _queueStream = queueChannel
+        .receiveBroadcastStream('observeQueue')
+        .map((json) => ServiceQueueItem.fromJson(
+              (json as Map<Object?, Object?>).deepCast(),
+            ));
+  }
 
   Future<void> start({
     required Function callbackDispatcher,
@@ -81,13 +94,7 @@ class SaveRefImageNativeService {
     await channel.invokeMethod('pushQueue', [info.toJson(), factor?.toJson()]);
   }
 
-  Stream<ServiceQueueItem> observeQueue() {
-    return queueChannel
-        .receiveBroadcastStream('observeQueue')
-        .map((json) => ServiceQueueItem.fromJson(
-              (json as Map<Object?, Object?>).deepCast(),
-            ));
-  }
+  Stream<ServiceQueueItem> observeQueue() => _queueStream;
 
   Future<List<ServiceRequest>> getAllInProgress() async {
     final List<Object?> list = await channel.invokeMethod('getAllInProgress');
@@ -110,10 +117,5 @@ class SaveRefImageNativeService {
     );
   }
 
-  Stream<ServiceResult> observeResult() {
-    return resultChannel.receiveBroadcastStream('observeResult').map(
-          (json) => ServiceResult.fromJson(
-              (json as Map<Object?, Object?>).deepCast()),
-        );
-  }
+  Stream<ServiceResult> observeResult() => _resultStream;
 }

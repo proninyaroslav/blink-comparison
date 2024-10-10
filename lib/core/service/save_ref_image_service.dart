@@ -117,26 +117,31 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
   @override
   Stream<SaveRefImageStatus?> observeStatusById(String imageId) async* {
     yield await getCurrentStatusById(imageId);
-    yield* _jobController.observeResult().asyncMap((result) async {
-      final status = switch (result) {
-        ServiceResultSuccess(:final request) => SaveRefImageStatus.completed(
-            imageId: request.info.id,
-          ),
-        ServiceResultFail(:final request, :final error) =>
-          SaveRefImageStatus.completed(
-            imageId: request.info.id,
-            error: switch (error) {
-              ServiceErrorSaveImage(:final error) =>
-                SaveRefImageStatusError.saveImage(error),
-              ServiceErrorGenerateThumbnail(:final error) =>
-                SaveRefImageStatusError.generateThumbnail(error),
-              ServiceErrorSaveThumbnail(:final error) =>
-                SaveRefImageStatusError.saveThumbnail(error),
-            },
-          ),
-      };
-      return status;
-    });
+    yield* _jobController
+        .observeResult()
+        .where((result) => result.request.info.id == imageId)
+        .asyncMap(
+      (result) async {
+        final status = switch (result) {
+          ServiceResultSuccess(:final request) => SaveRefImageStatus.completed(
+              imageId: request.info.id,
+            ),
+          ServiceResultFail(:final request, :final error) =>
+            SaveRefImageStatus.completed(
+              imageId: request.info.id,
+              error: switch (error) {
+                ServiceErrorSaveImage(:final error) =>
+                  SaveRefImageStatusError.saveImage(error),
+                ServiceErrorGenerateThumbnail(:final error) =>
+                  SaveRefImageStatusError.generateThumbnail(error),
+                ServiceErrorSaveThumbnail(:final error) =>
+                  SaveRefImageStatusError.saveThumbnail(error),
+              },
+            ),
+        };
+        return status;
+      },
+    );
   }
 
   @override
