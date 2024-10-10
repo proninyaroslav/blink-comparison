@@ -27,34 +27,50 @@ class CameraPickerCubit extends Cubit<CameraPickerState> {
 
   CameraPickerCubit(this._fs) : super(CameraPickerState.initial());
 
-  void load(XFileImage image) {
+  @override
+  Future<void> close() async {
+    await _cleanup();
+
+    return super.close();
+  }
+
+  Future<void> load(XFileImage image) async {
+    if (state is! CameraPickerStateInitial) {
+      await _cleanup();
+    }
     emit(CameraPickerState.loaded(image: image));
   }
 
   Future<void> reject() async {
     if (state case CameraPickerStateLoaded(:final image)) {
-      await _removeImage(image);
-      await image.evict();
       emit(CameraPickerState.rejected(image: image));
     }
   }
 
   Future<void> accept(CameraPickerMetadata metadata) async {
     if (state case CameraPickerStateLoaded(:final image)) {
-      await image.evict();
       emit(CameraPickerState.accepted(image: image, metadata: metadata));
     }
   }
 
-  Future<void> _removeImage(XFileImage image) async {
-    try {
-      await _fs.file(image.file.path).delete();
-    } on Exception catch (e, stackTrace) {
-      log().e(
-        'Unable to delete cached image',
-        error: e,
-        stackTrace: stackTrace,
-      );
+  Future<void> _cleanup() async {
+    switch (state) {
+      case CameraPickerStateInitial():
+        break;
+      case CameraPickerStateAccepted(:final image):
+        await image.evict();
+      case CameraPickerStateLoaded(:final image) ||
+            CameraPickerStateRejected(:final image):
+        await image.evict();
+        try {
+          await _fs.file(image.file.path).delete();
+        } on Exception catch (e, stackTrace) {
+          log().e(
+            'Unable to delete cached image',
+            error: e,
+            stackTrace: stackTrace,
+          );
+        }
     }
   }
 }

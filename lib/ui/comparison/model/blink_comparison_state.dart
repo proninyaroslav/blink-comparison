@@ -15,6 +15,8 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'package:blink_comparison/ui/model/xfile_image.dart';
+import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'blink_comparison_state.freezed.dart';
@@ -23,9 +25,18 @@ part 'blink_comparison_state.freezed.dart';
 sealed class BlinkComparisonState with _$BlinkComparisonState {
   const factory BlinkComparisonState.initial() = BlinkComparisonStateInitial;
 
-  const factory BlinkComparisonState.showRefImage() =
-      BlinkComparisonStateShowRefImage;
+  const factory BlinkComparisonState.loaded({
+    required ImageProvider refImage,
+    required XFileImage takenPhoto,
+  }) = BlinkComparisonStateLoaded;
 
-  const factory BlinkComparisonState.showTakenPhoto() =
-      BlinkComparisonStateShowTakenPhoto;
+  const factory BlinkComparisonState.showRefImage({
+    required ImageProvider refImage,
+    required XFileImage takenPhoto,
+  }) = BlinkComparisonStateShowRefImage;
+
+  const factory BlinkComparisonState.showTakenPhoto({
+    required ImageProvider refImage,
+    required XFileImage takenPhoto,
+  }) = BlinkComparisonStateShowTakenPhoto;
 }

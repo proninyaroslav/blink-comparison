@@ -32,6 +32,7 @@ void main() {
     late final FileSystem mockFs;
     late CameraPickerCubit cubit;
     late final XFileImage mockImage;
+    late final XFileImage mockImage2;
     late final XFile mockImageXFile;
     late final File mockImageFile;
     late final FileSystemEntity mockFileEntity;
@@ -42,9 +43,16 @@ void main() {
       mockImageFile = MockFile();
       mockFileEntity = MockFileSystemEntity();
       mockImage = MockXFileImage();
+      mockImage2 = MockXFileImage();
 
       when(() => mockImageXFile.path).thenReturn('/');
       when(() => mockImage.file).thenReturn(mockImageXFile);
+      when(() => mockImage2.file).thenReturn(mockImageXFile);
+      when(() => mockImage.evict()).thenAnswer((_) async => true);
+      when(() => mockImage2.evict()).thenAnswer((_) async => true);
+      when(() => mockFs.file('/')).thenReturn(mockImageFile);
+      when(() => mockImageFile.delete())
+          .thenAnswer((_) async => mockFileEntity);
     });
 
     setUp(() {
@@ -60,11 +68,15 @@ void main() {
     blocTest(
       'Load',
       build: () => cubit,
-      act: (CameraPickerCubit cubit) {
-        cubit.load(mockImage);
+      act: (CameraPickerCubit cubit) async {
+        await cubit.load(mockImage);
+        await cubit.load(mockImage2);
+        verify(() => mockImage.evict()).called(1);
+        verify(() => mockImageFile.delete()).called(1);
       },
       expect: () => [
         CameraPickerState.loaded(image: mockImage),
+        CameraPickerState.loaded(image: mockImage2),
       ],
     );
 
@@ -72,11 +84,8 @@ void main() {
       'Accept',
       build: () => cubit,
       act: (CameraPickerCubit cubit) async {
-        cubit.load(mockImage);
-        when(() => mockImage.evict()).thenAnswer((_) async => true);
-
+        await cubit.load(mockImage);
         await cubit.accept(CameraPickerMetadata(label: 'label'));
-        verify(() => mockImage.evict()).called(1);
       },
       expect: () => [
         CameraPickerState.loaded(image: mockImage),
@@ -91,15 +100,8 @@ void main() {
       'Reject',
       build: () => cubit,
       act: (CameraPickerCubit cubit) async {
-        cubit.load(mockImage);
-        when(() => mockImage.evict()).thenAnswer((_) async => true);
-        when(() => mockFs.file('/')).thenReturn(mockImageFile);
-        when(() => mockImageFile.delete())
-            .thenAnswer((_) async => mockFileEntity);
-
+        await cubit.load(mockImage);
         await cubit.reject();
-        verify(() => mockImageFile.delete()).called(1);
-        verify(() => mockImage.evict()).called(1);
       },
       expect: () => [
         CameraPickerState.loaded(image: mockImage),

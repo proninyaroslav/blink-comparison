@@ -130,7 +130,7 @@ class BlinkComparisonRoute
   BlinkComparisonRoute({
     _i17.Key? key,
     required _i17.ImageProvider<Object> refImage,
-    required _i17.ImageProvider<Object> takenPhoto,
+    required _i18.XFileImage takenPhoto,
     required double aspectRatio,
     List<_i16.PageRouteInfo>? children,
   }) : super(
@@ -173,7 +173,7 @@ class BlinkComparisonRouteArgs {
 
   final _i17.ImageProvider<Object> refImage;
 
-  final _i17.ImageProvider<Object> takenPhoto;
+  final _i18.XFileImage takenPhoto;
 
   final double aspectRatio;
 

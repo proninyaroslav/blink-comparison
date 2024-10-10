@@ -21,6 +21,8 @@ import 'package:blink_comparison/ui/comparison/model/blink_comparison_state.dart
 import 'package:blink_comparison/ui/comparison/model/comparison_settings_state.dart';
 import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:blink_comparison/ui/model/showcase_cubit.dart';
+import 'package:blink_comparison/ui/model/xfile_image.dart';
+import 'package:file/file.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showcaseview/showcaseview.dart';
@@ -37,7 +39,7 @@ final _blinkComparisonShowcaseKey = GlobalKey();
 @RoutePage()
 class BlinkComparisonPage extends StatefulWidget implements AutoRouteWrapper {
   final ImageProvider refImage;
-  final ImageProvider takenPhoto;
+  final XFileImage takenPhoto;
   final double aspectRatio;
 
   const BlinkComparisonPage({
@@ -52,7 +54,7 @@ class BlinkComparisonPage extends StatefulWidget implements AutoRouteWrapper {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => BlinkComparisonCubit(),
+          create: (context) => BlinkComparisonCubit(getIt<FileSystem>()),
         ),
         BlocProvider(
           create: (context) => ComparisonSettingsCubit(getIt<AppSettings>()),
@@ -76,30 +78,20 @@ class _BlinkComparisonPageState extends State<BlinkComparisonPage> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await Future.wait([
-        context.read<ComparisonSettingsCubit>().load(),
-        context.read<ShowcaseCubit>().load(),
+        precacheImage(widget.takenPhoto, context),
+        precacheImage(widget.refImage, context),
       ]);
+      if (mounted) {
+        await Future.wait([
+          context.read<BlinkComparisonCubit>().load(
+                refImage: widget.refImage,
+                takenPhoto: widget.takenPhoto,
+              ),
+          context.read<ComparisonSettingsCubit>().load(),
+          context.read<ShowcaseCubit>().load(),
+        ]);
+      }
     });
-  }
-
-  @override
-  void didChangeDependencies() {
-    Future.wait([
-      precacheImage(widget.takenPhoto, context),
-      precacheImage(widget.refImage, context),
-    ]).then(
-      (_) {
-        final c = context;
-        if (c.mounted) {
-          final cubit = c.read<BlinkComparisonCubit>();
-          if (cubit.state case BlinkComparisonStateInitial()) {
-            cubit.switchImage();
-          }
-        }
-      },
-    );
-
-    super.didChangeDependencies();
   }
 
   @override
@@ -188,11 +180,17 @@ class _BodyState extends State<_Body> {
                   behavior: HitTestBehavior.translucent,
                   onTap: () => _onSwitchImage(context),
                   child: Center(
-                    child:
-                        BlocBuilder<BlinkComparisonCubit, BlinkComparisonState>(
+                    child: BlocConsumer<BlinkComparisonCubit,
+                        BlinkComparisonState>(
+                      listener: (context, state) async {
+                        if (state case BlinkComparisonStateLoaded()) {
+                          context.read<BlinkComparisonCubit>().switchImage();
+                        }
+                      },
                       builder: (context, state) {
                         return switch (state) {
-                          BlinkComparisonStateInitial() =>
+                          BlinkComparisonStateInitial() ||
+                          BlinkComparisonStateLoaded() =>
                             const CircularProgressIndicator(),
                           BlinkComparisonStateShowRefImage() =>
                             widget.refImageWidget,

@@ -16,6 +16,9 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:blink_comparison/ui/model/xfile_image.dart';
+import 'package:flutter/widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockXFileImage extends Mock implements XFileImage {}
+
+class MockImageProvider extends Mock implements ImageProvider {}
