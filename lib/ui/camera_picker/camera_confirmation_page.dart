@@ -108,23 +108,23 @@ class _CameraConfirmationPageState extends State<CameraConfirmationPage>
                 ),
               ),
               bottomNavigationBar: _ButtonBar(
-                onRetry: () {
+                onRetry: () async {
                   if (!_closed) {
-                    widget.onRetry();
                     _closed = true;
-                    context.maybePop();
+                    await context.maybePop();
+                    widget.onRetry();
                   }
                 },
-                onAccept: () {
+                onAccept: () async {
                   if (!_closed) {
                     final label = _labelController.text.trim();
+                    _closed = true;
+                    await context.maybePop();
                     widget.onAccept(
                       CameraPickerMetadata(
                         label: label.isEmpty ? null : label,
                       ),
                     );
-                    _closed = true;
-                    context.maybePop();
                   }
                 },
               ),

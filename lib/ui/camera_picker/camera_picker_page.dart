@@ -79,27 +79,9 @@ class CameraPickerPage extends StatefulWidget implements AutoRouteWrapper {
 class _CameraPickerPageState extends State<CameraPickerPage> {
   final _controller = CameraViewController();
 
-  late final AppLifecycleListener _lifecycleListener;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _lifecycleListener = AppLifecycleListener(
-      onStateChange: _onAppLifecycleCnahge,
-    );
-  }
-
-  Future<void> _onAppLifecycleCnahge(AppLifecycleState state) async {
-    if (state == AppLifecycleState.detached) {
-      await context.read<CameraPickerCubit>().reject();
-    }
-  }
-
   @override
   void dispose() {
     _controller.dispose();
-    _lifecycleListener.dispose();
 
     super.dispose();
   }
@@ -135,10 +117,12 @@ class _CameraPickerPageState extends State<CameraPickerPage> {
   Future<void> _onTakePhoto(XFile file) async {
     final cubit = context.read<CameraPickerCubit>();
     final image = XFileImage(file);
-    cubit.load(image);
+    await cubit.load(image);
 
     _controller.pauseCamera();
-    await precacheImage(image, context);
+    if (mounted) {
+      await precacheImage(image, context);
+    }
 
     if (mounted) {
       await context.navigateTo(
