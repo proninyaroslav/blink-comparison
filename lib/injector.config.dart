@@ -65,6 +65,7 @@ import 'package:blink_comparison/di/shared_preferences_module.dart' as _i980;
 import 'package:blink_comparison/di/sodium_module.dart' as _i298;
 import 'package:blink_comparison/platform/save_ref_image_native_service.dart'
     as _i188;
+import 'package:blink_comparison/platform/window_manager_native.dart' as _i57;
 import 'package:blink_comparison/ui/components/camera/model/camera_provider.dart'
     as _i728;
 import 'package:file/file.dart' as _i303;
@@ -94,6 +95,7 @@ extension GetItInjectableX on _i174.GetIt {
     final sharedPreferencesModule = _$SharedPreferencesModule();
     final sodiumModule = _$SodiumModule();
     final sembastModule = _$SembastModule();
+    gh.factory<_i57.WindowManagerNative>(() => _i57.WindowManagerNative());
     gh.factory<_i303.FileSystem>(() => fileSystemModule.fs);
     gh.factory<_i183.ImagePicker>(() => imagePickerModule.imagePicker);
     await gh.singletonAsync<_i460.SharedPreferences>(
@@ -131,7 +133,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.singleton<_i105.AuthFactorRepository>(
         () => _i105.AuthFactorRepositoryImpl());
-    gh.singleton<_i320.WindowManager>(() => _i320.WindowManagerImpl());
     gh.factory<_i809.GenerateThumbnailJob>(
         () => _i809.GenerateThumbnailJobImpl(gh<_i705.Thumbnailer>()));
     gh.factory<_i479.SecureKeyFactory>(
@@ -173,6 +174,8 @@ extension GetItInjectableX on _i174.GetIt {
       () => sembastModule.db(gh<_i1009.PlatformInfo>()),
       preResolve: true,
     );
+    gh.singleton<_i320.WindowManager>(
+        () => _i320.WindowManagerImpl(gh<_i57.WindowManagerNative>()));
     gh.factory<_i598.ThumbnailsMigrator>(() => _i598.ThumbnailsMigrator(
           gh<_i1009.PlatformInfo>(),
           gh<_i303.FileSystem>(),

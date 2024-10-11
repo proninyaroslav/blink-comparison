@@ -17,11 +17,11 @@
 
 import 'dart:async';
 
+import 'package:blink_comparison/core/window_manager.dart';
+import 'package:blink_comparison/injector.dart';
 import 'package:blink_comparison/ui/components/camera/buttons_bar.dart';
-import 'package:blink_comparison/ui/components/camera/camera_app_bar.dart';
 import 'package:blink_comparison/ui/components/camera/camera_pause_progress.dart';
 import 'package:blink_comparison/ui/components/camera/camera_preview_placeholder.dart';
-import 'package:blink_comparison/ui/components/camera/camera_settings_button.dart';
 import 'package:blink_comparison/ui/components/camera/camera_settings_sheet.dart';
 import 'package:blink_comparison/ui/components/camera/flash_button.dart';
 import 'package:blink_comparison/ui/components/camera/flip_camera_button.dart';
@@ -38,11 +38,14 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:native_device_orientation/native_device_orientation.dart';
 import 'package:open_settings_plus/open_settings_plus.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
 import '../../../locale.dart';
 import '../../../logger.dart';
+import 'camera_app_bar.dart';
+import 'camera_settings_button.dart';
 
 class CameraView extends StatefulWidget {
   final List<Widget>? appBarActions;
@@ -83,6 +86,7 @@ class _CameraViewState extends State<CameraView> with WidgetsBindingObserver {
     super.initState();
 
     WakelockPlus.enable();
+    getIt<WindowManager>().setRotationAnimation(RotationAnimtation.seamless);
     context.read<CameraProviderCubit>().loadAvailableCameras();
 
     final controller = widget._controller;
@@ -110,10 +114,21 @@ class _CameraViewState extends State<CameraView> with WidgetsBindingObserver {
   }
 
   @override
+  void didChangeMetrics() {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await _lockCurrentCaptureOrientation();
+    });
+
+    super.didChangeMetrics();
+  }
+
+  @override
   void dispose() {
     super.dispose();
 
     WakelockPlus.disable();
+    getIt<WindowManager>()
+        .setRotationAnimation(RotationAnimtation.defaultValue);
 
     WidgetsBinding.instance.removeObserver(this);
 
@@ -225,51 +240,47 @@ class _CameraViewState extends State<CameraView> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CameraAppBar(
-        actions: [
-          ...?widget.appBarActions,
-          CameraSettingsButton(
-            onPressed: () => _showCameraSettingsSheet(context),
-          ),
-        ],
-      ),
       extendBody: true,
       extendBodyBehindAppBar: true,
       resizeToAvoidBottomInset: false,
-      body: Listener(
-        onPointerDown: (_) => _pointers++,
-        onPointerUp: (_) => _pointers--,
-        child: Stack(
-          children: [
-            if (_initializeError == null)
-              const Align(
-                alignment: Alignment.center,
-                child: CameraPreviewPlaceholder(),
-              ),
-            Align(
+      body: Stack(
+        children: [
+          if (_initializeError == null)
+            const Align(
               alignment: Alignment.center,
-              child: BlocConsumer<CameraProviderCubit, CameraProviderState>(
-                listener: _listener,
-                builder: _builder,
+              child: CameraPreviewPlaceholder(),
+            ),
+          Align(
+            alignment: Alignment.center,
+            child: BlocConsumer<CameraProviderCubit, CameraProviderState>(
+              listener: _listener,
+              builder: _builder,
+            ),
+          ),
+          ListenableBuilder(
+            listenable: widget._controller,
+            builder: (context, child) {
+              return Align(
+                alignment: Alignment.center,
+                child: CameraPauseProgress(
+                  visible: widget._controller.paused,
+                ),
+              );
+            },
+          ),
+          ListenableBuilder(
+            listenable: widget._controller,
+            builder: _buttonsBarBuilder,
+          ),
+          CameraAppBar(
+            actions: [
+              ...?widget.appBarActions,
+              CameraSettingsButton(
+                onPressed: () => _showCameraSettingsSheet(context),
               ),
-            ),
-            ListenableBuilder(
-              listenable: widget._controller,
-              builder: (context, child) {
-                return Align(
-                  alignment: Alignment.center,
-                  child: CameraPauseProgress(
-                    visible: widget._controller.paused,
-                  ),
-                );
-              },
-            ),
-            ListenableBuilder(
-              listenable: widget._controller,
-              builder: _buttonsBarBuilder,
-            ),
-          ],
-        ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -305,22 +316,26 @@ class _CameraViewState extends State<CameraView> with WidgetsBindingObserver {
               return const SizedBox.shrink();
             }
 
-            return GestureDetector(
-              onScaleStart: _handleScaleStart,
-              onScaleUpdate: _handleScaleUpdate,
-              onTapDown: (details) {
-                _onViewFinderTap(details, constraints);
-              },
-              behavior: HitTestBehavior.opaque,
-              child: CameraPreview(
-                _cameraController!,
-                child: Stack(
-                  children: [
-                    if (widget.overlayChild != null) widget.overlayChild!,
-                    TakePictureFlash(
-                      key: _takePictureFlashKey,
-                    ),
-                  ],
+            return Listener(
+              onPointerDown: (_) => _pointers++,
+              onPointerUp: (_) => _pointers--,
+              child: GestureDetector(
+                onScaleStart: _handleScaleStart,
+                onScaleUpdate: _handleScaleUpdate,
+                onTapDown: (details) {
+                  _onViewFinderTap(details, constraints);
+                },
+                behavior: HitTestBehavior.opaque,
+                child: CameraPreview(
+                  _cameraController!,
+                  child: Stack(
+                    children: [
+                      if (widget.overlayChild != null) widget.overlayChild!,
+                      TakePictureFlash(
+                        key: _takePictureFlashKey,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             );
@@ -539,6 +554,15 @@ class _CameraViewState extends State<CameraView> with WidgetsBindingObserver {
         );
       }
     }
+  }
+
+  Future<void> _lockCurrentCaptureOrientation() async {
+    final orientation =
+        await NativeDeviceOrientationCommunicator().orientation();
+
+    await _cameraController?.lockCaptureOrientation(
+      orientation.deviceOrientation,
+    );
   }
 
   void _showCameraSettingsSheet(BuildContext context) {

@@ -15,9 +15,10 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:flutter/material.dart';
 
-class CameraAppBar extends StatelessWidget implements PreferredSizeWidget {
+class CameraAppBar extends StatelessWidget {
   final List<Widget>? actions;
   const CameraAppBar({
     super.key,
@@ -27,13 +28,25 @@ class CameraAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final color = Theme.of(context).colorScheme.surface.withOpacity(0.54);
-    return AppBar(
-      backgroundColor: color,
-      actionsIconTheme: const IconThemeData(color: Colors.white),
-      actions: actions,
+    return PortraitOnlyWidget(
+      direction: RotateDirection.clockwise,
+      child: SizedBox.fromSize(
+        size: const Size.fromHeight(56.0),
+        child: AppBar(
+          leading: PortraitOnlyWidget(
+            child: BackButton(),
+          ),
+          backgroundColor: color,
+          actionsIconTheme: const IconThemeData(color: Colors.white),
+          actions: actions
+              ?.map(
+                (child) => PortraitOnlyWidget(
+                  child: child,
+                ),
+              )
+              .toList(),
+        ),
+      ),
     );
   }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(56.0);
 }

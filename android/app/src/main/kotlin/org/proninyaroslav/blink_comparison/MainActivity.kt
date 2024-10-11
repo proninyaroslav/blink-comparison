@@ -21,19 +21,20 @@ package org.proninyaroslav.blink_comparison
 
 import android.os.Build
 import android.os.Bundle
-import androidx.core.view.WindowCompat
-import org.proninyaroslav.blink_comparison.channel.SaveRefImageServiceChannel
-import org.proninyaroslav.blink_comparison.channel.SaveRefImageServiceQueueChannel
-import org.proninyaroslav.blink_comparison.channel.SaveRefImageServiceResultChannel
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodChannel
+import org.proninyaroslav.blink_comparison.channel.SaveRefImageServiceChannel
+import org.proninyaroslav.blink_comparison.channel.SaveRefImageServiceQueueChannel
+import org.proninyaroslav.blink_comparison.channel.SaveRefImageServiceResultChannel
+import org.proninyaroslav.blink_comparison.channel.WindowManagerChannel
 
 class MainActivity : FlutterActivity() {
     private lateinit var saveRefImageServiceChannel: SaveRefImageServiceChannel
     private lateinit var saveRefImageServiceQueueChannel: SaveRefImageServiceQueueChannel
     private lateinit var saveRefImageServiceResultChannel: SaveRefImageServiceResultChannel
+    private lateinit var windowManagerChannel: WindowManagerChannel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
@@ -55,6 +56,7 @@ class MainActivity : FlutterActivity() {
             saveRefImageServiceQueueChannel,
             saveRefImageServiceResultChannel,
         )
+        windowManagerChannel = WindowManagerChannel { this }
         MethodChannel(
             flutterEngine.dartExecutor.binaryMessenger,
             SaveRefImageServiceChannel.channelName,
@@ -67,5 +69,9 @@ class MainActivity : FlutterActivity() {
             flutterEngine.dartExecutor.binaryMessenger,
             SaveRefImageServiceResultChannel.channelName,
         ).setStreamHandler(saveRefImageServiceResultChannel)
+        MethodChannel(
+            flutterEngine.dartExecutor.binaryMessenger,
+            WindowManagerChannel.channelName,
+        ).setMethodCallHandler(windowManagerChannel)
     }
 }

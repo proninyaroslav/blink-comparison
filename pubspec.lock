@@ -602,14 +602,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_windowmanager_plus:
-    dependency: "direct main"
-    description:
-      name: flutter_windowmanager_plus
-      sha256: "4e2bf7c7f374699fd74d59785f1d74efd40052c24a5edde5a4d825cc72608d40"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.1"
   fluttertoast:
     dependency: "direct main"
     description:
@@ -978,6 +970,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
+  native_device_orientation:
+    dependency: "direct main"
+    description:
+      name: native_device_orientation
+      sha256: "0c330c068575e4be72cce5968ca479a3f8d5d1e5dfce7d89d5c13a1e943b338c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.3"
   nested:
     dependency: transitive
     description:
@@ -1729,5 +1729,5 @@ packages:
     source: hosted
     version: "3.1.2"
 sdks:
-  dart: ">=3.5.1 <4.0.0"
+  dart: ">=3.5.0 <4.0.0"
   flutter: ">=3.24.0"
