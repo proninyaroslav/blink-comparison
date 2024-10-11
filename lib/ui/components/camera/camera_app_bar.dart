@@ -17,6 +17,7 @@
 
 import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CameraAppBar extends StatelessWidget {
   final List<Widget>? actions;
@@ -28,25 +29,36 @@ class CameraAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = Theme.of(context).colorScheme.surface.withOpacity(0.54);
-    return PortraitOnlyWidget(
-      direction: RotateDirection.clockwise,
-      child: SizedBox.fromSize(
-        size: const Size.fromHeight(56.0),
-        child: AppBar(
-          leading: PortraitOnlyWidget(
-            child: BackButton(),
-          ),
-          backgroundColor: color,
-          actionsIconTheme: const IconThemeData(color: Colors.white),
-          actions: actions
-              ?.map(
-                (child) => PortraitOnlyWidget(
-                  child: child,
+    return PortraitOnlyWidget.builder(
+      builder: (context, orientation) {
+        return Align(
+          alignment: Alignment.topCenter,
+          child: SizedBox.fromSize(
+            size: const Size.fromHeight(56.0),
+            child: Directionality(
+              textDirection: orientation == DeviceOrientation.landscapeLeft
+                  ? TextDirection.rtl
+                  : TextDirection.ltr,
+              child: AppBar(
+                leading: PortraitOnlyWidget(
+                  direction: RotateDirection.clockwise,
+                  child: BackButton(),
                 ),
-              )
-              .toList(),
-        ),
-      ),
+                backgroundColor: color,
+                actionsIconTheme: const IconThemeData(color: Colors.white),
+                actions: actions
+                    ?.map(
+                      (child) => PortraitOnlyWidget(
+                        direction: RotateDirection.clockwise,
+                        child: child,
+                      ),
+                    )
+                    .toList(),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

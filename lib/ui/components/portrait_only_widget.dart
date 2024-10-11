@@ -16,6 +16,8 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:native_device_orientation/native_device_orientation.dart';
 
 enum RotateDirection {
   clockwise,
@@ -23,36 +25,51 @@ enum RotateDirection {
 }
 
 class PortraitOnlyWidget extends StatelessWidget {
-  final Widget child;
+  late final Widget? _child;
+  late final Widget Function(BuildContext, DeviceOrientation?)? _builder;
   final RotateDirection direction;
 
-  const PortraitOnlyWidget({
+  PortraitOnlyWidget({
     super.key,
-    required this.child,
+    required Widget child,
     this.direction = RotateDirection.counterclockwise,
-  });
+  }) {
+    _child = child;
+    _builder = null;
+  }
+
+  PortraitOnlyWidget.builder({
+    super.key,
+    required Widget Function(BuildContext, DeviceOrientation?) builder,
+    this.direction = RotateDirection.counterclockwise,
+  }) {
+    _child = null;
+    _builder = builder;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return OrientationBuilder(
-      builder: (context, _) {
-        // Get global (device) orientation
-        final orientation = MediaQuery.of(context).orientation;
+    return NativeDeviceOrientationReader(
+      builder: (context) {
+        final orientation = NativeDeviceOrientationReader.orientation(context);
         return RotatedBox(
-          quarterTurns:
-              orientation == Orientation.portrait ? 0 : _getTurnsDirection(),
-          child: child,
+          quarterTurns: _getTurnsDirection(orientation),
+          child: _child ?? _builder!(context, orientation.deviceOrientation),
         );
       },
     );
   }
 
-  int _getTurnsDirection() {
-    switch (direction) {
-      case RotateDirection.clockwise:
-        return 1;
-      case RotateDirection.counterclockwise:
-        return -1;
-    }
-  }
+  int _getTurnsDirection(NativeDeviceOrientation orientation) =>
+      switch (direction) {
+        RotateDirection.clockwise => -_turns[orientation]!,
+        RotateDirection.counterclockwise => _turns[orientation]!,
+      };
 }
+
+final Map<NativeDeviceOrientation, int> _turns = {
+  NativeDeviceOrientation.portraitUp: 0,
+  NativeDeviceOrientation.landscapeRight: 1,
+  NativeDeviceOrientation.portraitDown: 2,
+  NativeDeviceOrientation.landscapeLeft: 3,
+};
