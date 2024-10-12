@@ -14,6 +14,12 @@ The permission is;
 
   - take photo to add as reference image as well as for comparison
 
+- Read and write storage
+
+  With the storage permission enabled, the app can;
+
+  - save taken photo into the temporary file on devices with Android 9 and below
+
 Blink Comparison has some other capabilities, which are functions the software can remotely effect on its own. They include;
 
 - **Run foreground services**: Allows the app to save reference images in the background.
