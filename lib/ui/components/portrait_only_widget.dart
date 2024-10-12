@@ -49,13 +49,22 @@ class PortraitOnlyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return NativeDeviceOrientationReader(
-      builder: (context) {
-        final orientation = NativeDeviceOrientationReader.orientation(context);
-        return RotatedBox(
-          quarterTurns: _getTurnsDirection(orientation),
-          child: _child ?? _builder!(context, orientation.deviceOrientation),
-        );
+    return OrientationBuilder(
+      builder: (context, _) {
+        return FutureBuilder(
+            future: NativeDeviceOrientationCommunicator().orientation(),
+            builder: (context, snapshot) {
+              final orientation = snapshot.data;
+              return RotatedBox(
+                quarterTurns:
+                    orientation == null ? 0 : _getTurnsDirection(orientation),
+                child: _child ??
+                    _builder!(
+                      context,
+                      orientation?.deviceOrientation,
+                    ),
+              );
+            });
       },
     );
   }
