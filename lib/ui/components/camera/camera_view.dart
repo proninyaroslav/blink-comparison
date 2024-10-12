@@ -184,6 +184,7 @@ class _CameraViewState extends State<CameraView> with WidgetsBindingObserver {
     }
 
     try {
+      await _lockCurrentCaptureOrientation();
       if (!widget._controller.paused) {
         await _switchFlash(_flashEnabled!);
       }
@@ -560,9 +561,22 @@ class _CameraViewState extends State<CameraView> with WidgetsBindingObserver {
     final orientation =
         await NativeDeviceOrientationCommunicator().orientation();
 
-    await _cameraController?.lockCaptureOrientation(
-      orientation.deviceOrientation,
-    );
+    try {
+      await _cameraController?.lockCaptureOrientation(
+        orientation.deviceOrientation,
+      );
+    } catch (e, stackTrace) {
+      if (mounted) {
+        _errorSnackbar(
+          context,
+          msg: S.of(context).cameraLockOrientationError,
+          report: false,
+          reportMsg: 'Unable to lock camera orientation',
+          error: e,
+          stackTrace: stackTrace,
+        );
+      }
+    }
   }
 
   void _showCameraSettingsSheet(BuildContext context) {

@@ -135,7 +135,7 @@ class _CameraConfirmationPageState extends State<CameraConfirmationPage>
                   context,
                   labelController: _labelController,
                 ),
-                tooltip: 'Edit properties',
+                tooltip: S.of(context).editImageProperties,
                 child: const Icon(Symbols.edit),
               ),
             ),
