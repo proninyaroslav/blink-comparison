@@ -1,5 +1,4 @@
-Privacy Policy
-=====================
+# Privacy Policy
 
 This privacy policy document is to provide information on what, how, and why personal data or information is collected, used, and disclosed, when this software is utilized, and the choices you have associated with that data. The objective of this policy document is to provide an open environment between developer and users of this software by openly stating what information the developer collects or not. By utilizing this software, it means you accept all the terms and conditions of the developer peculiar to only Blink Comparison software. This Policy applies to this software only, and the developer would not be held responsible for the content or privacy practices on any third party app not operated by the developer to which this software links or that links to this software, therefore it is advisable to read up the privacy policies of third party services that may be linked to this software.
 
@@ -12,8 +11,8 @@ The permission is;
 - Camera
 
   With the camera permission enabled, the app can;
-    - take photo to add as reference image as well as for comparison
 
+  - take photo to add as reference image as well as for comparison
 
 Blink Comparison has some other capabilities, which are functions the software can remotely effect on its own. They include;
 
@@ -24,15 +23,19 @@ The information that may be collected with these permissions are stored locally 
 ## Types of Data Collected
 
 ### Personal Data
+
 The developer doesn't collect personally identifiable data. Only except when you send crash logs.
 
 ### Usage Data
+
 The developer doesn't collect usage data.
 
 ### Installation Data
+
 The developer distributes this software via google play store where download counts are maintained. But, the developer has no knowledge or way to acquire knowledge about a user that has installed or is using this software.
 
 ## Crash reports
+
 The application allows you to send logs to the developer to help with the diagnosis of sync problems and bugs. The logs contain no personal or identifying information, however, your identity may be revealed through your email address. The developer guarantees that no part of the logs nor the email address of the sender nor any other information about the sender will be shared with a 3rd party, and the email and the logs will be deleted by the developer as soon as they are not needed anymore.
 
 Blink Comparison is a project under active development and the developer needs to get information when it doesn't work, to make it work. If you encounter any error while using the software, please open an issue on GitHub and it will be fixed. In a case where the app crashes, try to include logcats in your reports, when possible.
@@ -42,6 +45,7 @@ Blink Comparison is a project under active development and the developer needs t
 Blink Comparison depends on the services of third-party libraries to facilitate its utilization, and to perform service-related services, or, to assist in analyzing how the services of the software are used. These third parties don't have access to your Personal Data but are used only to perform some tasks on the developer's behalf.
 
 ## Transfer Of Data
+
 With these third-party libraries contained in the software, your information, including personal data, may be transferred to computers located outside of your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from your jurisdiction. Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer.
 
 ## Links To Other Sites

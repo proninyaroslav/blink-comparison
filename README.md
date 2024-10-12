@@ -18,7 +18,7 @@
 
 </div>
 
-----
+---
 
 ## Screenshots
 
@@ -38,54 +38,55 @@ The concept of "blink comparison" method is simple - the app allows you to quick
 "Blink comparison" ([Wikipedia](https://en.wikipedia.org/wiki/Blink_comparator)) method uses high efficiency pattern recognition by human eyes, to permit quick verification between a reference picture and an actual one being taken on the spot. For example, in the goal of detecting tampering in high contrast nail polish tamper-evident seals.
 
 Relative documentation on the tamper-evident glitter nail polish seals concept and why it is hard to beat:
- - https://trmm.net/Glitter/
- - https://www.wired.com/2013/12/better-data-security-nail-polish/
- - https://dys2p.com/en/2021-12-tamper-evident-protection.html
+
+- https://trmm.net/Glitter/
+- https://www.wired.com/2013/12/better-data-security-nail-polish/
+- https://dys2p.com/en/2021-12-tamper-evident-protection.html
 
 [Use, see, change and share](https://en.wikipedia.org/wiki/Free_software); [with all](https://en.wikipedia.org/wiki/Copyleft).
 
 ## 📋 Features
 
- - Free and Open Source software (FOSS)
- - Support for various platforms and devices (currently Android only)
- - Add and store reference pictures in the app or take a photo on the spot; all pictures are encrypted, making it harder to steal or replacement
- - Compare a reference image with the one just taken using "blink comparison" method
- - Helps to take a compared photo in the correct position, at the correct angle, lighting and distance
- - Material Design
- - Night theme
- - Responsive UI for different devices form factors
+- Free and Open Source software (FOSS)
+- Support for various platforms and devices (currently Android only)
+- Add and store reference pictures in the app or take a photo on the spot
+- Encrypting images (optional), making it harder to steal or replacement
+- Compare a reference image with the one just taken using "blink comparison" method
+- Helps to take a compared photo in the correct position, at the correct angle, lighting and distance
+- Material Design 3
+- Night theme
+- Responsive UI for different devices form factors
 
 ## 🔒 Security
 
-All reference images that added to the app stored as encrypted, making it harder to steal or replacement. Currently, [password-based encryption](http://www.crypto-it.net/eng/theory/pbe.html) (PBE) is used. It's based on the [XChaCha20Poly1305](https://www.cryptopp.com/wiki/XChaCha20Poly1305) scheme and using a key derived by [Argon2](https://en.wikipedia.org/wiki/Argon2) function "on the fly" (during the encryption/decryption itself). The password is stored in the app as a hash obtained with Argon2.
+Optionally, during initial setup (or at any time), you can enable encryption of reference images so that they are stored in encrypted form, making them difficult to steal or replace. Currently, [password-based encryption](http://www.crypto-it.net/eng/theory/pbe.html) (PBE) is used. It's based on the [XChaCha20Poly1305](https://www.cryptopp.com/wiki/XChaCha20Poly1305) scheme and using a key derived by [Argon2](https://en.wikipedia.org/wiki/Argon2) function "on the fly" (during the encryption/decryption itself). The password is stored in the app as a hash obtained with Argon2.
 
 ## 🖥️💻📱 Available platforms
 
- - Android
- - ~~iOS~~ (planned)
- - ~~Linux~~ (planned)
+- Android
+- ~~Linux~~ (planned)
 
- ## 🌍 Translations
+## 🌍 Translations
 
- - **English**
- - **German**
- - **Russian**
- - **Spanish** *(thanks andgar2010)*
- - **French** *(thanks BNouailhac)*
+- **English**
+- **German**
+- **Russian**
+- **Spanish** _(thanks andgar2010)_
+- **French** _(thanks BNouailhac)_
 
 ## 💰 Donation
 
 If you like Blink Comparison you can support developer with these methods. If you have problems with payment or you want to donate in another way, contact me: `proninyaroslav@mail.ru`. Thank you!
 
- - **Bitcoin**: `12isaLkH8nZ4DkFguVFeYrGHqQi7EEgUrM `
- - **USDT TRC20**: `TK79fzUYwRtmANuLjk1Zzhz3hjTaFQbxfg`
- - **Monero**: `48j4Mo7J7t51EeBf35Lpdmehmi9chUwzSXxHrnjpRJ6fPQafPWvSCdFafw3rA5ZRWievfYEDToNso8VppbJf2RVH9cdZmHa`
- - **YooMoney (ЮMoney)**: `410011738561939`
- - **Patreon**: [patreon.com/YaroslavPronin](https://patreon.com/YaroslavPronin)
- - **Boosty**: [boosty.to/yaroslavpronin/donate](https://boosty.to/yaroslavpronin/donate)
- - **Amazon.com eGift Cards**: just choose your amount and type e-mail `proninyaroslav@mail.ru`
-in the gift card details [smile.amazon.com/gp/product/B004LLIKVU](https://smile.amazon.com/gp/product/B004LLIKVU)
- - **Liberapay**: [![liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/proninyaroslav/donate)
+- **Bitcoin**: `12isaLkH8nZ4DkFguVFeYrGHqQi7EEgUrM `
+- **USDT TRC20**: `TK79fzUYwRtmANuLjk1Zzhz3hjTaFQbxfg`
+- **Monero**: `48j4Mo7J7t51EeBf35Lpdmehmi9chUwzSXxHrnjpRJ6fPQafPWvSCdFafw3rA5ZRWievfYEDToNso8VppbJf2RVH9cdZmHa`
+- **YooMoney (ЮMoney)**: `410011738561939`
+- **Patreon**: [patreon.com/YaroslavPronin](https://patreon.com/YaroslavPronin)
+- **Boosty**: [boosty.to/yaroslavpronin/donate](https://boosty.to/yaroslavpronin/donate)
+- **Amazon.com eGift Cards**: just choose your amount and type e-mail `proninyaroslav@mail.ru`
+  in the gift card details [smile.amazon.com/gp/product/B004LLIKVU](https://smile.amazon.com/gp/product/B004LLIKVU)
+- **Liberapay**: [![liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/proninyaroslav/donate)
 
 ## ⚙️ Building
 
@@ -97,11 +98,11 @@ Please see [CONTRIBUTING.md](CONTRIBUTING.md)
 
 #### Developers
 
-* [Yaroslav Pronin](https://github.com/proninyaroslav)
+- [Yaroslav Pronin](https://github.com/proninyaroslav)
 
 #### Logo
 
-* [Ramy (@rshirwan)](https://t.me/rshirwan)
+- [Ramy (@rshirwan)](https://t.me/rshirwan)
 
 ## 🔒 Privacy Policy
 

@@ -1,5 +1,4 @@
-Contributor Guide
-=====================
+# Contributor Guide
 
 ## 🌍 Note for translators
 
@@ -8,14 +7,14 @@ Localization files are located in the [lib/l10n](lib/l10n) directory.
 The app uses ARB format for localization. If you wonder how to format key-values content inside ARB files, [here](https://github.com/google/app-resource-bundle/wiki/ApplicationResourceBundleSpecification) is detailed explanation.
 
 If you are making changes to the localization files, run the following command:
-```
-flutter pub run intl_utils:generate
-```
-or use [VSCode](https://marketplace.visualstudio.com/items?itemName=localizely.flutter-intl)/[Intellij IDEA](https://plugins.jetbrains.com/plugin/13666-flutter-intl) special plugin.
 
-If you added a new language, make sure to add it to the [lib/locale.dart](lib/locale.dart).
+```
+flutter gen-l10n
+```
 
-Detailed documentation on `intl_utils` [here](https://pub.dev/packages/intl_utils).
+or use `Generate Localizations` button in VSCode when the file is open in the editor.
+
+Detailed documentation about localization [here](https://docs.flutter.dev/ui/accessibility-and-internationalization/internationalization).
 
 ### Android localization
 
@@ -36,6 +35,7 @@ Also, take a look at [**Coding Guidelines**](#-coding-guidelines) before making 
 ### 2. After making changes
 
 Be sure to run `build_runner` before creating your commit:
+
 ```
 flutter pub run build_runner build --delete-conflicting-outputs
 ```
@@ -47,16 +47,17 @@ If you are making changes to the localization files, also read the [Note for tra
 ### 3. Testing
 
 Make sure that all existing and new tests are passing:
+
 ```
 flutter test test
 ```
 
 ## 📋 Coding Guidelines
 
- - Keep it snimple snupid: [KISS](https://en.wikipedia.org/wiki/KISS_principle)
- - No repeating yourself. [Re-use your own code and that of others](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself).
- - If you want to help, triaging and keeping up with the issue and TODO list is great.
- - Try to follow our coding style and formatting before submitting a patch.
- - All merge requests should come from a feature branch created on your Git fork. Your code will be reviewed, and only merged to the master branch if it doesn't break the build.
- - When you submit a merge request, try to explain what issue you're fixing, and what you're fixing in detail, so it's easier for us to read your patches.
- - Well named methods and code re-usability is preferable to a lot of comments.
+- Keep it snimple snupid: [KISS](https://en.wikipedia.org/wiki/KISS_principle)
+- No repeating yourself. [Re-use your own code and that of others](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself).
+- If you want to help, triaging and keeping up with the issue and TODO list is great.
+- Try to follow our coding style and formatting before submitting a patch.
+- All merge requests should come from a feature branch created on your Git fork. Your code will be reviewed, and only merged to the master branch if it doesn't break the build.
+- When you submit a merge request, try to explain what issue you're fixing, and what you're fixing in detail, so it's easier for us to read your patches.
+- Well named methods and code re-usability is preferable to a lot of comments.
