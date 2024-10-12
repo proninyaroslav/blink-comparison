@@ -105,5 +105,6 @@
   "databaseError": "Database error",
   "editImageProperties": "Edit image properties",
   "imageProperties": "Properties",
-  "imageLabel": "Label"
+  "imageLabel": "Label",
+  "cameraLockOrientationError": "Unable to lock camera orientation"
 }

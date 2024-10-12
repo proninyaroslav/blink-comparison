@@ -105,5 +105,6 @@
   "editImageProperties": "Редактировать свойства изображения",
   "imageProperties": "Свойства",
   "imageLabel": "Метка",
-  "authorizeFailedException": "Исключение во время авторизации"
+  "authorizeFailedException": "Исключение во время авторизации",
+  "cameraLockOrientationError": "Не удалось зафиксировать ориентацию камеры"
 }
