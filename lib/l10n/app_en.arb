@@ -42,7 +42,7 @@
   "savingImageMessage": "Saving...",
   "selectImagesFailed": "Unable to select images",
   "defaultNotifyChannelTitle": "Default",
-  "defaultNotifyChannelDescription": "All notifications that don't suitable for the other categories",
+  "defaultNotifyChannelDescription": "All notifications that don''t suitable for the other categories",
   "foregroundNotificationChannel": "Foreground notification",
   "saveRefImageNotificationTitle": "Saving a reference images in the background...",
   "refresh": "Refresh",
