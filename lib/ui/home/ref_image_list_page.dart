@@ -17,8 +17,6 @@
 
 import 'package:auto_route/auto_route.dart';
 import 'package:blink_comparison/core/crash_report/crash_report_manager.dart';
-import 'package:blink_comparison/core/platform_info.dart';
-import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/core/storage/ref_image_repository.dart';
 import 'package:blink_comparison/injector.dart';
 import 'package:blink_comparison/ui/components/widget.dart';
@@ -28,14 +26,11 @@ import 'package:blink_comparison/ui/home/model/ref_image_entry.dart';
 import 'package:blink_comparison/ui/home/model/ref_images_cubit.dart';
 import 'package:blink_comparison/ui/home/model/ref_images_state.dart';
 import 'package:blink_comparison/ui/model/error_report_cubit.dart';
-import 'package:blink_comparison/ui/model/system_picker_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import 'components/app_bar.dart';
-import 'model/add_ref_image_cubit.dart';
 import 'model/ref_images_actions_cubit.dart';
 import 'model/selectable_ref_image_cubit.dart';
 
@@ -47,18 +42,6 @@ class RefImageListPage extends StatefulWidget implements AutoRouteWrapper {
   Widget wrappedRoute(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (context) => AddRefImageCubit(
-            getIt<RefImageRepository>(),
-            getIt<AppSettings>(),
-          ),
-        ),
-        BlocProvider(
-          create: (context) => SystemPickerCubit(
-            getIt<ImagePicker>(),
-            getIt<PlatformInfo>(),
-          ),
-        ),
         BlocProvider(
           create: (context) => RefImagesCubit(
             getIt<RefImageRepository>(),

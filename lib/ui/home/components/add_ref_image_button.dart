@@ -16,7 +16,10 @@
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:auto_route/auto_route.dart';
+import 'package:blink_comparison/core/platform_info.dart';
+import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/core/storage/ref_image_repository.dart';
+import 'package:blink_comparison/injector.dart';
 import 'package:blink_comparison/locale.dart';
 import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:blink_comparison/ui/home/components/error_dialog.dart';
@@ -35,80 +38,96 @@ class AddRefImageButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocListener(
-      listeners: [
-        BlocListener<AddRefImageCubit, AddRefImageState>(
-          listener: (context, state) {
-            switch (state) {
-              case AddRefImageStateAddingImage():
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(S.of(context).savingImageMessage),
-                  ),
-                );
-              case AddRefImageStateNoSecureKey():
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(S.of(context).saveImageInvalidKey),
-                  ),
-                );
-              case _:
-                break;
-            }
-          },
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AddRefImageCubit(
+            getIt<RefImageRepository>(),
+            getIt<AppSettings>(),
+          ),
         ),
-        BlocListener<SystemPickerCubit, SystemPickerState>(
-          listener: (context, state) {
-            switch (state) {
-              case SystemPickerStateSelectImagesFailed(
-                  :final exception,
-                  :final stackTrace
-                ):
-                refImageErrorDialog(
-                  context,
-                  reportMsg: 'Unable to select images',
-                  dialogMsg: S.of(context).selectImagesFailed,
-                  exception: exception,
-                  stackTrace: stackTrace,
-                );
-              case SystemPickerStateImagesSelected(:final files):
-                context.read<AddRefImageCubit>().addImages(
-                    files.map((file) => RefImageProps(file: file)).toList());
-              case _:
-                break;
-            }
-          },
+        BlocProvider(
+          create: (context) => SystemPickerCubit(
+            getIt<ImagePicker>(),
+            getIt<PlatformInfo>(),
+          ),
         ),
       ],
-      child: DropdownFab(
-        icon: const Icon(Symbols.add),
-        label: Text(S.of(context).add),
-        menuWidth: 220,
-        menuChildren: [
-          DropdownFabMenuItem(
-            leading: const Icon(Symbols.photo),
-            title: Text(S.of(context).selectImage),
-            onTap: () => context
-                .read<SystemPickerCubit>()
-                .pickImages(ImageSource.gallery),
+      child: MultiBlocListener(
+        listeners: [
+          BlocListener<AddRefImageCubit, AddRefImageState>(
+            listener: (context, state) {
+              switch (state) {
+                case AddRefImageStateAddingImage():
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(S.of(context).savingImageMessage),
+                    ),
+                  );
+                case AddRefImageStateNoSecureKey():
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(S.of(context).saveImageInvalidKey),
+                    ),
+                  );
+                case _:
+                  break;
+              }
+            },
           ),
-          DropdownFabMenuItem(
-            leading: const Icon(Symbols.camera_alt),
-            title: Text(S.of(context).takePhoto),
-            onTap: () {
-              context.pushRoute(
-                CameraPickerRoute(
-                  onTakePhoto: (file, metadata) {
-                    context.read<AddRefImageCubit>().addImages(
-                      [RefImageProps(file: file, label: metadata.label)],
-                      removeSourceFiles: true,
-                    );
-                  },
-                ),
-              );
+          BlocListener<SystemPickerCubit, SystemPickerState>(
+            listener: (context, state) {
+              switch (state) {
+                case SystemPickerStateSelectImagesFailed(
+                    :final exception,
+                    :final stackTrace
+                  ):
+                  refImageErrorDialog(
+                    context,
+                    reportMsg: 'Unable to select images',
+                    dialogMsg: S.of(context).selectImagesFailed,
+                    exception: exception,
+                    stackTrace: stackTrace,
+                  );
+                case SystemPickerStateImagesSelected(:final files):
+                  context.read<AddRefImageCubit>().addImages(
+                      files.map((file) => RefImageProps(file: file)).toList());
+                case _:
+                  break;
+              }
             },
           ),
         ],
+        child: DropdownFab(
+          icon: const Icon(Symbols.add),
+          label: Text(S.of(context).add),
+          menuWidth: 220,
+          menuChildren: [
+            DropdownFabMenuItem(
+              leading: const Icon(Symbols.photo),
+              title: Text(S.of(context).selectImage),
+              onTap: () => context
+                  .read<SystemPickerCubit>()
+                  .pickImages(ImageSource.gallery),
+            ),
+            DropdownFabMenuItem(
+              leading: const Icon(Symbols.camera_alt),
+              title: Text(S.of(context).takePhoto),
+              onTap: () {
+                context.pushRoute(
+                  CameraPickerRoute(
+                    onTakePhoto: (file, metadata) {
+                      context.read<AddRefImageCubit>().addImages(
+                        [RefImageProps(file: file, label: metadata.label)],
+                        removeSourceFiles: true,
+                      );
+                    },
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
