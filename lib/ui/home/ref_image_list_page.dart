@@ -17,17 +17,22 @@
 
 import 'package:auto_route/auto_route.dart';
 import 'package:blink_comparison/core/crash_report/crash_report_manager.dart';
+import 'package:blink_comparison/core/platform_info.dart';
+import 'package:blink_comparison/core/settings/app_settings.dart';
 import 'package:blink_comparison/core/storage/ref_image_repository.dart';
 import 'package:blink_comparison/injector.dart';
 import 'package:blink_comparison/ui/components/widget.dart';
 import 'package:blink_comparison/ui/home/components/add_ref_image_button.dart';
 import 'package:blink_comparison/ui/home/components/images_list.dart';
+import 'package:blink_comparison/ui/home/model/add_ref_image_cubit.dart';
 import 'package:blink_comparison/ui/home/model/ref_image_entry.dart';
 import 'package:blink_comparison/ui/home/model/ref_images_cubit.dart';
 import 'package:blink_comparison/ui/home/model/ref_images_state.dart';
 import 'package:blink_comparison/ui/model/error_report_cubit.dart';
+import 'package:blink_comparison/ui/model/system_picker_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import 'components/app_bar.dart';
@@ -99,7 +104,23 @@ class _RefImageListPageState extends State<RefImageListPage> {
           ),
         ),
       ),
-      floatingActionButton: const AddRefImageButton(),
+      floatingActionButton: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => AddRefImageCubit(
+              getIt<RefImageRepository>(),
+              getIt<AppSettings>(),
+            ),
+          ),
+          BlocProvider(
+            create: (context) => SystemPickerCubit(
+              getIt<ImagePicker>(),
+              getIt<PlatformInfo>(),
+            ),
+          ),
+        ],
+        child: const AddRefImageButton(),
+      ),
     );
   }
 }
