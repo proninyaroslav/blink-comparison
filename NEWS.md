@@ -1,3 +1,7 @@
+### Version 1.2.1 (2024-10-22)
+
+Fix libsodium not found crash for F-Droid
+
 ### Version 1.2.0 (2024-10-12)
 
 - Upgraded to Flutter 3 and Material 3
