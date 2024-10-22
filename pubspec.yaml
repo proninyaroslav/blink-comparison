@@ -70,8 +70,8 @@ dependencies:
   shared_preferences_ios: ^2.1.0
   shared_preferences: ^2.3.2
   showcaseview: ^3.0.0
-  sodium: ^3.1.0
-  sodium_libs: ^3.0.0
+  # Strict Sodium version compliance for F-Droid
+  sodium_libs: 3.3.0
   sqflite_common_ffi: ^2.0.0+3
   sqflite: ^2.0.0+4
   swipe:
