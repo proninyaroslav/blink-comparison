@@ -72,6 +72,7 @@ dependencies:
   showcaseview: ^3.0.0
   # Strict Sodium version compliance for F-Droid
   sodium_libs: 3.3.0
+  sodium: ^3.4.0
   sqflite_common_ffi: ^2.0.0+3
   sqflite: ^2.0.0+4
   swipe:

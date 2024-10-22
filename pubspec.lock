@@ -1312,7 +1312,7 @@ packages:
     source: sdk
     version: "0.0.99"
   sodium:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: sodium
       sha256: "738cf31c29f839e3bbad5ff4b3a3ab49dbdd33c2564c0566ca0c195194a135a4"
