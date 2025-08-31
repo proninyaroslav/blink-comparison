@@ -24,22 +24,17 @@ part 'behavior_state.freezed.dart';
 
 @freezed
 sealed class BehaviorState with _$BehaviorState {
-  const factory BehaviorState.initial({
-    @Default(null) BehaviorInfo? info,
-  }) = BehaviorStateInitial;
+  const factory BehaviorState.initial({@Default(null) BehaviorInfo? info}) =
+      BehaviorStateInitial;
 
-  const factory BehaviorState.loaded(
-    BehaviorInfo info,
-  ) = BehaviorStateLoaded;
+  const factory BehaviorState.loaded(BehaviorInfo info) = BehaviorStateLoaded;
 
-  const factory BehaviorState.encryptionChanged(
-    BehaviorInfo info,
-  ) = BehaviorStateEncryptionChanged;
+  const factory BehaviorState.encryptionChanged(BehaviorInfo info) =
+      BehaviorStateEncryptionChanged;
 }
 
 @freezed
-class BehaviorInfo with _$BehaviorInfo {
-  const factory BehaviorInfo({
-    required EncryptionPreference? encryption,
-  }) = _BehaviorInfo;
+abstract class BehaviorInfo with _$BehaviorInfo {
+  const factory BehaviorInfo({required EncryptionPreference? encryption}) =
+      _BehaviorInfo;
 }

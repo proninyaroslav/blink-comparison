@@ -27,18 +27,14 @@ sealed class RefImageOptionsState with _$RefImageOptionsState {
     @Default(null) RefImageOptions? options,
   }) = RefImageOptionsStateInitial;
 
-  const factory RefImageOptionsState.loaded(
-    RefImageOptions options,
-  ) = RefImageOptionsStateLoaded;
+  const factory RefImageOptionsState.loaded(RefImageOptions options) =
+      RefImageOptionsStateLoaded;
 
-  const factory RefImageOptionsState.opacityChanged(
-    RefImageOptions options,
-  ) = RefImageOptionsStateOpacityChanged;
+  const factory RefImageOptionsState.opacityChanged(RefImageOptions options) =
+      RefImageOptionsStateOpacityChanged;
 }
 
 @freezed
-class RefImageOptions with _$RefImageOptions {
-  const factory RefImageOptions({
-    required double opacity,
-  }) = _RefImageOptions;
+abstract class RefImageOptions with _$RefImageOptions {
+  const factory RefImageOptions({required double opacity}) = _RefImageOptions;
 }

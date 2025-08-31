@@ -24,7 +24,7 @@ part 'ref_image.freezed.dart';
 part 'ref_image.g.dart';
 
 @freezed
-class RefImageInfo with _$RefImageInfo {
+abstract class RefImageInfo with _$RefImageInfo {
   const factory RefImageInfo({
     required String id,
     @DateTimeEpochConverter() required DateTime dateAdded,
@@ -37,7 +37,7 @@ class RefImageInfo with _$RefImageInfo {
 }
 
 @freezed
-class RefImage with _$RefImage {
+abstract class RefImage with _$RefImage {
   const factory RefImage({
     required RefImageInfo info,
     required Uint8List bytes,

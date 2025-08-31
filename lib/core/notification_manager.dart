@@ -52,9 +52,8 @@ abstract class NotificationManager {
 
 @freezed
 sealed class NotificationAction with _$NotificationAction {
-  const factory NotificationAction.reportCrash({
-    required CrashInfo info,
-  }) = NotificationActionReportCrash;
+  const factory NotificationAction.reportCrash({required CrashInfo info}) =
+      NotificationActionReportCrash;
 
   const factory NotificationAction.openRefImageList() =
       NotificationActionOpenRefImageList;
@@ -110,7 +109,8 @@ class NotificationManagerImpl implements NotificationManager {
     if (_platformInfo.isAndroid) {
       _notifyPlugin
           .resolvePlatformSpecificImplementation<
-              AndroidFlutterLocalNotificationsPlugin>()
+            AndroidFlutterLocalNotificationsPlugin
+          >()
           ?.requestNotificationsPermission();
     }
   }
@@ -154,17 +154,13 @@ class NotificationManagerImpl implements NotificationManager {
       ticker: title,
       styleInformation: BigTextStyleInformation(body),
     );
-    final details = NotificationDetails(
-      android: androidDetails,
-    );
+    final details = NotificationDetails(android: androidDetails);
     await _notifyPlugin.show(
       info.hashCode,
       title,
       body,
       details,
-      payload: jsonEncode(
-        NotificationAction.reportCrash(info: info),
-      ),
+      payload: jsonEncode(NotificationAction.reportCrash(info: info)),
     );
   }
 
@@ -185,15 +181,8 @@ class NotificationManagerImpl implements NotificationManager {
       ticker: title,
       styleInformation: BigTextStyleInformation(body),
     );
-    final details = NotificationDetails(
-      android: androidDetails,
-    );
-    await _notifyPlugin.show(
-      info.hashCode,
-      title,
-      body,
-      details,
-    );
+    final details = NotificationDetails(android: androidDetails);
+    await _notifyPlugin.show(info.hashCode, title, body, details);
   }
 
   @override
@@ -207,8 +196,8 @@ class NotificationManagerImpl implements NotificationManager {
     final title = '⛔ ${locale.saveImageError}';
     final body = switch (error) {
       SaveRefImageErrorFs(:final error) => switch (error) {
-          FsErrorIO() => locale.ioError,
-        },
+        FsErrorIO() => locale.ioError,
+      },
       SaveRefImageErrorEncrypt() => locale.encryptionError,
     };
     final androidDetails = AndroidNotificationDetails(
@@ -218,17 +207,13 @@ class NotificationManagerImpl implements NotificationManager {
       ticker: title,
       icon: 'ic_error_outline_white_24',
     );
-    final details = NotificationDetails(
-      android: androidDetails,
-    );
+    final details = NotificationDetails(android: androidDetails);
     await _notifyPlugin.show(
       imageId.hashCode,
       title,
       body,
       details,
-      payload: jsonEncode(
-        const NotificationAction.openRefImageList(),
-      ),
+      payload: jsonEncode(const NotificationAction.openRefImageList()),
     );
   }
 }
@@ -245,9 +230,9 @@ class _AndroidChannel {
   });
 
   _AndroidChannel.defaultChan(AppLocalizations locale)
-      : this._(
-          id: 'org.proninyaroslav.blink_comparison.DEFAULT_CHANNEL',
-          name: locale.defaultNotifyChannelTitle,
-          description: locale.defaultNotifyChannelDescription,
-        );
+    : this._(
+        id: 'org.proninyaroslav.blink_comparison.DEFAULT_CHANNEL',
+        name: locale.defaultNotifyChannelTitle,
+        description: locale.defaultNotifyChannelDescription,
+      );
 }

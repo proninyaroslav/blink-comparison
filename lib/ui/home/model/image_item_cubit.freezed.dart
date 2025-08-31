@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,261 +9,219 @@ part of 'image_item_cubit.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
-mixin _$BuildResult {}
+mixin _$BuildResult implements DiagnosticableTreeMixin {
 
-/// @nodoc
-abstract class _$BuildResultCopyWith<$Res> {
-  factory _$BuildResultCopyWith(
-          _BuildResult value, $Res Function(_BuildResult) then) =
-      __$BuildResultCopyWithImpl<$Res, _BuildResult>;
+
+
+
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', '_BuildResult'))
+    ;
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BuildResult);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return '_BuildResult()';
+}
+
+
 }
 
 /// @nodoc
-class __$BuildResultCopyWithImpl<$Res, $Val extends _BuildResult>
-    implements _$BuildResultCopyWith<$Res> {
-  __$BuildResultCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of _BuildResult
-  /// with the given fields replaced by the non-null parameter values.
+class _$BuildResultCopyWith<$Res>  {
+_$BuildResultCopyWith(_BuildResult _, $Res Function(_BuildResult) __);
 }
 
-/// @nodoc
-abstract class _$$BuildResulLoadedImplCopyWith<$Res> {
-  factory _$$BuildResulLoadedImplCopyWith(_$BuildResulLoadedImpl value,
-          $Res Function(_$BuildResulLoadedImpl) then) =
-      __$$BuildResulLoadedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({RefImageEntry image, SaveRefImageStatus? status});
 
-  $RefImageEntryCopyWith<$Res> get image;
-  $SaveRefImageStatusCopyWith<$Res>? get status;
-}
-
-/// @nodoc
-class __$$BuildResulLoadedImplCopyWithImpl<$Res>
-    extends __$BuildResultCopyWithImpl<$Res, _$BuildResulLoadedImpl>
-    implements _$$BuildResulLoadedImplCopyWith<$Res> {
-  __$$BuildResulLoadedImplCopyWithImpl(_$BuildResulLoadedImpl _value,
-      $Res Function(_$BuildResulLoadedImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of _BuildResult
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? image = null,
-    Object? status = freezed,
-  }) {
-    return _then(_$BuildResulLoadedImpl(
-      image: null == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as RefImageEntry,
-      status: freezed == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as SaveRefImageStatus?,
-    ));
-  }
-
-  /// Create a copy of _BuildResult
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $RefImageEntryCopyWith<$Res> get image {
-    return $RefImageEntryCopyWith<$Res>(_value.image, (value) {
-      return _then(_value.copyWith(image: value));
-    });
-  }
-
-  /// Create a copy of _BuildResult
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $SaveRefImageStatusCopyWith<$Res>? get status {
-    if (_value.status == null) {
-      return null;
-    }
-
-    return $SaveRefImageStatusCopyWith<$Res>(_value.status!, (value) {
-      return _then(_value.copyWith(status: value));
-    });
-  }
-}
 
 /// @nodoc
 
-class _$BuildResulLoadedImpl
-    with DiagnosticableTreeMixin
-    implements _BuildResulLoaded {
-  const _$BuildResulLoadedImpl({required this.image, required this.status});
 
-  @override
-  final RefImageEntry image;
-  @override
-  final SaveRefImageStatus? status;
+class _BuildResulLoaded with DiagnosticableTreeMixin implements _BuildResult {
+  const _BuildResulLoaded({required this.image, required this.status});
+  
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return '_BuildResult(image: $image, status: $status)';
-  }
+ final  RefImageEntry image;
+ final  SaveRefImageStatus? status;
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', '_BuildResult'))
-      ..add(DiagnosticsProperty('image', image))
-      ..add(DiagnosticsProperty('status', status));
-  }
+/// Create a copy of _BuildResult
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$BuildResulLoadedCopyWith<_BuildResulLoaded> get copyWith => __$BuildResulLoadedCopyWithImpl<_BuildResulLoaded>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$BuildResulLoadedImpl &&
-            (identical(other.image, image) || other.image == image) &&
-            (identical(other.status, status) || other.status == status));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, image, status);
-
-  /// Create a copy of _BuildResult
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$BuildResulLoadedImplCopyWith<_$BuildResulLoadedImpl> get copyWith =>
-      __$$BuildResulLoadedImplCopyWithImpl<_$BuildResulLoadedImpl>(
-          this, _$identity);
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', '_BuildResult'))
+    ..add(DiagnosticsProperty('image', image))..add(DiagnosticsProperty('status', status));
 }
 
-abstract class _BuildResulLoaded implements _BuildResult {
-  const factory _BuildResulLoaded(
-      {required final RefImageEntry image,
-      required final SaveRefImageStatus? status}) = _$BuildResulLoadedImpl;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BuildResulLoaded&&(identical(other.image, image) || other.image == image)&&(identical(other.status, status) || other.status == status));
+}
 
-  RefImageEntry get image;
-  SaveRefImageStatus? get status;
 
-  /// Create a copy of _BuildResult
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$BuildResulLoadedImplCopyWith<_$BuildResulLoadedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+int get hashCode => Object.hash(runtimeType,image,status);
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return '_BuildResult(image: $image, status: $status)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$BuildResultFailedImplCopyWith<$Res> {
-  factory _$$BuildResultFailedImplCopyWith(_$BuildResultFailedImpl value,
-          $Res Function(_$BuildResultFailedImpl) then) =
-      __$$BuildResultFailedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({StorageError error});
+abstract mixin class _$BuildResulLoadedCopyWith<$Res> implements _$BuildResultCopyWith<$Res> {
+  factory _$BuildResulLoadedCopyWith(_BuildResulLoaded value, $Res Function(_BuildResulLoaded) _then) = __$BuildResulLoadedCopyWithImpl;
+@useResult
+$Res call({
+ RefImageEntry image, SaveRefImageStatus? status
+});
 
-  $StorageErrorCopyWith<$Res> get error;
+
+$RefImageEntryCopyWith<$Res> get image;$SaveRefImageStatusCopyWith<$Res>? get status;
+
+}
+/// @nodoc
+class __$BuildResulLoadedCopyWithImpl<$Res>
+    implements _$BuildResulLoadedCopyWith<$Res> {
+  __$BuildResulLoadedCopyWithImpl(this._self, this._then);
+
+  final _BuildResulLoaded _self;
+  final $Res Function(_BuildResulLoaded) _then;
+
+/// Create a copy of _BuildResult
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? image = null,Object? status = freezed,}) {
+  return _then(_BuildResulLoaded(
+image: null == image ? _self.image : image // ignore: cast_nullable_to_non_nullable
+as RefImageEntry,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as SaveRefImageStatus?,
+  ));
 }
 
-/// @nodoc
-class __$$BuildResultFailedImplCopyWithImpl<$Res>
-    extends __$BuildResultCopyWithImpl<$Res, _$BuildResultFailedImpl>
-    implements _$$BuildResultFailedImplCopyWith<$Res> {
-  __$$BuildResultFailedImplCopyWithImpl(_$BuildResultFailedImpl _value,
-      $Res Function(_$BuildResultFailedImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of _BuildResult
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? error = null,
-  }) {
-    return _then(_$BuildResultFailedImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as StorageError,
-    ));
+/// Create a copy of _BuildResult
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RefImageEntryCopyWith<$Res> get image {
+  
+  return $RefImageEntryCopyWith<$Res>(_self.image, (value) {
+    return _then(_self.copyWith(image: value));
+  });
+}/// Create a copy of _BuildResult
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SaveRefImageStatusCopyWith<$Res>? get status {
+    if (_self.status == null) {
+    return null;
   }
 
-  /// Create a copy of _BuildResult
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $StorageErrorCopyWith<$Res> get error {
-    return $StorageErrorCopyWith<$Res>(_value.error, (value) {
-      return _then(_value.copyWith(error: value));
-    });
-  }
+  return $SaveRefImageStatusCopyWith<$Res>(_self.status!, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$BuildResultFailedImpl
-    with DiagnosticableTreeMixin
-    implements _BuildResultFailed {
-  const _$BuildResultFailedImpl({required this.error});
 
-  @override
-  final StorageError error;
+class _BuildResultFailed with DiagnosticableTreeMixin implements _BuildResult {
+  const _BuildResultFailed({required this.error});
+  
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return '_BuildResult.failed(error: $error)';
-  }
+ final  StorageError error;
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', '_BuildResult.failed'))
-      ..add(DiagnosticsProperty('error', error));
-  }
+/// Create a copy of _BuildResult
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$BuildResultFailedCopyWith<_BuildResultFailed> get copyWith => __$BuildResultFailedCopyWithImpl<_BuildResultFailed>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$BuildResultFailedImpl &&
-            (identical(other.error, error) || other.error == error));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, error);
-
-  /// Create a copy of _BuildResult
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$BuildResultFailedImplCopyWith<_$BuildResultFailedImpl> get copyWith =>
-      __$$BuildResultFailedImplCopyWithImpl<_$BuildResultFailedImpl>(
-          this, _$identity);
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', '_BuildResult.failed'))
+    ..add(DiagnosticsProperty('error', error));
 }
 
-abstract class _BuildResultFailed implements _BuildResult {
-  const factory _BuildResultFailed({required final StorageError error}) =
-      _$BuildResultFailedImpl;
-
-  StorageError get error;
-
-  /// Create a copy of _BuildResult
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$BuildResultFailedImplCopyWith<_$BuildResultFailedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BuildResultFailed&&(identical(other.error, error) || other.error == error));
 }
+
+
+@override
+int get hashCode => Object.hash(runtimeType,error);
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return '_BuildResult.failed(error: $error)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$BuildResultFailedCopyWith<$Res> implements _$BuildResultCopyWith<$Res> {
+  factory _$BuildResultFailedCopyWith(_BuildResultFailed value, $Res Function(_BuildResultFailed) _then) = __$BuildResultFailedCopyWithImpl;
+@useResult
+$Res call({
+ StorageError error
+});
+
+
+$StorageErrorCopyWith<$Res> get error;
+
+}
+/// @nodoc
+class __$BuildResultFailedCopyWithImpl<$Res>
+    implements _$BuildResultFailedCopyWith<$Res> {
+  __$BuildResultFailedCopyWithImpl(this._self, this._then);
+
+  final _BuildResultFailed _self;
+  final $Res Function(_BuildResultFailed) _then;
+
+/// Create a copy of _BuildResult
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? error = null,}) {
+  return _then(_BuildResultFailed(
+error: null == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
+as StorageError,
+  ));
+}
+
+/// Create a copy of _BuildResult
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$StorageErrorCopyWith<$Res> get error {
+  
+  return $StorageErrorCopyWith<$Res>(_self.error, (value) {
+    return _then(_self.copyWith(error: value));
+  });
+}
+}
+
+// dart format on

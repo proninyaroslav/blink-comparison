@@ -6,26 +6,26 @@ part of 'model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CrashInfoImpl _$$CrashInfoImplFromJson(Map<String, dynamic> json) =>
-    _$CrashInfoImpl(
-      error: const ErrorConverter().fromJson(json['error'] as String),
-      stackTrace:
-          const StackTraceConverter().fromJson(json['stackTrace'] as String?),
-      message: json['message'] as String?,
-    );
+_CrashInfo _$CrashInfoFromJson(Map<String, dynamic> json) => _CrashInfo(
+  error: const ErrorConverter().fromJson(json['error'] as String),
+  stackTrace: const StackTraceConverter().fromJson(
+    json['stackTrace'] as String?,
+  ),
+  message: json['message'] as String?,
+);
 
-Map<String, dynamic> _$$CrashInfoImplToJson(_$CrashInfoImpl instance) =>
+Map<String, dynamic> _$CrashInfoToJson(_CrashInfo instance) =>
     <String, dynamic>{
       'error': const ErrorConverter().toJson(instance.error),
       'stackTrace': const StackTraceConverter().toJson(instance.stackTrace),
       'message': instance.message,
     };
 
-_$CrashReportDataImpl _$$CrashReportDataImplFromJson(
-        Map<String, dynamic> json) =>
-    _$CrashReportDataImpl(
-      reportId:
-          const CrashReportIdConverter().fromJson(json['reportId'] as String),
+_CrashReportData _$CrashReportDataFromJson(Map<String, dynamic> json) =>
+    _CrashReportData(
+      reportId: const CrashReportIdConverter().fromJson(
+        json['reportId'] as String,
+      ),
       packageName: json['packageName'] as String,
       appName: json['appName'] as String,
       version: json['version'] as String,
@@ -33,12 +33,12 @@ _$CrashReportDataImpl _$$CrashReportDataImplFromJson(
       error: json['error'] as String,
       comment: json['comment'] as String?,
       stackTrace: json['stackTrace'] as String?,
-      deviceInfo:
-          ReportableInfo.fromJson(json['deviceInfo'] as Map<String, dynamic>),
+      deviceInfo: ReportableInfo.fromJson(
+        json['deviceInfo'] as Map<String, dynamic>,
+      ),
     );
 
-Map<String, dynamic> _$$CrashReportDataImplToJson(
-        _$CrashReportDataImpl instance) =>
+Map<String, dynamic> _$CrashReportDataToJson(_CrashReportData instance) =>
     <String, dynamic>{
       'reportId': const CrashReportIdConverter().toJson(instance.reportId),
       'packageName': instance.packageName,
@@ -51,50 +51,46 @@ Map<String, dynamic> _$$CrashReportDataImplToJson(
       'deviceInfo': instance.deviceInfo.toJson(),
     };
 
-_$UnknownReportableInfoImpl _$$UnknownReportableInfoImplFromJson(
-        Map<String, dynamic> json) =>
-    _$UnknownReportableInfoImpl(
-      $type: json['runtimeType'] as String?,
-    );
+UnknownReportableInfo _$UnknownReportableInfoFromJson(
+  Map<String, dynamic> json,
+) => UnknownReportableInfo($type: json['runtimeType'] as String?);
 
-Map<String, dynamic> _$$UnknownReportableInfoImplToJson(
-        _$UnknownReportableInfoImpl instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$UnknownReportableInfoToJson(
+  UnknownReportableInfo instance,
+) => <String, dynamic>{'runtimeType': instance.$type};
 
-_$AndroidReportableInfoImpl _$$AndroidReportableInfoImplFromJson(
-        Map<String, dynamic> json) =>
-    _$AndroidReportableInfoImpl(
-      systemVersion: json['systemVersion'] as String?,
-      supportedAbis: (json['supportedAbis'] as List<dynamic>?)
-              ?.map((e) => e as String?)
-              .toList() ??
-          const [],
-      brand: json['brand'] as String?,
-      device: json['device'] as String?,
-      model: json['model'] as String?,
-      hardware: json['hardware'] as String?,
-      product: json['product'] as String?,
-      $type: json['runtimeType'] as String?,
-    );
+AndroidReportableInfo _$AndroidReportableInfoFromJson(
+  Map<String, dynamic> json,
+) => AndroidReportableInfo(
+  systemVersion: json['systemVersion'] as String?,
+  supportedAbis:
+      (json['supportedAbis'] as List<dynamic>?)
+          ?.map((e) => e as String?)
+          .toList() ??
+      const [],
+  brand: json['brand'] as String?,
+  device: json['device'] as String?,
+  model: json['model'] as String?,
+  hardware: json['hardware'] as String?,
+  product: json['product'] as String?,
+  $type: json['runtimeType'] as String?,
+);
 
-Map<String, dynamic> _$$AndroidReportableInfoImplToJson(
-        _$AndroidReportableInfoImpl instance) =>
-    <String, dynamic>{
-      'systemVersion': instance.systemVersion,
-      'supportedAbis': instance.supportedAbis,
-      'brand': instance.brand,
-      'device': instance.device,
-      'model': instance.model,
-      'hardware': instance.hardware,
-      'product': instance.product,
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$AndroidReportableInfoToJson(
+  AndroidReportableInfo instance,
+) => <String, dynamic>{
+  'systemVersion': instance.systemVersion,
+  'supportedAbis': instance.supportedAbis,
+  'brand': instance.brand,
+  'device': instance.device,
+  'model': instance.model,
+  'hardware': instance.hardware,
+  'product': instance.product,
+  'runtimeType': instance.$type,
+};
 
-_$IOSReportableInfoImpl _$$IOSReportableInfoImplFromJson(
-        Map<String, dynamic> json) =>
-    _$IOSReportableInfoImpl(
+IOSReportableInfo _$IOSReportableInfoFromJson(Map<String, dynamic> json) =>
+    IOSReportableInfo(
       deviceName: json['deviceName'] as String?,
       deviceModel: json['deviceModel'] as String?,
       systemName: json['systemName'] as String?,
@@ -102,8 +98,7 @@ _$IOSReportableInfoImpl _$$IOSReportableInfoImplFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$IOSReportableInfoImplToJson(
-        _$IOSReportableInfoImpl instance) =>
+Map<String, dynamic> _$IOSReportableInfoToJson(IOSReportableInfo instance) =>
     <String, dynamic>{
       'deviceName': instance.deviceName,
       'deviceModel': instance.deviceModel,
@@ -112,41 +107,39 @@ Map<String, dynamic> _$$IOSReportableInfoImplToJson(
       'runtimeType': instance.$type,
     };
 
-_$LinuxReportableInfoImpl _$$LinuxReportableInfoImplFromJson(
-        Map<String, dynamic> json) =>
-    _$LinuxReportableInfoImpl(
+LinuxReportableInfo _$LinuxReportableInfoFromJson(Map<String, dynamic> json) =>
+    LinuxReportableInfo(
       osName: json['osName'] as String,
       kernelVersion: json['kernelVersion'] as String,
       osVersion: json['osVersion'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$LinuxReportableInfoImplToJson(
-        _$LinuxReportableInfoImpl instance) =>
-    <String, dynamic>{
-      'osName': instance.osName,
-      'kernelVersion': instance.kernelVersion,
-      'osVersion': instance.osVersion,
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$LinuxReportableInfoToJson(
+  LinuxReportableInfo instance,
+) => <String, dynamic>{
+  'osName': instance.osName,
+  'kernelVersion': instance.kernelVersion,
+  'osVersion': instance.osVersion,
+  'runtimeType': instance.$type,
+};
 
-_$WindowsReportableInfoImpl _$$WindowsReportableInfoImplFromJson(
-        Map<String, dynamic> json) =>
-    _$WindowsReportableInfoImpl(
-      osVersion: json['osVersion'] as String,
-      $type: json['runtimeType'] as String?,
-    );
+WindowsReportableInfo _$WindowsReportableInfoFromJson(
+  Map<String, dynamic> json,
+) => WindowsReportableInfo(
+  osVersion: json['osVersion'] as String,
+  $type: json['runtimeType'] as String?,
+);
 
-Map<String, dynamic> _$$WindowsReportableInfoImplToJson(
-        _$WindowsReportableInfoImpl instance) =>
-    <String, dynamic>{
-      'osVersion': instance.osVersion,
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$WindowsReportableInfoToJson(
+  WindowsReportableInfo instance,
+) => <String, dynamic>{
+  'osVersion': instance.osVersion,
+  'runtimeType': instance.$type,
+};
 
-_$MacOSReportableInfoImpl _$$MacOSReportableInfoImplFromJson(
-        Map<String, dynamic> json) =>
-    _$MacOSReportableInfoImpl(
+MacOSReportableInfo _$MacOSReportableInfoFromJson(Map<String, dynamic> json) =>
+    MacOSReportableInfo(
       arch: json['arch'] as String,
       kernelVersion: json['kernelVersion'] as String,
       osVersion: json['osVersion'] as String,
@@ -154,27 +147,25 @@ _$MacOSReportableInfoImpl _$$MacOSReportableInfoImplFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$MacOSReportableInfoImplToJson(
-        _$MacOSReportableInfoImpl instance) =>
-    <String, dynamic>{
-      'arch': instance.arch,
-      'kernelVersion': instance.kernelVersion,
-      'osVersion': instance.osVersion,
-      'model': instance.model,
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$MacOSReportableInfoToJson(
+  MacOSReportableInfo instance,
+) => <String, dynamic>{
+  'arch': instance.arch,
+  'kernelVersion': instance.kernelVersion,
+  'osVersion': instance.osVersion,
+  'model': instance.model,
+  'runtimeType': instance.$type,
+};
 
-_$WebReportableInfoImpl _$$WebReportableInfoImplFromJson(
-        Map<String, dynamic> json) =>
-    _$WebReportableInfoImpl(
+WebReportableInfo _$WebReportableInfoFromJson(Map<String, dynamic> json) =>
+    WebReportableInfo(
       browserName: json['browserName'] as String,
       platform: json['platform'] as String?,
       vendor: json['vendor'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$WebReportableInfoImplToJson(
-        _$WebReportableInfoImpl instance) =>
+Map<String, dynamic> _$WebReportableInfoToJson(WebReportableInfo instance) =>
     <String, dynamic>{
       'browserName': instance.browserName,
       'platform': instance.platform,

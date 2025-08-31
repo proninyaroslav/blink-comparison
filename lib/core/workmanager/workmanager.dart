@@ -59,13 +59,8 @@ abstract class WorkManager {
 
 @Singleton(as: WorkManager, env: [Env.prod])
 class WorkManagerImpl extends _WorkManagerImpl {
-  WorkManagerImpl(
-    super.platform,
-    super.workersProvider,
-    super.dateTimeProvider,
-  ) : super(
-          isDebug: false,
-        );
+  WorkManagerImpl(super.platform, super.workersProvider, super.dateTimeProvider)
+    : super(isDebug: false);
 }
 
 @Singleton(as: WorkManager, env: [Env.dev])
@@ -74,12 +69,7 @@ class DebugWorkManagerImpl extends _WorkManagerImpl {
     PlatformInfo platform,
     DateTimeProvider dateTimeProvider,
     WorkersProvider workersProvider,
-  ) : super(
-          platform,
-          workersProvider,
-          dateTimeProvider,
-          isDebug: true,
-        );
+  ) : super(platform, workersProvider, dateTimeProvider, isDebug: true);
 }
 
 abstract class _PlatformWorkManager extends WorkManager {
@@ -96,11 +86,11 @@ class _WorkManagerImpl implements WorkManager {
     DateTimeProvider dateTimeProvider, {
     required bool isDebug,
   }) : _platformWm = _getPlatfowmWm(
-          platform,
-          _workersProvider,
-          dateTimeProvider,
-          isDebug: isDebug,
-        );
+         platform,
+         _workersProvider,
+         dateTimeProvider,
+         isDebug: isDebug,
+       );
 
   @override
   Future<void> init() async => _platformWm.init();
@@ -165,14 +155,9 @@ class _WorkManagerImpl implements WorkManager {
       _platformWm.cancelById(workId);
 }
 
-final _crashHandlers = [
-  DefaultCrashHandler(),
-  NotificationCrashHandler(),
-];
+final _crashHandlers = [DefaultCrashHandler(), NotificationCrashHandler()];
 
-final _debugCrashHandlers = [
-  DefaultCrashHandler(),
-];
+final _debugCrashHandlers = [DefaultCrashHandler()];
 
 @pragma('vm:entry-point')
 Future<void> callbackDispatcher() async {
@@ -217,8 +202,8 @@ class _MobileWorkManager implements _PlatformWorkManager {
     this._workersProvider,
     DateTimeProvider dateTimeProvider, {
     required bool isDebug,
-  })  : _isDebug = isDebug,
-        _wm = wm.Workmanager();
+  }) : _isDebug = isDebug,
+       _wm = wm.Workmanager();
 
   @override
   Future<void> init() async {
@@ -255,7 +240,9 @@ class _MobileWorkManager implements _PlatformWorkManager {
       frequency: frequency,
       constraints: _convertConstraints(params?.constraints),
       inputData: params?.inputData?.asMap(),
-      existingWorkPolicy: _convertWorkPolicy(params?.existingWorkPolicy),
+      existingWorkPolicy: _convertPeriodicWorkPolicy(
+        params?.existingWorkPolicy,
+      ),
     );
   }
 
@@ -322,9 +309,9 @@ class _MobileWorkManager implements _PlatformWorkManager {
       case NetworkType.metered:
         return wm.NetworkType.metered;
       case NetworkType.notRequired:
-        return wm.NetworkType.not_required;
+        return wm.NetworkType.notRequired;
       case NetworkType.notRoaming:
-        return wm.NetworkType.not_roaming;
+        return wm.NetworkType.notRoaming;
       case NetworkType.unmetered:
         return wm.NetworkType.unmetered;
     }
@@ -343,6 +330,21 @@ class _MobileWorkManager implements _PlatformWorkManager {
         return wm.ExistingWorkPolicy.keep;
       case ExistingWorkPolicy.replace:
         return wm.ExistingWorkPolicy.replace;
+    }
+  }
+
+  wm.ExistingPeriodicWorkPolicy? _convertPeriodicWorkPolicy(
+    ExistingWorkPolicy? policy,
+  ) {
+    if (policy == null) {
+      return null;
+    }
+
+    switch (policy) {
+      case ExistingWorkPolicy.keep:
+        return wm.ExistingPeriodicWorkPolicy.keep;
+      case ExistingWorkPolicy.replace:
+        return wm.ExistingPeriodicWorkPolicy.replace;
     }
   }
 }
@@ -367,9 +369,9 @@ class _WorkmanagerCrashHook implements CrashHook {
     try {
       await taskHandler();
     } catch (error, stackTrace) {
-      await Future.wait(handlers.map(
-        (handler) => handler.handle(error, stackTrace),
-      ));
+      await Future.wait(
+        handlers.map((handler) => handler.handle(error, stackTrace)),
+      );
       // Needed for correct finishing of WorkManager.executeTask
       rethrow;
     }
@@ -384,9 +386,9 @@ class _WorkmanagerCrashHandler implements CrashHandler {
   @override
   Future<void> handle(Object error, StackTrace? stackTrace) async {
     if (error is! _WorkFailedException) {
-      await Future.wait(handlers.map(
-        (handler) => handler.handle(error, stackTrace),
-      ));
+      await Future.wait(
+        handlers.map((handler) => handler.handle(error, stackTrace)),
+      );
     }
   }
 }

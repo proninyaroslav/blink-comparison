@@ -36,11 +36,9 @@ import 'storage_result.dart';
 part 'ref_image_repository.freezed.dart';
 
 @freezed
-class RefImageProps with _$RefImageProps {
-  const factory RefImageProps({
-    required XFile file,
-    String? label,
-  }) = _RefImageProps;
+abstract class RefImageProps with _$RefImageProps {
+  const factory RefImageProps({required XFile file, String? label}) =
+      _RefImageProps;
 }
 
 abstract class RefImageRepository {
@@ -107,8 +105,8 @@ class RefImageRepositoryImpl implements RefImageRepository {
         encryption: switch (encryption) {
           null || EncryptionPreferenceNone() => const RefImageEncryption.none(),
           EncryptionPreferencePassword() => RefImageEncryption.password(
-              encryptSalt: hex.encode(_saltGenerator.randomBytes()),
-            ),
+            encryptSalt: hex.encode(_saltGenerator.randomBytes()),
+          ),
         },
         label: label,
       );
@@ -118,10 +116,7 @@ class RefImageRepositoryImpl implements RefImageRepository {
         rethrow;
       }
       return SecStorageResult.error(
-        SecStorageError.database(
-          exception: e,
-          stackTrace: stackTrace,
-        ),
+        SecStorageError.database(exception: e, stackTrace: stackTrace),
       );
     }
 
@@ -155,10 +150,7 @@ class RefImageRepositoryImpl implements RefImageRepository {
       await _thumbnailFs.delete(info);
     } on Exception catch (e, stackTrace) {
       return SecStorageResult.error(
-        SecStorageError.database(
-          exception: e,
-          stackTrace: stackTrace,
-        ),
+        SecStorageError.database(exception: e, stackTrace: stackTrace),
       );
     }
     return _secureStorage.delete(info);
@@ -186,10 +178,7 @@ class RefImageRepositoryImpl implements RefImageRepository {
           (info) => MapEntry(
             info,
             SecStorageResult.error(
-              SecStorageError.database(
-                exception: e,
-                stackTrace: stackTrace,
-              ),
+              SecStorageError.database(exception: e, stackTrace: stackTrace),
             ),
           ),
         ),
@@ -200,15 +189,10 @@ class RefImageRepositoryImpl implements RefImageRepository {
   @override
   Future<StorageResult<List<RefImageInfo>>> getAllInfo() async {
     try {
-      return StorageResult(
-        await _db.referenceImageDao.getAll(),
-      );
+      return StorageResult(await _db.referenceImageDao.getAll());
     } on Exception catch (e, stackTrace) {
       return StorageResult.error(
-        StorageError.database(
-          exception: e,
-          stackTrace: stackTrace,
-        ),
+        StorageError.database(exception: e, stackTrace: stackTrace),
       );
     }
   }
@@ -218,10 +202,7 @@ class RefImageRepositoryImpl implements RefImageRepository {
     final transformer = storageResultTransformer<List<RefImageInfo>>(
       onException: (e, stackTrace) {
         return StorageResult.error(
-          StorageError.database(
-            exception: e,
-            stackTrace: stackTrace,
-          ),
+          StorageError.database(exception: e, stackTrace: stackTrace),
         );
       },
     );
@@ -231,15 +212,10 @@ class RefImageRepositoryImpl implements RefImageRepository {
   @override
   Future<StorageResult<RefImageInfo?>> getInfoById(String id) async {
     try {
-      return StorageResult(
-        await _db.referenceImageDao.getById(id),
-      );
+      return StorageResult(await _db.referenceImageDao.getById(id));
     } on Exception catch (e, stackTrace) {
       return StorageResult.error(
-        StorageError.database(
-          exception: e,
-          stackTrace: stackTrace,
-        ),
+        StorageError.database(exception: e, stackTrace: stackTrace),
       );
     }
   }
@@ -251,15 +227,10 @@ class RefImageRepositoryImpl implements RefImageRepository {
   @override
   Future<StorageResult<bool>> existsById(String id) async {
     try {
-      return StorageResult(
-        await _db.referenceImageDao.existsById(id),
-      );
+      return StorageResult(await _db.referenceImageDao.existsById(id));
     } on Exception catch (e, stackTrace) {
       return StorageResult.error(
-        StorageError.database(
-          exception: e,
-          stackTrace: stackTrace,
-        ),
+        StorageError.database(exception: e, stackTrace: stackTrace),
       );
     }
   }
@@ -269,10 +240,11 @@ class RefImageRepositoryImpl implements RefImageRepository {
     final res = await _thumbnailFs.get(info);
     return switch (res) {
       FsResultSuccess(value: final file) => StorageResult(
-          Thumbnail(refImageId: info.id, file: file),
-        ),
-      FsResultError(:final error) =>
-        StorageResult.error(StorageError.fs(error: error)),
+        Thumbnail(refImageId: info.id, file: file),
+      ),
+      FsResultError(:final error) => StorageResult.error(
+        StorageError.fs(error: error),
+      ),
     };
   }
 
@@ -283,10 +255,7 @@ class RefImageRepositoryImpl implements RefImageRepository {
       return SecStorageResult.empty;
     } on Exception catch (e, stackTrace) {
       return SecStorageResult.error(
-        SecStorageError.database(
-          exception: e,
-          stackTrace: stackTrace,
-        ),
+        SecStorageError.database(exception: e, stackTrace: stackTrace),
       );
     }
   }
@@ -296,10 +265,7 @@ class RefImageRepositoryImpl implements RefImageRepository {
     final transformer = storageResultTransformer<RefImageInfo?>(
       onException: (e, stackTrace) {
         return StorageResult.error(
-          StorageError.database(
-            exception: e,
-            stackTrace: stackTrace,
-          ),
+          StorageError.database(exception: e, stackTrace: stackTrace),
         );
       },
     );

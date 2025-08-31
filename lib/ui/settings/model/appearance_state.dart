@@ -24,21 +24,17 @@ part 'appearance_state.freezed.dart';
 
 @freezed
 sealed class AppearanceState with _$AppearanceState {
-  const factory AppearanceState.initial({
-    @Default(null) AppearanceInfo? info,
-  }) = AppearanceStateInitial;
+  const factory AppearanceState.initial({@Default(null) AppearanceInfo? info}) =
+      AppearanceStateInitial;
 
-  const factory AppearanceState.loaded(
-    AppearanceInfo info,
-  ) = AppearanceStateLoaded;
+  const factory AppearanceState.loaded(AppearanceInfo info) =
+      AppearanceStateLoaded;
 
-  const factory AppearanceState.themeChanged(
-    AppearanceInfo info,
-  ) = AppearanceStateThemeChanged;
+  const factory AppearanceState.themeChanged(AppearanceInfo info) =
+      AppearanceStateThemeChanged;
 
-  const factory AppearanceState.localeChanged(
-    AppearanceInfo info,
-  ) = AppearanceStateLocaleChanged;
+  const factory AppearanceState.localeChanged(AppearanceInfo info) =
+      AppearanceStateLocaleChanged;
 
   const factory AppearanceState.refImageBorderColorChanged(
     AppearanceInfo info,
@@ -46,7 +42,7 @@ sealed class AppearanceState with _$AppearanceState {
 }
 
 @freezed
-class AppearanceInfo with _$AppearanceInfo {
+abstract class AppearanceInfo with _$AppearanceInfo {
   const factory AppearanceInfo({
     required AppThemeType theme,
     required AppLocaleType locale,

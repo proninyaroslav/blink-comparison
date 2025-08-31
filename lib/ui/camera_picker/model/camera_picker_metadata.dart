@@ -20,8 +20,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'camera_picker_metadata.freezed.dart';
 
 @freezed
-class CameraPickerMetadata with _$CameraPickerMetadata {
-  factory CameraPickerMetadata({
-    String? label,
-  }) = _CameraPickerMetadata;
+abstract class CameraPickerMetadata with _$CameraPickerMetadata {
+  factory CameraPickerMetadata({String? label}) = _CameraPickerMetadata;
 }

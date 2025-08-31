@@ -27,7 +27,7 @@ if (flutterVersionName == null) {
 
 android {
     namespace "org.proninyaroslav.blink_comparison"
-    compileSdkVersion 34
+    compileSdkVersion 36
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -35,8 +35,8 @@ android {
 
     defaultConfig {
         applicationId "org.proninyaroslav.blink_comparison"
-        minSdkVersion 21
-        targetSdkVersion 34
+        minSdkVersion flutter.minSdkVersion
+        targetSdkVersion 35
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -98,7 +98,8 @@ android {
 
     splits {
         abi {
-            enable true
+            def isBuildingBundle = gradle.startParameter.taskNames.any { it.toLowerCase().contains("bundle") }
+            enable !isBuildingBundle
             reset()
             include "armeabi-v7a", "arm64-v8a", "x86_64"
             universalApk true
@@ -122,7 +123,7 @@ flutter {
 def acraVersion = '5.11.4'
 
 dependencies {
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.2")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.mockito:mockito-core:5.2.0'

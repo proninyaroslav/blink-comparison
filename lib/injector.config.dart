@@ -1,3 +1,4 @@
+// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
@@ -80,24 +81,20 @@ const String _dev = 'dev';
 const String _prod = 'prod';
 
 extension GetItInjectableX on _i174.GetIt {
-// initializes the registration of main-scope dependencies inside of GetIt
+  // initializes the registration of main-scope dependencies inside of GetIt
   Future<_i174.GetIt> init({
     String? environment,
     _i526.EnvironmentFilter? environmentFilter,
   }) async {
-    final gh = _i526.GetItHelper(
-      this,
-      environment,
-      environmentFilter,
-    );
+    final gh = _i526.GetItHelper(this, environment, environmentFilter);
     final fileSystemModule = _$FileSystemModule();
     final imagePickerModule = _$ImagePickerModule();
     final sharedPreferencesModule = _$SharedPreferencesModule();
     final sodiumModule = _$SodiumModule();
     final sembastModule = _$SembastModule();
-    gh.factory<_i57.WindowManagerNative>(() => _i57.WindowManagerNative());
     gh.factory<_i303.FileSystem>(() => fileSystemModule.fs);
     gh.factory<_i183.ImagePicker>(() => imagePickerModule.imagePicker);
+    gh.factory<_i57.WindowManagerNative>(() => _i57.WindowManagerNative());
     await gh.singletonAsync<_i460.SharedPreferences>(
       () => sharedPreferencesModule.prefOld,
       preResolve: true,
@@ -112,41 +109,56 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i1009.PlatformInfo>(() => _i1009.PlatformInfoImpl());
     gh.factory<_i188.SaveRefImageNativeService>(
-        () => _i188.SaveRefImageNativeService(gh<_i1009.PlatformInfo>()));
+      () => _i188.SaveRefImageNativeService(gh<_i1009.PlatformInfo>()),
+    );
     gh.factory<_i332.RefImageIdGenerator>(
-        () => _i332.RefImageIdGeneratorImpl());
+      () => _i332.RefImageIdGeneratorImpl(),
+    );
     gh.factory<_i187.SaltGenerator>(
-        () => _i187.SaltGeneratorImpl(gh<_i539.SodiumSumo>()));
+      () => _i187.SaltGeneratorImpl(gh<_i539.SodiumSumo>()),
+    );
     gh.factory<_i705.Thumbnailer>(() => _i705.ThumbnailerImpl());
     gh.factory<_i41.PasswordHasher>(
-        () => _i41.PasswordHasherImpl(gh<_i539.SodiumSumo>()));
+      () => _i41.PasswordHasherImpl(gh<_i539.SodiumSumo>()),
+    );
     gh.factory<_i949.WorkersProvider>(() => _i949.WorkersProviderImpl());
     gh.factory<_i129.CrashReportSender>(
-        () => _i129.CrashReportSenderImpl(gh<_i1009.PlatformInfo>()));
+      () => _i129.CrashReportSenderImpl(gh<_i1009.PlatformInfo>()),
+    );
     gh.factory<_i728.CameraProvider>(() => _i728.CameraProviderImpl());
     gh.factory<_i673.DateTimeProvider>(() => _i673.DateTimeProviderImpl());
     gh.factory<_i496.EncryptKeyDerivation>(
-        () => _i496.EncryptKeyDerivationImpl(gh<_i539.SodiumSumo>()));
+      () => _i496.EncryptKeyDerivationImpl(gh<_i539.SodiumSumo>()),
+    );
     await gh.singletonAsync<_i252.SharedPreferencesAsyncListenable>(
       () => sharedPreferencesModule.pref(gh<_i460.SharedPreferences>()),
       preResolve: true,
     );
     gh.singleton<_i105.AuthFactorRepository>(
-        () => _i105.AuthFactorRepositoryImpl());
+      () => _i105.AuthFactorRepositoryImpl(),
+    );
     gh.factory<_i809.GenerateThumbnailJob>(
-        () => _i809.GenerateThumbnailJobImpl(gh<_i705.Thumbnailer>()));
+      () => _i809.GenerateThumbnailJobImpl(gh<_i705.Thumbnailer>()),
+    );
     gh.factory<_i479.SecureKeyFactory>(
-        () => _i479.SecureKeyFactoryImpl(gh<_i539.SodiumSumo>()));
+      () => _i479.SecureKeyFactoryImpl(gh<_i539.SodiumSumo>()),
+    );
     gh.factory<_i1004.CrashReportIdGenerator>(
-        () => _i1004.CrashReportIdGeneratorImpl());
-    gh.singleton<_i1003.SaveRefImageServiceController>(() =>
-        _i1003.SaveRefImageServiceController(
-            gh<_i188.SaveRefImageNativeService>()));
-    gh.singleton<_i1003.SaveRefImageJobController>(() =>
-        _i1003.SaveRefImageJobController(
-            gh<_i188.SaveRefImageNativeService>()));
+      () => _i1004.CrashReportIdGeneratorImpl(),
+    );
+    gh.singleton<_i1003.SaveRefImageServiceController>(
+      () => _i1003.SaveRefImageServiceController(
+        gh<_i188.SaveRefImageNativeService>(),
+      ),
+    );
+    gh.singleton<_i1003.SaveRefImageJobController>(
+      () => _i1003.SaveRefImageJobController(
+        gh<_i188.SaveRefImageNativeService>(),
+      ),
+    );
     gh.singleton<_i671.NotificationManager>(
-        () => _i671.NotificationManagerImpl(gh<_i1009.PlatformInfo>()));
+      () => _i671.NotificationManagerImpl(gh<_i1009.PlatformInfo>()),
+    );
     gh.singleton<_i318.WorkManager>(
       () => _i318.DebugWorkManagerImpl(
         gh<_i1009.PlatformInfo>(),
@@ -155,14 +167,18 @@ extension GetItInjectableX on _i174.GetIt {
       ),
       registerFor: {_dev},
     );
-    gh.factory<_i966.ThumbnailFS>(() => _i966.ThumbnailFSImpl(
-          gh<_i1009.PlatformInfo>(),
-          gh<_i303.FileSystem>(),
-        ));
-    gh.singleton<_i49.AppSettings>(() => _i49.AppSettingsImpl(
-          gh<_i252.SharedPreferencesAsyncListenable>(),
-          gh<_i252.SharedPreferencesWithCacheListenable>(),
-        ));
+    gh.factory<_i966.ThumbnailFS>(
+      () => _i966.ThumbnailFSImpl(
+        gh<_i1009.PlatformInfo>(),
+        gh<_i303.FileSystem>(),
+      ),
+    );
+    gh.singleton<_i49.AppSettings>(
+      () => _i49.AppSettingsImpl(
+        gh<_i252.SharedPreferencesAsyncListenable>(),
+        gh<_i252.SharedPreferencesWithCacheListenable>(),
+      ),
+    );
     gh.factory<_i970.CrashReportBuilder>(
       () => _i970.DevCrashReportBuilder(
         gh<_i1009.PlatformInfo>(),
@@ -175,22 +191,28 @@ extension GetItInjectableX on _i174.GetIt {
       preResolve: true,
     );
     gh.singleton<_i320.WindowManager>(
-        () => _i320.WindowManagerImpl(gh<_i57.WindowManagerNative>()));
-    gh.factory<_i598.ThumbnailsMigrator>(() => _i598.ThumbnailsMigrator(
-          gh<_i1009.PlatformInfo>(),
-          gh<_i303.FileSystem>(),
-          gh<_i705.Thumbnailer>(),
-          gh<_i252.SharedPreferencesAsyncListenable>(),
-        ));
+      () => _i320.WindowManagerImpl(gh<_i57.WindowManagerNative>()),
+    );
+    gh.factory<_i598.ThumbnailsMigrator>(
+      () => _i598.ThumbnailsMigrator(
+        gh<_i1009.PlatformInfo>(),
+        gh<_i303.FileSystem>(),
+        gh<_i705.Thumbnailer>(),
+        gh<_i252.SharedPreferencesAsyncListenable>(),
+      ),
+    );
     gh.singleton<_i670.EncryptModuleProvider>(
-        () => _i670.EncryptModuleProviderImpl(
-              gh<_i539.SodiumSumo>(),
-              gh<_i496.EncryptKeyDerivation>(),
-            ));
-    gh.factory<_i325.RefImageFS>(() => _i325.RefImageFSImpl(
-          gh<_i1009.PlatformInfo>(),
-          gh<_i303.FileSystem>(),
-        ));
+      () => _i670.EncryptModuleProviderImpl(
+        gh<_i539.SodiumSumo>(),
+        gh<_i496.EncryptKeyDerivation>(),
+      ),
+    );
+    gh.factory<_i325.RefImageFS>(
+      () => _i325.RefImageFSImpl(
+        gh<_i1009.PlatformInfo>(),
+        gh<_i303.FileSystem>(),
+      ),
+    );
     gh.singleton<_i318.WorkManager>(
       () => _i318.WorkManagerImpl(
         gh<_i1009.PlatformInfo>(),
@@ -199,21 +221,16 @@ extension GetItInjectableX on _i174.GetIt {
       ),
       registerFor: {_prod},
     );
-    gh.factory<_i496.CrashReportManager>(() => _i496.CrashReportManagerImpl(
-          gh<_i970.CrashReportBuilder>(),
-          gh<_i129.CrashReportSender>(),
-        ));
     gh.singleton<_i266.AppDatabase>(
       () => _i266.AppDatabaseImpl(gh<_i310.Database>()),
-      registerFor: {
-        _dev,
-        _prod,
-      },
+      registerFor: {_dev, _prod},
     );
-    gh.factory<_i923.SaveRefImageJob>(() => _i923.SaveRefImageJobImpl(
-          gh<_i498.EncryptModuleProvider>(),
-          gh<_i325.RefImageFS>(),
-        ));
+    gh.factory<_i923.SaveRefImageJob>(
+      () => _i923.SaveRefImageJobImpl(
+        gh<_i498.EncryptModuleProvider>(),
+        gh<_i325.RefImageFS>(),
+      ),
+    );
     gh.factory<_i970.CrashReportBuilder>(
       () => _i970.ProdCrashReportBuilder(
         gh<_i1009.PlatformInfo>(),
@@ -222,42 +239,57 @@ extension GetItInjectableX on _i174.GetIt {
       registerFor: {_prod},
     );
     gh.factory<_i63.SaveThumbnailJob>(
-        () => _i63.SaveThumbnailJobImpl(gh<_i966.ThumbnailFS>()));
+      () => _i63.SaveThumbnailJobImpl(gh<_i966.ThumbnailFS>()),
+    );
     gh.singleton<_i326.PersistentAuthFactorRepository>(
-        () => _i326.PersistentAuthFactorRepositoryImpl(
-              gh<_i266.AppDatabase>(),
-              gh<_i498.SaltGenerator>(),
-              gh<_i41.PasswordHasher>(),
-            ));
+      () => _i326.PersistentAuthFactorRepositoryImpl(
+        gh<_i266.AppDatabase>(),
+        gh<_i498.SaltGenerator>(),
+        gh<_i41.PasswordHasher>(),
+      ),
+    );
     gh.factory<_i811.ThumbnailsMigratorWorker>(
-        () => _i811.ThumbnailsMigratorWorker(gh<_i598.ThumbnailsMigrator>()));
+      () => _i811.ThumbnailsMigratorWorker(gh<_i598.ThumbnailsMigrator>()),
+    );
+    gh.factory<_i496.CrashReportManager>(
+      () => _i496.CrashReportManagerImpl(
+        gh<_i970.CrashReportBuilder>(),
+        gh<_i129.CrashReportSender>(),
+      ),
+    );
     gh.singleton<_i1003.SaveRefImageService>(
-        () => _i1003.SaveRefImageServiceImpl(
-              gh<_i923.SaveRefImageJob>(),
-              gh<_i303.FileSystem>(),
-              gh<_i1003.SaveRefImageServiceController>(),
-              gh<_i1003.SaveRefImageJobController>(),
-              gh<_i809.GenerateThumbnailJob>(),
-              gh<_i63.SaveThumbnailJob>(),
-              gh<_i105.AuthFactorRepository>(),
-            ));
-    gh.singleton<_i1016.RefImageStatusRepository>(() =>
-        _i1016.RefImageStatusRepositoryImpl(gh<_i1003.SaveRefImageService>()));
+      () => _i1003.SaveRefImageServiceImpl(
+        gh<_i923.SaveRefImageJob>(),
+        gh<_i303.FileSystem>(),
+        gh<_i1003.SaveRefImageServiceController>(),
+        gh<_i1003.SaveRefImageJobController>(),
+        gh<_i809.GenerateThumbnailJob>(),
+        gh<_i63.SaveThumbnailJob>(),
+        gh<_i105.AuthFactorRepository>(),
+      ),
+    );
+    gh.singleton<_i1016.RefImageStatusRepository>(
+      () =>
+          _i1016.RefImageStatusRepositoryImpl(gh<_i1003.SaveRefImageService>()),
+    );
     gh.singleton<_i755.RefImageSecureStorage>(
-        () => _i755.RefImageSecureStorageImpl(
-              gh<_i325.RefImageFS>(),
-              gh<_i498.EncryptModuleProvider>(),
-              gh<_i1003.SaveRefImageService>(),
-              gh<_i105.AuthFactorRepository>(),
-            ));
-    gh.singleton<_i443.RefImageRepository>(() => _i443.RefImageRepositoryImpl(
-          gh<_i266.AppDatabase>(),
-          gh<_i332.RefImageIdGenerator>(),
-          gh<_i673.DateTimeProvider>(),
-          gh<_i755.RefImageSecureStorage>(),
-          gh<_i966.ThumbnailFS>(),
-          gh<_i187.SaltGenerator>(),
-        ));
+      () => _i755.RefImageSecureStorageImpl(
+        gh<_i325.RefImageFS>(),
+        gh<_i498.EncryptModuleProvider>(),
+        gh<_i1003.SaveRefImageService>(),
+        gh<_i105.AuthFactorRepository>(),
+      ),
+    );
+    gh.singleton<_i443.RefImageRepository>(
+      () => _i443.RefImageRepositoryImpl(
+        gh<_i266.AppDatabase>(),
+        gh<_i332.RefImageIdGenerator>(),
+        gh<_i673.DateTimeProvider>(),
+        gh<_i755.RefImageSecureStorage>(),
+        gh<_i966.ThumbnailFS>(),
+        gh<_i187.SaltGenerator>(),
+      ),
+    );
     return this;
   }
 }

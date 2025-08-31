@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,180 +9,167 @@ part of 'ref_image_entry.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
-mixin _$RefImageEntry {
-  RefImageInfo get info => throw _privateConstructorUsedError;
-  Thumbnail get thumbnail => throw _privateConstructorUsedError;
+mixin _$RefImageEntry implements DiagnosticableTreeMixin {
 
-  /// Create a copy of RefImageEntry
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $RefImageEntryCopyWith<RefImageEntry> get copyWith =>
-      throw _privateConstructorUsedError;
+ RefImageInfo get info; Thumbnail get thumbnail;
+/// Create a copy of RefImageEntry
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$RefImageEntryCopyWith<RefImageEntry> get copyWith => _$RefImageEntryCopyWithImpl<RefImageEntry>(this as RefImageEntry, _$identity);
+
+
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'RefImageEntry'))
+    ..add(DiagnosticsProperty('info', info))..add(DiagnosticsProperty('thumbnail', thumbnail));
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is RefImageEntry&&(identical(other.info, info) || other.info == info)&&(identical(other.thumbnail, thumbnail) || other.thumbnail == thumbnail));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,info,thumbnail);
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'RefImageEntry(info: $info, thumbnail: $thumbnail)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $RefImageEntryCopyWith<$Res> {
-  factory $RefImageEntryCopyWith(
-          RefImageEntry value, $Res Function(RefImageEntry) then) =
-      _$RefImageEntryCopyWithImpl<$Res, RefImageEntry>;
-  @useResult
-  $Res call({RefImageInfo info, Thumbnail thumbnail});
+abstract mixin class $RefImageEntryCopyWith<$Res>  {
+  factory $RefImageEntryCopyWith(RefImageEntry value, $Res Function(RefImageEntry) _then) = _$RefImageEntryCopyWithImpl;
+@useResult
+$Res call({
+ RefImageInfo info, Thumbnail thumbnail
+});
 
-  $RefImageInfoCopyWith<$Res> get info;
+
+$RefImageInfoCopyWith<$Res> get info;
+
 }
-
 /// @nodoc
-class _$RefImageEntryCopyWithImpl<$Res, $Val extends RefImageEntry>
+class _$RefImageEntryCopyWithImpl<$Res>
     implements $RefImageEntryCopyWith<$Res> {
-  _$RefImageEntryCopyWithImpl(this._value, this._then);
+  _$RefImageEntryCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final RefImageEntry _self;
+  final $Res Function(RefImageEntry) _then;
 
-  /// Create a copy of RefImageEntry
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? info = null,
-    Object? thumbnail = null,
-  }) {
-    return _then(_value.copyWith(
-      info: null == info
-          ? _value.info
-          : info // ignore: cast_nullable_to_non_nullable
-              as RefImageInfo,
-      thumbnail: null == thumbnail
-          ? _value.thumbnail
-          : thumbnail // ignore: cast_nullable_to_non_nullable
-              as Thumbnail,
-    ) as $Val);
-  }
-
-  /// Create a copy of RefImageEntry
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $RefImageInfoCopyWith<$Res> get info {
-    return $RefImageInfoCopyWith<$Res>(_value.info, (value) {
-      return _then(_value.copyWith(info: value) as $Val);
-    });
-  }
+/// Create a copy of RefImageEntry
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? info = null,Object? thumbnail = null,}) {
+  return _then(_self.copyWith(
+info: null == info ? _self.info : info // ignore: cast_nullable_to_non_nullable
+as RefImageInfo,thumbnail: null == thumbnail ? _self.thumbnail : thumbnail // ignore: cast_nullable_to_non_nullable
+as Thumbnail,
+  ));
+}
+/// Create a copy of RefImageEntry
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RefImageInfoCopyWith<$Res> get info {
+  
+  return $RefImageInfoCopyWith<$Res>(_self.info, (value) {
+    return _then(_self.copyWith(info: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$RefImageEntryImplCopyWith<$Res>
-    implements $RefImageEntryCopyWith<$Res> {
-  factory _$$RefImageEntryImplCopyWith(
-          _$RefImageEntryImpl value, $Res Function(_$RefImageEntryImpl) then) =
-      __$$RefImageEntryImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({RefImageInfo info, Thumbnail thumbnail});
 
-  @override
-  $RefImageInfoCopyWith<$Res> get info;
-}
-
-/// @nodoc
-class __$$RefImageEntryImplCopyWithImpl<$Res>
-    extends _$RefImageEntryCopyWithImpl<$Res, _$RefImageEntryImpl>
-    implements _$$RefImageEntryImplCopyWith<$Res> {
-  __$$RefImageEntryImplCopyWithImpl(
-      _$RefImageEntryImpl _value, $Res Function(_$RefImageEntryImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of RefImageEntry
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? info = null,
-    Object? thumbnail = null,
-  }) {
-    return _then(_$RefImageEntryImpl(
-      info: null == info
-          ? _value.info
-          : info // ignore: cast_nullable_to_non_nullable
-              as RefImageInfo,
-      thumbnail: null == thumbnail
-          ? _value.thumbnail
-          : thumbnail // ignore: cast_nullable_to_non_nullable
-              as Thumbnail,
-    ));
-  }
-}
 
 /// @nodoc
 
-class _$RefImageEntryImpl
-    with DiagnosticableTreeMixin
-    implements _RefImageEntry {
-  const _$RefImageEntryImpl({required this.info, required this.thumbnail});
 
-  @override
-  final RefImageInfo info;
-  @override
-  final Thumbnail thumbnail;
+class _RefImageEntry with DiagnosticableTreeMixin implements RefImageEntry {
+  const _RefImageEntry({required this.info, required this.thumbnail});
+  
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RefImageEntry(info: $info, thumbnail: $thumbnail)';
-  }
+@override final  RefImageInfo info;
+@override final  Thumbnail thumbnail;
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'RefImageEntry'))
-      ..add(DiagnosticsProperty('info', info))
-      ..add(DiagnosticsProperty('thumbnail', thumbnail));
-  }
+/// Create a copy of RefImageEntry
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$RefImageEntryCopyWith<_RefImageEntry> get copyWith => __$RefImageEntryCopyWithImpl<_RefImageEntry>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$RefImageEntryImpl &&
-            (identical(other.info, info) || other.info == info) &&
-            (identical(other.thumbnail, thumbnail) ||
-                other.thumbnail == thumbnail));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, info, thumbnail);
-
-  /// Create a copy of RefImageEntry
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$RefImageEntryImplCopyWith<_$RefImageEntryImpl> get copyWith =>
-      __$$RefImageEntryImplCopyWithImpl<_$RefImageEntryImpl>(this, _$identity);
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'RefImageEntry'))
+    ..add(DiagnosticsProperty('info', info))..add(DiagnosticsProperty('thumbnail', thumbnail));
 }
 
-abstract class _RefImageEntry implements RefImageEntry {
-  const factory _RefImageEntry(
-      {required final RefImageInfo info,
-      required final Thumbnail thumbnail}) = _$RefImageEntryImpl;
-
-  @override
-  RefImageInfo get info;
-  @override
-  Thumbnail get thumbnail;
-
-  /// Create a copy of RefImageEntry
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RefImageEntryImplCopyWith<_$RefImageEntryImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RefImageEntry&&(identical(other.info, info) || other.info == info)&&(identical(other.thumbnail, thumbnail) || other.thumbnail == thumbnail));
 }
+
+
+@override
+int get hashCode => Object.hash(runtimeType,info,thumbnail);
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'RefImageEntry(info: $info, thumbnail: $thumbnail)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$RefImageEntryCopyWith<$Res> implements $RefImageEntryCopyWith<$Res> {
+  factory _$RefImageEntryCopyWith(_RefImageEntry value, $Res Function(_RefImageEntry) _then) = __$RefImageEntryCopyWithImpl;
+@override @useResult
+$Res call({
+ RefImageInfo info, Thumbnail thumbnail
+});
+
+
+@override $RefImageInfoCopyWith<$Res> get info;
+
+}
+/// @nodoc
+class __$RefImageEntryCopyWithImpl<$Res>
+    implements _$RefImageEntryCopyWith<$Res> {
+  __$RefImageEntryCopyWithImpl(this._self, this._then);
+
+  final _RefImageEntry _self;
+  final $Res Function(_RefImageEntry) _then;
+
+/// Create a copy of RefImageEntry
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? info = null,Object? thumbnail = null,}) {
+  return _then(_RefImageEntry(
+info: null == info ? _self.info : info // ignore: cast_nullable_to_non_nullable
+as RefImageInfo,thumbnail: null == thumbnail ? _self.thumbnail : thumbnail // ignore: cast_nullable_to_non_nullable
+as Thumbnail,
+  ));
+}
+
+/// Create a copy of RefImageEntry
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RefImageInfoCopyWith<$Res> get info {
+  
+  return $RefImageInfoCopyWith<$Res>(_self.info, (value) {
+    return _then(_self.copyWith(info: value));
+  });
+}
+}
+
+// dart format on

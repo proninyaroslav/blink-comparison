@@ -23,7 +23,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'ref_image_entry.freezed.dart';
 
 @freezed
-class RefImageEntry with _$RefImageEntry {
+abstract class RefImageEntry with _$RefImageEntry {
   const factory RefImageEntry({
     required RefImageInfo info,
     required Thumbnail thumbnail,

@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,710 +9,496 @@ part of 'app_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
-mixin _$AppState {
-  AppThemeType? get theme => throw _privateConstructorUsedError;
-  AppLocaleType? get locale => throw _privateConstructorUsedError;
-  bool? get cameraFullscreenMode => throw _privateConstructorUsedError;
+mixin _$AppState implements DiagnosticableTreeMixin {
 
-  /// Create a copy of AppState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $AppStateCopyWith<AppState> get copyWith =>
-      throw _privateConstructorUsedError;
+ AppThemeType? get theme; AppLocaleType? get locale; bool? get cameraFullscreenMode;
+/// Create a copy of AppState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AppStateCopyWith<AppState> get copyWith => _$AppStateCopyWithImpl<AppState>(this as AppState, _$identity);
+
+
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'AppState'))
+    ..add(DiagnosticsProperty('theme', theme))..add(DiagnosticsProperty('locale', locale))..add(DiagnosticsProperty('cameraFullscreenMode', cameraFullscreenMode));
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppState&&(identical(other.theme, theme) || other.theme == theme)&&(identical(other.locale, locale) || other.locale == locale)&&(identical(other.cameraFullscreenMode, cameraFullscreenMode) || other.cameraFullscreenMode == cameraFullscreenMode));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,theme,locale,cameraFullscreenMode);
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'AppState(theme: $theme, locale: $locale, cameraFullscreenMode: $cameraFullscreenMode)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $AppStateCopyWith<$Res> {
-  factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
-      _$AppStateCopyWithImpl<$Res, AppState>;
-  @useResult
-  $Res call(
-      {AppThemeType theme, AppLocaleType locale, bool cameraFullscreenMode});
+abstract mixin class $AppStateCopyWith<$Res>  {
+  factory $AppStateCopyWith(AppState value, $Res Function(AppState) _then) = _$AppStateCopyWithImpl;
+@useResult
+$Res call({
+ AppThemeType theme, AppLocaleType locale, bool cameraFullscreenMode
+});
 
-  $AppThemeTypeCopyWith<$Res>? get theme;
-  $AppLocaleTypeCopyWith<$Res>? get locale;
+
+$AppThemeTypeCopyWith<$Res>? get theme;$AppLocaleTypeCopyWith<$Res>? get locale;
+
 }
-
 /// @nodoc
-class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
+class _$AppStateCopyWithImpl<$Res>
     implements $AppStateCopyWith<$Res> {
-  _$AppStateCopyWithImpl(this._value, this._then);
+  _$AppStateCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final AppState _self;
+  final $Res Function(AppState) _then;
 
-  /// Create a copy of AppState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? theme = null,
-    Object? locale = null,
-    Object? cameraFullscreenMode = null,
-  }) {
-    return _then(_value.copyWith(
-      theme: null == theme
-          ? _value.theme!
-          : theme // ignore: cast_nullable_to_non_nullable
-              as AppThemeType,
-      locale: null == locale
-          ? _value.locale!
-          : locale // ignore: cast_nullable_to_non_nullable
-              as AppLocaleType,
-      cameraFullscreenMode: null == cameraFullscreenMode
-          ? _value.cameraFullscreenMode!
-          : cameraFullscreenMode // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+/// Create a copy of AppState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? theme = null,Object? locale = null,Object? cameraFullscreenMode = null,}) {
+  return _then(_self.copyWith(
+theme: null == theme ? _self.theme! : theme // ignore: cast_nullable_to_non_nullable
+as AppThemeType,locale: null == locale ? _self.locale! : locale // ignore: cast_nullable_to_non_nullable
+as AppLocaleType,cameraFullscreenMode: null == cameraFullscreenMode ? _self.cameraFullscreenMode! : cameraFullscreenMode // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+/// Create a copy of AppState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AppThemeTypeCopyWith<$Res>? get theme {
+    if (_self.theme == null) {
+    return null;
   }
 
-  /// Create a copy of AppState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AppThemeTypeCopyWith<$Res>? get theme {
-    if (_value.theme == null) {
-      return null;
-    }
-
-    return $AppThemeTypeCopyWith<$Res>(_value.theme!, (value) {
-      return _then(_value.copyWith(theme: value) as $Val);
-    });
+  return $AppThemeTypeCopyWith<$Res>(_self.theme!, (value) {
+    return _then(_self.copyWith(theme: value));
+  });
+}/// Create a copy of AppState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AppLocaleTypeCopyWith<$Res>? get locale {
+    if (_self.locale == null) {
+    return null;
   }
 
-  /// Create a copy of AppState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AppLocaleTypeCopyWith<$Res>? get locale {
-    if (_value.locale == null) {
-      return null;
-    }
-
-    return $AppLocaleTypeCopyWith<$Res>(_value.locale!, (value) {
-      return _then(_value.copyWith(locale: value) as $Val);
-    });
-  }
+  return $AppLocaleTypeCopyWith<$Res>(_self.locale!, (value) {
+    return _then(_self.copyWith(locale: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$AppStateInitialImplCopyWith<$Res>
-    implements $AppStateCopyWith<$Res> {
-  factory _$$AppStateInitialImplCopyWith(_$AppStateInitialImpl value,
-          $Res Function(_$AppStateInitialImpl) then) =
-      __$$AppStateInitialImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {AppThemeType? theme, AppLocaleType? locale, bool? cameraFullscreenMode});
 
-  @override
-  $AppThemeTypeCopyWith<$Res>? get theme;
-  @override
-  $AppLocaleTypeCopyWith<$Res>? get locale;
-}
-
-/// @nodoc
-class __$$AppStateInitialImplCopyWithImpl<$Res>
-    extends _$AppStateCopyWithImpl<$Res, _$AppStateInitialImpl>
-    implements _$$AppStateInitialImplCopyWith<$Res> {
-  __$$AppStateInitialImplCopyWithImpl(
-      _$AppStateInitialImpl _value, $Res Function(_$AppStateInitialImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AppState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? theme = freezed,
-    Object? locale = freezed,
-    Object? cameraFullscreenMode = freezed,
-  }) {
-    return _then(_$AppStateInitialImpl(
-      theme: freezed == theme
-          ? _value.theme
-          : theme // ignore: cast_nullable_to_non_nullable
-              as AppThemeType?,
-      locale: freezed == locale
-          ? _value.locale
-          : locale // ignore: cast_nullable_to_non_nullable
-              as AppLocaleType?,
-      cameraFullscreenMode: freezed == cameraFullscreenMode
-          ? _value.cameraFullscreenMode
-          : cameraFullscreenMode // ignore: cast_nullable_to_non_nullable
-              as bool?,
-    ));
-  }
-}
 
 /// @nodoc
 
-class _$AppStateInitialImpl
-    with DiagnosticableTreeMixin
-    implements AppStateInitial {
-  const _$AppStateInitialImpl(
-      {this.theme = null,
-      this.locale = null,
-      this.cameraFullscreenMode = null});
 
-  @override
-  @JsonKey()
-  final AppThemeType? theme;
-  @override
-  @JsonKey()
-  final AppLocaleType? locale;
-  @override
-  @JsonKey()
-  final bool? cameraFullscreenMode;
+class AppStateInitial with DiagnosticableTreeMixin implements AppState {
+  const AppStateInitial({this.theme = null, this.locale = null, this.cameraFullscreenMode = null});
+  
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AppState.initial(theme: $theme, locale: $locale, cameraFullscreenMode: $cameraFullscreenMode)';
-  }
+@override@JsonKey() final  AppThemeType? theme;
+@override@JsonKey() final  AppLocaleType? locale;
+@override@JsonKey() final  bool? cameraFullscreenMode;
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AppState.initial'))
-      ..add(DiagnosticsProperty('theme', theme))
-      ..add(DiagnosticsProperty('locale', locale))
-      ..add(DiagnosticsProperty('cameraFullscreenMode', cameraFullscreenMode));
-  }
+/// Create a copy of AppState
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AppStateInitialCopyWith<AppStateInitial> get copyWith => _$AppStateInitialCopyWithImpl<AppStateInitial>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AppStateInitialImpl &&
-            (identical(other.theme, theme) || other.theme == theme) &&
-            (identical(other.locale, locale) || other.locale == locale) &&
-            (identical(other.cameraFullscreenMode, cameraFullscreenMode) ||
-                other.cameraFullscreenMode == cameraFullscreenMode));
-  }
 
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, theme, locale, cameraFullscreenMode);
-
-  /// Create a copy of AppState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AppStateInitialImplCopyWith<_$AppStateInitialImpl> get copyWith =>
-      __$$AppStateInitialImplCopyWithImpl<_$AppStateInitialImpl>(
-          this, _$identity);
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'AppState.initial'))
+    ..add(DiagnosticsProperty('theme', theme))..add(DiagnosticsProperty('locale', locale))..add(DiagnosticsProperty('cameraFullscreenMode', cameraFullscreenMode));
 }
 
-abstract class AppStateInitial implements AppState {
-  const factory AppStateInitial(
-      {final AppThemeType? theme,
-      final AppLocaleType? locale,
-      final bool? cameraFullscreenMode}) = _$AppStateInitialImpl;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppStateInitial&&(identical(other.theme, theme) || other.theme == theme)&&(identical(other.locale, locale) || other.locale == locale)&&(identical(other.cameraFullscreenMode, cameraFullscreenMode) || other.cameraFullscreenMode == cameraFullscreenMode));
+}
 
-  @override
-  AppThemeType? get theme;
-  @override
-  AppLocaleType? get locale;
-  @override
-  bool? get cameraFullscreenMode;
 
-  /// Create a copy of AppState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AppStateInitialImplCopyWith<_$AppStateInitialImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+int get hashCode => Object.hash(runtimeType,theme,locale,cameraFullscreenMode);
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'AppState.initial(theme: $theme, locale: $locale, cameraFullscreenMode: $cameraFullscreenMode)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$AppStateLoadedImplCopyWith<$Res>
-    implements $AppStateCopyWith<$Res> {
-  factory _$$AppStateLoadedImplCopyWith(_$AppStateLoadedImpl value,
-          $Res Function(_$AppStateLoadedImpl) then) =
-      __$$AppStateLoadedImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {AppThemeType theme, AppLocaleType locale, bool cameraFullscreenMode});
+abstract mixin class $AppStateInitialCopyWith<$Res> implements $AppStateCopyWith<$Res> {
+  factory $AppStateInitialCopyWith(AppStateInitial value, $Res Function(AppStateInitial) _then) = _$AppStateInitialCopyWithImpl;
+@override @useResult
+$Res call({
+ AppThemeType? theme, AppLocaleType? locale, bool? cameraFullscreenMode
+});
 
-  @override
-  $AppThemeTypeCopyWith<$Res> get theme;
-  @override
-  $AppLocaleTypeCopyWith<$Res> get locale;
+
+@override $AppThemeTypeCopyWith<$Res>? get theme;@override $AppLocaleTypeCopyWith<$Res>? get locale;
+
+}
+/// @nodoc
+class _$AppStateInitialCopyWithImpl<$Res>
+    implements $AppStateInitialCopyWith<$Res> {
+  _$AppStateInitialCopyWithImpl(this._self, this._then);
+
+  final AppStateInitial _self;
+  final $Res Function(AppStateInitial) _then;
+
+/// Create a copy of AppState
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? theme = freezed,Object? locale = freezed,Object? cameraFullscreenMode = freezed,}) {
+  return _then(AppStateInitial(
+theme: freezed == theme ? _self.theme : theme // ignore: cast_nullable_to_non_nullable
+as AppThemeType?,locale: freezed == locale ? _self.locale : locale // ignore: cast_nullable_to_non_nullable
+as AppLocaleType?,cameraFullscreenMode: freezed == cameraFullscreenMode ? _self.cameraFullscreenMode : cameraFullscreenMode // ignore: cast_nullable_to_non_nullable
+as bool?,
+  ));
 }
 
-/// @nodoc
-class __$$AppStateLoadedImplCopyWithImpl<$Res>
-    extends _$AppStateCopyWithImpl<$Res, _$AppStateLoadedImpl>
-    implements _$$AppStateLoadedImplCopyWith<$Res> {
-  __$$AppStateLoadedImplCopyWithImpl(
-      _$AppStateLoadedImpl _value, $Res Function(_$AppStateLoadedImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AppState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? theme = null,
-    Object? locale = null,
-    Object? cameraFullscreenMode = null,
-  }) {
-    return _then(_$AppStateLoadedImpl(
-      theme: null == theme
-          ? _value.theme
-          : theme // ignore: cast_nullable_to_non_nullable
-              as AppThemeType,
-      locale: null == locale
-          ? _value.locale
-          : locale // ignore: cast_nullable_to_non_nullable
-              as AppLocaleType,
-      cameraFullscreenMode: null == cameraFullscreenMode
-          ? _value.cameraFullscreenMode
-          : cameraFullscreenMode // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
+/// Create a copy of AppState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AppThemeTypeCopyWith<$Res>? get theme {
+    if (_self.theme == null) {
+    return null;
   }
 
-  /// Create a copy of AppState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AppThemeTypeCopyWith<$Res> get theme {
-    return $AppThemeTypeCopyWith<$Res>(_value.theme, (value) {
-      return _then(_value.copyWith(theme: value));
-    });
+  return $AppThemeTypeCopyWith<$Res>(_self.theme!, (value) {
+    return _then(_self.copyWith(theme: value));
+  });
+}/// Create a copy of AppState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AppLocaleTypeCopyWith<$Res>? get locale {
+    if (_self.locale == null) {
+    return null;
   }
 
-  /// Create a copy of AppState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AppLocaleTypeCopyWith<$Res> get locale {
-    return $AppLocaleTypeCopyWith<$Res>(_value.locale, (value) {
-      return _then(_value.copyWith(locale: value));
-    });
-  }
+  return $AppLocaleTypeCopyWith<$Res>(_self.locale!, (value) {
+    return _then(_self.copyWith(locale: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$AppStateLoadedImpl
-    with DiagnosticableTreeMixin
-    implements AppStateLoaded {
-  const _$AppStateLoadedImpl(
-      {required this.theme,
-      required this.locale,
-      required this.cameraFullscreenMode});
 
-  @override
-  final AppThemeType theme;
-  @override
-  final AppLocaleType locale;
-  @override
-  final bool cameraFullscreenMode;
+class AppStateLoaded with DiagnosticableTreeMixin implements AppState {
+  const AppStateLoaded({required this.theme, required this.locale, required this.cameraFullscreenMode});
+  
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AppState.loaded(theme: $theme, locale: $locale, cameraFullscreenMode: $cameraFullscreenMode)';
-  }
+@override final  AppThemeType theme;
+@override final  AppLocaleType locale;
+@override final  bool cameraFullscreenMode;
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AppState.loaded'))
-      ..add(DiagnosticsProperty('theme', theme))
-      ..add(DiagnosticsProperty('locale', locale))
-      ..add(DiagnosticsProperty('cameraFullscreenMode', cameraFullscreenMode));
-  }
+/// Create a copy of AppState
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AppStateLoadedCopyWith<AppStateLoaded> get copyWith => _$AppStateLoadedCopyWithImpl<AppStateLoaded>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AppStateLoadedImpl &&
-            (identical(other.theme, theme) || other.theme == theme) &&
-            (identical(other.locale, locale) || other.locale == locale) &&
-            (identical(other.cameraFullscreenMode, cameraFullscreenMode) ||
-                other.cameraFullscreenMode == cameraFullscreenMode));
-  }
 
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, theme, locale, cameraFullscreenMode);
-
-  /// Create a copy of AppState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AppStateLoadedImplCopyWith<_$AppStateLoadedImpl> get copyWith =>
-      __$$AppStateLoadedImplCopyWithImpl<_$AppStateLoadedImpl>(
-          this, _$identity);
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'AppState.loaded'))
+    ..add(DiagnosticsProperty('theme', theme))..add(DiagnosticsProperty('locale', locale))..add(DiagnosticsProperty('cameraFullscreenMode', cameraFullscreenMode));
 }
 
-abstract class AppStateLoaded implements AppState {
-  const factory AppStateLoaded(
-      {required final AppThemeType theme,
-      required final AppLocaleType locale,
-      required final bool cameraFullscreenMode}) = _$AppStateLoadedImpl;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppStateLoaded&&(identical(other.theme, theme) || other.theme == theme)&&(identical(other.locale, locale) || other.locale == locale)&&(identical(other.cameraFullscreenMode, cameraFullscreenMode) || other.cameraFullscreenMode == cameraFullscreenMode));
+}
 
-  @override
-  AppThemeType get theme;
-  @override
-  AppLocaleType get locale;
-  @override
-  bool get cameraFullscreenMode;
 
-  /// Create a copy of AppState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AppStateLoadedImplCopyWith<_$AppStateLoadedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+int get hashCode => Object.hash(runtimeType,theme,locale,cameraFullscreenMode);
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'AppState.loaded(theme: $theme, locale: $locale, cameraFullscreenMode: $cameraFullscreenMode)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$AppStateChangedImplCopyWith<$Res>
-    implements $AppStateCopyWith<$Res> {
-  factory _$$AppStateChangedImplCopyWith(_$AppStateChangedImpl value,
-          $Res Function(_$AppStateChangedImpl) then) =
-      __$$AppStateChangedImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {AppThemeType theme, AppLocaleType locale, bool cameraFullscreenMode});
+abstract mixin class $AppStateLoadedCopyWith<$Res> implements $AppStateCopyWith<$Res> {
+  factory $AppStateLoadedCopyWith(AppStateLoaded value, $Res Function(AppStateLoaded) _then) = _$AppStateLoadedCopyWithImpl;
+@override @useResult
+$Res call({
+ AppThemeType theme, AppLocaleType locale, bool cameraFullscreenMode
+});
 
-  @override
-  $AppThemeTypeCopyWith<$Res> get theme;
-  @override
-  $AppLocaleTypeCopyWith<$Res> get locale;
+
+@override $AppThemeTypeCopyWith<$Res> get theme;@override $AppLocaleTypeCopyWith<$Res> get locale;
+
+}
+/// @nodoc
+class _$AppStateLoadedCopyWithImpl<$Res>
+    implements $AppStateLoadedCopyWith<$Res> {
+  _$AppStateLoadedCopyWithImpl(this._self, this._then);
+
+  final AppStateLoaded _self;
+  final $Res Function(AppStateLoaded) _then;
+
+/// Create a copy of AppState
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? theme = null,Object? locale = null,Object? cameraFullscreenMode = null,}) {
+  return _then(AppStateLoaded(
+theme: null == theme ? _self.theme : theme // ignore: cast_nullable_to_non_nullable
+as AppThemeType,locale: null == locale ? _self.locale : locale // ignore: cast_nullable_to_non_nullable
+as AppLocaleType,cameraFullscreenMode: null == cameraFullscreenMode ? _self.cameraFullscreenMode : cameraFullscreenMode // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
 }
 
-/// @nodoc
-class __$$AppStateChangedImplCopyWithImpl<$Res>
-    extends _$AppStateCopyWithImpl<$Res, _$AppStateChangedImpl>
-    implements _$$AppStateChangedImplCopyWith<$Res> {
-  __$$AppStateChangedImplCopyWithImpl(
-      _$AppStateChangedImpl _value, $Res Function(_$AppStateChangedImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AppState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? theme = null,
-    Object? locale = null,
-    Object? cameraFullscreenMode = null,
-  }) {
-    return _then(_$AppStateChangedImpl(
-      theme: null == theme
-          ? _value.theme
-          : theme // ignore: cast_nullable_to_non_nullable
-              as AppThemeType,
-      locale: null == locale
-          ? _value.locale
-          : locale // ignore: cast_nullable_to_non_nullable
-              as AppLocaleType,
-      cameraFullscreenMode: null == cameraFullscreenMode
-          ? _value.cameraFullscreenMode
-          : cameraFullscreenMode // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-
-  /// Create a copy of AppState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AppThemeTypeCopyWith<$Res> get theme {
-    return $AppThemeTypeCopyWith<$Res>(_value.theme, (value) {
-      return _then(_value.copyWith(theme: value));
-    });
-  }
-
-  /// Create a copy of AppState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AppLocaleTypeCopyWith<$Res> get locale {
-    return $AppLocaleTypeCopyWith<$Res>(_value.locale, (value) {
-      return _then(_value.copyWith(locale: value));
-    });
-  }
+/// Create a copy of AppState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AppThemeTypeCopyWith<$Res> get theme {
+  
+  return $AppThemeTypeCopyWith<$Res>(_self.theme, (value) {
+    return _then(_self.copyWith(theme: value));
+  });
+}/// Create a copy of AppState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AppLocaleTypeCopyWith<$Res> get locale {
+  
+  return $AppLocaleTypeCopyWith<$Res>(_self.locale, (value) {
+    return _then(_self.copyWith(locale: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$AppStateChangedImpl
-    with DiagnosticableTreeMixin
-    implements AppStateChanged {
-  const _$AppStateChangedImpl(
-      {required this.theme,
-      required this.locale,
-      required this.cameraFullscreenMode});
 
-  @override
-  final AppThemeType theme;
-  @override
-  final AppLocaleType locale;
-  @override
-  final bool cameraFullscreenMode;
+class AppStateChanged with DiagnosticableTreeMixin implements AppState {
+  const AppStateChanged({required this.theme, required this.locale, required this.cameraFullscreenMode});
+  
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AppState.changed(theme: $theme, locale: $locale, cameraFullscreenMode: $cameraFullscreenMode)';
-  }
+@override final  AppThemeType theme;
+@override final  AppLocaleType locale;
+@override final  bool cameraFullscreenMode;
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AppState.changed'))
-      ..add(DiagnosticsProperty('theme', theme))
-      ..add(DiagnosticsProperty('locale', locale))
-      ..add(DiagnosticsProperty('cameraFullscreenMode', cameraFullscreenMode));
-  }
+/// Create a copy of AppState
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AppStateChangedCopyWith<AppStateChanged> get copyWith => _$AppStateChangedCopyWithImpl<AppStateChanged>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AppStateChangedImpl &&
-            (identical(other.theme, theme) || other.theme == theme) &&
-            (identical(other.locale, locale) || other.locale == locale) &&
-            (identical(other.cameraFullscreenMode, cameraFullscreenMode) ||
-                other.cameraFullscreenMode == cameraFullscreenMode));
-  }
 
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, theme, locale, cameraFullscreenMode);
-
-  /// Create a copy of AppState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AppStateChangedImplCopyWith<_$AppStateChangedImpl> get copyWith =>
-      __$$AppStateChangedImplCopyWithImpl<_$AppStateChangedImpl>(
-          this, _$identity);
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'AppState.changed'))
+    ..add(DiagnosticsProperty('theme', theme))..add(DiagnosticsProperty('locale', locale))..add(DiagnosticsProperty('cameraFullscreenMode', cameraFullscreenMode));
 }
 
-abstract class AppStateChanged implements AppState {
-  const factory AppStateChanged(
-      {required final AppThemeType theme,
-      required final AppLocaleType locale,
-      required final bool cameraFullscreenMode}) = _$AppStateChangedImpl;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppStateChanged&&(identical(other.theme, theme) || other.theme == theme)&&(identical(other.locale, locale) || other.locale == locale)&&(identical(other.cameraFullscreenMode, cameraFullscreenMode) || other.cameraFullscreenMode == cameraFullscreenMode));
+}
 
-  @override
-  AppThemeType get theme;
-  @override
-  AppLocaleType get locale;
-  @override
-  bool get cameraFullscreenMode;
 
-  /// Create a copy of AppState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AppStateChangedImplCopyWith<_$AppStateChangedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+int get hashCode => Object.hash(runtimeType,theme,locale,cameraFullscreenMode);
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'AppState.changed(theme: $theme, locale: $locale, cameraFullscreenMode: $cameraFullscreenMode)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$AppStateEncryptPreferenceChangedImplCopyWith<$Res>
-    implements $AppStateCopyWith<$Res> {
-  factory _$$AppStateEncryptPreferenceChangedImplCopyWith(
-          _$AppStateEncryptPreferenceChangedImpl value,
-          $Res Function(_$AppStateEncryptPreferenceChangedImpl) then) =
-      __$$AppStateEncryptPreferenceChangedImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {AppThemeType theme,
-      AppLocaleType locale,
-      bool cameraFullscreenMode,
-      EncryptionPreference? encrypt});
+abstract mixin class $AppStateChangedCopyWith<$Res> implements $AppStateCopyWith<$Res> {
+  factory $AppStateChangedCopyWith(AppStateChanged value, $Res Function(AppStateChanged) _then) = _$AppStateChangedCopyWithImpl;
+@override @useResult
+$Res call({
+ AppThemeType theme, AppLocaleType locale, bool cameraFullscreenMode
+});
 
-  @override
-  $AppThemeTypeCopyWith<$Res> get theme;
-  @override
-  $AppLocaleTypeCopyWith<$Res> get locale;
-  $EncryptionPreferenceCopyWith<$Res>? get encrypt;
+
+@override $AppThemeTypeCopyWith<$Res> get theme;@override $AppLocaleTypeCopyWith<$Res> get locale;
+
+}
+/// @nodoc
+class _$AppStateChangedCopyWithImpl<$Res>
+    implements $AppStateChangedCopyWith<$Res> {
+  _$AppStateChangedCopyWithImpl(this._self, this._then);
+
+  final AppStateChanged _self;
+  final $Res Function(AppStateChanged) _then;
+
+/// Create a copy of AppState
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? theme = null,Object? locale = null,Object? cameraFullscreenMode = null,}) {
+  return _then(AppStateChanged(
+theme: null == theme ? _self.theme : theme // ignore: cast_nullable_to_non_nullable
+as AppThemeType,locale: null == locale ? _self.locale : locale // ignore: cast_nullable_to_non_nullable
+as AppLocaleType,cameraFullscreenMode: null == cameraFullscreenMode ? _self.cameraFullscreenMode : cameraFullscreenMode // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
 }
 
-/// @nodoc
-class __$$AppStateEncryptPreferenceChangedImplCopyWithImpl<$Res>
-    extends _$AppStateCopyWithImpl<$Res, _$AppStateEncryptPreferenceChangedImpl>
-    implements _$$AppStateEncryptPreferenceChangedImplCopyWith<$Res> {
-  __$$AppStateEncryptPreferenceChangedImplCopyWithImpl(
-      _$AppStateEncryptPreferenceChangedImpl _value,
-      $Res Function(_$AppStateEncryptPreferenceChangedImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AppState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? theme = null,
-    Object? locale = null,
-    Object? cameraFullscreenMode = null,
-    Object? encrypt = freezed,
-  }) {
-    return _then(_$AppStateEncryptPreferenceChangedImpl(
-      theme: null == theme
-          ? _value.theme
-          : theme // ignore: cast_nullable_to_non_nullable
-              as AppThemeType,
-      locale: null == locale
-          ? _value.locale
-          : locale // ignore: cast_nullable_to_non_nullable
-              as AppLocaleType,
-      cameraFullscreenMode: null == cameraFullscreenMode
-          ? _value.cameraFullscreenMode
-          : cameraFullscreenMode // ignore: cast_nullable_to_non_nullable
-              as bool,
-      encrypt: freezed == encrypt
-          ? _value.encrypt
-          : encrypt // ignore: cast_nullable_to_non_nullable
-              as EncryptionPreference?,
-    ));
-  }
-
-  /// Create a copy of AppState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AppThemeTypeCopyWith<$Res> get theme {
-    return $AppThemeTypeCopyWith<$Res>(_value.theme, (value) {
-      return _then(_value.copyWith(theme: value));
-    });
-  }
-
-  /// Create a copy of AppState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AppLocaleTypeCopyWith<$Res> get locale {
-    return $AppLocaleTypeCopyWith<$Res>(_value.locale, (value) {
-      return _then(_value.copyWith(locale: value));
-    });
-  }
-
-  /// Create a copy of AppState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $EncryptionPreferenceCopyWith<$Res>? get encrypt {
-    if (_value.encrypt == null) {
-      return null;
-    }
-
-    return $EncryptionPreferenceCopyWith<$Res>(_value.encrypt!, (value) {
-      return _then(_value.copyWith(encrypt: value));
-    });
-  }
+/// Create a copy of AppState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AppThemeTypeCopyWith<$Res> get theme {
+  
+  return $AppThemeTypeCopyWith<$Res>(_self.theme, (value) {
+    return _then(_self.copyWith(theme: value));
+  });
+}/// Create a copy of AppState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AppLocaleTypeCopyWith<$Res> get locale {
+  
+  return $AppLocaleTypeCopyWith<$Res>(_self.locale, (value) {
+    return _then(_self.copyWith(locale: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$AppStateEncryptPreferenceChangedImpl
-    with DiagnosticableTreeMixin
-    implements AppStateEncryptPreferenceChanged {
-  const _$AppStateEncryptPreferenceChangedImpl(
-      {required this.theme,
-      required this.locale,
-      required this.cameraFullscreenMode,
-      required this.encrypt});
 
-  @override
-  final AppThemeType theme;
-  @override
-  final AppLocaleType locale;
-  @override
-  final bool cameraFullscreenMode;
-  @override
-  final EncryptionPreference? encrypt;
+class AppStateEncryptPreferenceChanged with DiagnosticableTreeMixin implements AppState {
+  const AppStateEncryptPreferenceChanged({required this.theme, required this.locale, required this.cameraFullscreenMode, required this.encrypt});
+  
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AppState.encryptPreferenceChanged(theme: $theme, locale: $locale, cameraFullscreenMode: $cameraFullscreenMode, encrypt: $encrypt)';
-  }
+@override final  AppThemeType theme;
+@override final  AppLocaleType locale;
+@override final  bool cameraFullscreenMode;
+ final  EncryptionPreference? encrypt;
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AppState.encryptPreferenceChanged'))
-      ..add(DiagnosticsProperty('theme', theme))
-      ..add(DiagnosticsProperty('locale', locale))
-      ..add(DiagnosticsProperty('cameraFullscreenMode', cameraFullscreenMode))
-      ..add(DiagnosticsProperty('encrypt', encrypt));
-  }
+/// Create a copy of AppState
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AppStateEncryptPreferenceChangedCopyWith<AppStateEncryptPreferenceChanged> get copyWith => _$AppStateEncryptPreferenceChangedCopyWithImpl<AppStateEncryptPreferenceChanged>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AppStateEncryptPreferenceChangedImpl &&
-            (identical(other.theme, theme) || other.theme == theme) &&
-            (identical(other.locale, locale) || other.locale == locale) &&
-            (identical(other.cameraFullscreenMode, cameraFullscreenMode) ||
-                other.cameraFullscreenMode == cameraFullscreenMode) &&
-            (identical(other.encrypt, encrypt) || other.encrypt == encrypt));
-  }
 
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, theme, locale, cameraFullscreenMode, encrypt);
-
-  /// Create a copy of AppState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AppStateEncryptPreferenceChangedImplCopyWith<
-          _$AppStateEncryptPreferenceChangedImpl>
-      get copyWith => __$$AppStateEncryptPreferenceChangedImplCopyWithImpl<
-          _$AppStateEncryptPreferenceChangedImpl>(this, _$identity);
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'AppState.encryptPreferenceChanged'))
+    ..add(DiagnosticsProperty('theme', theme))..add(DiagnosticsProperty('locale', locale))..add(DiagnosticsProperty('cameraFullscreenMode', cameraFullscreenMode))..add(DiagnosticsProperty('encrypt', encrypt));
 }
 
-abstract class AppStateEncryptPreferenceChanged implements AppState {
-  const factory AppStateEncryptPreferenceChanged(
-          {required final AppThemeType theme,
-          required final AppLocaleType locale,
-          required final bool cameraFullscreenMode,
-          required final EncryptionPreference? encrypt}) =
-      _$AppStateEncryptPreferenceChangedImpl;
-
-  @override
-  AppThemeType get theme;
-  @override
-  AppLocaleType get locale;
-  @override
-  bool get cameraFullscreenMode;
-  EncryptionPreference? get encrypt;
-
-  /// Create a copy of AppState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AppStateEncryptPreferenceChangedImplCopyWith<
-          _$AppStateEncryptPreferenceChangedImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppStateEncryptPreferenceChanged&&(identical(other.theme, theme) || other.theme == theme)&&(identical(other.locale, locale) || other.locale == locale)&&(identical(other.cameraFullscreenMode, cameraFullscreenMode) || other.cameraFullscreenMode == cameraFullscreenMode)&&(identical(other.encrypt, encrypt) || other.encrypt == encrypt));
 }
+
+
+@override
+int get hashCode => Object.hash(runtimeType,theme,locale,cameraFullscreenMode,encrypt);
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'AppState.encryptPreferenceChanged(theme: $theme, locale: $locale, cameraFullscreenMode: $cameraFullscreenMode, encrypt: $encrypt)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $AppStateEncryptPreferenceChangedCopyWith<$Res> implements $AppStateCopyWith<$Res> {
+  factory $AppStateEncryptPreferenceChangedCopyWith(AppStateEncryptPreferenceChanged value, $Res Function(AppStateEncryptPreferenceChanged) _then) = _$AppStateEncryptPreferenceChangedCopyWithImpl;
+@override @useResult
+$Res call({
+ AppThemeType theme, AppLocaleType locale, bool cameraFullscreenMode, EncryptionPreference? encrypt
+});
+
+
+@override $AppThemeTypeCopyWith<$Res> get theme;@override $AppLocaleTypeCopyWith<$Res> get locale;$EncryptionPreferenceCopyWith<$Res>? get encrypt;
+
+}
+/// @nodoc
+class _$AppStateEncryptPreferenceChangedCopyWithImpl<$Res>
+    implements $AppStateEncryptPreferenceChangedCopyWith<$Res> {
+  _$AppStateEncryptPreferenceChangedCopyWithImpl(this._self, this._then);
+
+  final AppStateEncryptPreferenceChanged _self;
+  final $Res Function(AppStateEncryptPreferenceChanged) _then;
+
+/// Create a copy of AppState
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? theme = null,Object? locale = null,Object? cameraFullscreenMode = null,Object? encrypt = freezed,}) {
+  return _then(AppStateEncryptPreferenceChanged(
+theme: null == theme ? _self.theme : theme // ignore: cast_nullable_to_non_nullable
+as AppThemeType,locale: null == locale ? _self.locale : locale // ignore: cast_nullable_to_non_nullable
+as AppLocaleType,cameraFullscreenMode: null == cameraFullscreenMode ? _self.cameraFullscreenMode : cameraFullscreenMode // ignore: cast_nullable_to_non_nullable
+as bool,encrypt: freezed == encrypt ? _self.encrypt : encrypt // ignore: cast_nullable_to_non_nullable
+as EncryptionPreference?,
+  ));
+}
+
+/// Create a copy of AppState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AppThemeTypeCopyWith<$Res> get theme {
+  
+  return $AppThemeTypeCopyWith<$Res>(_self.theme, (value) {
+    return _then(_self.copyWith(theme: value));
+  });
+}/// Create a copy of AppState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AppLocaleTypeCopyWith<$Res> get locale {
+  
+  return $AppLocaleTypeCopyWith<$Res>(_self.locale, (value) {
+    return _then(_self.copyWith(locale: value));
+  });
+}/// Create a copy of AppState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$EncryptionPreferenceCopyWith<$Res>? get encrypt {
+    if (_self.encrypt == null) {
+    return null;
+  }
+
+  return $EncryptionPreferenceCopyWith<$Res>(_self.encrypt!, (value) {
+    return _then(_self.copyWith(encrypt: value));
+  });
+}
+}
+
+// dart format on

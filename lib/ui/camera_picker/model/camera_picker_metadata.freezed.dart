@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,139 +9,134 @@ part of 'camera_picker_metadata.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$CameraPickerMetadata {
-  String? get label => throw _privateConstructorUsedError;
 
-  /// Create a copy of CameraPickerMetadata
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $CameraPickerMetadataCopyWith<CameraPickerMetadata> get copyWith =>
-      throw _privateConstructorUsedError;
+ String? get label;
+/// Create a copy of CameraPickerMetadata
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CameraPickerMetadataCopyWith<CameraPickerMetadata> get copyWith => _$CameraPickerMetadataCopyWithImpl<CameraPickerMetadata>(this as CameraPickerMetadata, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CameraPickerMetadata&&(identical(other.label, label) || other.label == label));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,label);
+
+@override
+String toString() {
+  return 'CameraPickerMetadata(label: $label)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $CameraPickerMetadataCopyWith<$Res> {
-  factory $CameraPickerMetadataCopyWith(CameraPickerMetadata value,
-          $Res Function(CameraPickerMetadata) then) =
-      _$CameraPickerMetadataCopyWithImpl<$Res, CameraPickerMetadata>;
-  @useResult
-  $Res call({String? label});
-}
+abstract mixin class $CameraPickerMetadataCopyWith<$Res>  {
+  factory $CameraPickerMetadataCopyWith(CameraPickerMetadata value, $Res Function(CameraPickerMetadata) _then) = _$CameraPickerMetadataCopyWithImpl;
+@useResult
+$Res call({
+ String? label
+});
 
+
+
+
+}
 /// @nodoc
-class _$CameraPickerMetadataCopyWithImpl<$Res,
-        $Val extends CameraPickerMetadata>
+class _$CameraPickerMetadataCopyWithImpl<$Res>
     implements $CameraPickerMetadataCopyWith<$Res> {
-  _$CameraPickerMetadataCopyWithImpl(this._value, this._then);
+  _$CameraPickerMetadataCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final CameraPickerMetadata _self;
+  final $Res Function(CameraPickerMetadata) _then;
 
-  /// Create a copy of CameraPickerMetadata
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? label = freezed,
-  }) {
-    return _then(_value.copyWith(
-      label: freezed == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
+/// Create a copy of CameraPickerMetadata
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? label = freezed,}) {
+  return _then(_self.copyWith(
+label: freezed == label ? _self.label : label // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$CameraPickerMetadataImplCopyWith<$Res>
-    implements $CameraPickerMetadataCopyWith<$Res> {
-  factory _$$CameraPickerMetadataImplCopyWith(_$CameraPickerMetadataImpl value,
-          $Res Function(_$CameraPickerMetadataImpl) then) =
-      __$$CameraPickerMetadataImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String? label});
 }
 
-/// @nodoc
-class __$$CameraPickerMetadataImplCopyWithImpl<$Res>
-    extends _$CameraPickerMetadataCopyWithImpl<$Res, _$CameraPickerMetadataImpl>
-    implements _$$CameraPickerMetadataImplCopyWith<$Res> {
-  __$$CameraPickerMetadataImplCopyWithImpl(_$CameraPickerMetadataImpl _value,
-      $Res Function(_$CameraPickerMetadataImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of CameraPickerMetadata
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? label = freezed,
-  }) {
-    return _then(_$CameraPickerMetadataImpl(
-      label: freezed == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
 
 /// @nodoc
 
-class _$CameraPickerMetadataImpl implements _CameraPickerMetadata {
-  _$CameraPickerMetadataImpl({this.label});
 
-  @override
-  final String? label;
+class _CameraPickerMetadata implements CameraPickerMetadata {
+   _CameraPickerMetadata({this.label});
+  
 
-  @override
-  String toString() {
-    return 'CameraPickerMetadata(label: $label)';
-  }
+@override final  String? label;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CameraPickerMetadataImpl &&
-            (identical(other.label, label) || other.label == label));
-  }
+/// Create a copy of CameraPickerMetadata
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$CameraPickerMetadataCopyWith<_CameraPickerMetadata> get copyWith => __$CameraPickerMetadataCopyWithImpl<_CameraPickerMetadata>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, label);
 
-  /// Create a copy of CameraPickerMetadata
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CameraPickerMetadataImplCopyWith<_$CameraPickerMetadataImpl>
-      get copyWith =>
-          __$$CameraPickerMetadataImplCopyWithImpl<_$CameraPickerMetadataImpl>(
-              this, _$identity);
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CameraPickerMetadata&&(identical(other.label, label) || other.label == label));
 }
 
-abstract class _CameraPickerMetadata implements CameraPickerMetadata {
-  factory _CameraPickerMetadata({final String? label}) =
-      _$CameraPickerMetadataImpl;
 
-  @override
-  String? get label;
+@override
+int get hashCode => Object.hash(runtimeType,label);
 
-  /// Create a copy of CameraPickerMetadata
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CameraPickerMetadataImplCopyWith<_$CameraPickerMetadataImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'CameraPickerMetadata(label: $label)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$CameraPickerMetadataCopyWith<$Res> implements $CameraPickerMetadataCopyWith<$Res> {
+  factory _$CameraPickerMetadataCopyWith(_CameraPickerMetadata value, $Res Function(_CameraPickerMetadata) _then) = __$CameraPickerMetadataCopyWithImpl;
+@override @useResult
+$Res call({
+ String? label
+});
+
+
+
+
+}
+/// @nodoc
+class __$CameraPickerMetadataCopyWithImpl<$Res>
+    implements _$CameraPickerMetadataCopyWith<$Res> {
+  __$CameraPickerMetadataCopyWithImpl(this._self, this._then);
+
+  final _CameraPickerMetadata _self;
+  final $Res Function(_CameraPickerMetadata) _then;
+
+/// Create a copy of CameraPickerMetadata
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? label = freezed,}) {
+  return _then(_CameraPickerMetadata(
+label: freezed == label ? _self.label : label // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+// dart format on

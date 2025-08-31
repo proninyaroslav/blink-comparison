@@ -1,3 +1,4 @@
+// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
@@ -41,10 +42,7 @@ import 'package:flutter/material.dart' as _i17;
 /// [_i1.AppearanceSettingsPage]
 class AppearanceSettingsRoute extends _i16.PageRouteInfo<void> {
   const AppearanceSettingsRoute({List<_i16.PageRouteInfo>? children})
-      : super(
-          AppearanceSettingsRoute.name,
-          initialChildren: children,
-        );
+    : super(AppearanceSettingsRoute.name, initialChildren: children);
 
   static const String name = 'AppearanceSettingsRoute';
 
@@ -64,35 +62,28 @@ class AuthRoute extends _i16.PageRouteInfo<AuthRouteArgs> {
     _i17.VoidCallback? onAuthSuccess,
     List<_i16.PageRouteInfo>? children,
   }) : super(
-          AuthRoute.name,
-          args: AuthRouteArgs(
-            key: key,
-            onAuthSuccess: onAuthSuccess,
-          ),
-          initialChildren: children,
-        );
+         AuthRoute.name,
+         args: AuthRouteArgs(key: key, onAuthSuccess: onAuthSuccess),
+         initialChildren: children,
+       );
 
   static const String name = 'AuthRoute';
 
   static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
-      final args =
-          data.argsAs<AuthRouteArgs>(orElse: () => const AuthRouteArgs());
+      final args = data.argsAs<AuthRouteArgs>(
+        orElse: () => const AuthRouteArgs(),
+      );
       return _i16.WrappedRoute(
-          child: _i2.AuthPage(
-        key: args.key,
-        onAuthSuccess: args.onAuthSuccess,
-      ));
+        child: _i2.AuthPage(key: args.key, onAuthSuccess: args.onAuthSuccess),
+      );
     },
   );
 }
 
 class AuthRouteArgs {
-  const AuthRouteArgs({
-    this.key,
-    this.onAuthSuccess,
-  });
+  const AuthRouteArgs({this.key, this.onAuthSuccess});
 
   final _i17.Key? key;
 
@@ -102,16 +93,23 @@ class AuthRouteArgs {
   String toString() {
     return 'AuthRouteArgs{key: $key, onAuthSuccess: $onAuthSuccess}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! AuthRouteArgs) return false;
+    return key == other.key && onAuthSuccess == other.onAuthSuccess;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ onAuthSuccess.hashCode;
 }
 
 /// generated route for
 /// [_i3.BehaviorSettingsPage]
 class BehaviorSettingsRoute extends _i16.PageRouteInfo<void> {
   const BehaviorSettingsRoute({List<_i16.PageRouteInfo>? children})
-      : super(
-          BehaviorSettingsRoute.name,
-          initialChildren: children,
-        );
+    : super(BehaviorSettingsRoute.name, initialChildren: children);
 
   static const String name = 'BehaviorSettingsRoute';
 
@@ -134,15 +132,15 @@ class BlinkComparisonRoute
     required double aspectRatio,
     List<_i16.PageRouteInfo>? children,
   }) : super(
-          BlinkComparisonRoute.name,
-          args: BlinkComparisonRouteArgs(
-            key: key,
-            refImage: refImage,
-            takenPhoto: takenPhoto,
-            aspectRatio: aspectRatio,
-          ),
-          initialChildren: children,
-        );
+         BlinkComparisonRoute.name,
+         args: BlinkComparisonRouteArgs(
+           key: key,
+           refImage: refImage,
+           takenPhoto: takenPhoto,
+           aspectRatio: aspectRatio,
+         ),
+         initialChildren: children,
+       );
 
   static const String name = 'BlinkComparisonRoute';
 
@@ -151,12 +149,13 @@ class BlinkComparisonRoute
     builder: (data) {
       final args = data.argsAs<BlinkComparisonRouteArgs>();
       return _i16.WrappedRoute(
-          child: _i4.BlinkComparisonPage(
-        key: args.key,
-        refImage: args.refImage,
-        takenPhoto: args.takenPhoto,
-        aspectRatio: args.aspectRatio,
-      ));
+        child: _i4.BlinkComparisonPage(
+          key: args.key,
+          refImage: args.refImage,
+          takenPhoto: args.takenPhoto,
+          aspectRatio: args.aspectRatio,
+        ),
+      );
     },
   );
 }
@@ -181,6 +180,23 @@ class BlinkComparisonRouteArgs {
   String toString() {
     return 'BlinkComparisonRouteArgs{key: $key, refImage: $refImage, takenPhoto: $takenPhoto, aspectRatio: $aspectRatio}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! BlinkComparisonRouteArgs) return false;
+    return key == other.key &&
+        refImage == other.refImage &&
+        takenPhoto == other.takenPhoto &&
+        aspectRatio == other.aspectRatio;
+  }
+
+  @override
+  int get hashCode =>
+      key.hashCode ^
+      refImage.hashCode ^
+      takenPhoto.hashCode ^
+      aspectRatio.hashCode;
 }
 
 /// generated route for
@@ -194,15 +210,15 @@ class CameraConfirmationRoute
     required _i17.ValueChanged<_i19.CameraPickerMetadata> onAccept,
     List<_i16.PageRouteInfo>? children,
   }) : super(
-          CameraConfirmationRoute.name,
-          args: CameraConfirmationRouteArgs(
-            key: key,
-            image: image,
-            onRetry: onRetry,
-            onAccept: onAccept,
-          ),
-          initialChildren: children,
-        );
+         CameraConfirmationRoute.name,
+         args: CameraConfirmationRouteArgs(
+           key: key,
+           image: image,
+           onRetry: onRetry,
+           onAccept: onAccept,
+         ),
+         initialChildren: children,
+       );
 
   static const String name = 'CameraConfirmationRoute';
 
@@ -240,6 +256,20 @@ class CameraConfirmationRouteArgs {
   String toString() {
     return 'CameraConfirmationRouteArgs{key: $key, image: $image, onRetry: $onRetry, onAccept: $onAccept}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! CameraConfirmationRouteArgs) return false;
+    return key == other.key &&
+        image == other.image &&
+        onRetry == other.onRetry &&
+        onAccept == other.onAccept;
+  }
+
+  @override
+  int get hashCode =>
+      key.hashCode ^ image.hashCode ^ onRetry.hashCode ^ onAccept.hashCode;
 }
 
 /// generated route for
@@ -247,19 +277,13 @@ class CameraConfirmationRouteArgs {
 class CameraPickerRoute extends _i16.PageRouteInfo<CameraPickerRouteArgs> {
   CameraPickerRoute({
     _i17.Key? key,
-    void Function(
-      _i20.XFile,
-      _i19.CameraPickerMetadata,
-    )? onTakePhoto,
+    void Function(_i20.XFile, _i19.CameraPickerMetadata)? onTakePhoto,
     List<_i16.PageRouteInfo>? children,
   }) : super(
-          CameraPickerRoute.name,
-          args: CameraPickerRouteArgs(
-            key: key,
-            onTakePhoto: onTakePhoto,
-          ),
-          initialChildren: children,
-        );
+         CameraPickerRoute.name,
+         args: CameraPickerRouteArgs(key: key, onTakePhoto: onTakePhoto),
+         initialChildren: children,
+       );
 
   static const String name = 'CameraPickerRoute';
 
@@ -267,43 +291,46 @@ class CameraPickerRoute extends _i16.PageRouteInfo<CameraPickerRouteArgs> {
     name,
     builder: (data) {
       final args = data.argsAs<CameraPickerRouteArgs>(
-          orElse: () => const CameraPickerRouteArgs());
+        orElse: () => const CameraPickerRouteArgs(),
+      );
       return _i16.WrappedRoute(
-          child: _i6.CameraPickerPage(
-        key: args.key,
-        onTakePhoto: args.onTakePhoto,
-      ));
+        child: _i6.CameraPickerPage(
+          key: args.key,
+          onTakePhoto: args.onTakePhoto,
+        ),
+      );
     },
   );
 }
 
 class CameraPickerRouteArgs {
-  const CameraPickerRouteArgs({
-    this.key,
-    this.onTakePhoto,
-  });
+  const CameraPickerRouteArgs({this.key, this.onTakePhoto});
 
   final _i17.Key? key;
 
-  final void Function(
-    _i20.XFile,
-    _i19.CameraPickerMetadata,
-  )? onTakePhoto;
+  final void Function(_i20.XFile, _i19.CameraPickerMetadata)? onTakePhoto;
 
   @override
   String toString() {
     return 'CameraPickerRouteArgs{key: $key, onTakePhoto: $onTakePhoto}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! CameraPickerRouteArgs) return false;
+    return key == other.key;
+  }
+
+  @override
+  int get hashCode => key.hashCode;
 }
 
 /// generated route for
 /// [_i7.CameraSettingsPage]
 class CameraSettingsRoute extends _i16.PageRouteInfo<void> {
   const CameraSettingsRoute({List<_i16.PageRouteInfo>? children})
-      : super(
-          CameraSettingsRoute.name,
-          initialChildren: children,
-        );
+    : super(CameraSettingsRoute.name, initialChildren: children);
 
   static const String name = 'CameraSettingsRoute';
 
@@ -324,13 +351,10 @@ class EncryptionPreferenceRoute
     required _i17.ValueChanged<_i21.EncryptionPreference> onClick,
     List<_i16.PageRouteInfo>? children,
   }) : super(
-          EncryptionPreferenceRoute.name,
-          args: EncryptionPreferenceRouteArgs(
-            key: key,
-            onClick: onClick,
-          ),
-          initialChildren: children,
-        );
+         EncryptionPreferenceRoute.name,
+         args: EncryptionPreferenceRouteArgs(key: key, onClick: onClick),
+         initialChildren: children,
+       );
 
   static const String name = 'EncryptionPreferenceRoute';
 
@@ -338,19 +362,13 @@ class EncryptionPreferenceRoute
     name,
     builder: (data) {
       final args = data.argsAs<EncryptionPreferenceRouteArgs>();
-      return _i8.EncryptionPreferencePage(
-        key: args.key,
-        onClick: args.onClick,
-      );
+      return _i8.EncryptionPreferencePage(key: args.key, onClick: args.onClick);
     },
   );
 }
 
 class EncryptionPreferenceRouteArgs {
-  const EncryptionPreferenceRouteArgs({
-    this.key,
-    required this.onClick,
-  });
+  const EncryptionPreferenceRouteArgs({this.key, required this.onClick});
 
   final _i17.Key? key;
 
@@ -360,16 +378,23 @@ class EncryptionPreferenceRouteArgs {
   String toString() {
     return 'EncryptionPreferenceRouteArgs{key: $key, onClick: $onClick}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! EncryptionPreferenceRouteArgs) return false;
+    return key == other.key && onClick == other.onClick;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ onClick.hashCode;
 }
 
 /// generated route for
 /// [_i9.PageNotFound]
 class PageNotFountRoute extends _i16.PageRouteInfo<void> {
   const PageNotFountRoute({List<_i16.PageRouteInfo>? children})
-      : super(
-          PageNotFountRoute.name,
-          initialChildren: children,
-        );
+    : super(PageNotFountRoute.name, initialChildren: children);
 
   static const String name = 'PageNotFountRoute';
 
@@ -385,10 +410,7 @@ class PageNotFountRoute extends _i16.PageRouteInfo<void> {
 /// [_i10.RefImageListPage]
 class RefImageListRoute extends _i16.PageRouteInfo<void> {
   const RefImageListRoute({List<_i16.PageRouteInfo>? children})
-      : super(
-          RefImageListRoute.name,
-          initialChildren: children,
-        );
+    : super(RefImageListRoute.name, initialChildren: children);
 
   static const String name = 'RefImageListRoute';
 
@@ -409,13 +431,10 @@ class RefImagePreviewRoute
     required String imageId,
     List<_i16.PageRouteInfo>? children,
   }) : super(
-          RefImagePreviewRoute.name,
-          args: RefImagePreviewRouteArgs(
-            key: key,
-            imageId: imageId,
-          ),
-          initialChildren: children,
-        );
+         RefImagePreviewRoute.name,
+         args: RefImagePreviewRouteArgs(key: key, imageId: imageId),
+         initialChildren: children,
+       );
 
   static const String name = 'RefImagePreviewRoute';
 
@@ -424,19 +443,14 @@ class RefImagePreviewRoute
     builder: (data) {
       final args = data.argsAs<RefImagePreviewRouteArgs>();
       return _i16.WrappedRoute(
-          child: _i11.RefImagePreviewPage(
-        key: args.key,
-        imageId: args.imageId,
-      ));
+        child: _i11.RefImagePreviewPage(key: args.key, imageId: args.imageId),
+      );
     },
   );
 }
 
 class RefImagePreviewRouteArgs {
-  const RefImagePreviewRouteArgs({
-    this.key,
-    required this.imageId,
-  });
+  const RefImagePreviewRouteArgs({this.key, required this.imageId});
 
   final _i17.Key? key;
 
@@ -446,16 +460,23 @@ class RefImagePreviewRouteArgs {
   String toString() {
     return 'RefImagePreviewRouteArgs{key: $key, imageId: $imageId}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! RefImagePreviewRouteArgs) return false;
+    return key == other.key && imageId == other.imageId;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ imageId.hashCode;
 }
 
 /// generated route for
 /// [_i12.SettingsPage]
 class SettingsRoute extends _i16.PageRouteInfo<void> {
   const SettingsRoute({List<_i16.PageRouteInfo>? children})
-      : super(
-          SettingsRoute.name,
-          initialChildren: children,
-        );
+    : super(SettingsRoute.name, initialChildren: children);
 
   static const String name = 'SettingsRoute';
 
@@ -471,10 +492,7 @@ class SettingsRoute extends _i16.PageRouteInfo<void> {
 /// [_i13.SettingsPagesListPage]
 class SettingsRoutesListRoute extends _i16.PageRouteInfo<void> {
   const SettingsRoutesListRoute({List<_i16.PageRouteInfo>? children})
-      : super(
-          SettingsRoutesListRoute.name,
-          initialChildren: children,
-        );
+    : super(SettingsRoutesListRoute.name, initialChildren: children);
 
   static const String name = 'SettingsRoutesListRoute';
 
@@ -494,13 +512,10 @@ class SignInRoute extends _i16.PageRouteInfo<SignInRouteArgs> {
     required _i17.VoidCallback onAuthSuccess,
     List<_i16.PageRouteInfo>? children,
   }) : super(
-          SignInRoute.name,
-          args: SignInRouteArgs(
-            key: key,
-            onAuthSuccess: onAuthSuccess,
-          ),
-          initialChildren: children,
-        );
+         SignInRoute.name,
+         args: SignInRouteArgs(key: key, onAuthSuccess: onAuthSuccess),
+         initialChildren: children,
+       );
 
   static const String name = 'SignInRoute';
 
@@ -509,19 +524,17 @@ class SignInRoute extends _i16.PageRouteInfo<SignInRouteArgs> {
     builder: (data) {
       final args = data.argsAs<SignInRouteArgs>();
       return _i16.WrappedRoute(
-          child: _i14.SignInPage(
-        key: args.key,
-        onAuthSuccess: args.onAuthSuccess,
-      ));
+        child: _i14.SignInPage(
+          key: args.key,
+          onAuthSuccess: args.onAuthSuccess,
+        ),
+      );
     },
   );
 }
 
 class SignInRouteArgs {
-  const SignInRouteArgs({
-    this.key,
-    required this.onAuthSuccess,
-  });
+  const SignInRouteArgs({this.key, required this.onAuthSuccess});
 
   final _i17.Key? key;
 
@@ -531,6 +544,16 @@ class SignInRouteArgs {
   String toString() {
     return 'SignInRouteArgs{key: $key, onAuthSuccess: $onAuthSuccess}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! SignInRouteArgs) return false;
+    return key == other.key && onAuthSuccess == other.onAuthSuccess;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ onAuthSuccess.hashCode;
 }
 
 /// generated route for
@@ -541,13 +564,10 @@ class SignUpRoute extends _i16.PageRouteInfo<SignUpRouteArgs> {
     required _i17.VoidCallback onAuthSuccess,
     List<_i16.PageRouteInfo>? children,
   }) : super(
-          SignUpRoute.name,
-          args: SignUpRouteArgs(
-            key: key,
-            onAuthSuccess: onAuthSuccess,
-          ),
-          initialChildren: children,
-        );
+         SignUpRoute.name,
+         args: SignUpRouteArgs(key: key, onAuthSuccess: onAuthSuccess),
+         initialChildren: children,
+       );
 
   static const String name = 'SignUpRoute';
 
@@ -556,19 +576,17 @@ class SignUpRoute extends _i16.PageRouteInfo<SignUpRouteArgs> {
     builder: (data) {
       final args = data.argsAs<SignUpRouteArgs>();
       return _i16.WrappedRoute(
-          child: _i15.SignUpPage(
-        key: args.key,
-        onAuthSuccess: args.onAuthSuccess,
-      ));
+        child: _i15.SignUpPage(
+          key: args.key,
+          onAuthSuccess: args.onAuthSuccess,
+        ),
+      );
     },
   );
 }
 
 class SignUpRouteArgs {
-  const SignUpRouteArgs({
-    this.key,
-    required this.onAuthSuccess,
-  });
+  const SignUpRouteArgs({this.key, required this.onAuthSuccess});
 
   final _i17.Key? key;
 
@@ -578,4 +596,14 @@ class SignUpRouteArgs {
   String toString() {
     return 'SignUpRouteArgs{key: $key, onAuthSuccess: $onAuthSuccess}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! SignUpRouteArgs) return false;
+    return key == other.key && onAuthSuccess == other.onAuthSuccess;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ onAuthSuccess.hashCode;
 }

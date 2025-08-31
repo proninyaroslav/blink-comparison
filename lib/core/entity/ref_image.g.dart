@@ -6,17 +6,19 @@ part of 'ref_image.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RefImageInfoImpl _$$RefImageInfoImplFromJson(Map<String, dynamic> json) =>
-    _$RefImageInfoImpl(
+_RefImageInfo _$RefImageInfoFromJson(Map<String, dynamic> json) =>
+    _RefImageInfo(
       id: json['id'] as String,
-      dateAdded: const DateTimeEpochConverter()
-          .fromJson((json['dateAdded'] as num).toInt()),
+      dateAdded: const DateTimeEpochConverter().fromJson(
+        (json['dateAdded'] as num).toInt(),
+      ),
       encryption: RefImageEncryption.fromJson(
-          json['encryption'] as Map<String, dynamic>),
+        json['encryption'] as Map<String, dynamic>,
+      ),
       label: json['label'] as String?,
     );
 
-Map<String, dynamic> _$$RefImageInfoImplToJson(_$RefImageInfoImpl instance) =>
+Map<String, dynamic> _$RefImageInfoToJson(_RefImageInfo instance) =>
     <String, dynamic>{
       'id': instance.id,
       'dateAdded': const DateTimeEpochConverter().toJson(instance.dateAdded),
@@ -24,28 +26,24 @@ Map<String, dynamic> _$$RefImageInfoImplToJson(_$RefImageInfoImpl instance) =>
       'label': instance.label,
     };
 
-_$RefImageEncryptionNoneImpl _$$RefImageEncryptionNoneImplFromJson(
-        Map<String, dynamic> json) =>
-    _$RefImageEncryptionNoneImpl(
-      $type: json['runtimeType'] as String?,
-    );
+RefImageEncryptionNone _$RefImageEncryptionNoneFromJson(
+  Map<String, dynamic> json,
+) => RefImageEncryptionNone($type: json['runtimeType'] as String?);
 
-Map<String, dynamic> _$$RefImageEncryptionNoneImplToJson(
-        _$RefImageEncryptionNoneImpl instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$RefImageEncryptionNoneToJson(
+  RefImageEncryptionNone instance,
+) => <String, dynamic>{'runtimeType': instance.$type};
 
-_$RefImageEncryptionPasswordImpl _$$RefImageEncryptionPasswordImplFromJson(
-        Map<String, dynamic> json) =>
-    _$RefImageEncryptionPasswordImpl(
-      encryptSalt: json['encryptSalt'] as String,
-      $type: json['runtimeType'] as String?,
-    );
+RefImageEncryptionPassword _$RefImageEncryptionPasswordFromJson(
+  Map<String, dynamic> json,
+) => RefImageEncryptionPassword(
+  encryptSalt: json['encryptSalt'] as String,
+  $type: json['runtimeType'] as String?,
+);
 
-Map<String, dynamic> _$$RefImageEncryptionPasswordImplToJson(
-        _$RefImageEncryptionPasswordImpl instance) =>
-    <String, dynamic>{
-      'encryptSalt': instance.encryptSalt,
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$RefImageEncryptionPasswordToJson(
+  RefImageEncryptionPassword instance,
+) => <String, dynamic>{
+  'encryptSalt': instance.encryptSalt,
+  'runtimeType': instance.$type,
+};

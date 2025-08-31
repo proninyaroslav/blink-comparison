@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,166 +9,164 @@ part of 'selectable_ref_image_item.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
-mixin _$SelectableRefImageItem {
-  RefImageInfo get info => throw _privateConstructorUsedError;
+mixin _$SelectableRefImageItem implements DiagnosticableTreeMixin {
 
-  /// Create a copy of SelectableRefImageItem
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $SelectableRefImageItemCopyWith<SelectableRefImageItem> get copyWith =>
-      throw _privateConstructorUsedError;
+ RefImageInfo get info;
+/// Create a copy of SelectableRefImageItem
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SelectableRefImageItemCopyWith<SelectableRefImageItem> get copyWith => _$SelectableRefImageItemCopyWithImpl<SelectableRefImageItem>(this as SelectableRefImageItem, _$identity);
+
+
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'SelectableRefImageItem'))
+    ..add(DiagnosticsProperty('info', info));
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SelectableRefImageItem&&(identical(other.info, info) || other.info == info));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,info);
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'SelectableRefImageItem(info: $info)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $SelectableRefImageItemCopyWith<$Res> {
-  factory $SelectableRefImageItemCopyWith(SelectableRefImageItem value,
-          $Res Function(SelectableRefImageItem) then) =
-      _$SelectableRefImageItemCopyWithImpl<$Res, SelectableRefImageItem>;
-  @useResult
-  $Res call({RefImageInfo info});
+abstract mixin class $SelectableRefImageItemCopyWith<$Res>  {
+  factory $SelectableRefImageItemCopyWith(SelectableRefImageItem value, $Res Function(SelectableRefImageItem) _then) = _$SelectableRefImageItemCopyWithImpl;
+@useResult
+$Res call({
+ RefImageInfo info
+});
 
-  $RefImageInfoCopyWith<$Res> get info;
+
+$RefImageInfoCopyWith<$Res> get info;
+
 }
-
 /// @nodoc
-class _$SelectableRefImageItemCopyWithImpl<$Res,
-        $Val extends SelectableRefImageItem>
+class _$SelectableRefImageItemCopyWithImpl<$Res>
     implements $SelectableRefImageItemCopyWith<$Res> {
-  _$SelectableRefImageItemCopyWithImpl(this._value, this._then);
+  _$SelectableRefImageItemCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final SelectableRefImageItem _self;
+  final $Res Function(SelectableRefImageItem) _then;
 
-  /// Create a copy of SelectableRefImageItem
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? info = null,
-  }) {
-    return _then(_value.copyWith(
-      info: null == info
-          ? _value.info
-          : info // ignore: cast_nullable_to_non_nullable
-              as RefImageInfo,
-    ) as $Val);
-  }
-
-  /// Create a copy of SelectableRefImageItem
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $RefImageInfoCopyWith<$Res> get info {
-    return $RefImageInfoCopyWith<$Res>(_value.info, (value) {
-      return _then(_value.copyWith(info: value) as $Val);
-    });
-  }
+/// Create a copy of SelectableRefImageItem
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? info = null,}) {
+  return _then(_self.copyWith(
+info: null == info ? _self.info : info // ignore: cast_nullable_to_non_nullable
+as RefImageInfo,
+  ));
+}
+/// Create a copy of SelectableRefImageItem
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RefImageInfoCopyWith<$Res> get info {
+  
+  return $RefImageInfoCopyWith<$Res>(_self.info, (value) {
+    return _then(_self.copyWith(info: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$SelectableRefImageItemImplCopyWith<$Res>
-    implements $SelectableRefImageItemCopyWith<$Res> {
-  factory _$$SelectableRefImageItemImplCopyWith(
-          _$SelectableRefImageItemImpl value,
-          $Res Function(_$SelectableRefImageItemImpl) then) =
-      __$$SelectableRefImageItemImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({RefImageInfo info});
 
-  @override
-  $RefImageInfoCopyWith<$Res> get info;
-}
-
-/// @nodoc
-class __$$SelectableRefImageItemImplCopyWithImpl<$Res>
-    extends _$SelectableRefImageItemCopyWithImpl<$Res,
-        _$SelectableRefImageItemImpl>
-    implements _$$SelectableRefImageItemImplCopyWith<$Res> {
-  __$$SelectableRefImageItemImplCopyWithImpl(
-      _$SelectableRefImageItemImpl _value,
-      $Res Function(_$SelectableRefImageItemImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SelectableRefImageItem
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? info = null,
-  }) {
-    return _then(_$SelectableRefImageItemImpl(
-      info: null == info
-          ? _value.info
-          : info // ignore: cast_nullable_to_non_nullable
-              as RefImageInfo,
-    ));
-  }
-}
 
 /// @nodoc
 
-class _$SelectableRefImageItemImpl
-    with DiagnosticableTreeMixin
-    implements _SelectableRefImageItem {
-  const _$SelectableRefImageItemImpl({required this.info});
 
-  @override
-  final RefImageInfo info;
+class _SelectableRefImageItem with DiagnosticableTreeMixin implements SelectableRefImageItem {
+  const _SelectableRefImageItem({required this.info});
+  
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SelectableRefImageItem(info: $info)';
-  }
+@override final  RefImageInfo info;
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SelectableRefImageItem'))
-      ..add(DiagnosticsProperty('info', info));
-  }
+/// Create a copy of SelectableRefImageItem
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SelectableRefImageItemCopyWith<_SelectableRefImageItem> get copyWith => __$SelectableRefImageItemCopyWithImpl<_SelectableRefImageItem>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SelectableRefImageItemImpl &&
-            (identical(other.info, info) || other.info == info));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, info);
-
-  /// Create a copy of SelectableRefImageItem
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SelectableRefImageItemImplCopyWith<_$SelectableRefImageItemImpl>
-      get copyWith => __$$SelectableRefImageItemImplCopyWithImpl<
-          _$SelectableRefImageItemImpl>(this, _$identity);
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'SelectableRefImageItem'))
+    ..add(DiagnosticsProperty('info', info));
 }
 
-abstract class _SelectableRefImageItem implements SelectableRefImageItem {
-  const factory _SelectableRefImageItem({required final RefImageInfo info}) =
-      _$SelectableRefImageItemImpl;
-
-  @override
-  RefImageInfo get info;
-
-  /// Create a copy of SelectableRefImageItem
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SelectableRefImageItemImplCopyWith<_$SelectableRefImageItemImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SelectableRefImageItem&&(identical(other.info, info) || other.info == info));
 }
+
+
+@override
+int get hashCode => Object.hash(runtimeType,info);
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'SelectableRefImageItem(info: $info)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$SelectableRefImageItemCopyWith<$Res> implements $SelectableRefImageItemCopyWith<$Res> {
+  factory _$SelectableRefImageItemCopyWith(_SelectableRefImageItem value, $Res Function(_SelectableRefImageItem) _then) = __$SelectableRefImageItemCopyWithImpl;
+@override @useResult
+$Res call({
+ RefImageInfo info
+});
+
+
+@override $RefImageInfoCopyWith<$Res> get info;
+
+}
+/// @nodoc
+class __$SelectableRefImageItemCopyWithImpl<$Res>
+    implements _$SelectableRefImageItemCopyWith<$Res> {
+  __$SelectableRefImageItemCopyWithImpl(this._self, this._then);
+
+  final _SelectableRefImageItem _self;
+  final $Res Function(_SelectableRefImageItem) _then;
+
+/// Create a copy of SelectableRefImageItem
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? info = null,}) {
+  return _then(_SelectableRefImageItem(
+info: null == info ? _self.info : info // ignore: cast_nullable_to_non_nullable
+as RefImageInfo,
+  ));
+}
+
+/// Create a copy of SelectableRefImageItem
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RefImageInfoCopyWith<$Res> get info {
+  
+  return $RefImageInfoCopyWith<$Res>(_self.info, (value) {
+    return _then(_self.copyWith(info: value));
+  });
+}
+}
+
+// dart format on

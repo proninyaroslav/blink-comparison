@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,242 +9,197 @@ part of 'selectable_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
-mixin _$SelectableState<T> {}
+mixin _$SelectableState<T> implements DiagnosticableTreeMixin {
 
-/// @nodoc
-abstract class $SelectableStateCopyWith<T, $Res> {
-  factory $SelectableStateCopyWith(
-          SelectableState<T> value, $Res Function(SelectableState<T>) then) =
-      _$SelectableStateCopyWithImpl<T, $Res, SelectableState<T>>;
+
+
+
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'SelectableState<$T>'))
+    ;
 }
 
-/// @nodoc
-class _$SelectableStateCopyWithImpl<T, $Res, $Val extends SelectableState<T>>
-    implements $SelectableStateCopyWith<T, $Res> {
-  _$SelectableStateCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of SelectableState
-  /// with the given fields replaced by the non-null parameter values.
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SelectableState<T>);
 }
 
-/// @nodoc
-abstract class _$$SelectableStateInitialImplCopyWith<T, $Res> {
-  factory _$$SelectableStateInitialImplCopyWith(
-          _$SelectableStateInitialImpl<T> value,
-          $Res Function(_$SelectableStateInitialImpl<T>) then) =
-      __$$SelectableStateInitialImplCopyWithImpl<T, $Res>;
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'SelectableState<$T>()';
+}
+
+
 }
 
 /// @nodoc
-class __$$SelectableStateInitialImplCopyWithImpl<T, $Res>
-    extends _$SelectableStateCopyWithImpl<T, $Res,
-        _$SelectableStateInitialImpl<T>>
-    implements _$$SelectableStateInitialImplCopyWith<T, $Res> {
-  __$$SelectableStateInitialImplCopyWithImpl(
-      _$SelectableStateInitialImpl<T> _value,
-      $Res Function(_$SelectableStateInitialImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SelectableState
-  /// with the given fields replaced by the non-null parameter values.
+class $SelectableStateCopyWith<T,$Res>  {
+$SelectableStateCopyWith(SelectableState<T> _, $Res Function(SelectableState<T>) __);
 }
+
+
 
 /// @nodoc
 
-class _$SelectableStateInitialImpl<T>
-    with DiagnosticableTreeMixin
-    implements SelectableStateInitial<T> {
-  const _$SelectableStateInitialImpl();
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SelectableState<$T>.initial()';
-  }
+class SelectableStateInitial<T> with DiagnosticableTreeMixin implements SelectableState<T> {
+  const SelectableStateInitial();
+  
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'SelectableState<$T>.initial'));
-  }
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SelectableStateInitialImpl<T>);
-  }
 
-  @override
-  int get hashCode => runtimeType.hashCode;
+
+
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'SelectableState<$T>.initial'))
+    ;
 }
 
-abstract class SelectableStateInitial<T> implements SelectableState<T> {
-  const factory SelectableStateInitial() = _$SelectableStateInitialImpl<T>;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SelectableStateInitial<T>);
 }
 
-/// @nodoc
-abstract class _$$SelectableStateNoSelectionImplCopyWith<T, $Res> {
-  factory _$$SelectableStateNoSelectionImplCopyWith(
-          _$SelectableStateNoSelectionImpl<T> value,
-          $Res Function(_$SelectableStateNoSelectionImpl<T>) then) =
-      __$$SelectableStateNoSelectionImplCopyWithImpl<T, $Res>;
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'SelectableState<$T>.initial()';
 }
 
-/// @nodoc
-class __$$SelectableStateNoSelectionImplCopyWithImpl<T, $Res>
-    extends _$SelectableStateCopyWithImpl<T, $Res,
-        _$SelectableStateNoSelectionImpl<T>>
-    implements _$$SelectableStateNoSelectionImplCopyWith<T, $Res> {
-  __$$SelectableStateNoSelectionImplCopyWithImpl(
-      _$SelectableStateNoSelectionImpl<T> _value,
-      $Res Function(_$SelectableStateNoSelectionImpl<T>) _then)
-      : super(_value, _then);
 
-  /// Create a copy of SelectableState
-  /// with the given fields replaced by the non-null parameter values.
 }
+
+
+
 
 /// @nodoc
 
-class _$SelectableStateNoSelectionImpl<T>
-    with DiagnosticableTreeMixin
-    implements SelectableStateNoSelection<T> {
-  const _$SelectableStateNoSelectionImpl();
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SelectableState<$T>.noSelection()';
-  }
+class SelectableStateNoSelection<T> with DiagnosticableTreeMixin implements SelectableState<T> {
+  const SelectableStateNoSelection();
+  
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-        .add(DiagnosticsProperty('type', 'SelectableState<$T>.noSelection'));
-  }
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SelectableStateNoSelectionImpl<T>);
-  }
 
-  @override
-  int get hashCode => runtimeType.hashCode;
+
+
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'SelectableState<$T>.noSelection'))
+    ;
 }
 
-abstract class SelectableStateNoSelection<T> implements SelectableState<T> {
-  const factory SelectableStateNoSelection() =
-      _$SelectableStateNoSelectionImpl<T>;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SelectableStateNoSelection<T>);
 }
 
-/// @nodoc
-abstract class _$$SelectableStateSelectedImplCopyWith<T, $Res> {
-  factory _$$SelectableStateSelectedImplCopyWith(
-          _$SelectableStateSelectedImpl<T> value,
-          $Res Function(_$SelectableStateSelectedImpl<T>) then) =
-      __$$SelectableStateSelectedImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({Set<T> items});
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'SelectableState<$T>.noSelection()';
 }
 
-/// @nodoc
-class __$$SelectableStateSelectedImplCopyWithImpl<T, $Res>
-    extends _$SelectableStateCopyWithImpl<T, $Res,
-        _$SelectableStateSelectedImpl<T>>
-    implements _$$SelectableStateSelectedImplCopyWith<T, $Res> {
-  __$$SelectableStateSelectedImplCopyWithImpl(
-      _$SelectableStateSelectedImpl<T> _value,
-      $Res Function(_$SelectableStateSelectedImpl<T>) _then)
-      : super(_value, _then);
 
-  /// Create a copy of SelectableState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? items = null,
-  }) {
-    return _then(_$SelectableStateSelectedImpl<T>(
-      null == items
-          ? _value._items
-          : items // ignore: cast_nullable_to_non_nullable
-              as Set<T>,
-    ));
-  }
 }
+
+
+
 
 /// @nodoc
 
-class _$SelectableStateSelectedImpl<T>
-    with DiagnosticableTreeMixin
-    implements SelectableStateSelected<T> {
-  const _$SelectableStateSelectedImpl(final Set<T> items) : _items = items;
 
-  final Set<T> _items;
-  @override
-  Set<T> get items {
-    if (_items is EqualUnmodifiableSetView) return _items;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableSetView(_items);
-  }
+class SelectableStateSelected<T> with DiagnosticableTreeMixin implements SelectableState<T> {
+  const SelectableStateSelected(final  Set<T> items): _items = items;
+  
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SelectableState<$T>.selected(items: $items)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SelectableState<$T>.selected'))
-      ..add(DiagnosticsProperty('items', items));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SelectableStateSelectedImpl<T> &&
-            const DeepCollectionEquality().equals(other._items, _items));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_items));
-
-  /// Create a copy of SelectableState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SelectableStateSelectedImplCopyWith<T, _$SelectableStateSelectedImpl<T>>
-      get copyWith => __$$SelectableStateSelectedImplCopyWithImpl<T,
-          _$SelectableStateSelectedImpl<T>>(this, _$identity);
+ final  Set<T> _items;
+ Set<T> get items {
+  if (_items is EqualUnmodifiableSetView) return _items;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableSetView(_items);
 }
 
-abstract class SelectableStateSelected<T> implements SelectableState<T> {
-  const factory SelectableStateSelected(final Set<T> items) =
-      _$SelectableStateSelectedImpl<T>;
 
-  Set<T> get items;
+/// Create a copy of SelectableState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SelectableStateSelectedCopyWith<T, SelectableStateSelected<T>> get copyWith => _$SelectableStateSelectedCopyWithImpl<T, SelectableStateSelected<T>>(this, _$identity);
 
-  /// Create a copy of SelectableState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SelectableStateSelectedImplCopyWith<T, _$SelectableStateSelectedImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
+
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'SelectableState<$T>.selected'))
+    ..add(DiagnosticsProperty('items', items));
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SelectableStateSelected<T>&&const DeepCollectionEquality().equals(other._items, _items));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_items));
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'SelectableState<$T>.selected(items: $items)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $SelectableStateSelectedCopyWith<T,$Res> implements $SelectableStateCopyWith<T, $Res> {
+  factory $SelectableStateSelectedCopyWith(SelectableStateSelected<T> value, $Res Function(SelectableStateSelected<T>) _then) = _$SelectableStateSelectedCopyWithImpl;
+@useResult
+$Res call({
+ Set<T> items
+});
+
+
+
+
+}
+/// @nodoc
+class _$SelectableStateSelectedCopyWithImpl<T,$Res>
+    implements $SelectableStateSelectedCopyWith<T, $Res> {
+  _$SelectableStateSelectedCopyWithImpl(this._self, this._then);
+
+  final SelectableStateSelected<T> _self;
+  final $Res Function(SelectableStateSelected<T>) _then;
+
+/// Create a copy of SelectableState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? items = null,}) {
+  return _then(SelectableStateSelected<T>(
+null == items ? _self._items : items // ignore: cast_nullable_to_non_nullable
+as Set<T>,
+  ));
+}
+
+
+}
+
+// dart format on

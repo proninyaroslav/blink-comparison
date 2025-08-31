@@ -34,7 +34,7 @@ sealed class WorkResult with _$WorkResult {
 }
 
 @freezed
-class WorkParams with _$WorkParams {
+abstract class WorkParams with _$WorkParams {
   const factory WorkParams({
     WorkConstraints? constraints,
     WorkData? inputData,
@@ -43,10 +43,8 @@ class WorkParams with _$WorkParams {
 }
 
 @freezed
-class WorkConstraints with _$WorkConstraints {
-  const factory WorkConstraints({
-    NetworkType? networkType,
-  }) = _WorkConstraints;
+abstract class WorkConstraints with _$WorkConstraints {
+  const factory WorkConstraints({NetworkType? networkType}) = _WorkConstraints;
 }
 
 enum NetworkType {
@@ -77,7 +75,7 @@ enum ExistingWorkPolicy {
 
   /// If there is existing pending (uncompleted) work with the same unique name, cancel and delete it.
   @JsonValue('replace')
-  replace
+  replace,
 }
 
 class WorkData extends Equatable {

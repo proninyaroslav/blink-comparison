@@ -30,15 +30,14 @@ sealed class AddRefImageState with _$AddRefImageState {
 
   const factory AddRefImageState.addingImages() = AddRefImageStateAddingImage;
 
-  const factory AddRefImageState.imagesAdded(
-    AddRefImageResult result,
-  ) = AddRefImageStateImagesAdded;
+  const factory AddRefImageState.imagesAdded(AddRefImageResult result) =
+      AddRefImageStateImagesAdded;
 
   const factory AddRefImageState.noSecureKey() = AddRefImageStateNoSecureKey;
 }
 
 @freezed
-class AddRefImageResult with _$AddRefImageResult {
+abstract class AddRefImageResult with _$AddRefImageResult {
   const factory AddRefImageResult({
     required List<RefImageInfo> successList,
     required List<AddRefImageError> failedList,

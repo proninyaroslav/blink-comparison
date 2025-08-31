@@ -22,7 +22,7 @@ import 'injector.config.dart';
 
 final GetIt getIt = GetIt.instance;
 
-@injectableInit
+@InjectableInit()
 Future<void> initInjector(String environment) async {
   await getIt.init(environment: environment);
   await getIt.allReady();

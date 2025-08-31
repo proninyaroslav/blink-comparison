@@ -57,19 +57,17 @@ sealed class SignUpState with _$SignUpState {
 }
 
 @freezed
-class Password with _$Password {
+abstract class Password with _$Password {
   static const minLength = 4;
 
   static const maxLength = 128;
 
-  const factory Password({
-    @Default('') String value,
-    PasswordError? error,
-  }) = _Password;
+  const factory Password({@Default('') String value, PasswordError? error}) =
+      _Password;
 }
 
 @freezed
-class RepeatPassword with _$RepeatPassword {
+abstract class RepeatPassword with _$RepeatPassword {
   const factory RepeatPassword({
     @Default('') String value,
     RepeatPasswordError? error,
@@ -94,12 +92,10 @@ sealed class RepeatPasswordError with _$RepeatPasswordError {
 
 @freezed
 sealed class PasswordValidateResult with _$PasswordValidateResult {
-  const factory PasswordValidateResult.success({
-    required String password,
-  }) = PasswordValidateResultSuccess;
-  const factory PasswordValidateResult.error({
-    required PasswordError reason,
-  }) = PasswordValidateResultError;
+  const factory PasswordValidateResult.success({required String password}) =
+      PasswordValidateResultSuccess;
+  const factory PasswordValidateResult.error({required PasswordError reason}) =
+      PasswordValidateResultError;
 }
 
 class PasswordValidator {
@@ -109,9 +105,7 @@ class PasswordValidator {
 
   PasswordValidateResult validate() {
     if (password.value.isEmpty) {
-      return const PasswordValidateResult.error(
-        reason: PasswordError.empty(),
-      );
+      return const PasswordValidateResult.error(reason: PasswordError.empty());
     } else if (_tooShort(password)) {
       return const PasswordValidateResult.error(
         reason: PasswordError.tooShort(),
@@ -121,9 +115,7 @@ class PasswordValidator {
         reason: PasswordError.tooLong(),
       );
     }
-    return PasswordValidateResult.success(
-      password: password.value,
-    );
+    return PasswordValidateResult.success(password: password.value);
   }
 
   bool _tooShort(Password password) =>
@@ -154,8 +146,6 @@ class RepeatPasswordValidator {
         reason: RepeatPasswordError.empty(),
       );
     }
-    return RepeatPasswordValidateResult.success(
-      password: password.value,
-    );
+    return RepeatPasswordValidateResult.success(password: password.value);
   }
 }

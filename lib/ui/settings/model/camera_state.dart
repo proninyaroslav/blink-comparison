@@ -23,29 +23,23 @@ part 'camera_state.freezed.dart';
 
 @freezed
 sealed class CameraState with _$CameraState {
-  const factory CameraState.initial({
-    @Default(null) CameraInfo? info,
-  }) = CameraStateInitial;
+  const factory CameraState.initial({@Default(null) CameraInfo? info}) =
+      CameraStateInitial;
 
-  const factory CameraState.loaded(
-    CameraInfo info,
-  ) = CameraStateLoaded;
+  const factory CameraState.loaded(CameraInfo info) = CameraStateLoaded;
 
-  const factory CameraState.enableFlashChanged(
-    CameraInfo info,
-  ) = CameraStateEnableFlashChanged;
+  const factory CameraState.enableFlashChanged(CameraInfo info) =
+      CameraStateEnableFlashChanged;
 
-  const factory CameraState.fullscreenModeChanged(
-    CameraInfo info,
-  ) = CameraStateFullscreenModeChanged;
+  const factory CameraState.fullscreenModeChanged(CameraInfo info) =
+      CameraStateFullscreenModeChanged;
 
-  const factory CameraState.autofocusChanged(
-    CameraInfo info,
-  ) = CameraStateAutofocusChanged;
+  const factory CameraState.autofocusChanged(CameraInfo info) =
+      CameraStateAutofocusChanged;
 }
 
 @freezed
-class CameraInfo with _$CameraInfo {
+abstract class CameraInfo with _$CameraInfo {
   const factory CameraInfo({
     required bool enableFlashByDefault,
     required bool fullscreenMode,

@@ -49,18 +49,17 @@ class EncryptKeyDerivationImpl implements EncryptKeyDerivation {
     required ImmutableSecureKey password,
     required Uint8List salt,
     required int keyLength,
-  }) async =>
-      _sodium.runIsolated(
-        (sodium, secureKeys, keyPairs) => _calculate(
-          sodium,
-          _SodiumHashInfo(
-            password: secureKeys.first,
-            salt: salt,
-            keyLength: keyLength,
-          ),
-        ),
-        secureKeys: [password],
-      );
+  }) async => _sodium.runIsolated(
+    (sodium, secureKeys, keyPairs) => _calculate(
+      sodium,
+      _SodiumHashInfo(
+        password: secureKeys.first,
+        salt: salt,
+        keyLength: keyLength,
+      ),
+    ),
+    secureKeys: [password],
+  );
 }
 
 // Runs in Isolate
@@ -75,7 +74,7 @@ Future<SecureKey> _calculate(SodiumSumo sodium, _SodiumHashInfo info) async =>
     );
 
 @freezed
-class _SodiumHashInfo with _$SodiumHashInfo {
+abstract class _SodiumHashInfo with _$SodiumHashInfo {
   const factory _SodiumHashInfo({
     required SecureKey password,
     required Uint8List salt,

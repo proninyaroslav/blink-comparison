@@ -24,7 +24,7 @@ part 'model.freezed.dart';
 part 'model.g.dart';
 
 @freezed
-class CrashInfo with _$CrashInfo {
+abstract class CrashInfo with _$CrashInfo {
   const factory CrashInfo({
     @ErrorConverter() required Object error,
     @StackTraceConverter() StackTrace? stackTrace,
@@ -36,7 +36,7 @@ class CrashInfo with _$CrashInfo {
 }
 
 @freezed
-class CrashReport with _$CrashReport {
+abstract class CrashReport with _$CrashReport {
   const factory CrashReport({
     required String email,
     required String subject,
@@ -45,7 +45,7 @@ class CrashReport with _$CrashReport {
 }
 
 @freezed
-class CrashReportData with _$CrashReportData {
+abstract class CrashReportData with _$CrashReportData {
   const factory CrashReportData({
     @CrashReportIdConverter() required CrashReportId reportId,
     required String packageName,
@@ -134,9 +134,8 @@ sealed class ReportableInfo with _$ReportableInfo {
     String? osVersion,
   }) = LinuxReportableInfo;
 
-  const factory ReportableInfo.windows({
-    required String osVersion,
-  }) = WindowsReportableInfo;
+  const factory ReportableInfo.windows({required String osVersion}) =
+      WindowsReportableInfo;
 
   const factory ReportableInfo.macOS({
     required String arch,

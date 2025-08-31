@@ -6,14 +6,14 @@ part of 'auth_factor.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MutableAuthFactorPasswordImpl _$$MutableAuthFactorPasswordImplFromJson(
-        Map<String, dynamic> json) =>
-    _$MutableAuthFactorPasswordImpl(
-      value: const SecureKeyConverter().fromJson(json['value'] as List),
-    );
+MutableAuthFactorPassword _$MutableAuthFactorPasswordFromJson(
+  Map<String, dynamic> json,
+) => MutableAuthFactorPassword(
+  value: const SecureKeyConverter().fromJson(json['value'] as List),
+);
 
-Map<String, dynamic> _$$MutableAuthFactorPasswordImplToJson(
-        _$MutableAuthFactorPasswordImpl instance) =>
-    <String, dynamic>{
-      'value': const SecureKeyConverter().toJson(instance.value),
-    };
+Map<String, dynamic> _$MutableAuthFactorPasswordToJson(
+  MutableAuthFactorPassword instance,
+) => <String, dynamic>{
+  'value': const SecureKeyConverter().toJson(instance.value),
+};

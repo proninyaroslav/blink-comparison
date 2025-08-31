@@ -47,14 +47,14 @@ sealed class MutableAuthFactor with _$MutableAuthFactor {
   }
 
   MutableAuthFactor? copy() => switch (this) {
-        MutableAuthFactorPassword(:final value, :final isDisposed) =>
-          isDisposed ? null : MutableAuthFactor.password(value: value.copy())
-      };
+    MutableAuthFactorPassword(:final value, :final isDisposed) =>
+      isDisposed ? null : MutableAuthFactor.password(value: value.copy()),
+  };
 
   AuthFactor toImmutable() {
     final key = this;
     return switch (key) {
-      MutableAuthFactorPassword() => AuthFactorPassword(key)
+      MutableAuthFactorPassword() => AuthFactorPassword(key),
     };
   }
 

@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,362 +9,290 @@ part of 'comparison_settings_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
-mixin _$ComparisonSettingsState {
-  int? get refImageBorderColor => throw _privateConstructorUsedError;
+mixin _$ComparisonSettingsState implements DiagnosticableTreeMixin {
 
-  /// Create a copy of ComparisonSettingsState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $ComparisonSettingsStateCopyWith<ComparisonSettingsState> get copyWith =>
-      throw _privateConstructorUsedError;
+ int? get refImageBorderColor;
+/// Create a copy of ComparisonSettingsState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ComparisonSettingsStateCopyWith<ComparisonSettingsState> get copyWith => _$ComparisonSettingsStateCopyWithImpl<ComparisonSettingsState>(this as ComparisonSettingsState, _$identity);
+
+
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'ComparisonSettingsState'))
+    ..add(DiagnosticsProperty('refImageBorderColor', refImageBorderColor));
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ComparisonSettingsState&&(identical(other.refImageBorderColor, refImageBorderColor) || other.refImageBorderColor == refImageBorderColor));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,refImageBorderColor);
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'ComparisonSettingsState(refImageBorderColor: $refImageBorderColor)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ComparisonSettingsStateCopyWith<$Res> {
-  factory $ComparisonSettingsStateCopyWith(ComparisonSettingsState value,
-          $Res Function(ComparisonSettingsState) then) =
-      _$ComparisonSettingsStateCopyWithImpl<$Res, ComparisonSettingsState>;
-  @useResult
-  $Res call({int refImageBorderColor});
-}
+abstract mixin class $ComparisonSettingsStateCopyWith<$Res>  {
+  factory $ComparisonSettingsStateCopyWith(ComparisonSettingsState value, $Res Function(ComparisonSettingsState) _then) = _$ComparisonSettingsStateCopyWithImpl;
+@useResult
+$Res call({
+ int refImageBorderColor
+});
 
+
+
+
+}
 /// @nodoc
-class _$ComparisonSettingsStateCopyWithImpl<$Res,
-        $Val extends ComparisonSettingsState>
+class _$ComparisonSettingsStateCopyWithImpl<$Res>
     implements $ComparisonSettingsStateCopyWith<$Res> {
-  _$ComparisonSettingsStateCopyWithImpl(this._value, this._then);
+  _$ComparisonSettingsStateCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ComparisonSettingsState _self;
+  final $Res Function(ComparisonSettingsState) _then;
 
-  /// Create a copy of ComparisonSettingsState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? refImageBorderColor = null,
-  }) {
-    return _then(_value.copyWith(
-      refImageBorderColor: null == refImageBorderColor
-          ? _value.refImageBorderColor!
-          : refImageBorderColor // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
+/// Create a copy of ComparisonSettingsState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? refImageBorderColor = null,}) {
+  return _then(_self.copyWith(
+refImageBorderColor: null == refImageBorderColor ? _self.refImageBorderColor! : refImageBorderColor // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
 }
 
-/// @nodoc
-abstract class _$$ComparisonSettingsStateInitialImplCopyWith<$Res>
-    implements $ComparisonSettingsStateCopyWith<$Res> {
-  factory _$$ComparisonSettingsStateInitialImplCopyWith(
-          _$ComparisonSettingsStateInitialImpl value,
-          $Res Function(_$ComparisonSettingsStateInitialImpl) then) =
-      __$$ComparisonSettingsStateInitialImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int? refImageBorderColor});
 }
 
-/// @nodoc
-class __$$ComparisonSettingsStateInitialImplCopyWithImpl<$Res>
-    extends _$ComparisonSettingsStateCopyWithImpl<$Res,
-        _$ComparisonSettingsStateInitialImpl>
-    implements _$$ComparisonSettingsStateInitialImplCopyWith<$Res> {
-  __$$ComparisonSettingsStateInitialImplCopyWithImpl(
-      _$ComparisonSettingsStateInitialImpl _value,
-      $Res Function(_$ComparisonSettingsStateInitialImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of ComparisonSettingsState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? refImageBorderColor = freezed,
-  }) {
-    return _then(_$ComparisonSettingsStateInitialImpl(
-      refImageBorderColor: freezed == refImageBorderColor
-          ? _value.refImageBorderColor
-          : refImageBorderColor // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ));
-  }
-}
 
 /// @nodoc
 
-class _$ComparisonSettingsStateInitialImpl
-    with DiagnosticableTreeMixin
-    implements ComparisonSettingsStateInitial {
-  const _$ComparisonSettingsStateInitialImpl({this.refImageBorderColor = null});
 
-  @override
-  @JsonKey()
-  final int? refImageBorderColor;
+class ComparisonSettingsStateInitial with DiagnosticableTreeMixin implements ComparisonSettingsState {
+  const ComparisonSettingsStateInitial({this.refImageBorderColor = null});
+  
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ComparisonSettingsState.initial(refImageBorderColor: $refImageBorderColor)';
-  }
+@override@JsonKey() final  int? refImageBorderColor;
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ComparisonSettingsState.initial'))
-      ..add(DiagnosticsProperty('refImageBorderColor', refImageBorderColor));
-  }
+/// Create a copy of ComparisonSettingsState
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ComparisonSettingsStateInitialCopyWith<ComparisonSettingsStateInitial> get copyWith => _$ComparisonSettingsStateInitialCopyWithImpl<ComparisonSettingsStateInitial>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ComparisonSettingsStateInitialImpl &&
-            (identical(other.refImageBorderColor, refImageBorderColor) ||
-                other.refImageBorderColor == refImageBorderColor));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, refImageBorderColor);
-
-  /// Create a copy of ComparisonSettingsState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ComparisonSettingsStateInitialImplCopyWith<
-          _$ComparisonSettingsStateInitialImpl>
-      get copyWith => __$$ComparisonSettingsStateInitialImplCopyWithImpl<
-          _$ComparisonSettingsStateInitialImpl>(this, _$identity);
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'ComparisonSettingsState.initial'))
+    ..add(DiagnosticsProperty('refImageBorderColor', refImageBorderColor));
 }
 
-abstract class ComparisonSettingsStateInitial
-    implements ComparisonSettingsState {
-  const factory ComparisonSettingsStateInitial(
-      {final int? refImageBorderColor}) = _$ComparisonSettingsStateInitialImpl;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ComparisonSettingsStateInitial&&(identical(other.refImageBorderColor, refImageBorderColor) || other.refImageBorderColor == refImageBorderColor));
+}
 
-  @override
-  int? get refImageBorderColor;
 
-  /// Create a copy of ComparisonSettingsState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ComparisonSettingsStateInitialImplCopyWith<
-          _$ComparisonSettingsStateInitialImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+int get hashCode => Object.hash(runtimeType,refImageBorderColor);
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'ComparisonSettingsState.initial(refImageBorderColor: $refImageBorderColor)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$ComparisonSettingsStateLoadedImplCopyWith<$Res>
-    implements $ComparisonSettingsStateCopyWith<$Res> {
-  factory _$$ComparisonSettingsStateLoadedImplCopyWith(
-          _$ComparisonSettingsStateLoadedImpl value,
-          $Res Function(_$ComparisonSettingsStateLoadedImpl) then) =
-      __$$ComparisonSettingsStateLoadedImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int refImageBorderColor});
+abstract mixin class $ComparisonSettingsStateInitialCopyWith<$Res> implements $ComparisonSettingsStateCopyWith<$Res> {
+  factory $ComparisonSettingsStateInitialCopyWith(ComparisonSettingsStateInitial value, $Res Function(ComparisonSettingsStateInitial) _then) = _$ComparisonSettingsStateInitialCopyWithImpl;
+@override @useResult
+$Res call({
+ int? refImageBorderColor
+});
+
+
+
+
+}
+/// @nodoc
+class _$ComparisonSettingsStateInitialCopyWithImpl<$Res>
+    implements $ComparisonSettingsStateInitialCopyWith<$Res> {
+  _$ComparisonSettingsStateInitialCopyWithImpl(this._self, this._then);
+
+  final ComparisonSettingsStateInitial _self;
+  final $Res Function(ComparisonSettingsStateInitial) _then;
+
+/// Create a copy of ComparisonSettingsState
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? refImageBorderColor = freezed,}) {
+  return _then(ComparisonSettingsStateInitial(
+refImageBorderColor: freezed == refImageBorderColor ? _self.refImageBorderColor : refImageBorderColor // ignore: cast_nullable_to_non_nullable
+as int?,
+  ));
 }
 
-/// @nodoc
-class __$$ComparisonSettingsStateLoadedImplCopyWithImpl<$Res>
-    extends _$ComparisonSettingsStateCopyWithImpl<$Res,
-        _$ComparisonSettingsStateLoadedImpl>
-    implements _$$ComparisonSettingsStateLoadedImplCopyWith<$Res> {
-  __$$ComparisonSettingsStateLoadedImplCopyWithImpl(
-      _$ComparisonSettingsStateLoadedImpl _value,
-      $Res Function(_$ComparisonSettingsStateLoadedImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of ComparisonSettingsState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? refImageBorderColor = null,
-  }) {
-    return _then(_$ComparisonSettingsStateLoadedImpl(
-      refImageBorderColor: null == refImageBorderColor
-          ? _value.refImageBorderColor
-          : refImageBorderColor // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$ComparisonSettingsStateLoadedImpl
-    with DiagnosticableTreeMixin
-    implements ComparisonSettingsStateLoaded {
-  const _$ComparisonSettingsStateLoadedImpl(
-      {required this.refImageBorderColor});
 
-  @override
-  final int refImageBorderColor;
+class ComparisonSettingsStateLoaded with DiagnosticableTreeMixin implements ComparisonSettingsState {
+  const ComparisonSettingsStateLoaded({required this.refImageBorderColor});
+  
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ComparisonSettingsState.loaded(refImageBorderColor: $refImageBorderColor)';
-  }
+@override final  int refImageBorderColor;
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ComparisonSettingsState.loaded'))
-      ..add(DiagnosticsProperty('refImageBorderColor', refImageBorderColor));
-  }
+/// Create a copy of ComparisonSettingsState
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ComparisonSettingsStateLoadedCopyWith<ComparisonSettingsStateLoaded> get copyWith => _$ComparisonSettingsStateLoadedCopyWithImpl<ComparisonSettingsStateLoaded>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ComparisonSettingsStateLoadedImpl &&
-            (identical(other.refImageBorderColor, refImageBorderColor) ||
-                other.refImageBorderColor == refImageBorderColor));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, refImageBorderColor);
-
-  /// Create a copy of ComparisonSettingsState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ComparisonSettingsStateLoadedImplCopyWith<
-          _$ComparisonSettingsStateLoadedImpl>
-      get copyWith => __$$ComparisonSettingsStateLoadedImplCopyWithImpl<
-          _$ComparisonSettingsStateLoadedImpl>(this, _$identity);
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'ComparisonSettingsState.loaded'))
+    ..add(DiagnosticsProperty('refImageBorderColor', refImageBorderColor));
 }
 
-abstract class ComparisonSettingsStateLoaded
-    implements ComparisonSettingsState {
-  const factory ComparisonSettingsStateLoaded(
-          {required final int refImageBorderColor}) =
-      _$ComparisonSettingsStateLoadedImpl;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ComparisonSettingsStateLoaded&&(identical(other.refImageBorderColor, refImageBorderColor) || other.refImageBorderColor == refImageBorderColor));
+}
 
-  @override
-  int get refImageBorderColor;
 
-  /// Create a copy of ComparisonSettingsState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ComparisonSettingsStateLoadedImplCopyWith<
-          _$ComparisonSettingsStateLoadedImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+int get hashCode => Object.hash(runtimeType,refImageBorderColor);
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'ComparisonSettingsState.loaded(refImageBorderColor: $refImageBorderColor)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$ComparisonSettingsStateChangedImplCopyWith<$Res>
-    implements $ComparisonSettingsStateCopyWith<$Res> {
-  factory _$$ComparisonSettingsStateChangedImplCopyWith(
-          _$ComparisonSettingsStateChangedImpl value,
-          $Res Function(_$ComparisonSettingsStateChangedImpl) then) =
-      __$$ComparisonSettingsStateChangedImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int refImageBorderColor});
+abstract mixin class $ComparisonSettingsStateLoadedCopyWith<$Res> implements $ComparisonSettingsStateCopyWith<$Res> {
+  factory $ComparisonSettingsStateLoadedCopyWith(ComparisonSettingsStateLoaded value, $Res Function(ComparisonSettingsStateLoaded) _then) = _$ComparisonSettingsStateLoadedCopyWithImpl;
+@override @useResult
+$Res call({
+ int refImageBorderColor
+});
+
+
+
+
+}
+/// @nodoc
+class _$ComparisonSettingsStateLoadedCopyWithImpl<$Res>
+    implements $ComparisonSettingsStateLoadedCopyWith<$Res> {
+  _$ComparisonSettingsStateLoadedCopyWithImpl(this._self, this._then);
+
+  final ComparisonSettingsStateLoaded _self;
+  final $Res Function(ComparisonSettingsStateLoaded) _then;
+
+/// Create a copy of ComparisonSettingsState
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? refImageBorderColor = null,}) {
+  return _then(ComparisonSettingsStateLoaded(
+refImageBorderColor: null == refImageBorderColor ? _self.refImageBorderColor : refImageBorderColor // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
 }
 
-/// @nodoc
-class __$$ComparisonSettingsStateChangedImplCopyWithImpl<$Res>
-    extends _$ComparisonSettingsStateCopyWithImpl<$Res,
-        _$ComparisonSettingsStateChangedImpl>
-    implements _$$ComparisonSettingsStateChangedImplCopyWith<$Res> {
-  __$$ComparisonSettingsStateChangedImplCopyWithImpl(
-      _$ComparisonSettingsStateChangedImpl _value,
-      $Res Function(_$ComparisonSettingsStateChangedImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of ComparisonSettingsState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? refImageBorderColor = null,
-  }) {
-    return _then(_$ComparisonSettingsStateChangedImpl(
-      refImageBorderColor: null == refImageBorderColor
-          ? _value.refImageBorderColor
-          : refImageBorderColor // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$ComparisonSettingsStateChangedImpl
-    with DiagnosticableTreeMixin
-    implements ComparisonSettingsStateChanged {
-  const _$ComparisonSettingsStateChangedImpl(
-      {required this.refImageBorderColor});
 
-  @override
-  final int refImageBorderColor;
+class ComparisonSettingsStateChanged with DiagnosticableTreeMixin implements ComparisonSettingsState {
+  const ComparisonSettingsStateChanged({required this.refImageBorderColor});
+  
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ComparisonSettingsState.changed(refImageBorderColor: $refImageBorderColor)';
-  }
+@override final  int refImageBorderColor;
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ComparisonSettingsState.changed'))
-      ..add(DiagnosticsProperty('refImageBorderColor', refImageBorderColor));
-  }
+/// Create a copy of ComparisonSettingsState
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ComparisonSettingsStateChangedCopyWith<ComparisonSettingsStateChanged> get copyWith => _$ComparisonSettingsStateChangedCopyWithImpl<ComparisonSettingsStateChanged>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ComparisonSettingsStateChangedImpl &&
-            (identical(other.refImageBorderColor, refImageBorderColor) ||
-                other.refImageBorderColor == refImageBorderColor));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, refImageBorderColor);
-
-  /// Create a copy of ComparisonSettingsState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ComparisonSettingsStateChangedImplCopyWith<
-          _$ComparisonSettingsStateChangedImpl>
-      get copyWith => __$$ComparisonSettingsStateChangedImplCopyWithImpl<
-          _$ComparisonSettingsStateChangedImpl>(this, _$identity);
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'ComparisonSettingsState.changed'))
+    ..add(DiagnosticsProperty('refImageBorderColor', refImageBorderColor));
 }
 
-abstract class ComparisonSettingsStateChanged
-    implements ComparisonSettingsState {
-  const factory ComparisonSettingsStateChanged(
-          {required final int refImageBorderColor}) =
-      _$ComparisonSettingsStateChangedImpl;
-
-  @override
-  int get refImageBorderColor;
-
-  /// Create a copy of ComparisonSettingsState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ComparisonSettingsStateChangedImplCopyWith<
-          _$ComparisonSettingsStateChangedImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ComparisonSettingsStateChanged&&(identical(other.refImageBorderColor, refImageBorderColor) || other.refImageBorderColor == refImageBorderColor));
 }
+
+
+@override
+int get hashCode => Object.hash(runtimeType,refImageBorderColor);
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'ComparisonSettingsState.changed(refImageBorderColor: $refImageBorderColor)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $ComparisonSettingsStateChangedCopyWith<$Res> implements $ComparisonSettingsStateCopyWith<$Res> {
+  factory $ComparisonSettingsStateChangedCopyWith(ComparisonSettingsStateChanged value, $Res Function(ComparisonSettingsStateChanged) _then) = _$ComparisonSettingsStateChangedCopyWithImpl;
+@override @useResult
+$Res call({
+ int refImageBorderColor
+});
+
+
+
+
+}
+/// @nodoc
+class _$ComparisonSettingsStateChangedCopyWithImpl<$Res>
+    implements $ComparisonSettingsStateChangedCopyWith<$Res> {
+  _$ComparisonSettingsStateChangedCopyWithImpl(this._self, this._then);
+
+  final ComparisonSettingsStateChanged _self;
+  final $Res Function(ComparisonSettingsStateChanged) _then;
+
+/// Create a copy of ComparisonSettingsState
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? refImageBorderColor = null,}) {
+  return _then(ComparisonSettingsStateChanged(
+refImageBorderColor: null == refImageBorderColor ? _self.refImageBorderColor : refImageBorderColor // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+// dart format on

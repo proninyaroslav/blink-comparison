@@ -15,11 +15,11 @@
 // You should have received a copy of the GNU General Public License
 // along with Blink Comparison.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'package:blink_comparison/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/locale.dart' as intl;
 
-export 'package:flutter_gen/gen_l10n/app_localizations.dart';
+export 'package:blink_comparison/l10n/app_localizations.dart';
 
 class S {
   static AppLocalizations of(BuildContext context) {
@@ -30,9 +30,6 @@ class S {
 Future<AppLocalizations> loadLocale(String localeStr) {
   final locale = intl.Locale.parse(localeStr);
   return AppLocalizations.delegate.load(
-    Locale(
-      locale.languageCode,
-      locale.countryCode,
-    ),
+    Locale(locale.languageCode, locale.countryCode),
   );
 }

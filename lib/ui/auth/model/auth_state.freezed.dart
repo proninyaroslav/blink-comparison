@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,402 +9,307 @@ part of 'auth_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
-mixin _$AuthState {}
+mixin _$AuthState implements DiagnosticableTreeMixin {
 
-/// @nodoc
-abstract class $AuthStateCopyWith<$Res> {
-  factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
-      _$AuthStateCopyWithImpl<$Res, AuthState>;
+
+
+
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'AuthState'))
+    ;
 }
 
-/// @nodoc
-class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
-    implements $AuthStateCopyWith<$Res> {
-  _$AuthStateCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthState);
 }
 
-/// @nodoc
-abstract class _$$AuthStateInitialImplCopyWith<$Res> {
-  factory _$$AuthStateInitialImplCopyWith(_$AuthStateInitialImpl value,
-          $Res Function(_$AuthStateInitialImpl) then) =
-      __$$AuthStateInitialImplCopyWithImpl<$Res>;
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'AuthState()';
+}
+
+
 }
 
 /// @nodoc
-class __$$AuthStateInitialImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateInitialImpl>
-    implements _$$AuthStateInitialImplCopyWith<$Res> {
-  __$$AuthStateInitialImplCopyWithImpl(_$AuthStateInitialImpl _value,
-      $Res Function(_$AuthStateInitialImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
+class $AuthStateCopyWith<$Res>  {
+$AuthStateCopyWith(AuthState _, $Res Function(AuthState) __);
 }
+
+
 
 /// @nodoc
 
-class _$AuthStateInitialImpl
-    with DiagnosticableTreeMixin
-    implements AuthStateInitial {
-  const _$AuthStateInitialImpl();
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState.initial()';
-  }
+class AuthStateInitial with DiagnosticableTreeMixin implements AuthState {
+  const AuthStateInitial();
+  
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AuthState.initial'));
-  }
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$AuthStateInitialImpl);
-  }
 
-  @override
-  int get hashCode => runtimeType.hashCode;
+
+
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'AuthState.initial'))
+    ;
 }
 
-abstract class AuthStateInitial implements AuthState {
-  const factory AuthStateInitial() = _$AuthStateInitialImpl;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthStateInitial);
 }
 
-/// @nodoc
-abstract class _$$AuthStateSignUpRequiredImplCopyWith<$Res> {
-  factory _$$AuthStateSignUpRequiredImplCopyWith(
-          _$AuthStateSignUpRequiredImpl value,
-          $Res Function(_$AuthStateSignUpRequiredImpl) then) =
-      __$$AuthStateSignUpRequiredImplCopyWithImpl<$Res>;
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'AuthState.initial()';
 }
 
-/// @nodoc
-class __$$AuthStateSignUpRequiredImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateSignUpRequiredImpl>
-    implements _$$AuthStateSignUpRequiredImplCopyWith<$Res> {
-  __$$AuthStateSignUpRequiredImplCopyWithImpl(
-      _$AuthStateSignUpRequiredImpl _value,
-      $Res Function(_$AuthStateSignUpRequiredImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
 }
+
+
+
 
 /// @nodoc
 
-class _$AuthStateSignUpRequiredImpl
-    with DiagnosticableTreeMixin
-    implements AuthStateSignUpRequired {
-  const _$AuthStateSignUpRequiredImpl();
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState.signUpRequired()';
-  }
+class AuthStateSignUpRequired with DiagnosticableTreeMixin implements AuthState {
+  const AuthStateSignUpRequired();
+  
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AuthState.signUpRequired'));
-  }
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AuthStateSignUpRequiredImpl);
-  }
 
-  @override
-  int get hashCode => runtimeType.hashCode;
+
+
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'AuthState.signUpRequired'))
+    ;
 }
 
-abstract class AuthStateSignUpRequired implements AuthState {
-  const factory AuthStateSignUpRequired() = _$AuthStateSignUpRequiredImpl;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthStateSignUpRequired);
 }
 
-/// @nodoc
-abstract class _$$AuthStateSignInRequiredImplCopyWith<$Res> {
-  factory _$$AuthStateSignInRequiredImplCopyWith(
-          _$AuthStateSignInRequiredImpl value,
-          $Res Function(_$AuthStateSignInRequiredImpl) then) =
-      __$$AuthStateSignInRequiredImplCopyWithImpl<$Res>;
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'AuthState.signUpRequired()';
 }
 
-/// @nodoc
-class __$$AuthStateSignInRequiredImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateSignInRequiredImpl>
-    implements _$$AuthStateSignInRequiredImplCopyWith<$Res> {
-  __$$AuthStateSignInRequiredImplCopyWithImpl(
-      _$AuthStateSignInRequiredImpl _value,
-      $Res Function(_$AuthStateSignInRequiredImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
 }
+
+
+
 
 /// @nodoc
 
-class _$AuthStateSignInRequiredImpl
-    with DiagnosticableTreeMixin
-    implements AuthStateSignInRequired {
-  const _$AuthStateSignInRequiredImpl();
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState.signInRequired()';
-  }
+class AuthStateSignInRequired with DiagnosticableTreeMixin implements AuthState {
+  const AuthStateSignInRequired();
+  
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AuthState.signInRequired'));
-  }
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AuthStateSignInRequiredImpl);
-  }
 
-  @override
-  int get hashCode => runtimeType.hashCode;
+
+
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'AuthState.signInRequired'))
+    ;
 }
 
-abstract class AuthStateSignInRequired implements AuthState {
-  const factory AuthStateSignInRequired() = _$AuthStateSignInRequiredImpl;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthStateSignInRequired);
 }
 
-/// @nodoc
-abstract class _$$AuthStateNoAuthRequiredImplCopyWith<$Res> {
-  factory _$$AuthStateNoAuthRequiredImplCopyWith(
-          _$AuthStateNoAuthRequiredImpl value,
-          $Res Function(_$AuthStateNoAuthRequiredImpl) then) =
-      __$$AuthStateNoAuthRequiredImplCopyWithImpl<$Res>;
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'AuthState.signInRequired()';
 }
 
-/// @nodoc
-class __$$AuthStateNoAuthRequiredImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateNoAuthRequiredImpl>
-    implements _$$AuthStateNoAuthRequiredImplCopyWith<$Res> {
-  __$$AuthStateNoAuthRequiredImplCopyWithImpl(
-      _$AuthStateNoAuthRequiredImpl _value,
-      $Res Function(_$AuthStateNoAuthRequiredImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
 }
+
+
+
 
 /// @nodoc
 
-class _$AuthStateNoAuthRequiredImpl
-    with DiagnosticableTreeMixin
-    implements AuthStateNoAuthRequired {
-  const _$AuthStateNoAuthRequiredImpl();
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState.noAuthRequired()';
-  }
+class AuthStateNoAuthRequired with DiagnosticableTreeMixin implements AuthState {
+  const AuthStateNoAuthRequired();
+  
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AuthState.noAuthRequired'));
-  }
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AuthStateNoAuthRequiredImpl);
-  }
 
-  @override
-  int get hashCode => runtimeType.hashCode;
+
+
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'AuthState.noAuthRequired'))
+    ;
 }
 
-abstract class AuthStateNoAuthRequired implements AuthState {
-  const factory AuthStateNoAuthRequired() = _$AuthStateNoAuthRequiredImpl;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthStateNoAuthRequired);
 }
 
-/// @nodoc
-abstract class _$$AuthStateNoEncryptPreferencesImplCopyWith<$Res> {
-  factory _$$AuthStateNoEncryptPreferencesImplCopyWith(
-          _$AuthStateNoEncryptPreferencesImpl value,
-          $Res Function(_$AuthStateNoEncryptPreferencesImpl) then) =
-      __$$AuthStateNoEncryptPreferencesImplCopyWithImpl<$Res>;
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'AuthState.noAuthRequired()';
 }
 
-/// @nodoc
-class __$$AuthStateNoEncryptPreferencesImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateNoEncryptPreferencesImpl>
-    implements _$$AuthStateNoEncryptPreferencesImplCopyWith<$Res> {
-  __$$AuthStateNoEncryptPreferencesImplCopyWithImpl(
-      _$AuthStateNoEncryptPreferencesImpl _value,
-      $Res Function(_$AuthStateNoEncryptPreferencesImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
 }
+
+
+
 
 /// @nodoc
 
-class _$AuthStateNoEncryptPreferencesImpl
-    with DiagnosticableTreeMixin
-    implements AuthStateNoEncryptPreferences {
-  const _$AuthStateNoEncryptPreferencesImpl();
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState.noEncryptPreferences()';
-  }
+class AuthStateNoEncryptPreferences with DiagnosticableTreeMixin implements AuthState {
+  const AuthStateNoEncryptPreferences();
+  
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-        .add(DiagnosticsProperty('type', 'AuthState.noEncryptPreferences'));
-  }
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AuthStateNoEncryptPreferencesImpl);
-  }
 
-  @override
-  int get hashCode => runtimeType.hashCode;
+
+
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'AuthState.noEncryptPreferences'))
+    ;
 }
 
-abstract class AuthStateNoEncryptPreferences implements AuthState {
-  const factory AuthStateNoEncryptPreferences() =
-      _$AuthStateNoEncryptPreferencesImpl;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthStateNoEncryptPreferences);
 }
 
-/// @nodoc
-abstract class _$$AuthStateErrorImplCopyWith<$Res> {
-  factory _$$AuthStateErrorImplCopyWith(_$AuthStateErrorImpl value,
-          $Res Function(_$AuthStateErrorImpl) then) =
-      __$$AuthStateErrorImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Exception? exception, StackTrace? stackTrace});
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'AuthState.noEncryptPreferences()';
 }
 
-/// @nodoc
-class __$$AuthStateErrorImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateErrorImpl>
-    implements _$$AuthStateErrorImplCopyWith<$Res> {
-  __$$AuthStateErrorImplCopyWithImpl(
-      _$AuthStateErrorImpl _value, $Res Function(_$AuthStateErrorImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? exception = freezed,
-    Object? stackTrace = freezed,
-  }) {
-    return _then(_$AuthStateErrorImpl(
-      exception: freezed == exception
-          ? _value.exception
-          : exception // ignore: cast_nullable_to_non_nullable
-              as Exception?,
-      stackTrace: freezed == stackTrace
-          ? _value.stackTrace
-          : stackTrace // ignore: cast_nullable_to_non_nullable
-              as StackTrace?,
-    ));
-  }
 }
+
+
+
 
 /// @nodoc
 
-class _$AuthStateErrorImpl
-    with DiagnosticableTreeMixin
-    implements AuthStateError {
-  const _$AuthStateErrorImpl({this.exception, this.stackTrace});
 
-  @override
-  final Exception? exception;
-  @override
-  final StackTrace? stackTrace;
+class AuthStateError with DiagnosticableTreeMixin implements AuthState {
+  const AuthStateError({this.exception, this.stackTrace});
+  
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState.error(exception: $exception, stackTrace: $stackTrace)';
-  }
+ final  Exception? exception;
+ final  StackTrace? stackTrace;
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AuthState.error'))
-      ..add(DiagnosticsProperty('exception', exception))
-      ..add(DiagnosticsProperty('stackTrace', stackTrace));
-  }
+/// Create a copy of AuthState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AuthStateErrorCopyWith<AuthStateError> get copyWith => _$AuthStateErrorCopyWithImpl<AuthStateError>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AuthStateErrorImpl &&
-            (identical(other.exception, exception) ||
-                other.exception == exception) &&
-            (identical(other.stackTrace, stackTrace) ||
-                other.stackTrace == stackTrace));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, exception, stackTrace);
-
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AuthStateErrorImplCopyWith<_$AuthStateErrorImpl> get copyWith =>
-      __$$AuthStateErrorImplCopyWithImpl<_$AuthStateErrorImpl>(
-          this, _$identity);
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'AuthState.error'))
+    ..add(DiagnosticsProperty('exception', exception))..add(DiagnosticsProperty('stackTrace', stackTrace));
 }
 
-abstract class AuthStateError implements AuthState {
-  const factory AuthStateError(
-      {final Exception? exception,
-      final StackTrace? stackTrace}) = _$AuthStateErrorImpl;
-
-  Exception? get exception;
-  StackTrace? get stackTrace;
-
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AuthStateErrorImplCopyWith<_$AuthStateErrorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthStateError&&(identical(other.exception, exception) || other.exception == exception)&&(identical(other.stackTrace, stackTrace) || other.stackTrace == stackTrace));
 }
+
+
+@override
+int get hashCode => Object.hash(runtimeType,exception,stackTrace);
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'AuthState.error(exception: $exception, stackTrace: $stackTrace)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $AuthStateErrorCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
+  factory $AuthStateErrorCopyWith(AuthStateError value, $Res Function(AuthStateError) _then) = _$AuthStateErrorCopyWithImpl;
+@useResult
+$Res call({
+ Exception? exception, StackTrace? stackTrace
+});
+
+
+
+
+}
+/// @nodoc
+class _$AuthStateErrorCopyWithImpl<$Res>
+    implements $AuthStateErrorCopyWith<$Res> {
+  _$AuthStateErrorCopyWithImpl(this._self, this._then);
+
+  final AuthStateError _self;
+  final $Res Function(AuthStateError) _then;
+
+/// Create a copy of AuthState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? exception = freezed,Object? stackTrace = freezed,}) {
+  return _then(AuthStateError(
+exception: freezed == exception ? _self.exception : exception // ignore: cast_nullable_to_non_nullable
+as Exception?,stackTrace: freezed == stackTrace ? _self.stackTrace : stackTrace // ignore: cast_nullable_to_non_nullable
+as StackTrace?,
+  ));
+}
+
+
+}
+
+// dart format on

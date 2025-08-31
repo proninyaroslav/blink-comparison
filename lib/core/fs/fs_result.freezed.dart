@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,410 +9,352 @@ part of 'fs_result.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
-mixin _$FsResult<T> {}
+mixin _$FsResult<T> implements DiagnosticableTreeMixin {
 
-/// @nodoc
-abstract class $FsResultCopyWith<T, $Res> {
-  factory $FsResultCopyWith(
-          FsResult<T> value, $Res Function(FsResult<T>) then) =
-      _$FsResultCopyWithImpl<T, $Res, FsResult<T>>;
+
+
+
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'FsResult<$T>'))
+    ;
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FsResult<T>);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'FsResult<$T>()';
+}
+
+
 }
 
 /// @nodoc
-class _$FsResultCopyWithImpl<T, $Res, $Val extends FsResult<T>>
-    implements $FsResultCopyWith<T, $Res> {
-  _$FsResultCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of FsResult
-  /// with the given fields replaced by the non-null parameter values.
+class $FsResultCopyWith<T,$Res>  {
+$FsResultCopyWith(FsResult<T> _, $Res Function(FsResult<T>) __);
 }
 
-/// @nodoc
-abstract class _$$FsResultSuccessImplCopyWith<T, $Res> {
-  factory _$$FsResultSuccessImplCopyWith(_$FsResultSuccessImpl<T> value,
-          $Res Function(_$FsResultSuccessImpl<T>) then) =
-      __$$FsResultSuccessImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({T value});
-}
 
-/// @nodoc
-class __$$FsResultSuccessImplCopyWithImpl<T, $Res>
-    extends _$FsResultCopyWithImpl<T, $Res, _$FsResultSuccessImpl<T>>
-    implements _$$FsResultSuccessImplCopyWith<T, $Res> {
-  __$$FsResultSuccessImplCopyWithImpl(_$FsResultSuccessImpl<T> _value,
-      $Res Function(_$FsResultSuccessImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of FsResult
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = freezed,
-  }) {
-    return _then(_$FsResultSuccessImpl<T>(
-      freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as T,
-    ));
-  }
-}
 
 /// @nodoc
 
-class _$FsResultSuccessImpl<T>
-    with DiagnosticableTreeMixin
-    implements FsResultSuccess<T> {
-  const _$FsResultSuccessImpl(this.value);
 
-  @override
-  final T value;
+class FsResultSuccess<T> with DiagnosticableTreeMixin implements FsResult<T> {
+  const FsResultSuccess(this.value);
+  
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'FsResult<$T>(value: $value)';
-  }
+ final  T value;
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'FsResult<$T>'))
-      ..add(DiagnosticsProperty('value', value));
-  }
+/// Create a copy of FsResult
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$FsResultSuccessCopyWith<T, FsResultSuccess<T>> get copyWith => _$FsResultSuccessCopyWithImpl<T, FsResultSuccess<T>>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FsResultSuccessImpl<T> &&
-            const DeepCollectionEquality().equals(other.value, value));
-  }
 
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
-
-  /// Create a copy of FsResult
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FsResultSuccessImplCopyWith<T, _$FsResultSuccessImpl<T>> get copyWith =>
-      __$$FsResultSuccessImplCopyWithImpl<T, _$FsResultSuccessImpl<T>>(
-          this, _$identity);
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'FsResult<$T>'))
+    ..add(DiagnosticsProperty('value', value));
 }
 
-abstract class FsResultSuccess<T> implements FsResult<T> {
-  const factory FsResultSuccess(final T value) = _$FsResultSuccessImpl<T>;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FsResultSuccess<T>&&const DeepCollectionEquality().equals(other.value, value));
+}
 
-  T get value;
 
-  /// Create a copy of FsResult
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FsResultSuccessImplCopyWith<T, _$FsResultSuccessImpl<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(value));
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'FsResult<$T>(value: $value)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$FsResultErrorImplCopyWith<T, $Res> {
-  factory _$$FsResultErrorImplCopyWith(_$FsResultErrorImpl<T> value,
-          $Res Function(_$FsResultErrorImpl<T>) then) =
-      __$$FsResultErrorImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({FsError error});
+abstract mixin class $FsResultSuccessCopyWith<T,$Res> implements $FsResultCopyWith<T, $Res> {
+  factory $FsResultSuccessCopyWith(FsResultSuccess<T> value, $Res Function(FsResultSuccess<T>) _then) = _$FsResultSuccessCopyWithImpl;
+@useResult
+$Res call({
+ T value
+});
 
-  $FsErrorCopyWith<$Res> get error;
+
+
+
+}
+/// @nodoc
+class _$FsResultSuccessCopyWithImpl<T,$Res>
+    implements $FsResultSuccessCopyWith<T, $Res> {
+  _$FsResultSuccessCopyWithImpl(this._self, this._then);
+
+  final FsResultSuccess<T> _self;
+  final $Res Function(FsResultSuccess<T>) _then;
+
+/// Create a copy of FsResult
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? value = freezed,}) {
+  return _then(FsResultSuccess<T>(
+freezed == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as T,
+  ));
 }
 
-/// @nodoc
-class __$$FsResultErrorImplCopyWithImpl<T, $Res>
-    extends _$FsResultCopyWithImpl<T, $Res, _$FsResultErrorImpl<T>>
-    implements _$$FsResultErrorImplCopyWith<T, $Res> {
-  __$$FsResultErrorImplCopyWithImpl(_$FsResultErrorImpl<T> _value,
-      $Res Function(_$FsResultErrorImpl<T>) _then)
-      : super(_value, _then);
 
-  /// Create a copy of FsResult
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? error = null,
-  }) {
-    return _then(_$FsResultErrorImpl<T>(
-      null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as FsError,
-    ));
-  }
-
-  /// Create a copy of FsResult
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $FsErrorCopyWith<$Res> get error {
-    return $FsErrorCopyWith<$Res>(_value.error, (value) {
-      return _then(_value.copyWith(error: value));
-    });
-  }
 }
 
 /// @nodoc
 
-class _$FsResultErrorImpl<T>
-    with DiagnosticableTreeMixin
-    implements FsResultError<T> {
-  const _$FsResultErrorImpl(this.error);
 
-  @override
-  final FsError error;
+class FsResultError<T> with DiagnosticableTreeMixin implements FsResult<T> {
+  const FsResultError(this.error);
+  
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'FsResult<$T>.error(error: $error)';
-  }
+ final  FsError error;
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'FsResult<$T>.error'))
-      ..add(DiagnosticsProperty('error', error));
-  }
+/// Create a copy of FsResult
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$FsResultErrorCopyWith<T, FsResultError<T>> get copyWith => _$FsResultErrorCopyWithImpl<T, FsResultError<T>>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FsResultErrorImpl<T> &&
-            (identical(other.error, error) || other.error == error));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, error);
-
-  /// Create a copy of FsResult
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FsResultErrorImplCopyWith<T, _$FsResultErrorImpl<T>> get copyWith =>
-      __$$FsResultErrorImplCopyWithImpl<T, _$FsResultErrorImpl<T>>(
-          this, _$identity);
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'FsResult<$T>.error'))
+    ..add(DiagnosticsProperty('error', error));
 }
 
-abstract class FsResultError<T> implements FsResult<T> {
-  const factory FsResultError(final FsError error) = _$FsResultErrorImpl<T>;
-
-  FsError get error;
-
-  /// Create a copy of FsResult
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FsResultErrorImplCopyWith<T, _$FsResultErrorImpl<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FsResultError<T>&&(identical(other.error, error) || other.error == error));
 }
 
-FsError _$FsErrorFromJson(Map<String, dynamic> json) {
-  return FsErrorIO.fromJson(json);
+
+@override
+int get hashCode => Object.hash(runtimeType,error);
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'FsResult<$T>.error(error: $error)';
+}
+
+
 }
 
 /// @nodoc
-mixin _$FsError {
-  @ExceptionConverter()
-  Exception? get exception => throw _privateConstructorUsedError;
-  @StackTraceConverter()
-  StackTrace? get stackTrace => throw _privateConstructorUsedError;
+abstract mixin class $FsResultErrorCopyWith<T,$Res> implements $FsResultCopyWith<T, $Res> {
+  factory $FsResultErrorCopyWith(FsResultError<T> value, $Res Function(FsResultError<T>) _then) = _$FsResultErrorCopyWithImpl;
+@useResult
+$Res call({
+ FsError error
+});
+
+
+$FsErrorCopyWith<$Res> get error;
+
+}
+/// @nodoc
+class _$FsResultErrorCopyWithImpl<T,$Res>
+    implements $FsResultErrorCopyWith<T, $Res> {
+  _$FsResultErrorCopyWithImpl(this._self, this._then);
+
+  final FsResultError<T> _self;
+  final $Res Function(FsResultError<T>) _then;
+
+/// Create a copy of FsResult
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? error = null,}) {
+  return _then(FsResultError<T>(
+null == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
+as FsError,
+  ));
+}
+
+/// Create a copy of FsResult
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$FsErrorCopyWith<$Res> get error {
+  
+  return $FsErrorCopyWith<$Res>(_self.error, (value) {
+    return _then(_self.copyWith(error: value));
+  });
+}
+}
+
+FsError _$FsErrorFromJson(
+  Map<String, dynamic> json
+) {
+    return FsErrorIO.fromJson(
+      json
+    );
+}
+
+/// @nodoc
+mixin _$FsError implements DiagnosticableTreeMixin {
+
+@ExceptionConverter() Exception? get exception;@StackTraceConverter() StackTrace? get stackTrace;
+/// Create a copy of FsError
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$FsErrorCopyWith<FsError> get copyWith => _$FsErrorCopyWithImpl<FsError>(this as FsError, _$identity);
 
   /// Serializes this FsError to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of FsError
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $FsErrorCopyWith<FsError> get copyWith => throw _privateConstructorUsedError;
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'FsError'))
+    ..add(DiagnosticsProperty('exception', exception))..add(DiagnosticsProperty('stackTrace', stackTrace));
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FsError&&(identical(other.exception, exception) || other.exception == exception)&&(identical(other.stackTrace, stackTrace) || other.stackTrace == stackTrace));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,exception,stackTrace);
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'FsError(exception: $exception, stackTrace: $stackTrace)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $FsErrorCopyWith<$Res> {
-  factory $FsErrorCopyWith(FsError value, $Res Function(FsError) then) =
-      _$FsErrorCopyWithImpl<$Res, FsError>;
-  @useResult
-  $Res call(
-      {@ExceptionConverter() Exception? exception,
-      @StackTraceConverter() StackTrace? stackTrace});
-}
+abstract mixin class $FsErrorCopyWith<$Res>  {
+  factory $FsErrorCopyWith(FsError value, $Res Function(FsError) _then) = _$FsErrorCopyWithImpl;
+@useResult
+$Res call({
+@ExceptionConverter() Exception? exception,@StackTraceConverter() StackTrace? stackTrace
+});
 
+
+
+
+}
 /// @nodoc
-class _$FsErrorCopyWithImpl<$Res, $Val extends FsError>
+class _$FsErrorCopyWithImpl<$Res>
     implements $FsErrorCopyWith<$Res> {
-  _$FsErrorCopyWithImpl(this._value, this._then);
+  _$FsErrorCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final FsError _self;
+  final $Res Function(FsError) _then;
 
-  /// Create a copy of FsError
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? exception = freezed,
-    Object? stackTrace = freezed,
-  }) {
-    return _then(_value.copyWith(
-      exception: freezed == exception
-          ? _value.exception
-          : exception // ignore: cast_nullable_to_non_nullable
-              as Exception?,
-      stackTrace: freezed == stackTrace
-          ? _value.stackTrace
-          : stackTrace // ignore: cast_nullable_to_non_nullable
-              as StackTrace?,
-    ) as $Val);
-  }
+/// Create a copy of FsError
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? exception = freezed,Object? stackTrace = freezed,}) {
+  return _then(_self.copyWith(
+exception: freezed == exception ? _self.exception : exception // ignore: cast_nullable_to_non_nullable
+as Exception?,stackTrace: freezed == stackTrace ? _self.stackTrace : stackTrace // ignore: cast_nullable_to_non_nullable
+as StackTrace?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$FsErrorIOImplCopyWith<$Res>
-    implements $FsErrorCopyWith<$Res> {
-  factory _$$FsErrorIOImplCopyWith(
-          _$FsErrorIOImpl value, $Res Function(_$FsErrorIOImpl) then) =
-      __$$FsErrorIOImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@ExceptionConverter() Exception? exception,
-      @StackTraceConverter() StackTrace? stackTrace});
 }
 
-/// @nodoc
-class __$$FsErrorIOImplCopyWithImpl<$Res>
-    extends _$FsErrorCopyWithImpl<$Res, _$FsErrorIOImpl>
-    implements _$$FsErrorIOImplCopyWith<$Res> {
-  __$$FsErrorIOImplCopyWithImpl(
-      _$FsErrorIOImpl _value, $Res Function(_$FsErrorIOImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of FsError
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? exception = freezed,
-    Object? stackTrace = freezed,
-  }) {
-    return _then(_$FsErrorIOImpl(
-      exception: freezed == exception
-          ? _value.exception
-          : exception // ignore: cast_nullable_to_non_nullable
-              as Exception?,
-      stackTrace: freezed == stackTrace
-          ? _value.stackTrace
-          : stackTrace // ignore: cast_nullable_to_non_nullable
-              as StackTrace?,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$FsErrorIOImpl with DiagnosticableTreeMixin implements FsErrorIO {
-  const _$FsErrorIOImpl(
-      {@ExceptionConverter() this.exception,
-      @StackTraceConverter() this.stackTrace});
 
-  factory _$FsErrorIOImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FsErrorIOImplFromJson(json);
+class FsErrorIO with DiagnosticableTreeMixin implements FsError {
+  const FsErrorIO({@ExceptionConverter() this.exception, @StackTraceConverter() this.stackTrace});
+  factory FsErrorIO.fromJson(Map<String, dynamic> json) => _$FsErrorIOFromJson(json);
 
-  @override
-  @ExceptionConverter()
-  final Exception? exception;
-  @override
-  @StackTraceConverter()
-  final StackTrace? stackTrace;
+@override@ExceptionConverter() final  Exception? exception;
+@override@StackTraceConverter() final  StackTrace? stackTrace;
 
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'FsError.io(exception: $exception, stackTrace: $stackTrace)';
-  }
+/// Create a copy of FsError
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$FsErrorIOCopyWith<FsErrorIO> get copyWith => _$FsErrorIOCopyWithImpl<FsErrorIO>(this, _$identity);
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'FsError.io'))
-      ..add(DiagnosticsProperty('exception', exception))
-      ..add(DiagnosticsProperty('stackTrace', stackTrace));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FsErrorIOImpl &&
-            (identical(other.exception, exception) ||
-                other.exception == exception) &&
-            (identical(other.stackTrace, stackTrace) ||
-                other.stackTrace == stackTrace));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, exception, stackTrace);
-
-  /// Create a copy of FsError
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FsErrorIOImplCopyWith<_$FsErrorIOImpl> get copyWith =>
-      __$$FsErrorIOImplCopyWithImpl<_$FsErrorIOImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$FsErrorIOImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$FsErrorIOToJson(this, );
+}
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'FsError.io'))
+    ..add(DiagnosticsProperty('exception', exception))..add(DiagnosticsProperty('stackTrace', stackTrace));
 }
 
-abstract class FsErrorIO implements FsError {
-  const factory FsErrorIO(
-      {@ExceptionConverter() final Exception? exception,
-      @StackTraceConverter() final StackTrace? stackTrace}) = _$FsErrorIOImpl;
-
-  factory FsErrorIO.fromJson(Map<String, dynamic> json) =
-      _$FsErrorIOImpl.fromJson;
-
-  @override
-  @ExceptionConverter()
-  Exception? get exception;
-  @override
-  @StackTraceConverter()
-  StackTrace? get stackTrace;
-
-  /// Create a copy of FsError
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FsErrorIOImplCopyWith<_$FsErrorIOImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FsErrorIO&&(identical(other.exception, exception) || other.exception == exception)&&(identical(other.stackTrace, stackTrace) || other.stackTrace == stackTrace));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,exception,stackTrace);
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'FsError.io(exception: $exception, stackTrace: $stackTrace)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $FsErrorIOCopyWith<$Res> implements $FsErrorCopyWith<$Res> {
+  factory $FsErrorIOCopyWith(FsErrorIO value, $Res Function(FsErrorIO) _then) = _$FsErrorIOCopyWithImpl;
+@override @useResult
+$Res call({
+@ExceptionConverter() Exception? exception,@StackTraceConverter() StackTrace? stackTrace
+});
+
+
+
+
+}
+/// @nodoc
+class _$FsErrorIOCopyWithImpl<$Res>
+    implements $FsErrorIOCopyWith<$Res> {
+  _$FsErrorIOCopyWithImpl(this._self, this._then);
+
+  final FsErrorIO _self;
+  final $Res Function(FsErrorIO) _then;
+
+/// Create a copy of FsError
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? exception = freezed,Object? stackTrace = freezed,}) {
+  return _then(FsErrorIO(
+exception: freezed == exception ? _self.exception : exception // ignore: cast_nullable_to_non_nullable
+as Exception?,stackTrace: freezed == stackTrace ? _self.stackTrace : stackTrace // ignore: cast_nullable_to_non_nullable
+as StackTrace?,
+  ));
+}
+
+
+}
+
+// dart format on

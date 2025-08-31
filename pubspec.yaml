@@ -17,46 +17,46 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.2.1+7
+version: 1.2.2+8
 
 environment:
-  sdk: ">=3.5.0 <4.0.0"
+  sdk: ">=3.8.0 <4.0.0"
   flutter: ">=3.24.0 <4.0.0"
 
 dependencies:
-  auto_route: ^9.2.1+1
-  bloc: ^8.0.2
-  camera: ^0.11.0+1
+  auto_route: ^10.1.2
+  bloc: ^9.0.0
+  camera: ^0.11.2
   cross_file: ^0.3.1+5
   cupertino_icons: ^1.0.2
   devicelocale: ^0.8.1
   device_info_plus: ^11.0.0
   equatable: ^2.0.3
-  extended_image: ^9.0.4
+  extended_image: ^10.0.1
   ffi: ^2.1.3
   file: ^7.0.0
   flutter:
     sdk: flutter
-  fluttertoast: ^8.0.8
-  flutter_bloc: ^8.0.1
+  fluttertoast: ^8.2.12
+  flutter_bloc: ^9.1.1
   flutter_colorpicker: ^1.0.2
-  flutter_email_sender: ^6.0.3
+  flutter_email_sender: ^7.0.0
   flutter_image_compress: ^2.3.0
   flutter_linkify: ^6.0.0
-  flutter_local_notifications: ^17.2.1+2
+  flutter_local_notifications: ^19.4.1
   flutter_localizations:
     sdk: flutter
   flutter_staggered_animations: ^1.0.0
   flutter_staggered_grid_view: ^0.7.0
-  freezed_annotation: ^2.4.4
+  freezed_annotation: ^3.1.0
   image_picker: ^1.1.2
-  injectable: ^2.4.4
+  injectable: ^2.5.1
   intl: any
   json_annotation: ^4.9.0
   json_serializable: ^6.0.0
-  just_audio: ^0.9.16
+  just_audio: ^0.10.4
   logger: ^2.4.0
-  open_settings_plus: ^0.3.3
+  open_settings_plus: ^0.4.0
   package_info_plus: ^8.0.1
   path_provider: ^2.1.3
   path_provider_android: ^2.0.12
@@ -69,9 +69,9 @@ dependencies:
   shared_preferences_android: ^2.0.11
   shared_preferences_ios: ^2.1.0
   shared_preferences: ^2.3.2
-  showcaseview: ^3.0.0
+  showcaseview: ^4.0.1
   # Strict Sodium version compliance for F-Droid
-  sodium_libs: 3.3.0
+  sodium_libs: ^3.4.6+1
   sodium: ^3.4.0
   sqflite_common_ffi: ^2.0.0+3
   sqflite: ^2.0.0+4
@@ -81,30 +81,30 @@ dependencies:
       ref: patch-1
   url_launcher: ^6.0.9
   uuid: ^4.4.2
-  wakelock_plus: ^1.2.7
+  wakelock_plus: ^1.3.2
   get_it: ^8.0.0
   async: ^2.11.0
   convert: ^3.1.1
   typed_data: ^1.3.2
   collection: ^1.18.0
-  workmanager: ^0.5.2
+  workmanager: ^0.9.0+2
   multi_border: ^1.0.0
-  dynamic_color: ^1.7.0
+  dynamic_color: ^1.8.1
   material_symbols_icons: ^4.2785.1
   shimmer_animation: ^2.2.1
   native_device_orientation: ^2.0.3
 
 dev_dependencies:
-  analyzer: ^6.7.0
-  auto_route_generator: ^9.0.0
-  bloc_test: ^9.0.2
+  analyzer: ^7.7.1
+  auto_route_generator: ^10.2.4
+  bloc_test: ^10.0.0
   build_runner: ^2.4.11
   device_preview: ^1.2.0
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
-  freezed: ^2.5.2
-  injectable_generator: ^2.6.2
+  flutter_lints: ^6.0.0
+  freezed: ^3.2.0
+  injectable_generator: ^2.8.1
   intl_utils: ^2.6.0
   mocktail: ^1.0.4
 

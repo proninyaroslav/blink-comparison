@@ -54,7 +54,7 @@ abstract class PlatformInfo {
 }
 
 @freezed
-class AppInfo with _$AppInfo {
+abstract class AppInfo with _$AppInfo {
   const factory AppInfo({
     required String packageName,
     required String appName,
@@ -103,9 +103,8 @@ sealed class DeviceInfo with _$DeviceInfo {
     String? osVersion,
   }) = DeviceInfoLinux;
 
-  const factory DeviceInfo.windows({
-    required String osVersion,
-  }) = DeviceInfoWindows;
+  const factory DeviceInfo.windows({required String osVersion}) =
+      DeviceInfoWindows;
 
   const factory DeviceInfo.macOS({
     required String arch,
@@ -195,9 +194,7 @@ class PlatformInfoImpl implements PlatformInfo {
         osVersion: linuxInfo.version,
       );
     } else if (isWindows) {
-      return DeviceInfo.windows(
-        osVersion: io.Platform.operatingSystemVersion,
-      );
+      return DeviceInfo.windows(osVersion: io.Platform.operatingSystemVersion);
     } else if (isMacOS) {
       final macOsInfo = await plugin.macOsInfo;
       return DeviceInfo.macOS(

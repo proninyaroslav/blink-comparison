@@ -120,37 +120,34 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
     yield* _jobController
         .observeResult()
         .where((result) => result.request.info.id == imageId)
-        .asyncMap(
-      (result) async {
-        final status = switch (result) {
-          ServiceResultSuccess(:final request) => SaveRefImageStatus.completed(
-              imageId: request.info.id,
-            ),
-          ServiceResultFail(:final request, :final error) =>
-            SaveRefImageStatus.completed(
-              imageId: request.info.id,
-              error: switch (error) {
-                ServiceErrorSaveImage(:final error) =>
-                  SaveRefImageStatusError.saveImage(error),
-                ServiceErrorGenerateThumbnail(:final error) =>
-                  SaveRefImageStatusError.generateThumbnail(error),
-                ServiceErrorSaveThumbnail(:final error) =>
-                  SaveRefImageStatusError.saveThumbnail(error),
-              },
-            ),
-        };
-        return status;
-      },
-    );
+        .asyncMap((result) async {
+          final status = switch (result) {
+            ServiceResultSuccess(:final request) =>
+              SaveRefImageStatus.completed(imageId: request.info.id),
+            ServiceResultFail(:final request, :final error) =>
+              SaveRefImageStatus.completed(
+                imageId: request.info.id,
+                error: switch (error) {
+                  ServiceErrorSaveImage(:final error) =>
+                    SaveRefImageStatusError.saveImage(error),
+                  ServiceErrorGenerateThumbnail(:final error) =>
+                    SaveRefImageStatusError.generateThumbnail(error),
+                  ServiceErrorSaveThumbnail(:final error) =>
+                    SaveRefImageStatusError.saveThumbnail(error),
+                },
+              ),
+          };
+          return status;
+        });
   }
 
   @override
   Future<List<SaveRefImageStatus>> getAllStatus() {
     return _serviceController.getAllInProgress().then(
-          (list) => list
-              .map((info) => SaveRefImageStatus.inProgress(imageId: info.id))
-              .toList(),
-        );
+      (list) => list
+          .map((info) => SaveRefImageStatus.inProgress(imageId: info.id))
+          .toList(),
+    );
   }
 
   @override
@@ -160,8 +157,8 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
       final list = await getAllStatus();
       final status = switch (result) {
         ServiceResultSuccess(:final request) => SaveRefImageStatus.completed(
-            imageId: request.info.id,
-          ),
+          imageId: request.info.id,
+        ),
         ServiceResultFail(:final request, :final error) =>
           SaveRefImageStatus.completed(
             imageId: request.info.id,
@@ -185,50 +182,47 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
     log().i('[Save image] Start job');
     final completer = Completer();
     int jobsCount = 0;
-    final subscription = _serviceController.observeQueue().listen(
-      (item) async {
-        final ServiceQueueItem(:request, :factor) = item;
-        try {
-          ++jobsCount;
-          final file = _fs.file(request.srcFile.path);
-          if (!file.existsSync()) {
-            log().d('[Save image] ${file.path} not found');
-            return;
-          }
-          final saveResult = await _saveJob.run(
-            info: request.info,
-            file: request.srcFile,
-            factor: factor?.toImmutable(),
-          );
-          switch (saveResult) {
-            case SaveRefImageResultSuccess():
-              log().d('[Save image] Image saved: ${request.info.id}');
-              await _generateThumbnail(request);
-
-            case SaveRefImageResultError(:final error):
-              await _serviceController.sendResult(
-                ServiceResult.fail(
-                  request: request,
-                  error: ServiceError.saveImage(error),
-                ),
-              );
-          }
-        } catch (e, stackTrace) {
-          _stop(completer, error: e, stackTrace: stackTrace);
-        } finally {
-          try {
-            factor?.dispose();
-          } catch (e, stackTrace) {
-            log().e('Unable to clear key', error: e, stackTrace: stackTrace);
-          }
-          if (request.removeSourceFile) {
-            _removeFile(request.srcFile);
-          }
-          --jobsCount;
+    final subscription = _serviceController.observeQueue().listen((item) async {
+      final ServiceQueueItem(:request, :factor) = item;
+      try {
+        ++jobsCount;
+        final file = _fs.file(request.srcFile.path);
+        if (!file.existsSync()) {
+          log().d('[Save image] ${file.path} not found');
+          return;
         }
-      },
-      cancelOnError: true,
-    );
+        final saveResult = await _saveJob.run(
+          info: request.info,
+          file: request.srcFile,
+          factor: factor?.toImmutable(),
+        );
+        switch (saveResult) {
+          case SaveRefImageResultSuccess():
+            log().d('[Save image] Image saved: ${request.info.id}');
+            await _generateThumbnail(request);
+
+          case SaveRefImageResultError(:final error):
+            await _serviceController.sendResult(
+              ServiceResult.fail(
+                request: request,
+                error: ServiceError.saveImage(error),
+              ),
+            );
+        }
+      } catch (e, stackTrace) {
+        _stop(completer, error: e, stackTrace: stackTrace);
+      } finally {
+        try {
+          factor?.dispose();
+        } catch (e, stackTrace) {
+          log().e('Unable to clear key', error: e, stackTrace: stackTrace);
+        }
+        if (request.removeSourceFile) {
+          _removeFile(request.srcFile);
+        }
+        --jobsCount;
+      }
+    }, cancelOnError: true);
     Timer.periodic(_idleTimeout, (timer) {
       if (jobsCount <= 0) {
         _stop(completer);
@@ -243,11 +237,7 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
     }
   }
 
-  void _stop(
-    Completer completer, {
-    Object? error,
-    StackTrace? stackTrace,
-  }) {
+  void _stop(Completer completer, {Object? error, StackTrace? stackTrace}) {
     if (completer.isCompleted) {
       return;
     }
@@ -285,8 +275,9 @@ class SaveRefImageServiceImpl implements SaveRefImageService {
     switch (saveThumbnailRes) {
       case SaveThumbnailResultSuccess():
         log().d('[Save image] Thumbnail saved: ${request.info.id}');
-        await _serviceController
-            .sendResult(ServiceResult.success(request: request));
+        await _serviceController.sendResult(
+          ServiceResult.success(request: request),
+        );
       case SaveThumbnailResultFail(:final error):
         log().e('[Save image] Generate thumbnail failed: $error');
         await _serviceController.sendResult(
@@ -335,10 +326,7 @@ Future<void> callbackDispatcher() async {
         IsolateCrashHook(),
         FlutterCrashHook(),
       ],
-      handlers: [
-        DefaultCrashHandler(),
-        NotificationCrashHandler(),
-      ],
+      handlers: [DefaultCrashHandler(), NotificationCrashHandler()],
     );
   }
 }
@@ -355,10 +343,7 @@ StreamSubscription _listenSaveRefImageStatus(
         case SaveRefImageStatusCompleted(:final imageId, :final error):
           switch (error) {
             case SaveRefImageStatusErrorSaveImage(:final error):
-              notifyManager.saveRefImageError(
-                imageId: imageId,
-                error: error,
-              );
+              notifyManager.saveRefImageError(imageId: imageId, error: error);
             case _:
               continue;
           }
@@ -368,7 +353,7 @@ StreamSubscription _listenSaveRefImageStatus(
 }
 
 @freezed
-class ServiceRequest with _$ServiceRequest {
+abstract class ServiceRequest with _$ServiceRequest {
   const factory ServiceRequest({
     required RefImageInfo info,
     @XFileConverter() required XFile srcFile,
@@ -391,9 +376,8 @@ class XFileConverter implements JsonConverter<XFile, String> {
 
 @freezed
 sealed class ServiceResult with _$ServiceResult {
-  const factory ServiceResult.success({
-    required ServiceRequest request,
-  }) = ServiceResultSuccess;
+  const factory ServiceResult.success({required ServiceRequest request}) =
+      ServiceResultSuccess;
 
   const factory ServiceResult.fail({
     required ServiceRequest request,
@@ -406,29 +390,24 @@ sealed class ServiceResult with _$ServiceResult {
 
 @freezed
 sealed class ServiceError with _$ServiceError {
-  const factory ServiceError.saveImage(
-    SaveRefImageError error,
-  ) = ServiceErrorSaveImage;
+  const factory ServiceError.saveImage(SaveRefImageError error) =
+      ServiceErrorSaveImage;
 
-  const factory ServiceError.generateThumbnail(
-    GenerateThumbnailError error,
-  ) = ServiceErrorGenerateThumbnail;
+  const factory ServiceError.generateThumbnail(GenerateThumbnailError error) =
+      ServiceErrorGenerateThumbnail;
 
-  const factory ServiceError.saveThumbnail(
-    SaveThumbnailError error,
-  ) = ServiceErrorSaveThumbnail;
+  const factory ServiceError.saveThumbnail(SaveThumbnailError error) =
+      ServiceErrorSaveThumbnail;
 
   factory ServiceError.fromJson(Map<String, dynamic> json) =>
       _$ServiceErrorFromJson(json);
 }
 
 @freezed
-class ServiceQueueItem with _$ServiceQueueItem {
+abstract class ServiceQueueItem with _$ServiceQueueItem {
   const factory ServiceQueueItem({
-    // ignore: invalid_annotation_target
-    @JsonKey(name: 'request') required ServiceRequest request,
-    // ignore: invalid_annotation_target
-    @JsonKey(name: 'factor') required MutableAuthFactor? factor,
+    required ServiceRequest request,
+    required MutableAuthFactor? factor,
   }) = _ServiceQueueItem;
 
   factory ServiceQueueItem.fromJson(Map<String, dynamic> json) =>
