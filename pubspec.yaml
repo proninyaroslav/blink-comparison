@@ -95,7 +95,7 @@ dependencies:
   native_device_orientation: ^2.0.3
 
 dev_dependencies:
-  analyzer: ^7.7.1
+  analyzer: ^8.4.1
   auto_route_generator: ^10.2.4
   bloc_test: ^10.0.0
   build_runner: ^2.4.11
